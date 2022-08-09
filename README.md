@@ -1,3 +1,5 @@
+![banner](https://user-images.githubusercontent.com/101881784/183638772-d35db913-4ec5-49c4-99bd-9e496ffb5b8e.png)
+
 # Psych-Wiki
 
 Welcome to the Psych Wiki! this is where dedicate to add missing thing's from the wiki! [WIP]
