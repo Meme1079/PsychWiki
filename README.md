@@ -1,4 +1,4 @@
-![banner_source](https://user-images.githubusercontent.com/101881784/186065318-54284fc3-7953-4d37-af67-4e7b97e7ecba.png)
+![banner](https://user-images.githubusercontent.com/101881784/186068675-71df13a9-3617-43a1-9a27-b88d2e58d9b5.png)
 
 # Psych-Wiki
 
