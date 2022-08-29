@@ -6,6 +6,11 @@ Note: This not a the officail wiki of Psych Engine
 
 Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the wiki! [WIP]
 
+# To do List
+
+- [ ] Finish the shader wiki
+- [ ] Add all the unmentioned callback
+
 # Contributors:
 - [kingyomoma](https://github.com/kingyomoma) - for fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
 
