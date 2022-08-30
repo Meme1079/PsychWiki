@@ -7,18 +7,19 @@
 - `luaDebugMode` - Enables debug mode, use luaDebugMode = true to enable it. Default value: false
 - `luaDeprecatedWarnings` - Tells you if a function/variable is deprecated (shouldn't be used anymore), only works when Debug mode is on, use `luaDeprecatedWarnings = false` to disable it. Default value: `true`
 - `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
+- `version` - The version of Psych Engine
 
 ***
 
 ### Song/Week Variables
-- `curBpm` - Current BPM of the Song, shortcut to getPropertyFromClass('Conductor', 'bpm')
-- `bpm` - Starting BPM of the Song, shortcut to getProperty('SONG.bpm')
-- `scrollSpeed` - Starting Scroll speed of the Song, shortcut to getProperty('SONG.speed')
+- `curBpm` - Current BPM of the Song, shortcut to `getPropertyFromClass('Conductor', 'bpm')`
+- `bpm` - Starting BPM of the Song, shortcut to `getProperty('SONG.bpm')`
+- `scrollSpeed` - Starting Scroll speed of the Song, shortcut to `getProperty('SONG.speed')`
 - `crochet` - Interval between Beat hits
 - `stepCrochet` - Interval between Step hits
 - `songLength` - Song duration in milliseconds
-- `songName` - Shortcut to getProperty('SONG.song')
-- `isStoryMode` - Shortcut to getProperty('isStoryMode')
+- `songName` - Shortcut to `getProperty('SONG.song')`
+- `isStoryMode` - Shortcut to `getProperty('isStoryMode')`
 - `difficulty` - Returns the difficulty ID (Easy = 0, Normal = 1, Hard = 2), Shortcut to `getProperty('storyDifficulty')`
 - `difficultyName` - Returns the difficulty Name
 - `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, it's here.
@@ -26,26 +27,22 @@
 
 ***
 
-### Camera Variables
-- `cameraX` - Shortcut to `getProperty('camFollowPos.x')`
-- `cameraY` - Shortcut to `getProperty('camFollowPos.y')`
-
-***
-
-### Screen variables
-- `screenWidth` - Shortcut to `getPropertyFromClass('FlxG', width)`
-- `screenHeight` - Shortcut to `getPropertyFromClass('FlxG', heigth)`
+### Camera/Screen Variables
+- `cameraX` - The current x position of camera. Shortcut to `getProperty('camFollowPos.s')`
+- `cameraY` - The current y position of camera. Shortcut to `getProperty('camFollowPos.y')`
+- `screenWidth` - The current width of the window. Shortcut to `getPropertyFromClass('FlxG', width)`
+- `screenHeight` - The current height of the window. Shortcut to `getPropertyFromClass('FlxG', heigth)`
 
 ***
 
 ### Gameplay Variables
 - `startedCountdown` - Tells you if the countdown already started
 - `seenCutscene` - Is set to `true` after `onCreate()` function, Shortcut to `getProperty('seenCutscene')`
-- `curStep` - Current step number (**Highly recommend using in `onStepHit()`**)
-- `curDecStep` - Current decimal step number (**Highly recommend using in `onStepHit()`**)
-- `curBeat` - Current beat number (**Highly recommend using in `onBeatHit()`**)
-- `curDecBeat` - Current decimal beat number (**Highly recommend using in `onBeatHit()`**)
-- `curSection` - Current section number (**Highly recommend using in `onSectionHit()`**)
+- `curStep` - Current step number _(Highly recommend using in `onStepHit()`)_
+- `curDecStep` - Current decimal step number _(Highly recommend using in `onStepHit()`)_
+- `curBeat` - Current beat number _(Highly recommend using in `onBeatHit()`)_
+- `curDecBeat` - Current decimal beat number _(Highly recommend using in `onBeatHit()`)_
+- `curSection` - Current section number _(Highly recommend using in `onSectionHit()`)_
 - `score` - Current score, Shortcut to `getProperty('songScore')`
 - `misses` - Current total number of notes missed, Shortcut to `getProperty('songMisses')`
 - `ghostMisses` - Current number of Key press misses, Shortcut to `getProperty('ghostMisses')`
@@ -101,11 +98,11 @@ Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
 - `opponentStrums` - The `opponentStrums` visibility  
 - `framerate` - The current framerate limit 
 - `ghostTapping` - Ghost tapping is enabled 
-- `hideHud` - Hides the `health,score,time` 
+- `hideHud` - Hides the health, score, time 
 - `hideTime` - Hides the time bar 
 - `cameraZoomOnBeat` - Every Section it does a Zoom 
 - `flashingLights` - Use for people you have epilepsy _(Recommended to disable it, if you have one!)_
-- `noteOffset` - Represents the note delay in milliseconds (Goes from `0` to `500`)
+- `noteOffset` - Represents the note delay in milliseconds _(Goes from `0` to `500`)_
 - `lowQuality` - Enable's low quality which reduced sprites
 - `noResetButton` - Disable the reset button
 - `healthBarAlpha` - The Opacity of the health bar
@@ -126,10 +123,10 @@ Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFr
 - `noteSplashDisabled` - Disables the note splashes **(Boolean)**
 - `hitsoundDisabled` -  Disables the hitsounds **(Boolean)**
 - `ratingDisabled` - Disables the ratings **(Boolean)**
-- `noteSplashHue` - HUE of the note splash **(Int)**
-- `noteSplashSat` - Saturation of the note splash **(Int)**
-- `noteSplashBrt` - Brightness of the note splash **(Int)**
-- `hitHealth` - If you hit a note, it will add a health and you can customize it! **(Int or Float)**
-- `missHealth` - If you miss a note, it will add a health and you can customize it! **(Int or Float)**
+- `noteSplashHue` - HUE of the note splash **(Float))**
+- `noteSplashSat` - Saturation of the note splash **(Float)**
+- `noteSplashBrt` - Brightness of the note splash **(Float)**
+- `hitHealth` - If you hit a note, it will add a health and you can customize it! **(Float)**
+- `missHealth` - If you miss a note, it will add a health and you can customize it! **(Float)**
 - `noteType` - A custom note type **(String)**
 - `ignoreNote` - If botplay is on then it will not hit the note **(Boolean)**
