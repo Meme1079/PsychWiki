@@ -1,11 +1,12 @@
 ## Lua/Unique variables
 
-### Note: Those are the only variables that can be changed by using = true or = false for now, you will have to use [setProperty()](https://github.com/ShadowMario/FNF-PsychEngine/wiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them
+Note: 
+Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them
 
 - `Function_Stop` - Stops the game **(Must have return)**
 - `Function_Continue` - Continue the game **(Must have return)**
-- `luaDebugMode` - Enables debug mode, use luaDebugMode = true to enable it. Default value: false
-- `luaDeprecatedWarnings` - Tells you if a function/variable is deprecated (shouldn't be used anymore), only works when Debug mode is on, use `luaDeprecatedWarnings = false` to disable it. Default value: `true`
+- `luaDebugMode` - Enables debug mode, use `luaDebugMode = true` to enable it. Default value: false
+- `luaDeprecatedWarnings` - Tells you if a function/variable is deprecated **(shouldn't be used anymore)**, only works when Debug mode is on, use `luaDeprecatedWarnings = false` to disable it. Default value: `true`
 - `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
 - `version` - The version of Psych Engine
 
@@ -38,11 +39,11 @@
 ### Gameplay Variables
 - `startedCountdown` - Tells you if the countdown already started
 - `seenCutscene` - Is set to `true` after `onCreate()` function, Shortcut to `getProperty('seenCutscene')`
-- `curStep` - Current step number _(Highly recommend using in `onStepHit()`)_
-- `curDecStep` - Current decimal step number _(Highly recommend using in `onStepHit()`)_
-- `curBeat` - Current beat number _(Highly recommend using in `onBeatHit()`)_
-- `curDecBeat` - Current decimal beat number _(Highly recommend using in `onBeatHit()`)_
-- `curSection` - Current section number _(Highly recommend using in `onSectionHit()`)_
+- `curStep` - Current step number **(Must be in `onStepHit()`)**
+- `curDecStep` - Current decimal step number **(Must be in `onStepHit()`)**
+- `curBeat` - Current beat number **(Must be in `onBeatHit()`)**
+- `curDecBeat` - Current decimal beat number  **(Must be in `onBeatHit()`)**
+- `curSection` - Current section number  **(Must be in `onSectionHit()`)**
 - `score` - Current score, Shortcut to `getProperty('songScore')`
 - `misses` - Current total number of notes missed, Shortcut to `getProperty('songMisses')`
 - `ghostMisses` - Current number of Key press misses, Shortcut to `getProperty('ghostMisses')`
@@ -50,10 +51,10 @@
 - `rating` - Current rating percentage, goes from `0` to `1`. Shortcut to `getProperty('ratingPercent')`
 - `ratingName` - Current rating's name. Shortcut to `getProperty('ratingString')`
 - `ratingFC` - Current rating's combo. Shortcut to `getProperty('ratingFC')`
-- `mustHitSection` - Tells if the current section is a `Must Hit Section` (from Chart Editor)
-- `altAnim` - Tells if the current section is a `Alt Animation Section` (from Chart Editor)
-- `gfSection` - Tells if the current section is a `GF Section` (from Chart Editor)
-- `inGameOver` - Player is Dead
+- `mustHitSection` - Tells if the current section is a `Must Hit Section` **(from Chart Editor)**
+- `altAnim` - Tells if the current section is a `Alt Animation Section` **(from Chart Editor)**
+- `gfSection` - Tells if the current section is a `GF Section` **(from Chart Editor)**
+- `inGameOver` - When the Player is Dead
 - `botPlay` - Tells if Botplay is enabled. Shortcut to `getProperty('cpuControlled')`
 
 ***
@@ -89,7 +90,7 @@
 
 ### Preferences Variables
 
-Note: All the shortcuts on Preferences Variables are `getPropertyFromGroup('ClientPrefs', 'the Preferences Variables')`
+Note: All the shortcuts on Preferences Variables are `getPropertyFromGroup('ClientPrefs', 'Preferences Variable')`
 
 Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
 
@@ -98,11 +99,11 @@ Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
 - `opponentStrums` - The `opponentStrums` visibility  
 - `framerate` - The current framerate limit 
 - `ghostTapping` - Ghost tapping is enabled 
-- `hideHud` - Hides the health, score, time 
-- `hideTime` - Hides the time bar 
+- `hideHud` - Hides the health, score, icons
+- `hideTime` - Hides the time bar
 - `cameraZoomOnBeat` - Every Section it does a Zoom 
-- `flashingLights` - Use for people you have epilepsy _(Recommended to disable it, if you have one!)_
-- `noteOffset` - Represents the note delay in milliseconds _(Goes from `0` to `500`)_
+- `flashingLights` - Use for people you have epilepsy **(Recommended to disable it, if you have one!)**
+- `noteOffset` - Represents the note delay in milliseconds **(Goes from `0` to `500`)**
 - `lowQuality` - Enable's low quality which reduced sprites
 - `noResetButton` - Disable the reset button
 - `healthBarAlpha` - The Opacity of the health bar
@@ -123,7 +124,7 @@ Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFr
 - `noteSplashDisabled` - Disables the note splashes **(Boolean)**
 - `hitsoundDisabled` -  Disables the hitsounds **(Boolean)**
 - `ratingDisabled` - Disables the ratings **(Boolean)**
-- `noteSplashHue` - HUE of the note splash **(Float))**
+- `noteSplashHue` - HUE of the note splash **(Float)**
 - `noteSplashSat` - Saturation of the note splash **(Float)**
 - `noteSplashBrt` - Brightness of the note splash **(Float)**
 - `hitHealth` - If you hit a note, it will add a health and you can customize it! **(Float)**
