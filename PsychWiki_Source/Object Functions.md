@@ -18,6 +18,12 @@ Changes the blend mode of a Sprite (Works similar to how Photoshop do it)
 
 [List of blend modes](https://api.haxe.org/flash/display/BlendMode.html)
 
+### screenCenter(obj:String, pos:String = 'xy')
+Sets the object to center of the screen
+
+- `obj` - The Sprite/Text tag or Object variable name
+- `pos` - The position you want to set in, it could be either: `X`, `Y`, `XY`
+
 ***
 
 # Animations Functions
