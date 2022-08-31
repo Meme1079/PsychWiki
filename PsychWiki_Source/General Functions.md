@@ -137,6 +137,79 @@ Example:
 
 ***
 
+# Strings Functions
+
+### stringStartsWith(str:String, start:String)
+Detects if the string starts with
+
+- `str` - The string you want
+- `start` - The start of the string
+
+<details><summary>Example:</summary>
+<p>
+
+```lua
+a = 'a example string'
+
+function onCreate()
+     if stringStartsWith(a, 'a') then
+          debugPrint('Detect (a)')
+     end
+end
+```
+
+</p>
+</details>
+
+### stringEndsWith(str:String, end:String)
+Detects if the string end with, works the same with `stringStartsWith()`
+
+### stringSplit(str:String, split:String)
+Splits a string into mutiple string, just like a table!
+
+- `str` - The string you want
+- `start` - The speration of the string
+
+<details><summary>Example:</summary>
+<p>
+
+```lua
+a = 'tab1, tab2, tab3, tab4'
+
+function onCreate()
+     Spl = stringSplit(a, ', ')
+
+     for i = 1,4 do -- loops to 1 to 4
+          debugPrint(Spl[i])
+     end
+end
+```
+
+</p>
+</details>
+
+### stringTrim(str:String)
+Removes any large spaces that the string has
+
+- `str` - The string you want
+
+<details><summary>Example:</summary>
+<p>
+
+```lua
+a = '     Remove the Space Please!      '
+
+function onCreate()
+     debugPrint(stringTrim(a), ' [1]') -- with trim
+     debugPrint(a, ' [2]')             -- without trim
+end
+```
+
+</p>
+</details>
+
+***
+
 # Other Functions
 
 ### triggerEvent(name:String, arg1:String, arg2:String)
@@ -165,12 +238,6 @@ Example: To get orange, you should use `getColorFromHex('FF7800')` or `getColorF
 
 ### getSongPosition()
 Returns the current song position. Shortcut to `getPropertyClass('Conductor', 'songPosition')`
-
-### screenCenter(obj:String, pos:String = 'xy')
-Sets the object to center of the screen
-
-- `obj` - The Sprite/Text tag or Object variable name
-- `pos` - The position you want to set in Example: `X`, `Y`, `XY`
 
 ***
 
