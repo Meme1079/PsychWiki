@@ -165,6 +165,8 @@ end
 Detects if the string end with, works the same with `stringStartsWith()`
 
 ### stringSplit(str:String, split:String)
+Note: Only works in 0.7.0 Version!
+
 Splits a string into mutiple string, just like a table!
 
 - `str` - The string you want
@@ -189,6 +191,8 @@ end
 </details>
 
 ### stringTrim(str:String)
+Note: Only works in 0.7.0 Version!
+
 Removes any large spaces that the string has
 
 - `str` - The string you want
