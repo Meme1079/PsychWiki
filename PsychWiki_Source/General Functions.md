@@ -139,6 +139,8 @@ Example:
 
 # Strings Functions
 
+Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
+
 ### stringStartsWith(str:String, start:String)
 Detects if the string starts with
 
@@ -165,9 +167,7 @@ end
 Detects if the string end with, works the same with `stringStartsWith()`
 
 ### stringSplit(str:String, split:String)
-Note: Only works in 0.7.0 Version!
-
-Splits a string into mutiple string, just like a table!
+Splits a string into mutiple string
 
 - `str` - The string you want
 - `start` - The speration of the string
@@ -191,8 +191,6 @@ end
 </details>
 
 ### stringTrim(str:String)
-Note: Only works in 0.7.0 Version!
-
 Removes any large spaces that the string has
 
 - `str` - The string you want
