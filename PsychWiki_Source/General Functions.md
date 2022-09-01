@@ -69,17 +69,13 @@ Get if the key name was released on the current frame.
 ### mouseClicked(name:String)
 Get if the mouse button name just got pressed on the current frame. leave 'name' blank for left mouse
 
-Buttons: `'left'`, `'right'`, `'middle'`
+Buttons: `left`, `right`, `middle`
 
 ### mousePressed(name:String)
 Get if the mouse button name is being held on the current frame.
 
-Buttons: `'left'`, `'right'`, `'middle'`
-
 ### mouseReleased(name:String)
 Get if the mouse button name was released on the current frame.
-
-Buttons: `'left'`, `'right'`, `'middle'`
 
 ***
 
@@ -104,11 +100,27 @@ Checks if a sound exists
 
 # Scripts Functions
 
+### isRunning(luaFile:String)
+Note: You must add `.lua` for it to work
+
+Check if the lua file is running and will return `true` if it's running currently
+
+- `luaFile` - The file that you want to detect that is running currently
+
+Example: `isRunning('mods/pathTotheFile/luafile.lua')`
+
+### getRunningScripts()
+Checks multiple lua files that are running 
+
 ### getTextFromFile(path:String, ?ignoreModFolders:Bool = false)
-Gets the text from file
+Note: You need to add the file format name for it to work
+
+Gets the text from that file
 
 - `path` - The path of the text file that you are getting
-- `ignoreModFolders` - Ignores the mod folder with a boolean
+- `ignoreModFolders` - An optional parmeter that ignores the mod folder with a boolean
+
+Example: `getTextFromFile('pathTotheFile/ExampleFile.txt')`
 
 ### addLuaScript(path:String)
 Adds a lua script
@@ -126,14 +138,12 @@ Adds a library variable into the interpreter
 - `libName` - The name of the library name
 - `libPackage` - The name of the library package
 
-Example:
-`addHaxeLibrary('FlxTween', 'flixel.tweens')`
+Example: `addHaxeLibrary('FlxTween', 'flixel.tweens')`
 
 ### runHaxeCode(codeToRun:String)
 It runs string as a hscript, you must use `[[]]`
 
-Example:
-`runHaxeCode([[haxe code]])`
+Example: `runHaxeCode([[haxe code]])`
 
 ***
 
@@ -142,26 +152,12 @@ Example:
 Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
 
 ### stringStartsWith(str:String, start:String)
+Note: If you trying to detect the last word of the string it will not work, same with `stringEndsWith`
+
 Detects if the string starts with
 
 - `str` - The string you want
 - `start` - The start of the string
-
-<details><summary>Example:</summary>
-<p>
-
-```lua
-a = 'a example string'
-
-function onCreate()
-     if stringStartsWith(a, 'a') then
-          debugPrint('Detect (a)')
-     end
-end
-```
-
-</p>
-</details>
 
 ### stringEndsWith(str:String, end:String)
 Detects if the string end with, works the same with `stringStartsWith()`
@@ -172,43 +168,10 @@ Splits a string into mutiple string
 - `str` - The string you want
 - `start` - The speration of the string
 
-<details><summary>Example:</summary>
-<p>
-
-```lua
-a = 'tab1, tab2, tab3, tab4'
-
-function onCreate()
-     Spl = stringSplit(a, ', ')
-
-     for i = 1,4 do -- loops to 1 to 4
-          debugPrint(Spl[i])
-     end
-end
-```
-
-</p>
-</details>
-
 ### stringTrim(str:String)
-Removes any large spaces that the string has
+Removes any unnecessary large spaces that the string has
 
 - `str` - The string you want
-
-<details><summary>Example:</summary>
-<p>
-
-```lua
-a = '     Remove the Space Please!      '
-
-function onCreate()
-     debugPrint(stringTrim(a), ' [1]') -- with trim
-     debugPrint(a, ' [2]')             -- without trim
-end
-```
-
-</p>
-</details>
 
 ***
 
@@ -222,13 +185,13 @@ Triggers an event without you having to chart them.
 - `arg2` - Value 2 on Chart Editor
 
 ### setHealthBarColors(leftHex:String, rightHex:String)
-Changes the health colors on the health bar
+Changes the health colors on the health bar **(Must be a Hexadecimal Color)**
 
 - `leftHex` - The opponent health bar color
 - `rightHex` - The player health bar color
 
 ### setTimeBarColors(leftHex:String, rightHex:String)
-Changes the Time bar colors
+Changes the Time bar colors **(Must be a Hexadecimal Color)**
 
 - `leftHex` - The color thats filling up the time bar
 - `rightHex` - The background of the time bar
@@ -282,8 +245,9 @@ It randomizes the Bool
 # Camera Functions
 
 ### cameraShake(camera:String, intensity:Float, duration:Float)
+Makes the camera shake
 
-- `camera` - `'camGame'`, `'camHUD'` or `'camOther'`
+- `camera` - `camGame`, `camHUD` or `camOther`
 - `intensity` - How far away should it shake, recommended value is `0.05`
 - `duration` - How much time duration for it to shake
 
@@ -293,15 +257,18 @@ Makes the camera focus on a specific target
 - `target` - Target can be either boyfriend or dad
 
 ### cameraFlash(camera:String, color:String, duration:Float,forced:Bool)
+Makes the camera flash
 
-- `camera` - `'camGame'`, `'camHUD'` or `'camOther'`
-- `color` - color of flash (Must be hex color!)
+- `camera` - `camGame`, `camHUD` or `camOther`
+- `color` - color of flash **(Must be a Hexadecimal Color)**
 - `duration` - How much time duration for it to shake
 - `forced` - restarts flash or not
 
 ### cameraFade(camera:String, color:String, duration:Float,forced:Bool)
-- `camera` - `'camGame'`, `'camHUD'` or `'camOther'`
-- `color` - color of fade (Must be hex color!)
+Makes the camera fade
+
+- `camera` - `camGame`, `camHUD` or `camOther`
+- `color` - color of fade **(Must be a Hexadecimal Color)**
 - `duration` - Time duration for it to fade
 - `forced` - restarts fade or not
 

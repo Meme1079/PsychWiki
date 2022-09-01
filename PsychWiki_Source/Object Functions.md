@@ -57,6 +57,12 @@ Plays animation name on a Lua Sprite/Object with the tag/variable obj.
 
 # Object Order/Removing
 
+### objectsOverlap(obj1:String, obj2:String)
+Sets the object to overlap the layer position of the object
+
+- `obj1:String` - The first object that will overlap the second object
+- `obj2:String` - The second object 
+
 ### setObjectOrder(obj:String, position:Int)
 Sets the object's layer position
 

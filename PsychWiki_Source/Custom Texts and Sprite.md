@@ -75,12 +75,12 @@ Set's the text width
 Set's the text border
 
 - `size` - Set the size of the border
-- `color` - Set the color of the border, must be a hex color!
+- `color` - Set the color of the border, **(Must be a Hexadecimal Color)**
 
 ### setTextColor(tag:String, color:String)
 Set's the text color
 
-- `color` - Set the color of the text, must be a hex color!
+- `color` - Set the color of the text, **(Must be a Hexadecimal Color)**
 
 ### setTextAlignment(tag:String, alignment:String = 'left')
 Set's the text alignment
