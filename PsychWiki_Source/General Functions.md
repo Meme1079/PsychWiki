@@ -285,9 +285,5 @@ Example: `debugPrint("Current boyfriend character: ", getProperty("boyfriend.cur
 
 This will print the following message: `Current boyfriend character: bf`
 
-### close(printMessage:Bool)
-Stops your script in the next 100 miliseconds. 
-
-And must be used in a `Stage script` because it won't be used anymore
-
-- `printMessage` - Wether you want a warning to show on the top-left corner of the screen or not
+### close()
+Stops your script in the next 100 miliseconds. And must be used in a `Stage script` because it won't be used anymore

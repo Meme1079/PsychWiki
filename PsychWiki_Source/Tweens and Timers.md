@@ -28,9 +28,9 @@ It changes the Note Direction value with a tween
 # Starting Timer/Tween Functions
 
 ### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-It changes the Object's X value with a tween
+It changes the Object's X value with a tween. Calling this function will cancel another tween that is using the same tag!
 
-Calling this function will cancel another tween that is using the same tag!
+If the tween is finish it will do a callback to [onTweenCompleted()](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#ontweencompletedtag:~:text=many%20are%20remaining-,onTweenCompleted(tag),-A%20tween%20you)
 
 - `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`
 - `vars` - The variable you want to do on a tween
@@ -38,7 +38,7 @@ Calling this function will cancel another tween that is using the same tag!
 - `duration` - How much time it will take for the tween to end
 - `ease` - The easing of the tween, Example: `'linear', 'cubeOut'` for more examples go to the link on top
 
-Example: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`
+Example: `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')` This tween boyfriend scale to `1.5`
 
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 It changes the Object's Y value with a tween, Works exactly like doTweenX
@@ -59,8 +59,7 @@ It changes the Object's Color value with a tween
 
 - `targetColor` - The color the object will have when the tween ends **(Must be a Hexadecimal Color)**
 
-Example: To tween Boyfriend's color to Red, you should use `doTweenColor('bfColorTween', 'boyfriend', 'FF0000', 1, 'linear')`, when the tween ends, it will do a callback for `onTweenCompleted('bfColorTween')`
-
+Example: `doTweenColor('bfColorTween', 'boyfriend', 'FF0000', 1, 'linear')` This tween boyfriend color to red
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
 Runs a timer with a determined duration and loops count.
 

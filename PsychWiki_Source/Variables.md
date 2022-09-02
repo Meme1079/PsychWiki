@@ -113,8 +113,9 @@ Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
 ***
 
 ### NoteData Types
-
 Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`
+
+Example: `setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true)`
 
 - `noAnimation` - If you hit a note, will not play an animation **(Boolean)**
 - `noMissAnimation` - If you miss a note, will not play an animation **(Boolean)**
