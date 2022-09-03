@@ -440,7 +440,7 @@ Another alternate to exponent
 - `expo` - The number that will be the exponent
 
 ### math.pi
-Returns lenght of pi thats it
+Returns length of pi thats it
 
 ### math.huge
 Returns `inf` aka infinite

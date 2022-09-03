@@ -11,6 +11,8 @@ Triggered after `onCreate()` also can be used if you put something `onCreate()` 
 ### onDestroy()
 Triggered when the lua file is ended _(Song fade out finished)_
 
+***
+
 # Gameplay/Song interactions
 
 ### onBeatHit()
@@ -77,6 +79,8 @@ You died! Called every single frame your health is lower _(or equal to)_ zero. A
 
 ### onGameOverConfirm(retry)
 Called when you Press Enter/Esc on Game Over. If you've pressed Esc, value "retry" will be false
+
+***
 
 # Dialogue 
 When a dialogue is finished, it calls startCountdown again
