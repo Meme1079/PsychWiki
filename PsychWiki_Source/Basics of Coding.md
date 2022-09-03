@@ -283,7 +283,7 @@ end
 # Library Manipulation
 This is part of the page where you can manipulate strings, tables, and numbers! Additionally it's the useless/useful part of the page
 
-# String
+## String
 
 ### string.lower(string)
 Makes the string lower case
@@ -341,7 +341,7 @@ Finds the string works the same with `stringStartsWith()` and `stringEndsWith()`
 
 - `string` - The string you want
 
-# Table
+## Table
 
 ### table.insert(table, pos, val)
 Inserts a new value inside of a table
@@ -374,7 +374,7 @@ Gets the lenght of the table
 
 Example: `table.getn{'a', 'b', 'c'}` will return 3
 
-# Math
+## Math
 
 ### math.max(num)
 Returns the largest value
