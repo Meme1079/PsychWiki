@@ -4,7 +4,7 @@
 
 Note: This not a the officail wiki of Psych Engine
 
-Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the wiki! [WIP]
+Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it.
 
 # To-do List:
 
