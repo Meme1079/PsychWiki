@@ -1,5 +1,3 @@
-_NOTE: [Click here to see the list of Tween Eases.](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)_
-
 # Tween Functions for Strum/Receptors
 
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
@@ -9,7 +7,9 @@ It changes the Note X value with a tween
 - `note` - The note you want to do on a tween, Opponent: `0,1,2,3` and Player: `4,5,6,7`
 - `value` - Target value on the tween end
 - `duration` - How much time it will take for the tween to end
-- `ease` - The easing of the tween, Example: `'linear', 'cubeOut'` for more examples go to the link on top
+- `ease` - The easing of the tween, Example: `linear`, `cubeOut` for more examples go to the link on top
+
+[Click here to see the list of Tween Eases.](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)
 
 ### noteTweenY(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
 It changes the Note Y value with a tween, basically works the same with `noteTweenX`
@@ -21,7 +21,7 @@ It changes the Note Angle value with a tween
 It changes the Note Alpha value with a tween
 
 ### noteTweenDirection(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-It changes the Note Direction value with a tween
+It changes the Note Direction of the `notes` going to the strums value with a tween
 
 ***
 

@@ -1,13 +1,15 @@
 # Start/End functions
 
 ### onCreate()
-Triggered when the lua file is started, some variables weren't created yet
+Triggered when the lua file is started, some variables weren't created yet 
+
+Example: `function onCreate()` this applies all the callback templates
 
 ### onCreatePost()
 Triggered after `onCreate()` also can be used if you put something `onCreate()` and it doesn't work
 
 ### onDestroy()
-Triggered when the lua file is ended (Song fade out finished)
+Triggered when the lua file is ended _(Song fade out finished)_
 
 # Gameplay/Song interactions
 
@@ -56,6 +58,8 @@ Note: Must have `return Function_Continue` when creating this function if you're
 
 Triggered on the end of the song, will be delayed if you're unlocking an achievement. Add `return Function_Stop` to stop the song from ending for playing a cutscene or something.
 
+***
+
 # Substate interactions
 
 ### onPause()
@@ -69,7 +73,7 @@ Triggered after the game has been resumed from a pause (WARNING: Not necessarily
 ### onGameOver()
 Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`
 
-You died! Called every single frame your health is lower (or equal to) zero. Add `return Function_Stop` if you want to stop the player from going into the game over screen
+You died! Called every single frame your health is lower _(or equal to)_ zero. Add `return Function_Stop` if you want to stop the player from going into the game over screen
 
 ### onGameOverConfirm(retry)
 Called when you Press Enter/Esc on Game Over. If you've pressed Esc, value "retry" will be false
@@ -82,6 +86,8 @@ Triggered when the next dialogue line starts, dialogue line starts with 1
 
 ### onSkipDialogue(line)
 Triggered when you press Enter and skip a dialogue line that was still being typed, dialogue line starts with 1
+
+***
 
 # Note miss/hit
 
@@ -102,6 +108,8 @@ Player pressed a button, but there was no note to hit and called after the note 
 ### noteMiss(id, direction, noteType, isSustainNote)
 Player missed a note by letting it go offscreen and called after the note miss calculations
 
+***
+
 # Keys Press
 
 ### onGhostTap(key)
@@ -118,6 +126,8 @@ key: 0 = Left, 1 = Down, 2 = Up, 3 = Right
 Triggered when a key is release the key
 
 key: 0 = Left, 1 = Down, 2 = Up, 3 = Right
+
+***
 
 # Other function hooks
 
@@ -142,6 +152,8 @@ function onMoveCamera(focus)
 end
 ```
 
+***
+
 # Event notes hooks
 
 ### onEvent(name, value1, value2)
@@ -163,6 +175,8 @@ function eventEarlyTrigger(name)
      end
 end
 ```
+
+***
 
 # Tween/Timer hooks
 

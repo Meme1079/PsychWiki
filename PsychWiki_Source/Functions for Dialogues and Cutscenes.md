@@ -7,9 +7,10 @@ Starts a dialogue loading a file inside `mods/data/your-song-name/` and also if 
 Example: If i want to load a dialogue file `mods/data/bopeebo/dialogue.json` using the pause menu song (Breakfast), i should use: `startDialogue('bopeebo/dialogue', 'breakfast')`
 
 ### startVideo(videoFile:String)
-Starts a Video Cutscene
+Starts a Video Cutscene **(Must Be a .MP4 Format)**
 
 - `videoFile` - File name of your video, it must be inside `mods/videos/`
+
 Example: If you wanted to start the video `mods/videos/ughCutscene.mp4`, you'd have to use `startVideo('ughCutscene')`
 
 ### startCountdown()

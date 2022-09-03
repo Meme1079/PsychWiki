@@ -122,6 +122,11 @@ Gets the text from that file
 
 Example: `getTextFromFile('pathTotheFile/ExampleFile.txt')`
 
+### directoryFileList(folder:String)
+Gets the files from the directories
+
+- `folder` - The path to the folder
+
 ### addLuaScript(path:String)
 Adds a lua script
 
@@ -152,7 +157,7 @@ Example: `runHaxeCode([[haxe code]])`
 Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
 
 ### stringStartsWith(str:String, start:String)
-Note: If you trying to detect the last word of the string it will not work, same with `stringEndsWith`
+Note: If you trying to detect the last word of the string it will not work, same with `stringEndsWith()`
 
 Detects if the string starts with
 
@@ -203,6 +208,16 @@ Example: To get orange, you should use `getColorFromHex('FF7800')` or `getColorF
 
 ### getSongPosition()
 Returns the current song position. Shortcut to `getPropertyClass('Conductor', 'songPosition')`
+
+### getMouseX(camera:String)
+Gets the position of the cursor x position
+
+- `camera` - `camGame`, `camHUD` or `camOther`
+
+### getMouseY(camera:String)
+Gets the position of the cursor y position
+
+- `camera` - `camGame`, `camHUD` or `camOther`
 
 ***
 
