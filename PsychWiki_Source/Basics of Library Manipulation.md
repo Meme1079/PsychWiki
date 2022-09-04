@@ -117,7 +117,7 @@ Rounds a number to highest value
 
 - `num` - The decimal number you want
 
-Example: `math.floor(5.1)` will print 6
+Example: `math.ceil(5.1)` will print 6
 
 ### math.sin(num)
 Returns the sine of the number
