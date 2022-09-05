@@ -7,7 +7,7 @@ Keywords in Lua:
 ```lua
 and       or       not       local     true       break    
 false     nil      if        else      elseif     goto    
-then      for      in        repeat    until        
+then      for      in        repeat    until      
 while     do       return    end       function
 ```
 
@@ -48,29 +48,28 @@ Val 3 = 45.3 -- a variable with a space
 
 Example:
 ```lua
-a = 'string' -- a string
-num = 5 -- a int
-decNum = 0.5 -- a float
-bool = true -- a boolean
-nothing = nil -- a nil
+ExVar1 = 'string' -- string
+ExVar2 = 5 -- int
+ExVar3 = 0.5 -- float
+ExVar4 = true -- boolean
+ExVar5 = nil -- nil
 
 multvar1, multvar2 = 'Pop', 'Tart' -- a multi variable
 
 table1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table
 -- to access a table use debugPrint(table[3]) will print 'Amazing'
 
-table2 = {a = 'string', b = 24} -- a table with variables
+table2 = {a = 'string', b = 24, c = {'123', '456', '789'}} -- a table with variables
+--[[ Use tableName.Variable to access it!
+     Example1: table2.a will print 'string'
+     Example2: table2.c[1] will print '123' ]]
 
-table3 = { -- a table dictionary
-     vegetable = 'cabbage', -- don't forget to add a comma!
-     FavNum = 69,
-     table4 = {50, 47, 'Hello'} -- a table inside of table dictionary
+table3 = { -- a table dictionary works the same as a table
+     25, -- don't forget to add a comma!
+     93, 
+     49,
+     23  -- don't add a comma at the end!
 } 
---[[ 
-to access the table dictionary, you should use debugPrint(table2.FavNum) will print 69
-or if it's a table inside of a table dictionary, you should use debugPrint(table2.table3[3]) 
-will print 'Hello'
---]]
 ```
 
 ## Global and Local variables
@@ -195,14 +194,23 @@ It enables you to run a collection of commands, primarily used in `setPropertyFr
 
 - `control` - A variable inside of the `for-do` and the start of the loop
 - `end` - The end of the loop
-- `increment` - An optional value and counts up for positive values while counts down for negative values
+- `increment` - An optional value that takes a step on every loop
 
-Example:
+Example1:
 ```lua
 function onCreatePost()
      for i = 0, getProperty('unspawnNotes.length')-1 do -- get's every note in the chart then subtracts one
-	   setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true) -- when hit it doesn't play an animation
-        setPropertyFromGroup('unspawnNotes', i, 'noMissAnimation', true) -- when miss it doesn't play an animation
+	  setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true) -- when hit it doesn't play an animation
+          setPropertyFromGroup('unspawnNotes', i, 'noMissAnimation', true) -- when miss it doesn't play an animation
+     end
+end
+```
+
+Example2:
+```lua
+function onCreate()
+     for i = 1, 10, 2 do -- will take 2 steps
+          debugPrint(i) -- will print '1, 3, 5, 7, 9'
      end
 end
 ```
@@ -267,14 +275,25 @@ Used to forcefully stop a loop
 
 Example:
 ```lua
-function onCreatePost()
-     for i = 0,7 do -- 0 to 7
-          setPropertyFromGroup('strumLineNotes', i, 'y', 500) 
-          -- Sets all the strums to the lower part
-        
-          if i == 3 then 
+function onCreate()
+     for i = 1, 50 do -- 1 to 50
+          debugPrint(i)
+          if i == 25 then 
                break -- ends the loop
           end
+     end
+end
+```
+
+### in
+An optional part of the syntax `for-do` loop flow control
+
+Example:
+```lua
+fruits = {'banana', 'orange', 'apple', 'grape'} -- a table
+function onCreate()
+     for k,v in pairs(fruits) do -- gets the value inside of the table
+          debugPrint(v) -- prints every value in the table
      end
 end
 ```

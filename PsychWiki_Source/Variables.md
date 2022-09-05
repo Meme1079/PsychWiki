@@ -1,4 +1,4 @@
-## Lua/Unique variables
+# Lua/Unique variables
 
 Note: 
 Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them
@@ -12,7 +12,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 ***
 
-### Song/Week Variables
+# Song/Week Variables
 - `curBpm` - Current BPM of the Song, shortcut to `getPropertyFromClass('Conductor', 'bpm')`
 - `bpm` - Starting BPM of the Song, shortcut to `getProperty('SONG.bpm')`
 - `scrollSpeed` - Starting Scroll speed of the Song, shortcut to `getProperty('SONG.speed')`
@@ -28,7 +28,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 ***
 
-### Camera/Screen Variables
+# Camera/Screen Variables
 - `cameraX` - The current x position of camera. Shortcut to `getProperty('camFollowPos.s')`
 - `cameraY` - The current y position of camera. Shortcut to `getProperty('camFollowPos.y')`
 - `screenWidth` - The current width of the window. Shortcut to `getPropertyFromClass('FlxG', width)`
@@ -36,8 +36,9 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 ***
 
-### Gameplay Variables
+# Gameplay Variables
 - `startedCountdown` - Tells you if the countdown already started
+- `skipCountdown` - Skips the countdown
 - `seenCutscene` - Is set to `true` after `onCreate()` function, Shortcut to `getProperty('seenCutscene')`
 - `curStep` - Current step number **(Must be in `onStepHit()`)**
 - `curDecStep` - Current decimal step number **(Must be in `onStepHit()`)**
@@ -59,7 +60,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 ***
 
-### Strum/Receptor Variables
+# Strum/Receptor Variables
 - `defaultPlayerStrumX0` - Player's default left arrow X
 - `defaultPlayerStrumY0` - Player's default left arrow Y
 - `defaultPlayerStrumX1` - Player's default down arrow X
@@ -88,7 +89,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 ***
 
-### Preferences Variables
+# Preferences Variables
 
 Note: All the shortcuts on Preferences Variables are `getPropertyFromGroup('ClientPrefs', 'Preferences Variable')`
 
@@ -112,7 +113,7 @@ Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
 
 ***
 
-### NoteData Types
+# NoteData Types
 Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`
 
 Example: `setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true)`
