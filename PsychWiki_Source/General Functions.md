@@ -1,5 +1,4 @@
 # Character Functions
-
 ### characterPlayAnim(character:String, anim:String, forced:Bool = false)
 Plays an character animation
 
@@ -37,7 +36,6 @@ Gets the general Y position of a character from the `type`
 ***
 
 # Key Press Functions
-
 ### keyJustPressed(name:String)
 Get if the key name just got pressed on the current frame.
 
@@ -49,6 +47,9 @@ Get if the key name is being held on the current frame.
 ### keyReleased(name:String)
 Get if the key name was released on the current frame.
 
+***
+
+# KeyBoard Functions
 ### keyboardJustPressed(name:String)
 Get if the key name just got pressed on the current frame.
 
@@ -65,7 +66,6 @@ Get if the key name was released on the current frame.
 ***
 
 # Mouse Click functions
-
 ### mouseClicked(name:String)
 Get if the mouse button name just got pressed on the current frame. leave 'name' blank for left mouse
 
@@ -79,8 +79,20 @@ Get if the mouse button name was released on the current frame.
 
 ***
 
-# Lua Exists
+# Mouse Position Functions
+### getMouseX(camera:String)
+Returns the relative mouse X position on a specific camera
 
+- `camera` - Can be either game, hud or other
+
+### getMouseY(camera:String)
+Returns the relative mouse Y position on a specific camera
+
+- `camera` - Can be either game, hud or other
+
+***
+
+# Lua Exists
 ### luaSpriteExists(tag:String)
 Checks if a sprite exists
 
@@ -99,7 +111,6 @@ Checks if a sound exists
 ***
 
 # Scripts Functions
-
 ### isRunning(luaFile:String)
 Note: You must add `.lua` for it to work
 
@@ -153,7 +164,6 @@ Example: `runHaxeCode([[haxe code]])`
 ***
 
 # Strings Functions
-
 Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
 
 ### stringStartsWith(str:String, start:String)
@@ -181,7 +191,6 @@ Removes any unnecessary large spaces that the string has
 ***
 
 # Other Functions
-
 ### triggerEvent(name:String, arg1:String, arg2:String)
 Triggers an event without you having to chart them.
 
@@ -202,27 +211,16 @@ Changes the Time bar colors **(Must be a Hexadecimal Color)**
 - `rightHex` - The background of the time bar
 
 ### getColorFromHex(color:String)
-Get the color decimal ID from an Hexadecimal value (color).
+Get the color decimal ID from an Hexadecimal value _(color)_
 
 Example: To get orange, you should use `getColorFromHex('FF7800')` or `getColorFromHex('0xFFFF7800')`
 
 ### getSongPosition()
 Returns the current song position. Shortcut to `getPropertyClass('Conductor', 'songPosition')`
 
-### getMouseX(camera:String)
-Gets the position of the cursor x position
-
-- `camera` - `camGame`, `camHUD` or `camOther`
-
-### getMouseY(camera:String)
-Gets the position of the cursor y position
-
-- `camera` - `camGame`, `camHUD` or `camOther`
-
 ***
 
 # Song Functions
-
 ### exitSong(skipTransition:Bool)
 Exits the song
 
@@ -240,7 +238,6 @@ Loads another song
 ***
 
 # Randomizers
-
 ### getRandomInt(min:Int, max:Int)
 It randomizes the Int better than `math.random(min, max)`
 
@@ -258,7 +255,6 @@ It randomizes the Bool
 ***
 
 # Camera Functions
-
 ### cameraShake(camera:String, intensity:Float, duration:Float)
 Makes the camera shake
 
@@ -290,7 +286,6 @@ Makes the camera fade
 ***
 
 # Debug Functions
-
 ### debugPrint(text1, text2, text3, text4, text5)
 - Prints a debug message on the top-left corner of the screen
 - All values are optional

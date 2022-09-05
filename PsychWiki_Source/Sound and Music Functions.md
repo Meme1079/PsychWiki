@@ -74,17 +74,17 @@ Set's the sound volume
 - `tag` - The Sound tag, leave this field empty if you want change the Background music's volume instead
 - `value` - Goes from 0 to 1.
 
-### getSoundVolume(tag:String)
-Get's the current sound volume
-
-- `tag` - The Sound tag, leave this field empty if you want get the Background music's volume instead
-
 ### setSoundTime(tag:String, value:Float)
 Sets the current sound's position in miliseconds
 
 - `tag` - The Sound tag
 - `value` - New position
 Note: Value 5000 = 5 seconds
+
+### getSoundVolume(tag:String)
+Get's the current sound volume
+
+- `tag` - The Sound tag, leave this field empty if you want get the Background music's volume instead
 
 ### getSoundTime(tag:String)
 Gets the current sound's position in miliseconds
