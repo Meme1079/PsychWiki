@@ -1,17 +1,17 @@
 # String Library
 
 ### string.lower(string)
-Makes the string lower case
+Converts any upper case alphabet into lower case
 
 - `string` - The string you want
 
 ### string.upper(string)
-Makes the string upper case
+Converts any lower case alphabet into upper case
 
 - `string` - The string you want
 
 ### string.byte(char, pos)
-Converts the string to a numeric code
+Creates a numeric code from the character code or string
 
 - `char` - The character code or string
 - `pos` -  An optional value that get the position of the character
@@ -19,14 +19,14 @@ Converts the string to a numeric code
 Example: `string.byte('a')` will return 97
 
 ### string.char(byte)
-Converts the string return to character code
+Creates a character code from the numeric code
 
 - `byte` - the numeric code
 
 Example: `string.char(97)` will return 'a'
 
 ### string.gsub(string, old, new, limit)
-Replaces part or entire of the string
+Returns a copy of a string and replaces it with a new string
 
 - `string` - The string you want
 - `old` - Part of the string you want to replace
@@ -78,7 +78,7 @@ Converts a table into a string
 - `sep` - the speration between the value in the table
 
 ### table.sort(table)
-Makes the sort to alphabetical order
+Makes the table sorted in an alphabetical order
 
 - `table` - The table you want
 
@@ -92,32 +92,32 @@ Example: `table.getn{'a', 'b', 'c'}` will return 3
 # Math Library
 
 ### math.max(num)
-Returns the largest value
+Returns the highest value that it could find
 
 - `num` - Multiple array of numbers
 
 Example: `math.max(12, 34, 1)` will print 34 because it's the largest value
 
 ### math.min(num)
-Returns the lowest value
+Returns the lowest value that it could find 
 
 - `num` - Multiple array of numbers
 
 Example: `math.min(12, 34, 1)` will print 1 because it's the lowest value
 
-### math.floor(num)
-Rounds a number to lowest value
-
-- `num` - The decimal number you want
-
-Example: `math.floor(5.9)` will print 5
-
 ### math.ceil(num)
-Rounds a number to highest value
+Rounds a number to its highest value
 
 - `num` - The decimal number you want
 
 Example: `math.ceil(5.1)` will print 6
+
+### math.floor(num)
+Rounds a number to its lowest value
+
+- `num` - The decimal number you want
+
+Example: `math.floor(5.9)` will print 5
 
 ### math.sin(num)
 Returns the sine of the number
@@ -142,20 +142,20 @@ Returns the square root of the number
 Example: `math.sqrt(5)` will print `2.2360679775`
 
 ### math.abs(num)
-Converts negative number to positive
+Makes a negative number into a positive one
 
 - `num` - The negative number you want
 
 Example: `math.abs(-5)` will convert it to positive 5
 
 ### math.pow(num, expo)
-Another alternate to exponent
+Another alternate exponent operator that returns the result of the exponent
 
 - `num` - The number you want
 - `expo` - The number that will be the exponent
 
 ### math.pi
-Returns 13 length of pi
+Returns pi length of 13 digits
 
 ### math.huge
-Returns `inf` aka infinite
+Returns the largest numerical value which is infinite
