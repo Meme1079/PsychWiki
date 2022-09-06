@@ -25,12 +25,12 @@ Creates a character code from the numeric code
 
 Example: `string.char(97)` will return 'a'
 
-### string.gsub(string, old, new, limit)
+### string.gsub(string, pat, rep, limit)
 Returns a copy of a string and replaces it with a new string
 
 - `string` - The string you want
-- `old` - Part of the string you want to replace
-- `new` - The string that will be replacing the previous one 
+- `pat` - Part of the string you want to replace
+- `rep` - The string that will be replacing the previous one 
 - `limit` - An Optional value that limits on replacing the new string
 
 ### string.len(string)
@@ -62,20 +62,20 @@ Finds the string works the same with `stringStartsWith()` and `stringEndsWith()`
 Inserts a new value inside of a table
 
 - `table` - The table you want
-- `pos` - An optional value that places the item on the table's position
+- `pos` - The position in each array of the table
 - `val` - The value that you want to insert
 
 ### table.remove(table, pos)
 Removes a value inside of a table
 
 - `table` - The table you want
-- `pos` - An optional value that places the item on the table's position
+- `pos` - The position in each array of the table
 
 ### table.concat(table, sep)
 Converts a table into a string
 
 - `table` - The table you want
-- `sep` - the speration between the value in the table
+- `sep` - The separation between the value in the table
 
 ### table.sort(table)
 Makes the table sorted in an alphabetical order
@@ -83,7 +83,7 @@ Makes the table sorted in an alphabetical order
 - `table` - The table you want
 
 ### table.getn{table}
-Gets the lenght of the table
+Gets the length of the table
 
 - `table` - The table you want
 

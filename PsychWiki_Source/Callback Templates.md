@@ -30,6 +30,9 @@ Every frame on the game, some variables weren't updated yet
 ### onUpdatePost(elapsed)
 Triggered after `onUpdate()`, works the same as `onCreatePost()`
 
+### onUpdateScore(miss)
+Every frame on the game, used to update the score
+
 ### onStartCountdown()
 Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`
 
@@ -42,6 +45,9 @@ function onStartCountdown()
      return Function_Continue -- this is important to use
 end
 ```
+
+### onCountdownStarted()
+Starts during the countdown
 
 ### onCountdownTick(counter)
 Activate when the countdown is started
