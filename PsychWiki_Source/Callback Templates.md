@@ -1,9 +1,14 @@
 # Start/End functions
 
 ### onCreate()
-Triggered when the lua file is started, some variables weren't created yet 
+Triggered when the lua file is started used for creating a sprite and precaching, some variables weren't created yet 
 
-Example: `function onCreate()` this applies all the callback templates
+Example: 
+```lua
+function onCreate() -- this applies all the callback templates
+     -- code
+end
+``` 
 
 ### onCreatePost()
 Triggered after `onCreate()` also can be used if you put something `onCreate()` and it doesn't work
@@ -31,7 +36,7 @@ Every frame on the game, some variables weren't updated yet
 Triggered after `onUpdate()`, works the same as `onCreatePost()`
 
 ### onUpdateScore(miss)
-Every frame on the game, used to update the score
+Works the same as `onUpdate()` but it's only used to update the score
 
 ### onStartCountdown()
 Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`
