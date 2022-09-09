@@ -1,18 +1,19 @@
 # Variables
 Variables are manipulable storage spaces that can contain a variety of values.
 
-When creating a value you should name it once you name the variable use `=` afterwards and put anything you want after `=`, it could be a String, Boolean, Int, Etc. And you can not put a keywords in lua when naming a variable or tokens.
+When creating a value you should name it once you name the variable use `=` afterwards and put anything you want after `=`, it could be a String, Boolean, Int, Etc. And you can not put a keywords or tokens in lua when naming a variable.
 
-Keywords in Lua:
+Keywords/Tokens:
 ```lua
+-- Keywords --
+
 and       or       not       local     true       break    
 false     nil      if        else      elseif     goto    
 then      for      in        repeat    until      
 while     do       return    end       function
-```
 
-Tokens in Lua:
-```lua
+-- Tokens --
+
 +     -     *     /     %     ^     #
 ==    ~=    <=    >=    <     >     =
 (     )     {     }     [     ]
@@ -44,7 +45,7 @@ Val 3 = 45.3 -- a variable with a space
 - `Float` - A decimal number
 - `Nil` - A type of variable that has no value and it is used to destroy a variable if you're not using it anymore
 - `Boolean` - A type of variable that has two possible values, `true` and `false`
-- `Table` - A type of variable and table that can store a `String`, `Boolean`, `Int`, `Float`, and even a `Table`. There are 2 types of Table, `Table Array` and `Table Dictionary`; `Table Array` is a type of table formatted to resemble an array; while `Table Dictionary` is a type of table formatted to resemble a list
+- `Table` - A type of variable and table that can store a `String`, `Boolean`, `Int`, `Float`, and even a `Table`. Tables can be represent Arrays, Dictionarys, Graph, and etc
 
 Example:
 ```lua
@@ -56,28 +57,30 @@ ExVar5 = nil -- nil
 
 multvar1, multvar2 = 'Pop', 'Tart' -- a multi variable
 
-table1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table
+-- Table Section --
+
+table1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table array
 -- to access a table use debugPrint(table[3]) will print 'Amazing'
 
-table2 = {a = 'string', b = 24, c = {'123', '456', '789'}} -- a table with variables
+table2 = {a = 'string', b = 24, c = {'123', '456', '789'}} -- a table array with variables
 --[[ Use tableName.Variable to access it!
-     Example1: table2.a will print 'string'
-     Example2: table2.c[1] will print '123' ]]
-
-table4 = { -- a table dictionary with more tables
-     {'apple', 'banana', 'grape'}, -- don't forget to add a comma!
-     {24, 36, 13},
-     {true, false, nil}  -- don't add a comma at the end!
-}
---[[ Use tableName[array][pos] to access it!
-     Example1: table4[1][2] will print 'banana' 
-     Example2: table4[3][1] will print 'true'   ]]
+     Example1: debugPrint(table2.a) will print 'string'
+     Example2: debugPrint(table2.c[1]) will print '123' ]]
 
 table5 = { -- a table dictionary works the same as a table
      25, 
      93, 
      49  
-} 
+} -- accessing this is the same as the table array
+
+table4 = { -- a table graph
+     {'apple', 'banana', 'grape'}, -- don't forget to add a comma!
+     {24, 36, 13},
+     {true, false, nil}  -- don't add a comma at the end!
+}
+--[[ Use tableName[array][pos] to access it!
+     Example1: debugPrint(table4[1][2]) will print 'banana' 
+     Example2: debugPrint(able4[3][1]) will print 'true'   ]]
 ```
 
 ## Global and Local variables
@@ -148,7 +151,7 @@ Control Structures allow to perform tasks if the condition is `true`
 Non-Loops are control structures that don't loop and only execute once
 
 ### if-then
-A common statement that used for executing a block of code if a specific condition is true
+A common statement that used for executing a block of code if the specific condition is `true`
 
 Example:
 ```lua
@@ -195,7 +198,7 @@ end
 ## Loops
 Loops are opposite of `Non-Loops` they can execute code multiple times
 
-Also are only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because these loops are broken when using it and can be recreated in Funkin lua. If you know what you're doing.
+Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because these loops are broken when using it and can be recreated in Funkin lua if you know what you're doing.
 
 ### for-do
 It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes. 
@@ -257,7 +260,7 @@ end
 ```
 
 ### return
-It must appear below and inside a function and return a value that is primarily used on that function.
+It must appear near the `end` of a control statment and used to return a value that is given
 
 Example:
 ```lua
