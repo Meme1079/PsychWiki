@@ -64,11 +64,19 @@ table2 = {a = 'string', b = 24, c = {'123', '456', '789'}} -- a table with varia
      Example1: table2.a will print 'string'
      Example2: table2.c[1] will print '123' ]]
 
-table3 = { -- a table dictionary works the same as a table
-     25, -- don't forget to add a comma!
+table4 = { -- a table dictionary with more tables
+     {'apple', 'banana', 'grape'}, -- don't forget to add a comma!
+     {24, 36, 13},
+     {true, false, nil}  -- don't add a comma at the end!
+}
+--[[ Use tableName[array][pos] to access it!
+     Example1: table4[1][2] will print 'banana' 
+     Example2: table4[3][1] will print 'true'   ]]
+
+table5 = { -- a table dictionary works the same as a table
+     25, 
      93, 
-     49,
-     23  -- don't add a comma at the end!
+     49  
 } 
 ```
 
@@ -133,11 +141,11 @@ And they won't interact with the code
 
 ***
 
-# Conditional Structures
-Conditional Structures allow to perform tasks if the condition is `true`
+# Control Structures
+Control Structures allow to perform tasks if the condition is `true`
 
-## Statements
-Used to perform an action if the specific conditions are met.
+## Non-Loops 
+Non-Loops are control structures that don't loop and only execute once
 
 ### if-then
 A common statement that used for executing a block of code if a specific condition is true
@@ -185,18 +193,18 @@ end
 ```
 
 ## Loops
-Note: We are only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because these loops are broken when using it and you can recreate it in lua. If you know what you're doing.
+Loops are opposite of `Non-Loops` they can execute code multiple times
 
-Loops are used to execute code multiple times
+Also are only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because these loops are broken when using it and can be recreated in Funkin lua. If you know what you're doing.
 
 ### for-do
-It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes.
+It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes. 
 
 - `control` - A variable inside of the `for-do` and the start of the loop
 - `end` - The end of the loop
 - `increment` - An optional value that takes a step on every loop
 
-Example1:
+Example 1:
 ```lua
 function onCreatePost()
      for i = 0, getProperty('unspawnNotes.length')-1 do -- get's every note in the chart then subtracts one
@@ -206,7 +214,7 @@ function onCreatePost()
 end
 ```
 
-Example2:
+Example 2:
 ```lua
 function onCreate()
      for i = 1, 10, 2 do -- will take 2 steps
@@ -286,7 +294,7 @@ end
 ```
 
 ### in
-An optional part of the syntax `for-do` loop flow control
+An optional part of the Generic `for-do` loop flow control
 
 Example:
 ```lua
@@ -297,3 +305,178 @@ function onCreate()
      end
 end
 ```
+
+***
+
+# Library Manipulation
+These are use to manipulate lua function in lua
+
+## String Manipulation
+They are used to manipulate strings
+
+### string.lower(string)
+Converts any upper case alphabet into lower case
+
+- `string` - The string you want
+
+### string.upper(string)
+Converts any lower case alphabet into upper case
+
+- `string` - The string you want
+
+### string.byte(char, pos)
+Creates a numeric code from the character code or string
+
+- `char` - The character code or string
+- `pos` -  An optional value that get the position of the character
+
+Example: `string.byte('a')` will return 97
+
+### string.char(byte)
+Creates a character code from the numeric code
+
+- `byte` - the numeric code
+
+Example: `string.char(97)` will return 'a'
+
+### string.gsub(string, find, rep, limit)
+Returns a copy of a string and replaces it with a new string
+
+- `string` - The string you want
+- `find` - Part of the string you want to replace
+- `rep` - The string that will be replacing the previous one 
+- `limit` - An Optional value that limits on replacing the new string
+
+### string.len(string)
+Returns the length of the string
+
+- `string` - The string you want
+
+Example: `string.len('words')` will return 5
+
+### string.rep(string, limit, sep)
+Repeats the string
+
+- `string` - The string you want
+- `limit` - The limit of repeating it
+- `sep` - The separation between the repeated string
+
+### string.reverse(string)
+Reverses the string
+
+- `string` - The string you want
+
+### string.find(string)
+Finds the string works the same with `stringStartsWith()` and `stringEndsWith()` but has no limit
+
+- `string` - The string you want
+
+***
+
+## Table Manipulation
+They are used to manipulate tables
+
+### table.insert(table, pos, val)
+Inserts a new value inside of a table
+
+- `table` - The table you want
+- `pos` - The position in each array of the table
+- `val` - The value that you want to insert
+
+### table.remove(table, pos)
+Removes a value inside of a table
+
+- `table` - The table you want
+- `pos` - The position in each array of the table
+
+### table.concat(table, sep)
+Converts a table into a string
+
+- `table` - The table you want
+- `sep` - The separation between the value in the table
+
+### table.sort(table)
+Makes the table sorted in an alphabetical order
+
+- `table` - The table you want
+
+### table.getn{table}
+Gets the length of the table
+
+- `table` - The table you want
+
+Example: `table.getn{'a', 'b', 'c'}` will return 3
+
+***
+
+## Math Manipulation
+They are used to manipulate numbers and used for modcharts I think
+
+### math.max(num)
+Returns the highest value that it could find
+
+- `num` - Multiple array of numbers
+
+Example: `math.max(12, 34, 1)` will print 34 because it's the largest value
+
+### math.min(num)
+Returns the lowest value that it could find 
+
+- `num` - Multiple array of numbers
+
+Example: `math.min(12, 34, 1)` will print 1 because it's the lowest value
+
+### math.ceil(num)
+Rounds a number to its highest value
+
+- `num` - The decimal number you want
+
+Example: `math.ceil(5.1)` will print 6
+
+### math.floor(num)
+Rounds a number to its lowest value
+
+- `num` - The decimal number you want
+
+Example: `math.floor(5.9)` will print 5
+
+### math.sin(num)
+Returns the sine of the number
+
+- `num` - The number you want
+
+### math.cos(num)
+Returns the cosine of the number
+
+- `num` - The number you want
+
+### math.tan(num)
+Returns the tangent of the number
+
+- `num` - The number you want
+
+### math.sqrt(num)
+Returns the square root of the number
+
+- `num` - The number you want
+
+Example: `math.sqrt(5)` will print `2.2360679775`
+
+### math.abs(num)
+Makes a negative number into a positive one
+
+- `num` - The negative number you want
+
+Example: `math.abs(-5)` will convert it to positive 5
+
+### math.pow(num, expo)
+Another alternate exponent operator that returns the result of the exponent
+
+- `num` - The number you want
+- `expo` - The number that will be the exponent
+
+### math.pi
+Returns pi length of 13 digits
+
+### math.huge
+Returns the largest numerical value which is infinite
