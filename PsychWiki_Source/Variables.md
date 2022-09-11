@@ -57,6 +57,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `gfSection` - Tells if the current section is a `GF Section` **(from Chart Editor)**
 - `inGameOver` - When the Player is Dead
 - `botPlay` - Tells if Botplay is enabled. Shortcut to `getProperty('cpuControlled')`
+- `canMiss` - Turns off ghost tapping
 
 ***
 
@@ -91,9 +92,9 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 # Preferences Variables
 
-Note: All the shortcuts on Preferences Variables are `getPropertyFromGroup('ClientPrefs', 'Preferences Variable')`
+Note: All the shortcuts on Preferences Variables are `getPropertyFromClass('ClientPrefs', 'Preferences Variable')`
 
-Example: `getPropertyFromGroup('ClientPrefs', 'downscroll')`
+Example: `getPropertyFromClass('ClientPrefs', 'downscroll')`
 
 - `downscroll` - Sets the Player notes to down 
 - `middlescroll` - Sets the Player notes to the centerfield 
