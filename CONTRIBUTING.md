@@ -3,8 +3,8 @@ When contrubuting this repostory you must abide these rule and follow the format
 
 # Rules
 
-1. It must be releted to Psych Engine not other engines. If I encountered this i'll closed the pull request you made.
-2. If you add a Lua Function you must test it before adding and must be useful.
+1. It must be releted to Psych Engine, not other engines. If I encountered this i'll closed the pull request you made.
+2. If you add a Lua Function you must test it before adding and must be useful. Also the current lua version that the engine is using is 5.1.
 3. If you just did a pull request, that is not serious or useless I'd closed this pull request and banned you from this repostory.
 4. And Lastly follow the format shown below, if not i'll put in `invalid` tag and closed it.
 
@@ -26,6 +26,14 @@ Description of the function and use
 # Other Group Name
 ```
 
+## Formats:
+
+- `**(Must Be a .PNG Format)**` - For images
+- `**(Must Be a .OGG Format)**` - For sounds and music
+- `**(Must Be a .TTF Format)**` - For texts
+- `**(Must be a Hexadecimal Color Code)**` - For colors
+- `_(Comment)_` - Comments or other stuff
+
 ## Highlighting Format Rules:
 
 When making a HighLight use \`\` to highlight them Example: `yes`. 
@@ -40,11 +48,3 @@ But there rules you must follow when adding a highlight here are they.
 - Names of the character Example: `boyfriend`, `dad`, `gf`
 - Quotations and Symbols Example: `#`, `[[]]`, `=` 
 - Numbers Examples: `0` `1`
-
-
-## Others:
-
-- `*(Must Be a .PNG Format)*` - For images
-- `*(Must Be a .OGG Format)*` - For sounds and music
-- `*(Must Be a .TTF Format)*` - For texts
-- `_(Comment)_` - Comments or other stuff
