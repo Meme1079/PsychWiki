@@ -1,218 +1,223 @@
 # Character Functions
 ### characterPlayAnim(character:String, anim:String, forced:Bool = false)
-Plays an character animation
+Play's a specific character animation.
 
-- `character` - Can be `boyfriend`, `dad` or `gf`
-- `anim` - Animation name to be played
-- `forced` - Can be either `true` or `false`, if set to `true`, it will force the animation to reset if the current animation is the same as the animation to play
+- `character` - The character name, can be `boyfriend`, `dad` or `gf`.
+- `anim` - The animation name to be played.
+- `forced` - Can be either `true` or `false`, if set to `true`, it will force the animation to reset if the current animation is the same as the animation to play.
 
 ### characterDance(character:String)
-Makes character do the idle dance
+Make's character do the idle dance.
 
-- `character` - Can be `boyfriend`, `dad` or `gf`
+- `character` - The name of the character, can be `boyfriend`, `dad` or `gf`.
 
 ### setCharacterX(type:String, value:Float)
-Sets the general X position of a character from the `type`, this will also move all precached characters from the same type into the position you want
+Set's the general X position of a character from the `type`, this will also move all precached characters from the same type into the position you want.
 
-- `type` - Can be `boyfriend`, `dad` or `gf`
-- `value` - The x-coordinate of the character
+- `type` - The character name, can be `boyfriend`, `dad` or `gf`.
+- `value` - The x value of the character position.
 
 ### setCharacterY(type:String, value:Float)
-Sets the general Y position of a character from the `type`, this will also move all precached characters from the same type into the position you want
+Set's the general Y position of a character from the `type`, this will also move all precached characters from the same type into the position you want.
 
-- `type` - Can be `boyfriend`, `dad` or `gf`
-- `value` - The y-coordinate of the character
+- `type` - The name of the character, can be `boyfriend`, `dad` or `gf`.
+- `value` - The y value of the character position.
 
 ### getCharacterX(type:String)
-Gets the general X position of a character from the `type`
+Get's the general X position of a character from the `type`.
 
-- `type` - Can be `boyfriend`, `dad` or `gf`
+- `type` - The name of the character name, can be `boyfriend`, `dad` or `gf`.
 
 ### getCharacterY(type:String)
-Gets the general Y position of a character from the `type`
+Get's the general Y position of a character from the `type`.
 
-- `type` - Can be `boyfriend`, `dad` or `gf`
+- `type` - The name of the character name, can be `boyfriend`, `dad` or `gf`.
 
 ***
 
-# Score/Accuracy Functions
-
+# Accuracy Bar Functions
 ### addScore(value:Int = 0)
-Adds `value` to the current song's score and recalculates rating
+Add's the `value` of the current song's score total continuously and recalculate's the rating.
 
 ### addMisses(value:Int = 0)
-Adds `value` to the current song's misses total and recalculates rating
+Add's the `value` of the current song's miss total continuously and recalculate's the rating.
 
 ### addHits(value:Int = 0)
-Adds `value` to the current song's notes hit total and recalculates rating
+Add's the `value` of the current song's hit continuously and recalculate's the rating.
 
 ### addHealth(value:Float = 0)
-Adds `value` to the current song's health total and recalculates rating
-
-***
+Add's the `value` of the current song's health continuously and recalculate's the rating.
 
 ### setScore(value:Int = 0)
-Set the current song's score to `value` and recalculates rating
+Set's the `value` of the current song's score total into a specified state and recalculate's the rating.
 
 ### setMisses(value:Int = 0)
-Set the current song's misses to `value` and recalculates rating
+Set's the `value` of the current song's miss total into a specified state and recalculate's the rating.
 
 ### setHits(value:Int = 0)
-Set the current song's hit total to `value` and recalculates rating
+Set's the `value` of the current song's hit total into a specified state and recalculate's the rating.
 
 ### setHealth(value:Int = 0)
-Set the current song's health total to `value` and recalculates rating
+Set's the `value` of the current song's health total into a specified state and recalculate's the rating.
 
 ### setRatingPercent(value:Float)
-Sets the rating percent in case you want to do your own rating calculation.
+Set's the rating percent in case you want to do your own rating calculation.
 
 - `value` - Should go from `0` to `1` but can actually be whatever value you want, but it's kinda stupid to get out of the base values.
 
 ### setRatingString(value:String)
-Sets the rating name to `value` in case you want to do your own rating calculation.
+Set's the rating name to `value` in case you want to do your own rating calculation.
 
 ### setRatingFC(value:String)
-Sets the rating FC on the `scoreTxt`
-
-***
+Set's the rating FC on the `scoreTxt`.
 
 ### getScore()
-Get the current song's score
+Get's the current song's score total.
 
 ### getMisses()
-Get the current song's misses
+Get's the current song's miss total.
 
 ### getHits()
-Get the current song's hit total
+Get's the current song's hit total.
 
 ### getHealth()
-Get the current song's health
+Get's the current song's health total.
 
 ***
 
-# Key Press Functions
+# Keys/KeyBoard Press Functions
 ### keyJustPressed(name:String)
-Get if the key name just got pressed on the current frame.
+Gets the key name that was recently pressed on the current frame.
 
 Keys: `left`, `down`, `up`, `right`, `accept`, `back`, `pause`, `reset`, `space`
 
+- `name` - The name of the key listed above.
+
 ### keyPressed(name:String)
-Get if the key name is being held on the current frame.
+Get's the key name currently pressed on the current frame.
+
+- `name` - The name of the key listed above.
 
 ### keyReleased(name:String)
-Get if the key name was released on the current frame.
+Get's the key name was released on the current frame.
 
-***
+- `name` - The name of the key listed above.
 
-# KeyBoard Functions
 ### keyboardJustPressed(name:String)
-Get if the key name just got pressed on the current frame.
+Get's the keyboard key name that was recently pressed on the current frame.
 
-- `name` - Any key you want but must be capitalize 
+- `name` - The name of the key on the keyboard.
 
 Example: `keyboardJustPressed('SHIFT')`
 
 ### keyboardPressed(name:String)
-Get if the key name is being held on the current frame.
+Get's the keyboard key name is being held on the current frame.
+
+- `name` - The name of the key on the keyboard.
 
 ### keyboardReleased(name:String)
-Get if the key name was released on the current frame.
+Get's the keyboard key name was released on the current frame.
+
+- `name` - The name of the key on the keyboard.
 
 ***
 
-# Mouse Click functions
+# Mouse functions
 ### mouseClicked(name:String)
-Get if the mouse button name just got pressed on the current frame. leave 'name' blank for left mouse
+Get's the mouse button name that was recently pressed on the current frame. Leave the `name` blank for it to default the `name` to left.
 
 Buttons: `left`, `right`, `middle`
 
+- `name` - The name of the mouse button listed above.
+
 ### mousePressed(name:String)
-Get if the mouse button name is being held on the current frame.
+Get's the mouse button name while being held on the current frame.
+
+- `name` - The name of the mouse button listed above.
 
 ### mouseReleased(name:String)
-Get if the mouse button name was released on the current frame.
+Get's the mouse button name after releasing on the current frame.
 
-***
+- `name` - The name of the mouse button listed above.
 
-# Mouse Position Functions
 ### getMouseX(camera:String)
-Returns the relative mouse X position on a specific camera
+Retunr's the current x value of the mouse on the specific camera.
 
-- `camera` - Can be either game, hud or other
+- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
 
 ### getMouseY(camera:String)
-Returns the relative mouse Y position on a specific camera
+Retunr's the current y value of the mouse on the specific camera.
 
-- `camera` - Can be either game, hud or other
+- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
 
 ***
 
 # Lua Exists
 ### luaSpriteExists(tag:String)
-Checks if a sprite exists
+Check's whether the sprite object exists in the currently playing song.
 
-- `tag` - The Sprite tag
+- `tag` - The tag of the sprite object.
 
 ### luaTextExists(tag:String)
-Checks if a text exists
+Check's whether the text object exists in the currently playing song.
 
-- `tag` - The Text tag
+- `tag` - The tag of the text object.
 
 ### luaSoundExists(tag:String)
-Checks if a sound exists
+Checks whether the sound exists in the currently playing song.
 
-- `tag` - The Sound tag
+- `tag` - The tag of the sound.
 
 ***
 
 # Scripts Functions
 ### isRunning(luaFile:String)
-Note: You must add `.lua` for it to work
+Note: Put the file format name to get the file you want.
 
-Check if the lua file is running and will return `true` if it's running currently
-
-- `luaFile` - The file that you want to detect that is running currently
+- `luaFile` - The file that you want to detect that is running currently.
 
 Example: `isRunning('mods/pathTotheFile/luafile.lua')`
 
 ### getRunningScripts()
-Checks multiple lua files that are running 
+Check's multiple script's executing currently.  
 
 ### getTextFromFile(path:String, ?ignoreModFolders:Bool = false)
-Note: You need to add the file format name for it to work
+Note: Put the file format name to get the file you want.
 
-Gets the text from that file
+Get's the text from different file's.
 
-- `path` - The path of the text file that you are getting
-- `ignoreModFolders` - An optional parmeter that ignores the mod folder with a boolean
+- `path` - The path of the text file that you are getting.
+- `ignoreModFolders` - An optional parmeter that ignores the mod folder with a **boolean**.
 
 Example: `getTextFromFile('pathTotheFile/ExampleFile.txt')`
 
 ### directoryFileList(folder:String)
-Gets the files from the directories
+Get's the folder file in the directory.
 
 - `folder` - The path to the folder
 
 ### addLuaScript(path:String)
-Adds a lua script
+Add's a lua script into the game.
 
-- `path` - Path to LUA relative to the base folder
+- `path` - The Lua file path to be chosen.
 
 ### removeLuaScript(path:String)
-Removes a lua script
+Remove's a lua script into the game.
 
-- `path` - Path to LUA relative to the base folder
+- `path` - The Lua file path to be chosen.
 
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
-Adds a library variable into the interpreter
+Add's a library variable into the interpreter.
 
-- `libName` - The name of the library name
-- `libPackage` - The name of the library package
+- `libName` - The name of the library name.
+- `libPackage` - The name of the library package.
 
 Example: `addHaxeLibrary('FlxTween', 'flixel.tweens')`
 
 ### runHaxeCode(codeToRun:String)
-It runs string as a hscript, you must use `[[]]`
+Note: the `codeToRun` must be surrounded by double brackets `[[]]`.
+
+It execute's the string as a Haxe script.
 
 Example: `runHaxeCode([[haxe code]])`
 
@@ -222,133 +227,129 @@ Example: `runHaxeCode([[haxe code]])`
 Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
 
 ### stringStartsWith(str:String, start:String)
-Note: If you trying to detect the last word of the string it will not work, same with `stringEndsWith()`
+Identifie's the string that begins with the `start` parameter.
 
-Detects if the string starts with
-
-- `str` - The string you want
-- `start` - The start of the string
+- `str` - The string to be manipulate.
+- `start` - The start of the string.
 
 ### stringEndsWith(str:String, end:String)
-Detects if the string end with, works the same with `stringStartsWith()`
+Identifie's the string that ends with the `end` parameter.
+
+- `str` - The string to be manipulate.
+- `end` - The end of the string.
 
 ### stringSplit(str:String, split:String)
-Splits a string into mutiple string
+Splits a string into multiple string will turn it into a **table**
 
-- `str` - The string you want
-- `start` - The speration of the string
+- `str` - The string to split.
+- `start` - The seperation of the string.
+
+Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
 
 ### stringTrim(str:String)
-Removes any unnecessary large spaces that the string has
+Remove's any unnecessary large spaces from string.
 
-- `str` - The string you want
+- `str` - The string to be converted.
 
 ***
 
 # Other Functions
 ### triggerEvent(name:String, arg1:String, arg2:String)
-Triggers an event without you having to chart them.
+Triggers an event without having to enter it into the chart editor.
 
-- `name` - Event name on Chart Editor
-- `arg1` - Value 1 on Chart Editor
-- `arg2` - Value 2 on Chart Editor
+- `name` - The name of the event in the Chart editor.
+- `arg1` - The value on Value 1.
+- `arg2` - The value on Value 2.
 
 ### setHealthBarColors(leftHex:String, rightHex:String)
-Changes the health colors on the health bar **(Must be a Hexadecimal Color)**
+Changes the health color's on the health bar. **(Must be a Hexadecimal Color Code)**
 
-- `leftHex` - The opponent health bar color
-- `rightHex` - The player health bar color
+- `leftHex` - The Opponent health bar color.
+- `rightHex` - The Player health bar color.
 
 ### setTimeBarColors(leftHex:String, rightHex:String)
-Changes the Time bar colors **(Must be a Hexadecimal Color)**
+Changes the time bar color's. **(Must be a Hexadecimal Color Code)**
 
-- `leftHex` - The color thats filling up the time bar
-- `rightHex` - The background of the time bar
+- `leftHex` - The color thats filling up the time bar.
+- `rightHex` - The background of the time bar.
 
 ### getColorFromHex(color:String)
-Get the color decimal ID from an Hexadecimal value _(color)_
+Get's the color from an Hexadecimal Color Code.
 
-Example: To get orange, you should use `getColorFromHex('FF7800')` or `getColorFromHex('0xFFFF7800')`
+Example: To get orange, you should use `getColorFromHex('FF7800')` or `getColorFromHex('0xFFFF7800')`.
 
 ### getSongPosition()
-Returns the current song position. Shortcut to `getPropertyClass('Conductor', 'songPosition')`
+Return's the current song position. Shortcut to `getPropertyClass('Conductor', 'songPosition')`.
 
-***
+### removeFromGroup(obj:String, index:Int, dontDestroy:Bool = false)
+Remove's the a specific note group.
 
-# Song Functions
-### exitSong(skipTransition:Bool)
-Exits the song
+- `obj` - The group name of the note.
+- `index` - The note member id.
+- `dontDestroy` - An optional variable. Won't clear member from memory, you will probably never ever use this.
 
-- `skipTransition` - The transition if the song exited
-
-### restartSong(skipTransition:Bool)
-Restarts the song
-
-### loadSong(name:String, difficultyNum:Int)
-Loads another song
-
-- `name` - The name of the song you wan't to load
-- `difficulty` - The difficulty ID of song
+Example: To remove the first spawned note from the group you should use `removeFromGroup('notes', 0)`.
 
 ***
 
 # Randomizers
 ### getRandomInt(min:Int, max:Int)
-It randomizes the Int better than `math.random(min, max)`
+This will randomize a number. _(Better than `math.random()`)_
 
-- `min` - Lowest number
-- `max` - Highest number
+- `min` - The lowest value.
+- `max` - The highest value.
 
-### getRandomFloat(min:Int, max:Int)
-It randomizes the Float, works tha same as `getRandomInt()`
+### getRandomFloat(min:Float, max:Float)
+Works the same as `getRandomInt()` but only works for **float**.
+
+- `min` - The lowest value.
+- `max` - The highest value.
 
 ### getRandomBool(chance:Float = 50)
-It randomizes the Bool
+It randomizes the chance of it being `true`.
 
-- `chance` - It randomizes the chance of it being `true`
+- `chance` - The possibility of it being `true`.
 
 ***
 
 # Camera Functions
 ### cameraShake(camera:String, intensity:Float, duration:Float)
-Makes the camera shake
+Makes the camera shake.
 
-- `camera` - `camGame`, `camHUD` or `camOther`
-- `intensity` - How far away should it shake, recommended value is `0.05`
-- `duration` - How much time duration for it to shake
+- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+- `intensity` - How far away should it shake, recommended value is `0.05`.
+- `duration` - How much time duration for it to shake.
 
 ### cameraSetTarget(target:String)
-Makes the camera focus on a specific target
+Makes the camera focus on a specific target.
 
-- `target` - Target can be either boyfriend or dad
+- `target` - Target can be either `boyfriend` or `dad`.
 
 ### cameraFlash(camera:String, color:String, duration:Float,forced:Bool)
-Makes the camera flash
+Makes the camera flash.
 
-- `camera` - `camGame`, `camHUD` or `camOther`
-- `color` - color of flash **(Must be a Hexadecimal Color)**
-- `duration` - How much time duration for it to shake
-- `forced` - restarts flash or not
+- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+- `color` - The color of the flash. **(Must be a Hexadecimal Color Code)**
+- `duration` - The amount of time it will shake for.
+- `forced` - Whether or not restart the flashes.
 
 ### cameraFade(camera:String, color:String, duration:Float,forced:Bool)
-Makes the camera fade
+Makes the camera fade.
 
-- `camera` - `camGame`, `camHUD` or `camOther`
-- `color` - color of fade **(Must be a Hexadecimal Color)**
-- `duration` - Time duration for it to fade
-- `forced` - restarts fade or not
+- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+- `color` - The color of the fade. **(Must be a Hexadecimal Color Code)**
+- `duration` - The amount of time it will fade for.
+- `forced` - Whether or not restart the flashes.
 
 ***
 
 # Debug Functions
 ### debugPrint(text1, text2, text3, text4, text5)
-- Prints a debug message on the top-left corner of the screen
-- All values are optional
-- You can have up to 5 values to be printed.
+This command displays a debug message in the top-left corner of the screen. All of the values are optional, and you can print up to 5 of them.
 
-Example: `debugPrint("Current boyfriend character: ", getProperty("boyfriend.curCharacter"));`
+Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` 
 
-This will print the following message: `Current boyfriend character: bf`
+This will print the following message: `Current boyfriend character: bf`.
 
 ### close()
-Stops your script in the next 100 miliseconds. And must be used in a `Stage script` because it won't be used anymore
+Stops your script in the next 100 miliseconds. And must be used in a `Stage script` because it won't be used anymore.

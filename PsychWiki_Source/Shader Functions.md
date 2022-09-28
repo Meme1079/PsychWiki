@@ -1,4 +1,4 @@
-_Note: am still researching on what shaders does am just putting the template_
+_Note: Am still researching on what shaders does am just putting the template, you can do pull request to finish this part of the wiki; help is appreciated_
 
 # Creating/Removing Shader
 
@@ -6,7 +6,7 @@ _Note: am still researching on what shaders does am just putting the template_
 Sets the intensity of the shader
 
 - `name` - The Shader name
-- `glslVersion` - The Intensity of the shader
+- `glslVersion` - The intensity of the shader
 
 ### setSpriteShader(obj:String, shader:String)
 Sets the shader of the object
@@ -15,7 +15,7 @@ Sets the shader of the object
 - `shader` - The Shader name
 
 ### removeSpriteShader(obj:String)
-Removes the shader of the object
+Removes the shader from the game.
 
 - `object` - The Object variable name
 
@@ -23,13 +23,13 @@ Removes the shader of the object
 
 ### setShaderBool(obj:String, prop:String, value:Bool)
 
-### setShaderBoolArray(obj:String, prop:String, value:Dynamic)
-
 ### setShaderInt(obj:String, prop:String, value:Int)
 
-### setShaderIntArray(obj:String, prop:String, value:Dynamic)
-
 ### setShaderFloat(obj:String, prop:String, value:Float)
+
+### setShaderBoolArray(obj:String, prop:String, value:Dynamic)
+
+### setShaderIntArray(obj:String, prop:String, value:Dynamic)
 
 ### setShaderFloatArray(obj:String, prop:String, value:Dynamic)
 
@@ -37,12 +37,12 @@ Removes the shader of the object
 
 ### getShaderBool(obj:String, prop:String)
 
-### getShaderBoolArray(obj:String, prop:String)
-
 ### getShaderInt(obj:String, prop:String)
 
-### getShaderIntArray(obj:String, prop:String)
-
 ### getShaderFloat(obj:String, prop:String)
+
+### getShaderBoolArray(obj:String, prop:String)
+
+### getShaderIntArray(obj:String, prop:String)
 
 ### getShaderFloatArray(obj:String, prop:String)

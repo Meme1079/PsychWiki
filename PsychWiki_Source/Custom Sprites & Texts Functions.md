@@ -1,33 +1,35 @@
 # Creating/Adding/Removing Sprite
 ### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a sprite object with no animation. And you want a black screen put `nil` on `image` and add `makeGraphic` **(Must Be a .PNG Format)**
+Creates a sprite object with no animation. **(Must Be a .PNG Format)**
 
-If another Lua Sprite that exists is already using the `tag`, it will be removed.
+And you want a color screen put `nil` on `image` parameter and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) 
 
-- `tag` - The Sprite tag or Object variable name
-- `image` - The image path for the sprite object _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
-- `x` - The x-coordinate of the sprite object
-- `y` - The y-coordinate of the sprite object
+If another Lua sprite that exist's is already using the `tag`, it will be removed.
+
+- `tag` - The sprite tag or object variable name.
+- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
+- `x` - The x value of the sprite object.
+- `y` - The y value of the sprite object.
 
 ### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a Lua Sprite that supports Animations, and must have a `xml file` with it.
+Creates a Lua Sprite that supports animations, and must have a `xml` file with it.
 
-- `tag` - The Sprite tag or Object variable name
-- `image` - The image path for the sprite object _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
-- `x` - The x-coordinate of the sprite object
-- `y` - The y-coordinate of the sprite object
+- `tag` - The sprite tag or object variable name.
+- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
+- `x` - The x value of the sprite object.
+- `y` - The y value of the sprite object.
 
 ### addLuaSprite(tag:String, front:Bool)
-Adds a sprite object to the game
+Add's a sprite object to the game.
 
-- `tag` - The Sprite tag or Object variable name
-- `front` - Whether or not the sprite object gets added on top of the characters
+- `tag` - The sprite tag or object variable name.
+- `front` - Whether or not the sprite object get's added on top of the character's.
 
 ### removeLuaSprite(tag:String, destroy:Bool)
-Removes a sprite object from the game
+Remove's a sprite object from the game.
 
-- `tag` - The Sprite tag or Object variable name
-- `destroy` - Whether or not the sprite object should be fully removed, disallowing further use
+- `tag` - The sprite tag or object variable name.
+- `destroy` - Whether or not the sprite object should be fully removed, disallowing further use.
 
 ***
 
@@ -35,83 +37,83 @@ Removes a sprite object from the game
 ### makeLuaText(tag:String, text:String, width:Int, x:Float, y:Float)
 Creates a text object with position `x`, `y`, and `width`. **(Must Be a .TTF Format)**
 
-- `tag` - The Text tag or Object variable name
-- `text` - The Text object will have
-- `width` - The Width of the text; setting it to 0 will automatically determine the width for you
-- `x` - The x-coordinate of the object
-- `y` - The y-coordinate of the object
+- `tag` - The Text tag or Object variable name.
+- `text` - The Text object will have.
+- `width` - The Width of the text; setting it to `0` will automatically determine the width for you.
+- `x` - The x value of the object.
+- `y` - The y value of the object.
 
 ### addLuaText(tag:String)
-Adds a text object to the game
+Add's a text object to the game.
 
-- `tag` - The Text tag or Object variable name
+- `tag` - The Text tag or Object variable name.
 
 ### removeLuaText(tag:String, destroy:Bool)
-Removes a text object off the game
+Remove's a text object off the game.
 
-- `tag` - The Text tag or Object variable name
-- `destroy` - Whether or not the object will be fully destroyed, making it unable to be re-added
+- `tag` - The Text tag or Object variable name.
+- `destroy` - Whether or not the object will be fully destroyed, making it unable to be re-added.
 
 ***
 
 # Setting Text Properties
 ### setTextString(tag:String, text:String)
-Set's the text string
+Set's the text string.
 
-- `tag` - The Text tag or Object variable name
-- `text` - Set the text object will have
+- `tag` - The Text tag or Object variable name.
+- `text` - The Text object will have.
 
 ### setTextSize(tag:String, size:Int)
-Set's the text size
+Set's the text size.
 
-- `size` - Set the size of the text
+- `size` - The Text size value of the text.
 
 ### setTextWidth(tag:String, width:Float)
-Set's the text width
+Set's the text width.
 
-- `width` - Set the width of the text
+- `width` - The Text width value of the text.
 
 ### setTextBorder(tag:String, size:Int, color:String)
-Set's the text border
+Set's the text border.
 
-- `size` - Set the size of the border
-- `color` - Set the color of the border, **(Must be a Hexadecimal Color)**
+- `size` - The Text size value of the border.
+- `color` - The Text color value of the border. **(Must be a Hexadecimal Color Code)**
 
 ### setTextColor(tag:String, color:String)
-Set's the text color
+Set's the text color.
 
-- `color` - Set the color of the text, **(Must be a Hexadecimal Color)**
+- `color` - The Text color value of the text. **(Must be a Hexadecimal Color Code)**
 
 ### setTextAlignment(tag:String, alignment:String = 'left')
-Set's the text alignment
+Set's the text alignment.
 
-- `alignment` - Set the alignment of the text's, it can be `left`, `center`, `right` 
+- `alignment` - The Text alignment value of the text's, it can be `left`, `center`, `right`. 
 
 ### setTextFont(tag:String, font:String)
-Set's the text font you must have font in the `fonts` folder
+Set's the text font you must have font in the `fonts` folder.
 
-- `font` - Set the text font's
+- `font` - The Text font value font's.
 
 ### setTextItalic(tag:String, italic:Bool)
-Set's the text to _italic_
+Set's the text to _italic_.
 
-- `italic` - Set the italic text with a bool
+- `italic` - Change to _italic_ with a **boolean**.
 
 # Getting Text Properties
 ### getTextString(tag:String)
-Get's the text string
+Get's the Text string.
 
 ### getTextSize(tag:String)
-Get's the text size
+Get's the Text size.
 
 ### getTextWidth(tag:String)
-Get's the text width
+Get's the Text width.
 
 ### getTextBorder(tag:String)
-Get's the text border
+Get's the Text border.
 
 ### getTextColor(tag:String)
-Get's the text color
+Get's the Text color.
 
 ### getTextFont(tag:String, font:String)
-Get's the text font
+Get's the Text font.

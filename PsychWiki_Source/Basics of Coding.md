@@ -1,26 +1,19 @@
 # Variables
 Variables are manipulable storage spaces that can contain a variety of values.
 
-When creating a value you should name it once you name the variable use `=` afterwards and put anything you want after `=`, it could be a String, Boolean, Int, Etc. And you can not put a keywords or tokens in lua when naming a variable.
+When creating a Variable put a name, afterwards put equal `=` then put anything you want after equal `=`, it could be a String, Boolean, Numbers, Etc. And you can not put a keywords in lua when naming a variable.
 
-Keywords/Tokens:
+Reserved Keywords:
 ```lua
--- Keywords --
 
 and       or       not       local     true       break    
 false     nil      if        else      elseif     goto    
 then      for      in        repeat    until      
 while     do       return    end       function
 
--- Tokens --
-
-+     -     *     /     %     ^     #
-==    ~=    <=    >=    <     >     =
-(     )     {     }     [     ]
-;     :     ,     .     ..    ...
 ```
 
-Example:
+Examples:
 ```lua
 -- Valid --
 
@@ -28,6 +21,7 @@ Var1 = 'string1' -- a string variable
 Var_Space = 'string2' -- a variable that has a underscore         
 _Space = true -- a variable with the word underscore before its name
 _ = 69.6 -- a variable that is only an underscore, strange right? 
+Var2 = 'Corn'..' Lover' -- a variable with concatenate operator (Same works with other operators)
 
 -- Invalid --
 
@@ -35,57 +29,72 @@ if = true -- a variable named after a keyword
 ~= = 'yes'  -- a variable named after a token                  
 18.1and1*dv/> = 'cool' -- a variable spammed                      
 Val 3 = 45.3 -- a variable with a space                           
-13 = 'no' -- a variable that has a Int (Works the same all types of variables) 
+13 = 'no' -- a variable that has a Int (Same works with other variables)
 ```
 
-## Types of Variable
+You can also make multiple variables inside of a line by each sperating the name and value with the comma `,`.
 
-- `String` - A sequence of characters that can contain `''`, `""`, `[[]]`
-- `Int` - A integer number
-- `Float` - A decimal number
-- `Nil` - A type of variable that has no value and it is used to destroy a variable if you're not using it anymore
-- `Boolean` - A type of variable that has two possible values, `true` and `false`
-- `Table` - A type of variable and table that can store a `String`, `Boolean`, `Int`, `Float`, and even a `Table`. Tables can be represent Arrays, Dictionarys, Graph, and etc
+Examples:
+```lua
+a, b, c = 3, 23.23, true
+
+function onCreate()
+     debugPrint(a, b, c) 
+     -- a = 3, b = 23.23, c = true
+end
+```
+
+## Types of Values
+- `Strings` - A sequence of characters, you can put the characters around with single apostrophe `''` and double apostrophe `""`. You can also do double brackets `[[]]` for multi line **Strings**.
+- `Booleans` - A type of value it can be two possible values `true` or `false`.
+- `Numbers` - A numerical value used only to count or measure objects. It can be a **Int** or **Float**. Int is a type of number with no decimal point. **Float** is just the opposite of **Int**, it has a decimal point.
+- `Nil` - Zero or nonexistent, used to destory a value in a variable.
+- `Tables` - A type of value that stores multiple values. It can be a **Array** or **Dictionary**. **Array** is a collection of values. **Dictionary** are define each value with a key, then a value it’s the same as creating a variable. When accessing the table, put the table name then brackets with a position number inside of the table. And for **Dictionary** it's the same as accessing the table, but put a dot between the keyword and brackets.
 
 Example:
 ```lua
-ExVar1 = 'string' -- string
-ExVar2 = 5 -- int
-ExVar3 = 0.5 -- float
-ExVar4 = true -- boolean
-ExVar5 = nil -- nil
-
-multvar1, multvar2 = 'Pop', 'Tart' -- a multi variable
+ExVar1 = 'string' -- String
+ExVar2 = 5 -- Number (Int)
+ExVar3 = 0.5 -- Number (Float)
+ExVar4 = true -- Boolean
+ExVar5 = nil -- Nil
+ExVar6 = {value} -- Table Array      (Empty)
+ExVar7 = {       -- Table Dictionary (Empty)
+     key = value
+} 
 
 -- Table Section --
 
-table1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table array
--- to access a table use debugPrint(table[3]) will print 'Amazing'
+TabArray1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table array
+--[[ Use tableName[pos] to access it!
+     Example: TabArray1[3] will print 'is' ]]
 
-table2 = {a = 'string', b = 24, c = {'123', '456', '789'}} -- a table array with variables
---[[ Use tableName.Variable to access it!
-     Example1: debugPrint(table2.a) will print 'string'
-     Example2: debugPrint(table2.c[1]) will print '123' ]]
+TabArray2 = {'Psych', {'Engine', 'is', 'Amazing'}} -- a table array with a table
+--[[ Use tableName[pos1][pos2] to access it! 
+     Example: TabArray2[2][3] will print 'Amazing' ]]
 
-table5 = { -- a table dictionary works the same as a table
-     25, 
-     93, 
-     49  
-} -- accessing this is the same as the table array
-
-table4 = { -- a table graph
-     {'apple', 'banana', 'grape'}, -- don't forget to add a comma!
-     {24, 36, 13},
-     {true, false, nil}  -- don't add a comma at the end!
+TabDict1 = { -- a table dictionary
+     a = 'banana',
+     b = 'corn',
+     c = 'eggplant'
 }
---[[ Use tableName[array][pos] to access it!
-     Example1: debugPrint(table4[1][2]) will print 'banana' 
-     Example2: debugPrint(able4[3][1]) will print 'true'   ]]
+--[[ Use tableName.key or tableName['key'] to access it! 
+     Example: TabDict1.a will print 'banana'
+     Example: TabDict1['c'] will print 'eggplant' ]]
+
+TabDict2 = { -- a table dictionary with a table
+     num = {-1, -0.5, 0, 0.5, 1},
+     boo = {true, false},
+     str = {'FNF', 'Psych', 'Engine'}
+}
+--[[ Use tableName.key[pos] or tableName['key'][pos] to access it! 
+     Example: TabDict1.num[3] will print '0'
+     Example: TabDict1['boo'][1] will print 'true' ]]
 ```
 
-## Global and Local variables
-- `Global variables` - A type of variable that is available everywhere
-- `Local variables` - A type of variable that is only available in the function they are made in, you can do this in a `variable` and `function`
+## Global and Local Variables
+- `Global variables` - A type of variable that is available everywhere.
+- `Local variables` - A type of variable that is only available in the function they are made in, you can do this in a `variable` and `function`.
 
 Example:
 ```lua
@@ -104,8 +113,16 @@ end
 
 ***
 
+# Comments
+Comments are used to give context to the line of a code; they won't interact with the code.
+
+- `--` - A single comment.
+- `--[[]]--` - A multi comment.
+
+***
+
 # Operators
-An operator is a symbol that tells the interpreter to perform specific mathematical or logical statements
+An operator is a symbol that tells the interpreter to perform specific mathematical or logical statements.
 
 ### Arithmetic
 - `+` - Addition
@@ -113,111 +130,79 @@ An operator is a symbol that tells the interpreter to perform specific mathemati
 - `*` - Multiplication
 - `/` - Division
 - `^` - Exponent / To the power to
+- `-` - Unary Negation
 - `%` - [Modulus](https://www.calculatorsoup.com/calculators/math/modulo-calculator.php)
 
 ### Relational
-- `==` - Checks whether the left is equivalent to the right
-- `~=` - Checks whether the left IS NOT equivalent to the right
-- `>` - Checks whether the left is greater than the right **(MUST BE DONE WITH NUMBERS)**
-- `>=` - Checks whether the left is greater than OR EQUAL TO the right **(MUST BE DONE WITH NUMBERS)**
-- `<` - Checks whether the left is smaller than the right **(MUST BE DONE WITH NUMBERS)**
-- `<=` - Checks whether the left is smaller than OR EQUAL TO the right **(MUST BE DONE WITH NUMBERS)**
+- `==` - Checks if the condition is equal to the right.
+- `~=` - Checks if the condition is not equal to the right.
+- `>` - Checks if the condition is greater than the right. _(Only do this with Numbers)_
+- `<` - Checks if the condition is lesser than the right. _(Only do this with Numbers)_
+- `>=` - Checks if the condition is greater or equal to the right. _(Only do this with Numbers)_
+- `<=` - Checks if the condition is lesser or equal to the right. _(Only do this with Numbers)_
 
 ### Logical
-- `and` - Combines two conditions together; will return true if BOTH sides are true
-- `or` - Combines two conditions together; will return true if EITHER left or right are true
-- `not` - Reverses the condition; if it is equivalent to false, then the not operator will set it to true, and vice versa
+- `and` - Combines two conditions together; will return `true` if BOTH sides are `true`.
+- `or` - Combines two conditions together; will return `true` if EITHER left or right are `true`.
+- `not` - Reverses the condition; if it is equivalent to `false`, then the not operator will set it to `true`, and vice versa.
 
 ### Miscellaneous
-- `..` - Used to concatenate two or more variable's
-- `#` - Returns the length of a string or the number of items in a table
-
-***
-
-# Comments
-Comments are used to give context of the line of a code.
-
-And they won't interact with the code
-
-- `--` - A single comment
-- `--[[]]--` - A multi comment
+- `..` - Used to concatenate two or more **strings**.
+- `#` - Returns the length of a string or the number of items in a **table**.
 
 ***
 
 # Control Structures
-Control Structures allow to perform tasks if the condition is `true`
+Control Structures allow to perform tasks if the condition is `true`.
 
-## Non-Loops 
-Non-Loops are control structures that don't loop and only execute once
+Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because there are rarely used in scripts but they do work.
 
-### if-then
-A common statement that used for executing a block of code if the specific condition is `true`
+### If Statement
+A common basic statement to test if the condition is `true` it will execute the code.
+
+You can add a `elseif` statement as an optional statement inside of the `if` statements. You can use this as a alternate conditions if the `if` statement returns to `false`.
+
+Another statement you can add is `else` this statement allow you to execute opposite condition of `if` or `elseif` statements and will only activate if the `if` or `elseif` returns `false`.
 
 Example:
 ```lua
-b = 45 -- a int
 function onCreate()
-     if 35 < b then -- if below 35
-          debugPrint('Greater than 35!') -- will print 'Greater than 45!'
+     makeLuaText('textTag', ' ', nil, 0, 0)
+     addLuaText('textTag', true)
+end
+
+function onUpdate(elapsed)
+     local health = getProperty('health') -- a int
+     if 2 <= health then -- if above or equal than 2
+          setTextString('textTag', health..' is Full')
+     elseif 1 <= health then -- if above or equal than 1
+          setTextString('textTag', health..' is Mid Full')
+     else -- lesser than 1
+          setTextString('textTag', health..' is Low')
      end
 end
 ```
 
-### else
-It is used to execute the opposite statement.
+### For Loop
+It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes.
 
-Example:
-```lua
-b = 15 -- a int
-function onCreate()
-     if 35 < b then -- if above 35
-          debugPrint('Greater than 35!') -- will not print
-     else -- if below 35
-          debugPrint('Lesser than 35!') -- will print 'Lesser than 45!'
-     end
-end
-```
+- `start value` - A variable inside of the `for-do` and the start of the loop.
+- `end value` - The end of the loop value.
+- `increment` - An optional value that takes a step on every loop.
 
-### elseif-then
-It works the same way as `if-then`, but it is used to verify alternate conditions.
+There 2 types of `for` loop Numeric and Generic. Numeric is the normal version of the loop it only includes `start value`, `end value`, and `increment`. Generic has the `in` and `pairs()` or `ipairs()` keywords.
 
-Example:
-```lua
-b = 55 -- a int
-function onCreate()
-     if 50 <= b then -- if above than 55
-          debugPrint(b..' is Greater than 55!') -- will print '55 is Greater than 55!'
-     elseif 35 <= b then -- if above than 35
-          debugPrint('Greater than 45!') -- won't print
-     else -- lesser than 35
-          debugPrint('Lesser than 45!') -- won't print
-     end
-end
-```
-
-## Loops
-Loops are opposite of `Non-Loops` they can execute code multiple times
-
-Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because these loops are broken when using it and can be recreated in Funkin lua if you know what you're doing.
-
-### for-do
-It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes. 
-
-- `control` - A variable inside of the `for-do` and the start of the loop
-- `end` - The end of the loop
-- `increment` - An optional value that takes a step on every loop
-
-Example 1:
+Examples of a Numeric Loop:
 ```lua
 function onCreatePost()
      for i = 0, getProperty('unspawnNotes.length')-1 do -- get's every note in the chart then subtracts one
-	  setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true) -- when hit it doesn't play an animation
-          setPropertyFromGroup('unspawnNotes', i, 'noMissAnimation', true) -- when miss it doesn't play an animation
+          setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true) -- when hit, doesn't play an animation
+          setPropertyFromGroup('unspawnNotes', i, 'noMissAnimation', true) -- when miss, doesn't play an animation
      end
 end
 ```
 
-Example 2:
+Example of a Numeric Loop with the incrment:
 ```lua
 function onCreate()
      for i = 1, 10, 2 do -- will take 2 steps
@@ -226,63 +211,72 @@ function onCreate()
 end
 ```
 
+Example of a Generic Loop:
+```lua
+fruits = {'banana', 'orange', 'apple', 'grape'} -- a table
+function onCreate()
+     for k,v in pairs(fruits) do -- gets the value inside of the table
+          debugPrint(v) -- prints every value in the table
+     end
+end
+```
+
 ***
 
-# Others
+# Keywords Functions
 
 ### function(parameter)
 A function is a collection of code that cooperates to complete a task.
+
+You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`. Same works with tables but must be a **Dictionary**.
 
 - `parameter` - They are a named variable that is passed into a function and used to import arguments. Using `,` you can create more of them.
 
 Example:
 ```lua
 function onCreatePost()
-     ezTimer('tag', 3, function() -- waits for 3 seconds
-          setProperty('health', 0.1) -- sets the health to near death
-     end)
+     setPos('boyfriend', {100, 500}) -- Changes the position to x = 100 and y = 500
 end
 
--- mayo78 made this function
-timers = {}
-function ezTimer(tag, timer, callback) -- tag: the tag, timer: seconds, callback: put function()
-     table.insert(timers,{tag, callback})
-     runTimer(tag, timer)
-end
-
-function onTimerCompleted(tag)
-     for k,v in pairs(timers) do
-          if v[1] == tag then
-               v[2]()
-          end
+-- function created by Mayo78
+function setPos(obj, pos) -- Concatonates setProperty x and y
+     if pos[1] ~= nil then
+          setProperty(obj..'.x', pos[1])
+     end
+     if pos[2] ~= nil then
+          setProperty(obj..'.y', pos[2]) 
      end
 end
 ```
 
 ### return
-It must appear near the `end` of a control statment and used to return a value that is given
+Returns the finish result of the function or a value.
 
 Example:
 ```lua
-function onCreate()
-     debugPrint(onThingy(5, 6, 7)) -- will print 5.83
+function onCreatePost()
+     local getBFchar = getProperty('boyfriend.curCharacter') -- gets the character name
+     if not allow({'bf', 'bf-car'}, getBFchar) then
+          debugPrint('die')
+     end
 end
 
-function onThingy(num1, num2, num3)
-     local divide = num1 / num2 -- divide
-     local answer = divide * num3 -- multiply
-     return round(answer, 2) -- returns the answer and rounds it
-end
-
--- round function that modify the decimal
-function round(num, dp) -- num: the Int you want to round, dp: how many decimal you want
-     local mult = 10^(dp or 0);
-     return math.floor(num * mult + 0.5)/mult; 
+function allow(e, l)
+     t = {} table.insert(t, e)
+     for k,v in pairs(t) do -- gets every value inside of a table
+          for i = 1, #v do -- the second table inside of 't' table
+               if v[i] == l then -- detects if the value in the table is true
+                    return true
+               else
+                    return false -- if not detected then false
+               end
+          end
+     end
 end
 ```
 
 ### break
-Used to forcefully stop a loop
+Will forcefully end a loop early.
 
 Example:
 ```lua
@@ -296,190 +290,154 @@ function onCreate()
 end
 ```
 
-### in
-An optional part of the Generic `for-do` loop flow control
-
-Example:
-```lua
-fruits = {'banana', 'orange', 'apple', 'grape'} -- a table
-function onCreate()
-     for k,v in pairs(fruits) do -- gets the value inside of the table
-          debugPrint(v) -- prints every value in the table
-     end
-end
-```
-
 ***
 
-# Library Manipulation
-These are use to manipulate lua function in lua
+# Libraries
+These are functions that can manipulate values.
 
-## String Manipulation
-They are used to manipulate strings
+## String Functions
 
-### string.lower(string)
-Converts any upper case alphabet into lower case
+### string.lower(str:String)
+Converts any upper case alphabet into lower case.
 
-- `string` - The string you want
+- `str` - The string you want.
 
-### string.upper(string)
-Converts any lower case alphabet into upper case
+### string.upper(str:String)
+Converts any lower case alphabet into upper case.
 
-- `string` - The string you want
+- `str` - The string you want.
 
-### string.byte(char, pos)
-Creates a numeric code from the character code or string
+### string.byte(str:String, pos:Int)
+Converts any letters into a UTF-8 numeric code.
 
-- `char` - The character code or string
-- `pos` -  An optional value that get the position of the character
+- `str` - The character code or string.
+- `pos` -  An optional value that get the position of the character.
 
-Example: `string.byte('a')` will return 97
+Example: `string.byte('a')` will return '97'
 
-### string.char(byte)
-Creates a character code from the numeric code
+### string.char(num:Int)
+Converts any UTF-8 numeric code into a alphabet character.
 
-- `byte` - the numeric code
+- `num` - the numeric code.
 
 Example: `string.char(97)` will return 'a'
 
-### string.gsub(string, find, rep, limit)
-Returns a copy of a string and replaces it with a new string
+### string.gsub(str:String, pattern:String, replacement:String, limit:Int)
+Returns a copy of a string and replaces it with a new string.
 
-- `string` - The string you want
-- `find` - Part of the string you want to replace
-- `rep` - The string that will be replacing the previous one 
-- `limit` - An Optional value that limits on replacing the new string
+- `str` - The string you want.
+- `pattern` - Part of the string you want to replace.
+- `replacement` - The string that will be replacing the previous one.
+- `limit` - An Optional value that limits on replacing the new string.
 
-### string.len(string)
-Returns the length of the string
+### string.rep(str:String, limit:Int, seperation:String)
+Repeats the string.
 
-- `string` - The string you want
+- `str` - The string you want.
+- `limit` - The limit of repeating it.
+- `seperation` - The separation between the repeated string.
 
-Example: `string.len('words')` will return 5
+### string.reverse(str:String)
+Reverses the string, that's it.
 
-### string.rep(string, limit, sep)
-Repeats the string
+- `str` - The string you want.
 
-- `string` - The string you want
-- `limit` - The limit of repeating it
-- `sep` - The separation between the repeated string
+### string.find(str:String)
+Finds the string works the same with `stringStartsWith()` and `stringEndsWith()` but has no limit.
 
-### string.reverse(string)
-Reverses the string
-
-- `string` - The string you want
-
-### string.find(string)
-Finds the string works the same with `stringStartsWith()` and `stringEndsWith()` but has no limit
-
-- `string` - The string you want
+- `str` - The string you want.
 
 ***
 
-## Table Manipulation
-They are used to manipulate tables
+## Table Functions
 
-### table.insert(table, pos, val)
-Inserts a new value inside of a table
+### table.insert(tab:Table, pos:Int, val:Value)
+Inserts a new value inside of a table.
 
-- `table` - The table you want
-- `pos` - The position in each array of the table
-- `val` - The value that you want to insert
+- `tab` - The table you want.
+- `pos` - The position in each array of the table.
+- `val` - The value that you want to insert.
 
-### table.remove(table, pos)
-Removes a value inside of a table
+### table.remove(tab:Table, pos:Int)
+Removes a value inside of a table.
 
-- `table` - The table you want
-- `pos` - The position in each array of the table
+- `tab` - The table you want.
+- `pos` - The position in each array of the table.
 
-### table.concat(table, sep)
-Converts a table into a string
+### table.concat(tab:Table, sep:String)
+Concatenate the value inside of the table into.
 
-- `table` - The table you want
-- `sep` - The separation between the value in the table
+- `tab` - The table you want.
+- `sep` - The separation between the value in the table.
 
-### table.sort(table)
-Makes the table sorted in an alphabetical order
+### table.sort(tab:Table)
+Makes the table sorted in an alphabetical order.
 
-- `table` - The table you want
-
-### table.getn{table}
-Gets the length of the table
-
-- `table` - The table you want
-
-Example: `table.getn{'a', 'b', 'c'}` will return 3
+- `tab` - The table you want.
 
 ***
 
-## Math Manipulation
-They are used to manipulate numbers and used for modcharts I think
+## Math Functions
 
-### math.max(num)
-Returns the highest value that it could find
+### math.max(num:Float)
+Returns the highest value that it could find.
 
-- `num` - Multiple array of numbers
+- `num` - Multiple array of numbers.
 
-Example: `math.max(12, 34, 1)` will print 34 because it's the largest value
+Example: `math.max(12, 34, 1)` will print '34' because it's the largest value.
 
-### math.min(num)
-Returns the lowest value that it could find 
+### math.min(num:Float)
+Returns the lowest value that it could find.
 
-- `num` - Multiple array of numbers
+- `num` - Multiple array of numbers.
 
-Example: `math.min(12, 34, 1)` will print 1 because it's the lowest value
+Example: `math.min(12, 34, 1)` will print '1' because it's the lowest value.
 
-### math.ceil(num)
-Rounds a number to its highest value
+### math.ceil(num:Float)
+Rounds a float to its highest value.
 
-- `num` - The decimal number you want
+- `num` - The decimal number you want.
 
-Example: `math.ceil(5.1)` will print 6
+Example: `math.ceil(5.1)` will print '6'.
 
-### math.floor(num)
-Rounds a number to its lowest value
+### math.floor(num:Float)
+Rounds a float to its lowest value.
 
-- `num` - The decimal number you want
+- `num` - The decimal number you want.
 
-Example: `math.floor(5.9)` will print 5
+Example: `math.floor(5.9)` will print '5'.
 
-### math.sin(num)
-Returns the sine of the number
+### math.sin(num:Float)
+Returns the sine of the number.
 
-- `num` - The number you want
+- `num` - The number you want.
 
-### math.cos(num)
-Returns the cosine of the number
+### math.cos(num:Float)
+Returns the cosine of the number.
 
-- `num` - The number you want
+- `num` - The number you want.
 
-### math.tan(num)
-Returns the tangent of the number
+### math.tan(num:Float)
+Returns the tangent of the number.
 
-- `num` - The number you want
+- `num` - The number you want.
 
-### math.sqrt(num)
-Returns the square root of the number
+### math.sqrt(num:Float)
+Returns the square root of the number.
 
-- `num` - The number you want
+- `num` - The number you want.
 
-Example: `math.sqrt(5)` will print `2.2360679775`
+Example: `math.sqrt(5)` will print `2.2360679775`.
 
-### math.abs(num)
-Makes a negative number into a positive one
+### math.abs(num:Float)
+Returns the absolute of the number.
 
-- `num` - The negative number you want
+- `num` - The negative number you want.
 
-Example: `math.abs(-5)` will convert it to positive 5
-
-### math.pow(num, expo)
-Another alternate exponent operator that returns the result of the exponent
-
-- `num` - The number you want
-- `expo` - The number that will be the exponent
+Example: `math.abs(-5)` will convert it to positive '5'.
 
 ### math.pi
-Returns pi length of 13 digits
+Returns pi length of 13 digits.
 
 ### math.huge
-Returns the largest numerical value which is infinite
+Returns the largest numerical value which is infinite.
