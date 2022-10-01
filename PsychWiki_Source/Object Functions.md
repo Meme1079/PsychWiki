@@ -23,7 +23,7 @@ Example: `add`, `darken`, `normal`
 
 # Animations Functions
 ### addAnimationByPrefix(tag:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true)
-Adds an animation name to the Lua Sprite/Object using the tag/variable tag, it will also overwrite another animation using the same name.
+Adds an animation name to the lua sprite/object using the tag/variable tag, it will also overwrite another animation using the same name.
 
 - `tag` - The sprite tag or object variable name.
 - `name` - The animation name to played.
@@ -32,7 +32,7 @@ Adds an animation name to the Lua Sprite/Object using the tag/variable tag, it w
 - `loop` - An optional value, This will loop the animation, Default value is `true`.
 
 ### addAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-Adds an animation name to the Lua Sprite/Object using the tag/variable tag with the specified indices on indices, it will also overwrite another animation using the same name.
+Adds an animation name to the lua sprite/object using the tag/variable tag with the specified indices on indices, it will also overwrite another animation using the same name.
 
 - `obj` - The sprite tag or object variable name.
 - `name` - The animation name to played.
@@ -41,11 +41,20 @@ Adds an animation name to the Lua Sprite/Object using the tag/variable tag with 
 - `framerate` - An optional value, how many frames per second does the animation have, Default value is `24`
 
 ### objectPlayAnimation(obj:String, name:String, forced:Bool = false)
-Play's animation name on a Lua sprite or object with the tag or variable object.
+Plays animation name on a lua sprite/object with the tag or variable object.
 
 - `obj` - The sprite tag or object variable name.
 - `name` - The animation name to played.
 - `forced` - If `true`, if the current animation is the same as the one you're attempting to play, the animation will be reset, Default value is `false`.
+
+### playAnim(obj:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0)
+An alternate version of `objectPlayAnimation()`
+
+- `obj` - The sprite tag or object variable name.
+- `name` - The animation name to played.
+- `forced` - If `true`, if the current animation is the same as the one you're attempting to play, the animation will be reset, Default value is `false`.
+- `reverse` - Will reverse the animation.
+- `startFrame` -  The starting frame on the animation to played.
 
 ***
 
@@ -121,6 +130,14 @@ Changes on which camera should your object be drawn on.
 
 - `obj` - The sprite tag or object variable name.
 - `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+
+### addOffset(obj:String, anim:String, x:Float, y:Float)
+Adds an offset of the animation.
+
+- `obj` - The sprite tag or object variable name.
+- `anim` - The animation name to played.
+- `x` -  the new x value of the animation.
+- `y` -  the new x value of the animation.
 
 ### screenCenter(obj:String, pos:String = 'xy')
 Sets the object to center of the screen

@@ -14,13 +14,13 @@ Triggered when the lua file is ended. _(Song fade out finished)_
 # Gameplay/Song interactions
 
 ### onBeatHit()
-Triggered 4 times per section.
+Triggered 4 times per section used for `curStep` and `curDecStep`.
 
 ### onStepHit()
-Triggered 16 times per section.
+Triggered 16 times per section used for `curBeat` and `curDecBeat`.
 
 ### onSectionHit()
-Triggered per section.
+Triggered per section used for `curSection`.
 
 ### onUpdate(elapsed)
 Every frame on the game, some variables weren't updated yet.

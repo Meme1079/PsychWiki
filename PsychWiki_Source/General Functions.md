@@ -48,6 +48,8 @@ Add's the `value` of the current song's hit continuously and recalculate's the r
 ### addHealth(value:Float = 0)
 Add's the `value` of the current song's health continuously and recalculate's the rating.
 
+***
+
 ### setScore(value:Int = 0)
 Set's the `value` of the current song's score total into a specified state and recalculate's the rating.
 
@@ -71,6 +73,8 @@ Set's the rating name to `value` in case you want to do your own rating calculat
 ### setRatingFC(value:String)
 Set's the rating FC on the `scoreTxt`.
 
+***
+
 ### getScore()
 Get's the current song's score total.
 
@@ -85,81 +89,14 @@ Get's the current song's health total.
 
 ***
 
-# Keys/KeyBoard Press Functions
-### keyJustPressed(name:String)
-Gets the key name that was recently pressed on the current frame.
-
-Keys: `left`, `down`, `up`, `right`, `accept`, `back`, `pause`, `reset`, `space`
-
-- `name` - The name of the key listed above.
-
-### keyPressed(name:String)
-Get's the key name currently pressed on the current frame.
-
-- `name` - The name of the key listed above.
-
-### keyReleased(name:String)
-Get's the key name was released on the current frame.
-
-- `name` - The name of the key listed above.
-
-### keyboardJustPressed(name:String)
-Get's the keyboard key name that was recently pressed on the current frame.
-
-- `name` - The name of the key on the keyboard.
-
-Example: `keyboardJustPressed('SHIFT')`
-
-### keyboardPressed(name:String)
-Get's the keyboard key name is being held on the current frame.
-
-- `name` - The name of the key on the keyboard.
-
-### keyboardReleased(name:String)
-Get's the keyboard key name was released on the current frame.
-
-- `name` - The name of the key on the keyboard.
-
-***
-
-# Mouse functions
-### mouseClicked(name:String)
-Get's the mouse button name that was recently pressed on the current frame. Leave the `name` blank for it to default the `name` to left.
-
-Buttons: `left`, `right`, `middle`
-
-- `name` - The name of the mouse button listed above.
-
-### mousePressed(name:String)
-Get's the mouse button name while being held on the current frame.
-
-- `name` - The name of the mouse button listed above.
-
-### mouseReleased(name:String)
-Get's the mouse button name after releasing on the current frame.
-
-- `name` - The name of the mouse button listed above.
-
-### getMouseX(camera:String)
-Retunr's the current x value of the mouse on the specific camera.
-
-- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
-
-### getMouseY(camera:String)
-Retunr's the current y value of the mouse on the specific camera.
-
-- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
-
-***
-
-# Lua Exists
+# Lua Object Exists
 ### luaSpriteExists(tag:String)
-Check's whether the sprite object exists in the currently playing song.
+Checks whether the sprite object exists in the currently playing song.
 
 - `tag` - The tag of the sprite object.
 
 ### luaTextExists(tag:String)
-Check's whether the text object exists in the currently playing song.
+Checks whether the text object exists in the currently playing song.
 
 - `tag` - The tag of the text object.
 
@@ -170,7 +107,7 @@ Checks whether the sound exists in the currently playing song.
 
 ***
 
-# Scripts Functions
+# File Functions
 ### isRunning(luaFile:String)
 Note: Put the file format name to get the file you want.
 
@@ -189,22 +126,46 @@ Get's the text from different file's.
 - `path` - The path of the text file that you are getting.
 - `ignoreModFolders` - An optional parmeter that ignores the mod folder with a **boolean**.
 
-Example: `getTextFromFile('pathTotheFile/ExampleFile.txt')`
-
 ### directoryFileList(folder:String)
 Get's the folder file in the directory.
 
 - `folder` - The path to the folder
 
+Example: `getTextFromFile('pathTotheFile/ExampleFile.txt')`
+
+### saveFile(path:String, content:String, absolute:Bool = false)
+Changes the contents of file then saves it.
+
+- `path` - The path of the file that you are getting.
+- `content` - The contents of the file to be saved, must surrounded by double brackets `[[]]`.
+- `absolute` - An optional parmeter that ignores the mod folder with a **boolean**.
+
+### deleteFile(path:String, ignoreModFolders)
+Deletes the the file.
+
+- `path` - The path of the file that you are getting.
+- `ignoreModFolders` - An optional parmeter that ignores the mod folder with a **boolean**.
+
+### checkFileExists(filename:String, absolute:Bool = false)
+Checks if the file existed, it's like lua exists function but it's global.
+
+- `filename` The path of the file that you are getting.
+- `absolute` - An optional parmeter that ignores the mod folder with a **boolean**.
+
+Example: `checkFileExists('mods/pathTotheFile/luafile.lua')`
+
+***
+
+# Scripts Functions
 ### addLuaScript(path:String)
 Add's a lua script into the game.
 
-- `path` - The Lua file path to be chosen.
+- `path` - The path of the file that you are getting.
 
 ### removeLuaScript(path:String)
 Remove's a lua script into the game.
 
-- `path` - The Lua file path to be chosen.
+- `path` - The path of the file that you are getting.
 
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
 Add's a library variable into the interpreter.
@@ -220,6 +181,19 @@ Note: the `codeToRun` must be surrounded by double brackets `[[]]`.
 It execute's the string as a Haxe script.
 
 Example: `runHaxeCode([[haxe code]])`
+
+### getGlobalFromScript(luaFile:String, global:String)
+Gets the global variable from another lua script, this will not work with local variable.
+
+- `luaFile` - The path of the file that you are getting.
+- `global` - The variable to be chosen.
+
+### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
+Sets the new value of the global variable from another lua script, this will not work with local variable.
+
+- `luaFile` - The path of the file that you are getting.
+- `global` - The variable to be chosen.
+- `val` - The new value of the variable.
 
 ***
 

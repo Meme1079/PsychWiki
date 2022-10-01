@@ -3,6 +3,8 @@ Variables are manipulable storage spaces that can contain a variety of values.
 
 When creating a Variable put a name, afterwards put equal `=` then put anything you want after equal `=`, it could be a String, Boolean, Numbers, Etc. And you can not put a keywords in lua when naming a variable.
 
+If you decided to put variables with the same name then the second variable on the bottom will be executed. This is because all programming executes code from top to the bottom.
+
 Reserved Keywords:
 ```lua
 
