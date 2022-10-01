@@ -228,7 +228,7 @@ end
 ### function(parameter)
 A function is a collection of code that cooperates to complete a task.
 
-You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`. Same works with tables but must be a **Dictionary**.
+You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with tables.
 
 - `parameter` - They are a named variable that is passed into a function and used to import arguments. Using `,` you can create more of them.
 
@@ -257,21 +257,21 @@ Example:
 function onCreatePost()
      local getBFchar = getProperty('boyfriend.curCharacter') -- gets the character name
      if not allow({'bf', 'bf-car'}, getBFchar) then
-          debugPrint('die')
+          setProperty('health', 0)
      end
 end
 
 function allow(e, l)
-     t = {} table.insert(t, e)
+     local t = {} 
+     table.insert(t, e)
      for k,v in pairs(t) do -- gets every value inside of a table
           for i = 1, #v do -- the second table inside of 't' table
                if v[i] == l then -- detects if the value in the table is true
                     return true
-               else
-                    return false -- if not detected then false
                end
           end
      end
+     return false -- if not detected then false
 end
 ```
 
