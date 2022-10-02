@@ -40,7 +40,7 @@ All Shortcuts:
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..getProperty('storyWeek')..']')`
 - `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
 
-**
+***
 
 # Camera/Screen Variables
 - `cameraX` - The current x position of camera, Shortcut to `getProperty('camFollowPos.s')`.
