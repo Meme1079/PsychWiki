@@ -3,9 +3,9 @@
 Note: 
 Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them.
 
-- `Function_Stop` - Stops the game. _(Must have return)_
-- `Function_StopLua` - Stops the any lua files. _(Must have return)_
-- `Function_Continue` - Continue the game. _(Must have return)_
+- `Function_Stop` - Stops the game, the `return` keyword is necessary.
+- `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary.
+- `Function_Continue` - Continue the game, the `return` keyword is necessary.
 - `luaDebugMode` - Enables debug mode, use `luaDebugMode = true` to enable it, Default value: `false`
 - `luaDeprecatedWarnings` - Only works in Debug mode; use `luaDeprecatedWarnings = false` to turn it off; default value is 'true'. Informs you if a function or variable is deprecated and shouldn't be used anymore.
 - `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
@@ -13,20 +13,34 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 ***
 
 # Song/Week Variables
-- `curBpm` - Current BPM of the Song, shortcut to `getPropertyFromClass('Conductor', 'bpm')`.
-- `bpm` - Starting BPM of the Song, shortcut to `getProperty('SONG.bpm')`.
-- `scrollSpeed` - Starting Scroll speed of the Song, shortcut to `getProperty('SONG.speed')`.
-- `crochet` - Interval between Beat hits.
-- `stepCrochet` - Interval between Step hits.
-- `songLength` - Song duration in milliseconds.
-- `songName` - Self-explanatory, Shortcut to `getProperty('SONG.song')`.
-- `isStoryMode` - Self-explanatory, Shortcut to `getProperty('isStoryMode')`.
-- `difficulty` - Returns the difficulty ID [Easy = 0, Normal = 1, Hard = 2], Shortcut to `getProperty('storyDifficulty')`.
-- `difficultyName` - Returns the difficulty name.
-- `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, it's here.
+- `curBpm` - The current BPM of the song.
+- `bpm` - The starting BPM of the song.
+- `scrollSpeed` - The starting Scroll speed of the song.
+- `crochet` - The interval between Beat hits.
+- `stepCrochet` - The interval between Step hits.
+- `songLength` - The song duration in milliseconds.
+- `songName` - The song name to be chosen.
+- `isStoryMode` - Tells if its in story mode.
+- `difficulty` - Returns the difficulty ID number.
+- `difficultyName` - Returns the difficulty name to be chosen.
 - `week` - Returns the properly formatted current week file name.
+- `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, its here.
 
-***
+All Shortcuts:
+- `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
+- `bpm` - `getProperty('SONG.bpm')`
+- `scrollSpeed` - `getProperty('SONG.speed')`
+- `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
+- `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
+- `songLength` - `getProperty('songLength')`
+- `songName` - `getProperty('SONG.song')`
+- `isStoryMode` - `getProperty('isStoryMode')`
+- `difficulty` - `getProperty('storyDifficulty')`
+- `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..getProperty('storyDifficulty')..']')`
+- `week` - `getPropertyFromClass('WeekData', 'weeksList['..getProperty('storyWeek')..']')`
+- `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
+
+**
 
 # Camera/Screen Variables
 - `cameraX` - The current x position of camera, Shortcut to `getProperty('camFollowPos.s')`.
@@ -38,7 +52,6 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 # Gameplay Variables
 - `startedCountdown` - Indicates whether the countdown has already begun, Shortcut to `getProperty('startedCountdown')`.
-- `skipCountdown` - The countdown is skipped, Shortcut to `getProperty('skipCountdown')`.
 - `seenCutscene` - Checks if the cutscene is seen, Shortcut to `getPropertyFromClass('PlayState', 'seenCutscene'))`.
 - `curStep` - The current step number, Shortcut to `getProperty('curStep')`.
 - `curDecStep` - The current decimal step number, Shortcut to `getProperty('curDecStep')`.
@@ -62,8 +75,6 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `botPlay` - Tells if botplay is enabled, Shortcut to `getProperty('cpuControlled')`.
 - `practice` - Tells if practice is enabled, Shortcut to `getProperty('practiceMode')`.
 - `version` - The version of Psych Engine that is currently in, Shortcut to `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`.
-- `debugKeysChart` - The Chart Editor key, Shortcut to `getProperty('debugKeysChart')`. 
-- `debugKeysCharacter` - The Character Editor key, Shortcut to `getProperty('debugKeysCharacter')`.
 
 ***
 
@@ -104,13 +115,6 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 ***
 
 # Preferences Variables
-
-Note: All the shortcuts on Preferences Variables are `getPropertyFromClass('ClientPrefs', 'Preferences Variable')`.
-
-Except: `scriptName`, `noResetButton`, `buildTarget`
-
-Example: `getPropertyFromClass('ClientPrefs', 'downscroll')`
-
 - `downscroll` - Checks if the player notes are in downscroll.
 - `middlescroll` - Checks if the player notes are in centerfield.
 - `opponentStrums` - Checks the opponents strums visibility.  
@@ -120,12 +124,30 @@ Example: `getPropertyFromClass('ClientPrefs', 'downscroll')`
 - `hideTime` - Checks if the time bar is hidden.
 - `timeBarType` - Checks the time bar displayed.
 - `cameraZoomOnBeat` - Checks the camera zoom on beat.
-- `flashingLights` - Checks if the song has flashing lights . _(Recommended to disable it, if you have one!)_
+- `flashingLights` - Checks if the song has flashing lights. _(Recommended to disable it, if you have one!)_
 - `lowQuality` - Checks if the song is low quality. _(Recommended to enable it, if you have a potato computer)_
 - `noteOffset` - Checks the note offset in milliseconds, Goes from `0` to `500`.
-- `noResetButton` - Checks if the reset button is activated, Shortcut to `getPropertyFromClass('ClientPrefs', 'noReset')`.
+- `noResetButton` - Checks if the reset button is activated.
 - `healthBarAlpha` - Checks the alpha/opacity of the health bar.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
 - `shadersEnabled` - Checks if the shaders is enabled.
 - `scriptName` - Checks the script name that is running in game.
 - `buildTarget` - Checks the build target of Psych Engine.
+
+All Shortcuts:
+- `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
+- `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middlescroll')`
+- `opponentStrums` - `getPropertyFromClass('ClientPrefs', 'opponentStrums')`
+- `framerate` - `getPropertyFromClass('ClientPrefs', 'framerate')`
+- `ghostTapping` - `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
+- `hideHud` - `getPropertyFromClass('ClientPrefs', 'hideHud')`
+- `hideTime` - `getPropertyFromClass('ClientPrefs', 'hideTime')`
+- `timeBarType` - `getPropertyFromClass('ClientPrefs', 'timeBarType')`
+- `cameraZoomOnBeat` - `getPropertyFromClass('ClientPrefs', 'cameraZoomOnBeat')`
+- `flashingLights` - `getPropertyFromClass('ClientPrefs', 'flashingLights')`
+- `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
+- `noResetButton` - `getPropertyFromClass('ClientPrefs', 'noReset')`
+- `healthBarAlpha` - `getPropertyFromClass('ClientPrefs', 'healthBarAlpha')`
+- `scoreZoom` - `getPropertyFromClass('ClientPrefs', 'scoreZoom')`
+- `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
+- `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shadersEnabled')`

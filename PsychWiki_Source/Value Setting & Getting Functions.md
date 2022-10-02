@@ -80,9 +80,9 @@ Examples:
 ***
 
 # Value Properties
-Here's some propertie's I know, you can use this to set or get the object property
+Here's some properties I know, you can use this to set or get the object property.
 
-Also here's the example when using it: `setProperty('object.x', value)` 
+Also here's the example when using it: `setProperty('object.x', value)`.
 
 - `.x` - The x value of the object **(Float)**
 - `.y` - The y value of the object **(Float)**
@@ -98,23 +98,34 @@ Also here's the example when using it: `setProperty('object.x', value)`
 - `.antialiasing` - The antialiasing of the object set it to `false` if the image is a pixel **(Boolean)**
 - `.curCharacter` - Gets the character name, it could be: `boyfriend`, `dad`, `gf` **(String)**
 
+# Song/Week Properties
+- `skipCountdown` - Skips the countdown.
+- `deathCounter` - How many deaths you currently have.
+- `debugKeysChart` - The key for the chart editor.
+- `debugKeysCharacter` The key for the character editor.
+- `isPixelStage` – Indicates whether it is in pixel mode.
+- `inCutscene` - Indicates whether it is in a cutscene.
+- `curStage` - The stages name.
+
+***
+
 # NoteData Properties
 Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`
 
 Example: `setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true)`
 
-- `noAnimation` - If you hit a note, will not play an animation **(Boolean)**
-- `noMissAnimation` - If you miss a note, will not play an animation **(Boolean)**
-- `hitCausesMiss` - If you hit a note, will cause to miss **(Boolean)**
-- `texture` - The texture of the note skin **(String)**
-- `noteSplashTexture` -  The texture of the note splash **(String)**
-- `noteSplashDisabled` - Disables the note splashes **(Boolean)**
-- `hitsoundDisabled` -  Disables the hitsounds **(Boolean)**
-- `ratingDisabled` - Disables the ratings **(Boolean)**
-- `noteSplashHue` - HUE of the note splash **(Float)**
-- `noteSplashSat` - Saturation of the note splash **(Float)**
-- `noteSplashBrt` - Brightness of the note splash **(Float)**
+- `noAnimation` - If you hit a note, will not play an animation. **(Boolean)**
+- `noMissAnimation` - If you miss a note, will not play an animation. **(Boolean)**
+- `hitCausesMiss` - If you hit a note, will cause to miss. **(Boolean)**
+- `texture` - The texture of the note skin. **(String)**
+- `noteSplashTexture` -  The texture of the note splash. **(String)**
+- `noteSplashDisabled` - Disables the note splashes. **(Boolean)**
+- `hitsoundDisabled` -  Disables the hitsounds. **(Boolean)**
+- `ratingDisabled` - Disables the ratings. **(Boolean)**
+- `noteSplashHue` - HUE of the note splash. **(Float)**
+- `noteSplashSat` - Saturation of the note splash. **(Float)**
+- `noteSplashBrt` - Brightness of the note splash. **(Float)**
 - `hitHealth` - If you hit a note, it will add a health and you can customize it! **(Float)**
 - `missHealth` - If you miss a note, it will add a health and you can customize it! **(Float)**
-- `noteType` - A custom note type **(String)**
-- `ignoreNote` - If botplay is on then it will not hit the note **(Boolean)**
+- `noteType` - A custom note type. **(String)**
+- `ignoreNote` - If botplay is on then it will not hit the note. **(Boolean)**

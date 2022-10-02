@@ -107,27 +107,47 @@ Checks whether the sound exists in the currently playing song.
 
 ***
 
+# Strings Functions
+Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
+
+### stringStartsWith(str:String, start:String)
+Identifie's the string that begins with the `start` parameter.
+
+- `str` - The string to be manipulate.
+- `start` - The start of the string.
+
+### stringEndsWith(str:String, end:String)
+Identifie's the string that ends with the `end` parameter.
+
+- `str` - The string to be manipulate.
+- `end` - The end of the string.
+
+### stringSplit(str:String, split:String)
+Splits a string into multiple string will turn it into a **table**
+
+- `str` - The string to split.
+- `start` - The seperation of the string.
+
+Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
+
+### stringTrim(str:String)
+Remove's any unnecessary large spaces from string.
+
+- `str` - The string to be converted.
+
+***
+
 # File Functions
-### isRunning(luaFile:String)
-Note: Put the file format name to get the file you want.
-
-- `luaFile` - The file that you want to detect that is running currently.
-
-Example: `isRunning('mods/pathTotheFile/luafile.lua')`
-
-### getRunningScripts()
-Check's multiple script's executing currently.  
-
 ### getTextFromFile(path:String, ?ignoreModFolders:Bool = false)
 Note: Put the file format name to get the file you want.
 
-Get's the text from different file's.
+Gets the text from different files.
 
 - `path` - The path of the text file that you are getting.
 - `ignoreModFolders` - An optional parmeter that ignores the mod folder with a **boolean**.
 
 ### directoryFileList(folder:String)
-Get's the folder file in the directory.
+Gets the folder file in the directory.
 
 - `folder` - The path to the folder
 
@@ -141,7 +161,7 @@ Changes the contents of file then saves it.
 - `absolute` - An optional parmeter that ignores the mod folder with a **boolean**.
 
 ### deleteFile(path:String, ignoreModFolders)
-Deletes the the file.
+Deletes the file you desire.
 
 - `path` - The path of the file that you are getting.
 - `ignoreModFolders` - An optional parmeter that ignores the mod folder with a **boolean**.
@@ -157,6 +177,16 @@ Example: `checkFileExists('mods/pathTotheFile/luafile.lua')`
 ***
 
 # Scripts Functions
+### isRunning(luaFile:String)
+Note: Put the file format name to get the file you want.
+
+- `luaFile` - The file that you want to detect that is running currently.
+
+Example: `isRunning('mods/pathTotheFile/luafile.lua')`
+
+### getRunningScripts()
+Check's multiple script's executing currently. 
+
 ### addLuaScript(path:String)
 Add's a lua script into the game.
 
@@ -194,36 +224,6 @@ Sets the new value of the global variable from another lua script, this will not
 - `luaFile` - The path of the file that you are getting.
 - `global` - The variable to be chosen.
 - `val` - The new value of the variable.
-
-***
-
-# Strings Functions
-Note: `stringSplit()` and `stringTrim()` works in 0.7.0 Version!
-
-### stringStartsWith(str:String, start:String)
-Identifie's the string that begins with the `start` parameter.
-
-- `str` - The string to be manipulate.
-- `start` - The start of the string.
-
-### stringEndsWith(str:String, end:String)
-Identifie's the string that ends with the `end` parameter.
-
-- `str` - The string to be manipulate.
-- `end` - The end of the string.
-
-### stringSplit(str:String, split:String)
-Splits a string into multiple string will turn it into a **table**
-
-- `str` - The string to split.
-- `start` - The seperation of the string.
-
-Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
-
-### stringTrim(str:String)
-Remove's any unnecessary large spaces from string.
-
-- `str` - The string to be converted.
 
 ***
 

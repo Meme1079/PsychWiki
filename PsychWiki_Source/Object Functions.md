@@ -139,6 +139,26 @@ Adds an offset of the animation.
 - `x` -  the new x value of the animation.
 - `y` -  the new x value of the animation.
 
+### getMidpointX(variable:String)
+Gets the midpoint x value of the object.
+
+- `variable` - The sprite tag or object variable name.
+
+### getMidpointY(variable:String)
+Gets the midpoint y value of the object.
+
+- `variable` - The sprite tag or object variable name.
+
+### getScreenPositionX(variable:String)
+Gets the x value of the objects screen position.
+
+- `variable` - The sprite tag or object variable name.
+
+### getScreenPositionY(variable:String)
+Gets the y value of the objects screen position.
+
+- `variable` - The sprite tag or object variable name.
+
 ### screenCenter(obj:String, pos:String = 'xy')
 Sets the object to center of the screen
 

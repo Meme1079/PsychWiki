@@ -21,7 +21,7 @@ This will change the y value of the object with a tween, works the same as `doTw
 This will change the angle value of the object with a tween.
 
 ### doTweenAlpha(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the alpha or opacity value of the object with a tween.
+This will change the alpha or opacity value of the object with a tween, Goes form `0` to `1`.
 
 ### doTweenZoom(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 This will change the zoom value of the object with a tween.
@@ -63,7 +63,7 @@ This will change the y value of the note with a tween.
 This will change the angle value of the note with a tween.
 
 ### noteTweenAlpha(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the alpha or opacity value of the note with a tween.
+This will change the alpha or opacity value of the note with a tween, Goes form `0` to `1`.
 
 ### noteTweenDirection(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
 This will change the direction value of the note that will be coming to the note strum with a tween.
