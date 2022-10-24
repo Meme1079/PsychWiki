@@ -2,9 +2,9 @@
 
 # Starting Timer/Tween Functions
 ### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the x value of the object with a tween. If you use the same tag this will cancel the tween.
+This will change the <ins>x value</ins> of the object with a tween.
 
-If the tween is finish it will do a callback to [onTweenCompleted()](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#ontweencompletedtag:~:text=many%20are%20remaining-,onTweenCompleted(tag),-A%20tween%20you)
+If the tween is finish it will do a callback to [onTweenCompleted()](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#ontweencompletedtag:~:text=many%20are%20remaining-,onTweenCompleted(tag),-A%20tween%20you). And if you use the same tag this will cancel the tween.
 
 - `tag` - If the tween has been completed this do a callback of `onTweenCompleted()`.
 - `vars` - The object tag or object variable name.
@@ -15,23 +15,23 @@ If the tween is finish it will do a callback to [onTweenCompleted()](https://git
 Example: `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')` This will tween boyfriend scale to `1.5`.
 
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the y value of the object with a tween, works the same as `doTweenX()`.
+This will change the <ins>y value</ins> of the object with a tween, works the same as `doTweenX()`.
 
 ### doTweenAngle(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the angle value of the object with a tween.
+This will change the <ins>angle value</ins> of the object with a tween.
 
 ### doTweenAlpha(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the alpha or opacity value of the object with a tween, Goes form `0` to `1`.
+This will change the <ins>alpha/opacity value</ins> of the object with a tween, Goes form `0` to `1`.
 
 ### doTweenZoom(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-This will change the zoom value of the object with a tween.
+This will change the <ins>zoom value</ins> of the object with a tween.
 
 - `vars` - Instead with a object tag or object variable name it should be either: `camGame`, `camHUD` or `camOther`.
 
 Example: `doTweenZoom('camTween', 'camGame', 3, 1, 'linear')` This will tween the cam to zoom in, after that it will return back to normal.
 
 ### doTweenColor(tag:String, vars:String, targetColor:String, duration:Float, ease:String)
-This will change the color value of the object with a tween. **(Must be a Hexadecimal Color Code)**
+This will change the <ins>color value</ins> of the object with a tween. **(Must be a Hexadecimal Color Code)**
 
 - `targetColor` - The color the object will have when the tween ends 
 
@@ -46,7 +46,7 @@ Runs a timer with a determined duration and loops count. If you use the same tag
 
 # Tween Functions for Strum/Receptors
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the x value of the note with a tween, works the same as `doTweenX()`.
+This will change the <ins>x value</ins> of the note with a tween, works the same as `doTweenX()`.
 
 - `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`
 - `note` - The Member ID of the note to be tween, Opponent: `0,1,2,3` and Player: `4,5,6,7`.
@@ -57,16 +57,16 @@ This will change the x value of the note with a tween, works the same as `doTwee
 Example: `noteTweenX('note4TweenX', 4, 250, 1.5, 'linear')` This will tween bf left note to `250`.
 
 ### noteTweenY(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the y value of the note with a tween.
+This will change the <ins>y value</ins> of the note with a tween.
 
 ### noteTweenAngle(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the angle value of the note with a tween.
+This will change the <ins>angle value</ins> of the note with a tween.
 
 ### noteTweenAlpha(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the alpha or opacity value of the note with a tween, Goes form `0` to `1`.
+This will change the <ins>alpha/opacity value</ins> of the note with a tween, Goes form `0` to `1`.
 
 ### noteTweenDirection(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-This will change the direction value of the note that will be coming to the note strum with a tween.
+This will change the <ins>direction value</ins> of the note that will be coming to the note strum with a tween.
 
 Example: `noteTweenDirection('note5TweenDirection', 5, 0, 1.5, 'linear')` This will make the note come to the left
 
@@ -74,7 +74,7 @@ Example: `noteTweenDirection('note5TweenDirection', 5, 0, 1.5, 'linear')` This w
 
 # Cancelling Timer/Tween Functions
 ### cancelTween(tag)
-Cancles the tween that is playing currently.
+<ins>Cancles the tween</ins> that is playing currently.
 
 ### cancelTimer(tag)
-Cancles the timer that is playing currently.
+<ins>Cancles the timer</ins> that is playing currently.

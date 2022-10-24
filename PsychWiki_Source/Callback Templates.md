@@ -1,37 +1,35 @@
 # Start/End functions
-
 ### onCreate()
 Triggered when the lua file is started used for creating a sprite and precaching, some variables weren't created yet.
 
 ### onCreatePost()
-Triggered after `onCreate()` also can be used if you put something `onCreate()` and it doesn't work.
+Triggered after the lua file has been created. This can be used if you put something in the `onCreate()` method and it fails.
 
 ### onDestroy()
-Triggered when the lua file is ended. _(Song fade out finished)_
+Triggered when the lua file has ended, the song has ended at that point.
 
 ***
 
-# Gameplay/Song interactions
-
+# Gameplay/Song Functions
 ### onBeatHit()
-Triggered 4 times per section used for `curStep` and `curDecStep`.
+Triggered 4 times per section used for `curStep` and `curDecStep` variable.
 
 ### onStepHit()
-Triggered 16 times per section used for `curBeat` and `curDecBeat`.
+Triggered 16 times per section used for `curBeat` and `curDecBeat` variable.
 
 ### onSectionHit()
-Triggered per section used for `curSection`.
+Triggered 1 times per section used for `curSection` variable.
 
 ### onUpdate(elapsed)
-Every frame on the game, some variables weren't updated yet.
+Triggered every frame on the game currently, some variables weren't updated yet.
 
 ### onUpdatePost(elapsed)
-Triggered after `onUpdate()`, works the same as `onCreatePost()`.
+Triggered after every frame on the game currently.
 
 ### onStartCountdown()
-Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`.
+Triggered on the start of the countdown, used for dialogue and cutscene stuff. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you wan to stop the countdown from happening.
 
-Starts on countdown also can be used to trigger dialogues and stuff! You can trigger the countdown with `startCountdown()`. Add `return Function_Stop` if you want to stop the countdown from happening.
+If not, use `return Function_Continue` if you wan't to continue the countdown from happening.
 
 Example:
 
@@ -42,10 +40,10 @@ end
 ```
 
 ### onCountdownStarted()
-Starts during the countdown.
+Triggered during the countdown.
 
 ### onCountdownTick(counter)
-Activate when the countdown is started.
+Triggered on each countdown tick.
 
 - `counter = 0` - Three
 - `counter = 1` - Two
@@ -57,93 +55,110 @@ Activate when the countdown is started.
 Triggered on the start of the song.
 
 ### onEndSong()
-Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`.
+Triggered on the end of the song just like `onDestroy()`, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you wan't to stop the song from ending.
 
-Triggered on the end of the song, will be delayed if you're unlocking an achievement. Add `return Function_Stop` to stop the song from ending for playing a cutscene or something.
+If not, use `return Function_Continue` if you wan't to end the song.
 
 ***
 
-# Substate interactions
-
+# Substate Functions
 ### onPause()
-Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`.
+Triggered when you're in the pause screen of the game while not on a cutscene or cutscene. Add `return Function_Stop` if you wan't to stop the player from going to the pause screen.
 
-Triggered when you're in the pause screen while not on a cutscene/etc. Add `return Function_Stop` if you want to stop the player from pausing the game.
+If not, use `return Function_Continue` if you wan't to access the pause screen.
 
 ### onResume()
-Triggered after the game has been resumed from a pause. _(WARNING: Not necessarily from the pause screen, but most likely is!!!)_
+Triggered after the game has been resumed from a pause. Not necessarily from the pause screen, but most likely is!!!
 
 ### onGameOver()
-Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`.
+Triggered when you're in a game over screen or health is equal to zero. Add `return Function_Stop` if you don't want to go to the game-over screen.
 
-You died! Called every single frame your health is lower _(or equal to)_ zero. Add `return Function_Stop` if you want to stop the player from going into the game over screen.
+If not, use `return Function_Continue` if you wan't to access the game-over screen.
 
 ### onGameOverConfirm(retry)
-Called when you Press Enter/Esc on Game Over. If you've pressed Esc, value `retry` will be `false`.
+Triggered when you press the retry button on the game-over screen. 
+
+- `retry` - This will trigger if you press the retry button. If you exit the game-over screen then the `retry` parameter will return `false`.
 
 ***
 
-# Dialogue 
-When a dialogue is finished, it calls startCountdown again.
+# Custom Substate Functions
+### onCustomSubstateCreate(name)
+Triggered when the lua file is started.
 
+- `name` - The name of the custom substate.
+
+### onCustomSubstateCreatePost(name)
+Triggered after the lua file has been created.
+
+### onCustomSubstateUpdate(name, elapsed)
+Triggered every frame on the game currently.
+
+### onCustomSubstateUpdatePost(name, elapsed)
+Triggered after every frame on the game currently.
+
+### onCustomSubstateDestroy(name)
+Triggered when the lua file has ended.
+
+***
+
+# Dialogue Functions
 ### onNextDialogue(line)
 Triggered when the next dialogue line starts, dialogue line starts with `1`.
 
 ### onSkipDialogue(line)
-Triggered when you press Enter and skip a dialogue line that was still being typed, dialogue line starts with `1`.
+Triggered when you press enter and skip a dialogue line that was still being typed, dialogue line starts with `1`.
 
 ***
 
-# Note miss/hit
-
+# Note Miss/Hit Functions
 ### goodNoteHit(id, direction, noteType, isSustainNote)
-Trigger when you hit a note. _(after note hit calculations)_
+Triggered when you hit a note, after calculating note hit.
 
-- `id` - The note member id, you can get whatever variable you want from this note, Example: `getPropertyFromGroup('notes', id, 'strumTime')`.
-- `direction` - Direction of the note, 0 = Left, 1 = Down, 2 = Up, 3 = Right.
-- `noteType` - The note type string/tag.
-- `isSustainNote` - If it's a hold note, can be either `true` or `false`.
+- `id` - The note id property, you can get the current note variable from the note, Example: `getPropertyFromGroup('notes', id, 'copyAlpha')`.
+- `direction` - The direction on the note strum, Directions: `0 = Left`, `1 = Down`, `2 = Up`, `3 = Right`.
+- `noteType` - The type of note that can be hit.
+- `isSustainNote` - If a long note is present, the long note will return `true`.
 
 ### opponentNoteHit(id, direction, noteType, isSustainNote)
-Works the same as `goodNoteHit()`, but for Opponent's notes being hit.
-
-### noteMissPress(direction)
-Player pressed a button, but there was no note to hit and called after the note press miss calculation's.
+Triggered when the opponent hit a note, after calculating note hit.
 
 ### noteMiss(id, direction, noteType, isSustainNote)
-Player missed a note by letting it go offscreen and called after the note miss calculation's.
+Triggered if you missed a note, after the note miss calculation's.
+
+### noteMissPress(direction)
+Triggered when you pressed a button but there is no note present there, after the note press miss calculation's.
 
 ***
 
-# Keys Press
-
+# Keys Press Functions
 ### onGhostTap(key)
-Whenever you did a ghost tapping, this function is triggered. _(Use only for note gameplay)_
+Triggered when you pressed a button but there is no note present there. _(It's just the same as `noteMissPress()`)_
 
-- `key = 0` - Left
-- `key = 1` - Down
-- `key = 2` - Up
-- `key = 3` - Right
+- `key` - The `direction` parameter on the `goodNoteHit()`.
 
 ### onKeyPress(key)
-Whenever you did a key press, this function is triggered. _(Use only for note gameplay)_
+Triggered when you hit a note or did a ghost hit.
+
+- `key` - The `direction` parameter on the `goodNoteHit()`.
 
 ### onKeyRelease(key)
-Whenever you did a key release, this function is triggered. _(Use only for note gameplay)_
+Triggered after you hit a note or did a ghost hit.
+
+- `key` - The `direction` parameter on the `goodNoteHit()`.
 
 ***
 
-# Other function hooks
-
+# Other Functions
 ### onRecalculateRating()
-Note: Must have `return Function_Continue` when creating this function if you're not adding `return Function_Stop`.
+Triggered before the calculation. You can use the `setRatingPercent()` to set the accuracy percent on the calculation. And the `setRatingString()` for the funny rating name. Add `return Function_Stop` if you don't want to add accuracy percent and rating.
 
-This is called before the calculation. Use `setRatingPercent()` to set the number on the calculation and `setRatingString()` to set the funny rating name.
+You don't need to add `return Function_Continue`.
 
 ### onMoveCamera(focus)
-Detects if the cam moves to `boyfriend` or `dad`.
+Triggered by the camera focusing on `boyfriend` or `dad`.
 
-- `focus` - Can be either boyfriend or dad.
+- `focus` - Which character for the camera to focus on.
 
 Example:
 ```lua
@@ -158,23 +173,22 @@ end
 
 ***
 
-# Event notes hooks
-
+# Event Functions
 ### onEvent(name, value1, value2)
-Makes an a event! and `triggerEvent()` does not call this function!!
+This will make a custom event.
 
-- `name` - Name of the Event.
-- `value1` - Value 1 on the Chart Editor.
-- `value2` - Value 2 on the Chart Editor.
+- `name` - The name of the event.
+- `value1` - The value 1 on the chart editor
+- `value2` - The value 2 on the chart editor
 
 ### eventEarlyTrigger(name)
-Makes the event earlier when triggered.
+This will make the event trigger early.
 	
 Example of a port of the Kill Henchmen early trigger but on Lua instead of Haxe:
 ```lua
 function eventEarlyTrigger(name)
      if name == 'Kill Henchmen' then
-	  return 280; --[[This makes the "Kill Henchmen" event be triggered 280 miliseconds earlier 
+          return 280; --[[ This makes "Kill Henchmen" event be triggered 280 miliseconds earlier 
           so that the kill sound is perfectly timed with the song]]
      end
 end
@@ -182,14 +196,13 @@ end
 
 ***
 
-# Tween/Timer hooks
-
+# Tween/Timer Functions
 ### onTimerCompleted(tag, loops, loopsLeft)
-Make's a timer.
+This will create a timer.
 
-- `tag` - The loop from the finish tween's `tag`.
-- `loops` - How many loops it will have done when it ends completely.
-- `loopsLeft` - How many are remaining.
+- `tag` - The tag on the timer to use in `runTimer()` function.
+- `loops` - The duration on the timer to start.
+- `loopsLeft` - How many loops will the timer make.
 
 ### onTweenCompleted(tag)
-A tween you called has been completed, value `tag` is it's tag.
+After the tween is completed this function will be called.

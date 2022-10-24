@@ -14,6 +14,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 
 # Song/Week Variables
 - `curBpm` - The current BPM of the song.
+- `curStage` - The current stage of the song.
 - `bpm` - The starting BPM of the song.
 - `scrollSpeed` - The starting Scroll speed of the song.
 - `crochet` - The interval between Beat hits.
@@ -26,8 +27,11 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `week` - Returns the properly formatted current week file name.
 - `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, its here.
 
-All Shortcuts:
+<details><summary>All Shortcut to:</summary>
+<p>
+
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
+- `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
 - `bpm` - `getProperty('SONG.bpm')`
 - `scrollSpeed` - `getProperty('SONG.speed')`
 - `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
@@ -40,6 +44,68 @@ All Shortcuts:
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..getProperty('storyWeek')..']')`
 - `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
 
+</p>
+</details>
+
+***
+
+# Gameplay Variables
+- `startedCountdown` - Indicates whether the countdown has already begun.
+- `seenCutscene` - Checks if the cutscene is seen.
+- `curStep` - The current step number.
+- `curDecStep` - The current decimal step number.
+- `curBeat` - The current beat number.
+- `curDecBeat` - The current decimal beat number.
+- `curSection` - The current number.
+- `curStage` - The stages name.
+- `score` - The current song score.
+- `hits` - The current note hits.
+- `misses` - The current song misses.
+- `ghostMisses` - The current song ghost misses.
+- `rating` - The current rating percentage, Goes from `0` to `1`.
+- `ratingName` - The current ratings name.
+- `ratingFC` - The current ratings combo.
+- `inGameOver` - Tells if the player is in the game over screen. 
+- `mustHitSection` - Tells if the current section is a `Must Hit Section` from the Chart Editor.
+- `altAnim` - Tells if the current section is a `Alt Animation Section` from the Chart Editor.
+- `gfSection` - Tells if the current section is a `GF Section` from  theChart Editor.
+- `healthGainMult` - The current health gain of hitting a note.
+- `healthLossMult` - The current health loss of missing a note.
+- `playbackRate` - The current playback rate on the song.
+- `instakillOnMiss` - If you missed a note you die.
+- `botPlay` - Tells if botplay is enabled.
+- `practice` - Tells if practice is enabled.
+- `version` - The version of Psych Engine that is currently in.
+
+<details><summary>All Shortcut to:</summary>
+<p>
+
+- `startedCountdown` - `getProperty('startedCountdown')`
+- `seenCutscene` - `getPropertyFromClass('PlayState', 'seenCutscene'))`
+- `curStep` - `getProperty('curStep')`
+- `curDecStep` - `getProperty('curDecStep')`
+- `curBeat` - `getProperty('curBeat')`
+- `curDecBeat` - `getProperty('curDecBeat')`
+- `curSection` - `getProperty('curSection')`
+- `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
+- `score` - `getProperty('songScore')`
+- `hits` - `getProperty('songHits')`
+- `misses` - `getProperty('songMisses')`
+- `ghostMisses` - `getProperty('ghostMisses')`
+- `rating` - `getProperty('ratingPercent')`
+- `ratingName` - `getProperty('ratingString')`
+- `ratingFC` - `getProperty('ratingFC')`
+- `healthGainMult` - `getProperty('healthGainMult')`
+- `healthLossMult` - `getProperty('healthLossMult')`
+- `playbackRate` - `getProperty('playbackRate')`
+- `instakillOnMiss` - `getProperty('instakillOnMiss')`
+- `botPlay` - `getProperty('cpuControlled')`
+- `practice` - `getProperty('practiceMode')`
+- `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
+
+</p>
+</details>
+
 ***
 
 # Camera/Screen Variables
@@ -50,34 +116,6 @@ All Shortcuts:
 
 ***
 
-# Gameplay Variables
-- `startedCountdown` - Indicates whether the countdown has already begun, Shortcut to `getProperty('startedCountdown')`.
-- `seenCutscene` - Checks if the cutscene is seen, Shortcut to `getPropertyFromClass('PlayState', 'seenCutscene'))`.
-- `curStep` - The current step number, Shortcut to `getProperty('curStep')`.
-- `curDecStep` - The current decimal step number, Shortcut to `getProperty('curDecStep')`.
-- `curBeat` - The current beat number, Shortcut to `getProperty('curBeat')`.
-- `curDecBeat` - The current decimal beat number, Shortcut to `getProperty('curDecBeat')`.
-- `curSection` - The current number, Shortcut to `getProperty('curSection')`.
-- `score` - The current song score, Shortcut to `getProperty('songScore')`.
-- `hits` - The current note hits, Shrotcut to `getProperty('songHits')`.
-- `misses` - The current song misses, Shortcut to `getProperty('songMisses')`.
-- `ghostMisses` - The current song ghost misses, Shortcut to `getProperty('ghostMisses')`.
-- `rating` - The current rating percentage this goes from `0` to `1`, Shortcut to `getProperty('ratingPercent')`.
-- `ratingName` - The current ratings name, Shortcut to `getProperty('ratingString')`.
-- `ratingFC` - The current ratings combo, Shortcut to `getProperty('ratingFC')`.
-- `inGameOver` - Tells if the player is in the game over screen.
-- `mustHitSection` - Tells if the current section is a `Must Hit Section` from the Chart Editor.
-- `altAnim` - Tells if the current section is a `Alt Animation Section` from the Chart Editor.
-- `gfSection` - Tells if the current section is a `GF Section` from  theChart Editor.
-- `healthGainMult` - The current health gain of hitting a note, Shortcut to `getProperty('healthGainMult')`.
-- `healthLossMult` - The current health loss of missing a note, Shortcut to `getProperty('healthLossMult')`.
-- `instakillOnMiss` - If you missed a note you die, Shortcut to `getProperty('instakillOnMiss')`.
-- `botPlay` - Tells if botplay is enabled, Shortcut to `getProperty('cpuControlled')`.
-- `practice` - Tells if practice is enabled, Shortcut to `getProperty('practiceMode')`.
-- `version` - The version of Psych Engine that is currently in, Shortcut to `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`.
-
-***
-
 # Character Variables
 - `boyfriendName` - The name of the boyfriend character, Shortcut to `getProperty('SONG.player1')`.
 - `dadName` - The name of the dad character, Shortcut to `getProperty('SONG.player2')`.
@@ -85,32 +123,32 @@ All Shortcuts:
 
 ***
 
-# Strum/Receptor Variables
-- `defaultPlayerStrumX0` - Player's default left arrow X.
-- `defaultPlayerStrumY0` - Player's default left arrow Y.
-- `defaultPlayerStrumX1` - Player's default down arrow X.
-- `defaultPlayerStrumY1` - Player's default down arrow Y.
-- `defaultPlayerStrumX2` - Player's default up arrow X.
-- `defaultPlayerStrumY2` - Player's default up arrow Y.
-- `defaultPlayerStrumX3` - Player's default right arrow X.
-- `defaultPlayerStrumY3` - Player's default right arrow Y.
-- `defaultOpponentStrumX0` - Opponent's default left arrow X.
-- `defaultOpponentStrumY0` - Opponent's default left arrow Y.
-- `defaultOpponentStrumX1` - Opponent's default down arrow X.
-- `defaultOpponentStrumY1` - Opponent's default down arrow Y.
-- `defaultOpponentStrumX2` - Opponent's default up arrow X.
-- `defaultOpponentStrumY2` - Opponent's default up arrow Y.
-- `defaultOpponentStrumX3` - Opponent's default right arrow X.
-- `defaultOpponentStrumY3` - Opponent's default right arrow Y.
+# Strum Receptor/Character Variables
+- `defaultPlayerStrumX0` - Players default left arrow X.
+- `defaultPlayerStrumY0` - Players default left arrow Y.
+- `defaultPlayerStrumX1` - Players default down arrow X.
+- `defaultPlayerStrumY1` - Players default down arrow Y.
+- `defaultPlayerStrumX2` - Players default up arrow X.
+- `defaultPlayerStrumY2` - Players default up arrow Y.
+- `defaultPlayerStrumX3` - Players default right arrow X.
+- `defaultPlayerStrumY3` - Players default right arrow Y.
+- `defaultOpponentStrumX0` - Opponents default left arrow X.
+- `defaultOpponentStrumY0` - Opponents default left arrow Y.
+- `defaultOpponentStrumX1` - Opponents default down arrow X.
+- `defaultOpponentStrumY1` - Opponents default down arrow Y.
+- `defaultOpponentStrumX2` - Opponents default up arrow X.
+- `defaultOpponentStrumY2` - Opponents default up arrow Y.
+- `defaultOpponentStrumX3` - Opponents default right arrow X.
+- `defaultOpponentStrumY3` - Opponents default right arrow Y.
 
 ***
 
-- `defaultBoyfriendX` - Player's Default X position, defined by the Stages `json` file.
-- `defaultBoyfriendY` - Player's Default Y position, defined by the Stages `json` file.
-- `defaultOpponentX` - Opponent's Default X position, defined by the Stages `json` file.
-- `defaultOpponentY` - Opponent's Default Y position, defined by the Stages `json` file.
-- `defaultGirlfriendX` - Girlfriend's Default X position, defined by the Stages `json` file.
-- `defaultGirlfriendY` - Girlfriend's Default Y position, defined by the Stages `json` file.
+- `defaultBoyfriendX` - Players Default X position, defined by the Stages `json` file.
+- `defaultBoyfriendY` - Players Default Y position, defined by the Stages `json` file.
+- `defaultOpponentX` - Opponents Default X position, defined by the Stages `json` file.
+- `defaultOpponentY` - Opponents Default Y position, defined by the Stages `json` file.
+- `defaultGirlfriendX` - Girlfriends Default X position, defined by the Stages `json` file.
+- `defaultGirlfriendY` - Girlfriends Default Y position, defined by the Stages `json` file.
 
 ***
 
@@ -134,7 +172,9 @@ All Shortcuts:
 - `scriptName` - Checks the script name that is running in game.
 - `buildTarget` - Checks the build target of Psych Engine.
 
-All Shortcuts:
+<details><summary>All Shortcut to:</summary>
+<p>
+
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
 - `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middlescroll')`
 - `opponentStrums` - `getPropertyFromClass('ClientPrefs', 'opponentStrums')`
@@ -143,11 +183,14 @@ All Shortcuts:
 - `hideHud` - `getPropertyFromClass('ClientPrefs', 'hideHud')`
 - `hideTime` - `getPropertyFromClass('ClientPrefs', 'hideTime')`
 - `timeBarType` - `getPropertyFromClass('ClientPrefs', 'timeBarType')`
-- `cameraZoomOnBeat` - `getPropertyFromClass('ClientPrefs', 'cameraZoomOnBeat')`
-- `flashingLights` - `getPropertyFromClass('ClientPrefs', 'flashingLights')`
+- `cameraZoomOnBeat` - `getPropertyFromClass('ClientPrefs', 'cameraZooms')`
+- `flashingLights` - `getPropertyFromClass('ClientPrefs', 'flashing')`
 - `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
 - `noResetButton` - `getPropertyFromClass('ClientPrefs', 'noReset')`
 - `healthBarAlpha` - `getPropertyFromClass('ClientPrefs', 'healthBarAlpha')`
 - `scoreZoom` - `getPropertyFromClass('ClientPrefs', 'scoreZoom')`
 - `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
-- `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shadersEnabled')`
+- `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shaders')`
+
+</p>
+</details>

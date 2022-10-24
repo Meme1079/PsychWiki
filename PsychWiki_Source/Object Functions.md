@@ -1,13 +1,13 @@
 # Graphics Functions
 ### makeGraphic(tag:String, width:Int, height:Int, color:String)
-Creates a colored screen.
+Creates a colored screen object.
 
 - `tag` - The sprite tag or object variable name.
 - `width` - The width value in pixels of the colored screen.
 - `height` - The height value in pixels of the colored screen.
-- `color` - The color of the colored screen. **(Must be a Hexadecimal Color Code)**
+- `color` - The color of the screen. **(Must be a Hexadecimal Color Code)**
 
-Example: Use `makeGraphic('testBlackSquare', 1000, 1000, '000000')` to make the Lua Sprite with the tag "testBlackSquare" turn into a 1000x1000 black square.
+Example: Use `makeGraphic('testBlackSquare', 1000, 1000, '000000')` to make the lua Sprite with the tag "testBlackSquare" turn into a 1000x1000 black square.
 
 ### setBlendMode(obj:String, blend:String)
 Changes the blend mode of a sprite object. _(Works similar to how Photoshop do it)_
@@ -32,7 +32,7 @@ Adds an animation name to the lua sprite/object using the tag/variable tag, it w
 - `loop` - An optional value, This will loop the animation, Default value is `true`.
 
 ### addAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-Adds an animation name to the lua sprite/object using the tag/variable tag with the specified indices on indices, it will also overwrite another animation using the same name.
+Adds an animation name to the lua sprite/object using the tag/variable tag <ins>with the specified indices on indices</ins>, it will also overwrite another animation using the same name.
 
 - `obj` - The sprite tag or object variable name.
 - `name` - The animation name to played.
@@ -48,13 +48,13 @@ Plays animation name on a lua sprite/object with the tag or variable object.
 - `forced` - If `true`, if the current animation is the same as the one you're attempting to play, the animation will be reset, Default value is `false`.
 
 ### playAnim(obj:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0)
-An alternate version of `objectPlayAnimation()`
+Works the same as `objectPlayAnimation()` but with different parameters.
 
 - `obj` - The sprite tag or object variable name.
 - `name` - The animation name to played.
 - `forced` - If `true`, if the current animation is the same as the one you're attempting to play, the animation will be reset, Default value is `false`.
-- `reverse` - Will reverse the animation.
-- `startFrame` -  The starting frame on the animation to played.
+- `reverse` - Will reverse the animation when played.
+- `startFrame` - The starting frame on the animation to played.
 
 ***
 
@@ -66,7 +66,7 @@ If the object is overlaping on a another object it will return `true`, if not th
 - `obj2` - The object that will overlap the main object. 
 
 ### setObjectOrder(obj:String, position:Int)
-Sets the object's layer position.
+<ins>Sets the objects</ins> layer position.
 
 - `obj` - The sprite tag or object variable name.
 - `position` - The new position order of the object.
@@ -74,7 +74,7 @@ Sets the object's layer position.
 ### getObjectOrder(obj:String)
 Note: when referring to characters, you must refer to their group `boyfriendGroup`, `gfGroup`, `dadGroup`.
 
-Gets the object's layer position.
+<ins>Gets the objects</ins> layer position.
 
 - `obj` - The sprite tag or object variable name.
 
@@ -104,12 +104,12 @@ Use this to update the hitbox in case you change the sprite's scale manually or 
 
 # Reseting Tags
 ### resetSpriteTag(tag:String)
-Resets the current sprite tag that is being used.
+Resets the current <ins>sprite tag</ins> that is being used.
 
 - `tag` - The sprite tag or object variable name.
 
 ### resetTextTag(tag:String)
-Resets the current text tag that is being used.
+Resets the current <ins>text tag</ins> that is being used.
 
 - `tag` - The text tag or object variable name.
 
@@ -140,22 +140,22 @@ Adds an offset of the animation.
 - `y` -  the new x value of the animation.
 
 ### getMidpointX(variable:String)
-Gets the midpoint x value of the object.
+Gets the <ins>midpoint x value</ins> of the object.
 
 - `variable` - The sprite tag or object variable name.
 
 ### getMidpointY(variable:String)
-Gets the midpoint y value of the object.
+Gets the <ins>midpoint y value</ins> of the object.
 
 - `variable` - The sprite tag or object variable name.
 
 ### getScreenPositionX(variable:String)
-Gets the x value of the objects screen position.
+Gets the <ins>x value of the objects</ins> screen position.
 
 - `variable` - The sprite tag or object variable name.
 
 ### getScreenPositionY(variable:String)
-Gets the y value of the objects screen position.
+Gets the <ins>y value of the objects</ins> screen position.
 
 - `variable` - The sprite tag or object variable name.
 

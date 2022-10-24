@@ -1,122 +1,124 @@
 # Keys/KeyBoard Press Functions
 ### keyJustPressed(name:String)
-Will trigger if the controls were recently pressed on the current game.
+Gets the control keys that were <ins>recently pressed</ins> on the current game.
 
 Keys: `left`, `down`, `up`, `right`, `accept`, `back`, `pause`, `reset`, `space`
 
-- `name` - The name of the key listed above.
+- `name` - The name of key listed above.
 
 ### keyPressed(name:String)
-Will trigger if the controls were currently pressed on the current game.
+Gets the control keys were <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the key listed above.
+- `name` - The name of key listed above.
 
 ### keyReleased(name:String)
-Will trigger if the controls were currently released on the current game.
+Gets the control keys were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the key listed above.
+- `name` - The name of key listed above.
 
 ***
 
 ### keyboardJustPressed(name:String)
-Will trigger if the keyboard key were currently released on the current game.
+Gets the keyboard keys that were <ins>recently pressed</ins> on the current game.
 
-- `name` - The name of the key on the keyboard.
+- `name` - The name of the keys on the keyboard.
 
 Example: `keyboardJustPressed('SHIFT')`
 
 ### keyboardPressed(name:String)
-Will trigger if the keyboard key were currently pressed on the current game.
+Gets the keyboard keys that were <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the key on the keyboard.
+- `name` - The name of the keys on the keyboard.
 
 ### keyboardReleased(name:String)
-Will trigger if the keyboard key were released on the current game.
+Gets the keyboard keys that were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the key on the keyboard.
+- `name` - The name of the keys on the keyboard.
 
 ***
 
 # Mouse functions
 ### mouseClicked(name:String)
-Will trigger if the mouse button that was recently pressed on the current frame. If you wan't to defualt to `left` leave it blank.
+Gets the mouse buttons that were <ins>recently pressed</ins> on the current frame. If the `name` parameter was left blank this will defualt to the `left` button.
 
 Buttons: `left`, `right`, `middle`
 
 - `name` - The name of the mouse button listed above.
 
 ### mousePressed(name:String)
-Will trigger if the mouse button that was currently pressed on the current frame.
+Gets the mouse buttons that were <ins>currently pressed</ins> on the current frame
 
 - `name` - The name of the mouse button listed above.
 
 ### mouseReleased(name:String)
-Will trigger if the mouse button that was released on the current frame.
+Gets the mouse buttons that were <ins>recently released</ins> on the current frame
 
 - `name` - The name of the mouse button listed above.
 
 ***
 
 ### getMouseX(camera:String)
-Returns the current x value of the mouse on the specific camera.
+Returns the <ins>current x value</ins> of the mouse on the specific camera.
 
-- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+- `camera` - The current camera state, can be either `camGame`, `camHUD` or `camOther`.
 
 ### getMouseY(camera:String)
-Returns the current y value of the mouse on the specific camera.
+Returns the <ins>current y value</ins> of the mouse on the specific camera.
 
-- `camera` - Can be either `camGame`, `camHUD` or `camOther`.
+- `camera` - The current camera state, can be either `camGame`, `camHUD` or `camOther`.
 
 ***
 
 # Gamepad Functions
-### gamepadJustPressed(id:Int, name:String)
-Will trigger if the gamepad that was recently pressed on the current frame.
+Note: Take this section of this page with a grain of salt because I'm not sure if this is how you use this function. And its barley use in scripts, so please help me.
 
-Names: `LT`, `RT`, `LB`, `RB`, `X`, `Y`, `B`, `A`
+[Click here to see the list of ID controls](https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html)
+
+### gamepadJustPressed(id:Int, name:String)
+Gets the gamepad buttons that were <ins>recently pressed</ins> on the current frame.
 
 - `id` - The ID controls of the gamepad.
-- `name` - The name of the controls listed above.
+- `name` - The name of the gamepad controls.
 
 ### gamepadPressed(id:Int, name:String)
-Will trigger if the gamepad that was currently pressed on the current frame.
+Gets the gamepad buttons that were <ins>currently pressed</ins> on the current frame.
 
 - `id` - The ID controls of the gamepad.
-- `name` - The name of the controls listed above.
+- `name` - The name of the gamepad controls.
 
 ### gamepadReleased(id:Int, name:String)
-Will trigger if the gamepad that was released on the current frame.
+Gets the gamepad buttons that were <ins>recently released</ins> on the current frame.
 
 - `id` - The ID controls of the gamepad.
-- `name` - The name of the controls listed above.
+- `name` - The name of the gamepad controls.
 
 ***
 
 ### anyGamepadJustPressed(name:String)
-Will trigger if the any gamepad that was currently pressed on the current frame.
+Gets <ins>any gamepad</ins> buttons that were <ins>recently pressed</ins> on the current frame.
 
 - `name` - The name of the controls of any gamepad.
 
 ### anyGamepadPressed(name:String)
-Will trigger if the any gamepad that was currently pressed on the current frame.
+Gets <ins>any gamepad</ins> buttons that were <ins>currently pressed</ins> on the current frame.
 
 - `name` - The name of the controls of any gamepad.
 
 ### anyGamepadReleased(name:String)
-Will trigger if the any gamepad that was currently pressed on the current frame.
+Gets <ins>any gamepad</ins> buttons that were <ins>recently released</ins> on the current frame.
 
 - `name` - The name of the controls of any gamepad.
 
 ***
 
 ### gamepadAnalogX(id:Int, ?leftStick:Bool = true)
-The x axis value of the gamepad analog.
+The <ins>x axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left anolog or right anolog with a **boolean**.
+- `leftStick` - Whether if its the left anolog or right anolog with a **Boolean**.
 
 ### gamepadAnalogY(id:Int, ?leftStick:Bool = true)
-The y axis value of the gamepad analog.
+The <ins>y axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left anolog or right anolog with a **boolean**.
+- `leftStick` - Whether if its the left anolog or right anolog with a **Boolean**.

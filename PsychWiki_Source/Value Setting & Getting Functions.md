@@ -1,17 +1,17 @@
 # General Setters
 ### setProperty(variable:String, value:Dynamic)
-Returns a current variable from PlayState's name. And set's the new value of the variable.
+Sets the current variable PlayStates name with a new value. 
 
 - `variable` - The tag of the object or object variable name.
 - `value` - The new value to be set.
 
 Examples:
-- Setting the player's current health to 100%: `setProperty('health', 2)`.
+- Setting the players current health to 100%: `setProperty('health', 2)`.
 - Changing the object x value: `setProperty('object.x', 100)`.
 - Skipping a countdown: `setProperty('skipCountdown', true)`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic)
-Works similar to `setProperty()`, but can be used to access a variable inside a Class other than PlayState.
+Sets the current variable inside a class in the PlayStates name with a new value, works similar to `setProperty()`.
 
 - `classVar` - The name of the class variable to access the `variable` inside of it.
 - `variable` - The object variable name inside of the class variable.
@@ -23,11 +23,11 @@ Examples:
 - Changing the loop game over song: `setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'your_song_name')`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
-Sets the new value to a variable from an array/group member on PlayState.
+Sets the current variable from an array/group member on the PlayState names with a new value.
 
 - `obj` - The note group name to be set.
-- `index` - The Member ID of the note.
-- `variable` - The value of the NoteData property.
+- `index` - The member ID of the note.
+- `variable` - The value of the notedata property.
 - `value` - The new value to be set.
 
 Example of changing the note and strum texture: 
@@ -43,19 +43,17 @@ end
 
 # General Getters
 ### getProperty(variable:String)
-Returns a current variable from PlayState's name. 
-
-It can also be used to get the variable from an object that is inside PlayState or a Lua Sprite.
+Gets the current variable PlayStates name current value.
 
 - `variable` - The tag of the object or object variable name.
 
 Examples: 
-- Get's the current health: `getProperty('health')`
-- Get's the current BF character name: `getProperty('boyfriend.curCharacter')`
-- Get's the current x value of the object: `getProperty('object.x')`
+- Gets the current health: `getProperty('health')`
+- Gets the current BF character name: `getProperty('boyfriend.curCharacter')`
+- Gets the current x value of the object: `getProperty('object.x')`
 
 ### getPropertyFromClass(classVar:String, variable:String)
-Works similar to `getProperty()`, but can be used to access a variable inside a Class other than PlayState.
+Gets the current variable inside a class in the PlayStates name current value, works similar to `getProperty()`.
 
 - `classVar` - The name of the class variable to access the `variable` inside of it.
 - `variable` - The object variable name inside of the class variable.
@@ -63,10 +61,10 @@ Works similar to `getProperty()`, but can be used to access a variable inside a 
 Examples:
 - Getting each frame in miliseconds: `getPropertyFromClass('flixel.FlxG', 'elapsed')`
 - Getting pixelated stage: `getPropertyFromClass('PlayState', 'isPixelStage')`
-- Get's the current state of ghost tapping: `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
+- Gets the current state of ghost tapping: `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
-Get's a variable from an array/group member on PlayState.
+Gets the current variable from an array/group member on the PlayState current value.
 
 - `obj` - The note group name to be set.
 - `index` - The Member ID of the note.
@@ -80,7 +78,7 @@ Examples:
 ***
 
 # Value Properties
-Here's some properties I know, you can use this to set or get the object property.
+Heres some properties I know, you can use this to set or get the object property.
 
 Also here's the example when using it: `setProperty('object.x', value)`.
 
@@ -98,6 +96,8 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 - `.antialiasing` - The antialiasing of the object set it to `false` if the image is a pixel **(Boolean)**
 - `.curCharacter` - Gets the character name, it could be: `boyfriend`, `dad`, `gf` **(String)**
 
+***
+
 # Song/Week Properties
 - `skipCountdown` - Skips the countdown.
 - `deathCounter` - How many deaths you currently have.
@@ -105,7 +105,19 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 - `debugKeysCharacter` The key for the character editor.
 - `isPixelStage` – Indicates whether it is in pixel mode.
 - `inCutscene` - Indicates whether it is in a cutscene.
-- `curStage` - The stages name.
+
+<details><summary>All Shortcut to:</summary>
+<p>
+
+- `skipCountdown` - `getProperty('skipCountdown')`
+- `deathCounter` - `getPropertyFromClass('PlayState', 'deathCounter')`
+- `debugKeysChart` - `getProperty('debugKeysChart')`
+- `debugKeysCharacter` - `getProperty('debugKeysCharacter')`
+- `isPixelStage` – `getPropertyFromClass('PlayState', 'isPixelStage')`
+- `inCutscene` - `getPropertyFromClass('PlayState', 'inCutscene')`
+
+</p>
+</details>
 
 ***
 

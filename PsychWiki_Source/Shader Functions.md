@@ -19,8 +19,9 @@ Removes the shader from the game.
 
 - `object` - The Object variable name
 
-# Shader Setting
+***
 
+# Shader Setting
 ### setShaderBool(obj:String, prop:String, value:Bool)
 
 ### setShaderInt(obj:String, prop:String, value:Int)
@@ -33,8 +34,11 @@ Removes the shader from the game.
 
 ### setShaderFloatArray(obj:String, prop:String, value:Dynamic)
 
-# Shader Getter
+### setShaderSampler2D(obj:String, prop:String, bitmapdataPath:String)
 
+***
+
+# Shader Getter
 ### getShaderBool(obj:String, prop:String)
 
 ### getShaderInt(obj:String, prop:String)
