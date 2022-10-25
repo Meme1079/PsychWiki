@@ -1,4 +1,4 @@
-Note: It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used.
+_Note: It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
 
 ### addCharacterToList(name:String, type:String)
 Will precache the <ins>character</ins>, can be used when using `triggerEvent()` on the `Change Character`.

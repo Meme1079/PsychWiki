@@ -79,7 +79,7 @@ This will cause the music to <ins>fade at the end</ins> of playing the sound.
 - `value` - The volume value, Goes from: `0` to `1`.
 
 ### setSoundTime(tag:String, value:Float)
-Note: The miliseconds will be converted into seconds, Example: `5000` miliseconds will be converted to `5` seconds.
+_Note: The miliseconds will be converted into seconds, Example: `5000` miliseconds will be converted to `5` seconds._
 
 <ins>Sets the current sounds</ins> position in miliseconds.
 

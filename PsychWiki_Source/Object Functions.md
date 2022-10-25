@@ -72,7 +72,7 @@ If the object is overlaping on a another object it will return `true`, if not th
 - `position` - The new position order of the object.
 
 ### getObjectOrder(obj:String)
-Note: when referring to characters, you must refer to their group `boyfriendGroup`, `gfGroup`, `dadGroup`.
+_Note: when referring to characters, you must refer to their group `boyfriendGroup`, `gfGroup`, `dadGroup`._
 
 <ins>Gets the objects</ins> layer position.
 
@@ -123,7 +123,7 @@ Changes how much a sprite moves along with the camera.
 - `scrollX` - The x value of the scroll factor.
 - `scrollY` - The y value of the scroll factor.
 
-Note: Boyfriend/Opponent have a scrollX/scrollY value of `1`, while Girlfriend have a scrollX/scrollY value of `0.95`, if you're gonna do background elements, it's highly suggested that you make the values something under `1`.
+_Note: Boyfriend/Opponent have a scrollX/scrollY value of `1`, while Girlfriend have a scrollX/scrollY value of `0.95`, if you're gonna do background elements, it's highly suggested that you make the values something under `1`._
 
 ### setObjectCamera(obj:String, camera:String)
 Changes on which camera should your object be drawn on.

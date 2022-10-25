@@ -114,8 +114,6 @@ Checks whether the <ins>sound object</ins> exists in the currently playing song.
 ***
 
 # String Functions
-Note: `stringSplit()` and `stringTrim()` works in the latest action builds!
-
 ### stringStartsWith(str:String, start:String)
 Checks the <ins>starting section</ins> of the string with the `start` parameter.
 
@@ -182,7 +180,7 @@ Example: `checkFileExists('mods/pathTotheFile/luafile.lua')`
 
 # Scripts Functions
 ### isRunning(luaFile:String)
-Note: Put the file format name to get the file you want.
+_Note: Put the file format name to get the file you want._
 
 - `luaFile` - The file that you want to detect that is running currently.
 

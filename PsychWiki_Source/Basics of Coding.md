@@ -288,6 +288,8 @@ end
 
 # Basic Functions
 ### dofile(file)
+_Note: Put the file format name to get the file you want._
+
 This execute a chunk of code on a another lua file. This can get variables and functions if there not <ins>local</ins>.
 
 Example: `dofile(mods/scripts/other/luaFile.lua)`
@@ -454,17 +456,17 @@ Returns the <ins>hyperbolic cosine</ins> of the number
 Returns the <ins>hyperbolic tangent</ins> of the number.
 
 ### math.asin(num:Float)
-Note: The `num` parameter value should be `-1` to `1`.
+_Note: The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine sine</ins> of the number.
 
 ### math.acos(num:Float)
-Note: The `num` parameter value should be `-1` to `1`.
+_Note: The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine cosine</ins> of the number
 
 ### math.atan(num:Float)
-Note: The `num` parameter value should be `-1` to `1`.
+_Note: The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine tangent</ins> of the number.
 

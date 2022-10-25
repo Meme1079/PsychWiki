@@ -1,7 +1,6 @@
 # Lua/Unique variables
 
-Note: 
-Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them.
+_Note: Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty()](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
 
 - `Function_Stop` - Stops the game, the `return` keyword is necessary.
 - `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary.
@@ -13,8 +12,8 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 ***
 
 # Song/Week Variables
-- `curBpm` - The current BPM of the song.
 - `curStage` - The current stage of the song.
+- `curBpm` - The current BPM of the song.
 - `bpm` - The starting BPM of the song.
 - `scrollSpeed` - The starting Scroll speed of the song.
 - `crochet` - The interval between Beat hits.
@@ -26,12 +25,13 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `difficultyName` - Returns the difficulty name to be chosen.
 - `week` - Returns the properly formatted current week file name.
 - `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, its here.
+- `currentModDirectory` - Checks the current mod directory.
 
 <details><summary>All Shortcut to:</summary>
 <p>
 
-- `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
 - `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
+- `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
 - `bpm` - `getProperty('SONG.bpm')`
 - `scrollSpeed` - `getProperty('SONG.speed')`
 - `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
@@ -43,6 +43,7 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..getProperty('storyDifficulty')..']')`
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..getProperty('storyWeek')..']')`
 - `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
+- `currentModDirectory` - `getPropertyFromClass('Paths', 'currentModDirectory')`
 
 </p>
 </details>
@@ -87,7 +88,6 @@ Those are the only variables that can be changed by using `= true` or `= false` 
 - `curBeat` - `getProperty('curBeat')`
 - `curDecBeat` - `getProperty('curDecBeat')`
 - `curSection` - `getProperty('curSection')`
-- `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
 - `score` - `getProperty('songScore')`
 - `hits` - `getProperty('songHits')`
 - `misses` - `getProperty('songMisses')`

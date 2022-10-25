@@ -29,7 +29,7 @@ Triggered after every frame on the game currently.
 ### onStartCountdown()
 Triggered on the start of the countdown, used for dialogue and cutscene stuff. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you wan to stop the countdown from happening.
 
-If not, use `return Function_Continue` if you wan't to continue the countdown from happening.
+If not, use `return Function_Continue` if you want to continue the countdown from happening.
 
 Example:
 
@@ -55,17 +55,17 @@ Triggered on each countdown tick.
 Triggered on the start of the song.
 
 ### onEndSong()
-Triggered on the end of the song just like `onDestroy()`, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you wan't to stop the song from ending.
+Triggered on the end of the song just like `onDestroy()`, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you want to stop the song from ending.
 
-If not, use `return Function_Continue` if you wan't to end the song.
+If not, use `return Function_Continue` if you want to end the song.
 
 ***
 
 # Substate Functions
 ### onPause()
-Triggered when you're in the pause screen of the game while not on a cutscene or cutscene. Add `return Function_Stop` if you wan't to stop the player from going to the pause screen.
+Triggered when you're in the pause screen of the game while not on a cutscene or cutscene. Add `return Function_Stop` if you want to stop the player from going to the pause screen.
 
-If not, use `return Function_Continue` if you wan't to access the pause screen.
+If not, use `return Function_Continue` if you want to access the pause screen.
 
 ### onResume()
 Triggered after the game has been resumed from a pause. Not necessarily from the pause screen, but most likely is!!!
@@ -73,7 +73,7 @@ Triggered after the game has been resumed from a pause. Not necessarily from the
 ### onGameOver()
 Triggered when you're in a game over screen or health is equal to zero. Add `return Function_Stop` if you don't want to go to the game-over screen.
 
-If not, use `return Function_Continue` if you wan't to access the game-over screen.
+If not, use `return Function_Continue` if you want to access the game-over screen.
 
 ### onGameOverConfirm(retry)
 Triggered when you press the retry button on the game-over screen. 

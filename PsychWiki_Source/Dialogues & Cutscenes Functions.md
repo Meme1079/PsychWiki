@@ -34,5 +34,5 @@ This will restart the song that you are playing.
 ### loadSong(name:String, difficultyNum:Int)
 This will load a new song.
 
-- `name` - The name of the song you wan't to load.
+- `name` - The name of the song you want to load.
 - `difficulty` - The difficulty ID of song.

@@ -122,7 +122,7 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 ***
 
 # NoteData Properties
-Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`
+_Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
 
 Example: `setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true)`
 
