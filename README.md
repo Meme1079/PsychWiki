@@ -8,7 +8,7 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 
 # To-do List:
 
-- [ ] Finish the shader wiki
+- [x] Finish the shader wiki
 - [ ] Add all the unmentioned callback
 
 # Contributors:
