@@ -102,19 +102,6 @@ Use this to update the hitbox in case you change the sprite's scale manually or 
 
 ***
 
-# Reseting Tags
-### resetSpriteTag(tag:String)
-Resets the current <ins>sprite tag</ins> that is being used.
-
-- `tag` - The sprite tag or object variable name.
-
-### resetTextTag(tag:String)
-Resets the current <ins>text tag</ins> that is being used.
-
-- `tag` - The text tag or object variable name.
-
-***
-
 # Other Functions
 ### setScrollFactor(obj:String, scrollX:Float, scrollY:Float)
 Changes how much a sprite moves along with the camera.
