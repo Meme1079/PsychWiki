@@ -12,12 +12,12 @@ Example: Use `makeGraphic('testBlackSquare', 1000, 1000, '000000')` to make the 
 ### setBlendMode(obj:String, blend:String)
 Changes the blend mode of a sprite object. _(Works similar to how Photoshop do it)_
 
+[List of blend modes](https://api.haxe.org/flash/display/BlendMode.html)
+
 - `obj` - The sprite tag or object variable name.
 - `blend` - The blend mode to use.
 
 Example: `add`, `darken`, `normal`
-
-[List of blend modes](https://api.haxe.org/flash/display/BlendMode.html)
 
 ***
 
@@ -72,7 +72,7 @@ If the object is overlaping on a another object it will return `true`, if not th
 - `position` - The new position order of the object.
 
 ### getObjectOrder(obj:String)
-_Note: when referring to characters, you must refer to their group `boyfriendGroup`, `gfGroup`, `dadGroup`._
+> **Note**: _when referring to characters, you must refer to their group `boyfriendGroup`, `gfGroup`, `dadGroup`._
 
 <ins>Gets the objects</ins> layer position.
 
@@ -110,7 +110,7 @@ Changes how much a sprite moves along with the camera.
 - `scrollX` - The x value of the scroll factor.
 - `scrollY` - The y value of the scroll factor.
 
-_Note: Boyfriend/Opponent have a scrollX/scrollY value of `1`, while Girlfriend have a scrollX/scrollY value of `0.95`, if you're gonna do background elements, it's highly suggested that you make the values something under `1`._
+> **Note**: _Boyfriend/Opponent have a scrollX/scrollY value of `1`, while Girlfriend have a scrollX/scrollY value of `0.95`, if you're gonna do background elements, it's highly suggested that you make the values something under `1`._
 
 ### setObjectCamera(obj:String, camera:String)
 Changes on which camera should your object be drawn on.
@@ -147,7 +147,7 @@ Gets the <ins>y value of the objects</ins> screen position.
 - `variable` - The sprite tag or object variable name.
 
 ### screenCenter(obj:String, pos:String = 'xy')
-Sets the object to center of the screen
+Sets the object to the center of the game screen.
 
 - `obj` - The sprite/text tag or object variable name.
 - `pos` - The position you want to set in, it could be either: `X`, `Y`, `XY`.

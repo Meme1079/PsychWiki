@@ -1,13 +1,15 @@
+> **Note**: _When adding a sound in the game the format should be `ogg` if not then it will not work properly as you inteded for it to be._
+
 # Start Sound/Music Functions
 ### playSound(sound:String, volume:Float = 1, ?tag:String)
-Will play a sound inside the game. **(Must Be a .OGG Format)**
+Will <ins>play a sound</ins> inside the game.
 
 - `sound` - The file name that will be played. _(Relative to located in `mods/sounds/` or `assets/sounds/`)_
 - `volume` - An optional value, volume percent goes from `0` to `1`, Default value: `1`.
 - `tag` - An optional value, if you don't want to utilize it, then don't include a third value. Should only be used if you wish to halt, resume, adjust the time, volume, or fade in/out your sound.
 
 ### playMusic(sound:String, volume:Float = 1, loop:Bool = false)
-Will play a music inside the game. **(Must Be a .OGG Format)**
+Will <ins>play a music</ins> inside the game.
 
 - `sound` - The file name that will be played. _(Relative to located in `mods/music/` or `assets/music/`)_
 - `volume` - An optional value, volume percent goes from `0` to `1`, Default value: `1`.

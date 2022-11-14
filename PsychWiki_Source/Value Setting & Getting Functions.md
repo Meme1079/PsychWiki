@@ -30,7 +30,9 @@ Sets the current variable from an array/group member on the PlayState names with
 - `variable` - The value of the notedata property.
 - `value` - The new value to be set.
 
-Example of changing the note and strum texture: 
+<details><summary>Example:</summary>
+<p>
+
 ```lua
 function onCreatePost() -- end of "create"
      for i = 0, getProperty('unspawnNotes.length')-1 do
@@ -40,6 +42,9 @@ function onCreatePost() -- end of "create"
      end
 end
 ```
+
+</p>
+</details>
 
 # General Getters
 ### getProperty(variable:String)
@@ -122,9 +127,21 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 ***
 
 # NoteData Properties
-_Note: if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
+> **Note**: _if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
 
-Example: `setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true)`
+<details><summary>Example:</summary>
+<p>
+
+```lua
+function onCreatePost()
+     for i = 0, getProperty('unspawnNotes.lenght')-1 do
+          setPropertyFromGroup('unspawnNotes', i, 'hitHealth', 0.9) -- changes the hithealth
+     end
+end
+```
+
+</p>
+</details>
 
 - `noAnimation` - If you hit a note, will not play an animation. **(Boolean)**
 - `noMissAnimation` - If you miss a note, will not play an animation. **(Boolean)**

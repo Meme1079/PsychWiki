@@ -2,49 +2,36 @@
 When contrubuting this repostory you must abide these rule and follow the formating.
 
 # Rules
-
-1. It must be releted to Psych Engine, not other engines. If I encountered this i'll closed the pull request you made.
-2. If you add a Lua Function you must test it before adding and must be useful. Also the current lua version that the engine is using is 5.1.
-3. If you just did a pull request, that is not serious or useless I'd closed this pull request and banned you from this repostory.
-4. And Lastly follow the format shown below, if not i'll put in `invalid` tag and closed it.
+1. The subject must be 100% related to Psych Engine not other engines. This repository is to document missing stuff not mentioned on the wiki. If you did not abide this you have low common sence and iq.
+2. If you're adding a lua function not mention on `FunkinLua.hx` like `math.abs()` please check the Lua version, the version of Lua that we are using is `5.1`. If there is a Lua function above `5.1` like `math.type`. I mark it as `invalid` on the pull request.
+3. If you're doing a useless pull request/issue I will mark it as `invalid`. I don't even know why you're trolling this repository there are less people to troll here.
+4. And Lastly follow the format shown below becuase i said so. _(such a good responce 😎)_
 
 # Formating
-
 ## Function and Group Format:
 
-```md
+````md
 # Group Name
 ### function name(name:parameter)
-Note: This is optional if something is important, when using a function
+> **Warning**: This is optional if something is very important when using a function
+> **Note**: This is optional if something needs more information when using a function
 
 Description of the function and use
 
 - `name` - The description of the parameter and use
 
+<details><summary>Example:</summary>
+<p>
+
+```lua
+-- the lua code example
+```
+
+</p>
+</details>
+
 *** -- Use this above when making a new group
 
 # Other Group Name
-```
 
-## Formats:
-
-- `**(Must Be a .PNG Format)**` - For images
-- `**(Must Be a .OGG Format)**` - For sounds and music
-- `**(Must Be a .TTF Format)**` - For texts
-- `**(Must be a Hexadecimal Color Code)**` - For colors
-- `_(Comment)_` - Comments or other stuff
-
-## Highlighting Format Rules:
-
-When making a HighLight use \`\` to highlight them Example: `yes`. 
-
-But there rules you must follow when adding a highlight here are they.
-
-- Use these when mentioning a function and parameter Example: `function()` and `parameter`
-- Also same with callback templates and Funkin lua Example: `onCreate()` and `getProperty('something.x')`
-- Use these when doing a array list Example: keys: `left`, `right`, `middle`
-- Use these when making file path Example: `mods/funny.lua`
-- Funkin Variables and Variables Types: `lowquality` and `true`
-- Names of the character Example: `boyfriend`, `dad`, `gf`
-- Quotations and Symbols Example: `#`, `[[]]`, `=` 
-- Numbers Examples: `0` `1`
+````

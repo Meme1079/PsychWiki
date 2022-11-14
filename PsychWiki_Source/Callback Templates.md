@@ -1,37 +1,49 @@
 # Start/End functions
 ### onCreate()
-Triggered when the lua file is started used for creating a sprite and precaching, some variables weren't created yet.
+The <ins>start of the lua script</ins> used for creating or setting objects and precaching, some variables weren't created yet.
 
 ### onCreatePost()
-Triggered after the lua file has been created. This can be used if you put something in the `onCreate()` method and it fails.
+The <ins>post/after start of the lua script</ins>. You these, if the code didn't work in `onCreate()`. 
 
 ### onDestroy()
-Triggered when the lua file has ended, the song has ended at that point.
+The <ins>end of the lua script</ins>. 
 
 ***
 
 # Gameplay/Song Functions
 ### onBeatHit()
-Triggered 4 times per section used for `curStep` and `curDecStep` variable.
+Triggered <ins>4 times per section</ins> used for `curStep` and `curDecStep` variable.
 
 ### onStepHit()
-Triggered 16 times per section used for `curBeat` and `curDecBeat` variable.
+Triggered <ins>16 times per section</ins> used for `curBeat` and `curDecBeat` variable.
 
 ### onSectionHit()
-Triggered 1 times per section used for `curSection` variable.
+Triggered <ins>1 times per section</ins> used for `curSection` variable.
 
 ### onUpdate(elapsed)
-Triggered every frame on the game currently, some variables weren't updated yet.
+The <ins>every frame on the game currently</ins>, some variables weren't updated yet.
 
 ### onUpdatePost(elapsed)
-Triggered after every frame on the game currently.
+The <ins>post/after every frame on the game currently</ins>. You these, if the code didn't work in `onUpdate(elapsed)`. 
 
+### onSongStart()
+The end of the countdown and the <ins>start of the song</ins>.
+
+### onEndSong()
+The <ins>end of the song</ins>, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you want to stop the song from ending.
+
+If not, use `return Function_Continue` if you want to end the song.
+
+***
+
+# Countdown Functions
 ### onStartCountdown()
-Triggered on the start of the countdown, used for dialogue and cutscene stuff. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you wan to stop the countdown from happening.
+The start of the countdown used for <ins>dialogue and cutscene stuff</ins>. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you want to stop the countdown from happening.
 
 If not, use `return Function_Continue` if you want to continue the countdown from happening.
 
-Example:
+<details><summary>Example:</summary>
+<p>
 
 ```lua
 function onStartCountdown()
@@ -39,170 +51,233 @@ function onStartCountdown()
 end
 ```
 
+</p>
+</details>
+
 ### onCountdownStarted()
-Triggered during the countdown.
+Triggered <ins>during the countdown</ins>.
 
 ### onCountdownTick(counter)
-Triggered on each countdown tick.
+Triggered <ins>in each countdown tick</ins>.
 
-- `counter = 0` - Three
-- `counter = 1` - Two
-- `counter = 2` - One
-- `counter = 3` - Go!
-- `counter = 4` - Trigger on the start of the song.
+- `counter` - In each tick of the countdown sound. 
 
-### onSongStart()
-Triggered on the start of the song.
+<details><summary>Example:</summary>
+<p>
 
-### onEndSong()
-Triggered on the end of the song just like `onDestroy()`, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you want to stop the song from ending.
+```lua
+function onCountdownTick(counter)
+     if counter == 0 then
+          debugPrint('Three')
+     elseif counter == 1 then
+          debugPrint('Two')
+     elseif counter == 2 then
+          debugPrint('One')
+     elseif counter == 3 then
+          debugPrint('Go')
+     elseif counter == 4 then
+          debugPrint(songName..' is now playing') -- The start of the song
+     end
+end
+```
 
-If not, use `return Function_Continue` if you want to end the song.
+</p>
+</details>
 
 ***
 
 # Substate Functions
 ### onPause()
-Triggered when you're in the pause screen of the game while not on a cutscene or cutscene. Add `return Function_Stop` if you want to stop the player from going to the pause screen.
+Triggered when you're in the <ins>pause screen of the game while not on a cutscene or cutscene</ins>. Add `return Function_Stop` if you want to stop the player from going to the pause screen.
 
 If not, use `return Function_Continue` if you want to access the pause screen.
 
 ### onResume()
-Triggered after the game has been resumed from a pause. Not necessarily from the pause screen, but most likely is!!!
+Triggered after the game has been <ins>resumed from a pause</ins>. Not necessarily from the pause screen, but most likely is.
 
 ### onGameOver()
-Triggered when you're in a game over screen or health is equal to zero. Add `return Function_Stop` if you don't want to go to the game-over screen.
+Triggered when you got a <ins>game-over screen or the health is equal to zero</ins>. Add `return Function_Stop` if you don't want to go to the game-over screen.
 
 If not, use `return Function_Continue` if you want to access the game-over screen.
 
 ### onGameOverConfirm(retry)
-Triggered when you press the retry button on the game-over screen. 
+Triggered when you press the <ins>retry button on the game-over screen</ins>. 
 
 - `retry` - This will trigger if you press the retry button. If you exit the game-over screen then the `retry` parameter will return `false`.
 
 ***
 
 # Custom Substate Functions
-### onCustomSubstateCreate(name)
-Triggered when the lua file is started.
+> **Warning**: _You need [`runHaxeCode()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-General-Functions#runhaxecodecodetorunstring) for order to these functions work properly._
 
-- `name` - The name of the custom substate.
+### onCustomSubstateCreate(name)
+The <ins>start of the lua script</ins> on the custom substate.
+
+- `name` - The name of the custom substate. _(This is important to use!)_
 
 ### onCustomSubstateCreatePost(name)
-Triggered after the lua file has been created.
+The <ins>post/after start of the lua script</ins> on the custom substate.
 
 ### onCustomSubstateUpdate(name, elapsed)
-Triggered every frame on the game currently.
+The <ins>every frame on the game currently</ins> on the custom substate.
 
 ### onCustomSubstateUpdatePost(name, elapsed)
-Triggered after every frame on the game currently.
+The <ins>post/after every frame on the game currently</ins> on the custom substate.
 
 ### onCustomSubstateDestroy(name)
-Triggered when the lua file has ended.
+The <ins>end of the lua script</ins> on the custom substate. 
 
 ***
 
 # Dialogue Functions
 ### onNextDialogue(line)
-Triggered when the next dialogue line starts, dialogue line starts with `1`.
+Triggered when the <ins>next dialogue line starts</ins>, dialogue line starts with `1`.
 
 ### onSkipDialogue(line)
-Triggered when you press enter and skip a dialogue line that was still being typed, dialogue line starts with `1`.
+Triggered when you <ins>press enter and skip a dialogue line </ins>that was still being typed, dialogue line starts with `1`.
 
 ***
 
 # Note Miss/Hit Functions
 ### goodNoteHit(id, direction, noteType, isSustainNote)
-Triggered when you hit a note, after calculating note hit.
+Triggered when the <ins>player hit a note during gamplay</ins>, after calculating note hit.
 
-- `id` - The note id property, you can get the current note variable from the note, Example: `getPropertyFromGroup('notes', id, 'copyAlpha')`.
-- `direction` - The direction on the note strum, Directions: `0 = Left`, `1 = Down`, `2 = Up`, `3 = Right`.
-- `noteType` - The type of note that can be hit.
-- `isSustainNote` - If a long note is present, the long note will return `true`.
+- `id` - The current note id property.
+- `direction` - The direction axis of the note.
+- `noteType` - The type of the note duh.
+- `isSustainNote` - If the note has a tail, will return `false` if not.
+
+<details><summary>Example:</summary>
+<p>
+
+```lua
+function goodNoteHit(id, direction, noteType, isSustainNote)
+     debugPrint(getPropertyFromGroup('notes', id, 'noteSplashDisabled'))
+     -- id parameter example
+     -- this will check if the notesplash is disable or not
+
+     if direction == 0 then
+          debugPrint('left')
+     elseif direction == 1 then
+          debugPrint('down')
+     elseif direction == 2 then
+          debugPrint('up')
+     elseif direction == 3 then
+          debugPrint('right')
+     end
+     -- direction parameter example
+     -- this will print each corresponding direction
+
+     if noteType == 'No Animation' then
+          debugPrint('No animation detected!')
+     end
+     -- noteType parameter example
+     -- this will print if the 'No Animation' note was hit
+
+     if isSustainNote == true then
+          debugPrint('loooooong')
+     end
+     -- isSustainNote parameter example 
+     -- this will check if the note has a tail
+end
+```
+
+</p>
+</details>
 
 ### opponentNoteHit(id, direction, noteType, isSustainNote)
-Triggered when the opponent hit a note, after calculating note hit.
+Triggered when the <ins>opponent hit a note during gamplay</ins>, after calculating note hit.
 
 ### noteMiss(id, direction, noteType, isSustainNote)
-Triggered if you missed a note, after the note miss calculation's.
+Triggered if you <ins>missed a note</ins>, after the note miss calculations.
 
 ### noteMissPress(direction)
-Triggered when you pressed a button but there is no note present there, after the note press miss calculation's.
+Triggered if you <ins>pressed a button but there is note present there</ins>, after the note press miss calculations.
 
 ***
 
 # Keys Press Functions
 ### onGhostTap(key)
-Triggered when you pressed a button but there is no note present there. _(It's just the same as `noteMissPress()`)_
+Triggered if the note controls were <ins>recently pressed but there is note present</ins> there on the current game.
 
-- `key` - The `direction` parameter on the `goodNoteHit()`.
+- `key` - This works the same as the `direction` on the `goodNoteHit()` function.
 
 ### onKeyPress(key)
-Triggered when you hit a note or did a ghost hit.
+Triggered if the note controls were <ins>recently pressed</ins> on the current game.
 
-- `key` - The `direction` parameter on the `goodNoteHit()`.
+- `key` - This works the same as the `direction` on the `goodNoteHit()` function.
 
 ### onKeyRelease(key)
-Triggered after you hit a note or did a ghost hit.
+Triggered if the note controls were <ins>recently released</ins> on the current game.
 
-- `key` - The `direction` parameter on the `goodNoteHit()`.
+- `key` - This works the same as the `direction` on the `goodNoteHit()` function.
 
 ***
 
 # Other Functions
 ### onRecalculateRating()
-Triggered before the calculation. You can use the `setRatingPercent()` to set the accuracy percent on the calculation. And the `setRatingString()` for the funny rating name. Add `return Function_Stop` if you don't want to add accuracy percent and rating.
+Triggered <ins>before the calculation</ins>. You can use the `setRatingPercent()` to set the accuracy percent on the calculation. And the `setRatingString()` for the funny rating name. 
 
-You don't need to add `return Function_Continue`.
+Add `return Function_Stop` if you don't want to add accuracy percent and rating. You don't need to add `return Function_Continue`.
 
 ### onMoveCamera(focus)
-Triggered by the camera focusing on `boyfriend` or `dad`.
+Triggered by the <ins>camera focusing</ins> on `boyfriend` or `dad`.
 
 - `focus` - Which character for the camera to focus on.
 
-Example:
+<details><summary>Example:</summary>
+<p>
+
 ```lua
 function onMoveCamera(focus)
      if focus == 'boyfriend' then
-	   -- called when the camera focus on boyfriend
-     elseif focus == 'dad' then
-	   -- called when the camera focus on dad
+	     -- called when the camera focus on boyfriend
+     end
+
+     if focus == 'dad' then
+	     -- called when the camera focus on dad
      end
 end
 ```
 
-***
+</p>
+</details>
 
-# Event Functions
 ### onEvent(name, value1, value2)
-This will make a custom event.
+This will create your <ins>custom event script</ins>.
 
 - `name` - The name of the event.
-- `value1` - The value 1 on the chart editor
-- `value2` - The value 2 on the chart editor
+- `value1` - The first value to be set in value 1 tab.
+- `value2` - The second value to be set in value 2 tab.
 
 ### eventEarlyTrigger(name)
-This will make the event trigger early.
+This will make your custom event trigger earlier.
 	
-Example of a port of the Kill Henchmen early trigger but on Lua instead of Haxe:
+<details><summary>Example:</summary>
+<p>
+
 ```lua
+-- Here's a port of the Kill Henchmen early trigger but on Lua instead of Haxe
 function eventEarlyTrigger(name)
      if name == 'Kill Henchmen' then
-          return 280; --[[ This makes "Kill Henchmen" event be triggered 280 miliseconds earlier 
-          so that the kill sound is perfectly timed with the song]]
+          -- This makes "Kill Henchmen" event be triggered 280 miliseconds earlier 
+          -- so that the kill sound is perfectly timed with the song
+          return 280 
      end
 end
 ```
 
-***
+</p>
+</details>
 
-# Tween/Timer Functions
 ### onTimerCompleted(tag, loops, loopsLeft)
-This will create a timer.
+Will <ins>create a timer</ins> that's it.
 
 - `tag` - The tag on the timer to use in `runTimer()` function.
 - `loops` - The duration on the timer to start.
 - `loopsLeft` - How many loops will the timer make.
 
 ### onTweenCompleted(tag)
-After the tween is completed this function will be called.
+If the tween on `onTimerCompleted()` is <ins>complete then this function will be triggered</ins>.
+
+- `tag` - The tag on the timer to use in `runTimer()` function.

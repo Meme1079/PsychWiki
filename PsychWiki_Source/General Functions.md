@@ -180,7 +180,7 @@ Example: `checkFileExists('mods/pathTotheFile/luafile.lua')`
 
 # Scripts Functions
 ### isRunning(luaFile:String)
-_Note: Put the file format name to get the file you want._
+> **Note**: _Put the file format name to get the file you want._
 
 - `luaFile` - The file that you want to detect that is running currently.
 
@@ -212,19 +212,6 @@ It executes the string as a Haxe script.
 
 - `codeToRun` - the haxe code to be executed, use double brackets `[[]]` when making the haxe code.
 
-### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-<ins>Sets the global variable with a new value</ins> from another lua script; this will not work with <ins>local variable</ins>.
-
-- `luaFile` - The path of the file that you are getting.
-- `global` - The variable to be chosen.
-- `val` - The new value of the variable.
-
-### getGlobalFromScript(luaFile:String, global:String)
-<ins>Gets the current value of a global variable</ins> from another lua script; this does not work with <ins>local variables</ins>.
-
-- `luaFile` - The path of the file that you are getting.
-- `global` - The variable to be chosen.
-
 ### openCustomSubstate(name:String, pauseGame:Bool = false)
 Will open your custom substate. To create a custom substate [click here](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#custom-substate-functions).
 
@@ -235,6 +222,39 @@ Will open your custom substate. To create a custom substate [click here](https:/
 Will close your custom substate.
 
 - `name` - The name of the custom substate.
+
+***
+
+> **Warning**: _This is section of the Script Functions has 2 problems. **[1]** The `setGlobalFromScript()` and `getGlobalFromScript()` are broken i don't know why. **[2]** The `callOnLuas()` and `callScript()` have no information on the use of the function and maybe parameters i dunno. And if you asked why put both functions on here even though i don't know what there use it. Shut up it, it's documentation duh._
+
+### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
+<ins>Sets the global variable with a new value</ins> from another lua script; this will not work with <ins>local variable</ins>.
+
+- `luaFile` - The path of the file that you are getting.
+- `global` - The variable to be chosen.
+- `val` - The new value of the variable.
+
+### getGlobalFromScript(luaFile:String, global:String)
+<ins>Gets the current value of a global variable</ins> from another lua script; this will not work with <ins>local variables</ins>.
+
+- `luaFile` - The path of the file that you are getting.
+- `global` - The variable to be chosen.
+
+### callOnLuas(?funcName:String, ?args:Array<Dynamic>, ignoreStops=false, ignoreSelf=true, ?exclusions:Array<String>)
+_Description of this function is still being research currently._
+
+- `funcName` - The name of the lua function to be used.
+- `args` - The parameters on the lua function with a **Table** inside.
+- `ignoreStops` - An optional parameter, whether or not will it ignore the stop.
+- `ignoreSelf` - An optional parameter, whether or not will it ignore its self.
+- `exclusions` - An optional parameter, the exclusions of the parameters of the lua function with a **Table** inside.
+
+### callScript(?luaFile:String, ?funcName:String, ?args:Array<Dynamic>)
+_Description of this function is still being research currently._
+
+- `luaFile` - The path of the file that you are getting.
+- `funcName` - The name of the lua function to be used.
+- `args` - The parameters on the lua function with a **Table** inside.
 
 ***
 

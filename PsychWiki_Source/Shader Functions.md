@@ -1,4 +1,6 @@
-_Waring: Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter. And if you want ; help is appreciated_
+> **Warning**: _Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter; help is always appreciated._
+
+> **Note**: _The shader functions will not work unless you have a `frag` or `vert` file in the `shaders` file._
 
 # Creating/Removing Shader
 ### initLuaShader(name:String, glslVersion:Int = 120)
@@ -22,35 +24,37 @@ Removes the shader from the game.
 
 # Shader Setting
 ### setShaderBool(obj:String, prop:String, value:Bool)
-Sets the current **Boolean** variable shader.
+Sets the current <ins>**Boolean** variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The `uniform bool` keyword name.
 - `value` - The **Boolen** to be set.
 
 ### setShaderInt(obj:String, prop:String, value:Int)
-Sets the current **Int** variable shader.
+Sets the current <ins>**Int** variable shader.
 
 - `object` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform int` keyword.
+- `prop` - The variable in `uniform int` keyword</ins>.
 - `value` - The **Int** to be set.
 
 ### setShaderFloat(obj:String, prop:String, value:Float)
-Sets the current **Float** variable shader.
+Sets the current <ins>**Float** variable shader.
 
 - `object` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform float` keyword.
+- `prop` - The variable in `uniform float` keyword</ins>.
 - `value` - The **Float** to be set.
 
 ### setShaderSampler2D(obj:String, prop:String, bitmapdataPath:String)
-Sets the current **Sampler2D** variable shader.
+Sets the current <ins>**Sampler2D** variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform sampler2D` keyword.
-- `value` - The **Sampler2D** to be set.
+- `bitmapdataPath` - The image file to be set.
+
+***
 
 ### setShaderBoolArray(obj:String, prop:String, value:Dynamic)
-Sets the current **Boolean** array variable shader.
+Sets the current <ins>**Boolean** array variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform bool` keyword.
@@ -59,14 +63,14 @@ Sets the current **Boolean** array variable shader.
 Example: `setShaderBoolArray('shader', exampleBool, {true, true, false})`
 
 ### setShaderIntArray(obj:String, prop:String, value:Dynamic)
-Sets the current **Int** array variable shader.
+Sets the current <ins>**Int** array variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform int` keyword.
 - `value` - The **Int** array to be set.
 
 ### setShaderFloatArray(obj:String, prop:String, value:Dynamic)
-Sets the current **Float** array variable shader.
+Sets the current <ins>**Float** array variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform float` keyword.
@@ -76,25 +80,27 @@ Sets the current **Float** array variable shader.
 
 # Shader Getter
 ### getShaderBool(obj:String, prop:String)
-Gets the current **Boolean** variable shader.
+Gets the current <ins>**Boolean** variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The `uniform bool` keyword name.
 
 ### getShaderInt(obj:String, prop:String)
-Gets the current **Int** variable shader.
+Gets the current <ins>**Int** variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform int` keyword.
 
 ### getShaderFloat(obj:String, prop:String)
-Gets the current **Float** variable shader.
+Gets the current <ins>**Float** variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform float` keyword.
 
+***
+
 ### getShaderBoolArray(obj:String, prop:String)
-Gets the current **Boolean** array variable shader.
+Gets the current <ins>**Boolean** array variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform bool` keyword.
@@ -102,13 +108,13 @@ Gets the current **Boolean** array variable shader.
 Example: `getShaderBoolArray('shader', exampleBool)[1]`
 
 ### getShaderIntArray(obj:String, prop:String)
-Gets the current **Int** array variable shader.
+Gets the current <ins>**Int** array variable shader</ins>.
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform int` keyword.
 
 ### getShaderFloatArray(obj:String, prop:String)
-Gets the current **Float** array variable shader.
+Gets the current <ins>**Float** array variable shader.</ins>
 
 - `object` - The sprite tag or object variable name.
 - `prop` - The variable in `uniform float` keyword.

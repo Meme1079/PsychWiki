@@ -1,56 +1,60 @@
 # Creating/Adding/Removing Sprite
-### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a lua sprite object. **(Must Be a .PNG Format)**
+> **Note**: _When adding a lua sprite the file format should be a `png` format any image format other than `png` will have the haxeflixel missing sprite logo._
 
-And you want a color screen put <ins>`nil` on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring). If another lua sprite that exists is already using the `tag`, <ins>it will be removed</ins>.
+### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
+Creates a lua sprite object. 
+
+If you want a colored screen put <ins>`nil` variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. If another lua sprite that exists is already using the `tag` parameter, <ins>it will be removed</ins>.
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
-- `x` - The x value of the sprite object.
-- `y` - The y value of the sprite object.
+- `x` - The x value of the sprite object to be set.
+- `y` - The y value of the sprite object to be set.
 
 ### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a lua sprite that <ins>supports animations</ins>, and must have a `xml` file with it.
+Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` file with it.
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
-- `x` - The x value of the sprite object.
-- `y` - The y value of the sprite object.
+- `x` - The x value of the sprite object to be set.
+- `y` - The y value of the sprite object to be set.
 
 ### addLuaSprite(tag:String, front:Bool)
-Adds a sprite object to the game.
+<ins>Adds a sprite object</ins> to the game.
 
 - `tag` - The sprite tag or object variable name.
 - `front` - Whether or not the sprite object gets <ins>added on top of the characters</ins>.
 
 ### removeLuaSprite(tag:String, destroy:Bool)
-Removes a sprite object from the game.
+<ins>Removes a sprite object</ins> from the game. Use this if the lua sprite isn't used anymore for performance.
 
 - `tag` - The sprite tag or object variable name.
-- `destroy` - Whether or not the sprite object should be fully removed, <ins>disallowing further use</ins>.
+- `destroy` - Whether or not the sprite object should be fully removed, <ins>making it unable to be re-added</ins>.
 
 ***
 
 # Creating/Adding/Removing Text
+> **Note**: _When adding a text object the file format should be a `ttf` format any image format other than `ttf` will have the haxeflixel missing sprite logo._
+
 ### makeLuaText(tag:String, text:String, width:Int, x:Float, y:Float)
-Creates a text object with position `x`, `y`, and `width`. **(Must Be a .TTF Format)**
+Creates a text object with the position of `x`, `y`, and `width` parameter.
 
 - `tag` - The text tag or object variable name.
 - `text` - The text string will have.
 - `width` - The width of the text; setting it to `0` will automatically determine the width for you.
-- `x` - The x value of the object.
-- `y` - The y value of the object.
+- `x` - The x value of the text object to be set.
+- `y` - The y value of the text object to be set.
 
 ### addLuaText(tag:String)
-Adds a text object to the game.
+<ins>Adds a text object</ins> to the game.
 
 - `tag` - The text tag or object variable name.
 
 ### removeLuaText(tag:String, destroy:Bool)
-Removes a text object off the game.
+<ins>Removes a text object</ins> from the game. Use this if the text object isn't used anymore for performance.
 
 - `tag` - The text tag or object variable name.
-- `destroy` - Whether or not the object will be fully destroyed, <ins>making it unable to be re-added</ins>.
+- `destroy` - Whether or not the text object will be fully destroyed, <ins>making it unable to be re-added</ins>.
 
 ***
 

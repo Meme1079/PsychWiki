@@ -164,14 +164,14 @@ An operator is a symbol that tells the interpreter to perform <ins>specific math
 # Control Structures
 Control Structures allow to perform tasks if the condition is `true`. 
 
-Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. Because there are rarely used in scripts but they do work.
+Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. <ins>Because there are rarely used in scripts but they do work</ins>.
 
 ### If Statement
 A common basic statement to test if the condition is `true` it will execute the code.
 
-You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as a alternate conditions if the `if` statement returns to `false`.
+You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as an <ins>alternate condition</ins> if the `if` statement returns to `false`.
 
-Another statement you can add is `else` this statement allow you to execute opposite condition of `if` or `elseif` statements and will only activate if the `if` or `elseif` returns `false`.
+Another statement you can add is `else` this statement allow you to <ins>execute opposite condition of `if` or `elseif` statements</ins> and will only activate if the `if` or `elseif` returns `false`.
 
 Example:
 ```lua
@@ -234,7 +234,7 @@ end
 
 # Keywords Functions
 ### function(parameter)
-A function is a collection of code that cooperates to complete a task.
+A function is a <ins>collection of code that cooperates to complete a task</ins>.
 
 You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with tables.
 
@@ -288,7 +288,7 @@ end
 
 # Basic Functions
 ### dofile(file)
-_Note: Put the file format name to get the file you want._
+> **Note**: _Put the file format name to get the file you want._
 
 This execute a chunk of code on a another lua file. This can get variables and functions if there not <ins>local</ins>.
 
@@ -315,7 +315,7 @@ end
 ### ipairs(table)
 This works the same as `pairs()` but if the table is dictionary. <ins>The key must be a number and be surrounded by brackets `[]`</ins>. And will sort it in chronological order. If the value is **Nil** <ins>then the loop will stop at there</ins>. 
 
-If you decided to put an alphabet in the brackets `[]` then it will not work and will print nothing.
+If you decided to put an alphabet in the brackets `[]` <ins>then it will not work and will print nothing</ins>.
 
 Example:
 ```lua
@@ -456,17 +456,17 @@ Returns the <ins>hyperbolic cosine</ins> of the number
 Returns the <ins>hyperbolic tangent</ins> of the number.
 
 ### math.asin(num:Float)
-_Note: The `num` parameter value should be `-1` to `1`._
+> **Note**: _The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine sine</ins> of the number.
 
 ### math.acos(num:Float)
-_Note: The `num` parameter value should be `-1` to `1`._
+> **Note**: _The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine cosine</ins> of the number
 
 ### math.atan(num:Float)
-_Note: The `num` parameter value should be `-1` to `1`._
+> **Note**: _The `num` parameter value should be `-1` to `1`._
 
 Returns the <ins>arccosine tangent</ins> of the number.
 

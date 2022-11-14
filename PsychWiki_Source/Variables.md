@@ -1,6 +1,6 @@
 # Lua/Unique variables
 
-_Note: Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [setProperty()](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
+> **Note**: _Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [`setProperty()`](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
 
 - `Function_Stop` - Stops the game, the `return` keyword is necessary.
 - `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary.
