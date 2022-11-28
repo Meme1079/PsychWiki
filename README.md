@@ -8,7 +8,7 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 # Major Updates:
 ### 5.0 Version
 - Added more examples in Basics of Coding
-- More unnecessary inserted text (Probrably will change in 5.3 Update)
+- More unnecessary inserted text (Probrably will change in 6.0 Update)
 - Some grammar corrections
 
 ### 4.0 Version
