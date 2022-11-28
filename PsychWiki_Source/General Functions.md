@@ -6,7 +6,7 @@ Plays a specific character animation.
 - `anim` - The animation name to be played.
 - `forced` - Can be either `true` or `false`, if set to `true`, it will force the animation to reset if the current animation is the same as the animation to play.
 
-### characterDance(character:String)
+### characterDance(character:String) 
 Makes character do the idle dance.
 
 - `character` - The name of the character, can be `boyfriend`, `dad` or `gf`.
@@ -115,19 +115,19 @@ Checks whether the <ins>sound object</ins> exists in the currently playing song.
 
 # String Functions
 ### stringStartsWith(str:String, start:String)
-Checks the <ins>starting section</ins> of the string with the `start` parameter.
+Checks the <ins>starting section</ins> of the **String** with the `start` parameter.
 
 - `str` - The string to be manipulate.
 - `start` - The start of the string.
 
 ### stringEndsWith(str:String, end:String)
-Checks the <ins>ending section</ins> of the string with the `start` parameter.
+Checks the <ins>ending section</ins> of the **String** with the `end` parameter.
 
 - `str` - The string to be manipulate.
 - `end` - The end of the string.
 
 ### stringSplit(str:String, split:String)
-<ins>Splits a string into multiple string</ins> will turn it into a **Table**.
+This will <ins>split the **String** into multiple values</ins>, just like a **Table** would function.
 
 - `str` - The string to split.
 - `start` - The seperation of the string.
@@ -135,7 +135,7 @@ Checks the <ins>ending section</ins> of the string with the `start` parameter.
 Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
 
 ### stringTrim(str:String)
-Removes any <ins>unnecessary large spaces</ins> from string.
+Removes any <ins>unnecessary large spaces</ins> from the **String**.
 
 - `str` - The string to be converted.
 
@@ -208,18 +208,18 @@ Adds a library variable into the interpreter.
 Example: `addHaxeLibrary('FlxTween', 'flixel.tweens')`
 
 ### runHaxeCode(codeToRun:String)
-It executes the string as a Haxe script.
+It executes the string as a haxe script.
 
 - `codeToRun` - the haxe code to be executed, use double brackets `[[]]` when making the haxe code.
 
 ### openCustomSubstate(name:String, pauseGame:Bool = false)
-Will open your custom substate. To create a custom substate [click here](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#custom-substate-functions).
+Will <ins>open</ins> your custom substate. If you want to know how to open the custom substate of yours. Click on this [hyperlink](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#custom-substate-functions) for more information.
 
 - `name` - The name of the custom substate.
 - `pauseGame` - An optional value, will pause your game when opening the custom substate.
 
 ### closeCustomSubstate(name:String)
-Will close your custom substate.
+Will <ins>close</ins> your custom substate.
 
 - `name` - The name of the custom substate.
 
@@ -260,7 +260,7 @@ _Description of this function is still being research currently._
 
 # Randomizers
 ### getRandomInt(min:Int, max:Int)
-This will randomize a <ins>**Int** number</ins>. _(Better than `math.random()`)_
+This will randomize a <ins>**Int** number</ins>. _(Better than `math.random()` ngl)_
 
 - `min` - The lowest value.
 - `max` - The highest value.
@@ -350,7 +350,7 @@ Example: To remove the first spawned note from the group you should use `removeF
 
 # Debug Functions
 ### debugPrint(text1, text2, text3, text4, text5)
-This command displays a debug message in the <ins>top-left corner of the screen</ins>. All of the values are optional, and you can print up to 5 of them.
+This command displays a debug message in the <ins>top-left corner of the screen</ins>. All of the values are optional, and you can print up to 5 of them. You can use this function for checking the current value of the object or variable.
 
 Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` 
 

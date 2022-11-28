@@ -1,10 +1,10 @@
 # Creating/Adding/Removing Sprite
-> **Note**: _When adding a lua sprite the file format should be a `png` format any image format other than `png` will have the haxeflixel missing sprite logo._
+> **Note**: _When adding a lua sprite the file format should be `png`. If the file format are not `png` it will not work._
 
 ### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
 Creates a lua sprite object. 
 
-If you want a colored screen put <ins>`nil` variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. If another lua sprite that exists is already using the `tag` parameter, <ins>it will be removed</ins>.
+If you want a colored screen put <ins>**Nil** variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. If another lua sprite that exists is already using the `tag` parameter, <ins>it will be removed</ins>.
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
@@ -12,7 +12,7 @@ If you want a colored screen put <ins>`nil` variable on the `image` parameter</i
 - `y` - The y value of the sprite object to be set.
 
 ### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` file with it.
+Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` file with it for order to work.
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
@@ -34,8 +34,6 @@ Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` 
 ***
 
 # Creating/Adding/Removing Text
-> **Note**: _When adding a text object the file format should be a `ttf` format any image format other than `ttf` will have the haxeflixel missing sprite logo._
-
 ### makeLuaText(tag:String, text:String, width:Int, x:Float, y:Float)
 Creates a text object with the position of `x`, `y`, and `width` parameter.
 
@@ -62,7 +60,6 @@ Creates a text object with the position of `x`, `y`, and `width` parameter.
 ### setTextString(tag:String, text:String)
 Sets the <ins>text string</ins> with a new string value.
 
-- `tag` - The text tag or object variable name.
 - `text` - The new text string value of the text.
 
 ### setTextSize(tag:String, size:Int)
@@ -92,9 +89,11 @@ Sets the <ins>text alignment</ins> with a new alignment value.
 - `alignment` - The new text alignment value of the text's, it can be `left`, `center`, `right`. 
 
 ### setTextFont(tag:String, font:String)
+> **Note**: _When adding a text sprite the file format should be `ttf`. If the file format are not `ttf` it will not work._
+
 Sets the <ins>text font</ins> with a new font value.
 
-- `font` - The new text font value.
+- `font` - The new text font value. _(Relative to `mods/fonts`)_
 
 ### setTextItalic(tag:String, italic:Bool)
 Sets the <ins>text to _italic_</ins>.

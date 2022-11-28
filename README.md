@@ -1,14 +1,19 @@
 ![banner](https://user-images.githubusercontent.com/101881784/186165593-7f234ba2-093d-4754-8062-6afe002e93a4.png)
 
 # Psych-Wiki
-> **Note**: This not a the officail wiki of Psych Engine
+> **Note**: This not the officail wiki of Psych Engine
 
 Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it.
 
 # Major Updates:
+### 5.0 Version
+- Added more examples in Basics of Coding
+- More unnecessary inserted text (Probrably will change in 5.3 Update)
+- Some grammar corrections
+
 ### 4.0 Version
 - Revamp the Callback Templates
-- Added `Note` and `Warning` on the functions cuz yea 
+- Added `Note` and `Warning` on the function descriptions cuz yea 
 - Added more inserted text on the description
 - Fix spelling errors
 

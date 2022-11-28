@@ -7,7 +7,22 @@ Creates a colored screen object.
 - `height` - The height value in pixels of the colored screen.
 - `color` - The color of the screen. **(Must be a Hexadecimal Color Code)**
 
-Example: Use `makeGraphic('testBlackSquare', 1000, 1000, '000000')` to make the lua Sprite with the tag "testBlackSquare" turn into a 1000x1000 black square.
+<details><summary><b>Example:</b></summary>
+<p>
+
+```lua
+function onCreate()
+     makeLuaSprite('testBlackSquare', nil, 0, 0)
+     makeGraphic('testBlackSquare', 1000, 1000, '000000')
+     setObjectCamera('testBlackSquare', 'camHUD')
+     screenCenter('testBlackSquare', 'XY')
+     addLuaSprite('testBlackSquare', true)
+end
+```
+
+</p>
+</details>
+
 
 ### setBlendMode(obj:String, blend:String)
 Changes the blend mode of a sprite object. _(Works similar to how Photoshop do it)_
@@ -37,7 +52,7 @@ Adds an animation name to the lua sprite/object using the tag/variable tag <ins>
 - `obj` - The sprite tag or object variable name.
 - `name` - The animation name to played.
 - `prefix` - The animation name on the `xml` file.
-- `indices` - The frames for the animation that should be used, must be separated each by a comma, Example: `1, 2, 3, 4, 5, 6`.
+- `indices` - The frames for the animation that should be used, must be separated each by a comma, Example: `1, 2, 3`
 - `framerate` - An optional value, how many frames per second does the animation have, Default value is `24`
 
 ### objectPlayAnimation(obj:String, name:String, forced:Bool = false)

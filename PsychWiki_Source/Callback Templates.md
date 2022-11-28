@@ -3,7 +3,7 @@
 The <ins>start of the lua script</ins> used for creating or setting objects and precaching, some variables weren't created yet.
 
 ### onCreatePost()
-The <ins>post/after start of the lua script</ins>. You these, if the code didn't work in `onCreate()`. 
+The <ins>post/after start of the lua script</ins>. If the code didn't work on `onCreate()` use this function instead.
 
 ### onDestroy()
 The <ins>end of the lua script</ins>. 
@@ -12,13 +12,13 @@ The <ins>end of the lua script</ins>.
 
 # Gameplay/Song Functions
 ### onBeatHit()
-Triggered <ins>4 times per section</ins> used for `curStep` and `curDecStep` variable.
+Triggered <ins>4 times per section</ins>, `curStep` and `curDecStep` variable should be use here.
 
 ### onStepHit()
-Triggered <ins>16 times per section</ins> used for `curBeat` and `curDecBeat` variable.
+Triggered <ins>16 times per section</ins>, `curBeat` and `curDecBeat` variable should be use here.
 
 ### onSectionHit()
-Triggered <ins>1 times per section</ins> used for `curSection` variable.
+Triggered <ins>1 times per section</ins>, `curSection` variable should be use here.
 
 ### onUpdate(elapsed)
 The <ins>every frame on the game currently</ins>, some variables weren't updated yet.
@@ -32,7 +32,7 @@ The end of the countdown and the <ins>start of the song</ins>.
 ### onEndSong()
 The <ins>end of the song</ins>, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you want to stop the song from ending.
 
-If not, use `return Function_Continue` if you want to end the song.
+If not, use `return Function_Continue` if you want to <ins>end the song</ins>.
 
 ***
 
@@ -40,9 +40,9 @@ If not, use `return Function_Continue` if you want to end the song.
 ### onStartCountdown()
 The start of the countdown used for <ins>dialogue and cutscene stuff</ins>. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you want to stop the countdown from happening.
 
-If not, use `return Function_Continue` if you want to continue the countdown from happening.
+If not, use `return Function_Continue` if you want to <ins>continue the countdown from happening</ins>.
 
-<details><summary>Example:</summary>
+<details><summary><b>Example:</b></summary>
 <p>
 
 ```lua
@@ -62,7 +62,7 @@ Triggered <ins>in each countdown tick</ins>.
 
 - `counter` - In each tick of the countdown sound. 
 
-<details><summary>Example:</summary>
+<details><summary><b>Example:</b></summary>
 <p>
 
 ```lua
@@ -90,7 +90,7 @@ end
 ### onPause()
 Triggered when you're in the <ins>pause screen of the game while not on a cutscene or cutscene</ins>. Add `return Function_Stop` if you want to stop the player from going to the pause screen.
 
-If not, use `return Function_Continue` if you want to access the pause screen.
+If not, use `return Function_Continue` if you want to <ins>access the pause screen</ins>.
 
 ### onResume()
 Triggered after the game has been <ins>resumed from a pause</ins>. Not necessarily from the pause screen, but most likely is.
@@ -98,7 +98,7 @@ Triggered after the game has been <ins>resumed from a pause</ins>. Not necessari
 ### onGameOver()
 Triggered when you got a <ins>game-over screen or the health is equal to zero</ins>. Add `return Function_Stop` if you don't want to go to the game-over screen.
 
-If not, use `return Function_Continue` if you want to access the game-over screen.
+If not, use `return Function_Continue` if you want to <ins>access the game-over screen</ins>.
 
 ### onGameOverConfirm(retry)
 Triggered when you press the <ins>retry button on the game-over screen</ins>. 
@@ -147,7 +147,7 @@ Triggered when the <ins>player hit a note during gamplay</ins>, after calculatin
 - `noteType` - The type of the note duh.
 - `isSustainNote` - If the note has a tail, will return `false` if not.
 
-<details><summary>Example:</summary>
+<details><summary><b>Example:</b></summary>
 <p>
 
 ```lua
@@ -232,9 +232,7 @@ Triggered by the <ins>camera focusing</ins> on `boyfriend` or `dad`.
 function onMoveCamera(focus)
      if focus == 'boyfriend' then
 	     -- called when the camera focus on boyfriend
-     end
-
-     if focus == 'dad' then
+     elseif focus == 'dad' then
 	     -- called when the camera focus on dad
      end
 end

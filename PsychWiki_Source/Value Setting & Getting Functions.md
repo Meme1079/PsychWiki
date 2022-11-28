@@ -1,6 +1,6 @@
 # General Setters
 ### setProperty(variable:String, value:Dynamic)
-Sets the current variable PlayStates name with a new value. 
+Sets the current <ins>variable PlayStates name</ins> with a new value. 
 
 - `variable` - The tag of the object or object variable name.
 - `value` - The new value to be set.
@@ -11,7 +11,7 @@ Examples:
 - Skipping a countdown: `setProperty('skipCountdown', true)`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic)
-Sets the current variable inside a class in the PlayStates name with a new value, works similar to `setProperty()`.
+Sets the current <ins>variable inside a class in the PlayStates name</ins> with a new value, works similar to `setProperty()`.
 
 - `classVar` - The name of the class variable to access the `variable` inside of it.
 - `variable` - The object variable name inside of the class variable.
@@ -23,14 +23,14 @@ Examples:
 - Changing the loop game over song: `setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'your_song_name')`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
-Sets the current variable from an array/group member on the PlayState names with a new value.
+Sets the current <ins>variable from an array/group member on the PlayState names</ins> with a new value.
 
 - `obj` - The note group name to be set.
 - `index` - The member ID of the note.
 - `variable` - The value of the notedata property.
 - `value` - The new value to be set.
 
-<details><summary>Example:</summary>
+<details><summary><b>Example:</b></summary>
 <p>
 
 ```lua
@@ -48,7 +48,7 @@ end
 
 # General Getters
 ### getProperty(variable:String)
-Gets the current variable PlayStates name current value.
+Gets the current <ins>variable PlayStates name</ins> current value.
 
 - `variable` - The tag of the object or object variable name.
 
@@ -58,7 +58,7 @@ Examples:
 - Gets the current x value of the object: `getProperty('object.x')`
 
 ### getPropertyFromClass(classVar:String, variable:String)
-Gets the current variable inside a class in the PlayStates name current value, works similar to `getProperty()`.
+Gets the current <ins>variable inside a class in the PlayStates name</ins> current value, works similar to `getProperty()`.
 
 - `classVar` - The name of the class variable to access the `variable` inside of it.
 - `variable` - The object variable name inside of the class variable.
@@ -69,7 +69,7 @@ Examples:
 - Gets the current state of ghost tapping: `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
-Gets the current variable from an array/group member on the PlayState current value.
+Gets the current <ins>variable from an array/group member on the PlayStates name</ins> current value.
 
 - `obj` - The note group name to be set.
 - `index` - The Member ID of the note.
@@ -111,7 +111,7 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 - `isPixelStage` – Indicates whether it is in pixel mode.
 - `inCutscene` - Indicates whether it is in a cutscene.
 
-<details><summary>All Shortcut to:</summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `skipCountdown` - `getProperty('skipCountdown')`
@@ -126,10 +126,10 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 
 ***
 
-# NoteData Properties
+# Note Data Group Properties
 > **Note**: _if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
 
-<details><summary>Example:</summary>
+<details><summary><b>Example:</b></summary>
 <p>
 
 ```lua

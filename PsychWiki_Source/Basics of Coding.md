@@ -15,28 +15,32 @@ while     do       return    end       function
 
 ```
 
-Example of naming a Variable:
+<details><summary><b>Example of naming a variable correctly:</b></summary>
+<p>
+
 ```lua
 -- Valid --
 
-Var1 = 'string1' -- a string variable                             
-Var_Space = 'string2' -- a variable that has a underscore         
-_Space = true -- a variable with the word underscore before its name
-_ = 69.6 -- a variable that is only an underscore, strange right? 
-Var2 = 'Corn'..' Lover' -- a variable with concatenate operator (Same works with other operators)
+var = 'string1'        -- a variable
+var1 = 'string2'       -- a variable with a number behind it
+var_name = false       -- a variable with a underscore
+_nameVar = true        -- a variable with a underscore at the start
+var2 = 'corn'..'lover' -- a variable with the operators as a value
 
 -- Invalid --
 
-if = true -- a variable named after a keyword     
-~= = 'yes'  -- a variable named after a token                  
-18.1and1*dv/> = 'cool' -- a variable spammed                      
-Val 3 = 45.3 -- a variable with a space                           
-13 = 'no' -- a variable that has a Int (Same works with other variables)
+if = 'string3'         -- a variable named with a keyword
+>= = false             -- a variable named with a operator
+23 = 245               -- a varioble named with a value
+val 3 = nil            -- a variable with a space
+4val = 245             -- a variable with the number at the start
 ```
 
-You can also make multiple variables inside of a line by each <ins>separating the name and value with the comma `,`</ins>.
+</p>
+</details>
 
-Example:
+You can multiple variables in one line, just <ins>seperate the variable name and the value with a comma `,`</ins>. If the variable name is greater than value or the value is greater than the variable name. The <ins>missing variable name or value will become a **Nil** value</ins>.
+
 ```lua
 a, b, c = 3, 23.23, true
 
@@ -51,24 +55,25 @@ end
 - `Booleans` - A type of value it can be two possible values `true` or `false`.
 - `Numbers` - A numerical value used only to count or measure objects. **Numbers** can be represented as a **Int** where the number with no decimal point. Or it can be a **Float** where the number has a decimal point.
 - `Nil` - Zero or nonexistent, used to destory a value in a variable.
-- `Tables` - A type of value that stores multiple types of values. Tables can be either **Arrays** or **Dictionary**. Most programming language at the start of every value in a **Array** or **Dictionary** are always in `0` but in Lua it should be `1`.
+- `Tables` - A type of value that stores multiple types of values. **Tables** can be either **Arrays** or **Dictionary**. Most programming language at the start of every value in a **Array** or **Dictionary** are always in `0` but in Lua it should be `1`.
      - `Arrays` - A collection of different values. When accessing this type of table put the variable name then brackets `[]` and inside must be a position number of the table.
      - `Dictionary` - They define each value with a key, then a value it’s the same as creating a variable. When accessing this type of table put the variable name then brackets `[]` and inside must be a key name then apostrophe single `''` or double `""`. Or put a dot `.` then the key name.
 
-Example:
+<details><summary><b>Example of the values:</b></summary>
+<p>
+
 ```lua
-ExVar1 = 'string' -- String (String)
-ExVar2 = "string" -- String (Double [Optional])
+ExVar1 = 'string'             -- String (String)
+ExVar2 = "string"             -- String (Double [Optional])
 ExVar3 = [[
      Look a multi line string
-     does it look cool?
-]]                -- String (Brackets)
-ExVar4 = 5 -- Number (Int)
-ExVar5 = 0.5 -- Number (Float)
-ExVar6 = true -- Boolean
-ExVar7 = nil -- Nil
-ExVar8 = {value} -- Table Array      (Empty)
-ExVar9 = {       -- Table Dictionary (Empty)
+     does it look cool? ]]    -- String (Brackets)
+ExVar4 = 5                    -- Number (Int)
+ExVar5 = 0.5                  -- Number (Float)
+ExVar6 = true                 -- Boolean
+ExVar7 = nil                  -- Nil
+ExVar8 = {value}              -- Table Array      (Empty)
+ExVar9 = {                    -- Table Dictionary (Empty)
      key = value
 } 
 
@@ -101,11 +106,13 @@ TabDict2 = { -- a table dictionary with a table
      Example: TabDict1['boo'][1] will print 'true' ]]
 ```
 
+</p>
+</details>
+
 ## Global and Local Variables
 - `Global variables` - A type of variable that is accessible globally.
 - `Local variables` - A type of variable that is not for looks, **Local** are only accessible on the current scope that is located to, you can do this on a `function` too.
 
-Example:
 ```lua
 fish = 'love' -- global
 function onCreate()
@@ -150,14 +157,62 @@ An operator is a symbol that tells the interpreter to perform <ins>specific math
 - `>=` - Checks if the condition is greater or equal to the right. _(Only do this with Numbers)_
 - `<=` - Checks if the condition is lesser or equal to the right. _(Only do this with Numbers)_
 
+<details><summary><b>Example of relational operators:</b></summary>
+<p>
+
+```lua
+function onCreate()
+     debugPrint(13 == 13) -- will print 'true'
+     debugPrint(23 ~= 25) -- will print 'true'
+     debugPrint(45 >= 23) -- will print 'true'
+     debugPrint(45 <= 53) -- will print 'true' 
+     debugPrint(93 > 23)  -- will print 'true' 
+     debugPrint(15 < 23)  -- will print 'true'
+end
+```
+
+</p>
+</details>
+
 ### Logical
 - `and` - Combines two conditions together; will return `true` if BOTH sides are `true`.
 - `or` - Combines two conditions together; will return `true` if EITHER left or right are `true`.
 - `not` - Reverses the condition; if it is equivalent to `false`, then the not operator will set it to `true`, and vice versa.
 
+<details><summary><b>Example of logical operators:</b></summary>
+<p>
+
+```lua
+function onCreate()
+     debugPrint(13 == 13 and 34 == 34) -- will print 'true' 
+     debugPrint(23 == 23 or 69 == 234) -- will print 'true'
+     debugPrint(not false)             -- will print 'true'
+
+     debugPrint(13 == 3 and 34 == 44)  -- will print 'false' 
+     debugPrint(23 == 3 or 69 == 24)   -- will print 'false'
+     debugPrint(not true)              -- will print 'false'
+end
+```
+
+</p>
+</details>
+
 ### Miscellaneous
 - `..` - Used to concatenate two or more **Strings**.
 - `#` - Returns the length of a string or the number of items in a **Table**.
+
+<details><summary><b>Example of relational operators:</b></summary>
+<p>
+
+```lua
+function onCreate()
+     debugPrint('Snow'..'ball') -- will print 'Snowball'
+     debugPrint(#'four')        -- will print '4'
+end
+```
+
+</p>
+</details>
 
 ***
 
@@ -173,7 +228,6 @@ You can add a `elseif` statement as an optional statement inside of the `if` sta
 
 Another statement you can add is `else` this statement allow you to <ins>execute opposite condition of `if` or `elseif` statements</ins> and will only activate if the `if` or `elseif` returns `false`.
 
-Example:
 ```lua
 function onCreate()
      makeLuaText('textTag', ' ', nil, 0, 0)
@@ -238,7 +292,7 @@ A function is a <ins>collection of code that cooperates to complete a task</ins>
 
 You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with tables.
 
-- `parameter` - They are a named variable that is passed into a function and used to import arguments. Using `,` you can create more of them.
+- `parameter` - They are a named variable that is passed into a function and used to import arguments. Using comma `,` you can create more parameters.
 
 Example:
 ```lua
@@ -287,19 +341,19 @@ end
 ```
 
 # Basic Functions
-### dofile(file)
+### dofile(path:String)
 > **Note**: _Put the file format name to get the file you want._
 
-This execute a chunk of code on a another lua file. This can get variables and functions if there not <ins>local</ins>.
+This execute a chunk of code on a another lua file. This can get variables and functions <ins>if there not local</ins>.
 
 Example: `dofile(mods/scripts/other/luaFile.lua)`
 
-### type(value)
+### type(val:Value)
 Gets the type of value of the variable.
 
 Example: `debugPrint(type(true))` This will print 'boolean'.
 
-### pairs(table)
+### pairs(tab:Table)
 This will get <ins>each key and value inside of the table</ins>. This will sort it randomly.
 
 Example:
@@ -312,7 +366,7 @@ function onCreate()
 end
 ```
 
-### ipairs(table)
+### ipairs(tab:Table)
 This works the same as `pairs()` but if the table is dictionary. <ins>The key must be a number and be surrounded by brackets `[]`</ins>. And will sort it in chronological order. If the value is **Nil** <ins>then the loop will stop at there</ins>. 
 
 If you decided to put an alphabet in the brackets `[]` <ins>then it will not work and will print nothing</ins>.
@@ -334,12 +388,12 @@ These are functions that can manipulate values.
 
 ## String Functions
 ### string.lower(str:String)
-Converts any <ins>upper case</ins> alphabet into lower case.
+Converts any <ins>upper case</ins> letters into lower case.
 
 - `str` - The string you want.
 
 ### string.upper(str:String)
-Converts any <ins>lower case</ins> alphabet into upper case.
+Converts any <ins>lower case</ins> letters into upper case.
 
 - `str` - The string you want.
 
@@ -359,7 +413,7 @@ Converts any UTF-8 numeric code into <ins>alphabet character</ins>.
 Example: `string.char(97)` will return 'a'
 
 ### string.gsub(str:String, pattern:String, replacement:String, limit:Int)
-Returns a copy of a string and replaces it with a new string.
+Returns a copy of a string and <ins>replaces it with a new string</ins>.
 
 - `str` - The string you want.
 - `pattern` - Part of the string you want to replace.
@@ -367,19 +421,19 @@ Returns a copy of a string and replaces it with a new string.
 - `limit` - An Optional value that limits on replacing the new string.
 
 ### string.rep(str:String, limit:Int, seperation:String)
-Repeats the string.
+<ins>Repeats</ins> the string.
 
 - `str` - The string you want.
 - `limit` - The limit of repeating it.
 - `seperation` - The separation between the repeated string.
 
 ### string.reverse(str:String)
-Reverses the string, that's it.
+<ins>Reverses</ins> the string, that's it.
 
 - `str` - The string you want.
 
 ### string.find(str:String)
-Finds the string works the same with `stringStartsWith()` and `stringEndsWith()` but has no limit.
+<ins>Finds</ins> the string works the same with `stringStartsWith()` and `stringEndsWith()` but has no limit.
 
 - `str` - The string you want.
 
@@ -387,32 +441,32 @@ Finds the string works the same with `stringStartsWith()` and `stringEndsWith()`
 
 ## Table Functions
 ### table.insert(tab:Table, pos:Int, val:Value)
-Inserts a new value inside of a table.
+<ins>Inserts</ins> a new value inside of a table.
 
 - `tab` - The table you want.
 - `pos` - The position in each array of the table.
 - `val` - The value that you want to insert.
 
 ### table.remove(tab:Table, pos:Int)
-Removes a value inside of a table.
+<ins>Removes</ins> a value inside of a table.
 
 - `tab` - The table you want.
 - `pos` - The position in each array of the table.
 
 ### table.concat(tab:Table, sep:String)
-Concatenate the value inside of the table into.
+<ins>Concatenate</ins> the value inside of the table into a string.
 
 - `tab` - The table you want.
 - `sep` - The separation between the value in the table.
 
 ### table.sort(tab:Table)
-Makes the table sorted in an alphabetical order.
+Makes the table <ins>sorted in an alphabetical order</ins>.
 
 - `tab` - The table you want.
 
 ***
 
-## Math Functions
+## Mathematical Functions
 ### math.max(num:Float)
 Returns the <ins>highest value</ins> that, it could find.
 
@@ -428,12 +482,12 @@ Returns the <ins>lowest value</ins> that, it could find.
 Example: `math.min(12, 34, 1)` will print '1' because it's the lowest value.
 
 ### math.ceil(num:Float)
-Rounds a float to its <ins>highest value</ins>.
+Rounds a **Float** to its <ins>highest value</ins>.
 
 Example: `math.ceil(5.1)` will print '6'.
 
 ### math.floor(num:Float)
-Rounds a float to its <ins>lowest value</ins>.
+Rounds a **Float** to its <ins>lowest value</ins>.
 
 Example: `math.floor(5.9)` will print '5'.
 
@@ -456,19 +510,13 @@ Returns the <ins>hyperbolic cosine</ins> of the number
 Returns the <ins>hyperbolic tangent</ins> of the number.
 
 ### math.asin(num:Float)
-> **Note**: _The `num` parameter value should be `-1` to `1`._
-
-Returns the <ins>arccosine sine</ins> of the number.
+Returns the <ins>arccosine sine</ins> of the number, Goes from `-1` to `1`.
 
 ### math.acos(num:Float)
-> **Note**: _The `num` parameter value should be `-1` to `1`._
-
-Returns the <ins>arccosine cosine</ins> of the number
+Returns the <ins>arccosine cosine</ins> of the number, Goes from `-1` to `1`.
 
 ### math.atan(num:Float)
-> **Note**: _The `num` parameter value should be `-1` to `1`._
-
-Returns the <ins>arccosine tangent</ins> of the number.
+Returns the <ins>arccosine tangent</ins> of the number, Goes from `-1` to `1`.
 
 ### math.sqrt(num:Float)
 Returns the square root of the number.
@@ -484,4 +532,4 @@ Example: `math.abs(-5)` will convert it to positive `5`.
 Returns pi length of 13 digits.
 
 ### math.huge
-Returns the largest numerical value which is infinite.
+Returns the <ins>largest numerical value</ins> which is infinite.

@@ -2,11 +2,11 @@
 
 > **Note**: _Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [`setProperty()`](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
 
-- `Function_Stop` - Stops the game, the `return` keyword is necessary.
-- `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary.
-- `Function_Continue` - Continue the game, the `return` keyword is necessary.
+- `Function_Continue` - Continue the game, the `return` keyword is necessary, Will return to `1`.
+- `Function_Stop` - Stops the game, the `return` keyword is necessary, Will return to `2`.
+- `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary, Will return to `3`.
 - `luaDebugMode` - Enables debug mode, use `luaDebugMode = true` to enable it, Default value: `false`
-- `luaDeprecatedWarnings` - Only works in Debug mode; use `luaDeprecatedWarnings = false` to turn it off; default value is 'true'. Informs you if a function or variable is deprecated and shouldn't be used anymore.
+- `luaDeprecatedWarnings` - Only works in Debug mode; use `luaDeprecatedWarnings = false` to turn it off; default value is `true`. Informs you if a function or variable is deprecated and shouldn't be used anymore.
 - `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
 
 ***
@@ -27,7 +27,7 @@
 - `weekRaw` - Returns the raw current week number. I doubt you will ever use this, but hey, just in case you do, its here.
 - `currentModDirectory` - Checks the current mod directory.
 
-<details><summary>All Shortcut to:</summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
@@ -78,7 +78,7 @@
 - `practice` - Tells if practice is enabled.
 - `version` - The version of Psych Engine that is currently in.
 
-<details><summary>All Shortcut to:</summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `startedCountdown` - `getProperty('startedCountdown')`
@@ -143,12 +143,12 @@
 
 ***
 
-- `defaultBoyfriendX` - Players Default X position, defined by the Stages `json` file.
-- `defaultBoyfriendY` - Players Default Y position, defined by the Stages `json` file.
-- `defaultOpponentX` - Opponents Default X position, defined by the Stages `json` file.
-- `defaultOpponentY` - Opponents Default Y position, defined by the Stages `json` file.
-- `defaultGirlfriendX` - Girlfriends Default X position, defined by the Stages `json` file.
-- `defaultGirlfriendY` - Girlfriends Default Y position, defined by the Stages `json` file.
+- `defaultBoyfriendX` - Players default X position, defined by the stages `json` file.
+- `defaultBoyfriendY` - Players default Y position, defined by the stages `json` file.
+- `defaultOpponentX` - Opponents default X position, defined by the stages `json` file.
+- `defaultOpponentY` - Opponents default Y position, defined by the stages `json` file.
+- `defaultGirlfriendX` - Girlfriends default X position, defined by the stages `json` file.
+- `defaultGirlfriendY` - Girlfriends default Y position, defined by the stages `json` file.
 
 ***
 
@@ -168,11 +168,11 @@
 - `noResetButton` - Checks if the reset button is activated.
 - `healthBarAlpha` - Checks the alpha/opacity of the health bar.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
-- `shadersEnabled` - Checks if the shaders is enabled.
+- `shadersEnabled` - Checks if the shaders is enabled. _(Recommended to disable it, if you have motion sickness!)_
 - `scriptName` - Checks the script name that is running in game.
 - `buildTarget` - Checks the build target of Psych Engine.
 
-<details><summary>All Shortcut to:</summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`

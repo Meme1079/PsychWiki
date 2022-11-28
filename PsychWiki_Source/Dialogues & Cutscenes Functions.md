@@ -8,13 +8,13 @@ Starts the dialogue stuff, it will load the `json` file in `mods/data/your-song-
 Example: If i want to load a dialogue file `mods/data/bopeebo/dialogue.json` using the pause menu song "Breakfast", I should use: `startDialogue('bopeebo/dialogue', 'breakfast')`.
 
 ### startVideo(videoFile:String)
-> **Note**: _When adding a video on the game the file format should be a `mp4` format any image format other than `mp4` will not load properly._
+> **Note**: _When adding a video on the game the file format should be a `mp4` format any video format other than `mp4` will not load properly._
 
 Starts a video during a cutscene. 
 
-- `videoFile` - The file name of your video, it must be inside `mods/videos/`.
+- `videoFile` - The path of the video file. _(Relative to `mods/videos`)_
 
-Example: If you wanted to start the video `mods/videos/ughCutscene.mp4`, you'd have to use `startVideo('ughCutscene')`.
+Example: `startVideo(mods/videos/ughCutscene.mp4)`
 
 ### startCountdown()
 In case you forced a countdown stop for doing a pre-song cutscene or something, <ins>this starts the countdown again manually</ins>.
@@ -24,12 +24,12 @@ In case you forced a countdown stop for doing a pre-song cutscene or something, 
 In case you <ins>forced a song end for doing a post-song cutscene or something</ins>, this ends the song manually.
 
 ### exitSong(skipTransition:Bool)
-Same works with `endSong()` but has an <ins>optional transition</ins>.
+Same works with `endSong()` but has an <ins>optional transition parameter</ins>.
 
 - `skipTransition` - The transition if the song exited.
 
 ### restartSong(skipTransition:Bool)
-This will <ins>restart the song</ins> that you are playing.
+This will <ins>restart the song</ins> that is currently playing.
 
 - `skipTransition` - The transition if the song exited.
 
