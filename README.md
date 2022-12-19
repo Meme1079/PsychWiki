@@ -6,11 +6,18 @@
 Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it.
 
 # Major Updates:
+### 6.0 Version
+- Added more Callback Templates functions
+- Added Depracated Lua Function
+- Added Lua Example Scripts
+- Added Psych Engine API (WIP)
+- Lessen unnecessary inserted text
+- Fix spelling errors
+
 ### 5.0 Version
 - Added more examples in Basics of Coding
 - More unnecessary inserted text (Probrably will change in 6.0 Update)
-- Some grammar corrections
-
+- Fix spelling errors
 ### 4.0 Version
 - Revamp the Callback Templates
 - Added `Note` and `Warning` on the function descriptions cuz yea 

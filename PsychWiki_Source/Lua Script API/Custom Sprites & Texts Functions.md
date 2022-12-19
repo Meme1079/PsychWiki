@@ -2,9 +2,9 @@
 > **Note**: _When adding a lua sprite the file format should be `png`. If the file format are not `png` it will not work._
 
 ### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a lua sprite object. 
+Creates a lua sprite object. If two or more sprite tag has the same name on the `tag` parameter then the lua sprite object will be removed in the game.  
 
-If you want a colored screen put <ins>**Nil** variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. If another lua sprite that exists is already using the `tag` parameter, <ins>it will be removed</ins>.
+If you want to have an object with no texture put a <ins>**Nil** variable on the `image` parameter</ins> and add `makeGraphic()` function. 
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
@@ -12,7 +12,7 @@ If you want a colored screen put <ins>**Nil** variable on the `image` parameter<
 - `y` - The y value of the sprite object to be set.
 
 ### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float)
-Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` file with it for order to work.
+Creates a lua sprite that <ins>supports animations</ins>. The lua sprite should always have an `xml` file with it, if not then it will rendered as a sprite sheet.
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
@@ -29,7 +29,7 @@ Creates a lua sprite that <ins>supports animations</ins>. You must have a `xml` 
 <ins>Removes a sprite object</ins> from the game. Use this if the lua sprite isn't used anymore for performance.
 
 - `tag` - The sprite tag or object variable name.
-- `destroy` - Whether or not the sprite object should be fully removed, <ins>making it unable to be re-added</ins>.
+- `destroy` - Whether or not the sprite object should be fully removed, making it unable to be re-added.
 
 ***
 
@@ -52,7 +52,7 @@ Creates a text object with the position of `x`, `y`, and `width` parameter.
 <ins>Removes a text object</ins> from the game. Use this if the text object isn't used anymore for performance.
 
 - `tag` - The text tag or object variable name.
-- `destroy` - Whether or not the text object will be fully destroyed, <ins>making it unable to be re-added</ins>.
+- `destroy` - Whether or not the text object will be fully destroyed, making it unable to be re-added.
 
 ***
 
@@ -96,9 +96,9 @@ Sets the <ins>text font</ins> with a new font value.
 - `font` - The new text font value. _(Relative to `mods/fonts`)_
 
 ### setTextItalic(tag:String, italic:Bool)
-Sets the <ins>text to _italic_</ins>.
+Sets the <ins>text into _italic_ type</ins>.
 
-- `italic` - Change the text to _italic_ with a **Boolean**.
+- `italic` - Whether or not will the text will be _italic_. 
 
 # Getting Text Properties
 ### getTextString(tag:String)

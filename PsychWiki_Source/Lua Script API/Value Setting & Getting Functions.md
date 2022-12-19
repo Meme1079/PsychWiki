@@ -46,6 +46,8 @@ end
 </p>
 </details>
 
+***
+
 # General Getters
 ### getProperty(variable:String)
 Gets the current <ins>variable PlayStates name</ins> current value.
@@ -82,24 +84,24 @@ Examples:
 
 ***
 
-# Value Properties
+# Variable Properties
 Heres some properties I know, you can use this to set or get the object property.
 
 Also here's the example when using it: `setProperty('object.x', value)`.
 
-- `.x` - The x value of the object **(Float)**
-- `.y` - The y value of the object **(Float)**
-- `.scale.x` - The x scale value of the object **(Float)**
-- `.scale.y` - The y scale value of the object **(Float)**
-- `.flipX` - Will flip the x value of the object **(Boolean)**
-- `.flipY` - Will flip the y value of the object **(Boolean)**
-- `.scrollFactor.x` - The scroll factor of x value **(Float)**
-- `.scrollFactor.y` - The scroll factor of y value **(Float)**
-- `.angle` - The angle value of the object **(Float)**
-- `.alpha` - The opacity value of the object, from `0` to `1` **(Float)**
-- `.visible` - The visibility of the object, `true` is visible and `false` is invisible **(Boolean)**
-- `.antialiasing` - The antialiasing of the object set it to `false` if the image is a pixel **(Boolean)**
-- `.curCharacter` - Gets the character name, it could be: `boyfriend`, `dad`, `gf` **(String)**
+- `.x` - The x value of the object. **(Float)**
+- `.y` - The y value of the object. **(Float)**
+- `.scale.x` - The x scale value of the object. **(Float)**
+- `.scale.y` - The y scale value of the object. **(Float)**
+- `.flipX` - Will flip the x value of the object. **(Boolean)**
+- `.flipY` - Will flip the y value of the object. **(Boolean)**
+- `.scrollFactor.x` - The scroll factor of x value. **(Float)**
+- `.scrollFactor.y` - The scroll factor of y value. **(Float)**
+- `.angle` - The angle value of the object. **(Float)**
+- `.alpha` - The opacity value of the object, from `0` to `1`. **(Float)**
+- `.visible` - The visibility of the object, `true` is visible and `false` is invisible. **(Boolean)**
+- `.antialiasing` - The antialiasing of the object set it to `false` if the image is a pixel. **(Boolean)**
+- `.curCharacter` - Gets the character name, it could be: `boyfriend`, `dad`, `gf`. **(String)**
 
 ***
 
@@ -128,20 +130,6 @@ Also here's the example when using it: `setProperty('object.x', value)`.
 
 # Note Data Group Properties
 > **Note**: _if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
-
-<details><summary><b>Example:</b></summary>
-<p>
-
-```lua
-function onCreatePost()
-     for i = 0, getProperty('unspawnNotes.lenght')-1 do
-          setPropertyFromGroup('unspawnNotes', i, 'hitHealth', 0.9) -- changes the hithealth
-     end
-end
-```
-
-</p>
-</details>
 
 - `noAnimation` - If you hit a note, will not play an animation. **(Boolean)**
 - `noMissAnimation` - If you miss a note, will not play an animation. **(Boolean)**

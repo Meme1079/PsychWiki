@@ -1,12 +1,11 @@
 # Lua/Unique variables
-
 > **Note**: _Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [`setProperty()`](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
 
 - `Function_Continue` - Continue the game, the `return` keyword is necessary, Will return to `1`.
 - `Function_Stop` - Stops the game, the `return` keyword is necessary, Will return to `2`.
 - `Function_StopLua` - Stops the any lua files, the `return` keyword is necessary, Will return to `3`.
-- `luaDebugMode` - Enables debug mode, use `luaDebugMode = true` to enable it, Default value: `false`
-- `luaDeprecatedWarnings` - Only works in Debug mode; use `luaDeprecatedWarnings = false` to turn it off; default value is `true`. Informs you if a function or variable is deprecated and shouldn't be used anymore.
+- `luaDebugMode` - Enables debug mode, use `luaDebugMode = true` to enable it, Default value: `false`.
+- `luaDeprecatedWarnings` - Only works in Debug mode; use `luaDeprecatedWarnings = false` to turn it off; Default value is `true`. Informs you if a function or variable is deprecated and shouldn't be used anymore.
 - `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
 
 ***

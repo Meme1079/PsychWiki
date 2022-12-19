@@ -6,7 +6,7 @@ Will <ins>play a sound</ins> inside the game.
 
 - `sound` - The file name that will be played. _(Relative to located in `mods/sounds/` or `assets/sounds/`)_
 - `volume` - An optional value, volume percent goes from `0` to `1`, Default value: `1`.
-- `tag` - An optional value, if you don't want to utilize it, then don't include a third value. Should only be used if you wish to halt, resume, adjust the time, volume, or fade in/out your sound.
+- `tag` - An optional value, if you don't want to utilize it, then don't include a third value. Should only be used if you wish to halt, resume, adjust the time, volume, or fade in/out your sound. If the sound has been completed playing then the `onSoundFinished()` function will be called.
 
 ### playMusic(sound:String, volume:Float = 1, loop:Bool = false)
 Will <ins>play a music</ins> inside the game.
@@ -56,21 +56,6 @@ This will cause the sound to <ins>cancel the fade</ins> of playing the sound.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
 
-### musicFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1)
-This will cause the music to <ins>fade at the start</ins> of playing the sound.
-
-- `tag` - The music tag name, if you wish to do a fade in on the background music instead, leave this option blank.
-- `duration` - How long the fade will last on the song from `fromValue` and `toValue`.
-- `fromValue` - The starting value of the sound volume, Default value is `0`.
-- `toValue` - The end value of the sound volume, Defualt value is `1`.
-
-### musicFadeOut(tag:String, duration:Float, toValue:Float = 0)
-This will cause the music to <ins>fade at the end</ins> of playing the sound.
-
-- `tag` - The music tag name, if you wish to do a fade in on the background music instead, leave this option blank.
-- `duration` - How long the fade will last on the song from `toValue`.
-- `toValue` - The end value of the sound volume, Defualt value is `0`.
-
 ***
 
 # Getters/Setters Functions
@@ -78,10 +63,10 @@ This will cause the music to <ins>fade at the end</ins> of playing the sound.
 <ins>Sets the current volume</ins> of the sound.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
-- `value` - The volume value, Goes from: `0` to `1`.
+- `value` - The volume value, Goes from `0` to `1`.
 
 ### setSoundTime(tag:String, value:Float)
-_Note: The miliseconds will be converted into seconds, Example: `5000` miliseconds will be converted to `5` seconds._
+> **Note**: _The miliseconds will be converted into seconds, Example: `5000` miliseconds will be converted to `5` seconds._
 
 <ins>Sets the current sounds</ins> position in miliseconds.
 

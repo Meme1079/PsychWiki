@@ -1,66 +1,57 @@
 # Start/End functions
 ### onCreate()
-The <ins>start of the lua script</ins> used for creating or setting objects and precaching, some variables weren't created yet.
+Triggered at the <ins>start of the lua script</ins>, used for creating or setting objects and precaching. Some variables weren't created yet.
 
 ### onCreatePost()
-The <ins>post/after start of the lua script</ins>. If the code didn't work on `onCreate()` use this function instead.
+Triggered at the <ins>post/after start of the lua script</ins>.
 
 ### onDestroy()
-The <ins>end of the lua script</ins>. 
+Triggered at the end of the lua script.
 
 ***
 
 # Gameplay/Song Functions
 ### onBeatHit()
-Triggered <ins>4 times per section</ins>, `curStep` and `curDecStep` variable should be use here.
+Triggered <ins>4 times per section</ins>; recommended to use `curBeat` and `curDecBeat` variable in here.
 
 ### onStepHit()
-Triggered <ins>16 times per section</ins>, `curBeat` and `curDecBeat` variable should be use here.
+Triggered <ins>16 times per section</ins>; recommended to use `curStep` and `curDecStep` variable in here.
 
 ### onSectionHit()
-Triggered <ins>1 times per section</ins>, `curSection` variable should be use here.
+Triggered <ins>1 times per section</ins>; recommended to use `curSection` variable in here.
 
 ### onUpdate(elapsed)
-The <ins>every frame on the game currently</ins>, some variables weren't updated yet.
+Triggered in <ins>every frame of the game</ins>.
 
 ### onUpdatePost(elapsed)
-The <ins>post/after every frame on the game currently</ins>. You these, if the code didn't work in `onUpdate(elapsed)`. 
+Triggered in <ins>every post/after frame of the game</ins>.
+
+### onUpdateScore(miss)
+Triggered in every update of the score in the game.
 
 ### onSongStart()
-The end of the countdown and the <ins>start of the song</ins>.
+Triggered at the start of the song and the countdown ending.
 
 ### onEndSong()
-The <ins>end of the song</ins>, this will be delayed if you unlocked an achievment. Add `return Function_Stop` if you want to stop the song from ending.
+Triggered at the end of the song, it will be delayed if you unlocked an achievment.
 
-If not, use `return Function_Continue` if you want to <ins>end the song</ins>.
+Add `return Function_Stop` if you want to stop the song from ending. If not, use `return Function_Continue` if you want to <ins>end the song</ins>.
 
 ***
 
 # Countdown Functions
 ### onStartCountdown()
-The start of the countdown used for <ins>dialogue and cutscene stuff</ins>. If you want to trigger the countdown use `startCountdown()`. Add `return Function_Stop` if you want to stop the countdown from happening.
+Triggered at the start of the countdown, used for dialogue and cutscene stuff. If you want to trigger the countdown use `startCountdown()`. 
 
-If not, use `return Function_Continue` if you want to <ins>continue the countdown from happening</ins>.
-
-<details><summary><b>Example:</b></summary>
-<p>
-
-```lua
-function onStartCountdown()
-     return Function_Continue -- this is important to use
-end
-```
-
-</p>
-</details>
+Add `return Function_Stop` if you want to stop the countdown from happening. If not, use `return Function_Continue` if you want to <ins>continue the countdown from happening</ins>.
 
 ### onCountdownStarted()
-Triggered <ins>during the countdown</ins>.
+Triggered during the countdown.
 
 ### onCountdownTick(counter)
-Triggered <ins>in each countdown tick</ins>.
+Triggered in each countdown tick.
 
-- `counter` - In each tick of the countdown sound. 
+- `counter` - Each countdown tick sound, Goes from `0` to `4`. 
 
 <details><summary><b>Example:</b></summary>
 <p>
@@ -88,20 +79,20 @@ end
 
 # Substate Functions
 ### onPause()
-Triggered when you're in the <ins>pause screen of the game while not on a cutscene or cutscene</ins>. Add `return Function_Stop` if you want to stop the player from going to the pause screen.
+Triggered while you're in the pause screen.
 
-If not, use `return Function_Continue` if you want to <ins>access the pause screen</ins>.
+Add `return Function_Stop` if you want to stop the player from going to the pause screen. If not, use `return Function_Continue` if you want to <ins>access the pause screen</ins>.
 
 ### onResume()
-Triggered after the game has been <ins>resumed from a pause</ins>. Not necessarily from the pause screen, but most likely is.
+Triggered after the game has been resumed from a pause. Not necessarily from the pause screen, but most likely is.
 
 ### onGameOver()
-Triggered when you got a <ins>game-over screen or the health is equal to zero</ins>. Add `return Function_Stop` if you don't want to go to the game-over screen.
+Triggered if you gat a game-over screen or the health is equal to zero.
 
-If not, use `return Function_Continue` if you want to <ins>access the game-over screen</ins>.
+Add `return Function_Stop` if you don't want to go to the game-over screen. If not, use `return Function_Continue` if you want to <ins>access the game-over screen</ins>.
 
 ### onGameOverConfirm(retry)
-Triggered when you press the <ins>retry button on the game-over screen</ins>. 
+Triggered when pressing the retry button on the game-over screen. 
 
 - `retry` - This will trigger if you press the retry button. If you exit the game-over screen then the `retry` parameter will return `false`.
 
@@ -241,8 +232,15 @@ end
 </p>
 </details>
 
+### onSoundFinished(tag)
+If the sound has finished playing. Then the `tag` parameter of the sound will be called here
+
+- `tag` - The sound tag from the `playSound()` function.
+
+***
+
 ### onEvent(name, value1, value2)
-This will create your <ins>custom event script</ins>.
+This will create your custom event script.
 
 - `name` - The name of the event.
 - `value1` - The first value to be set in value 1 tab.
@@ -269,13 +267,13 @@ end
 </details>
 
 ### onTimerCompleted(tag, loops, loopsLeft)
-Will <ins>create a timer</ins> that's it.
+Will create a timer.
 
 - `tag` - The tag on the timer to use in `runTimer()` function.
 - `loops` - The duration on the timer to start.
-- `loopsLeft` - How many loops will the timer make.
+- `loopsLeft` - An optional parameter, how many loops will the timer make.
 
 ### onTweenCompleted(tag)
-If the tween on `onTimerCompleted()` is <ins>complete then this function will be triggered</ins>.
+If the tween that has been called in `onTimerCompleted()` function has been completed. Then the `tag` parameter will be called here.
 
 - `tag` - The tag on the timer to use in `runTimer()` function.
