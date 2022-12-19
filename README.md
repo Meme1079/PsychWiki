@@ -18,6 +18,7 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 - Added more examples in Basics of Coding
 - More unnecessary inserted text (Probrably will change in 6.0 Update)
 - Fix spelling errors
+
 ### 4.0 Version
 - Revamp the Callback Templates
 - Added `Note` and `Warning` on the function descriptions cuz yea 
@@ -47,3 +48,4 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 - Shadow Mario - Main Programmer and the Creator of PsychEngine
 - RiverOaken - Main Artist/Animator of PsychEngine
 - Yoshubs - Assistant Programmer
+- [Raltyro](https://github.com/Raltyro) - The Guy who made the shader frag in the Shader Example Folder.

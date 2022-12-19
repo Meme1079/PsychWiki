@@ -66,9 +66,9 @@ This will cause the sound to <ins>cancel the fade</ins> of playing the sound.
 - `value` - The volume value, Goes from `0` to `1`.
 
 ### setSoundTime(tag:String, value:Float)
-> **Note**: _The miliseconds will be converted into seconds, Example: `5000` miliseconds will be converted to `5` seconds._
+> **Note**: _The milliseconds will be converted into seconds, Example: `5000` milliseconds will be converted to `5` seconds._
 
-<ins>Sets the current sounds</ins> position in miliseconds.
+<ins>Sets the current sounds</ins> position in milliseconds.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
 - `value` - The new position that will be set.
@@ -79,6 +79,6 @@ This will cause the sound to <ins>cancel the fade</ins> of playing the sound.
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
 
 ### getSoundTime(tag:String)
-<ins>Gets the current sounds</ins> position in miliseconds.
+<ins>Gets the current sounds</ins> position in milliseconds.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.

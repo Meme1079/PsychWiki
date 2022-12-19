@@ -115,10 +115,10 @@ Gets <ins>any gamepad</ins> buttons that were <ins>recently released</ins> on th
 The <ins>x axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left anolog or right anolog with a **Boolean**.
+- `leftStick` - Whether if its the left or right analog with a **Boolean**.
 
 ### gamepadAnalogY(id:Int, ?leftStick:Bool = true)
 The <ins>y axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left anolog or right anolog with a **Boolean**.
+- `leftStick` - Whether if its the left or right analog with a **Boolean**.

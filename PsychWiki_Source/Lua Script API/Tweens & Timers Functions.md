@@ -4,7 +4,7 @@
 ### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 This will change the <ins>x value</ins> of the object with a tween.
 
-If the tween is finish it will do a callback to [onTweenCompleted()](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#ontweencompletedtag:~:text=many%20are%20remaining-,onTweenCompleted(tag),-A%20tween%20you) function. And if you use the same tag, it will cancel the tween.
+If the tween is finish it will do a callback to [`onTweenCompleted()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Callback-Templates#ontweencompletedtag:~:text=many%20are%20remaining-,onTweenCompleted(tag),-A%20tween%20you) function. And if you use the same tag, it will cancel the tween.
 
 - `tag` - If the tween has been completed this do a callback of `onTweenCompleted()`.
 - `vars` - The object tag or object variable name.

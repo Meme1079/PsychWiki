@@ -4,7 +4,7 @@
 ### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
 Creates a lua sprite object. If two or more sprite tag has the same name on the `tag` parameter then the lua sprite object will be removed in the game.  
 
-If you want to have an object with no texture put a <ins>**Nil** variable on the `image` parameter</ins> and add `makeGraphic()` function. 
+If you want to have an object with no texture put a <ins>**Nil** variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. 
 
 - `tag` - The sprite tag or object variable name.
 - `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
