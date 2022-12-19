@@ -48,4 +48,4 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 - Shadow Mario - Main Programmer and the Creator of PsychEngine
 - RiverOaken - Main Artist/Animator of PsychEngine
 - Yoshubs - Assistant Programmer
-- [Raltyro](https://github.com/Raltyro) - The Guy who made the shader frag in the Shader Example Folder.
+- [Raltyro](https://github.com/Raltyro) - The Guy who made the shader frag in the Shader Example Folder. (Taken from the Psych Discord)
