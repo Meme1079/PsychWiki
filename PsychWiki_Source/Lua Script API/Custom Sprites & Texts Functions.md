@@ -7,7 +7,7 @@ Creates a lua sprite object. If two or more sprite tag has the same name on the 
 If you want to have an object with no texture put a <ins>**Nil** variable on the `image` parameter</ins> and add [`makeGraphic()`](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions#makegraphictagstring-widthint-heightint-colorstring) function. 
 
 - `tag` - The sprite tag or object variable name.
-- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
+- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images` folder)_
 - `x` - The x value of the sprite object to be set.
 - `y` - The y value of the sprite object to be set.
 
@@ -15,7 +15,7 @@ If you want to have an object with no texture put a <ins>**Nil** variable on the
 Creates a lua sprite that <ins>supports animations</ins>. The lua sprite should always have an `xml` file with it, if not then it will rendered as a sprite sheet.
 
 - `tag` - The sprite tag or object variable name.
-- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images`)_
+- `image` - The image path for the sprite object. _(Relative to `mods/images`, `assets/images`, or `assets/shared/images` folder)_
 - `x` - The x value of the sprite object to be set.
 - `y` - The y value of the sprite object to be set.
 
@@ -76,12 +76,12 @@ Sets the <ins>text width</ins> with a new width value.
 Sets the <ins>text border</ins> with a new border value.
 
 - `size` - The new text size value of the border.
-- `color` - The text color value of the border. **(Must be a Hexadecimal Color Code)**
+- `color` - The text hexadecimal color value of the border.
 
 ### setTextColor(tag:String, color:String)
-Sets the <ins>text color</ins> with a new color value.
+Sets the <ins>text hexadecimal color</ins> with a new color value.
 
-- `color` - The new text color value of the text. **(Must be a Hexadecimal Color Code)**
+- `color` - The new text hexadecimal color value of the text.
 
 ### setTextAlignment(tag:String, alignment:String = 'left')
 Sets the <ins>text alignment</ins> with a new alignment value.
@@ -93,7 +93,7 @@ Sets the <ins>text alignment</ins> with a new alignment value.
 
 Sets the <ins>text font</ins> with a new font value.
 
-- `font` - The new text font value. _(Relative to `mods/fonts`)_
+- `font` - The new text font value. _(Relative to `mods/fonts` folder)_
 
 ### setTextItalic(tag:String, italic:Bool)
 Sets the <ins>text into _italic_ type</ins>.

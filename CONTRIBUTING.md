@@ -3,9 +3,10 @@ When contrubuting this repostory you must abide these rule and follow the format
 
 # Rules
 1. The subject must be 100% related to Psych Engine not other engines. This repository is to document missing stuff not mentioned on the wiki. If you did not abide this you have low common sence and iq.
-2. If you're adding a lua function not mention on `FunkinLua.hx` like `math.abs()` please check the Lua version, the version of Lua that we are using is `5.1`. If there is a Lua function above `5.1` like `math.type`. I mark it as `invalid` on the pull request.
-3. If you're doing a useless pull request/issue I will mark it as `invalid`. I don't even know why you're trolling this repository there are less people to troll here.
-4. And Lastly follow the format shown below becuase i said so. _(such a good responce 😎)_
+2. If you're adding a lua function that is in `FunkinLua.hx` please check if the lua function currently exist in the current Psych Engine. If it doesn't existed put it in the `Depracated Lua Functions` Page.
+3. The Lua version that Psych Engine is using is `5.1`. So please don't add lua functions above `5.1`. 
+4. If you're doing a useless pull request/issue I will mark it as `invalid`. I don't even know why you're trolling this repository there are less people to troll here.
+5. And Lastly follow the format shown below becuase i said so. _(such a good responce 😎)_
 
 # Formating
 ## Function and Group Format:

@@ -83,19 +83,19 @@ Sets the current <ins>**Float** array variable shader</ins>.
 Gets the current <ins>**Boolean** variable shader</ins>.
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The `uniform bool` keyword name.
+- `prop` - The variable name in `uniform bool`.
 
 ### getShaderInt(obj:String, prop:String)
 Gets the current <ins>**Int** variable shader</ins>.
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform int` keyword.
+- `prop` - The variable name in `uniform int`.
 
 ### getShaderFloat(obj:String, prop:String)
 Gets the current <ins>**Float** variable shader</ins>.
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform float` keyword.
+- `prop` - The variable name in `uniform float`.
 
 ***
 
@@ -103,7 +103,7 @@ Gets the current <ins>**Float** variable shader</ins>.
 Gets the current <ins>**Boolean** array variable shader</ins>.
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform bool` keyword.
+- `prop` - The variable name in `uniform bool`.
 
 Example: `getShaderBoolArray('shader', exampleBool)[1]`
 
@@ -111,10 +111,10 @@ Example: `getShaderBoolArray('shader', exampleBool)[1]`
 Gets the current <ins>**Int** array variable shader</ins>.
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform int` keyword.
+- `prop` - The variable name in `uniform int`.
 
 ### getShaderFloatArray(obj:String, prop:String)
 Gets the current <ins>**Float** array variable shader.</ins>
 
 - `obj` - The sprite tag or object variable name.
-- `prop` - The variable in `uniform float` keyword.
+- `prop` - The variable name in `uniform float`.

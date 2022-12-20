@@ -12,7 +12,7 @@ Example: If i want to load a dialogue file `mods/data/bopeebo/dialogue.json` usi
 
 Starts a video during a cutscene. 
 
-- `videoFile` - The path of the video file. _(Relative to `mods/videos`)_
+- `videoFile` - The path of the video file. _(Relative to `mods/videos` folder)_
 
 Example: `startVideo(mods/videos/ughCutscene.mp4)`
 
