@@ -44,7 +44,8 @@ Deprecation of `setScrollFactor()`, Changes the lua sprite/object that moves alo
 Deprecation of `scaleObject()`, Sets the lua sprite/object camera state.
 
 - `obj` - The sprite tag or object variable name.
-- `camera` - The camera state to be set in, Can be either `camGame`, `camHUD` or `camOther`.
+- `x` - The width of the object to be set, Default value is `1`.
+- `y` - The heigth of the object to be set, Default value is `1`.
 
 ***
 > **Note**: _All of these functions are a depracation of `playAnim()`_

@@ -4,14 +4,14 @@
 ### playSound(sound:String, volume:Float = 1, ?tag:String)
 Will <ins>play a sound</ins> inside the game.
 
-- `sound` - The file name that will be played. _(Relative to located in `mods/sounds/` or `assets/sounds/`)_
+- `sound` - The file name that will be played. _(Relative to located in `mods/sounds/` or `assets/sounds/` folder)_
 - `volume` - An optional value, volume percent goes from `0` to `1`, Default value: `1`.
 - `tag` - An optional value, if you don't want to utilize it, then don't include a third value. Should only be used if you wish to halt, resume, adjust the time, volume, or fade in/out your sound. If the sound has been completed playing then the `onSoundFinished()` function will be called.
 
 ### playMusic(sound:String, volume:Float = 1, loop:Bool = false)
 Will <ins>play a music</ins> inside the game.
 
-- `sound` - The file name that will be played. _(Relative to located in `mods/music/` or `assets/music/`)_
+- `sound` - The file name that will be played. _(Relative to located in `mods/music/` or `assets/music/` folder)_
 - `volume` - An optional value, volume percent goes from `0` to `1`, Default value: `1`.
 - `loop` - An optional value, will loop the music indefinitely, Default value: `false`.
 
@@ -19,7 +19,7 @@ Will <ins>play a music</ins> inside the game.
 
 # Control Sound/Music Functions
 ### stopSound(tag:String)
-This will <ins>stop playing</ins> a sound permanently.
+This will <ins>stop playing</ins> the sound permanently.
 
 - `tag` - The sound tag name.
 
@@ -68,7 +68,7 @@ This will cause the sound to <ins>cancel the fade</ins> of playing the sound.
 ### setSoundTime(tag:String, value:Float)
 > **Note**: _The milliseconds will be converted into seconds, Example: `5000` milliseconds will be converted to `5` seconds._
 
-<ins>Sets the current sounds</ins> position in milliseconds.
+<ins>Sets the current sound</ins> position in milliseconds.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
 - `value` - The new position that will be set.
@@ -79,6 +79,6 @@ This will cause the sound to <ins>cancel the fade</ins> of playing the sound.
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
 
 ### getSoundTime(tag:String)
-<ins>Gets the current sounds</ins> position in milliseconds.
+<ins>Gets the current sound</ins> position in milliseconds.
 
 - `tag` - The sound tag name, if you wish to do a fade in on the background music instead, leave this option blank.
