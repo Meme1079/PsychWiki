@@ -1,9 +1,9 @@
 # Introduction
-Lua is a scripting language used in Psych Engine modding. It is very similair to Python but it's more faster to run and more simple than Python. The current version of Lua that Psych Engine is using is (5.1).
+Lua is a scripting language used in Psych Engine modding. It is very similar to Python but it's more faster to run and more simple than Python. The current version of Lua that Psych Engine is using is (5.1).
 
-To start of your epic coding you must download [VSCode](https://code.visualstudio.com/) it's avaiable in Windows, Mac, and Linux. It will make your coding easier very reccomended.
+To start of your epic coding you must download [VSCode](https://code.visualstudio.com/) it's available in Windows, Mac, and Linux. It will make your coding easier very recommended.
 
-To create your dumb first lua file press [Command + N] this will create a new file. Then click [Select a language] now type lua and press enter boom your done. If you want to save your lua file just press [Command + S] now select to path to be save.
+To create your dumb first lua file press [Command + N] this will create a new file. Then click [Select a language] now type lua and press enter boom you're done. If you want to save your lua file just press [Command + S] now select to path to be save.
 
 # Variables
 Variables in programming is a manipulable storage area that holds the Data type. To create a variable type the name of the variable to be used. Between the name and the Data type put the equal sign `=` after that put the data type you want.
@@ -16,7 +16,7 @@ function onCreate() -- The start of lua script
 end
 ```
 
-You can do multiple Variables in a single line. In each Variable/Data types they should be seperated by a comma `,`. If the there is more Variables than Data types it will asign the missing Data types into `nil`.
+You can do multiple Variables in a single line. In each Variable/Data types they should be separated by a comma `,`. If the there is more Variables than Data types it will assign the missing Data types into `nil`.
 
 Example:
 ```lua
@@ -57,7 +57,7 @@ var2 = 'corn'..'lover' -- a variable with the operators as a value
 
 if = 'string3'         -- a variable named with a keyword
 >= = false             -- a variable named with a operator
-23 = 245               -- a varioble named with a value
+23 = 245               -- a variable named with a value
 val 3 = nil            -- a variable with a space
 4val = 245             -- a variable with the number at the start
 ```
@@ -102,7 +102,7 @@ function onCreate()
 end
 ```
 
-If you want to add quotes inside of string don't do it. Becuase Lua will think the string ends there thus causing an error but you can avoid this problem with escape characters.
+If you want to add quotes inside of string don't do it. Because Lua will think the string ends there, thus causing an error but you can avoid this problem with escape characters.
 
 Escape character are constructed with a backslash character `\`. Lua will convert the special character into string characters.
 
@@ -127,7 +127,7 @@ end
 ```
 
 ### Booleans
-Booleans are simple there are two values which it can be represented as `true` or `false`. You can use Booleans to chack if the condition is `true` or not.
+Booleans are simple there are two values which it can be represented as `true` or `false`. You can use Booleans to check if the condition is `true` or not.
 
 ### Nil
 Nil data type represents nothingness or nonexistent. You can use this for checking if the value is `nil` with control structures or destroying a data type inside of a variable.
@@ -151,7 +151,7 @@ Example:
 ```lua
 function onCreate()
      local d = {a = 'guh', b = false, c = 34.69}
-     debugPrint(d.a) -- will print 'guh' (first method) [reccomended]
+     debugPrint(d.a) -- will print 'guh' (first method) [recommended]
      debugPrint(d.['c']) -- will print '34.69' (second method)
 end
 ```
@@ -254,9 +254,9 @@ end
 ### For Loop
 The `for` loop allows you to loop the number of times to execute the loop. Either a you can do a numeric value or Table values. This loop is generally used in `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note manipulation or other stuff. The `for` loop can be either a Numeric Loop or Generic Loop.
 
-Numeric Loop is the defualt loop for the `for` loop. The loop is declared with the `index1`, `index2`, and an optional `increment` value.
+Numeric Loop is the default loop for the `for` loop. The loop is declared with the `index1`, `index2`, and an optional `increment` value.
 
-- `index1` - The starting index value of the loop, Defualt value: `1`.
+- `index1` - The starting index value of the loop, Default value: `1`.
 - `index2` - The ending index value of the loop.
 - `increment` - Whether of not will be negative or positive value.
 
