@@ -108,21 +108,21 @@ Checks if the current <ins>lua sound object</ins> exists in the currently playin
 
 # String Functions
 ### stringStartsWith(str:String, start:String)
-Checks the <ins>starting section</ins> of the **String** variable.
+Checks the <ins>starting section</ins> of the String variable.
 
 - `str` - The string variable to be used.
 - `start` - The starting section.
 
 ### stringEndsWith(str:String, end:String)
-Checks the <ins>ending section</ins> of the **String** variable.
+Checks the <ins>ending section</ins> of the String variable.
 
 - `str` - The string variable to be used.
 - `end` - The ending section.
 
 ### stringSplit(str:String, split:String)
-> **Note**: _After splitting a **String** it will act like a **Table**; example shown below for reference._
+> **Note**: _After splitting a String it will act like a Table; example shown below for reference._
 
-Will split the **String** variable into multiple **Strings**.
+Will split the String variable into multiple Strings.
 
 - `str` - The string to be split.
 - `start` - The separation of the string.
@@ -130,7 +130,7 @@ Will split the **String** variable into multiple **Strings**.
 Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
 
 ### stringTrim(str:String)
-Will remove any unnecessary large spaces from the **String** variable.
+Will remove any unnecessary large spaces from the String variable.
 
 - `str` - The string to be trimmed.
 

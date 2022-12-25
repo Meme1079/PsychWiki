@@ -1,23 +1,49 @@
+# Introduction
+Lua is a scripting language used in Psych Engine modding. It is very similair to Python but it's more faster to run and more simple than Python. The current version of Lua that Psych Engine is using is (5.1).
+
+To start of your epic coding you must download [VSCode](https://code.visualstudio.com/) it's avaiable in Windows, Mac, and Linux. It will make your coding easier very reccomended.
+
+To create your dumb first lua file press [Command + N] this will create a new file. Then click [Select a language] now type lua and press enter boom your done. If you want to save your lua file just press [Command + S] now select to path to be save.
+
 # Variables
-Variables are manipulable storage spaces that can contain a variety of values. You can use these for <ins>storing values and shortening the code</ins>.
+Variables in programming is a manipulable storage area that holds the Data type. To create a variable type the name of the variable to be used. Between the name and the Data type put the equal sign `=` after that put the data type you want.
 
-You can used them for <ins>shortening a line of functions and not repeating the code over and over again</ins>.
+Example:
+```lua
+function onCreate() -- The start of lua script
+     local greet = 'Hello' -- greet variable
+     debugPrint(greet) -- will print 'hello'
+end
+```
 
-When creating a Variable put a name, afterwards put equal `=` then put anything you want after equal `=`, it could be a **String**, **Boolean**, **Numbers**, Etc. And you <ins>can not put a keywords in lua when naming a variable</ins>.
+You can do multiple Variables in a single line. In each Variable/Data types they should be seperated by a comma `,`. If the there is more Variables than Data types it will asign the missing Data types into `nil`.
+
+Example:
+```lua
+function onCreate()
+     local a, b, c = 12, 14, 13 -- Complete 
+     local d, e, f = 12, 14     -- Incomplete Data Types
+     debugPrint(a, b, c) -- will print '12 14 13'
+     debugPrint(d, e, f) -- will print '12 14 nil'
+end
+```
+
+## Naming Variables Rules
+- Variable names should start with a letter or underscore `_` any other letter or character is invalid.
+- Variable names can not be named with numbers at the start only works at then middle or end.
+- Variable names are not valid if it has a space.
+- Lua is case-sensitive so `a` and `A` name are considered different variables.
+- Variable names can't be named after a keyword or operators, list of keywords are shown below.
 
 Reserved Keywords:
 ```lua
-
 and       or       not       local     true       break    
 false     nil      if        else      elseif     goto    
 then      for      in        repeat    until      
 while     do       return    end       function
-
 ```
 
-<details><summary><b>Example of naming a variable correctly:</b></summary>
-<p>
-
+Example:
 ```lua
 -- Valid --
 
@@ -36,83 +62,11 @@ val 3 = nil            -- a variable with a space
 4val = 245             -- a variable with the number at the start
 ```
 
-</p>
-</details>
+## Global and Local Scope
+- `Global` - The variable or function that is accessible globally
+- `Local` - The variable or function that is only accessible on the current scope that is located to
 
-You can multiple variables in one line, just <ins>seperate the variable name and the value with a comma `,`</ins>. If the variable name is greater than value or the value is greater than the variable name. The <ins>missing variable name or value will become a **Nil** value</ins>.
-
-```lua
-a, b, c = 3, 23.23, true
-
-function onCreate()
-     debugPrint(a, b, c) 
-     -- a = 3, b = 23.23, c = true
-end
-```
-
-## Types of Values
-- `Strings` - A sequence of characters, you can put the characters around with single apostrophe `''` or double apostrophe `""`. You can also do double brackets `[[]]` for multi line **Strings**.
-- `Booleans` - A type of value it can be two possible values `true` or `false`.
-- `Numbers` - A numerical value used only to count or measure objects. **Numbers** can be represented as a **Int** where the number with no decimal point. Or it can be a **Float** where the number has a decimal point.
-- `Nil` - Zero or nonexistent, used to destory a value in a variable.
-- `Tables` - A type of value that stores multiple types of values. **Tables** can be either **Arrays** or **Dictionary**. Most programming language at the start of every value in a **Array** or **Dictionary** are always in `0` but in Lua it should be `1`.
-     - `Arrays` - A collection of different values. When accessing this type of table put the variable name then brackets `[]` and inside must be a position number of the table.
-     - `Dictionary` - They define each value with a key, then a value it’s the same as creating a variable. When accessing this type of table put the variable name then brackets `[]` and inside must be a key name then apostrophe single `''` or double `""`. Or put a dot `.` then the key name.
-
-<details><summary><b>Example of the values:</b></summary>
-<p>
-
-```lua
-ExVar1 = 'string'             -- String (String)
-ExVar2 = "string"             -- String (Double [Optional])
-ExVar3 = [[
-     Look a multi line string
-     does it look cool? ]]    -- String (Brackets)
-ExVar4 = 5                    -- Number (Int)
-ExVar5 = 0.5                  -- Number (Float)
-ExVar6 = true                 -- Boolean
-ExVar7 = nil                  -- Nil
-ExVar8 = {value}              -- Table Array      (Empty)
-ExVar9 = {                    -- Table Dictionary (Empty)
-     key = value
-} 
-
--- Table Section --
-
-TabArray1 = {'Psych', 'Engine', 'is', 'Amazing'} -- a table array
---[[ Use tableName[pos] to access it!
-     Example: TabArray1[3] will print 'is' ]]
-
-TabArray2 = {'Psych', {'Engine', 'is', 'Amazing'}} -- a table array with a table
---[[ Use tableName[pos1][pos2] to access it! 
-     Example: TabArray2[2][3] will print 'Amazing' ]]
-
-TabDict1 = { -- a table dictionary
-     a = 'banana',
-     b = 'corn',
-     c = 'eggplant'
-}
---[[ Use tableName.key or tableName['key'] to access it! 
-     Example: TabDict1.a will print 'banana'
-     Example: TabDict1['c'] will print 'eggplant' ]]
-
-TabDict2 = { -- a table dictionary with a table
-     num = {-1, -0.5, 0, 0.5, 1},
-     boo = {true, false},
-     str = {'FNF', 'Psych', 'Engine'}
-}
---[[ Use tableName.key[pos] or tableName['key'][pos] to access it! 
-     Example: TabDict1.num[3] will print '0'
-     Example: TabDict1['boo'][1] will print 'true' ]]
-```
-
-</p>
-</details>
-
-## Global and Local Variables
-- `Global variables` - A type of variable that is accessible globally.
-- `Local variables` - A type of variable that is not for looks, **Local** are only accessible on the current scope that is located to, you can do this on a `function` too.
-
+Example:
 ```lua
 fish = 'love' -- global
 function onCreate()
@@ -129,8 +83,107 @@ end
 
 ***
 
+# Data Types
+### Strings
+Strings are a sequence of texts, they are usually surrounded by single-quote `''`, double-quote `""`, and double-brackets `[[]]`. Single-quote `''` and double-quotes `""` are the same when executed. But double-brackets `[[]]` are use in multiline strings for longer texts example shown below.
+
+Example:
+```lua
+function onCreate()
+     local str1 = 'Hello'
+     local str2 = "World"
+     local str3 = [[Culturae organicae te 
+     capiet ad loca quae numquam 
+     expectata non visere!]]
+
+     debugPrint(str1)
+     debugPrint(str2)
+     debugPrint(str3)
+end
+```
+
+If you want to add quotes inside of string don't do it. Becuase Lua will think the string ends there thus causing an error but you can avoid this problem with escape characters.
+
+Escape character are constructed with a backslash character `\`. Lua will convert the special character into string characters.
+
+- `\'` - Single-quote
+- `\"` - Double-quote
+- `\\` - Backslash
+- `\[` - Left Bracket
+- `\]` - Right Bracket
+
+### Numbers
+Numbers is quantity or amount of value they can negative or positive value. Numbers can be represented as an Int or Float. Int is a type of Number that doesn't support decimal-point. Float on the other hand supports the decimal-point.
+
+Example:
+```lua
+function onCreate()
+     local num1 = 1 -- Int
+     local num2 = 2.12 -- Float
+
+     debugPrint(num1)
+     debugPrint(num2)
+end
+```
+
+### Booleans
+Booleans are simple there are two values which it can be represented as `true` or `false`. You can use Booleans to chack if the condition is `true` or not.
+
+### Nil
+Nil data type represents nothingness or nonexistent. You can use this for checking if the value is `nil` with control structures or destroying a data type inside of a variable.
+
+### Tables
+Tables are used to store multiple or different data types, Tables are always constructed with curly braces `{}`. You make Tables act like an Array or Dictionary.
+
+Array are sorted in a list of values there are each separated with commas `,`. To read an Array add a pair of brackets `[]` next to the Variable name and the position number inside of the brackets `[]`. Unlike every programming language that starts with `0` Lua starts with `1`.
+
+Example:
+```lua
+function onCreate()
+     local a = {'string1', true, nil}
+     debugPrint(a[1]) -- will print 'string1'
+end
+```
+
+Dictionary are sorted in a key and value list. To create a Dictionary type the key followed by a equal character `=` and a value each separated with commas `,`. There are two different ways to read a Dictionary either add a dot character `.` followed by the name of key next to the Variable name. Or a brackets with single/double quotes `['']`/`[""]` followed by the name of key inside of it.
+
+Example:
+```lua
+function onCreate()
+     local d = {a = 'guh', b = false, c = 34.69}
+     debugPrint(d.a) -- will print 'guh' (first method) [reccomended]
+     debugPrint(d.['c']) -- will print '34.69' (second method)
+end
+```
+
+### Function
+A function is a collection of code that performs a specific task.
+
+You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with Tables.
+
+If you want add more functionality to the function. You can add parameters, parameter are a special type of variable passed inside of the function. If called outside of the function it will cause an error or a Nil value.
+
+Example:
+```lua
+function onCreatePost()
+     setPos('boyfriend', {100, 500}) -- Changes the position to x = 100 and y = 500
+end
+
+-- function created by Mayo78
+function setPos(obj, pos) -- Concatenates setProperty x and y
+     if pos[1] ~= nil then
+          setProperty(obj..'.x', pos[1])
+     end
+     if pos[2] ~= nil then
+          setProperty(obj..'.y', pos[2]) 
+     end
+end
+```
+
+***
+
 # Comments
-Comments are used to give <ins>context to the line of a code</ins>; they won't interact with the code.
+Comments are used to explain the code and how they work. They can't interact the code and won't cause an error. Example shown on other examples.
 
 - `--` - A single comment.
 - `--[[]]` - A multi comment.
@@ -138,7 +191,7 @@ Comments are used to give <ins>context to the line of a code</ins>; they won't i
 ***
 
 # Operators
-An operator is a symbol that tells the interpreter to perform <ins>specific mathematical or logical statements</ins>.
+Operators are unique symbols that are used to carry out operations on operands within a statement.
 
 ### Arithmetic
 - `+` - Addition
@@ -157,76 +210,28 @@ An operator is a symbol that tells the interpreter to perform <ins>specific math
 - `>=` - Checks if the condition is greater or equal to the right. _(Only do this with Numbers)_
 - `<=` - Checks if the condition is lesser or equal to the right. _(Only do this with Numbers)_
 
-<details><summary><b>Example of relational operators:</b></summary>
-<p>
-
-```lua
-function onCreate()
-     debugPrint(13 == 13) -- will print 'true'
-     debugPrint(23 ~= 25) -- will print 'true'
-     debugPrint(45 >= 23) -- will print 'true'
-     debugPrint(45 <= 53) -- will print 'true' 
-     debugPrint(93 > 23)  -- will print 'true' 
-     debugPrint(15 < 23)  -- will print 'true'
-end
-```
-
-</p>
-</details>
-
 ### Logical
 - `and` - Combines two conditions together; will return `true` if BOTH sides are `true`.
 - `or` - Combines two conditions together; will return `true` if EITHER left or right are `true`.
 - `not` - Reverses the condition; if it is equivalent to `false`, then the not operator will set it to `true`, and vice versa.
 
-<details><summary><b>Example of logical operators:</b></summary>
-<p>
-
-```lua
-function onCreate()
-     debugPrint(13 == 13 and 34 == 34) -- will print 'true' 
-     debugPrint(23 == 23 or 69 == 234) -- will print 'true'
-     debugPrint(not false)             -- will print 'true'
-
-     debugPrint(13 == 3 and 34 == 44)  -- will print 'false' 
-     debugPrint(23 == 3 or 69 == 24)   -- will print 'false'
-     debugPrint(not true)              -- will print 'false'
-end
-```
-
-</p>
-</details>
-
 ### Miscellaneous
-- `..` - Used to concatenate two or more **Strings**.
-- `#` - Returns the length of a string or the number of items in a **Table**.
-
-<details><summary><b>Example of relational operators:</b></summary>
-<p>
-
-```lua
-function onCreate()
-     debugPrint('Snow'..'ball') -- will print 'Snowball'
-     debugPrint(#'four')        -- will print '4'
-end
-```
-
-</p>
-</details>
+- `..` - Used to concatenate two or more Strings.
+- `#` - Returns the current length of the String or Table.
 
 ***
 
 # Control Structures
-Control Structures allow to perform tasks if the condition is `true`. 
+Control Structures are a block code which analyzes values and decide where to execute or not.
 
-Also am only going to mention `for-do` loop and not `while-do`, `repeat-until`. <ins>Because there are rarely used in scripts but they do work</ins>.
+Also am only going to mention `for` loop and not `while`, `repeat`. Because there are rarely used in scripts but they do work tho.
 
-### If Statement
-A common basic statement to test if the condition is `true` it will execute the code.
+### If/Else/Else-If Statement
+These are typical basic statements that check to see if the condition is `true` before running the code. 
 
-You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as an <ins>alternate condition</ins> if the `if` statement returns to `false`.
+The `if` statement is simple, it checks if the condition is `true`. You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as an alternate condition if the `if` statement returns to `false`.
 
-Another statement you can add is `else` this statement allow you to <ins>execute opposite condition of `if` or `elseif` statements</ins> and will only activate if the `if` or `elseif` returns `false`.
+Another optional statement you can add is `else` statement if the `if` or `elseif` statements return `false` then this statement will be called.
 
 ```lua
 function onCreate()
@@ -247,72 +252,37 @@ end
 ```
 
 ### For Loop
-It enables you to run a collection of commands, primarily used in `setPropertyFromGroup()` and `getPropertyFromGroup()` for notes.
+The `for` loop allows you to loop the number of times to execute the loop. Either a you can do a numeric value or Table values. This loop is generally used in `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note manipulation or other stuff. The `for` loop can be either a Numeric Loop or Generic Loop.
 
-This loop can be a **Numeric** which is constructed by `start value`, `end value`. And an optional `increment` on the loop. Or it can be **Generic** are generally paired by `in` keyword and `pairs()` or `ipairs()`. This loop is used for getting the keys or values inside of the **Table**.
+Numeric Loop is the defualt loop for the `for` loop. The loop is declared with the `index1`, `index2`, and an optional `increment` value.
 
-- `start value` - A variable inside of the `for-do` and the start of the loop.
-- `end value` - The end of the loop value.
-- `increment` - An optional value that takes a step on every loop.
-
-Example of a Numeric Loop:
-```lua
-function onCreatePost()
-     for i = 0, getProperty('unspawnNotes.length')-1 do -- get's every note in the chart then subtracts one
-          setPropertyFromGroup('unspawnNotes', i, 'noAnimation', true) -- when hit, doesn't play an animation
-          setPropertyFromGroup('unspawnNotes', i, 'noMissAnimation', true) -- when miss, doesn't play an animation
-     end
-end
-```
-
-Example of a Numeric Loop with the increment:
-```lua
-function onCreate()
-     for i = 1, 10, 2 do -- will take 2 steps
-          debugPrint(i) -- will print '1, 3, 5, 7, 9'
-     end
-end
-```
-
-Example of a Generic Loop:
-```lua
-fruits = {'banana', 'orange', 'apple', 'grape'} -- a table
-function onCreate()
-     for k,v in pairs(fruits) do -- gets the value inside of the table
-          debugPrint(v) -- prints every value in the table
-     end
-end
-```
-
-***
-
-# Keywords Functions
-### function(parameter)
-A function is a <ins>collection of code that cooperates to complete a task</ins>.
-
-You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with tables.
-
-- `parameter` - They are a named variable that is passed into a function and used to import arguments. Using comma `,` you can create more parameters.
+- `index1` - The starting index value of the loop, Defualt value: `1`.
+- `index2` - The ending index value of the loop.
+- `increment` - Whether of not will be negative or positive value.
 
 Example:
 ```lua
-function onCreatePost()
-     setPos('boyfriend', {100, 500}) -- Changes the position to x = 100 and y = 500
-end
-
--- function created by Mayo78
-function setPos(obj, pos) -- Concatenates setProperty x and y
-     if pos[1] ~= nil then
-          setProperty(obj..'.x', pos[1])
-     end
-     if pos[2] ~= nil then
-          setProperty(obj..'.y', pos[2]) 
+function onCreate()
+     for i = 10, 0, -1 do -- The negative increment
+          debugPrint(i) -- this will countdown to 10 to 0
      end
 end
 ```
 
-### return
-Returns the finish result of the function or a value.
+Generic Loop does not iterate over a series of numbers; rather, it iterates over items in a collection. The `in` keyword is used by the loop to iterate through a sequence. From the `pairs()` or `ipairs()` functions of the loop for more information check the Lua Built-in Functions section.
+
+Example:
+```lua
+fruits = {'banana', 'orange', 'apple', 'grape'} -- a table
+function onCreate()
+     for i,v in ipairs(fruits) do -- gets the key and value inside of the table
+          debugPrint(i, v) -- prints every key and value in the table
+     end
+end
+```
+
+### Return
+The `return` statement ends the currently execution of a code and returns the result of code. If there is any code below the `return` statement it will cause an error.
 
 Example:
 ```lua
@@ -325,8 +295,8 @@ function mathMulti(x, y)
 end
 ```
 
-### break
-This will finish the loop early.
+### Break
+The `break` statement ends the loop immediately when the condition is met. 
 
 Example:
 ```lua
@@ -340,52 +310,48 @@ function onCreate()
 end
 ```
 
-# Basic Functions
-### dofile(path:String)
-> **Note**: _Put the file format name to get the file you want._
+***
 
-This execute a chunk of code on a another lua file. This can get variables and functions <ins>if there not local</ins>.
+# Lua Built-in Functions
+### dofile(path:String)
+This execute a chunk of code inside of the lua file.
+
+- `path` - The path to the lua file.
 
 Example: `dofile(mods/scripts/other/luaFile.lua)`
 
-### type(val:Value)
-Gets the type of value of the variable.
+### type(data:Value)
+Returns the data type of the object.
 
-Example: `debugPrint(type(true))` This will print 'boolean'.
+- `data` - The object to be used.
+
+Example: `debugPrint(type('str'))` This will print 'string' 
 
 ### pairs(tab:Table)
-This will get <ins>each key and value inside of the table</ins>. This will sort it randomly.
-
-Example:
-```lua 
-fruits = {'banana', 'orange', 'apple', 'grape'} -- a table array
-function onCreate()
-     for k,v in pairs(fruits) do -- gets the value inside of the table
-          debugPrint(k..'|'..v) -- prints every value and key in the table
-     end
-end
-```
+Returns the keys and values from the Table in a unorganized order.
 
 ### ipairs(tab:Table)
-This works the same as `pairs()` but if the table is dictionary. <ins>The key must be a number and be surrounded by brackets `[]`</ins>. And will sort it in chronological order. If the value is **Nil** <ins>then the loop will stop at there</ins>. 
-
-If you decided to put an alphabet in the brackets `[]` <ins>then it will not work and will print nothing</ins>.
+Returns the keys and values from the Table in a numerical order. Table Dictionary that uses key numbers or Table Arrays can be used here. If the value has a `nil` value then it will stop executing the loop.
 
 Example:
 ```lua
-fruits = {[4] = 'banana', [1] = 'orange', [3] = 'apple', [2] = 'grape'} -- a table dictionary
 function onCreate()
-     for k,v in ipairs(fruits) do -- gets the value inside of the table
-          debugPrint(k..'|'..v) -- prints every value and key in the table
+     local t = {[2] = '2d', [4] = '4d', [1] = '1d', [3] = '3d', [5] = nil, [6] = '5d'}
+     for i,v in ipairs(t) do
+          debugPrint(i, v)
      end
 end
 ```
 
+### tostring(num:Float)
+Converts the Number data type into a String.
+
+### tonumber(str:String)
+Converts any Number inside of String into a real Number data type. If any letter is converted in this function it will cause an error.
+
 ***
 
-# Lua Value Manipulation
-These are functions that can manipulate values.
-
+# Lua Data Type Manipulation
 ## String Functions
 ### string.lower(str:String)
 Converts any <ins>upper case</ins> letters into lower case.
@@ -482,12 +448,12 @@ Returns the <ins>lowest value</ins> that, it could find.
 Example: `math.min(12, 34, 1)` will print '1' because it's the lowest value.
 
 ### math.ceil(num:Float)
-Rounds a **Float** to its <ins>highest value</ins>.
+Rounds a Float to its <ins>highest value</ins>.
 
 Example: `math.ceil(5.1)` will print '6'.
 
 ### math.floor(num:Float)
-Rounds a **Float** to its <ins>lowest value</ins>.
+Rounds a Float to its <ins>lowest value</ins>.
 
 Example: `math.floor(5.9)` will print '5'.
 
