@@ -5,6 +5,8 @@ To start of your epic coding you must download [VSCode](https://code.visualstudi
 
 To create your dumb first lua file press [Command + N] this will create a new file. Then click [Select a language] now type lua and press enter boom you're done. If you want to save your lua file just press [Command + S] now select to path to be save.
 
+***
+
 # Variables
 Variables in programming is a manipulable storage area that holds the Data type. To create a variable type the name of the variable to be used. Between the name and the Data type put the equal sign `=` after that put the data type you want.
 
@@ -60,25 +62,6 @@ if = 'string3'         -- a variable named with a keyword
 23 = 245               -- a variable named with a value
 val 3 = nil            -- a variable with a space
 4val = 245             -- a variable with the number at the start
-```
-
-## Global and Local Scope
-- `Global` - The variable or function that is accessible globally
-- `Local` - The variable or function that is only accessible on the current scope that is located to
-
-Example:
-```lua
-fish = 'love' -- global
-function onCreate()
-     local fish = 'hate' -- keyword local is used
-     local thing = 'thing'
-     debugPrint(fish) -- will print 'hate' 
-end
-
-function onCreatePost()
-     debugPrint(thing) -- won't print anything (nil)
-     debugPrint(fish) -- will print 'love'
-end
 ```
 
 ***
@@ -156,12 +139,12 @@ function onCreate()
 end
 ```
 
-### Function
-A function is a collection of code that performs a specific task.
+***
 
-You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with Tables.
+# Function
+A Function is a collection of code that performs a specific task. To create your custom Function type the `function` keyword followed by the name of the function, Example: `myFunc()`. And to declare your custom Function just type the name of the custom function, example shown below.
 
-If you want add more functionality to the function. You can add parameters, parameter are a special type of variable passed inside of the function. If called outside of the function it will cause an error or a Nil value.
+If you want add more functionality to the function. You can add parameters, parameter are a special type of variable passed inside of the function. If called outside of the function it will cause an error or a `nil` value.
 
 Example:
 ```lua
@@ -177,6 +160,31 @@ function setPos(obj, pos) -- Concatenates setProperty x and y
      if pos[2] ~= nil then
           setProperty(obj..'.y', pos[2]) 
      end
+end
+```
+
+You can put a function on a variable but don't put the name of the function only `function()`. And accessing it, put the variable name with a parentheses `()`, same works with Tables, Example: `funcname = function(para1, para2)`.
+
+***
+
+# Scope
+Scope is a section of code that has access to a Variable or Function. The scope may be Global or Local, but the default is a Global scope.
+
+- `Global scope` - Global scope are the defualt scope when creating a Variable or Function. The Global scope makes it accessible in every line of code. But it's more slower than the Local scope.
+- `Local scope` - Local scope are declared with a `local` keyword after the declaration of the Variable or Function. It makes it only accessible inside of the block. If called outside of the block then it will be a `nil` value.
+
+Example:
+```lua
+fish = 'love' -- global
+function onCreate()
+     local fish = 'hate' -- keyword local is used
+     local thing = 'thing'
+     debugPrint(fish) -- will print 'hate' 
+end
+
+function onCreatePost()
+     debugPrint(thing) -- won't print anything (nil)
+     debugPrint(fish) -- will print 'love'
 end
 ```
 
@@ -229,10 +237,11 @@ Also am only going to mention `for` loop and not `while`, `repeat`. Because ther
 ### If/Else/Else-If Statement
 These are typical basic statements that check to see if the condition is `true` before running the code. 
 
-The `if` statement is simple, it checks if the condition is `true`. You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as an alternate condition if the `if` statement returns to `false`.
+The `if` statement is simple, checks if the condition is `true` before executing the code. You can add a `elseif` statement as an optional statement inside of the `if` statement. You can use this as an alternate condition if the `if` statement returns to `false`.
 
 Another optional statement you can add is `else` statement if the `if` or `elseif` statements return `false` then this statement will be called.
 
+Exaample:
 ```lua
 function onCreate()
      makeLuaText('textTag', ' ', nil, 0, 0)
