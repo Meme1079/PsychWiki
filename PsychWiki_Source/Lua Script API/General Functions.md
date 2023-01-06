@@ -185,6 +185,32 @@ Deletes the current file.
 
 - `path` - The path of the file to be deleted.
 
+### initSaveData(name:String, ?folder:String = 'psychenginemods')
+> **Note**: _This function is required when using `setDataFromSave()` and `getDataFromSave()` functions._
+
+Loads the current save date but if there is no save data found it will be created.
+
+- `name` - The name of the save data to be used.
+- `folder` - An optional parameter, The folder to be loaded or be created.
+
+### flushSaveData(name:String)
+Deletes the save data.
+
+- `name` - The name of the save data to be used.
+
+### setDataFromSave(name:String, field:String, value:Dynamic)
+Sets the current variable from the save data.
+
+- `name` - The name of the save data to be used.
+- `field` - The current variable to be used.
+- `value` - The new value to be set.
+
+### getDataFromSave(name:String, field:String)
+Gets the current variable from the save data.
+
+- `name` - The name of the save data to be used.
+- `field` - The current variable to be used.
+
 ### isRunning(luaFile:String)
 Checks if any lua file are currently running in game.
 
