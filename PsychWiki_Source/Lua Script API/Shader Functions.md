@@ -4,7 +4,7 @@
 
 # Creating/Removing Shader
 ### initLuaShader(name:String, glslVersion:Int = 120)
-Sets the intensity of the shader.
+Initialize The GLSL shader to be used.
 
 - `name` - The `frag` or `vert` file name.
 - `glslVersion` - An optional parameter, the glsl version to be used in the shader.
