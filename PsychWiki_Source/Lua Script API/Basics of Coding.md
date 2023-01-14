@@ -1,9 +1,27 @@
 # Introduction
 Lua is a scripting language used in Psych Engine modding. It is very similar to Python but it's more faster to run and more simple than Python. The current version of Lua that Psych Engine is using is (5.1).
 
-To start of your epic coding you must download [VSCode](https://code.visualstudio.com/) it's available in Windows, Mac, and Linux. It will make your coding easier very recommended.
+To create your own Lua file I recommend you download [VSCode](https://code.visualstudio.com) it's available in Windows, Mac, and Linux. Now after you download VSCode open it, press [Command + N] this will create a untitled file. Click the hyperlink that says [Select a language] after that type or search lua on the Select language mode. Click Lua and boom you're done.
 
-To create your dumb first lua file press [Command + N] this will create a new file. Then click [Select a language] now type lua and press enter boom you're done. If you want to save your lua file just press [Command + S] now select to path to be save.
+And to save your Lua file press [Commans + S] choose the file path to be saved and click [Ok]. Examples shown below the video.
+
+### Difference
+
+Lua in Psych Engine is very different compared to the original Lua. Mainly when coding first of all you can't put Control Structures for order for them to work properly you have to declared them inside of Callback templates, Example: `onCreate()`. If you want more examples just click the hyperlink.
+
+Printing in Psych Engine is also different the `print()` function will be replaced with `debugPrint()`. The For loop is the only functional loop that can be used. While and Repeat Loops are broken in Psych Engine Lua.
+
+The Built-in Psych Engine Lua functions can't be placed outside of the Callback templates.
+
+Example:
+```lua
+function onCreate()
+     local var = 5
+     if var == 5 then
+          debugPrint('it worked')
+     end
+end
+```
 
 ***
 
@@ -199,9 +217,11 @@ Comments are used to explain the code and how they work. They can't interact the
 ***
 
 # Operators
-Operators are unique symbols that are used to carry out operations on operands within a statement.
+Operators are unique symbols that are used to carry out operations on operands. They can be represented as Arithmetic, Relational, Logical, and Miscellaneous.
 
 ### Arithmetic
+Arithmetic operators are mathematical symbols used for performing calculations on Number values.
+
 - `+` - Addition
 - `-` - Subtraction
 - `*` - Multiplication
@@ -211,6 +231,8 @@ Operators are unique symbols that are used to carry out operations on operands w
 - `%` - [Modulus](https://www.calculatorsoup.com/calculators/math/modulo-calculator.php)
 
 ### Relational
+Relational operators checks if the two operands are `true` or not there usually placed between them.
+
 - `==` - Checks if the condition is equal to the right.
 - `~=` - Checks if the condition is not equal to the right.
 - `>` - Checks if the condition is greater than the right. _(Only do this with Numbers)_
@@ -219,13 +241,46 @@ Operators are unique symbols that are used to carry out operations on operands w
 - `<=` - Checks if the condition is lesser or equal to the right. _(Only do this with Numbers)_
 
 ### Logical
+Logical operators are special types of words that perform logical operations in the Control Structure conditions.
+
 - `and` - Combines two conditions together; will return `true` if BOTH sides are `true`.
 - `or` - Combines two conditions together; will return `true` if EITHER left or right are `true`.
 - `not` - Reverses the condition; if it is equivalent to `false`, then the not operator will set it to `true`, and vice versa.
 
+Example:
+```lua
+function onCreate()
+     local a, b, c = 5, 6, true
+
+     debugPrint(a == 5 and b == 6)
+     -- will print 'true' becuase a and b are equal to the second operand
+
+     debugPrint(a == 5 or b == 3)
+     -- will print 'true' because a is qeual to 5
+
+     debugPrint(not c) 
+     -- will print 'false' becuase it reverses the expression or condition
+end
+```
+
 ### Miscellaneous
-- `..` - Used to concatenate two or more Strings.
-- `#` - Returns the current length of the String or Table.
+Miscellaneous operators are supported in Lua the only operators featured here are Concatenation and Length operators.
+
+- `..` - Connects two or more Strings.
+- `#` - Returns the length of a Table or String.
+
+Example:
+```lua
+function onCreate()
+     debugPrint('snow'..'ball') -- will print 'snowball'
+     debugPrint(1 .. 2) -- will print '12' [NOTE: this will be a string] 
+
+     local tab = {'Psych', 'Wiki', 'Site'}
+     local str = tab[1]..tab[2] -- will concatenate into 'PsychSite'
+     debugPrint(#tab) -- will print 3 [NOTE: Counts only the values]
+     debugPrint(#str) -- will print 9 [NOTE: Counts only the letters]
+end
+```
 
 ***
 
