@@ -21,15 +21,11 @@ Description of the function and use
 
 - `name` - The description of the parameter and use
 
-<details><summary>Example:</summary>
-<p>
+Example:
 
 ```lua
 -- the lua code example
 ```
-
-</p>
-</details>
 
 *** -- Use this above when making a new group
 

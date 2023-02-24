@@ -1,148 +1,206 @@
-# General Setters
+# Property Setters
 ### setProperty(variable:String, value:Dynamic)
-Sets the current <ins>variable PlayStates name</ins> with a new value. 
+Sets the current <ins>property variable inside the Playstate</ins> with a new value.
 
-- `variable` - The tag of the object or object variable name.
+- `variable` - The variable inside the Playstate or object to be used.
 - `value` - The new value to be set.
 
 Examples:
 - Setting the players current health to 100%: `setProperty('health', 2)`.
-- Changing the object x value: `setProperty('object.x', 100)`.
+- Changing the object x value property: `setProperty('object.x', 100)`.
 - Skipping a countdown: `setProperty('skipCountdown', true)`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic)
-Sets the current <ins>variable inside a class in the PlayStates name</ins> with a new value, works similar to `setProperty()`.
+Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value.
 
-- `classVar` - The name of the class variable to access the `variable` inside of it.
-- `variable` - The object variable name inside of the class variable.
+- `classVar` - The name of the class, Example `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
+- `variable` - The variable inside the class to be used.
 - `value` - The new value to be set.
 
-Examples: 
+Examples:
 - Making the mouse cursor visible: `setPropertyFromClass('FlxG', 'mouse.visible', true)`.
 - Making the Opponent Notes invisible: `setPropertyFromClass('ClientPrefs', 'opponentStrums', false)`.
 - Changing the loop game over song: `setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'your_song_name')`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
-Sets the current <ins>variable from an array/group member on the PlayState names</ins> with a new value.
+Sets the current <ins>property variable inside an array/group member inside the PlayState<.ins> with a new value.
 
-- `obj` - The note group name to be set.
-- `index` - The member ID of the note.
-- `variable` - The value of the notedata property.
+- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `index` - The index number of the array/group member.
+- `variable` - The variable to be used for the array/group member.
 - `value` - The new value to be set.
 
-<details><summary><b>Example:</b></summary>
-<p>
+<details><summary>Examples:</summary>
 
+- Disabaling hit sounds:
 ```lua
-function onCreatePost() -- end of "create"
-     for i = 0, getProperty('unspawnNotes.length')-1 do
-          -- every note in the chart then subtracts it with 1
-          setPropertyFromGroup('strumLineNotes', i, 'texture', 'your_note_name') -- strum texture
-          setPropertyFromGroup('unspawnNotes', i, 'texture', 'your_note_name') -- note texture
+function onCreatePost() -- after post create
+     for unspawnNotes = 0, getProperty('unspawnNotes.length')-1 do
+          -- every unspawned note in the chart, then subtracts it with 1
+          setPropertyFromGroup('unspawnNotes', unspawnNotes, 'hitsoundDisabled', true) -- disables it
+     end
+end
+```
+- Changing the hit health:
+```lua
+function onCreatePost()
+     for unspawnNotes = 0, getProperty('unspawnNotes.length')-1 do
+          setPropertyFromGroup('unspawnNotes', unspawnNotes, 'hitHealth', 0.23)
      end
 end
 ```
 
-</p>
+- Changing the strum, note, and splash textures:
+```lua
+function onCreatePost()
+     for unspawnNotes = 0, getProperty('unspawnNotes.length')-1 do
+          setPropertyFromGroup('strumLineNotes', unspawnNotes, 'texture', 'your_note_name') -- strum texture
+          setPropertyFromGroup('unspawnNotes', unspawnNotes, 'texture', 'your_note_name') -- note texture
+     end
+end
+```
+
 </details>
 
 ***
 
-# General Getters
+# Property Getters
 ### getProperty(variable:String)
-Gets the current <ins>variable PlayStates name</ins> current value.
+Gets the current <ins>property variable inside the Playstate</ins> current value.
 
-- `variable` - The tag of the object or object variable name.
+- `variable` - The variable inside the Playstate or object to be used.
 
-Examples: 
-- Gets the current health: `getProperty('health')`
-- Gets the current BF character name: `getProperty('boyfriend.curCharacter')`
-- Gets the current x value of the object: `getProperty('object.x')`
+Example: Gets the current health, `getProperty('health')`
 
 ### getPropertyFromClass(classVar:String, variable:String)
-Gets the current <ins>variable inside a class in the PlayStates name</ins> current value, works similar to `getProperty()`.
+Gets the current <ins>property variable inside a class other than Playstate</ins> current value.
 
-- `classVar` - The name of the class variable to access the `variable` inside of it.
-- `variable` - The object variable name inside of the class variable.
+- `classVar` - The name of the class, Example `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
+- `variable` - The variable inside the class to be used.
 
-Examples:
-- Getting each frame in miliseconds: `getPropertyFromClass('flixel.FlxG', 'elapsed')`
-- Getting pixelated stage: `getPropertyFromClass('PlayState', 'isPixelStage')`
-- Gets the current state of ghost tapping: `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
+Example: Getting each frame in miliseconds, `getPropertyFromClass('flixel.FlxG', 'elapsed')`
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
-Gets the current <ins>variable from an array/group member on the PlayStates name</ins> current value.
+Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
 
-- `obj` - The note group name to be set.
-- `index` - The Member ID of the note.
-- `variable` - The value of the NoteData property.
+- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `index` - The index number of the array/group member.
+- `variable` - The variable to be used for the array/group member.
 
-Examples: 
-- Gets the note strum time: `getPropertyFromGroup('eventNotes', 0, 0)`
-- Gets the next unspawned note's noteData: `getPropertyFromGroup('unspawnNotes', 0, 'noteData')`
-- Detects if its a player section: `getPropertyFromGroup('notes', i, 'mustPress')`
+Example: Gets the note strum time, `getPropertyFromGroup('eventNotes', 0, 0)`
 
 ***
 
-# Variable Properties
-Heres some properties I know, you can use this to set or get the object property.
+# Text Property Setters
+### setTextString(tag:String, text:String)
+Sets the text object <ins>current text content</ins> with a new text content.
 
-Also here's the example when using it: `setProperty('object.x', value)`.
+- `tag` - The text object tag name to be used.
+- `string` - The new text content of the text.
 
-- `.x` - The x value of the object. **(Float)**
-- `.y` - The y value of the object. **(Float)**
-- `.scale.x` - The x scale value of the object. **(Float)**
-- `.scale.y` - The y scale value of the object. **(Float)**
-- `.flipX` - Will flip the x value of the object. **(Boolean)**
-- `.flipY` - Will flip the y value of the object. **(Boolean)**
-- `.scrollFactor.x` - The scroll factor of x value. **(Float)**
-- `.scrollFactor.y` - The scroll factor of y value. **(Float)**
-- `.angle` - The angle value of the object. **(Float)**
-- `.alpha` - The opacity value of the object, from `0` to `1`. **(Float)**
-- `.visible` - The visibility of the object, `true` is visible and `false` is invisible. **(Boolean)**
-- `.antialiasing` - The antialiasing of the object set it to `false` if the image is a pixel. **(Boolean)**
-- `.curCharacter` - Gets the character name, it could be: `boyfriend`, `dad`, `gf`. **(String)**
+### setTextSize(tag:String, size:Int)
+Sets the text object <ins>current size with</ins> a new value.
+
+- `tag` - The text object tag name to be used.
+- `size` - The new text size of the text.
+
+### setTextWidth(tag:String, width:Float)
+Sets the text object <ins>current box width</ins> with a new value.
+
+- `tag` - The text object tag name to be used.
+- `width` - The new text box width of the text.
+
+### setTextBorder(tag:String, size:Int, color:String)
+Sets the text object <ins>current border</ins> with a new value, it can even <ins>change the color</ins> of it.
+
+- `tag` - The text object tag name to be used.
+- `size` - The new text border size of the text.
+- `color` - The new text border color of the text.
+
+### setTextColor(tag:String, color:String)
+Sets the text object <ins>current text color</ins> with a new hex color.
+
+- `tag` - The text object tag name to be used.
+- `color` - The new text color of the text.
+
+### setTextAlignment(tag:String, alignment:String = 'left')
+Sets the text object <ins>current alignment</ins> with a new value.
+
+- `tag` - The text object tag name to be used.
+- `alignment` - The new text alignment of the text.
+
+### setTextFont(tag:String, font:String)
+Sets the text object <ins>current font</ins> with a new font.
+
+- `tag` - The text object tag name to be used.
+- `font` - The new text font of the text.
+
+### setTextItalic(tag:String, italic:Bool)
+Sets the text object <ins>into italicize</ins>. _(Who the hell even uses this???)_
+
+- `tag` - The text object tag name to be used.
+- `italic` - 
 
 ***
 
-# Song/Week Properties
-- `skipCountdown` - Skips the countdown.
-- `deathCounter` - How many deaths you currently have.
-- `debugKeysChart` - The key for the chart editor.
-- `debugKeysCharacter` The key for the character editor.
-- `isPixelStage` – Indicates whether it is in pixel mode.
-- `inCutscene` - Indicates whether it is in a cutscene.
+# Text Property Getters
+### getTextString(tag:String)
+Gets the text object <ins>current text content</ins>.
 
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
+- `tag` - The text object tag name to be used.
 
-- `skipCountdown` - `getProperty('skipCountdown')`
-- `deathCounter` - `getPropertyFromClass('PlayState', 'deathCounter')`
-- `debugKeysChart` - `getProperty('debugKeysChart')`
-- `debugKeysCharacter` - `getProperty('debugKeysCharacter')`
-- `isPixelStage` – `getPropertyFromClass('PlayState', 'isPixelStage')`
-- `inCutscene` - `getPropertyFromClass('PlayState', 'inCutscene')`
+### getTextSize(tag:String)
+Gets the text object <ins>current size value</ins>.
 
-</p>
-</details>
+- `tag` - The text object tag name to be used.
+
+### getTextWidth(tag:String)
+Gets the text object <ins>current box width</ins>.
+
+- `tag` - The text object tag name to be used.
+
+### getTextFont(tag:String, font:String)
+Gets the text object <ins>current font</ins>.
+
+- `tag` - The text object tag name to be used.
 
 ***
 
-# Note Data Group Properties
-> **Note**: _if you're using these use it in `setPropertyFromGroup()` or `getPropertyFromGroup()`_
+# Property Attributes
+### Object
+- `.x` - The x position value of an object. **(Float)**
+- `.y` - The y position value of an object **(Float)**
+- `.width` - The width value of an object. **(Float)**
+- `.height` - The height value of an object. **(Float)**
+- `.alpha` - The opacity value of an object, Goes from `0` to `1`. **(Float)**
+- `.angle` - The angle value of an object. **(Float)**
+- `.antialiasing` - Whether the border of an object will be smooth or not, this will affect performance. **(Boolean)**
+- `.color` - The hex color value of an object. **(String)**
+- `.flipX` - Flips the object on the x axis. **(Boolean)**
+- `.flipY` - Flips the object on the y axis. **(Boolean)**
+- `.scale.x` - The scale at the x axis value of an object, The hitbox is not automatically update. **(Float)**
+- `.scale.y` - The scale at the y axis value of an object, The hitbox is not automatically update. **(Float)**
+- `.scrollFactor.x` - The scroll factor at the x value of an object. **(Float)**
+- `.scrollFactor.y` - The scroll factor at the y value of an object. **(Float)**
 
-- `noAnimation` - If you hit a note, will not play an animation. **(Boolean)**
-- `noMissAnimation` - If you miss a note, will not play an animation. **(Boolean)**
-- `hitCausesMiss` - If you hit a note, will cause to miss. **(Boolean)**
-- `texture` - The texture of the note skin. **(String)**
-- `noteSplashTexture` -  The texture of the note splash. **(String)**
-- `noteSplashDisabled` - Disables the note splashes. **(Boolean)**
-- `hitsoundDisabled` -  Disables the hitsounds. **(Boolean)**
-- `ratingDisabled` - Disables the ratings. **(Boolean)**
-- `noteSplashHue` - HUE of the note splash. **(Float)**
-- `noteSplashSat` - Saturation of the note splash. **(Float)**
-- `noteSplashBrt` - Brightness of the note splash. **(Float)**
-- `hitHealth` - If you hit a note, it will add a health and you can customize it! **(Float)**
-- `missHealth` - If you miss a note, it will add a health and you can customize it! **(Float)**
-- `noteType` - A custom note type. **(String)**
-- `ignoreNote` - If botplay is on then it will not hit the note. **(Boolean)**
+### Group Variable 
+- `noAnimation` - Whether the note, if hit will play an sing animation. **(Boolean)**
+- `noMissAnimation` - Whether the note, if miss will plan an miss animation. **(Boolean)**
+- `hitsoundDisabled` - Disables the hitsound when hitting a note. **(Boolean)**
+- `hitCausesMiss` - Whether the note, if hit will cause an miss. **(Boolean)**
+- `hitHealth` - Changes the hit health of the note, Defualt is `0.023`. **(Float)**
+- `missHealth` - Changes the miss health of the note, Defualt is `0.0475`. **(Float)**
+- `mustPress` - Checks if the opponent or player can hit a note, I think. **(Boolean)**
+- `ignoreNote` - Whether the note should be ignore or not. **(Boolean)**
+- `isSustainNote` - Checks if the note is long. **(Boolean)**
+- `noteType` - Checks the type of the note. **(String)**
+- `texture` - Changes the note texture. **(String)**
+- `noteSplashTexture` - Changes the splash texture. **(String)**
+- `noteSplashDisabled` - Disables note splash when hitting sick. **(Boolean)**
+- `noteSplashHue` - Changes the HUE value of the note, Goes from `-180` to `180`; Defualt is `0`. **(Int)**
+- `noteSplashBrt` - Changes the brightness value of the note, Goes from `-100` to `100`; Defualt is `0`. **(Int)**
+- `noteSplashSat` - Changes the saturation value of the note, Goes from `-100` to `100`; Defualt is `0`. **(Int)**
+- `copyX` - Checks if the note strums are included when changing the x position of the note. **(Boolean)**
+- `copyY` - Checks if the note strums are included when changing the y position of the note. **(Boolean)**
+- `copyAngle` - Checks if the note strums are included when changing the angle of the note. **(Boolean)**
+- `copyAlpha` - Checks if the note strums are included when changing the opacity of the note. **(Boolean)**

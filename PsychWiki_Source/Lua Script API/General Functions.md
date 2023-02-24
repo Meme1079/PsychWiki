@@ -2,29 +2,29 @@
 ### characterDance(character:String) 
 Makes character do the idle dance.
 
-- `character` - The name of the character to be used, can be `boyfriend`, `dad` or `gf`.
+- `character` - The name of the character to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### setCharacterX(type:String, value:Float)
 Sets the current <ins>x position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
 
-- `type` - The character name to be used, can be `boyfriend`, `dad` or `gf`.
+- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new x value of the character position.
 
 ### setCharacterY(type:String, value:Float)
 Sets the current <ins>y position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
 
-- `type` - The character name to be used, can be `boyfriend`, `dad` or `gf`.
+- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new y value of the character position.
 
 ### getCharacterX(type:String)
-Gets the current <ins>x position value</ins> of a character.
+Gets the current <ins>x position value</ins> of a character; Returns an `int` number.
 
-- `type` - The character name to be used, can be `boyfriend`, `dad` or `gf`.
+- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### getCharacterY(type:String)
-Gets the current <ins>y position value</ins> of a character.
+Gets the current <ins>y position value</ins> of a character; Returns an `int` number.
 
-- `type` - The character name to be used, can be `boyfriend`, `dad` or `gf`.
+- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ***
 
@@ -75,204 +75,16 @@ Sets the current <ins>rating combo name</ins> to a new value.
 ***
 
 ### getScore()
-Gets the current <ins>songs score total</ins> current value.
+Gets the current <ins>songs score total</ins> current value; Returns an `int` number.
 
 ### getMisses()
-Gets the current <ins>songs miss total</ins> current value.
+Gets the current <ins>songs miss total</ins> current value; Returns an `int` number.
 
 ### getHits()
-Gets the current <ins>songs hit total</ins> current value.
+Gets the current <ins>songs hit total</ins> current value; Returns an `int` number.
 
 ### getHealth()
-Gets the current <ins>songs health total</ins> current value.
-
-***
-
-# Lua Object Exists
-### luaSpriteExists(tag:String)
-Checks if the current <ins>lua sprite object</ins> exists in the currently playing song.
-
-- `tag` - The tag of the lua sprite object.
-
-### luaTextExists(tag:String)
-Checks if the current <ins>lua text object</ins> exists in the currently playing song.
-
-- `tag` - The tag of the lua text object.
-
-### luaSoundExists(tag:String)
-Checks if the current <ins>lua sound object</ins> exists in the currently playing song.
-
-- `tag` - The tag of the lua sound object.
-
-***
-
-# String Functions
-### stringStartsWith(str:String, start:String)
-Checks the <ins>starting section</ins> of the String variable.
-
-- `str` - The string variable to be used.
-- `start` - The starting section.
-
-### stringEndsWith(str:String, end:String)
-Checks the <ins>ending section</ins> of the String variable.
-
-- `str` - The string variable to be used.
-- `end` - The ending section.
-
-### stringSplit(str:String, split:String)
-> **Note**: _After splitting a String it will act like a Table; example shown below for reference._
-
-Will split the String variable into multiple Strings.
-
-- `str` - The string to be split.
-- `start` - The separation of the string.
-
-Example: `stringSplit('Split, This, LOL!', ', ')[1]` This will print 'Split'.  
-
-### stringTrim(str:String)
-Will remove any unnecessary large spaces from the String variable.
-
-- `str` - The string to be trimmed.
-
-***
-
-# Randomizers
-### getRandomInt(min:Int, max:Int)
-This will randomize a <ins>**Int** number</ins>. _(Better than `math.random()` ngl)_
-
-- `min` - The lowest value.
-- `max` - The highest value.
-
-### getRandomFloat(min:Float, max:Float)
-This will randomize a <ins>**Float** number</ins>.
-
-- `min` - The lowest value.
-- `max` - The highest value.
-
-### getRandomBool(chance:Float = 50)
-This will randomize the chance of it being `true`.
-
-- `chance` - The possibility of it being `true`.
-
-***
-
-# File Functions
-### getTextFromFile(path:String)
-Gets the text contents inside of the `txt` file.
-
-- `path` - The path file to the `txt` file.
-
-### directoryFileList(folder:String)
-Gets the file folders inside of a folder
-
-- `folder` - The path to the file folder.
-
-### checkFileExists(filename:String, ?absolute:Bool = false)
-Checks if the file existed or not.
-
-- `filename` - The path of the file to be checked if it exists.
-- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
-
-### saveFile(path:String, content:String, ?absolute:Bool = false)
-Changes the current file contents and then saves it.
-
-- `path` - The path of the file to be changed.
-- `content` - The file contents to be changed or modified, use double brackets `[[]]`.
-- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
-
-### deleteFile(path:String)
-Deletes the current file.
-
-- `path` - The path of the file to be deleted.
-
-### initSaveData(name:String, ?folder:String = 'psychenginemods')
-> **Note**: _This function is required when using `setDataFromSave()` and `getDataFromSave()` functions._
-
-Loads the current save date from the file but if there is no save data found it will be created. Variables values are saved in this function.
-
-- `name` - The name of the save data to be used.
-- `folder` - An optional parameter, The folder to be loaded or be created.
-
-### flushSaveData(name:String)
-Deletes the save data.
-
-- `name` - The name of the save data to be used.
-
-### setDataFromSave(name:String, field:String, value:Dynamic)
-Sets the current variable from the save data from the file.
-
-- `name` - The name of the save data to be used.
-- `field` - The current variable to be used.
-- `value` - The new value to be set.
-
-### getDataFromSave(name:String, field:String)
-Gets the current variable from the save data from the file.
-
-- `name` - The name of the save data to be used.
-- `field` - The current variable to be used.
-
-### isRunning(luaFile:String)
-Checks if any lua file are currently running in game.
-
-- `luaFile` - The path of the lua file to be used.
-
-Example: `isRunning('mods/pathTotheFile/luafile.lua')`
-
-### getRunningScripts()
-Checks if any multiple lua file are currently running in game.
-
-***
-
-# Scripts Functions
-### addLuaScript(path:String, ?ignoreAlreadyRunning:Bool = false)
-<ins>Adds a lua script</ins> in the game.
-
-- `path` - The path of the lua file that you are getting.
-- `ignoreAlreadyRunning` - An optional parameter, It will run again while ignoring the lua file that is currently running.
-
-### removeLuaScript(path:String)
-<ins>Removes a lua script</ins> in the game.
-
-- `path` - The path of the lua file that you are getting.
-
-### addHaxeLibrary(libName:String, ?libPackage:String = '')
-Adds a haxe library variable into the interpreter.
-
-- `libName` - The haxe library to be used.
-- `libPackage` - An optional parameter, the haxe library package to be used.
-
-Example: `addHaxeLibrary('FlxTween', 'flixel.tweens')`
-
-### runHaxeCode(codeToRun:String)
-Runs haxe script inside of the lua file.
-
-- `codeToRun` - The code to be run, use double brackets `[[]]`.
-
-### openCustomSubstate(name:String, pauseGame:Bool = false)
-<ins>Opens</ins> your custom substate. 
-
-- `name` - The name of the custom substate to be used.
-- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened.
-
-### closeCustomSubstate()
-<ins>Closes</ins> any custom substate.
-
-***
-
-> **Warning**: _This section of the wiki has broken functions meaning they wont work as intended._
-
-### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-<ins>Sets the current **Global** variable</ins> with a new value from another lua script. If you're getting a **Local** variable <ins>it will not work as you intened</ins>.
-
-- `luaFile` - The path of the lua file that you are getting.
-- `global` - The variable to be set.
-- `val` - The new value to be set.
-
-### getGlobalFromScript(luaFile:String, global:String)
-<ins>Gets the current **Global** variable</ins> current value from another lua script. If you're getting a **Local** variable <ins>it will not work as you intened</ins>.
-
-- `luaFile` - The path of the lua file that you are getting.
-- `global` - The variable to be used.
+Gets the current <ins>songs health total</ins> current value; Returns an `float` number.
 
 ***
 
@@ -280,43 +92,43 @@ Runs haxe script inside of the lua file.
 ### cameraSetTarget(target:String)
 Makes the <ins>camera focus</ins> on the target.
 
-- `target` - The character type to target, can be either `boyfriend` or `dad`.
+- `target` - The character type to target; Can be either: `boyfriend` or `dad`.
 
 ### cameraShake(camera:String, intensity:Float, duration:Float)
 Makes the <ins>camera shake</ins>.
 
-- `camera` - The camera state to be set in, Can be either `camGame`, `camHUD` or `camOther`.
+- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
 - `intensity` - How much intesity will the camera shake, recommended value is `0.05`.
-- `duration` - How long will the camera shake last.
+- `duration` - The duration length of the camera shake to end.
 
 ### cameraFlash(camera:String, color:String, duration:Float, forced:Bool)
 Makes the <ins>camera flash</ins>.
 
-- `camera` - The camera state to be set in, Can be either `camGame`, `camHUD` or `camOther`.
-- `color` - The hexadecimal color of the flash.
-- `duration` - How long will the camera flash last.
+- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The hex color of the flash.
+- `duration` - The duration length of the camera flash to end.
 - `forced` - If set to `true`, then the flash will be reset.
 
 ### cameraFade(camera:String, color:String, duration:Float, forced:Bool)
 Makes the <ins>camera fade</ins>.
 
-- `camera` - The camera state to be set in, Can be either `camGame`, `camHUD` or `camOther`.
-- `color` - The hexadecimal color of the fade.
-- `duration` - How long will the camera fade last.
+- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The hex color of the fade.
+- `duration` - The duration length of the camera fade to end.
 - `forced` - If set to `true`, then the fade will be reset.
 
 ***
 
 # Debuging Functions
 ### debugPrint(text1, text2, text3, text4, text5)
-This will display a debug message in the top-left corner of the screen. <ins>All of the parameters are optional</ins> execept `text1` parameter. The purpose of the function is to <ins>check the current value of the object or variable</ins>.
+This will display a debug message in the <ins>top-left corner of the screen</ins>. 
+
+- `texts` - Every parameter of `debugPrint()`, all of them are optional.
 
 Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` This will get the current bf character with the `getProperty()` function and will print `Current boyfriend character: 'bf'`.
 
 ### close()
-> **Warning**: _You must use this inside of a `Stage script`, since it will not be used anywhere._
-
-Stops your script in the next 100 milliseconds.
+Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place it at the <ins>stage script</ins> since it's not being used anymore.
 
 ***
 
@@ -331,21 +143,30 @@ Triggers an event without having to insert the event into the chart editor.
 ### setHealthBarColors(leftHex:String, rightHex:String)
 Changes the <ins>health bar</ins> colors.
 
-- `leftHex` - The opponent hexadecimal color of the health bar.
-- `rightHex` - The player hexadecimal color of the health bar.
+- `leftHex` - The opponent hex color of the health bar.
+- `rightHex` - The player hex color of the health bar.
 
 ### setTimeBarColors(leftHex:String, rightHex:String)
 Changes the <ins>time bar</ins> colors.
 
-- `leftHex` - The hexadecimal color of the time bar.
-- `rightHex` - The background hexadecimal color of the time bar.
+- `leftHex` - The hex color of the time bar.
+- `rightHex` - The background hex color of the time bar.
 
 ### getColorFromHex(color:String)
-Gets the specific color from the Hexadecimal color. Expecially when setting/getting a specific color, really useful to be honest.
+Gets the <ins>specific hex color</ins>. Expecially when setting/getting a specific hex color, really useful to be honest.
 
-- `color` - The hexadecimal color to be used.
+- `color` - The hex color to be used.
 
 Example: If you want to get the color orange use `getColorFromHex('FF7800')` or `getColorFromHex('0xFFFF7800')`.
 
 ### getSongPosition()
 Returns the current song position, Shortcut to `getPropertyClass('Conductor', 'songPosition')`.
+
+### openCustomSubstate(name:String, pauseGame:Bool = false)
+Opens your custom substate.
+
+- `name` - The name of your custom substate to be used.
+- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened.
+
+### closeCustomSubstate()
+Closes your custom substate.
