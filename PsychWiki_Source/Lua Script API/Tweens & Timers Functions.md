@@ -17,7 +17,7 @@ Example: `doTweenX('boyfriendTweeny', 'boyfriend.scale', 1000, 3, 'sineIn')` thi
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 Does an object tween on the <ins>y position value</ins>. This function acts the same as `doTweenX()` function, just to let you know dummy.
 
-Also I'm not repeating parameters because it looks digusting to my eyes maybe, even your eyes. Unless there something different about them.
+Also I'm not repeating parameters because it looks disgusting to my eyes maybe, even your eyes. Unless there something different about them.
 
 ### doTweenAngle(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 Does an object tween on the <ins>angle value</ins>.

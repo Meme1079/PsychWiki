@@ -46,7 +46,7 @@ Initializes the <ins>creation of the Lua text object</ins>.
 - `y` - The y value of the sprite object to be set.
 
 ### addLuaText(tag:String)
-Adds the Lua text object inside the game. This function will <ins>overlap other text objects</ins> if place below eachother.
+Adds the Lua text object inside the game. This function will <ins>overlap other text objects</ins> if place below each other.
 
 - `tag` - The text object tag name to be used.
 
@@ -54,4 +54,4 @@ Adds the Lua text object inside the game. This function will <ins>overlap other 
 Removes the Lua text object inside the game. Recommended to use this if the <ins>text object isn't used anymore</ins>, for performance purposes.
 
 - `tag` - The text object tag name to be used.
-- `destroy` - Whether if the text object will be removed permanently making it unable to be re-added, Defualt is `false`.
+- `destroy` - Whether if the text object will be removed permanently making it unable to be re-added, Default is `false`.

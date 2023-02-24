@@ -6,8 +6,14 @@
 Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it.
 
 # Major Updates:
+### 7.0 Version
+- Added Scripting & File Functions Page
+- Improve Create Sprites/Text, Tween/Timers, Value Setting/Getting, General Pages.
+- Move the Set/Get Text Fonts to Value Setting/Getting Page
+- Fix spelling/grammar errors
+
 ### 6.0 Version
-- Added more Callback Templates functions
+- Added more Callback Templates Functions
 - Added Depracated Lua Function
 - Added Lua Example Scripts
 - Added Psych Engine API (WIP)

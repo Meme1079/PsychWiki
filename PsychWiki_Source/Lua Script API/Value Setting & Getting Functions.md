@@ -78,7 +78,7 @@ Gets the current <ins>property variable inside a class other than Playstate</ins
 - `classVar` - The name of the class, Example `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
 
-Example: Getting each frame in miliseconds, `getPropertyFromClass('flixel.FlxG', 'elapsed')`
+Example: Getting each frame in milliseconds, `getPropertyFromClass('flixel.FlxG', 'elapsed')`
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
 Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
@@ -184,12 +184,12 @@ Gets the text object <ins>current font</ins>.
 - `.scrollFactor.y` - The scroll factor at the y value of an object. **(Float)**
 
 ### Group Variable 
-- `noAnimation` - Whether the note, if hit will play an sing animation. **(Boolean)**
-- `noMissAnimation` - Whether the note, if miss will plan an miss animation. **(Boolean)**
+- `noAnimation` - Whether the note, if hit will play a sing animation. **(Boolean)**
+- `noMissAnimation` - Whether the note, if miss will plan a miss animation. **(Boolean)**
 - `hitsoundDisabled` - Disables the hitsound when hitting a note. **(Boolean)**
-- `hitCausesMiss` - Whether the note, if hit will cause an miss. **(Boolean)**
-- `hitHealth` - Changes the hit health of the note, Defualt is `0.023`. **(Float)**
-- `missHealth` - Changes the miss health of the note, Defualt is `0.0475`. **(Float)**
+- `hitCausesMiss` - Whether the note, if hit will cause a miss. **(Boolean)**
+- `hitHealth` - Changes the hit health of the note, Default is `0.023`. **(Float)**
+- `missHealth` - Changes the miss health of the note, Default is `0.0475`. **(Float)**
 - `mustPress` - Checks if the opponent or player can hit a note, I think. **(Boolean)**
 - `ignoreNote` - Whether the note should be ignore or not. **(Boolean)**
 - `isSustainNote` - Checks if the note is long. **(Boolean)**
@@ -197,9 +197,9 @@ Gets the text object <ins>current font</ins>.
 - `texture` - Changes the note texture. **(String)**
 - `noteSplashTexture` - Changes the splash texture. **(String)**
 - `noteSplashDisabled` - Disables note splash when hitting sick. **(Boolean)**
-- `noteSplashHue` - Changes the HUE value of the note, Goes from `-180` to `180`; Defualt is `0`. **(Int)**
-- `noteSplashBrt` - Changes the brightness value of the note, Goes from `-100` to `100`; Defualt is `0`. **(Int)**
-- `noteSplashSat` - Changes the saturation value of the note, Goes from `-100` to `100`; Defualt is `0`. **(Int)**
+- `noteSplashHue` - Changes the HUE value of the note, Goes from `-180` to `180`; Default is `0`. **(Int)**
+- `noteSplashBrt` - Changes the brightness value of the note, Goes from `-100` to `100`; Default is `0`. **(Int)**
+- `noteSplashSat` - Changes the saturation value of the note, Goes from `-100` to `100`; Default is `0`. **(Int)**
 - `copyX` - Checks if the note strums are included when changing the x position of the note. **(Boolean)**
 - `copyY` - Checks if the note strums are included when changing the y position of the note. **(Boolean)**
 - `copyAngle` - Checks if the note strums are included when changing the angle of the note. **(Boolean)**
