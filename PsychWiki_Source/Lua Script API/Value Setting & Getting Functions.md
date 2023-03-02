@@ -23,7 +23,7 @@ Examples:
 - Changing the loop game over song: `setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'your_song_name')`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
-Sets the current <ins>property variable inside an array/group member inside the PlayState<.ins> with a new value.
+Sets the current <ins>property variable inside an array/group member inside the PlayState</ins> with a new value.
 
 - `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member.
@@ -91,81 +91,6 @@ Example: Gets the note strum time, `getPropertyFromGroup('eventNotes', 0, 0)`
 
 ***
 
-# Text Property Setters
-### setTextString(tag:String, text:String)
-Sets the text object <ins>current text content</ins> with a new text content.
-
-- `tag` - The text object tag name to be used.
-- `string` - The new text content of the text.
-
-### setTextSize(tag:String, size:Int)
-Sets the text object <ins>current size with</ins> a new value.
-
-- `tag` - The text object tag name to be used.
-- `size` - The new text size of the text.
-
-### setTextWidth(tag:String, width:Float)
-Sets the text object <ins>current box width</ins> with a new value.
-
-- `tag` - The text object tag name to be used.
-- `width` - The new text box width of the text.
-
-### setTextBorder(tag:String, size:Int, color:String)
-Sets the text object <ins>current border</ins> with a new value, it can even <ins>change the color</ins> of it.
-
-- `tag` - The text object tag name to be used.
-- `size` - The new text border size of the text.
-- `color` - The new text border color of the text.
-
-### setTextColor(tag:String, color:String)
-Sets the text object <ins>current text color</ins> with a new hex color.
-
-- `tag` - The text object tag name to be used.
-- `color` - The new text color of the text.
-
-### setTextAlignment(tag:String, alignment:String = 'left')
-Sets the text object <ins>current alignment</ins> with a new value.
-
-- `tag` - The text object tag name to be used.
-- `alignment` - The new text alignment of the text.
-
-### setTextFont(tag:String, font:String)
-Sets the text object <ins>current font</ins> with a new font.
-
-- `tag` - The text object tag name to be used.
-- `font` - The new text font of the text.
-
-### setTextItalic(tag:String, italic:Bool)
-Sets the text object <ins>into italicize</ins>. _(Who the hell even uses this???)_
-
-- `tag` - The text object tag name to be used.
-- `italic` - 
-
-***
-
-# Text Property Getters
-### getTextString(tag:String)
-Gets the text object <ins>current text content</ins>.
-
-- `tag` - The text object tag name to be used.
-
-### getTextSize(tag:String)
-Gets the text object <ins>current size value</ins>.
-
-- `tag` - The text object tag name to be used.
-
-### getTextWidth(tag:String)
-Gets the text object <ins>current box width</ins>.
-
-- `tag` - The text object tag name to be used.
-
-### getTextFont(tag:String, font:String)
-Gets the text object <ins>current font</ins>.
-
-- `tag` - The text object tag name to be used.
-
-***
-
 # Property Attributes
 ### Object
 - `.x` - The x position value of an object. **(Float)**
@@ -176,14 +101,17 @@ Gets the text object <ins>current font</ins>.
 - `.angle` - The angle value of an object. **(Float)**
 - `.antialiasing` - Whether the border of an object will be smooth or not, this will affect performance. **(Boolean)**
 - `.color` - The hex color value of an object. **(String)**
+- `.length` - The length of an Haxe array. **(Any)**
 - `.flipX` - Flips the object on the x axis. **(Boolean)**
 - `.flipY` - Flips the object on the y axis. **(Boolean)**
 - `.scale.x` - The scale at the x axis value of an object, The hitbox is not automatically update. **(Float)**
 - `.scale.y` - The scale at the y axis value of an object, The hitbox is not automatically update. **(Float)**
+- `.offset.x` - The x offset of an object. **(Float)**
+- `.offset.y` - The y offset of an object. **(Float)**
 - `.scrollFactor.x` - The scroll factor at the x value of an object. **(Float)**
 - `.scrollFactor.y` - The scroll factor at the y value of an object. **(Float)**
 
-### Group Variable 
+### Group Variable
 - `noAnimation` - Whether the note, if hit will play a sing animation. **(Boolean)**
 - `noMissAnimation` - Whether the note, if miss will plan a miss animation. **(Boolean)**
 - `hitsoundDisabled` - Disables the hitsound when hitting a note. **(Boolean)**

@@ -1,14 +1,12 @@
 # Lua/Unique variables
-> **Note**: _Those are the only variables that can be changed by using `= true` or `= false` for now, you will have to use [`setProperty()`](https://github.com/Meme1079/PsychWiki/Lua-Script-API:-Value-Setting-and-Getting-Functions#setpropertyvariablestring-valuedynamic) if you want to change the rest of them._
+> **Note**: _These function can be change by using `= true` or `= false` for now, you will have to use `setProperty()` function for now._
 
-- `Function_Continue` - Continues the game, Will return to `1`; The `return` keyword is used here.
-- `Function_Stop` - Stops the game, Will return to `2`; The `return` keyword is used here.
-- `Function_StopLua` - Stops any lua files to be runed, Will return to `3`; The `return` keyword is used here.
-- `luaDebugMode` - Enables debug mode.
-- `luaDeprecatedWarnings` - Informs you if a function or variable is deprecated and shouldn't be used anymore. Only works in Debug mode.
-- `inChartEditor` - Tells you if your script is running on Chart Editor's chart playtest.
-
-***
+- `Function_Continue` - Continues the game; Returns `0`.
+- `Function_Stop` - Stops the game; Returns `1`.
+- `Function_StopLua` - Stops the Lua scripts being runned; Returns `2`.
+- `luaDebugMode` - Enables Debug mode.
+- `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not. This only works in Debug mode.
+- `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
 
 # Song/Week Variables
 - `curStage` - The current stage of the song.
@@ -19,10 +17,10 @@
 - `stepCrochet` - The interval between Step hits.
 - `songLength` - The song duration in milliseconds.
 - `songName` - The current song name of the song.
-- `isStoryMode` - Tells if it's in story mode.
+- `isStoryMode` - Checks if the song is in story mode.
 - `difficulty` - Returns the difficulty ID number.
 - `difficultyName` - Returns the difficulty name to be chosen.
-- `weekRaw` - Returns the raw current week number. I am 99% doubt you will ever use this ever in your life.
+- `weekRaw` - Returns the raw current week number. _(I am 99% doubt you will ever use this ever in your life)_
 - `week` - Returns the properly formatted current week file name.
 - `currentModDirectory` - Checks the current mod directory.
 
@@ -61,10 +59,10 @@
 - `hits` - The current note hits.
 - `misses` - The current song misses.
 - `ghostMisses` - The current song ghost misses.
-- `rating` - The current rating percentage, Goes from `0` to `1`.
+- `rating` - The current rating percentage; Goes from `0` to `1`.
 - `ratingName` - The current rating name.
 - `ratingFC` - The current rating combo.
-- `inGameOver` - Tells if the player is inside the game over screen. 
+- `inGameOver` - Tells if the player is inside the game-over screen. 
 - `mustHitSection` - Tells if the current section is a `Must Hit Section` from the Chart Editor.
 - `altAnim` - Tells if the current section is a `Alt Animation Section` from the Chart Editor.
 - `gfSection` - Tells if the current section is a `GF Section` from  theChart Editor.
@@ -72,9 +70,9 @@
 - `healthLossMult` - The current health loss when missing a note.
 - `playbackRate` - The current playback rate on the song.
 - `instakillOnMiss` - If you missed a note you die.
-- `botPlay` - Tells if botplay mode is enabled.
-- `practice` - Tells if practice mode is enabled.
-- `version` - The version of Psych Engine that is currently in.
+- `botPlay` - Checks if botplay is enabled.
+- `practice` - Checks if practice mode is enabled.
+- `version` - Checks the current version of Psych Engine.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>

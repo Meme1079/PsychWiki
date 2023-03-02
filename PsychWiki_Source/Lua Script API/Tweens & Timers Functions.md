@@ -61,7 +61,7 @@ Does a note & strum tween on the <ins>receptor direction</ins>.
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
 Creates a timer.
 
-- `tag` - The timer tag name to be used.
+- `tag` - The timer tag name to be used; Will be called at `onTimerCompleted()` function.
 - `time` - The duration length of the timer to end.
 - `loops` - How many loops will the timer execute.
 

@@ -46,12 +46,12 @@ Buttons: `left`, `right`, `middle`
 - `name` - The name of the mouse button listed above.
 
 ### mousePressed(name:String)
-Gets the mouse buttons that were <ins>currently pressed</ins> on the current frame
+Gets the mouse buttons that were <ins>currently pressed</ins> on the current frame.
 
 - `name` - The name of the mouse button listed above.
 
 ### mouseReleased(name:String)
-Gets the mouse buttons that were <ins>recently released</ins> on the current frame
+Gets the mouse buttons that were <ins>recently released</ins> on the current frame.
 
 - `name` - The name of the mouse button listed above.
 

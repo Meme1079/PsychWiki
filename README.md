@@ -1,11 +1,22 @@
 ![banner](https://user-images.githubusercontent.com/101881784/186165593-7f234ba2-093d-4754-8062-6afe002e93a4.png)
 
 # Psych-Wiki
-> **Note**: This not the officail wiki of Psych Engine
+> **Note**: This not the official wiki of Psych Engine
 
-Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it.
+Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it. 
+
+This wiki main thing to do is documenting functions/other with high quality. _(This man is lying to you)_
 
 # Major Updates:
+### 8.0 Version
+- Improve majority of pages description of functions and parameters.
+- Moved the Set/Get Text Fonts to Custome Sprite/Texts. _(I legit don't know why I did this in the first place lol)_
+- Reduced the long insserted text.
+- Re-order some functions in Callback Templates.
+- Added `.length` and `.offset` in Value Setting/Getting Functions.
+- Added `loadGraphic()` function. _(Very important announcement lol)_
+- Fix spelling/grammar errors.
+
 ### 7.0 Version
 - Added Scripting & File Functions Page
 - Improve Create Sprites/Text, Tween/Timers, Value Setting/Getting, General Pages.
