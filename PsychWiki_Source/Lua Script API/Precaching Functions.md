@@ -1,4 +1,4 @@
-# **Note**: _It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
+> **Note**: _It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
 
 ### addCharacterToList(name:String, type:String)
 Precaches the <ins>sprite character</ins>, this used if you're switching charcters.

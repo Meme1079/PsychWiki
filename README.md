@@ -8,6 +8,14 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 This wiki main thing to do is documenting functions/other with high quality. _(This man is lying to you)_
 
 # Major Updates:
+### 9.0 Version
+- Improve the Dialogue/Cutscene, Precaching, Shader Wiki pages.
+- Added `getLuaObject()` Haxe Function.
+- Did some small changes in Scripting/File examples mainly in Haxe Script/Haxe Functions.
+- Re-order some functions in Dialogue/Cutscene mainly in Song Functions.
+- Fix the error on Basics of Coding. _(Thank you [Rodney, Imaginative Person](https://github.com/RodneyAnImaginativePerson) for noticing it!!!)_
+- Fix spelling/grammar errors.
+
 ### 8.0 Version
 - Improve majority of pages description of functions and parameters.
 - Moved the Set/Get Text Fonts to Custome Sprite/Texts. _(I legit don't know why I did this in the first place lol)_
