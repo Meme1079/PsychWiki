@@ -1,40 +1,40 @@
 # Dialogues/Cutscene Functions
 ### startDialogue(dialogueFile:String, song:String = null)
-Starts the dialogue stuff, it will load the `json` file in `mods/data/your-song-name/` folder. If the dialogue ended the `startCountdown()` function will be triggered. And every dialogue line passed it will called `onNextDialogue(line)`.
+Starts the <ins>dialogue stuff</ins>, it will load the `json` file relative to `data/your-song-name/` folder. When the <ins>dialogue is finished</ins>, `startCountdown()` function will be called.
 
-- `dialogueFile` - The dialogue `json` file to be loaded.
-- `song` - An optional value for a background music during the dialogue. _(Relative to `mods/music`)_
+If the <ins>dialogue line has finished</ins>, `onNextDialogue()` callback will be called. If it <ins>skips</ins> then `onSkipDialogue()` callback will be called.
 
-Example: If i want to load a dialogue file `mods/data/bopeebo/dialogue.json` using the pause menu song "Breakfast", I should use: `startDialogue('bopeebo/dialogue', 'breakfast')`.
+- `dialogueFile` - The name of the dialogue `json` file.
+- `song` - An optional parameter, The `ogg` music file to be played; Must be relative to `mods/music` or `assets/music` folders.
 
 ### startVideo(videoFile:String)
-> **Note**: _When adding a video on the game the file format should be a `mp4` format any video format other than `mp4` will not load properly._
+Starts the <ins>video</ins> during a cutscene.
 
-Starts a video during a cutscene. 
-
-- `videoFile` - The path of the video file. _(Relative to `mods/videos` folder)_
-
-Example: `startVideo(mods/videos/ughCutscene.mp4)`
+- `videoFile` - The name of the video `mp4` file; Must be relative to `mods/videos` folder.
 
 ### startCountdown()
-In case you forced a countdown stop for doing a pre-song cutscene or something, <ins>this starts the countdown again manually</ins>.
+Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialogue or video manually.
+
+***
 
 # Song Functions
-### endSong()
-In case you <ins>forced a song end for doing a post-song cutscene or something</ins>, this ends the song manually.
+### loadSong(name:String, difficultyNum:Int)
+> **Warning**: _You can't load a song if the week `json` has different difficulties._
 
-### exitSong(skipTransition:Bool)
-Same works with `endSong()` but has an <ins>optional transition parameter</ins>.
+Loads a new song.
 
-- `skipTransition` - The transition if the song exited.
+- `name` - The name of the song to be loaded.
+- `difficultyNum` - The difficulty ID number of the song.
 
 ### restartSong(skipTransition:Bool)
-This will <ins>restart the song</ins> that is currently playing.
+Restarts the song.
 
-- `skipTransition` - The transition if the song exited.
+- `skipTransition` - Whether there will be a transition when the song is reset.
 
-### loadSong(name:String, difficultyNum:Int)
-This will <ins>load a new song</ins>.
+### exitSong(skipTransition:Bool)
+Exits the song with an optional transition; Not to be confised with `endSong()` function. 
 
-- `name` - The name of the song you want to load.
-- `difficulty` - The difficulty ID of song.
+- `skipTransition` - Whether there will be a transition when the song has exited.
+
+### endSong()
+Ends the song manually.

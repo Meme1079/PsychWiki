@@ -6,7 +6,7 @@ float pixelSize = 8.0;
 vec4 renderBitmap0Mask() {
 	vec2 uv1 = uv * fixedSize;
 	
-    vec2 modul = mod(uv1, pixelSize);
+     vec2 modul = mod(uv1, pixelSize);
 	vec2 normalizedCord = uv1 - modul;
 	
 	vec2 uv2 = normalizedCord / fixedSize;

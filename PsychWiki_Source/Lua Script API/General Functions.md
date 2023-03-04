@@ -2,29 +2,29 @@
 ### characterDance(character:String) 
 Makes character do the idle dance.
 
-- `character` - The name of the character to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `character` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### setCharacterX(type:String, value:Float)
 Sets the current <ins>x position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
 
-- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new x value of the character position.
 
 ### setCharacterY(type:String, value:Float)
 Sets the current <ins>y position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
 
-- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new y value of the character position.
 
 ### getCharacterX(type:String)
 Gets the current <ins>x position value</ins> of a character; Returns an `int` number.
 
-- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### getCharacterY(type:String)
 Gets the current <ins>y position value</ins> of a character; Returns an `int` number.
 
-- `type` - The character name to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ***
 

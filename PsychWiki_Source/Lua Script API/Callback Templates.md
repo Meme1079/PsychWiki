@@ -23,12 +23,12 @@ Triggered at <ins>every 1 times</ins> per section; `curSection` variable is <ins
 ### onUpdate(elapsed)
 Triggered at <ins>every frame</ins> inside the game.
 
-- `elapsed` - Every frame display in milliseconds.
+- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdatePost(elapsed)
 Triggered at <ins>post/after every frame</ins> inside the game; The <ins>HUD elements</ins> are updated here.
 
-- `elapsed` - Every frame display in milliseconds.
+- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdateScore(miss)
 Triggered at every <ins>update change at the score</ins>.
@@ -148,13 +148,13 @@ Works similair to <ins>`onCreatePost()` callback function</ins>.
 Works similair to <ins>`onUpdate()` callback function</ins>.
 
 - `name` - The name of your substate.
-- `elapsed` - Every frame display in milliseconds.
+- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onCustomSubstateUpdatePost(name, elapsed)
 Works similair to <ins>`onUpdatePost()` callback function</ins>.
 
 - `name` - The name of your substate.
-- `elapsed` - Every frame display in milliseconds.
+- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onCustomSubstateDestroy(name)
 Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestroy()` callback function</ins>.
@@ -217,6 +217,6 @@ Triggered after the <ins>tween tag is finished</ins>.
 - `tag` - The timer tween to be used.
 
 ### onSoundFinished(tag)
-Triggered after the <ins>sound tag is finsihed</ins>.
+Triggered after the <ins>sound tag is finished</ins>.
 
 - `tag` - The timer sound to be used.

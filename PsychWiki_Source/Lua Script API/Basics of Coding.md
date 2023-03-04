@@ -273,10 +273,10 @@ Example:
 ```lua
 function onCreate()
      debugPrint('snow'..'ball') -- will print 'snowball'
-     debugPrint(1 .. 2) -- will print '12' [NOTE: this will be a string] 
+     debugPrint(1 .. 2) -- will print '12' [NOTE: this will convert into a string] 
 
      local tab = {'Psych', 'Wiki', 'Site'}
-     local str = tab[1]..tab[2] -- will concatenate into 'PsychSite'
+     local str = tab[1]..tab[2] -- will concatenate into 'PsychWiki'
      debugPrint(#tab) -- will print 3 [NOTE: Counts only the values]
      debugPrint(#str) -- will print 9 [NOTE: Counts only the letters]
 end

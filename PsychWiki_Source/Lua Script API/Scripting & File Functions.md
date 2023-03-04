@@ -35,7 +35,7 @@ Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`
 
 ***
 
-# Haxe Script/Haxe Variable Functions
+# Haxe Script/Haxe Functions
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
 Imports haxe <ins>librarys into the interpreter</ins>. Basically an `import` statement in Haxe which <ins>imports specific packages into Haxe</ins> like sprites, text, tweens, etc.
 
@@ -66,14 +66,12 @@ Executes the haxe code.
 - `codeToRun` - The haxe code to be run, use double brackets `[[]]`.
 
 Example:
-
 ```lua
 function onCreatePost()
      addHaxeLibrary('FlxText', 'flixel.text')
-     addHaxeLibrary('FlxG', 'flixel')
      runHaxeCode([[
-          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool'];
-          var textDisplay = new FlxText(0, 0, 0, textContent[ FlxG.random.Int(0, 2) ], 35, false); // makeLuaSprite
+          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
+          var textDisplay = new FlxText(0, 0, 0, textContent[0], 35, false); // makeLuaSprite
           textDisplay.cameras = [game.camHUD]; // setObjectCamera
           textDisplay.screenCenter(); // screenCenter
           game.add(textDisplay); // addLuaText
@@ -83,25 +81,38 @@ end
 
 ***
 
-> **Note**: _These functions are only located inside the `runHaxeCode` function. Meaning they are Haxe functions, strange right._
+### getLuaObject(tag:String)
+Gets the specified <ins>Lua object tag</ins>.
 
-### setVar(name:String, value:Dynamic)
-Sets the current <ins>Haxe global variable with a new value</ins>. Or <ins>initializes the creation</ins> of the Haxe global variable.
-
-- `name` - The name of the global variable to be used.
-- `value` - The specific value to be used, Like an `Array`, `String`, `Number`, etc.
+- `tag` - The object tag name to be used.
 
 Example:
+```lua
+function onCreatePost()
+     runHaxeCode([[
+          var LuaTag = ''; // Insert the lua object
+          game.getLuaObject(LuaTag).alpha = 0.5; // the "game." preffix is required to use!!!!
+     ]])
+end
+```
 
-Here, the `setVar()` function will initializes the creation of an `array`, with the tag `textStuff`. With the `getVar()` function getting the value of the `array` of `Yes` string.
+### setVar(name:String, value:Dynamic)
+Sets the current <ins>global variable</ins> in Haxe with a new value. Or <ins>initializes the creation</ins> of a global variable.
 
+- `name` - The name of the global variable to be used.
+- `value` - The new value of the global variable or initiate the specified value.
+
+Example:
 ```lua
 function onCreatePost()
      addHaxeLibrary('FlxText', 'flixel.text')
      runHaxeCode([[
-          setVar('textStuff', ['Yes', 'No', 'Maybe']);
-
-          var textDisplay = new FlxText(0, 0, 0, getVar('textStuff')[0], 35, false);
+          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
+          setVar('importArray', textContent); // Initiates the global var
+     ]])
+     runHaxeCode([[
+          var getArray = getVar('importArray') // Gets the global var
+          var textDisplay = new FlxText(0, 0, 0, getArray[0], 35, false);
           textDisplay.cameras = [game.camHUD];
           textDisplay.screenCenter();
           game.add(textDisplay);
@@ -110,49 +121,14 @@ end
 ```
 
 ### getVar(name:String)
-Gets the current <ins>Haxe global variable current value</ins>, it can be inside the `runHaxeCode()` function or another `runHaxeCode()` function.
+Gets the current <ins>global variable</ins> in Haxe current value.
 
 - `name` - The name of the global variable to be used.
 
-Example:
-
-Here, the `getVar()` function will get the `textStuff` global variable array from another `runHaxeCode()` function.
-```lua
-function onCreatePost()
-     addHaxeLibrary('FlxText', 'flixel.text')
-     runHaxeCode([[ setVar('textStuff', ['Yes', 'No', 'Maybe']); ]])
-     runHaxeCode([[
-          var textDisplay = new FlxText(0, 0, 0, getVar('textStuff')[1], 35, false);
-          textDisplay.cameras = [game.camHUD];
-          textDisplay.screenCenter();
-          game.add(textDisplay);
-     ]])
-end
-```
-
 ### removeVar(name:String)
-Removes The Haxe global variable, if <ins>not used anymore</ins>.
+Removes the current <ins>global variable</ins> in Haxe permenantly.
 
 - `name` - The name of the global variable to be removed.
-
-Example:
-
-Here, the `removeVar()` function will remove the global variable `textStuff` from another `runHaxeCode()` function. This will return a `null` value in Haxe, if called. So the text wont appeared becuase of the `null` value.
-```lua
-function onCreatePost()
-     addHaxeLibrary('FlxText', 'flixel.text')
-     runHaxeCode([[ 
-          setVar('textStuff', ['Yes', 'No', 'Maybe']); 
-          removeVar('textStuff');
-     ]])
-     runHaxeCode([[
-          var textDisplay = new FlxText(0, 0, 0, getVar('textStuff')[2], 35, false);
-          textDisplay.cameras = [game.camHUD];
-          textDisplay.screenCenter();
-          game.add(textDisplay);
-     ]])
-end
-```
 
 ***
 
