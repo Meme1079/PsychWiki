@@ -120,10 +120,10 @@ Makes the <ins>camera fade</ins>.
 ***
 
 # Debuging Functions
-### debugPrint(text1, text2, text3, text4, text5)
+### debugPrint(text1, ?text2, ?text3, ?text4, ?text5)
 This will display a debug message in the <ins>top-left corner of the screen</ins>. 
 
-- `texts` - Every parameter of `debugPrint()`, all of them are optional.
+- `texts` - Every parameter of `debugPrint()`, all of them are optional except the `text1` parameter.
 
 Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` This will get the current bf character with the `getProperty()` function and will print `Current boyfriend character: 'bf'`.
 
@@ -132,7 +132,34 @@ Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place 
 
 ***
 
-# Other Functions
+# Color Functions
+### getColorFromHex(color:String)
+Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest.
+
+- `color` - The specified hex color duh.
+
+### setHealthBarColors(leftHex:String, ?rightHex:String)
+Changes the <ins>health bar</ins> background-colors.
+
+- `leftHex` - The opponent hex color of the health bar.
+- `rightHex` - An optional parameter, The player hex color of the health bar.
+
+### setTimeBarColors(leftHex:String, ?rightHex:String)
+Changes the <ins>time bar</ins> background-colors.
+
+- `leftHex` - The percentage bar hex color of the time bar.
+- `rightHex` - An optional parameter, The background-color hex color of the time bar.
+
+### getPixelColor(obj:String, x:Int, y:Int)
+Gets the <ins>hex color of an object by pixels</ins>; Returns a jamble of random `numbers`, I dunno whats the value its returning. Maybe `RGBA` value? I dunno, you should probably not use this.
+
+- `obj` - The object tag name to be used.
+- `x` - The x-coordinate value in pixels.
+- `y` - The y-coordinate value in pixels.
+
+***
+
+# Miscellaneous Functions
 ### triggerEvent(name:String, arg1:String, arg2:String)
 Triggers an event without having to insert the event into the chart editor.
 
@@ -140,33 +167,25 @@ Triggers an event without having to insert the event into the chart editor.
 - `arg1` - The value on Value 1.
 - `arg2` - The value on Value 2.
 
-### setHealthBarColors(leftHex:String, rightHex:String)
-Changes the <ins>health bar</ins> colors.
+### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
+Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&ved=2ahUKEwiki5S_4879AhWwKbcAHUNXBpwQ2-cCegQIABAA&oq=discord+rpc&gs_lcp=CgNpbWcQAzIECCMQJ1DKCljKCmCfDGgAcAB4AIABcIgBcJIBAzAuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=d8cJZOTzNbDT3LUPw66Z4Ak&bih=764&biw=1440#imgrc=hzmwyXBaIPRmXM) status.
 
-- `leftHex` - The opponent hex color of the health bar.
-- `rightHex` - The player hex color of the health bar.
+> **Warning**: _This function is currently being research on the parameters._
 
-### setTimeBarColors(leftHex:String, rightHex:String)
-Changes the <ins>time bar</ins> colors.
-
-- `leftHex` - The hex color of the time bar.
-- `rightHex` - The background hex color of the time bar.
-
-### getColorFromHex(color:String)
-Gets the <ins>specific hex color</ins>. Expecially when setting/getting a specific hex color, really useful to be honest.
-
-- `color` - The hex color to be used.
-
-Example: If you want to get the color orange use `getColorFromHex('FF7800')` or `getColorFromHex('0xFFFF7800')`.
-
-### getSongPosition()
-Returns the current song position, Shortcut to `getPropertyClass('Conductor', 'songPosition')`.
+- `details` - Your details on what your doing inside the game.
+- `state` - The description of the `details`.
+- `smallImageKey` - An optional parameter, The image key to be shown at the bottom-left corner.
+- `hasStartTimestamp` - An optional parameter, Whether your Discord RPC should have a time stamp or not.
+- `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
 
 ### openCustomSubstate(name:String, pauseGame:Bool = false)
 Opens your custom substate.
 
 - `name` - The name of your custom substate to be used.
-- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened.
+- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened; Defualt value: `false`.
 
 ### closeCustomSubstate()
 Closes your custom substate.
+
+### getSongPosition()
+Returns the current song position in milliseconds; Shortcut to `getPropertyClass('Conductor', 'songPosition')`.

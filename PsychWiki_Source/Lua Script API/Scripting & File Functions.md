@@ -208,7 +208,7 @@ Gets the current <ins>data field current value</ins>; Returns the data field val
 
 *** 
 
-# String Functions
+# Built-In String Functions
 ### stringStartsWith(str:String, start:String)
 Checks the <ins>specific starting section</ins> of the string; Returns a `boolean`.
 
@@ -219,17 +219,20 @@ Checks the <ins>specific starting section</ins> of the string; Returns a `boolea
 Checks the <ins>specific ending section</ins> of the string; Returns a `boolean`.
 
 - `str` - The string to be used.
-- `end` - The starting section to be called.
+- `end` - The ending section to be called.
 
 ### stringSplit(str:String, split:String)
 Splits the string into <ins>multiple strings</ins>; Returns a `table`.
 
-- `str` - The string to be used.
+- `str` - The string to be split.
+- `split` - The pattern of the string to split.
+
+Example: `stringSplit('A, B, C, D', ', ')[1]`, it will return `A`.
 
 ### stringTrim(str:String)
-Removes any <ins>whitspaces from the string</ins>. Or could just use this `(string):gsub('% ', '')` it functions just the same. So this function is now confirmed useless.
+Removes any <ins>whitspace characters from the string</ins>. Or you could just use `(string):gsub('% ', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
 
-- `str` - The string to be used.
+- `str` - The string to be trim.
 
 ***
 
@@ -237,14 +240,14 @@ Removes any <ins>whitspaces from the string</ins>. Or could just use this `(stri
 ### getRandomInt(min:Int, max:Int)
 Randomizes the <ins>Int number</ins> from min to max values.
 
-- `min` - The lowest/starting value.
-- `max` - The highest/ending value.
+- `min` - The minimum value.
+- `max` - The maximum value.
 
 ### getRandomFloat(min:Float, max:Float)
 Randomizes the <ins>Float number</ins> from min to max values.
 
-- `min` - The lowest/starting value.
-- `max` - The highest/ending value.
+- `min` - The minimum value.
+- `max` - The maximum value.
 
 ### getRandomBool(chance:Float = 50)
 Randomizes the chances of <ins>returning a `true` value</ins>.

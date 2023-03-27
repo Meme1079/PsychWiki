@@ -3,7 +3,7 @@
 # About Shaders
 Shaders in computer graphics, are a type of code that is executed on the Graphics Processing Unit (GPU). <ins>Which manipulates the rendered object</ins> with special effects like a `blur`, `distortion`, `higher/lower hue`, etc. _(Blah blah blah you get the point of it)_
 
-There are two types of shader that Psych Engine uses <ins>Vertex shader and Fragment shader</ins>; Vertex shaders manipulate the <ins>attributes of an object's vertices</ins> with the file format `.vert`; Fragment shaders compute an <ins>object's color and other attributes</ins> with the file format `.frag`. These shaders must be relative to `shaders` folder.
+There are two types of shader that Psych Engine uses <ins>Vertex shader and Fragment shader</ins>; Vertex shaders manipulate the <ins>attributes of an object's vertices</ins> with the file format `.vert`; Fragment shaders compute an <ins>object's color and other attributes</ins> with the file format `.frag`. These shaders must be relative to `mods/shaders` folder.
 
 I won't devote a full tutorial to discussing the syntax and other stuff. However if you want to learn more, I strongly suggest watching a video like this [one](https://www.youtube.com/watch?v=xZM8UJqN1eY). Or you can "borrow" a shader from [Shader Toy](https://www.shadertoy.com), just remember to link the <ins>original script and give proper credit to the author</ins>.
 
@@ -89,7 +89,7 @@ Sets the current shader <ins>`sampler2D` type variable</ins> with a new value.
 
 - `obj` - The object tag name to be used.
 - `prop` - The `sampler2D` variable to be used.
-- `value` - The new value for the `sampler2D` variable.
+- `bitmapdataPath` - The image sprite for the sprite to be use.
 
 ***
 

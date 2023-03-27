@@ -92,7 +92,7 @@ Sets the text object <ins>current text color</ins> with a new hex color.
 Sets the text object <ins>current alignment</ins> with a new value.
 
 - `tag` - The text object tag name to be used.
-- `alignment` - The new text alignment of the text.
+- `alignment` - The new text alignment of the text; Defualt value: `left`.
 
 ### setTextFont(tag:String, font:String)
 Sets the text object <ins>current font</ins> with a new font.

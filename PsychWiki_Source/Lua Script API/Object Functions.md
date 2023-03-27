@@ -12,8 +12,8 @@ Changes the <ins>sprite texture</ins> with a new one. With an option to <ins>set
 
 - `variable` - The sprite object tag name to be used.
 - `image` - The new image sprite for the sprite object to be used.
-- `gridX` - An optional parameter, The crop width of the sprite texture.
-- `gridY` - An optional parameter, The crop height of the sprite texture.
+- `gridX` - An optional parameter, The crop width of the sprite texture; Defualt value: `0`.
+- `gridY` - An optional parameter, The crop height of the sprite texture; Defualt value: `0`.
 
 ### setBlendMode(obj:String, blend:String)
 Changes the <ins>blend mode</ins> of the object. If you want to see more blend modes, [click here](https://api.haxe.org/flash/display/BlendMode.html). _(Works similar to how Photoshop does it)_
@@ -25,46 +25,46 @@ Changes the <ins>blend mode</ins> of the object. If you want to see more blend m
 
 # Animation Functions
 ### playAnim(obj:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0)
-Plays an animation of the sprite object.
+Plays an existing animation of the sprite object; it can <ins>override an animation</ins>. If there are two or similair names inside the `name` parameter; <ins>this rule is applied to all `name` parameters</ins>. 
 
 - `obj` - The sprite object tag name to be used.
-- `name` - The name of the animation to be played.
-- `forced` - Will resets if the animation is played again; Defualt is `false`.
-- `reverse` - An optional parameter, Will play the animation from the `last` to the `start` frame.
-- `startFrame` - An optional parameter, The specified starting frame of the animation.
+- `name` - The specified name of the animation to use.
+- `forced` - Whether will the animation will be force to restart; Defualt value: `false`.
+- `reverse` - An optional parameter, Whether the animation will be played backwards; Defualt value `false`.
+- `startFrame` - An optional parameter, The animation frame in the animation to start from; Defualt value: `0`.
 
 ### addAnimation(obj:String, name:String, frames:Array\<Int\>, framerate:Int = 24, loop:Bool = true)
-Adds an animation of the sprite object; it can <ins>override an animation</ins>. If there are two or similair names inside the `name` parameter; <ins>this rule is applied to all `name` parameters</ins>.
+Adds a <ins>new animation</ins> of the sprite object.
 
 - `obj` - The sprite object tag name to be used.
-- `name` - The name of the animation to be played.
-- `frames` - The specified array of the `xml` animation frames; Example: `{1, 2, 3}`.
-- `framerate` - How many frames per second does the animation has; Defualt is: `24`.
-- `loop` - Whether will the animation will loop when the animation is finished; Defualt is `true`.
+- `name` - The specified name of the animation to use.
+- `frames` - The indices indicating what animation frames to play in what order; Example: `{1, 2, 3}`.
+- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
+- `loop` - Whether will the animation will loop or just plays once; Defualt is `true`.
 
 ### addAnimationByPrefix(obj:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true)
-Adds the <ins>specified animation</ins> of the sprite object.
+Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use.
 
 - `obj` - The sprite object tag name to be used.
-- `name` - The name of the animation to be played.
+- `name` - The specified name of the animation to use.
 - `prefix` - The prefix name inside the `xml` file to be played.
-- `framerate` - How many frames per second does the animation has; Defualt is: `24`.
-- `loop` - Whether will the animation will loop when the animation is finished; Defualt is `true`.
+- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
+- `loop` - Whether will the animation will loop or just plays once; Defualt is `true`.
 
 ### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-Adds the <ins>specified animation with each indices/frames</ins> of the sprite object. If you want the looped version of this function use `addAnimationByIndicesLoop()`; <ins>all parameters and its use are the same</ins>.
+Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. If you want the looped version of this function use `addAnimationByIndicesLoop()`; <ins>all parameters and its use are the same</ins>.
 
 - `obj` - The sprite object tag name to be used.
-- `name` - The name of the animation to be played.
+- `name` - The specified name of the animation to use.
 - `prefix` - The prefix name inside the `xml` file to be played.
-- `indices` - The specified indices/frames of the animation; Example: `1, 2, 3`.
-- `framerate` - How many frames per second does the animation has; Defualt is: `24`.
+- `frames` - The indices indicating what animation frames to play in what order; Example: `1, 2, 3`.
+- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
 
 ### addOffset(obj:String, anim:String, x:Float, y:Float)
-Adds the <ins>offset of the specified animation</ins>.
+Adds a new offset value on each animation.
 
 - `obj` - The sprite object tag name to be used.
-- `anim` - The name of the animation to be used.
+- `anim` - The specified name of the animation to use.
 - `x` - The new x offset value of the animation.
 - `y` - the new y offset value of the animation.
 
