@@ -14,10 +14,10 @@ If you wish to redeclare a variable, just do the same thing as before, but modif
 Example:
 ```lua
 -- Syntax: scope? name = value
-local greet = 'Hello' -- local greet variable
-bye = 'goodbye'       -- global bye variable
+local greet = 'Hello'  -- local greet variable
+bye = 'goodbye'        -- global bye variable
 
-function onCreate() -- The start of lua script
+function onCreate()    -- The start of lua script
      bye = 'bye bye'   -- changes the value
      debugPrint(greet) -- will print 'hello'
      debugPrint(bye)   -- will print 'bye bye'
@@ -134,7 +134,7 @@ end
 ```
 
 #### Array
-Arrays are the default table syntax; each value within an Array must be separated by a comma `,` character. To read an Array, put a pair of brackets `[]` around the index position of a table. Like other programming languages, Lua uses 1-based index rather than 0-based index. In other words, the first index position is always start at `1`.
+Arrays are the default table syntax; each value within an Array must be separated by a comma `,` character. To read an Array, put a pair of brackets `[]` around the index position of a table. Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at `1`.
 
 Example:
 ```lua
@@ -165,24 +165,27 @@ end
 ***
 
 # Function
+Functions are a collection of code to peform a specific task. This is used the same functions multiple times to make the code reusable. Functions are defined with the `function` keyword followed by the name of your custom function. With the pair of parenthesis `()` characters. To call a function get the name of your custom function followed by a pair of parenthesis `()` characters.
 
 Example:
 ```lua
-function myFunc()
-     debugPrint('Hello my function!')
+function hello() -- a 'hello' function
+     debugPrint('Hello Function')
 end
 
 function onCreate()
-     myFunc()
+     hello()     -- calls the 'hello' function and will return 'Hello Function'
 end
 ```
+
 ### Parameters
+Parameters are a special type of variable declared inside the parenthesis `()` character. You can add more parameters by typing the name of parameter and each seperating them with a comma `,` character. They can add more functionality to the function. If any of the arguments are left blank then it will cause an error. So uhh double check when calling functions.
 
 Example:
 ```lua
 -- function created by Mayo78
 function setPos(obj, pos) -- Concatenates setProperty x and y
-     if pos[1] ~= nil then
+     if pos[1] ~= nil then -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
      end
      if pos[2] ~= nil then
@@ -195,21 +198,26 @@ function onCreatePost()
 end
 ```
 
+You can also declare a infinite parameter `...` inside the arenthesis `()` character, just to let you know if you want it for some reason. But if there are non-infinite parameters declared it at the end of the parameter arrays.
+
 Example:
 ```lua
-function sumAll(...)
-     local toTable = {...} -- converts the infinite parameter into a table
-     local sumNum = 0
-     for k,v in pairs(toTable) do
-          sumNum = sumNum + v
+function Array(...)
+     local convert = {...} -- converts it into a table
+     local result = {}
+     for i = 1, #convert do -- alternative to read evey value of a table
+          table.insert(result, convert[i]) -- inserts the value
      end
-     return sumNum
+     return result -- returns the result
 end
 
 function onCreate()
-     debugPrint(sumAll(34, 42, 12, 78, 33, 12))
+     for k,v in pairs(Array(231, 234, 456)) do
+          debugPrint(v) -- will return '231, 234, 456'
+     end
 end
 ```
+
 ***
 
 # Scope
@@ -220,14 +228,62 @@ end
 ***
 
 # Comments
+Comments are used to explain the context of code and prevent the execution on a specific code; Lua will ignore them. Comments starts with a double minus `--` characters as the syntax for single-line comment. And for multi-line comment add double brackets `[[]]` characters.
+
+Example:
+```lua
+-- Here's a single-line comment nothing special
+
+--[[
+     Here's a multi-line comment for really
+     long unnecessary comments, also cheese.
+]]
+```
 
 ***
 
 # Operators
+Operators are unique symbols that are used to carry out operations on operands. For the conditional statements to use to determine if the value is `true` or `false` before executing the code block. They can be represented as Arithmetic, Relational, Logical, and Miscellaneous.
+
 ### Arithmetic
+Arithmetic operators are mathematical operators used to perform calculations to numeric values.
+
+- `+` - Addition
+- `-` - Subtraction
+- `*` - Multiplication
+- `/` - Division
+- `%` - [Modulus](https://www.calculatorsoup.com/calculators/math/modulo-calculator.php)
+- `^` - Exponentiation
+- `-` - Unary Negation
+
 ### Relational
+Relational operators are used to compare multiple operands inside a condition in order for the code block to execute.
+
+|Operators|Description|Example|
+|---------|-----------|-------|
+| `==` | Checks if the condition is <ins>equal to</ins> the right. | `a == b`, returns `false`. |
+| `~=` | Checks if the condition is <ins>not equal to</ins> the right. | `a ~= b`, returns `true`. |
+| `>` | Checks if the condition is <ins>greater than</ins> the right. | `2 > 1`, returns `true`. |
+| `<` | Checks if the condition is <ins>lesser than</ins> the right. | `4 < 2`, returns `false`. |
+| `>=` | Checks if the condition is <ins>greater or equal to</ins> the right. | `3 >= 3`, returns `true`. |
+| `<=` | Checks if the condition is <ins>lesser or equal to</ins> the right. | `2 <= 23`, returns `false`. |
+
 ### Logical
+Logical operators are used to combine multiple conditions and to specify on what conditions needs to be `true`.
+
+|Operators|Description|Example|
+|---------|-----------|-------|
+| `and` | Combines multiple conditions together; will return `true`,<br> if <ins>all the statements</ins> are `true`. | `a == true and b == true`, returns `false` |
+| `or` | Combines multiple conditions together; will return `true`,<br> if <ins>any of the statements</ins> are `true`. | `a == true or b == true`, returns `true` |
+| `not` | Reverses the condition; if the value is equivalent to `false`,<br> then the operator will set it to `true`, and vice versa. | `not true`, retruns `false`. |
+
 ### Miscellaneous
+Miscellaneous operators only features two operators the Length and Concatonate operators.
+
+|Operators|Description|Example|
+|---------|-----------|-------|
+| `#` | Length operator, Checks the maximim length size of a `string` or `table`. | `#('sussy')`, returns `5`. |
+| `..` | Concatonate operator, Merges multiple `string` together. | `'snow'..'ball'`, returns `snowball`. | 
 
 ***
 
