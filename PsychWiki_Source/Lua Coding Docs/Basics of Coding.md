@@ -1,5 +1,18 @@
 # Introduction
+Lua is a lightweight, high-level, multi-paradigm scripting language used in Psych Engine modding. Which is a better alternative to Haxe, the main language that Friday Night Funkin' uses. Becuase you have to manually download the source code, modify the specific Haxe file, and then compile it. As for Lua just insert a Lua into any script folders to modify something that's it. The current version of Lua that Haxe is using is (5.1).
+
+To create your own Lua file I recommend you download [VSCode](https://code.visualstudio.com) it's available in Windows, Mac, and Linux. Now after you download VSCode open it, press [Command + N] this will create a untitled file. Click the hyperlink that says [Select a language] after that type or search lua on the Select language mode. Click Lua and boom you're done. If you want to save the Lua file press [Commans + S] choose the file path to be saved and click [Ok].
+
 ### Differences
+Lua in Psych Engine is different compared to the original Lua. Mainly when coding the code should nested inside the Callback templates except for variables, functions, operators, and predefined functions these can work outside the Callback templates. Printing a value is also different instead of using `print()` you should use `debugPrint()`, it works the same as the `print()` function.
+
+Example:
+```lua
+local stupidVar = 318983
+function onCreate()
+     debugPrint(stupidVar)
+end
+```
 
 ***
 
@@ -169,7 +182,7 @@ Functions are a collection of code to peform a specific task. This is used the s
 
 Example:
 ```lua
-function hello() -- a 'hello' function
+function hello()    -- a 'hello' function
      debugPrint('Hello Function')
 end
 
@@ -217,13 +230,6 @@ function onCreate()
      end
 end
 ```
-
-***
-
-# Scope
-### Nesting
-### Global
-### Local
 
 ***
 
@@ -288,41 +294,178 @@ Miscellaneous operators only features two operators the Length and Concatonate o
 ***
 
 # Control Structures
+Control Structures are a block code which analyzes values and decide whether to execute the code or not. Also i'm only mentioning the `for` loop statement and not `while`, `repeat` loop statements becuase no one ever uses these 2 loops.
+
 ### If Else Statements
+These are a type of control structures that specifys whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statments.
+
+
 #### If Statement
-#### Else Statement
-#### ElseIf Statement
-
-### For Loop Statement
-
-#### Generic Loop
-
-- `exp1` -
-- `exp2` -
-- `exp3` -
+If statement checks if the condition of the statement is `true`. It's define with the `if` keyword and the specified condition to execute the code block followed by the `then` keyword.
 
 Example:
 ```lua
-for index = 0, 10, 1 do
-end
-for index = 10, 0, -1 do
+local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+function onCreate()
+     if getDateWeekDay == 6 then -- checks if the day is 'friday'
+          debugPrint('it is friday my dudes time to get funky')
+     end
 end
 ```
 
-#### Numeric Loop
+#### Else Statement
+Else statement checks if the condition of the statement fails then this function will be called. It's defined with `else` that's it nothing else <!-- Comedy genius --> to say about. This statement should be placed under the `if` or `elseif` statements, example shown below.
 
 Example:
 ```lua
-for key, value in pairs(table) do
+local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+function onCreate()
+     if getDateWeekDay == 6 then -- checks if the day is 'friday'
+          debugPrint('it is friday my dudes time to get funky')
+     else                        -- checks if the day is not 'friday'
+          debugPrint('it is not friday my dudes :(')
+     end
+end
+```
+
+#### ElseIf statement
+ElseIf statement checks is an alternative condition for the `if` statement, if the `if` or another `elseif` condition fails then this statement will be called. It's define with the `elseif` keyword with the same syntax for the `if` statement.
+
+Example:
+```lua
+local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+function onCreate()
+     if getDateWeekDay == 2 then     -- checks if the day is 'monday'
+          debugPrint('it is monday, i hate school')
+     elseif getDateWeekDay == 4 then -- checks if the day is 'wednesday'
+          debugPrint('it is wednesday my dudes')
+     elseif getDateWeekDay == 6 then -- checks if the day is 'friday'
+          debugPrint('it is friday my dudes time to get funky')
+     end
+end
+```
+
+### For Loop Statement
+For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of loops Generic loop or Numeric Loop.
+
+#### Numeric Loop
+Numeric Loop are a type of loop that use numeric values to increment or to decrement the value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 attributes when declaring a Numeric loop `exp1`, `exp2`, and an optional `exp3` attributes. <!-- Don't ask why they're called 'exp' -->
+
+- `exp1` - The local variable for the numeric loop with the minimum number value to start.
+- `exp2` - The maximum number value of numeric loop to stop at.
+- `exp3` - An optional attribute, Whether will be an increment `1` or decrement `-1` loop; Defualt value: `increment`.
+
+Example:
+```lua
+function onCreate()
+     for index = 0, 5, 1 do  -- Increment loop
+          debugPrint(index)  -- will return '0, 1, 2, 3, 4, 5'
+     end
+     for index = 5, 0, -1 do -- Decrement loop
+          debugPrint(index)  -- will return '5, 4, 3, 2, 1, 0'
+     end
+end
+
+```
+
+#### Generic Loop
+Generic Loop are a type of loop that uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 attributes when declaring a Generic loop `exp1`, `exp2`, and `pair` attributes.
+
+- `exp1` - The key name of the table, you can name how you want; Example: `key`.
+- `exp2` - The value name of the table, you can name how you want; Example: `value`.
+- `pair` - The specified pair functions such as `pairs()` or `ipairs()`.
+
+Example:
+```lua
+function onCreate()
+     local tableThingy = {num1 = 231, num2 = 345, num3 = 234}
+     for key, value in pairs(tableThingy) do
+          debugPrint(key, value)  -- will return 'num1 = 231, num2 = 345, num3 = 234'
+     end
 end
 ```
 
 ### Return Statement
+Return statement as the name suggests returns the results from the function. And stops the execution of the function. It must be relative at the end of the function or conditional statement.
+
+Example:
+```lua
+function getMidpointNum(ope1, ope2)
+     return (ope1 + ope2) / 2  -- returns the middle value between 'ope1' and 'ope2'
+end 
+
+function onCreate()
+     debugPrint(add(9 + 10))   -- will return '9.5'
+end
+```
+
 ### Break Statement
+Break statement stops the loop statements from looping. You can use this for specific conditions for the loop to ends. It must be relative at the end of the function or conditional statement.
+
+Example:
+```lua
+function onCreate()
+     for index = 0, 10 do
+          debugPrint(index) -- will return '0, 1, 2, 3, 4, 5'
+
+          if index == 10 / 2 then -- checks if the 'index' value is '5'
+               break -- ends the loop
+          end
+     end 
+end
+```
+
+### Do Statement <!-- Useless information but okay; I don't where to place this lol -->
+Do statement has no specified conditions for the code block to execute. So it will just run perfectly fine, they are only serve for scoping variables or functions.
+
+***
+
+# Scope
+Scope in programming determines whether the function or variable is available within the code block of the conditional statement or function. They can be set to `global` or `local` types, although they all start as `global` type by default. But it's recommended they should be set into a `local` type because Lua accesses them faster than `global` types.
+
+- `global` - Makes the function or variable available anywhere at any scope.
+- `local` - Makes the function or variable available only to that specific scope, if called outside the scope returns a `nil` value; Declared with the `local` keyword.
+
+Syntaxes:
+```lua
+glo = 345          -- global variable
+local loc = 232.2  -- local  variable
+
+function myGFunc() end         -- global function
+local function myLFunc() end   -- local  function
+```
+
+Example:
+```lua
+function onCreatePost()
+     do       -- Do statement
+          do  -- Nested Do statement (Don't over nest statements it's a bad habit)
+               isAvailable = true      -- global
+               local isUnfunny = false -- local
+               local folders = {'homework', 'images', 'downloads'}
+               debugPrint(folders[1]) -- will return 'homework'
+               debugPrint(folders[2]) -- will return 'images'
+          end
+          getUserName = os.getenv("USERNAME")
+          local fish = 'hate'     -- local keyword is used
+          debugPrint(fish)        -- will return 'hate'
+          debugPrint(folders[3])  -- will return 'downloads'
+          debugPrint(getUserName) -- will return the username
+     end
+     debugPrint(fish)        -- will return 'nil'
+     debugPrint(isAvailable) -- will return 'true'
+     debugPrint(getUserName) -- will return the username
+end
+```
 
 ***
 
 # Modules
+Modules are a code library these contain mostly functions or variables. They can help you maintain a code-base and break your code into different Lua files. For functions or variables that you use them reguraly when coding.
+
+To create your custom module make a seperate Lua file for your own module. You can placed the Lua file in any location and not outside the `Psych Engine` folder not to be confused with the `mod` folder. Name the Lua file to anything you want, so let's just say you named it `ModuleMath`. Inside the Lua file should have a `local` table variable with no values inside of it; Example: `local ModuleMath = {}`.
+
+Before creating your own functions or variables the name should have the `local` table variable at the start and between them has a dot `.` character; Example: `ModuleMath.name`. At the end of Lua file should have `return` statement with the `local` table variable name, this is really important when making modules; Example `return ModuleMath`.
 
 Example:
 ```lua
@@ -342,10 +485,26 @@ end
 
 return ModuleMath
 ```
+
+### require(moduleName:String)
+Requires the module name and imports the functions or variables. To declare a `require` function either use the function itself or use it inside the value of the variable. This is the only few functions that you can add without the parenthesis `()` characters.
+
+- `moduleName` - The location of the Lua script module file to be used; Starts outside the `mods` folder.
+
+Syntaxes:
 ```lua
-local math = require('mods/modules/ModuleMath')
+require 'mods/modules/ModuleMath'                     -- least use
+local moduleName = require 'mods/modules/ModuleMath'  -- most use
+```
+
+To call the `require` function, get the specified module name to use; if it is contained inside a variable, get the variable name; if not get the module name. Add a dot `.` character followed by the function or variable name inside the Lua module file.
+
+Example:
+```lua
+local math = require('mods/modules/ModuleMath') -- gets the module
 function onCreatePost()
-     math.round()
+     debugPrint(math.round(3.7)) -- will return '4'
+     debugPrint(math.round(3.2)) -- will return '3'
 end
 ```
 
@@ -353,9 +512,73 @@ end
 
 # Predefined Functions
 ### dofile(path:String)
-### pairs(tab:Table)
-### ipairs(tab:Table)
-### tonumber(num:Float)
+Gets the `global` functions or variables on other Lua files.
+
+- `path` -  The location of the Lua script module file to be used;
+
+### type(value:Dynamic)
+Gets the specific value type of the value. Can be used to check the value type iside the conditional statments; Return either: `string`, `boolean`, `number`, `table`, `function`.
+
+- `value` - The value to be used.
+
 ### tostring(num:String)
-### type(dataType:Dynamic)
-### require(module:String)
+Convers any number into a string to prevent errors.
+
+- `num` - The real number to be converted.
+
+Example: `'Cheese count: '..tostring(34)`, it will return `Cheese count: 34`.
+
+### tonumber(num:Float)
+Convers a number inside a string into a real number. If the value contains any characters other than digits, it will return `nil` value.
+
+- `num` - The string number to be converted.
+
+Example: `tonumber('34'..'23')`, it will return `3423`.
+
+### pairs(tab:Table)
+Returns every key-value pairs inside a table and is typically used in table dictionarys. It can return as an unorganized table sort; Not to be confused with `ipairs()` functions.
+
+- `tab` - The table to be used.
+
+Example:
+```lua
+local function read(tab) -- read through a table
+     local results = ''
+     for key, values in pairs(tab) do -- pair function
+          results = results .. key..'\t'..values..'\n'
+     end
+     return results
+end
+
+function onCreate()
+     local tableArry = {123, 567, 134}
+     local tableDict = {a = 123, b = 567, c = 134}
+
+     debugPrint(read(tableArry)) -- will return '123, 567, 123'
+     debugPrint(read(tableDict)) -- will return 'c = 134, a = 123, b = 567'
+end
+```
+
+### ipairs(tab:Table)
+Returns every index-value pairs inside a table and is typically used in table arrays or with numeric keys within a table dictionary. If the table value has `nil` it will stop executing the loop there.
+
+- `tab` - The table to be used.
+
+Example:
+```lua
+local function read(tab) -- read through a table
+     local results = ''
+     for key, values in ipairs(tab) do -- ipair function
+          results = results .. key..'\t'..values..'\n'
+     end
+     return results
+end
+
+function onCreate()
+     local tableArry = {123, 567, 134}
+     local tableDict = {a = 123, b = 567, c = 134}
+
+     debugPrint(read(tableArry)) -- will return '123, 567, 123'
+     debugPrint(read(tableDict)) -- will return 'nil' cuz it's a dictionary
+end
+```

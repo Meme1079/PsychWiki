@@ -216,9 +216,9 @@ end
 | `%w` | Any Alphanumeric Characters | `0123AaBb` |
 | `%x` | Any Hexadecimal Characters | `0123456789AaBbCcDdEeFf` |
 | `%p` | Any Punctuation Characters | `!@#$%;,.` |
-| `%s` | Any Spaces or White-space Characters | ` ` / `\n\r\t` |
+| `%s` | Any Space Characters | Space |
 | `%c` | Any Control Characters | Carriage Return, Escape, Delete, etc |
-| `%z` | Zero Character | `\0` |
+| `%z` | Any Chracters representing zero. | `0` |
 
 ### Magic Characters
 Magic Characters are modifiers for character classes or patterns that <ins>expand their meaning</ins>. For instance, the character `+` will be <ins>assigned the character class with the longest chain it can discover</ins>. Another example is the characters `^` and `$`; `^` will receive the <ins>beginning pattern</ins> while `$` will receive the <ins>ending pattern</ins>.
@@ -252,7 +252,6 @@ end
 | `$` | The ending of the pattern, will forces the pattern to match it at the end of the string. |
 | `()` | Captures the specific string pattern to match. |
 | `[]` | The specific set of character classes to match. |
-
 
 ### Escape Characters
 Escape characters are <ins>special characters used within a string</ins>. They are an <ins>alternate interpretation of the characters in the following character sequence</ins>. It can be interpreted as a single `''`, double `""` quotes, or backslash `\` character, they are constructed by backslash `\` character with the <ins>specified character to useafter that</ins>; Example: `\'`. And there is a reason for their existence, it's to avoid an error from occurring.
@@ -437,7 +436,7 @@ end
 ### math.log(exp:Float, base:Float)
 Returns the <ins>logarithm of a number to the base number</ins> which is the exponent value. Basically the inverse function of the exponentiation.
 
-Also there is a similair function called `math.log10()` 
+Also there is a similair function called `math.log10()`, which the defualt value of the `base` parameter is `10`; Example: `math.log10(1000)`, it will return `3`.
 
 - `exp` - The exponentiation value of the number.
 - `base` - The base number of the logarithm number.

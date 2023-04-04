@@ -39,7 +39,7 @@
 - `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
 - `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
-- `week` - `getPropertyFromClass('WeekData', 'weeksList['..getProperty('storyWeek')..']')`
+- `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
 - `currentModDirectory` - `getPropertyFromClass('Paths', 'currentModDirectory')`
 
 </p>

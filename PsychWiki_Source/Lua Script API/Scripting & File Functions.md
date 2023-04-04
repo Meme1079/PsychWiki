@@ -10,11 +10,6 @@ Removes a Lua script into the game, can be used for <ins>improving performaces</
 
 - `path` - The location of the Lua script file to be removed.
 
-### isRunning(luaFile:String)
-Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
-
-- `luaFile` - The location of the Lua script file to be used.
-
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
 Sets the current <ins>global variable from another Lua script</ins> with a new value.
 
@@ -29,6 +24,11 @@ Gets the current <ins>global variable from another Lua script</ins> current valu
 
 - `luaFile` - The location of the Lua script file to be used.
 - `global` -  The variable inside the Lua script to get.
+
+### isRunning(luaFile:String)
+Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
+
+- `luaFile` - The location of the Lua script file to be used.
 
 ### getRunningScripts()
 Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`.
