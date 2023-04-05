@@ -299,7 +299,6 @@ Control Structures are a block code which analyzes values and decide whether to 
 ### If Else Statements
 These are a type of control structures that specifys whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statments.
 
-
 #### If Statement
 If statement checks if the condition of the statement is `true`. It's define with the `if` keyword and the specified condition to execute the code block followed by the `then` keyword.
 
@@ -460,6 +459,26 @@ end
 
 ***
 
+# Global Environment
+Global Environment is where Lua keeps all of their global variables inside a table dictionary. Lua stores the environment inside the global variable `_G` which were all global variables are save there. Changing its value does not affect any environment, nor vice versa. The global variable `_G` can be used to get multiple variables with a loop and modify them easily.
+
+The original intended purpose of the global variable `_G` is to get global variables from other Lua script. But it doesn't work as in inteded.
+
+> **Warning**: _Be careful when printing the global variable `_G`, it can result a crash._
+
+Example:
+```lua
+var1, var2, var3 = 342, 864, 913
+function onCreatePost()
+     for i = 0, 3 do
+          debugPrint(_G['var'..i])                 -- will return '342, 864, 913'
+          debugPrint(_G['defaultPlayerStrumX'..i]) -- will return '732, 844, 956, 1068'
+     end
+end
+```
+
+***
+
 # Modules
 Modules are a code library these contain mostly functions or variables. They can help you maintain a code-base and break your code into different Lua files. For functions or variables that you use them reguraly when coding.
 
@@ -534,6 +553,13 @@ Convers a number inside a string into a real number. If the value contains any c
 - `num` - The string number to be converted.
 
 Example: `tonumber('34'..'23')`, it will return `3423`.
+
+### load(chunk:String)
+Loads a chunk from the string, basically converts the string into code; Calling should be followed by a pair of parenthesis `()` character.
+
+- `chunk` - The code to be executed.
+
+Example: `load('return 4 * 2')()`, it will return `8`.
 
 ### pairs(tab:Table)
 Returns every key-value pairs inside a table and is typically used in table dictionarys. It can return as an unorganized table sort; Not to be confused with `ipairs()` functions.
