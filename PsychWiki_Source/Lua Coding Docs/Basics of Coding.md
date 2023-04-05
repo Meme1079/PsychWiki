@@ -459,12 +459,10 @@ end
 
 ***
 
-# Global Environment
-Global Environment is where Lua keeps all of their global variables inside a table dictionary. Lua stores the environment inside the global variable `_G` which were all global variables are save there. Changing its value does not affect any environment, nor vice versa. The global variable `_G` can be used to get multiple variables with a loop and modify them easily.
+# Global Variable
+Global variable is a special variable table dictionary specificly, that stores every global variable and saved inside there. Calling it, is defined with the `_G` variable not a function, be careful when calling it becuase it can cause a crash. Changing its value does not affect any environment, nor vice versa. You can use this for getting multiple global variables from a loop and modify the values easily.
 
-The original intended purpose of the global variable `_G` is to get global variables from other Lua script. But it doesn't work as in inteded.
-
-> **Warning**: _Be careful when printing the global variable `_G`, it can result a crash._
+The orginal intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
 
 Example:
 ```lua
@@ -506,7 +504,7 @@ return ModuleMath
 ```
 
 ### require(moduleName:String)
-Requires the module name and imports the functions or variables. To declare a `require` function either use the function itself or use it inside the value of the variable. This is the only few functions that you can add without the parenthesis `()` characters.
+Requires the module name and <ins>imports the functions or variables</ins>. To declare a `require` function either use the <ins>function itself or use it inside the value of the variable</ins>. This is the only few functions that you can <ins>add without the parenthesis `()` characters</ins>.
 
 - `moduleName` - The location of the Lua script module file to be used; Starts outside the `mods` folder.
 
@@ -516,7 +514,7 @@ require 'mods/modules/ModuleMath'                     -- least use
 local moduleName = require 'mods/modules/ModuleMath'  -- most use
 ```
 
-To call the `require` function, get the specified module name to use; if it is contained inside a variable, get the variable name; if not get the module name. Add a dot `.` character followed by the function or variable name inside the Lua module file.
+To call the `require` function, <ins>get the specified module name to use<ins>; if it's contained inside a variable, get the variable name</ins>; if not get the module name. Add a dot `.` character followed by the function or variable name inside the Lua module file.
 
 Example:
 ```lua
@@ -531,38 +529,38 @@ end
 
 # Predefined Functions
 ### dofile(path:String)
-Gets the `global` functions or variables on other Lua files.
+Gets the <ins>`global` functions or variables</ins> on other Lua files.
 
 - `path` -  The location of the Lua script module file to be used;
 
 ### type(value:Dynamic)
-Gets the specific value type of the value. Can be used to check the value type iside the conditional statments; Return either: `string`, `boolean`, `number`, `table`, `function`.
+Gets the <ins>specific value type of the value</ins>. Can be used to check the value type iside the conditional statments; Return either: `string`, `boolean`, `number`, `table`, `function`.
 
 - `value` - The value to be used.
 
 ### tostring(num:String)
-Convers any number into a string to prevent errors.
+Convers any <ins>number into a string</ins> to prevent errors.
 
 - `num` - The real number to be converted.
 
 Example: `'Cheese count: '..tostring(34)`, it will return `Cheese count: 34`.
 
 ### tonumber(num:Float)
-Convers a number inside a string into a real number. If the value contains any characters other than digits, it will return `nil` value.
+Convers a <ins>number or boolean inside a string</ins> into a real number. If the value <ins>contains any characters other than digits</ins>, it will return `nil` value.
 
 - `num` - The string number to be converted.
 
 Example: `tonumber('34'..'23')`, it will return `3423`.
 
 ### load(chunk:String)
-Loads a chunk from the string, basically converts the string into code; Calling should be followed by a pair of parenthesis `()` character.
+Loads a chunk from the string, basically <ins>converts the string into real code</ins>; Calling should be followed by a pair of parenthesis `()` character.
 
 - `chunk` - The code to be executed.
 
 Example: `load('return 4 * 2')()`, it will return `8`.
 
 ### pairs(tab:Table)
-Returns every key-value pairs inside a table and is typically used in table dictionarys. It can return as an unorganized table sort; Not to be confused with `ipairs()` functions.
+Returns every key-value pairs inside a table and is <ins>typically used in table dictionarys</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with `ipairs()` functions.
 
 - `tab` - The table to be used.
 
@@ -586,7 +584,7 @@ end
 ```
 
 ### ipairs(tab:Table)
-Returns every index-value pairs inside a table and is typically used in table arrays or with numeric keys within a table dictionary. If the table value has `nil` it will stop executing the loop there.
+Returns every index-value pairs inside a table and is <ins>typically used in table arrays or with numeric keys within a table dictionary</ins>. If the table value has `nil` it will <ins>stop executing the loop there</ins>.
 
 - `tab` - The table to be used.
 
