@@ -207,15 +207,15 @@ end
 
 > **Warning**: _Character classes are case-sensitive, therefore if any of the characters are upper-case, it will behave in the opposite manner; Example: `%D` will only matches non-digit characters._
 
-|Character|Description|Match|
+|Character|Description|Match Pattern|
 |---------|-----------|-----|
 | `%a` | Any Letter Characters | `AaBbCcDd` |
 | `%l` | Any Lower-case Characters | `aabbccdd` |
 | `%u` | Any Upper-case Characters | `AABBCCDD` |
 | `%d` | Any Digit Characters | `01234567` |
 | `%w` | Any Alphanumeric Characters | `0123AaBb` |
-| `%x` | Any Hexadecimal Characters | `0123456789AaBbCcDdEeFf` |
 | `%p` | Any Punctuation Characters | `!@#$%;,.` |
+| `%x` | Any Hexadecimal Characters | `0123456789AaBbCcDdEeFf` |
 | `%s` | Any Space Characters | Space |
 | `%c` | Any Control Characters | Carriage Return, Escape, Delete, etc |
 | `%z` | Any Chracters representing zero. | `0` |

@@ -352,7 +352,7 @@ Numeric Loop are a type of loop that use numeric values to increment or to decre
 
 - `exp1` - The local variable for the numeric loop with the minimum number value to start.
 - `exp2` - The maximum number value of numeric loop to stop at.
-- `exp3` - An optional attribute, Whether will be an increment `1` or decrement `-1` loop; Defualt value: `increment`.
+- `exp3` - An optional attribute, How much the value will be incremented `1` or decremented `-1`; Defualt value: `1`.
 
 Example:
 ```lua
@@ -364,7 +364,6 @@ function onCreate()
           debugPrint(index)  -- will return '5, 4, 3, 2, 1, 0'
      end
 end
-
 ```
 
 #### Generic Loop
@@ -423,7 +422,7 @@ Do statement has no specified conditions for the code block to execute. So it wi
 Scope in programming determines whether the function or variable is available within the code block of the conditional statement or function. They can be set to `global` or `local` types, although they all start as `global` type by default. But it's recommended they should be set into a `local` type because Lua accesses them faster than `global` types.
 
 - `global` - Makes the function or variable available anywhere at any scope.
-- `local` - Makes the function or variable available only to that specific scope, if called outside the scope returns a `nil` value; Declared with the `local` keyword.
+- `local` - Makes the function or variable available only to that specific scope and script, if called outside the scope returns a `nil` value; Declared with the `local` keyword.
 
 Syntaxes:
 ```lua
