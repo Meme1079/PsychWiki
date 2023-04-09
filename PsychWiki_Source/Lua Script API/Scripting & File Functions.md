@@ -10,10 +10,20 @@ Removes a Lua script into the game, can be used for <ins>improving performaces</
 
 - `path` - The location of the Lua script file to be removed.
 
+### isRunning(luaFile:String)
+Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
+
+- `luaFile` - The location of the Lua script file to be used.
+
+### getRunningScripts()
+Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`.
+
+***
+
+> **Warning**: _These functions are broken at the moment, so uuuhhhhh don't use it._
+
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
 Sets the current <ins>global variable from another Lua script</ins> with a new value.
-
-> **Note**: _The `global` parameter can only get global variables and not local variables._
 
 - `luaFile` - The location of the Lua script file to be used.
 - `global` -  The variable inside the Lua script to get.
@@ -25,13 +35,75 @@ Gets the current <ins>global variable from another Lua script</ins> current valu
 - `luaFile` - The location of the Lua script file to be used.
 - `global` -  The variable inside the Lua script to get.
 
-### isRunning(luaFile:String)
-Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
+### callScript(?luaFile:String, ?funcName:String, ?args:Array\<Dynamic\>)
+Calls a global function from other Lua script.
+
+> **Note**: _All parameters are optional to use for some reason._
 
 - `luaFile` - The location of the Lua script file to be used.
+- `funcName` - The function name to be used.
+- `args` - The value(s) passed on the function parameter(s).
 
-### getRunningScripts()
-Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`.
+### callOnLuas(?funcName:String, ?args:Array\<Dynamic\>, ignoreStops=false, ignoreSelf=true, ?exclusions:Array\<String\>)
+Calls a global function from every Lua scripts.
+
+> **Note**: _All parameters are optional to use for some reason._
+
+- `funcName` - The function name to be used.
+- `args` - The value(s) passed on the function parameter(s).
+- `ignoreStops` - _(Researching)_
+- `ignoreSelf` - _(Researching)_
+- `exclusions` - _(Researching)_
+
+***
+
+# File Functions
+### getTextFromFile(path:String, ?ignoreMods:Bool = false)
+Gets the text content from a `txt` file.
+
+- `path` - The location of the `txt` file to be used
+- `ignoreMods` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
+
+### directoryFileList(folder:String)
+Gets the contents of the folder; Returns a `table`.
+
+- `folder` - The location of the folder to be used; Starts outside the `mod` folder by defualt.
+
+### saveFile(path:String, content:String, ?absolute:Bool = false)
+Changes the specific <ins>file contents and saves it</ins>.
+
+- `path` - The location of the file to be change
+- `content` - The file contents to be changed or modified, use double brackets `[[]]`.
+- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
+
+### deleteFile(path:String)
+Deletes the specific file literally.
+
+- `path` - The location of the file to be deleted.
+
+***
+
+# Checking File Functions
+### checkFileExists(filename:String, ?absolute:Bool = false)
+Checks if the file exist or not.
+
+- `filename` - The location of the Lua script file to be used.
+- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
+
+### luaSpriteExists(tag:String)
+Checks if the <ins>sprite object exist</ins> inside the stage or script; Returns a `boolean`.
+
+- `tag` - The sprite object tag name to be used.
+
+### luaTextExists(tag:String)
+Checks if the <ins>text object exist</ins> inside the stage or script; Returns a `boolean`.
+
+- `tag` - The text object tag name to be used.
+
+### luaSoundExists(tag:String)
+Checks if the <ins>sound object exist</ins> inside the stage or script; Returns a `boolean`.
+
+- `tag` - The sound object tag name to be used.
 
 ***
 
@@ -73,8 +145,8 @@ function onCreatePost()
           var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
           var textDisplay = new FlxText(0, 0, 0, textContent[0], 35, false); // makeLuaSprite
           textDisplay.cameras = [game.camHUD]; // setObjectCamera
-          textDisplay.screenCenter(); // screenCenter
-          game.add(textDisplay); // addLuaText
+          textDisplay.screenCenter();          // screenCenter
+          game.add(textDisplay);               // addLuaText
      ]])
 end
 ```
@@ -82,36 +154,42 @@ end
 ***
 
 ### getLuaObject(tag:String)
-Gets the specified <ins>Lua object tag</ins>.
+Gets the specified Lua object tag to imported inside the `runHaxeCode()` function.
 
-- `tag` - The object tag name to be used.
+- `tag` - The object tag name to get.
 
 Example:
 ```lua
-function onCreatePost()
+function onCreate()
+     makeLuaSprite('graphicThingy', nil, 0, 0)
+     makeGraphic('graphicThingy', 1000, 1000, 'ff00ff')
+     addLuaSprite('graphicThingy', true)
+
      runHaxeCode([[
-          var LuaTag = ''; // Insert the lua object
-          game.getLuaObject(LuaTag).alpha = 0.5; // the "game." preffix is required to use!!!!
+          var theLuaTag = game.getLuaObject('LuaTag'); // gets the lua tag
+          theLuaTag.cameras = [game.camHUD]; // Sets it into 'camHUD'
+          theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
+          theLuaTag.angle   = 180;           // Sets the angle to '180'
      ]])
 end
 ```
 
 ### setVar(name:String, value:Dynamic)
-Sets the current <ins>global variable</ins> in Haxe with a new value. Or <ins>initializes the creation</ins> of a global variable.
+<ins>Sets the current global Haxe variable</ins> with a new value. Or <ins>initializes the creation</ins> of a global Haxe variable.
 
-- `name` - The name of the global variable to be used.
-- `value` - The new value of the global variable or initiate the specified value.
+- `name` - The name of the global Haxe variable to be used.
+- `value` - The new value to be set.
 
 Example:
 ```lua
-function onCreatePost()
+function onCreate()
      addHaxeLibrary('FlxText', 'flixel.text')
      runHaxeCode([[
           var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
           setVar('importArray', textContent); // Initiates the global var
      ]])
      runHaxeCode([[
-          var getArray = getVar('importArray') // Gets the global var
+          var getArray = getVar('importArray'); // Gets the global var
           var textDisplay = new FlxText(0, 0, 0, getArray[0], 35, false);
           textDisplay.cameras = [game.camHUD];
           textDisplay.screenCenter();
@@ -121,63 +199,14 @@ end
 ```
 
 ### getVar(name:String)
-Gets the current <ins>global variable</ins> in Haxe current value.
+<ins>Gets the current global Haxe variable</ins> current value from another `runHaxeCode()` function.
 
-- `name` - The name of the global variable to be used.
+- `name` - The name of the global Haxe variable to get.
 
 ### removeVar(name:String)
-Removes the current <ins>global variable</ins> in Haxe permenantly.
+Removes the global Haxe variable permanently.
 
-- `name` - The name of the global variable to be removed.
-
-***
-
-# File Functions
-### getTextFromFile(path:String)
-Gets the text content from a `txt` file.
-
-- `path` - The location of the `txt` file to be used; Starts outside the `mod` folder by defualt.
-
-### directoryFileList(folder:String)
-Gets the contents of the folder; Returns a `table`.
-
-- `folder` - The location of the folder to be used; Starts outside the `mod` folder by defualt.
-
-### saveFile(path:String, content:String, ?absolute:Bool = false)
-Changes the specific <ins>file contents and saves it</ins>.
-
-- `path` - The location of the file to be change
-- `content` - The file contents to be changed or modified, use double brackets `[[]]`.
-- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
-
-### deleteFile(path:String)
-Deletes the specific file.
-
-- `path` - The location of the file to be deleted.
-
-***
-
-# Checking File Functions
-### checkFileExists(filename:String, ?absolute:Bool = false)
-Checks if the file exist or not.
-
-- `filename` - The location of the Lua script file to be used.
-- `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
-
-### luaSpriteExists(tag:String)
-Checks if the <ins>sprite object exist</ins> inside the stage or script; Returns a `boolean`.
-
-- `tag` - The sprite object tag name to be used.
-
-### luaTextExists(tag:String)
-Checks if the <ins>text object exist</ins> inside the stage or script; Returns a `boolean`.
-
-- `tag` - The text object tag name to be used.
-
-### luaSoundExists(tag:String)
-Checks if the <ins>sound object exist</ins> inside the stage or script; Returns a `boolean`.
-
-- `tag` - The sound object tag name to be used.
+- `name` - The name of the global Haxe variable to removed.
 
 ***
 
@@ -232,7 +261,7 @@ Example: `stringSplit('A, B, C, D', ', ')[1]`, it will return `A`.
 ### stringTrim(str:String)
 Removes any <ins>whitspace characters from the string</ins>. Or you could just use `(string):gsub('% ', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
 
-- `str` - The string to be trim.
+- `str` - The string to be trimmed.
 
 ***
 
@@ -252,4 +281,4 @@ Randomizes the <ins>Float number</ins> from min to max values.
 ### getRandomBool(chance:Float = 50)
 Randomizes the chances of <ins>returning a `true` value</ins>.
 
-- `chance` - The percent of it being `true`; Goes from `0` to `100`.
+- `chance` - The percent of it being `true`; Goes from `0` to `100`; Defualt value: `50`.

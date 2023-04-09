@@ -6,7 +6,6 @@ To create your own Lua file I recommend you download [VSCode](https://code.visua
 And to save your Lua file press [Commans + S] choose the file path to be saved and click [Ok]. Examples shown below the video.
 
 ### Difference
-
 Lua in Psych Engine is very different compared to the original Lua. Mainly when coding first of all you can't put Control Structures for order for them to work properly you have to declared them inside of Callback templates, Example: `onCreate()`. If you want more examples just click the hyperlink.
 
 Printing in Psych Engine is also different the `print()` function will be replaced with `debugPrint()`. The For loop is the only functional loop that can be used. While and Repeat Loops are broken in Psych Engine Lua.
