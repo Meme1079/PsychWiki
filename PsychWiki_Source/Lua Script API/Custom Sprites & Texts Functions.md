@@ -100,7 +100,7 @@ Sets the text object <ins>current font</ins> with a new font.
 > **Note**: _The text font must be relative to `mods/fonts` folder._
 
 - `tag` - The text object tag name to be used.
-- `font` - The new text font of the text.
+- `font` - The new text font of the text; The font file format should be `ttf`.
 
 ### setTextItalic(tag:String, italic:Bool)
 Sets the text object <ins>into italicize</ins>. _(Who the hell even uses this???)_

@@ -14,6 +14,7 @@ function onCreatePost()
      addHaxeLibrary('FlxText', 'flixel.text')
      runHaxeCode(getTextFileContent('mods/scripts/haxe-script.hx')[1])
 
+     -- Good like trying to understand this lol
      local txtScrOffXGlo = {{}, {}, {}, {}, {}, {}, {}}
      local txtScrOffXVal = {0, 2, 6, 4, 2, 10.5, 9, -1, -2, -1}
      local txtScrOffYVal = {-20, -19, -25, -26, -28, -30, -28, -17, -18, -20}

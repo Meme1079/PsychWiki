@@ -8,6 +8,17 @@ Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from
 This wiki main thing to do is documenting functions/other with high quality. _(This man is lying to you)_
 
 # Major Updates:
+### 10.0 Version
+- Improve "Basics of Coding" tutorial
+- Move "Basics of Coding" into `Lua Coding Docs` folder
+- Added "Library Methods"
+- Added more more unmentioned functions in "Scripting & File Functions"
+- Updated the `CONTRIBUTING` file
+- Modified "Callback Templates", "Custom Sprites & Texts Functions", "Shader Functions", and "Value Setting & Getting Functions" Pages
+- Revamp the `Lua Script Examples` folder (WIP)
+- Overhual "General Functions", "Object Functions", "Scripting & File Functions", "Variable" Pages
+- Orginazed The folders
+
 ### 9.0 Version
 - Improve the Dialogue/Cutscene, Precaching, Shader Wiki pages.
 - Added `getLuaObject()` Haxe Function.

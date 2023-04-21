@@ -59,7 +59,7 @@ game.add(textScore7);
 
 setVar('textScores', [textScore1, textScore2, textScore3, textScore4, textScore5, textScore6, textScore7]);
 setVar('scoreNumImage', localScoreNumPaths);
-//===// Splits this
+//===//
 function setTextScorePos(idNum:Int, pos:Array<Float>) {
      if (pos[0] != null) { getVar('textScores')[idNum].x = pos[0]; }
      if (pos[1] != null) { getVar('textScores')[idNum].y = pos[1]; }
