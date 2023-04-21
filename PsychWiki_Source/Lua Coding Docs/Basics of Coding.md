@@ -532,7 +532,7 @@ require 'mods/modules/ModuleMath'                     -- least use
 local moduleName = require 'mods/modules/ModuleMath'  -- most use
 ```
 
-To call the `require` function, <ins>get the specified module name to use<ins>; if it's contained inside a variable, get the variable name</ins>; if not get the module name. Add a dot `.` character followed by the function or variable name inside the Lua module file.
+To call the `require` function, <ins>get the specified module name to use</ins>; if it's contained inside a variable, <ins>get the variable name; if not get the module name</ins>. Add a dot `.` character followed by the function or variable name inside the Lua module file.
 
 Example:
 ```lua
@@ -552,7 +552,7 @@ Gets the <ins>`global` functions or variables</ins> on other Lua files.
 - `path` -  The location of the Lua script module file to be used;
 
 ### type(value:Dynamic)
-Gets the <ins>specific value type of the value</ins>. Can be used to check the value type iside the conditional statments; Return either: `string`, `boolean`, `number`, `table`, `function`.
+Gets the <ins>specific value type of the value</ins>. Can be used to check the value type inside the conditional statements; Return either: `string`, `boolean`, `number`, `table`, `function`.
 
 - `value` - The value to be used.
 
