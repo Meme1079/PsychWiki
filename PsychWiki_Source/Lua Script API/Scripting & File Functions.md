@@ -53,7 +53,7 @@ Calls a global function from every Lua scripts.
 - `args` - The value(s) passed on the function parameter(s).
 - `ignoreStops` - _(Researching)_
 - `ignoreSelf` - _(Researching)_
-- `exclusions` - _(Researching)_
+- `exclusions` - Exclusion of Lua script(s) to prevent the function from calling them. _(Possible)_
 
 ***
 

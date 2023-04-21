@@ -6,11 +6,23 @@ To create your own Lua file I recommend you download [VSCode](https://code.visua
 ### Differences
 Lua in Psych Engine is different compared to the original Lua. Mainly when coding the code should nested inside the Callback templates except for variables, functions, operators, and predefined functions these can work outside the Callback templates. Printing a value is also different instead of using `print()` you should use `debugPrint()`, it works the same as the `print()` function.
 
-Example:
+Example [Lua (Original)]:
 ```lua
-local stupidVar = 318983
+local vary1 = 'hamburgers are cool'
+local vary2 = 'potatoes are also cool, i think'
+
+print(vary1) -- will return 'hamburgers are cool'
+print(vary2) -- will return 'potatoes are also cool, i think'
+```
+
+Example [Lua (Psych Engine)]:
+```lua
+local vary1 = 'hamburgers are cool'
+local vary2 = 'potatoes are also cool, i think'
+
 function onCreate()
-     debugPrint(stupidVar)
+     debugPrint(vary1) -- will return 'hamburgers are cool'
+     debugPrint(vary2) -- will return 'potatoes are also cool, i think'
 end
 ```
 
@@ -19,44 +31,41 @@ end
 # Variables
 Variables are an abstract manipulable storage space used for storing the variable's assigned value. It can be utilized at any location in the Lua file. The variable's value can be updated based on the condition or new value given by the variable.
 
-### Declaring
-To declare a variable, you must assign the variable's `scope`, `name`, and the provided `value`. The `scope` attribute is optional and specifies whether the variable will be `local` or `global` type; the `name` attribute relates to the variable's selected name with the equal `=` character after that; and the `value` attribute specifies the variable's default value.
+### Declaring & Calling
+To declare a variable assign the `scope` attribute of the variable this is optional to add, you can set to `global` or `local`; Defualt value: `global`. With the chosen `name` of your variable, name it what-ever you want. Followed by an equal `=` character with the specified `value` of the chosen variable.
 
-If you wish to redeclare a variable, just do the same thing as before, but modify the variable's value to whatever you like.
+Multi-line variables can also be declared, each name and value attributes of the variable must be seperated with comma `,` character. They must be equal to each-other if not it will return a `nil` value or an error.
 
-Example:
+Syntax:
 ```lua
--- Syntax: scope? name = value
-local greet = 'Hello'  -- local greet variable
-bye = 'goodbye'        -- global bye variable
-
-function onCreate()    -- The start of lua script
-     bye = 'bye bye'   -- changes the value
-     debugPrint(greet) -- will print 'hello'
-     debugPrint(bye)   -- will print 'bye bye'
-end
+?scope name = value                -- single-line variables
+?scope names, ... = values, ...    -- multi-line variables
 ```
 
-Variables can have several values assigned to them, which should be separated by a comma `,` character. If there are more variables than values, the missing values will be set to `nil` value.
+To call a variable assign the chosen `name` of your variable to get the current `value` of the variable. If you want to set the variable `value` with a new one, assign the name, equal `=` character, and set the new value.
 
 Example:
 ```lua
--- Syntax: scope? name1, name2, ... = value1, value2, ...
-local a, b, c = 12, 14, 13 -- Complete 
-local d, e, f = 12, 14     -- Incomplete Data Types
+local foo = 0                      -- single-line
+local bar1, bar2, bar3 = 1, 2, 3   -- multi-line
+local bar4, bar5, bar6 = 4, 5      -- multi-line (missing)
+function onCreate()
+     debugPrint(foo)               -- will return '0'
+     debugPrint(bar1, bar2, bar3)  -- will return '1 2 3'
+     debugPrint(bar4, bar5, bar6)  -- will return '4 5 nil'
 
-function onCreate() -- The start of lua script
-     debugPrint(a, b, c) -- will print '12 14 13'
-     debugPrint(d, e, f) -- will print '12 14 nil'
+     foo = 12                           -- setting single variable
+     bar4, bar5, bar6 = 543, 872, 923   -- setting mutiple variables
+
+     debugPrint(foo)               -- will return '12'
+     debugPrint(bar4, bar5, bar6)  -- will return '543 872 923'
 end
 ```
 
 ### Naming Variables Rules
-- Variable names should start with a letter or underscore `_` any other letter or character is invalid.
-- Variable names can not be named with numbers at the start only works at then middle or end.
-- Variable names are not valid if it has a space.
-- Lua is case-sensitive so `a` and `A` name are considered different variables.
-- Variable names can't be named after a keyword or operators, list of keywords are shown below.
+- Variable names can have alphanumeric `Aa12` and underscore `_` characters. Note that digital characters can't be placed at the start of the name only at the middle or at the end.
+- Variable names are case-sensative so variable `a` and `A` are completely different to each-other.
+- Variable names can't be named after `keywords`, `operators`, `control structures`, etc.
 
 Reserved Keywords:
 ```lua
@@ -363,15 +372,19 @@ function onCreate()
      for index = 5, 0, -1 do -- Decrement loop
           debugPrint(index)  -- will return '5, 4, 3, 2, 1, 0'
      end
+
+     for index = 0, 300, 50 do -- Increment Loop with each value incremented by 50 
+          debugPrint(index)    -- will return '0, 50, 100, 150, 200, 250, 300'
+     end
 end
 ```
 
 #### Generic Loop
-Generic Loop are a type of loop that uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 attributes when declaring a Generic loop `exp1`, `exp2`, and `pair` attributes.
+Generic Loop are a type of loop that commonly uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 attributes when declaring a Generic loop `exp1`, `exp2`, and `iterate` attributes.
 
 - `exp1` - The key name of the table, you can name how you want; Example: `key`.
 - `exp2` - The value name of the table, you can name how you want; Example: `value`.
-- `pair` - The specified pair functions such as `pairs()` or `ipairs()`.
+- `iterate` - The values to iterate from the loop can be either the pair functions or other.
 
 Example:
 ```lua
@@ -393,7 +406,7 @@ function getMidpointNum(ope1, ope2)
 end 
 
 function onCreate()
-     debugPrint(add(9 + 10))   -- will return '9.5'
+     debugPrint(getMidpointNum(9 + 10))   -- will return '9.5'
 end
 ```
 
@@ -426,26 +439,30 @@ Scope in programming determines whether the function or variable is available wi
 
 Syntaxes:
 ```lua
-glo = 345          -- global variable
-local loc = 232.2  -- local  variable
+name = value        -- global variable
+local name = value   -- local variable
 
-function myGFunc() end         -- global function
-local function myLFunc() end   -- local  function
+function localName()          -- global function
+     -- code block
+end
+local function globalName()   -- local function
+     -- code block
+end
 ```
 
 Example:
 ```lua
 function onCreatePost()
-     do       -- Do statement
-          do  -- Nested Do statement (Don't over nest statements it's a bad habit)
-               isAvailable = true      -- global
+     do      -- Do statement
+          do -- Nested Do statement (Don't over nest statements it's a bad habit)
+               isAvailable     = true  -- global
                local isUnfunny = false -- local
-               local folders = {'homework', 'images', 'downloads'}
+               local folders   = {'homework', 'images', 'downloads'}
                debugPrint(folders[1]) -- will return 'homework'
                debugPrint(folders[2]) -- will return 'images'
           end
           getUserName = os.getenv("USERNAME")
-          local fish = 'hate'     -- local keyword is used
+          local fish  = 'hate'    -- local keyword is used
           debugPrint(fish)        -- will return 'hate'
           debugPrint(folders[3])  -- will return 'downloads'
           debugPrint(getUserName) -- will return the username
@@ -489,8 +506,10 @@ local ModuleMath = {}
 
 function ModuleMath.type(num)
      local num = tostring(num)
-     if num:match('%d%.%d') then return 'float'
-     else return 'int'
+     if num:match('%d%.%d') then 
+          return 'float'
+     else 
+          return 'int'
      end
 end
 

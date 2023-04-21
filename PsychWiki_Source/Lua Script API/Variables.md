@@ -186,7 +186,7 @@
 - `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> defualt y postion value.
 - `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> defualt y postion value.
 
-<br> <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
+&nbsp; <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
 
 - `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> defualt x postion value.
 - `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> defualt x postion value.
@@ -196,6 +196,32 @@
 - `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> defualt y postion value.
 - `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> defualt y postion value.
 - `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> defualt y postion value.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
+- `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums.members', 0, 'x')`
+- `defaultPlayerStrumX1` - `getPropertyFromGroup('playerStrums.members', 1, 'x')`
+- `defaultPlayerStrumX2` - `getPropertyFromGroup('playerStrums.members', 2, 'x')`
+- `defaultPlayerStrumX3` - `getPropertyFromGroup('playerStrums.members', 3, 'x')`
+- `defaultPlayerStrumY0` - `getPropertyFromGroup('playerStrums.members', 0, 'y')`
+- `defaultPlayerStrumY1` - `getPropertyFromGroup('playerStrums.members', 1, 'y')`
+- `defaultPlayerStrumY2` - `getPropertyFromGroup('playerStrums.members', 2, 'y')`
+- `defaultPlayerStrumY3` - `getPropertyFromGroup('playerStrums.members', 3, 'y')`
+
+&nbsp; <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
+
+- `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums.members', 0, 'x')`
+- `defaultOpponentStrumX1` - `getPropertyFromGroup('opponentStrums.members', 1, 'x')`
+- `defaultOpponentStrumX2` - `getPropertyFromGroup('opponentStrums.members', 2, 'x')`
+- `defaultOpponentStrumX3` - `getPropertyFromGroup('opponentStrums.members', 3, 'x')`
+- `defaultOpponentStrumY0` - `getPropertyFromGroup('opponentStrums.members', 0, 'y')`
+- `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
+- `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
+- `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
+
+</p>
+</details>
 
 ***
 
