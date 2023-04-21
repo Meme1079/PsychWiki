@@ -4,7 +4,7 @@
 - `Function_Continue` - Continues the game; Returns `0`.
 - `Function_StopLua` - Stops the game; Returns `1`.
 - `Function_Stop` - Stops the Lua script; Returns `2`.
-- `luaDebugMode` - Enables debug mode; Defualt value: `false`.
+- `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
 
@@ -154,8 +154,8 @@
 # Miscellaneous Variables
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
-- `screenWidth` - Returns the current width of the window screen; Defualt value: `720`.
-- `screenHeight` - Returns the current width of the window screen; Defualt value: `1280`.
+- `screenWidth` - Returns the current width of the window screen; Default value: `720`.
+- `screenHeight` - Returns the current width of the window screen; Default value: `1280`.
 - `boyfriendName` - Checks the current boyfriend character.
 - `dadName` - Checks the current dad character.
 - `gfName` - Checks the current girlfriend character.
@@ -177,25 +177,25 @@
 ***
 
 # Strum Receptor/Character Variables
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> defualt x postion value.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> defualt x postion value.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> defualt x postion value.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> defualt x postion value.
-- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> defualt y postion value.
-- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> defualt y postion value.
-- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> defualt y postion value.
-- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> defualt y postion value.
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value.
+- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value.
+- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value.
+- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value.
+- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value.
 
 &nbsp; <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
 
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> defualt x postion value.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> defualt x postion value.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> defualt x postion value.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> defualt x postion value.
-- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> defualt y postion value.
-- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> defualt y postion value.
-- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> defualt y postion value.
-- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> defualt y postion value.
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value.
+- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value.
+- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value.
+- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value.
+- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value.
 
 <details><summary><b>All Shortcuted to:</b></summary>
 <p>
@@ -225,9 +225,9 @@
 
 ***
 
-- `defaultBoyfriendX` - The player's defualt x position, definied by the stages JSON file.
-- `defaultBoyfriendY` - The player's defualt y position, definied by the stages JSON file.
-- `defaultOpponentX` - The opponent's defualt x position, definied by the stages JSON file.
-- `defaultOpponentY` - The opponent's defualt y position, definied by the stages JSON file.
-- `defaultGirlfriendX` - The girlfriend's defualt x position, definied by the stages JSON file.
-- `defaultGirlfriendY` - The girlfriend's defualt x position, definied by the stages JSON file.
+- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
+- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
+- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
+- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
+- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
+- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
