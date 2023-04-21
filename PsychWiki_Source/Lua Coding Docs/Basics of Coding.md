@@ -1,7 +1,7 @@
 # Introduction
-Lua is a lightweight, high-level, multi-paradigm scripting language used in Psych Engine modding. Which is a better alternative to Haxe, the main language that Friday Night Funkin' uses. Becuase you have to manually download the source code, modify the specific Haxe file, and then compile it. As for Lua just insert a Lua into any script folders to modify something that's it. The current version of Lua that Haxe is using is (5.1).
+Lua is a lightweight, high-level, multi-paradigm scripting language used in Psych Engine modding. Which is a better alternative to Haxe, the main language that Friday Night Funkin' uses. Because you have to manually download the source code, modify the specific Haxe file, and then compile it. As for Lua just insert a Lua into any script folders to modify something that's it. The current version of Lua that Haxe is using is (5.1).
 
-To create your own Lua file I recommend you download [VSCode](https://code.visualstudio.com) it's available in Windows, Mac, and Linux. Now after you download VSCode open it, press [Command + N] this will create a untitled file. Click the hyperlink that says [Select a language] after that type or search lua on the Select language mode. Click Lua and boom you're done. If you want to save the Lua file press [Commans + S] choose the file path to be saved and click [Ok].
+To create your own Lua file I recommend you download [VSCode](https://code.visualstudio.com) it's available in Windows, Mac, and Linux. Now after you download VSCode open it, press [Command + N] this will create an untitled file. Click the hyperlink that says [Select a language] after that type or search Lua on the Select language mode. Click Lua and boom your done. If you want to save the Lua file press [Command + S] choose the file path to be saved and click [Ok].
 
 ### Differences
 Lua in Psych Engine is different compared to the original Lua. Mainly when coding the code should nested inside the Callback templates except for variables, functions, operators, and predefined functions these can work outside the Callback templates. Printing a value is also different instead of using `print()` you should use `debugPrint()`, it works the same as the `print()` function.
@@ -32,9 +32,9 @@ end
 Variables are an abstract manipulable storage space used for storing the variable's assigned value. It can be utilized at any location in the Lua file. The variable's value can be updated based on the condition or new value given by the variable.
 
 ### Declaring & Calling
-To declare a variable assign the `scope` attribute of the variable this is optional to add, you can set to `global` or `local`; Defualt value: `global`. With the chosen `name` of your variable, name it what-ever you want. Followed by an equal `=` character with the specified `value` of the chosen variable.
+To declare a variable assign the `scope` attribute of the variable this is optional to add, you can set to `global` or `local`; Default value: `global`. With the chosen `name` of your variable, name it what-ever you want. Followed by an equal `=` character with the specified `value` of the chosen variable.
 
-Multi-line variables can also be declared, each name and value attributes of the variable must be seperated with comma `,` character. They must be equal to each-other if not it will return a `nil` value or an error.
+Multi-line variables can also be declared, each name and value attributes of the variable must be separated with comma `,` character. They must be equal to each-other if not it will return a `nil` value or an error.
 
 Syntax:
 ```lua
@@ -55,7 +55,7 @@ function onCreate()
      debugPrint(bar4, bar5, bar6)  -- will return '4 5 nil'
 
      foo = 12                           -- setting single variable
-     bar4, bar5, bar6 = 543, 872, 923   -- setting mutiple variables
+     bar4, bar5, bar6 = 543, 872, 923   -- setting multiple variables
 
      debugPrint(foo)               -- will return '12'
      debugPrint(bar4, bar5, bar6)  -- will return '543 872 923'
@@ -64,7 +64,7 @@ end
 
 ### Naming Variables Rules
 - Variable names can have alphanumeric `Aa12` and underscore `_` characters. Note that digital characters can't be placed at the start of the name only at the middle or at the end.
-- Variable names are case-sensative so variable `a` and `A` are completely different to each-other.
+- Variable names are case-sensitive so variable `a` and `A` are completely different to each-other.
 - Variable names can't be named after `keywords`, `operators`, `control structures`, etc.
 
 Reserved Keywords:
@@ -143,7 +143,7 @@ Booleans, often shortened to Bools, are data types that can have two possible va
 Nil represents nothingness or non-existence of a value. This can be used for destroying a variable or table values if not used anymore. Or use conditional statements to check if the value is a `nil` or not.
 
 ### Tables
-Tables are a data structuring mechanism in Lua the only one in fact. They are associative arrays, which means they hold a collection of key or value pairs. Tables can be used for to store multiple values of any kind except for `nil` values. To construct a table, use curly-braces `{}` characters rather than bracket `[]` characters like most programming languages use. Tables can be structed as an Array or a Dictionary.
+Tables are a data structuring mechanism in Lua the only one in fact. They are associative arrays, which means they hold a collection of key or value pairs. Tables can be used for to store multiple values of any kind except for `nil` values. To construct a table, use curly-braces `{}` characters rather than bracket `[]` characters like most programming languages use. Tables can be constructed as an Array or a Dictionary.
 
 Example:
 ```lua
@@ -187,7 +187,7 @@ end
 ***
 
 # Function
-Functions are a collection of code to peform a specific task. This is used the same functions multiple times to make the code reusable. Functions are defined with the `function` keyword followed by the name of your custom function. With the pair of parenthesis `()` characters. To call a function get the name of your custom function followed by a pair of parenthesis `()` characters.
+Functions are a collection of code to perform a specific task. This is used the same functions multiple times to make the code reusable. Functions are defined with the `function` keyword followed by the name of your custom function. With the pair of parenthesis `()` characters. To call a function get the name of your custom function followed by a pair of parenthesis `()` characters.
 
 Example:
 ```lua
@@ -201,7 +201,7 @@ end
 ```
 
 ### Parameters
-Parameters are a special type of variable declared inside the parenthesis `()` character. You can add more parameters by typing the name of parameter and each seperating them with a comma `,` character. They can add more functionality to the function. If any of the arguments are left blank then it will cause an error. So uhh double check when calling functions.
+Parameters are a special type of variable declared inside the parenthesis `()` character. You can add more parameters by typing the name of parameter and each separating them with a comma `,` character. They can add more functionality to the function. If any of the arguments are left blank then it will cause an error. So uhh double check when calling functions.
 
 Example:
 ```lua
@@ -220,14 +220,14 @@ function onCreatePost()
 end
 ```
 
-You can also declare a infinite parameter `...` inside the arenthesis `()` character, just to let you know if you want it for some reason. But if there are non-infinite parameters declared it at the end of the parameter arrays.
+You can also declare a infinite parameter `...` inside the parenthesis `()` character, just to let you know if you want it for some reason. But if there are non-infinite parameters declared it at the end of the parameter arrays.
 
 Example:
 ```lua
 function Array(...)
      local convert = {...} -- converts it into a table
      local result = {}
-     for i = 1, #convert do -- alternative to read evey value of a table
+     for i = 1, #convert do -- alternative to read every value of a table
           table.insert(result, convert[i]) -- inserts the value
      end
      return result -- returns the result
@@ -290,23 +290,23 @@ Logical operators are used to combine multiple conditions and to specify on what
 |---------|-----------|-------|
 | `and` | Combines multiple conditions together; will return `true`,<br> if <ins>all the statements</ins> are `true`. | `a == true and b == true`, returns `false` |
 | `or` | Combines multiple conditions together; will return `true`,<br> if <ins>any of the statements</ins> are `true`. | `a == true or b == true`, returns `true` |
-| `not` | Reverses the condition; if the value is equivalent to `false`,<br> then the operator will set it to `true`, and vice versa. | `not true`, retruns `false`. |
+| `not` | Reverses the condition; if the value is equivalent to `false`,<br> then the operator will set it into `true`, and vice versa. | `not true`, returns `false`. |
 
 ### Miscellaneous
-Miscellaneous operators only features two operators the Length and Concatonate operators.
+Miscellaneous operators only features two operators the Length and Concatenate operators.
 
 |Operators|Description|Example|
 |---------|-----------|-------|
-| `#` | Length operator, Checks the maximim length size of a `string` or `table`. | `#('sussy')`, returns `5`. |
-| `..` | Concatonate operator, Merges multiple `string` together. | `'snow'..'ball'`, returns `snowball`. | 
+| `#` | Length operator, Checks the maximum length size of a `string` or `table`. | `#('sussy')`, returns `5`. |
+| `..` | Concatenate operator, Merges multiple `string` together. | `'snow'..'ball'`, returns `snowball`. | 
 
 ***
 
 # Control Structures
-Control Structures are a block code which analyzes values and decide whether to execute the code or not. Also i'm only mentioning the `for` loop statement and not `while`, `repeat` loop statements becuase no one ever uses these 2 loops.
+Control Structures are a block code which analyzes values and decide whether to execute the code or not. Also i'm only mentioning the `for` loop statement and not `while`, `repeat` loop statements because no one ever uses these 2 loops.
 
 ### If Else Statements
-These are a type of control structures that specifys whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statments.
+These are a type of control structures that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statements.
 
 #### If Statement
 If statement checks if the condition of the statement is `true`. It's define with the `if` keyword and the specified condition to execute the code block followed by the `then` keyword.
@@ -315,8 +315,8 @@ Example:
 ```lua
 local getDateWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 6 then -- checks if the day is 'friday'
-          debugPrint('it is friday my dudes time to get funky')
+     if getDateWeekDay == 6 then -- checks if the day is 'Friday'
+          debugPrint('Day: Friday')
      end
 end
 ```
@@ -328,10 +328,10 @@ Example:
 ```lua
 local getDateWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 6 then -- checks if the day is 'friday'
-          debugPrint('it is friday my dudes time to get funky')
-     else                        -- checks if the day is not 'friday'
-          debugPrint('it is not friday my dudes :(')
+     if getDateWeekDay == 6 then -- checks if the day is 'Friday'
+          debugPrint('Day: Friday')
+     else                        -- checks if the day is not 'Friday'
+          debugPrint('Not Friday')
      end
 end
 ```
@@ -343,12 +343,12 @@ Example:
 ```lua
 local getDateWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 2 then     -- checks if the day is 'monday'
-          debugPrint('it is monday, i hate school')
-     elseif getDateWeekDay == 4 then -- checks if the day is 'wednesday'
-          debugPrint('it is wednesday my dudes')
-     elseif getDateWeekDay == 6 then -- checks if the day is 'friday'
-          debugPrint('it is friday my dudes time to get funky')
+     if getDateWeekDay == 2 then     -- checks if the day is 'Monday'
+          debugPrint('Day: Monday')
+     elseif getDateWeekDay == 4 then -- checks if the day is 'Wednesday'
+          debugPrint('Day: Wednesday')
+     elseif getDateWeekDay == 6 then -- checks if the day is 'Friday'
+          debugPrint('Day: Friday')
      end
 end
 ```
@@ -361,7 +361,7 @@ Numeric Loop are a type of loop that use numeric values to increment or to decre
 
 - `exp1` - The local variable for the numeric loop with the minimum number value to start.
 - `exp2` - The maximum number value of numeric loop to stop at.
-- `exp3` - An optional attribute, How much the value will be incremented `1` or decremented `-1`; Defualt value: `1`.
+- `exp3` - An optional attribute, How much the value will be incremented `1` or decremented `-1`; Default value: `1`.
 
 Example:
 ```lua
@@ -411,7 +411,7 @@ end
 ```
 
 ### Break Statement
-Break statement stops the loop statements from looping. You can use this for specific conditions for the loop to ends. It must be relative at the end of the function or conditional statement.
+Break statement stops the loop statements from looping. You can use this for specific conditions for the loop to end. It must be relative at the end of the function or conditional statement.
 
 Example:
 ```lua
@@ -476,9 +476,9 @@ end
 ***
 
 # Global Variable
-Global variable is a special variable table dictionary specificly, that stores every global variable and saved inside there. Calling it, is defined with the `_G` variable not a function, be careful when calling it becuase it can cause a crash. Changing its value does not affect any environment, nor vice versa. You can use this for getting multiple global variables from a loop and modify the values easily.
+Global variable is a special variable table dictionary specifically, that stores every global variable and saved inside there. Calling it, is defined with the `_G` variable not a function, be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa. You can use this for getting multiple global variables from a loop and modify the values easily.
 
-The orginal intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
+The original intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
 
 Example:
 ```lua
@@ -494,9 +494,9 @@ end
 ***
 
 # Modules
-Modules are a code library these contain mostly functions or variables. They can help you maintain a code-base and break your code into different Lua files. For functions or variables that you use them reguraly when coding.
+Modules are a code library these contain mostly functions or variables. They can help you maintain a code-base and break your code into different Lua files. For functions or variables that you use them regularly when coding.
 
-To create your custom module make a seperate Lua file for your own module. You can placed the Lua file in any location and not outside the `Psych Engine` folder not to be confused with the `mod` folder. Name the Lua file to anything you want, so let's just say you named it `ModuleMath`. Inside the Lua file should have a `local` table variable with no values inside of it; Example: `local ModuleMath = {}`.
+To create your custom module make a separate Lua file for your own module. You can placed the Lua file in any location and not outside the `Psych Engine` folder not to be confused with the `mod` folder. Name the Lua file to anything you want, so let's just say you named it `ModuleMath`. Inside the Lua file should have a `local` table variable with no values inside of it; Example: `local ModuleMath = {}`.
 
 Before creating your own functions or variables the name should have the `local` table variable at the start and between them has a dot `.` character; Example: `ModuleMath.name`. At the end of Lua file should have `return` statement with the `local` table variable name, this is really important when making modules; Example `return ModuleMath`.
 
@@ -557,14 +557,14 @@ Gets the <ins>specific value type of the value</ins>. Can be used to check the v
 - `value` - The value to be used.
 
 ### tostring(num:String)
-Convers any <ins>number into a string</ins> to prevent errors.
+Converts any <ins>number into a string</ins> to prevent errors.
 
 - `num` - The real number to be converted.
 
 Example: `'Cheese count: '..tostring(34)`, it will return `Cheese count: 34`.
 
 ### tonumber(num:Float)
-Convers a <ins>number or boolean inside a string</ins> into a real number. If the value <ins>contains any characters other than digits</ins>, it will return `nil` value.
+Converts a <ins>number or boolean inside a string</ins> into a real number. If the value <ins>contains any characters other than digits</ins>, it will return `nil` value.
 
 - `num` - The string number to be converted.
 
@@ -578,7 +578,7 @@ Loads a chunk from the string, basically <ins>converts the string into real code
 Example: `load('return 4 * 2')()`, it will return `8`.
 
 ### pairs(tab:Table)
-Returns every key-value pairs inside a table and is <ins>typically used in table dictionarys</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with `ipairs()` functions.
+Returns every key-value pairs inside a table and is <ins>typically used in table dictionaries</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with `ipairs()` functions.
 
 - `tab` - The table to be used.
 
