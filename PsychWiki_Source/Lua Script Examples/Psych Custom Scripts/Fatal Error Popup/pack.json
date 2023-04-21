@@ -1,0 +1,7 @@
+{
+	"name": "Fatal PopUp Script",
+	"description": "Skill Issue",
+	"restart": false,
+	"runsGlobally": true,
+	"color": [65, 66, 157]
+}

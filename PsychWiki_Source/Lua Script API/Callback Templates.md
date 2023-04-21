@@ -1,12 +1,12 @@
 # Start/End functions
 ### onCreate()
-Triggered at the <ins>start of the Lua script</ins>, can be used for creating objects, precaching, property setters/getters; <ins>some variables</ins> weren't created.
+Triggered at the <ins>start of the Lua script</ins>, can be used for creating objects, precaching, property setters/getters; <ins>some variables</ins> weren't created; Will only be triggered once.
 
 ### onCreatePost()
-Triggered at the <ins>post/after start of the Lua script</ins>; The <ins>HUD elements</ins> are created here.
+Triggered at the <ins>post/after start of the Lua script</ins>; The <ins>HUD elements</ins> are created here; Will only be triggered once.
 
 ### onDestroy()
-Triggered at the <ins>end of the Lua script</ins>.
+Triggered at the <ins>end of the Lua script</ins>; Will only be triggered once.
 
 ***
 
@@ -135,12 +135,12 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 > **Warning**: _The `runHaxeCode()` function is used here to make a subsate._
 
 ### onCustomSubstateCreate(name)
-Works similair to <ins>`onCreate()` callback function</ins> but for your custom substate.
+Works similair to <ins>`onCreate()` callback function</ins> but for your custom substate; Will only be triggered once.
 
 - `name` - The name of your substate.
 
 ### onCustomSubstateCreatePost(name)
-Works similair to <ins>`onCreatePost()` callback function</ins>.
+Works similair to <ins>`onCreatePost()` callback function</ins>; Will only be triggered once.
 
 - `name` - The name of your substate.
 
@@ -157,7 +157,7 @@ Works similair to <ins>`onUpdatePost()` callback function</ins>.
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onCustomSubstateDestroy(name)
-Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestroy()` callback function</ins>.
+Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestroy()` callback function</ins>; Will only be triggered once.
 
 - `name` - The name of your substate.
 
