@@ -426,99 +426,68 @@ function onCreate()
 end
 ```
 
-### Do Statement <!-- Useless information but okay; I don't where to place this lol -->
-Do statement has no specified conditions for the code block to execute. So it will just run perfectly fine, they are only serve for scoping variables or functions.
-
 ***
 
 # Scope
-Scope in programming determines whether the function or variable is available within the code block of the conditional statement or function. They can be set to `global` or `local` types, although they all start as `global` type by default. But it's recommended they should be set into a `local` type because Lua accesses them faster than `global` types.
+Scope in programming determines whether a variable or function can be accessible outside that code block. They can be determine by either setting them into `global` or `local` scope. Declare them behind the `name` of the variable or `function` keyword for functions.
 
-- `global` - Makes the function or variable available anywhere at any scope.
-- `local` - Makes the function or variable available only to that specific scope and script, if called outside the scope returns a `nil` value; Declared with the `local` keyword.
-
-Syntaxes:
-```lua
-name = value        -- global variable
-local name = value   -- local variable
-
-function localName()          -- global function
-     -- code block
-end
-local function globalName()   -- local function
-     -- code block
-end
-```
+Global scope are the most common and the defualt scope for variables and functions. They can be called anywhere inside the Lua script or outside the Lua script with functions. Local scope are more faster to call than Global scope, they can be only call inside the specific scope of the code block. You can declare them with the `local` keyword behind the `name` of the variable or the `function` keyword of the function.
 
 Example:
 ```lua
-function onCreatePost()
-     do      -- Do statement
-          do -- Nested Do statement (Don't over nest statements it's a bad habit)
-               isAvailable     = true  -- global
-               local isUnfunny = false -- local
-               local folders   = {'homework', 'images', 'downloads'}
-               debugPrint(folders[1]) -- will return 'homework'
-               debugPrint(folders[2]) -- will return 'images'
-          end
-          getUserName = os.getenv("USERNAME")
-          local fish  = 'hate'    -- local keyword is used
-          debugPrint(fish)        -- will return 'hate'
-          debugPrint(folders[3])  -- will return 'downloads'
-          debugPrint(getUserName) -- will return the username
+function onCreate()
+     do   -- do block
+          myGlobalVar = false      -- global
+          debugPrint(myGlobalVar)  -- will return 'false'
      end
-     debugPrint(fish)        -- will return 'nil'
-     debugPrint(isAvailable) -- will return 'true'
-     debugPrint(getUserName) -- will return the username
-end
-```
-
-***
-
-# Global Variable
-Global variable is a special variable table dictionary specifically, that stores every global variable and saved inside there. Calling it, is defined with the `_G` variable not a function, be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa. You can use this for getting multiple global variables from a loop and modify the values easily.
-
-The original intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
-
-Example:
-```lua
-var1, var2, var3 = 342, 864, 913
-function onCreatePost()
-     for i = 0, 3 do
-          debugPrint(_G['var'..i])                 -- will return '342, 864, 913'
-          debugPrint(_G['defaultPlayerStrumX'..i]) -- will return '732, 844, 956, 1068'
+     do   -- do block
+          local myLocalVar = true  -- local
+          debugPrint(myLocalVar)   -- will return 'true'
      end
+     
+     debugPrint(myGlobalVar) -- will return 'false'
+     debugPrint(myLocalVar)  -- will return 'nil'
 end
 ```
 
 ***
 
 # Modules
-Modules are a code library these contain mostly functions or variables. They can help you maintain a code-base and break your code into different Lua files. For functions or variables that you use them regularly when coding.
+Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts.
 
-To create your custom module make a separate Lua file for your own module. You can placed the Lua file in any location and not outside the `Psych Engine` folder not to be confused with the `mod` folder. Name the Lua file to anything you want, so let's just say you named it `ModuleMath`. Inside the Lua file should have a `local` table variable with no values inside of it; Example: `local ModuleMath = {}`.
+### Creating
+To create your own custom module make a separate Lua script and placed the location of the script. Let's just say you placed them inside `mods/scripts/modules` folder and you named it `myGamingModules.lua`. Now inside of it declare a `local` table variable with the exact name of the Lua script module with no value(s) inside of it; Example: `local myGamingModules = {}`.
 
-Before creating your own functions or variables the name should have the `local` table variable at the start and between them has a dot `.` character; Example: `ModuleMath.name`. At the end of Lua file should have `return` statement with the `local` table variable name, this is really important when making modules; Example `return ModuleMath`.
+Before you declare your functions or variables each name should have the `local` table variable name followed by the dot `.` character. And at the end of the Lua script module should have the `return` statement on the `local` table variable name to export the modules to other Lua script; Example `return myGamingModules`. _(I Think)_
+
+> **Warning**: _DO NOT DECLARE `LOCAL` FUNCTIONS OR VARIABLES INSIDE THE MODULES BECUASE IT WILL NOT EXPORT THEM AND MIGHT CAUSE AN ERROR, IT MUST BE A `GLOBAL` ONE OKAY!?_
 
 Example:
 ```lua
-local ModuleMath = {}
+local myGamingModules = {}
 
-function ModuleMath.type(num)
-     local num = tostring(num)
-     if num:match('%d%.%d') then 
-          return 'float'
-     else 
-          return 'int'
+myGamingModules.red   = 'ff0000'
+myGamingModules.green = '00ff00'
+myGamingModules.blue  = '0000ff'
+
+function myGamingModules.switch(case, statement)
+     if statement[case] ~= nil or not statement["default"] then
+          return statement[case]()
+     else
+          return statement["default"]()
      end
 end
 
-function ModuleMath.round(num, dp) -- i stole this
-     local mult = 10^(dp or 0);
-     return math.floor(num * mult + 0.5)/mult;
+function myGamingModules.setPos(obj, pos) -- Concatenates setProperty x and y
+     if pos[1] ~= nil then -- makes pos parameter acts like a table
+          setProperty(obj..'.x', pos[1])
+     end
+     if pos[2] ~= nil then
+          setProperty(obj..'.y', pos[2]) 
+     end
 end
 
-return ModuleMath
+return myGamingModules
 ```
 
 ### require(moduleName:String)
@@ -528,31 +497,34 @@ Requires the module name and <ins>imports the functions or variables</ins>. To d
 
 Syntaxes:
 ```lua
-require 'mods/modules/ModuleMath'                     -- least use
-local moduleName = require 'mods/modules/ModuleMath'  -- most use
+require 'mods/scripts/modules/myGamingModules'                     -- uses the default name
+local moduleName = require 'mods/scripts/modules/myGamingModules'  -- uses a custom name
 ```
 
-To call the `require` function, <ins>get the specified module name to use<ins>; if it's contained inside a variable, get the variable name</ins>; if not get the module name. Add a dot `.` character followed by the function or variable name inside the Lua module file.
+To call the `require` function, <ins>get the specified module name to use</ins>; if it's contained inside a variable, <ins>get the variable name; if not get the module name</ins>. Add a dot `.` character followed by the function or variable name inside the Lua module file.
 
 Example:
 ```lua
-local math = require('mods/modules/ModuleMath') -- gets the module
+local moduleName = require('mods/scripts/modules/myGamingModules') -- gets the module
 function onCreatePost()
-     debugPrint(math.round(3.7)) -- will return '4'
-     debugPrint(math.round(3.2)) -- will return '3'
+     moduleName.setPos('boyfriend', {500, 1200}) -- sets the boyfriend positions
+
+     debugPrint(moduleName.red)   -- will return 'ff0000'
+     debugPrint(moduleName.green) -- will return '00ff00'
+     debugPrint(moduleName.blue)  -- will return '0000ff'
 end
 ```
 
 ***
 
-# Predefined Functions
+# Predefined Functions/Variables
 ### dofile(path:String)
 Gets the <ins>`global` functions or variables</ins> on other Lua files.
 
 - `path` -  The location of the Lua script module file to be used;
 
 ### type(value:Dynamic)
-Gets the <ins>specific value type of the value</ins>. Can be used to check the value type iside the conditional statments; Return either: `string`, `boolean`, `number`, `table`, `function`.
+Gets the <ins>specific value type of the value</ins>. Can be used to check the value type inside the conditional statements; Return either: `string`, `boolean`, `number`, `table`, `function`.
 
 - `value` - The value to be used.
 
@@ -622,5 +594,24 @@ function onCreate()
 
      debugPrint(read(tableArry)) -- will return '123, 567, 123'
      debugPrint(read(tableDict)) -- will return 'nil' cuz it's a dictionary
+end
+```
+
+***
+
+### _G
+The Global Variable is a special type of variable specifically a table dictionary. That gets every `global` variable and are saved inside the variable, it's defined with the `_G` keyword. Be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa. 
+
+You can use this for getting multiple global variables from a loop and modify the values easily. The original intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
+
+Example:
+```lua
+function onCreate()
+     myGlobalVar0, myGlobalVar1 = 183, 231
+     myGlobalVar2, myGlobalVar3 = 963, 263
+     for nummys = 0, 3 do
+          debugPrint(_G['myGlobalVar' .. i])         -- will return '183, 231, 963, 263'
+          debugPrint(_G['defaultPlayerStrumX' .. i]) -- will return '732, 844, 956, 1068'
+     end 
 end
 ```
