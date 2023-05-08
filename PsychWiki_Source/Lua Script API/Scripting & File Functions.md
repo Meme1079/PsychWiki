@@ -151,6 +151,14 @@ function onCreatePost()
 end
 ```
 
+### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
+Executes the Haxe function from the <ins>source code or from the HScript custom functions</ins>.
+
+> **Note**: _This function is an upcoming feature in the next update of Psych Engine, becuase I'm very very impatient._
+
+- `funcToRun` - The specified Haxe function to run.
+- `funcArgs` - An optioanl parameter, The arguement(s) to be passed on the Haxe Function; Defualt value: `null`.
+
 ***
 
 ### getLuaObject(tag:String)
