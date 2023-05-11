@@ -228,18 +228,18 @@ You can also declare a infinite parameter <kbd>...</kbd> inside the parenthesis 
 
 Example:
 ```lua
-function Array(tab, ...)
-     local convert = {...}  -- converts it into a table
-     for i = 1, #convert do -- alternative to read every value of a table
-          table.insert(tab, convert[i]) -- inserts the value
+function weirdMath(mathStuff, ...)
+     local results = 0      -- the results
+     local convert = {...}  -- converts the infinite parameter into a table
+     for i = 1, #convert do -- alternative for loop through a table
+         results = results + mathStuff + convert[i]
      end
-     return tab -- returns the result
+     return results
 end
-     
+
 function onCreate()
-     for k,v in pairs(Array({}, 231, 234, 456)) do
-          debugPrint(v) -- will print '231, 234, 456'
-     end
+     local mainMath = ((5 % 6^2) / 2) * (5 % 23)
+     debugPrint(weirdMath(mainMath, 3, 54, 64, 12, 94, 23, 56)) -- will print => '393.5'
 end
 ```
 
@@ -563,17 +563,17 @@ Imports <ins>any <code>global</code> variables or functions</ins> on other Lua f
 Example: _(Path: <code>PsychEngine/mods/scripts/modules/scriptFile.lua</code>)_
 ```lua
 local myVar0 = nil  -- THIS WILL NOT WORK IF IT'S LOCAL!!!!!
-myVar1 = 163        -- Will work
-myVar2 = true       -- Will also work
+myVar1 = 163        -- will work
+myVar2 = true       -- will also work
 ```
 
 Example: _(Path: <code>PsychEngine/mods/scripts/myGamingFile.lua</code>)_
 ```lua
 dofile('PsychEngine/mods/scripts/modules/scriptFile.lua')
 function onCreate()
-     debugPrint(myVar0)  -- Will print 'nil'
-     debugPrint(myVar1)  -- Will print '163'
-     debugPrint(myVar2)  -- Will print 'true'
+     debugPrint(myVar0)  -- will print 'nil'
+     debugPrint(myVar1)  -- will print '163'
+     debugPrint(myVar2)  -- will print 'true'
 end
 ```
 

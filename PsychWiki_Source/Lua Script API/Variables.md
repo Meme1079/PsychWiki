@@ -154,8 +154,8 @@
 # Miscellaneous Variables
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
-- `screenWidth` - Returns the current width of the window screen; Default value: `720`.
-- `screenHeight` - Returns the current width of the window screen; Default value: `1280`.
+- `screenWidth` - Returns the current width of the window screen; default value: `720`.
+- `screenHeight` - Returns the current width of the window screen; default value: `1280`.
 - `boyfriendName` - Checks the current boyfriend character.
 - `dadName` - Checks the current dad character.
 - `gfName` - Checks the current girlfriend character.
