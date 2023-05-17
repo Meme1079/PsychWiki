@@ -1,1 +1,0 @@
-Put the folder inside the mod folder!!!

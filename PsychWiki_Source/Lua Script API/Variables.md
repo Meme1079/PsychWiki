@@ -1,5 +1,5 @@
 # Lua/Unique Variables
-> **Note**: _These are the only variables can be change by using `= true` or `= false` for now. You will have to use `setProperty()` function if you want to change the rest of them._
+> **Note**: _These are the only variables can be change by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use `setProperty()` function if you want to change the rest of the variables._
 
 - `Function_Continue` - Continues the game; Returns `0`.
 - `Function_StopLua` - Stops the game; Returns `1`.

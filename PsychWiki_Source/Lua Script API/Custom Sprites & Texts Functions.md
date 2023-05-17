@@ -11,13 +11,14 @@ If you want a plain colored texture, leave the `image` parameter empty or declar
 - `x` - The x value of the sprite object to be set.
 - `y` - The y value of the sprite object to be set.
 
-### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float)
+### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float, ?spriteType:String = "sparrow")
 Initializes the creation of the Lua sprite object <ins>with supported animations</ins>.
 
 - `tag` - The sprite object tag name to be used.
 - `image` - The image sprite for the sprite to use.
 - `x` - The x value of the sprite object to be set.
 - `y` - The y value of the sprite object to be set.
+- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Defualt value: `sparrow`.
 
 ### addLuaSprite(tag:String, front:Bool)
 Adds the Lua sprite object inside the game. This function will <ins>overlap other sprite objects</ins> if place below eachother.

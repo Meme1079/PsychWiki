@@ -594,8 +594,8 @@ function onCreate()
      local tableArry = {123, 567, 134}
      local tableDict = {a = 123, b = 567, c = 134}
 
-     debugPrint(read(tableArry)) -- will return '123, 567, 123'
-     debugPrint(read(tableDict)) -- will return 'c = 134, a = 123, b = 567'
+     debugPrint(read(tableArry)) -- will print '123, 567, 123'
+     debugPrint(read(tableDict)) -- will print 'c = 134, a = 123, b = 567'
 end
 ```
 
@@ -604,7 +604,7 @@ Returns every <ins>index-value pairs</ins> inside a table and is <ins>typically 
 
 Example:
 ```lua
-local function read(tab) -- read through a table
+local function read(tab) -- reads through a table
      local results = ''
      for key, values in ipairs(tab) do -- ipair function
           results = results .. key..'\t'..values..'\n'

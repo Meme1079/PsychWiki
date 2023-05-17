@@ -305,8 +305,8 @@ function onCreate()
      table.insert(arrayTable, 2, 'watermelon')
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..':'..v) 
-          -- will print '1:apple 2:watermelon 3:banana 4:orange 5:grape'
+          debugPrint(k..': '..v) 
+          -- will print '1: apple 2: watermelon 3: banana 4: orange 5: grape'
      end
 end
 ```
@@ -325,8 +325,7 @@ function onCreate()
      table.remove(arrayTable, 3) -- removes 'tomato'
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..':'..v)
-          -- will print '1:apple 2:banana 3:orange'
+          debugPrint(k..': '..v) -- will print '1: apple 2: banana 3: orange'
      end
 end
 ```
@@ -364,27 +363,21 @@ function onCreate()
 
      table.sort(arrayTable1)
      table.sort(arrayTable2, function(val1, val2)
-          return val1:byte(3, 3) > val2:byte(3, 3) 
+          return val2:byte(3, 3) > val2:byte(3, 3) 
      end)
 
-     for k,v in pairs(arrayTable1) do debugPrint(v) end
-     -- will print 'apple banana grape kiwifruit orange'
-
-     for k,v in pairs(arrayTable2) do debugPrint(v) end
-     -- will print 'turnip broccoli tomato onion beetroot'
+     for k,v in pairs(arrayTable1) do 
+          debugPrint(v) -- will print 'apple, banana, grape, kiwifruit, orange'
+     end
+     for k,v in pairs(arrayTable2) do
+          debugPrint(v) -- will print 'turnip, broccoli, tomato, onion, beetroot'
+     end
 end
 ```
 
 ***
 
 # Mathematical Basic Methods
-### math.max(#num:Float)
-Checks if any of the number is the <ins>maximum value</ins>, it could find.
-
-- `num` - An infinite parameter, The number value to be checked.
-
-Example: `math.max(1, 3, 2)`; Will print `3`.
-
 ### math.min(#num:Float)
 Checks if any of the number is the <ins>minimum value</ins>, it could find.
 
@@ -392,12 +385,12 @@ Checks if any of the number is the <ins>minimum value</ins>, it could find.
 
 Example: `math.max(1, 3, 2)`; Will print `1`.
 
-### math.ceil(num:Float)
-Rounds the `float` number to its <ins>maximum value</ins>.
+### math.max(#num:Float)
+Checks if any of the number is the <ins>maximum value</ins>, it could find.
 
-- `num` - The number to be round.
+- `num` - An infinite parameter, The number value to be checked.
 
-Example: `math.ceil(4.3)`; Will print `5`.
+Example: `math.max(1, 3, 2)`; Will print `3`.
 
 ### math.floor(num:Float)
 Rounds the `float` number to its <ins>minimum value</ins>.
@@ -405,6 +398,13 @@ Rounds the `float` number to its <ins>minimum value</ins>.
 - `num` - The number to be round. 
 
 Example: `math.floor(4.8)`; Will print `4`.
+
+### math.ceil(num:Float)
+Rounds the `float` number to its <ins>maximum value</ins>.
+
+- `num` - The number to be round.
+
+Example: `math.ceil(4.3)`; Will print `5`.
 
 ### math.abs(num:Float)
 Returns the <ins>absolute of the number</ins>. Basically converts <ins>negative values into positive values</ins>.
