@@ -228,7 +228,7 @@ Example:
 function onCreate()
      local textPattern1 = '%d+'         -- will get the longest chain of digit characters
      local textPattern2 = '^Matches'    -- will get 'Matches' pattern at the start
-     loca\ textPattern3 = 'doin%?%'     -- will get 'doin?' pattern at the end
+     local textPattern3 = 'doin?'     -- will get 'doin?' pattern at the end
      local textPattern4 = 'exam[ples]+' -- will get each set inside of 'ples' in each characters
 
      debugPrint(('Score: 18242'):match(textPattern1))          -- will print '18242'

@@ -39,13 +39,15 @@ function onCreatePost()
           return result:sub(1, #result - 2)
      end
 
-     runHaxeCode([[
-          setVar('gays', [ 
-               [ ]]..mergTableVals(1)..[[ ], [ ]]..mergTableVals(2)..[[ ], [ ]]..mergTableVals(3)..[[ ],
-               [ ]]..mergTableVals(4)..[[ ], [ ]]..mergTableVals(5)..[[ ], [ ]]..mergTableVals(6)..[[ ],
-               [ ]]..mergTableVals(7)..[[ ]
-          ]);
-     ]])
+     local insertVars = {
+          mergTab1 = mergTableVals(1), mergTab2 = mergTableVals(2), mergTab3 = mergTableVals(3),
+          mergTab4 = mergTableVals(4), mergTab5 = mergTableVals(5), mergTab6 = mergTableVals(6),
+          mergTab7 = mergTableVals(7)
+     }
+     
+     runHaxeCode(([[
+          setVar('gays', $mergTab1, $mergTab2, $mergTab3, $mergTab4, $mergTab5, $mergTab6, $mergTab7)
+     ]]):gsub('%$(%w+)', insertVars))
 end
 
 function onUpdateScore(miss)

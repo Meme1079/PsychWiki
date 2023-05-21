@@ -4,7 +4,7 @@
 - `Function_Continue` - Continues the game; Returns `0`.
 - `Function_StopLua` - Stops the game; Returns `1`.
 - `Function_Stop` - Stops the Lua script; Returns `2`.
-- `luaDebugMode` - Enables debug mode; Default value: `false`.
+- `luaDebugMode` - Enables debug mode; default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
 

@@ -174,7 +174,7 @@ function onCreate()
      addLuaSprite('graphicThingy', true)
 
      runHaxeCode([[
-          var theLuaTag = game.getLuaObject('LuaTag'); // gets the lua tag
+          var theLuaTag = game.getLuaObject('graphicThingy'); // gets the lua tag
           theLuaTag.cameras = [game.camHUD]; // Sets it into 'camHUD'
           theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
           theLuaTag.angle   = 180;           // Sets the angle to '180'

@@ -1,0 +1,24 @@
+{
+     "myString": "JSON Parser allows you to parse and transfer JSON Data inside a script",
+     "myInt": 10,
+     "myFloat": 0.5,
+     "myBool": true,
+     "myNil": null,
+     "myArray": ["string", 360, 0.9, false, null],
+     "myNestedArray": [[0, 50], [230, 140]],
+     "myObject1": {
+          "hideGirlfriend": true,
+          "cameraSpeed": 1,
+          "PlayerPos": [[0, 20], [45, 23]]
+     },
+     "myObject2": {
+          "hideGirlfriend": true,
+          "cameraSpeed": 1.2,
+          "PlayerPos": [[30, 10], [5, 65]]
+     },
+     "myObject3": {
+          "hideGirlfriend": false,
+          "cameraSpeed": 0.5,
+          "PlayerPos": [[530, -230], [25, 65]]
+     }
+}

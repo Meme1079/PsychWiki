@@ -37,7 +37,7 @@ Variables are an abstract manipulable storage space used for storing the variabl
 ### Declaring & Calling
 To declare a variable assign the `scope` attribute of the variable this is optional to add, you can set to `global` or `local`; Default value: `global`. With the chosen `name` of your variable, name it what-ever you want. Followed by an equal <kbd>=</kbd> character with the specified `value` of the chosen variable.
 
-Multi-line variables can also be declared, each name and value attributes of the variable must be separated with comma <kbd>,</kbd> character. They must be equal to each-other if not it will print a `nil` value or an error.
+Multi-line variables can also be declared, each name and value attributes of the variable must be separated with comma <kbd>,</kbd> character. They must be equal to each-other if not it will return a `nil` value or an error.
 
 Syntax:
 ```lua
@@ -239,7 +239,7 @@ end
 
 function onCreate()
      local mainMath = ((5 % 6^2) / 2) * (5 % 23)
-     debugPrint(weirdMath(mainMath, 3, 54, 64, 12, 94, 23, 56)) -- will print => '393.5'
+     debugPrint(weirdMath(mainMath, 3, 54, 64, 12, 94, 23, 56)) -- will print '393.5'
 end
 ```
 
@@ -248,14 +248,24 @@ end
 # Comments
 Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. And for multi-line comment add double brackets <kbd>[[]]</kbd> characters.
 
+If you're commenting a double brackets <kbd>[[]]</kbd> characters from a `string` or a `comment`. Add an equal `=` character between the double brackets <kbd>[[]]</kbd> characters to prevent the comment to break. You can even extend the equal `=` character if you're commenting on equal brackets `[=[]=]`.
+
 Example:
 ```lua
 -- Here's a single-line comment nothing special
 
 --[[
      Here's a multi-line comment for really
-     long unnecessary comments, also cheese.
+     long unnecessary comments, also hi.
 ]]
+
+--[=[
+     Here's a multi-line comment with the equal
+     sign to prevent the double bracket strings [] 
+     inside the comment to break
+
+     debugPrint([[ hi ]])
+]=]
 ```
 
 ***
