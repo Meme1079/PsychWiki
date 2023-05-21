@@ -3,9 +3,12 @@
 # Psych-Wiki
 > **Note**: This not the official wiki of Psych Engine
 
-Welcome to the Psych Wiki! this is where we dedicate to add missing thing's from the official wiki! I made this repostory becuase the official wiki hasn't been updated for a while and thats why I made it. 
+Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-This wiki main thing to do is documenting functions/other with high quality. _(This man is lying to you)_
+# To-do List:
+- [x] Finish the shader wiki
+- [x] Add all the unmentioned callback
+- [ ] Finish the `Lua Script Examples` folder
 
 # Major Updates:
 ### 10.0 Version
@@ -72,10 +75,6 @@ This wiki main thing to do is documenting functions/other with high quality. _(T
 
 ### 1.0 Version
 - Added wiki source code
-
-# To-do List:
-- [x] Finish the shader wiki
-- [ ] Add all the unmentioned callback
 
 # Contributors:
 - [kingyomoma](https://github.com/kingyomoma) - for fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
