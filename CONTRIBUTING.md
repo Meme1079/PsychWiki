@@ -6,7 +6,8 @@ When contrubuting this repostory you must abide these rule and follow the format
 2. If you're adding a lua function that is in `FunkinLua.hx` please check if the lua function currently exist in the current Psych Engine. If it doesn't existed don't add it.
 3. The Lua version that Psych Engine is using is `5.1`. So please don't add lua functions above or below `5.1`. 
 4. If you're doing a useless pull request/issue I will mark it as `invalid`. I don't even know why you're trolling this repository there are less people to troll here.
-5. And Lastly follow the format shown below becuase i said so. _(such a good responce 😎)_
+5. If you're doing a pull request make sure it's in the `experimental-branch-thingy` branch for obvious reasons.
+6. And Lastly follow the format shown below becuase i said so. _(such a good responce 😎)_
 
 # Formating
 ## Defualt Function Format:
@@ -27,7 +28,6 @@ Example:
 ```lua
 -- stupid code of yours
 ```
-
 ````
 
 ## Defualt Group Format:
@@ -40,3 +40,4 @@ Example:
 ***
 
 # Another Group Function
+```
