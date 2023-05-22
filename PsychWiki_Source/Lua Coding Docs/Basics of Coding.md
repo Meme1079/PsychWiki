@@ -1,5 +1,5 @@
 # Introduction
-Lua is a lightweight, high-level, multi-paradigm scripting language that is mainly used in Psych Engine modding. Which is a better alternative to Haxe, the main language that FNF is built-in. Because you have to manually download the source code, modify the specific Haxe file, and then compile it. As for Lua just insert a Lua into any script folders to modify something and pressed "Restart Song" that's it; that's how simple it is. The current version of Lua that Haxe is using is <kbd>5.1</kbd>.
+Lua is a lightweight, high-level, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are global scope are defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few.
 
 ### Creating
 To create your own epic Lua file, copy and paste any <code>txt</code> file remove the contents inside of it. And replace the file format into <code>lua</code>; Example <code>test.lua</code>. Or even a better solution is to download any source-code editors like VSCode it's available in Windows, Mac, and Linux.
@@ -7,7 +7,9 @@ To create your own epic Lua file, copy and paste any <code>txt</code> file remov
 You can chose any other source-code editors if you don't like VSCode and that's fine. Anyways after you download VSCode or other epic source-code open it and press <kbd>Command + N</kbd> this will create a new file. Select the language type to use now select Lua becuase this is a Lua tutorial. Now add some code there if you're done press <kbd>Command + S</kbd> to save it and placed it somewhere inside the script(s) folder. Boom you've got yourself a Lua script it's that simple.
 
 ### Differences
-Lua in Psych Engine is minor different becuase of HaxeFlixel the main engine that FNF uses. Mainly when coding the code should located inside any of the Callback Templates like <code>onCreate()</code>, note that <code>variables</code> and <code>functions</code> can be placed outside of them. Printing also different instead of the <code>print()</code> function it uses <code>debugPrint()</code> function. This will appear at the top-left of the screen and will fade out in a couple of seconds.
+Lua in Psych Engine has some minor difference becuase of HaxeFlixel the main engine that Psych Engine uses. Mainly when coding the code that you made should be located inside any of the Callback Templates like <code>onCreate()</code>, <code>onUpdate()</code>, <code>onEvent()</code>, etc. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+
+Printing is also different instead of using the `print()` function it's replaced by `debugPrint()` function. The text from the function will appear at the top-left of the screen and will fade out in a couple of seconds.
 
 Example (Lua):
 ```lua
@@ -32,68 +34,64 @@ end
 ***
 
 # Variables
-Variables are an abstract manipulable storage space used for storing the variable's assigned value. It can be utilized at any location in the Lua file. The variable's value can be updated based on the condition or new value given by the variable.
+Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua file. The data from the variable can be updated based on assigning a new value from it.
 
-### Declaring & Calling
-To declare a variable assign the `scope` attribute of the variable this is optional to add, you can set to `global` or `local`; Default value: `global`. With the chosen `name` of your variable, name it what-ever you want. Followed by an equal <kbd>=</kbd> character with the specified `value` of the chosen variable.
-
-Multi-line variables can also be declared, each name and value attributes of the variable must be separated with comma <kbd>,</kbd> character. They must be equal to each-other if not it will return a `nil` value or an error.
-
-Syntax:
-```lua
-?scope name = value                -- single-line variables
-?scope names, ... = values, ...    -- multi-line variables
-```
-
-To call a variable assign the chosen `name` of your variable to get the current `value` of the variable. If you want to set the variable `value` with a new one, assign the name, equal <kbd>=</kbd> character, and set the new value.
+### Declaring
+To declare a variable assign the specfied `type` of the variable, it could be `global` or `local`; Default value: `global`. Followed by the `name` of the variable, name it what-ever you want. Followed by an assignment operator `=` to assign the specified `value` of the variable.
 
 Example:
 ```lua
-local foo = 0                      -- single-line
-local bar1, bar2, bar3 = 1, 2, 3   -- multi-line
-local bar4, bar5, bar6 = 4, 5      -- multi-line (missing)
+foo = true
+bar = false
 function onCreate()
-     debugPrint(foo)               -- will print '0'
-     debugPrint(bar1, bar2, bar3)  -- will print '1 2 3'
-     debugPrint(bar4, bar5, bar6)  -- will print '4 5 nil'
-
-     foo = 12                           -- setting single variable
-     bar4, bar5, bar6 = 543, 872, 923   -- setting multiple variables
-
-     debugPrint(foo)               -- will print '12'
-     debugPrint(bar4, bar5, bar6)  -- will print '543 872 923'
+     debugPrint(foo) -- will print 'true'
+     debugPrint(bar) -- will print 'false'
 end
 ```
 
-### Naming Variables Rules
-- Variable names can have alphanumeric <code>Aa12</code> and underscore <kbd>_</kbd> characters. Note that digital characters can't be placed at the start of the name only at the middle or at the end.
-- Variable names are case-sensitive so variable `a` and `A` are completely different to each-other.
-- Variable names can't be named after `keywords`, `operators`, `control structures`, etc.
+You can also assign multiple variables in one line. To do this each `name` and `value` of a variable must be separated by comma <kbd>,</kbd> character. The `name` and `value` should be equal to each-other if not it will return a `nil` value or an error.
 
-Reserved Keywords:
+Example:
+```lua
+bar1, bar2, bar3 = 1, 2, 3   -- multi-line
+bar4, bar5, bar6 = 4, 5      -- multi-line (missing)
+function onCreate()
+     debugPrint(bar1, bar2, bar3)  -- will print '1 2 3'
+     debugPrint(bar4, bar5, bar6)  -- will print '4 5 nil'
+end
+```
+
+### Naming Rules
+- Variable names can only have alphanumeric `Ab12` and underscore <kbd>_</kbd> characters.
+- Variable names cannot have numbers at the start of the name.
+- Variable names are case-sensative so variable `a` and `A` are completely different to each-other.
+- Variable names are recommended to have descriptive name like (`health`, `misses`, `alpha`) to make the code more readable.
+- Variable names cannot be named after Lua keywords.
+
+Reserved Lua Keywords:
 ```lua
 and       or       not       local     true       break    
 false     nil      if        else      elseif     goto    
-then      for      in        repeat    until      
+then      for      in        repeat    until      self
 while     do       return    end       function
 ```
 
 Example (Valid):
 ```lua
-var = 'string1'        -- a variable
-var1 = 'string2'       -- a variable with a number behind it
-var_name = false       -- a variable with a underscore
-_nameVar = true        -- a variable with a underscore at the start
-var2 = 'corn'..'lover' -- a variable with the operators as a value
+varname   = 'Hi'   -- a variable
+varName   = 'Hi'   -- a variable with a capitalize letter at the start
+var_name  = 'Hi'   -- a variable with an underscore '_' character
+_var_name = 'Hi'   -- a variable with an underscore '_' character at the start 
+VARNAME   = 'Hi'   -- a variable that is all capitalize letters
+varname2  = 'Hi'   -- a variable with a number
 ```
 
 Example (Invalid):
 ```lua
-if = 'string3'         -- a variable named with a keyword
->= = false             -- a variable named with a operator
-23 = 245               -- a variable named with a numeric value
-val 3 = nil            -- a variable with a space
-4val = 245             -- a variable with the number at the start
+1varName = 'Error' -- a variable with a number at the start
+var-name = 'Error' -- a variable with a minus '-' character
+var name = 'Error' -- a variable with a space ' ' character
+var$name = 'Error' -- a variable with a special '$' character
 ```
 
 ***
@@ -370,11 +368,11 @@ end
 For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of loops Generic loop or Numeric Loop.
 
 #### Numeric Loop
-Numeric Loop are a type of loop that use numeric values to increment or to decrement the value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 attributes when declaring a Numeric loop `exp1`, `exp2`, and an optional `exp3` attributes. <!-- Don't ask why they're called 'exp' -->
+Numeric Loop are a type of loop that use numeric values to increment or to decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 expressions when declaring a Numeric loop `initialize`, `condition`, and `iteration`.
 
-- `exp1` - The local variable for the numeric loop with the minimum number value to start.
-- `exp2` - The maximum number value of numeric loop to stop at.
-- `exp3` - An optional attribute, How much the value will be incremented `1` or decremented `-1`; Default value: `1`.
+- `initialize` - The initial variable for the loop to use.
+- `condition` - The condition of the loop to execute the code block.
+- `iteration` - An optional expression, The iteration of the loop you can either incremented `+` or decremented `-` the value; Defualt value: `incremented`.
 
 Example:
 ```lua
@@ -393,11 +391,11 @@ end
 ```
 
 #### Generic Loop
-Generic Loop are a type of loop that commonly uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 attributes when declaring a Generic loop `exp1`, `exp2`, and `iterate` attributes.
+Generic Loop are a type of loop that commonly uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 expressions when declaring a Generic loop `key`, `value`, and `iteration`.
 
-- `exp1` - The key name of the table, you can name how you want; Example: `key`.
-- `exp2` - The value name of the table, you can name how you want; Example: `value`.
-- `iterate` - The values to iterate from the loop can be either the pair functions or other.
+- `key` - The key values from the table, you can name how you want; Example: `key`.
+- `value` - The value types from the table, you can name how you want; Example: `value`.
+- `iterate` - The iteration for the loop to use, can be either the `pair` functions or `gmatch` function.
 
 Example:
 ```lua
