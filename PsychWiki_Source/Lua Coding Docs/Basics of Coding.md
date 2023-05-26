@@ -1,13 +1,13 @@
 # Introduction
-Lua is a lightweight, high-level, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are global scope are defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few.
+Lua is a lightweight, high-level, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few. The current version of Lua that Psych Engine is <kbd>5.1</kbd>.
 
 ### Creating
-To create your own epic Lua file, copy and paste any <code>txt</code> file remove the contents inside of it. And replace the file format into <code>lua</code>; Example <code>test.lua</code>. Or even a better solution is to download any source-code editors like VSCode it's available in Windows, Mac, and Linux.
+To create your own epic Lua file, copy and paste any `txt` file remove the contents inside of it. And replace the file format into `lua`; Example `test.lua`. Or even a better solution is to download any source-code editors like VSCode it's available in Windows, Mac, and Linux.
 
 You can chose any other source-code editors if you don't like VSCode and that's fine. Anyways after you download VSCode or other epic source-code open it and press <kbd>Command + N</kbd> this will create a new file. Select the language type to use now select Lua becuase this is a Lua tutorial. Now add some code there if you're done press <kbd>Command + S</kbd> to save it and placed it somewhere inside the script(s) folder. Boom you've got yourself a Lua script it's that simple.
 
 ### Differences
-Lua in Psych Engine has some minor difference becuase of HaxeFlixel the main engine that Psych Engine uses. Mainly when coding the code that you made should be located inside any of the Callback Templates like <code>onCreate()</code>, <code>onUpdate()</code>, <code>onEvent()</code>, etc. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+Lua in Psych Engine has some minor difference becuase of HaxeFlixel the main engine that Psych Engine uses. Mainly when coding the code that you made should be located inside any of the Callback Templates which are special functions that modify the game like `onCreate()`, `onUpdate()`, `onEvent()`, etc. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
 
 Printing is also different instead of using the `print()` function it's replaced by `debugPrint()` function. The text from the function will appear at the top-left of the screen and will fade out in a couple of seconds.
 
@@ -37,7 +37,7 @@ end
 Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua file. The data from the variable can be updated based on assigning a new value from it.
 
 ### Declaring
-To declare a variable assign the specfied `type` of the variable, it could be `global` or `local`; Default value: `global`. Followed by the `name` of the variable, name it what-ever you want. Followed by an assignment operator `=` to assign the specified `value` of the variable.
+To declare a variable assign the specified `type` of the variable, it could be a `global` type by adding nothing or a `local` type by declaring with the `local` keyword before the variable `name`. After you determine the variable type add the `name` of the variable, name it what-ever you want but there are rules when naming variables. Followed by an assignment operator <kbd>=</kbd> to assign the specified `value` of the variable.
 
 Example:
 ```lua
@@ -94,6 +94,41 @@ var name = 'Error' -- a variable with a space ' ' character
 var$name = 'Error' -- a variable with a special '$' character
 ```
 
+### Types
+They are two types of variables you can use that I mentioned before `Global` or `Local` variables. `Global` variables allows you to call them outside a Callback Templates or block, at any time throughout the program. But it's only recommended if you're getting a variable on another Callback Templates or block for data checking or something.
+
+Example:
+```lua
+function onCreate()
+     globalTextTag = 'myText' -- global variable
+
+     makeLuaText(globalTextTag, 'This is a dumb text!', nil, 0, 0) -- initialize the text
+     setTextSize(globalTextTag, 30)  -- sets the text size
+     addLuaText(globalTextTag)       -- adds the text in the game
+end
+
+function onBeatHit() -- checks every beat hit
+     if curBeat == 5 then -- checks if the 'curBeat' is equal to '5'
+          setProperty(globalTextTag..'.alpha', 0.5) -- sets the text opacity into '0.5'
+     end
+end
+```
+
+`Local` variables can only be called within a function or block; if you attempted to call them outside it will return a `nil` value becuase there only local within that function or block. They're more faster to call becuase they're integrated into the environment in which they are created.
+
+Example:
+```lua
+function onCreatePost()
+     local localOpacity = 0
+     setProperty('camHUD.alpha', localOpacity) -- sets the camera HUD elements opacity into '0'
+end
+
+function onSongStart()
+     debugPrint(localOpacity) -- will print 'nil'
+     doTweenAlpha('HUDTween', 'camHUD', 1, 3, 'linear') -- will tween the camera HUD elements to '1'
+end
+```
+
 ***
 
 # Data Types
@@ -143,7 +178,9 @@ Booleans, often shortened to Bools, are data types that can have two possible va
 Nil represents nothingness or non-existence of a value. This can be used for destroying a variable or table values if not used anymore. Or use conditional statements to check if the value is a `nil` or not.
 
 ### Tables
-Tables are a data structuring mechanism in Lua the only one in fact. They are associative arrays, which means they hold a collection of key or value pairs. Tables can be used for to store multiple values of any kind except for `nil` values. To construct a table, use curly-braces <kbd>{}</kbd> characters rather than bracket <kbd>[]</kbd> characters like most programming languages use. Tables can be constructed as an Array or a Dictionary.
+Tables are a data structuring mechanism in Lua the only one in fact. That can store multiple types values like `strings`, `numbers`, `booleans`, etc; except for `nil` values. To construct a table, use curly-braces <kbd>{}</kbd> characters rather than bracket <kbd>[]</kbd> characters like most programming languages use; each value inside a Table must be separated by a comma <kbd>,</kbd> character. Tables can be constructed as an Array or a Dictionary.
+
+> **Warning**: _Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at `1`._
 
 Example:
 ```lua
@@ -156,7 +193,7 @@ end
 ```
 
 #### Array
-Arrays are the default table syntax; each value within an Array must be separated by a comma <kbd>,</kbd> character. To read an Array, put a pair of brackets <kbd>[]</kbd> around the index position of a table. Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at `1`.
+Arrays are constructed in an ordered indexes starting from `1`. To read an Array, get the variable name followed by a pair of brackets <kbd>[]</kbd> with the provided index number of a table inside the brackets. To obtain the value from the table values.
 
 Example:
 ```lua
@@ -168,7 +205,9 @@ end
 ```
 
 #### Dictionary
-Dictionaries are ordered by key-value pairs; each value in a Dictionary must be defined by a key, which is the value's name followed by an equal <kbd>=</kbd> character with the given value at the end. With the key-value pair separated by a comma <kbd>,</kbd> character. To read a dictionary, add a dot <kbd>.</kbd> character followed by the key name; Example: <code>tableName.keyName</code>. Or add a pair of brackets <kbd>[]</kbd> and quote <kbd>''</kbd> or <kbd>""</kbd> characters around the name of the key; Example: <code>tableName['keyName']</code> or <code>tableName["keyName"]</code>.
+Dictionaries are constructed in an unordered key-value pairs. To construct a Dictionary just define the `key` which is the value's name followed by an equal <kbd>=</kbd> character with the given `value` at the end. 
+
+To read a Dictionary get the variable name followed by a dot <kbd>.</kbd> character with the `key` name to get the value; Example: `tableVar.key`. Or add a pair of brackets <kbd>[]</kbd> with the `key` name inside of it that is quoted by single <kbd>''</kbd> or double <kbd>""</kbd> characters like a `string`; Example: `tableVar.['key']` or `tableVar.["key"]`.
 
 Example:
 ```lua
@@ -201,9 +240,9 @@ end
 ```
 
 ### Parameters
-Parameters are a special type of variable declared inside the parenthesis <kbd>()</kbd> character. Their purpose is to add more functionality to the function when their is an <code>arguement</code> value. Which will be passed at the parameter that they're order in.
+Parameters are a special type of variable declared inside the parenthesis <kbd>()</kbd> character. Their purpose is to add more functionality to the function when their is an `arguement` value. Which will be passed at the parameter that they're order in.
 
-To add your own parameter just the any <code>name</code> you want like a <code>variable</code>. If you want to add more of them separate each of them  with a comma <kbd>,</kbd> character.
+To add your own parameter just the any `name` you want like a `variable`. If you want to add more of them separate each of them  with a comma <kbd>,</kbd> character.
 
 Example:
 ```lua
@@ -246,7 +285,7 @@ end
 # Comments
 Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. And for multi-line comment add double brackets <kbd>[[]]</kbd> characters.
 
-If you're commenting a double brackets <kbd>[[]]</kbd> characters from a `string` or a `comment`. Add an equal `=` character between the double brackets <kbd>[[]]</kbd> characters to prevent the comment to break. You can even extend the equal `=` character if you're commenting on equal brackets `[=[]=]`.
+If you're commenting a double brackets <kbd>[[]]</kbd> characters from a `string` or a `comment`. Add an equal `=` character between the double brackets <kbd>[[]]</kbd> characters to prevent the comment to break.
 
 Example:
 ```lua
@@ -309,7 +348,7 @@ Miscellaneous operators only features two operators the Length and Concatenate o
 |Operators|Description|Example|
 |---------|-----------|-------|
 | `#` | Length operator, Checks the maximum length size of a `string` or `table`. | `#('sussy')`; Returns `5`. |
-| `..` |Concatenate operator, Merges multiple <code>string</code> or <code>numbers</code> together. | `'snow'..'ball'`; Returns `snowball`. | 
+| `..` |Concatenate operator, Merges multiple `string` or `numbers` together. | `'snow'..'ball'`; Returns `snowball`. | 
 
 ***
 
@@ -437,42 +476,15 @@ function onCreate()
 end
 ```
 
-### Do Statement <!-- Useless information but okay; I don't where to place this lol -->
-Do statement has no specified conditions for the code block to execute. So it will just run perfectly fine, they are only serve for scoping variables or functions.
-
-***
-
-# Scope
-Scope in programming determines whether a variable or function can be accessible outside that code block. They can be determine by either setting them into <code>global</code> or <code>local</code> scope. Declare them behind the <code>name</code> of the variable or <code>function</code> keyword for functions.
-
-Global scope are the most common and the defualt scope for variables and functions. They can be called anywhere inside the Lua script or outside the Lua script with functions. Local scope are more faster to call than Global scope, they can be only call inside the specific scope of the code block.
-
-Example:
-```lua
-function onCreate()
-     do   -- do block
-          myGlobalVar = false      -- Global
-          debugPrint(myGlobalVar)  -- will print 'false'
-     end
-     do   -- do block
-          local myLocalVar = true  -- Local
-          debugPrint(myLocalVar)   -- will print 'true'
-     end
-     
-     debugPrint(myGlobalVar) -- will print 'false'
-     debugPrint(myLocalVar)  -- will print 'nil'
-end
-```
-
 ***
 
 # Modules
 Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts.
 
 ### Creating
-To create your own custom module make a separate Lua script and placed the location of the script. Let's just say you placed them inside <code>mods/scripts/modules</code> folder and you named it <code>myGamingModules.lua</code>. Now inside of it declare a local table variable with the exact name of the Lua script module with no value(s) inside of it; Example: <code>local myGamingModules = {}</code>.
+To create your own custom module make a separate Lua script and placed the location of the script. Let's just say you placed them inside `mods/scripts/modules` folder and you named it `myGamingModules.lua`. Now inside of it declare a local table variable with the exact name of the Lua script module with no value(s) inside of it; Example: `local myGamingModules = {}`.
 
-Before you declare your functions or variables each name should have the <code>local</code> table variable name followed by the dot <kbd>.</kbd> character. And at the end of the Lua script module should have the <code>return</code> statement on the <code>local</code> table variable name to export the modules to other Lua script; Example: <code>return myGamingModules</code>. (I Think)
+Before you declare your functions or variables each name should have the `local` table variable name followed by the dot <kbd>.</kbd> character. And at the end of the Lua script module should have the `return` statement on the `local` table variable name to export the modules to other Lua script; Example: `return myGamingModules`. (I Think)
 
 > **Warning**: _DO NOT DECLARE `LOCAL` FUNCTIONS OR VARIABLES INSIDE THE MODULES BECUASE IT WILL NOT EXPORT THEM AND MIGHT CAUSE AN ERROR, IT MUST BE A `GLOBAL` ONE OKAY!?_
 
@@ -505,9 +517,9 @@ return myGamingModules
 ```
 
 ### require(moduleName:String)
-Requires the module name and <ins>imports the functions or variables</ins>. To declare the <code>require</code> function either use the <ins>function itself or use it inside the value of the variable to change the name of it</ins>. This is the only few functions that you can <ins>add without the parenthesis</ins> <kbd>()</kbd> character that I only trust.
+Requires the module name and <ins>imports the functions or variables</ins>. To declare the `require` function either use the <ins>function itself or use it inside the value of the variable to change the name of it</ins>. This is the only few functions that you can <ins>add without the parenthesis</ins> <kbd>()</kbd> character that I only trust.
 
-- `moduleName` - The location of the Lua script module file to be used; Starts outside the <code>mods</code> folder.
+- `moduleName` - The location of the Lua script module file to be used; Starts outside the `mods` folder.
 
 Syntaxes:
 ```lua
@@ -515,7 +527,7 @@ require 'mods/scripts/modules/myGamingModules'                     -- uses the d
 local moduleName = require 'mods/scripts/modules/myGamingModules'  -- uses a custom name
 ```
 
-To call the <code>require</code> function, get the specified module name to use; if it's contained inside a variable, <ins>get the variable name if not get the module name</ins>. Add a dot <kbd>.</kbd> character followed by the <ins>function or variable name inside the Lua module file</ins>.
+To call the `require` function, get the specified module name to use; if it's contained inside a variable, <ins>get the variable name if not get the module name</ins>. Add a dot <kbd>.</kbd> character followed by the <ins>function or variable name inside the Lua module file</ins>.
 
 Example:
 ```lua
@@ -533,24 +545,24 @@ end
 
 # Predefined Functions/Variables
 ### type(value:Dynamic)
-Gets the <ins>specific value type of the argument</ins>. Can be used to check the value type inside the conditional statements; Returns either: <code>string</code>, <code>boolean</code>, <code>number</code>, <code>table</code>, <code>function</code>.
+Gets the <ins>specific value type of the argument</ins>. Can be used to check the value type inside the conditional statements; Returns either: `string`, `boolean`, `number`, `table`, `function`.
 
-- <code>value</code> - The argument value to be check.
+- `value` - The argument value to be check.
 
 ### tostring(numboo:Dynamic)
-Converts any <ins>number or booleans</ins> into a real <code>string</code> value.
+Converts any <ins>number or booleans</ins> into a real `string` value.
 
-- <code>numboo</code> - The specified value to be converted.
+- `numboo` - The specified value to be converted.
 
 ### tonumber(num:String)
 Converts any <ins>number inside of a string</ins> into a real number.
 
-- <code>num</code> - The number to be converted.
+- `num` - The number to be converted.
 
 ### load(chunk:String)
-Converts the code inside the string into real Lua code; Returns a <code>function</code>.
+Converts the code inside the string into real Lua code; Returns a `function`.
 
-- <code>chunk</code> - The code to be converted.
+- `chunk` - The code to be converted.
 
 Example:
 ```lua
@@ -564,18 +576,18 @@ end
 ```
 
 ### dofile(path:String)
-Imports <ins>any <code>global</code> variables or functions</ins> on other Lua files.
+Imports <ins>any `global` variables or functions</ins> on other Lua files.
 
-- <code>path</code> - The specified location of the Lua file to be used.
+- `path` - The specified location of the Lua file to be used.
 
-Example: _(Path: <code>PsychEngine/mods/scripts/modules/scriptFile.lua</code>)_
+Example: _(Path: `PsychEngine/mods/scripts/modules/scriptFile.lua`)_
 ```lua
 local myVar0 = nil  -- THIS WILL NOT WORK IF IT'S LOCAL!!!!!
 myVar1 = 163        -- will work
 myVar2 = true       -- will also work
 ```
 
-Example: _(Path: <code>PsychEngine/mods/scripts/myGamingFile.lua</code>)_
+Example: _(Path: `PsychEngine/mods/scripts/myGamingFile.lua`)_
 ```lua
 dofile('PsychEngine/mods/scripts/modules/scriptFile.lua')
 function onCreate()
@@ -586,7 +598,7 @@ end
 ```
 
 ### pairs(tab:Table)
-Returns every <ins>key-value pairs</ins> inside a table and is <ins>typically used in table dictionaries</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with <code>ipairs()</code> functions.
+Returns every <ins>key-value pairs</ins> inside a table and is <ins>typically used in table dictionaries</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with `ipairs()` functions.
 
 Example:
 ```lua
@@ -608,7 +620,7 @@ end
 ```
 
 ### ipairs(tab:Table)
-Returns every <ins>index-value pairs</ins> inside a table and is <ins>typically used in table arrays or with numeric keys within a table dictionary</ins>. If the table value has <code>nil</code> it will <ins>stop executing the loop there</ins>.
+Returns every <ins>index-value pairs</ins> inside a table and is <ins>typically used in table arrays or with numeric keys within a table dictionary</ins>. If the table value has `nil` it will <ins>stop executing the loop there</ins>.
 
 Example:
 ```lua
@@ -632,7 +644,7 @@ end
 ***
 
 ### _G
-The Global Variable is a special type of variable specifically a table dictionary. That gets every <code>global</code> variable and are saved inside the variable, it's defined with the <code>_G</code> keyword. Be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa.
+The Global Variable is a special type of variable specifically a table dictionary. That gets every `global` variable and are saved inside the variable, it's defined with the `_G` keyword. Be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa.
 
 You can use this for getting multiple global variables from a loop and modify the values easily. The original intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
 
