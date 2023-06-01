@@ -152,6 +152,40 @@ function onCreate()
 end
 ```
 
+#### Escape Characters
+Escape characters are special characters used within a string. They are an alternate interpretation of the characters in the following character sequence. It can be interpreted as a single <kbd>''</kbd>, double <kbd>""</kbd> quotes, or backslash <kbd>\\</kbd> character, they are constructed by backslash <kbd>\\</kbd> character with the specified character to useafter that; Example: <kbd>\\'</kbd>. And there is a reason for their existence, it's to avoid an error from occurring.
+
+So, lets assume you constructed a string that is surrounded by double-quote <kbd>""</kbd> characters and you want to add a double-quote inside the string, so you inserted the double-quote <kbd>""</kbd> and itmresulted in an error. Because Lua thinks the string would finish there due to the inserted double-quote <kbd>""</kbd> character, it created an error. As a result, escape characters exist to solve this issue.
+
+Example:
+```lua
+function onCreate()
+     local textString1 = 'i can smell the "bitch" on you!!' 
+     local textString2 = "that's racist i feel like"
+
+     debugPrint(textString1) -- will print 'i can smell the "bitch" on you!!'
+     debugPrint(textString2) -- will print 'that's racist i feel like'
+
+     local textString3 = 'Don\'t press \'Alt + F4\'' -- single quote
+     local textString4 = "dead \"(in a cool way)\""  -- double quote
+     local textString5 = 'C:\\Windows\\System32'     -- backslash
+
+     debugPrint(textString3) -- will print 'Don't press 'Alt + F4''
+     debugPrint(textString4) -- will print "dead "(in a cool way)""
+     debugPrint(textString5) -- will print 'C:\Windows\System32'
+end
+```
+
+- `\'` - Single-quote Character
+- `\"` - Double-quote Character
+- `\\` - Backslash Character
+- `\[` - Left Bracket Character
+- `\]` - Right Bracket Character
+- `\n` - New Line
+- `\r` - Carriage Return
+- `\t` - Horizontal Tab
+- `\v` - Vertical tab 
+
 ### Numbers
 Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Float or Int; Float numbers support decimal numbers, whilst Int numbers only uses whole numbers.
 
@@ -311,7 +345,7 @@ Example:
 Operators are unique symbols that are used to carry out operations on operands. For the conditional statements to use to determine if the value is `true` or `false` before executing the code block. They can be represented as Arithmetic, Relational, Logical, and Miscellaneous.
 
 ### Arithmetic
-Arithmetic operators are mathematical operators used to perform calculations to numeric values.
+Arithmetic operators are mathematical operators used to perform calculations for numeric values.
 
 - `+` - Addition
 - `-` - Subtraction
@@ -352,53 +386,55 @@ Miscellaneous operators only features two operators the Length and Concatenate o
 
 ***
 
-# Control Structures
-Control Structures are a block code which analyzes values and decide whether to execute the code or not. Also i'm only mentioning the `for` loop statement and not `while`, `repeat` loop statements because no one ever uses these 2 loops.
+# Control Statements
+Control Statements allows you to control the execution of other statements. Which analyzes the statements condition and decide whether to execute the code if it's `true` or not.
 
-### If Else Statements
+### Conditional Statements
 These are a type of control structures that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statements.
 
+Conditional Statements are a type of Control Statements that whether or not to execute the block code return `true`. They are the most common control structures to use; Lua only has 3 Conditional Statements which are `If`, `Else`, and `ElseIf` Statements.
+
 #### If Statement
-If statement checks if the condition of the statement is `true`. It's define with the `if` keyword and the specified condition to execute the code block followed by the `then` keyword.
+If Statement checks the condition if it's `true` or not. They are define with the `if` keyword followed by the specified condition to execute the statement with the `then` keyword.
 
 Example:
 ```lua
-local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+local getWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 6 then -- checks if the day is 'Friday'
+     if getWeekDay == 6 then -- checks if the current day is 'Friday'
           debugPrint('Day: Friday')
      end
 end
 ```
 
 #### Else Statement
-Else statement checks if the condition of the statement fails then this function will be called. It's defined with `else` that's it nothing else <!-- Comedy genius --> to say about. This statement should be placed under the `if` or `elseif` statements, example shown below.
+Else statement checks if the condition fails then this statement will be executed. They are define with the `else` keyword at the bottom of the If or ElseIf Statement that's it nothing else <!-- Comedy genius --> to say about it.
 
 Example:
 ```lua
-local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+local getWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 6 then -- checks if the day is 'Friday'
+     if getWeekDay == 6 then -- checks if the current day is 'Friday'
           debugPrint('Day: Friday')
-     else                        -- checks if the day is not 'Friday'
+     else -- if the condition returns 'false'
           debugPrint('Not Friday')
      end
 end
 ```
 
-#### ElseIf statement
-ElseIf statement checks is an alternative condition for the `if` statement, if the `if` or another `elseif` condition fails then this statement will be called. It's define with the `elseif` keyword with the same syntax for the `if` statement.
+#### ElseIf Statement
+Elseif Statement is an alternative condition if the other condition returns `false`. They are define with the `elseif` keyword with the new condition to execute a new condition followed by the `then` keyword.
 
 Example:
 ```lua
 local getDateWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 2 then     -- checks if the day is 'Monday'
-          debugPrint('Day: Monday')
-     elseif getDateWeekDay == 4 then -- checks if the day is 'Wednesday'
-          debugPrint('Day: Wednesday')
-     elseif getDateWeekDay == 6 then -- checks if the day is 'Friday'
-          debugPrint('Day: Friday')
+     if getDateWeekDay == 7 then     -- checks if the day is 'Saturday'
+          debugPrint('Day: Saturday')
+     elseif getDateWeekDay == 1 then -- checks if the day is 'Sunday'
+          debugPrint('Day: Sunday')
+     else                            -- checks if both of the condition fails
+          debugPrint('Day: Weekdays')
      end
 end
 ```
@@ -411,7 +447,7 @@ Numeric Loop are a type of loop that use numeric values to increment or to decre
 
 - `initialize` - The initial variable for the loop to use.
 - `condition` - The condition of the loop to execute the code block.
-- `iteration` - An optional expression, The iteration of the loop you can either incremented `+` or decremented `-` the value; Defualt value: `incremented`.
+- `iteration` - An optional expression, The iteration of the loop you can either incremented <kbd>+</kbd> or decremented <kbd>-</kbd> the value; Defualt value: `incremented`.
 
 Example:
 ```lua

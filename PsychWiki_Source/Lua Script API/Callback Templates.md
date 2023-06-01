@@ -93,7 +93,7 @@ end
 ```
 
 Will print:
-```txt
+```terminal
 Counter Num: 0 | Three
 Counter Num: 1 | Two
 Counter Num: 2 | One

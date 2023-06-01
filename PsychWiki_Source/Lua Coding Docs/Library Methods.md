@@ -48,7 +48,24 @@ Converts any <ins>ASCII characters</ins> into alphabetical characters; Returns a
 
 - `byte` - An infinite parameter, The ASCII character to be converted.
 
-Example: `string.byte(97)`; Will print `a`. _(This function doesn't support a string shortcut!)_
+Example: `string.byte(97)`; Will print `a`. _(This function doesn't support the string shortcut!)_
+
+### string.rep(str:String, repeat:Int)
+Repeats the string depending on <ins>how many times you set it</ins>.
+
+- `str` - The string variable to be repeated.
+- `repeat` - How many times the string will be repeated.
+
+Example: `('repated '):rep(3)`; Will print `repated repated repated `.
+
+### string.reverse(str:String)
+Reverses the string, <ins>that's it</ins>.
+
+- `str` - The string variable to be reverse.
+
+Example: `('based'):reverse()`; Will print `desab`.
+
+***
 
 ### string.format(pattern:String, #str:String)
 Formats the string from the <ins>specified pattern type</ins>.
@@ -134,26 +151,21 @@ Checks if the <ins>specific portion of the string matches the pattern</ins>; Ret
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
-- `startPos` - An optional parameter, The starting position on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Defualt value: `1`.
 
 Example:
 ```lua
-function onCreatePost()
-     setTextString('scoreTxt', 'Score: 0 | Misses: 0 | Accuracy: ?')
-end
+function onCreate()
+     local textString1 = 'Find a match!'
+     debugPrint(textString1:match('match'))   -- will print 'match'
 
-local scorePattern1 = '%d+%p+%d+%%'  -- Checks the accuracy is a float | '%d+%p+%d+%%' > '99.45%'
-local scorePattern2 = '%d+%%'        -- Checks the accuracy is a int   | '%d+%%' > '100%'
-function onUpdateScore(miss)
-     local scoreTxt = getTextString('scoreTxt')
-     local scoreTxtDisplay1 = 'Score: '..getScore()..' | Misses: '..miss..' | Accuracy: '
-     local scoreTxtDisplay2 = (scoreTxt:match(scorePattern1) or scoreTxt:match(scorePattern2))
-     setTextString('scoreTxt', scoreTxtDisplay1..scoreTxtDisplay2..' ['..ratingFC..']')
+     local textString2 = 'I like the number 38453 and 96335'
+     debugPrint(textString2:match('%d+', 25)) -- will print '96335'
 end
 ```
 
 ### string.gmatch(str:String, pattern:String)
-Works exactly the same as `string.match()` function, but it <ins>returns several matching patterns</ins> that it could find in a generic `for` loop. If not used inside of that loop; Will print a <ins>function with the first matching pattern value</ins>.
+Checks <ins>globally</ins> if the <ins>specific portion of the string matches the pattern</ins>; This function should be use in a Generic `for` loop, as shown below. If not used in a loop; Will return a function.
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
@@ -175,117 +187,6 @@ function onCreate()
      debugPrint(dictionarySplit(dictionaryString).isBad)  -- will print 'false'
 end
 ```
-
-### string.rep(str:String, repeat:Int)
-Repeats the string depending on <ins>how many times you set it</ins>.
-
-- `str` - The string variable to be repeated.
-- `repeat` - How many times the string will be repeated.
-
-Example: `('repated '):rep(3)`; Will print `repated repated repated `.
-
-### string.reverse(str:String)
-Reverses the string, <ins>that's it</ins>.
-
-- `str` - The string variable to be reverse.
-
-Example: `('based'):reverse()`; Will print `desab`.
-
-***
-
-# String Patterns
-### Character Classes
-Character classes is used to <ins>represent a group of specific characters</ins> that can be used by the pattern to <ins>match the desired character</ins>. For example, the character class `%p` matches <ins>any punctuation characters</ins> so we can use this for. To <ins>manipulate the punctuation characters to whatever we want</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textString = '!oe[uiq]er/vfqw.lufv>iuhdv^n@q#erf;qerckqebkj'
-     debugPrint(textString:gsub('%p', '')) -- will print 'oeuiqervfqwlufviuhdvnqerfqerckqebkj'
-end
-```
-
-> **Warning**: _Character classes are case-sensitive, therefore if any of the characters are upper-case, it will behave in the opposite manner; Example: `%D` will only matches non-digit characters._
-
-|Character|Description|Match Pattern|
-|---------|-----------|-----|
-| `%a` | Any Letter Characters | `AaBbCcDd` |
-| `%l` | Any Lower-case Characters | `aabbccdd` |
-| `%u` | Any Upper-case Characters | `AABBCCDD` |
-| `%d` | Any Digit Characters | `01234567` |
-| `%w` | Any Alphanumeric Characters | `0123AaBb` |
-| `%p` | Any Punctuation Characters | `!@#$%;,.` |
-| `%x` | Any Hexadecimal Characters | `0123456789AaBbCcDdEeFf` |
-| `%s` | Any Space Characters | Space |
-| `%c` | Any Control Characters | Carriage Return, Escape, Delete, etc |
-| `%z` | Any Chracters representing zero. | `0` |
-
-### Magic Characters
-Magic Characters are modifiers for character classes or patterns that <ins>expand their meaning</ins>. For instance, the character `+` will be <ins>assigned the character class with the longest chain it can discover</ins>. Another example is the characters `^` and `$`; `^` will receive the <ins>beginning pattern</ins> while `$` will receive the <ins>ending pattern</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textPattern1 = '%d+'         -- will get the longest chain of digit characters
-     local textPattern2 = '^Matches'    -- will get 'Matches' pattern at the start
-     local textPattern3 = 'doin?'       -- will get 'doin?' pattern at the end
-     local textPattern4 = 'exam[ples]+' -- will get each set inside of 'ples' in each characters
-
-     debugPrint(('Score: 18242'):match(textPattern1))          -- will print '18242'
-     debugPrint(('Matches some potatoes'):match(textPattern2)) -- will print 'Matches'
-     debugPrint(('Watcha doin?'):match(textPattern3))          -- will print 'doin?'
-
-     debugPrint(('examp'):match(textPattern4)) -- will print 'examp'
-     debugPrint(('exam'):match(textPattern4))  -- will print 'nil'
-end
-```
-
-|Character|Description|
-|---------|-----------|
-| `.` | Any type of characters |
-| `%` | Escape Characters for magic characters. |
-| `*` | Matches the repetitions of characters <ins>zero or more times</ins> and will match the <ins>longest possible chain</ins>. |
-| `+` | Matches the repetitions of characters <ins>one or more times</ins> and will match the <ins>longest possible chain</ins>. |
-| `-` | Matches the repetitions of characters <ins>zero or more times</ins> and will match the <ins>shortest possible chain</ins>. |
-| `?` | Matches zero or one occurrences of a character inside the class. |
-| `^` | The starting of the pattern, will forces the pattern to match it at the start of the string. |
-| `$` | The ending of the pattern, will forces the pattern to match it at the end of the string. |
-| `()` | Captures the specific string pattern to match. |
-| `[]` | The specific set of character classes to match. |
-
-### Escape Characters
-Escape characters are <ins>special characters used within a string</ins>. They are an <ins>alternate interpretation of the characters in the following character sequence</ins>. It can be interpreted as a single `''`, double `""` quotes, or backslash `\` character, they are constructed by backslash `\` character with the <ins>specified character to useafter that</ins>; Example: `\'`. And there is a reason for their existence, it's to avoid an error from occurring.
-
-So, lets assume you <ins>constructed a string that is surrounded by double-quote</ins> `""` <ins>characters</ins> and you want to add a double-quote inside the string, so you inserted the double-quote `""` and it <ins>resulted in an error</ins>. Because Lua thinks the string <ins>would finish there due to the inserted double-quote</ins> `""` <ins>character</ins>, it created an error. As a result, escape characters exist <ins>to solve this issue</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textString1 = 'i can smell the "bitch" on you!!' 
-     local textString2 = "that's racist i feel like"
-
-     debugPrint(textString1) -- will print 'i can smell the "bitch" on you!!'
-     debugPrint(textString2) -- will print 'that's racist i feel like'
-
-     local textString3 = 'Don\'t press \'Alt + F4\'' -- single quote
-     local textString4 = "dead \"(in a cool way)\""  -- double quote
-     local textString5 = 'C:\\Windows\\System32'     -- backslash
-
-     debugPrint(textString3) -- will print 'Don't press 'Alt + F4''
-     debugPrint(textString4) -- will print "dead "(in a cool way)""
-     debugPrint(textString5) -- will print 'C:\Windows\System32'
-end
-```
-
-- `\'` - Single-quote Character
-- `\"` - Double-quote Character
-- `\\` - Backslash Character
-- `\[` - Left Bracket Character
-- `\]` - Right Bracket Character
-- `\n` - New Line
-- `\r` - Carriage Return
-- `\t` - Horizontal Tab
-- `\v` - Vertical tab 
 
 ***
 
@@ -476,7 +377,7 @@ Changes the pseudo-random number seed for the `math.random()` function. If you w
 Example:
 ```lua
 local function generateRNG(seed)
-     local seed = seed or 1 -- If the value is nil; Will print 1
+     local seed = seed or 1 -- If the value is nil; will print '1'
      local RNGTab = {}
 
      math.randomseed(seed)

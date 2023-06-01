@@ -151,6 +151,67 @@
 
 ***
 
+# Strum Receptor/Character Variables
+### Player Strum Positions
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value.
+- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value.
+- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value.
+- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value.
+- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
+- `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums.members', 0, 'x')`
+- `defaultPlayerStrumX1` - `getPropertyFromGroup('playerStrums.members', 1, 'x')`
+- `defaultPlayerStrumX2` - `getPropertyFromGroup('playerStrums.members', 2, 'x')`
+- `defaultPlayerStrumX3` - `getPropertyFromGroup('playerStrums.members', 3, 'x')`
+- `defaultPlayerStrumY0` - `getPropertyFromGroup('playerStrums.members', 0, 'y')`
+- `defaultPlayerStrumY1` - `getPropertyFromGroup('playerStrums.members', 1, 'y')`
+- `defaultPlayerStrumY2` - `getPropertyFromGroup('playerStrums.members', 2, 'y')`
+- `defaultPlayerStrumY3` - `getPropertyFromGroup('playerStrums.members', 3, 'y')`
+
+</p>
+</details>
+
+### Opponent Strum Positions
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value.
+- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value.
+- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value.
+- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value.
+- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
+- `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums.members', 0, 'x')`
+- `defaultOpponentStrumX1` - `getPropertyFromGroup('opponentStrums.members', 1, 'x')`
+- `defaultOpponentStrumX2` - `getPropertyFromGroup('opponentStrums.members', 2, 'x')`
+- `defaultOpponentStrumX3` - `getPropertyFromGroup('opponentStrums.members', 3, 'x')`
+- `defaultOpponentStrumY0` - `getPropertyFromGroup('opponentStrums.members', 0, 'y')`
+- `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
+- `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
+- `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
+
+</p>
+</details>
+
+### Character Strum Positions
+- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
+- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
+- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
+- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
+- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
+- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
+
+***
+
 # Miscellaneous Variables
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
@@ -173,61 +234,3 @@
 
 </p>
 </details>
-
-***
-
-# Strum Receptor/Character Variables
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value.
-- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value.
-- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value.
-- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value.
-- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value.
-
-&nbsp; <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
-
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value.
-- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value.
-- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value.
-- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value.
-- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value.
-
-<details><summary><b>All Shortcuted to:</b></summary>
-<p>
-
-- `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums.members', 0, 'x')`
-- `defaultPlayerStrumX1` - `getPropertyFromGroup('playerStrums.members', 1, 'x')`
-- `defaultPlayerStrumX2` - `getPropertyFromGroup('playerStrums.members', 2, 'x')`
-- `defaultPlayerStrumX3` - `getPropertyFromGroup('playerStrums.members', 3, 'x')`
-- `defaultPlayerStrumY0` - `getPropertyFromGroup('playerStrums.members', 0, 'y')`
-- `defaultPlayerStrumY1` - `getPropertyFromGroup('playerStrums.members', 1, 'y')`
-- `defaultPlayerStrumY2` - `getPropertyFromGroup('playerStrums.members', 2, 'y')`
-- `defaultPlayerStrumY3` - `getPropertyFromGroup('playerStrums.members', 3, 'y')`
-
-&nbsp; <!-- AHHHHHHHH SPAAAAAAACCEEEEEEE!!!!!!! -->
-
-- `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums.members', 0, 'x')`
-- `defaultOpponentStrumX1` - `getPropertyFromGroup('opponentStrums.members', 1, 'x')`
-- `defaultOpponentStrumX2` - `getPropertyFromGroup('opponentStrums.members', 2, 'x')`
-- `defaultOpponentStrumX3` - `getPropertyFromGroup('opponentStrums.members', 3, 'x')`
-- `defaultOpponentStrumY0` - `getPropertyFromGroup('opponentStrums.members', 0, 'y')`
-- `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
-- `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
-- `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
-
-</p>
-</details>
-
-***
-
-- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
-- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
-- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
-- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
-- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
-- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
