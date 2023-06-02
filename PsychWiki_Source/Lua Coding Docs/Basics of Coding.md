@@ -37,7 +37,7 @@ end
 Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua file. The data from the variable can be updated based on assigning a new value from it.
 
 ### Declaring
-To declare a variable assign the specified `type` of the variable, it could be a `global` type by adding nothing or a `local` type by declaring with the `local` keyword before the variable `name`. After you determine the variable type add the `name` of the variable, name it what-ever you want but there are rules when naming variables. Followed by an assignment operator <kbd>=</kbd> to assign the specified `value` of the variable.
+To declare a variable assign the specified `type` of the variable, it could be a `global` type by adding nothing or a `local` type by declaring with the `local` keyword before the variable `name`. After you determine the variable type add the `name` of the variable, name it what-ever you want but there are rules when naming variables. Followed by an equal <kbd>=</kbd> character to assign the specified `value` of the variable.
 
 Example:
 ```lua
