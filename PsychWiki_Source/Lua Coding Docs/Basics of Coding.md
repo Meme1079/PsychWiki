@@ -179,8 +179,6 @@ end
 - `\'` - Single-quote Character
 - `\"` - Double-quote Character
 - `\\` - Backslash Character
-- `\[` - Left Bracket Character
-- `\]` - Right Bracket Character
 - `\n` - New Line
 - `\r` - Carriage Return
 - `\t` - Horizontal Tab
@@ -317,9 +315,9 @@ end
 ***
 
 # Comments
-Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. And for multi-line comment add double brackets <kbd>[[]]</kbd> characters.
+Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters.
 
-If you're commenting a double brackets <kbd>[[]]</kbd> characters from a `string` or a `comment`. Add an equal `=` character between the double brackets <kbd>[[]]</kbd> characters to prevent the comment to break.
+You can also nest multi-line comments just add an equal <kbd>=</kbd> character between the double brackets <kbd>[[]]</kbd> characters of the comment; Example: `--[=[]=]`. The amount of equal <kbd>=</kbd> character determines how many levels of nesting will be created.
 
 Example:
 ```lua
