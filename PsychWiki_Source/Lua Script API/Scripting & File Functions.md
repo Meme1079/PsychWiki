@@ -81,15 +81,15 @@ Deletes the specific file literally.
 
 - `path` - The location of the file to be deleted.
 
-***
-
-# Checking File Functions
 ### checkFileExists(filename:String, ?absolute:Bool = false)
 Checks if the file exist or not.
 
 - `filename` - The location of the Lua script file to be used.
 - `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
 
+***
+
+# Lua Exists Functions
 ### luaSpriteExists(tag:String)
 Checks if the <ins>sprite object exist</ins> inside the stage or script; Returns a `boolean`.
 
@@ -245,7 +245,7 @@ Gets the current <ins>data field current value</ins>; Returns the data field val
 
 *** 
 
-# Built-In String Functions
+# Psych String Functions
 ### stringStartsWith(str:String, start:String)
 Checks the <ins>specific starting section</ins> of the string; Returns a `boolean`.
 
@@ -273,7 +273,7 @@ Removes any <ins>whitspace characters from the string</ins>. Or you could just u
 
 ***
 
-# Random Functions
+# Randomization Functions
 ### getRandomInt(min:Int, max:Int)
 Randomizes the <ins>Int number</ins> from min to max values.
 

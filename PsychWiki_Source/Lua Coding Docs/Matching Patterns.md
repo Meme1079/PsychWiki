@@ -40,15 +40,15 @@ end
 # Meta Characters
 
 ### Quantifiers
-
 #### Plus
 #### Minus
 #### Asterisk
+
+### Boundary matcher
 #### Caret
 #### Dollar Sign
 
 ### Character Classes
-
 #### Set
 #### Set Negation
 #### Set Range
