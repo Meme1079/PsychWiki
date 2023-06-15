@@ -9,8 +9,8 @@ The `0.7.0` update of Psych Engine changed a lot of things about how the game wo
 - The `variable` arguements should have `data.` followed by the variable name; Example: `data.variableNameHere`.
 
 Example:
-- Setters: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`.
-- Getters: `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`.
+- Setters: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`
+- Getters: `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`
 
 ### camFollowPos
 This is removed in this update, instead use `camGame.scroll`; Example: `getProperty('camGame.scroll.x')`.

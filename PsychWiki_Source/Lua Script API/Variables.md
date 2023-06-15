@@ -213,24 +213,31 @@
 ***
 
 # Miscellaneous Variables
-- `cameraX` - Returns the current x position of camera.
-- `cameraY` - Returns the current y position of camera.
-- `screenWidth` - Returns the current width of the window screen; default value: `720`.
-- `screenHeight` - Returns the current width of the window screen; default value: `1280`.
 - `boyfriendName` - Checks the current boyfriend character.
 - `dadName` - Checks the current dad character.
 - `gfName` - Checks the current girlfriend character.
+- `screenWidth` - Returns the current width of the winow screen; default value: `720`.
+- `screenHeight` - Returns the current width of the window screen; default value: `1280`.
+- `cameraX` - Returns the current x position of camera.
+- `cameraY` - Returns the current y position of camera.
+
 
 <details><summary><b>All Shortcuted to:</b></summary>
 <p>
 
-- `cameraX` - `getProperty('camFollowPos.x')`
-- `cameraY` - `getProperty('camFollowPos.y')`
-- `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
-- `screenHeight` - `getPropertyFromClass('FlxG', 'heigth')`
+> 
+
 - `boyfriendName` - `getProperty('SONG.player1')`
 - `dadName` - `getProperty('SONG.player2')`
 - `gfName` - `getProperty('SONG.gfVersion')`
+- `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
+- `screenHeight` - `getPropertyFromClass('FlxG', 'heigth')`
+- `cameraX` &darr;
+     - Version `0.7.0` or Above - `getProperty('camFollowPos.x')`
+     - Version `0.6.3` or Below - `getProperty('camGame.scroll.x')`
+- `cameraY` &darr;
+     - Version `0.7.0` or Above - `getProperty('camFollowPos.y')`
+     - Version `0.6.3` or Below - `getProperty('camGame.scroll.y')`
 
 </p>
 </details>

@@ -147,7 +147,7 @@ end
 ```
 
 ### string.match(str:String, pattern:String, ?startPos:Int = 1)
-Checks if the <ins>specific portion of the string matches the pattern</ins>; Returns the captured match pattern.
+Checks if the <ins>specific portion of the string matches the pattern</ins>; Returns the captured match pattern, if there is no match, returns a `nil` value.
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.

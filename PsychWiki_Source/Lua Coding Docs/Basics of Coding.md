@@ -1,5 +1,5 @@
 # Introduction
-Lua is a lightweight, high-level, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few. The current version of Lua that Psych Engine is <kbd>5.1</kbd>.
+Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few. The current version of Lua that Psych Engine is <kbd>5.1</kbd>.
 
 ### Creating
 To create your own epic Lua file, copy and paste any `txt` file remove the contents inside of it. And replace the file format into `lua`; Example `test.lua`. Or even a better solution is to download any source-code editors like VSCode it's available in Windows, Mac, and Linux.

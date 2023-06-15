@@ -13,19 +13,21 @@ Examples:
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic)
 Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value.
 
-- `classVar` - The name of the class, Example `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
+> **Note**: _If you're below the update `0.7.0` of Psych Engine, remove any instance of `backend.` and `data.` from the arguements from the parameters._
+
+- `classVar` - The name of the class; Example: `backend.ClientPrefs`, `backend.Conductor`, `backend.CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
 - `value` - The new value to be set.
 
 Examples:
-- Making the mouse cursor visible: `setPropertyFromClass('FlxG', 'mouse.visible', true)`.
-- Making the Opponent Notes invisible: `setPropertyFromClass('ClientPrefs', 'opponentStrums', false)`.
-- Changing the loop game over song: `setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'your_song_name')`.
+- Making the mouse cursor visible: `setPropertyFromClass('backend.FlxG', 'data.mouse.visible', true)`.
+- Making the Opponent Notes invisible: `setPropertyFromClass('backend.ClientPrefs', 'data.opponentStrums', false)`.
+- Changing the loop game over song: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
 Sets the current <ins>property variable inside an array/group member inside the PlayState</ins> with a new value.
 
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member.
 - `variable` - The variable to be used for the array/group member.
 - `value` - The new value to be set.
@@ -75,15 +77,17 @@ Example: Gets the current health, `getProperty('health')`
 ### getPropertyFromClass(classVar:String, variable:String)
 Gets the current <ins>property variable inside a class other than Playstate</ins> current value.
 
-- `classVar` - The name of the class, Example `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
+> **Note**: _If you're below the update `0.7.0` of Psych Engine, remove any instance of `backend.` and `data.` from the arguements from the parameters._
+
+- `classVar` - The name of the class; Example: `backend.ClientPrefs`, `backend.Conductor`, `backend.CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
 
-Example: Getting each frame in milliseconds, `getPropertyFromClass('flixel.FlxG', 'elapsed')`
+Example: Getting each frame in milliseconds, `getPropertyFromClass('backend.flixel.FlxG', 'data.elapsed')`
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
 Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
 
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member.
 - `variable` - The variable to be used for the array/group member.
 
