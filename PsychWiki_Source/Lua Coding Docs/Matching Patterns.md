@@ -22,17 +22,28 @@ end
 ***
 
 # Special Sequence
+Special Sequence are characters used to represent a group of specific characters that can be used by the pattern to match the desired character. For example, the character class `%p` matches any punctuation characters so we can use this for. To manipulate the punctuation characters to whatever we want.
 
-### Digit
-### Alphabetical
-### Alphanumeric
-### Lower-case
-### Upper-case
-### Punctuation
-### Hexadecimal
-### Control
-### Space
-### Zero
+| Characters | Description                         | Matched Results                      |
+|:----------:|-------------------------------------|--------------------------------------|
+|    `%a`    | Matches any Alphabetical Characters | `AaBbCcDd`                           |
+|    `%w`    | Matches any Alphanumeric Characters | `AaBb0123`                           |
+|    `%d`    | Matches any Numeric Characters      | `01234567`                           |
+|    `%l`    | Matches any Lower-case Characters   | `aabbccdd`                           |
+|    `%u`    | Matches any Upper-case Characters   | `AABBCCDD`                           |
+|    `%p`    | Matches any Punctuation Characters  | `!@#$%;,.`                           |
+|    `%x`    | Matches any Hexadecimal Characters  | `0123456789AaBbCcDdEeFf`             |
+|    `%s`    | Matches any White Space Characters  | Space, New Line, Tab, etc            |
+|    `%c`    | Matches any Control Characters      | Carriage Return, Escape, Delete, etc |
+
+Example:
+```lua
+function onCreate()
+     debugPrint(('<I> Love "Corn"!!!!!'):gsub('%p', '')) -- will print 'I Love Corn'
+     debugPrint(('re   mov ed spa  ces'):gsub('%s', '')) -- will print 'removedspaces'
+     debugPrint(('Number 5'):match('%d'))                -- will print '5'
+end
+```
 
 ***
 
@@ -40,11 +51,11 @@ end
 Meta Characters are modifiers for special sequences that extend their meaning. For instance, the plus <kbd>+</kbd> character will be assigned to the special sequences with the longest chain it could discover. Another example you could use the caret <kbd>^</kbd> character to get the specific starting pattern inside a `string`.
 
 ### Main
-| Characters | Description                                                         | Example   |
-|------------|---------------------------------------------------------------------|-----------|
-| `.`        | Matches any characters                                              | `H...o`   |
-| `%`        | Escape characters for meta characters, percent sign, and space      | `%d+%%`   |
-| `()`       | Captures a group characters and exclude characters from the outside | `"(RGB)"` |
+| Characters | Description                                                          | Example   |
+|:----------:|----------------------------------------------------------------------|-----------|
+|    `.`     | Matches any characters.                                              | `H...o`   |
+|    `%`     | Escape characters for meta characters and percent sign,              | `%d+%%`   |
+|    `()`    | Captures a group characters and exclude characters from the outside, | `"(RGB)"` |
 
 Examples:
 ```lua
@@ -60,10 +71,10 @@ end
 ### Quantifiers
 | Characters | Description                                                                              | Example  |
 |:----------:|------------------------------------------------------------------------------------------|:---------|
-| `+`        | Matches one or more occurrences of a character; will match the longest possible chain.   | `%d+`    |
-| `*`        | Matches zero or more occurrences of a character; will match the longest possible chain.  | `He.*o`  |
-| `-`        | Matches zero or more occurrences of a character; will match the shortest possible chain. |          |
-| `?`        | Matches zero or one occurrences of a character.                                          | `plays?` |
+|    `+`     | Matches one or more occurrences of a character; will match the longest possible chain.   | `%d+`    |
+|    `*`     | Matches zero or more occurrences of a character; will match the longest possible chain.  | `He.*o`  |
+|    `-`     | Matches zero or more occurrences of a character; will match the shortest possible chain. |          |
+|    `?`     | Matches zero or one occurrences of a character.                                          | `plays?` |
 
 Examples:
 ```lua
@@ -82,8 +93,8 @@ end
 ### Boundary
 | Characters | Description                                                                        | Example   |
 |:----------:|------------------------------------------------------------------------------------|:----------|
-| `^`        | Forcefully matches any character(s) at the start of a line; must be placed behind. | `^icon-`  |
-| `$`        | Forcefully matches any character(s) at the end of a line; must be placed in front. | `-pixel$` |
+|    `^`     | Forcefully matches any character(s) at the start of a line; must be placed behind. | `^icon-`  |
+|    `$`     | Forcefully matches any character(s) at the end of a line; must be placed in front. | `-pixel$` |
 
 Examples:
 ```lua

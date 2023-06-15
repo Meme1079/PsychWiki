@@ -2,6 +2,7 @@
 - Improve some descriptions on "Basics of Coding" and "Library Methofs" Pages
 - Added a new page "Matching Patterns" in `Lua coding Docs`
 - Added `loadFrames()` function in "Object Functions" Page
+- Added `kbg` tag when representing characters cuz it looks cool
 - Moved 'Escape Characters' Section to "Basics of Coding" Page
 - Fix spelling/grammar errors.
 - Renamed "Control Functions" into "Game Control Functions"
