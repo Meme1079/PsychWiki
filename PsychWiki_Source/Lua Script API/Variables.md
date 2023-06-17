@@ -50,33 +50,12 @@
 ***
 
 # Gameplay Variables
+### Current Datas
 - `curStep` - The current step per number.
 - `curBeat` - The current beat per number.
 - `curSection` - The current section per number.
 - `curDecStep` - The current decimal step per number.
 - `curDecBeat` - The current decimal beat per number.
-- `score` - The current song score.
-- `hits` - The current note hits.
-- `misses` - The current song misses.
-- `ghostMisses` - The current song ghost misses.
-- `rating` - The current song score rating percent; Goes from `0` to `1`.
-- `ratingName` - The current song score rating name.
-- `ratingFC` - The current song score rating combo.
-- `healthGainMult` - The current health gain when hitting a note.
-- `healthLossMult` - The current health loss when missing a note.
-- `instakillOnMiss` - If you miss you get insta-killed.
-- `playbackRate` - The current play-back rate of the song.
-- `startedCountdown` - Checks if the countdown has already begun.
-- `seenCutscene` - Checks if the cutscene is seen.
-- `botPlay` - Checks if botplay is enable or not.
-- `practice` - Checks if practice is enable or not.
-- `version` - Checks the current version of Psych Engine.
-- `inGameOver` - Checks if the player is in game-over screen or not.
-- `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
-- `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
-- `gfSection` - Checks if the section is in `GF Section` from  theChart Editor.
-- `scriptName` - Returns the location of the Lua script.
-- `buildTarget` - Returns the build target of Psych Engine; Example: `windows`, `mac`, etc.
 
 <details><summary><b>All Shortcuted to:</b></summary>
 <p>
@@ -86,21 +65,70 @@
 - `curSection` - `getProperty('curSection')`
 - `curDecStep` - `getProperty('curDecStep')`
 - `curDecBeat` - `getProperty('curDecBeat')`
-- `score` - `getProperty('songScore')`
-- `hits` - `getProperty('songHits')`
-- `misses` - `getProperty('songMisses')`
-- `ghostMisses` - `getProperty('ghostMisses')`
-- `rating` - `getProperty('ratingPercent')`
-- `ratingName` - `getProperty('ratingString')`
-- `ratingFC` - `getProperty('ratingFC')`
-- `healthGainMult` - `getProperty('healthGainMult')`
-- `healthLossMult` - `getProperty('healthLossMult')`
-- `instakillOnMiss` - `getProperty('instakillOnMiss')`
-- `playbackRate` - `getProperty('playbackRate')`
-- `startedCountdown` - `getPropertyFromClass('PlayState', 'seenCutscene'))`
+
+</p>
+</details>
+
+### Score Datas
+- `score` - The current song score.
+- `hits` - The current note hits.
+- `misses` - The current song misses.
+- `ghostMisses` - The current song ghost misses.
+- `rating` - The current song score rating percent; Goes from `0` to `1`.
+- `ratingName` - The current song score rating name.
+- `ratingFC` - The current song score rating combo.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
+- `score` - The current song score.
+- `hits` - The current note hits.
+- `misses` - The current song misses.
+- `ghostMisses` - The current song ghost misses.
+- `rating` - The current song score rating percent; Goes from `0` to `1`.
+- `ratingName` - The current song score rating name.
+- `ratingFC` - The current song score rating combo.
+
+</p>
+</details>
+
+### Gameplay Changers
+- `healthGainMult` - The current health gain when hitting a note.
+- `healthLossMult` - The current health loss when missing a note.
+- `instakillOnMiss` - If you miss you get insta-killed.
+- `playbackRate` - The current play-back rate of the song.
+- `botPlay` - Checks if botplay is enable or not.
+- `practice` - Checks if practice is enable or not.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
+- `healthGainMult` - The current health gain when hitting a note.
+- `healthLossMult` - The current health loss when missing a note.
+- `instakillOnMiss` - If you miss you get insta-killed.
+- `playbackRate` - The current play-back rate of the song.
+- `botPlay` - Checks if botplay is enable or not.
+- `practice` - Checks if practice is enable or not.
+
+</p>
+</details>
+
+### Miscellaneous
+- `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
+- `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
+- `gfSection` - Checks if the section is in `GF Section` from  theChart Editor.
+- `inGameOver` - Checks if the player is in game-over screen or not.
+- `seenCutscene` - Checks if the cutscene is seen.
+- `startedCountdown` - Checks if the countdown has already begun.
+- `version` - Checks the current version of Psych Engine.
+- `scriptName` - Returns the location of the Lua script.
+- `buildTarget` - Returns the build target of Psych Engine; Example: `windows`, `mac`, etc.
+
+<details><summary><b>All Shortcuted to:</b></summary>
+<p>
+
 - `seenCutscene` - `getProperty('startedCountdown')`
-- `botPlay` - `getProperty('cpuControlled')`
-- `practice` - `getProperty('practiceMode')`
+- `startedCountdown` - `getPropertyFromClass('PlayState', 'seenCutscene'))`
 - `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
 
 </p>
@@ -115,7 +143,6 @@
 - `framerate` - Checks the current framerate on the game. 
 - `ghostTapping` - Checks if ghost tapping is enabled or not. 
 - `hideHud` - Checks if the score bar/health bar elements are hidden or not
-- `hideTime` - Checks if the time bar elements are hidden or not.
 - `timeBarType` - Checks the time bar display type.
 - `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
@@ -153,14 +180,14 @@
 
 # Strum Receptor/Character Variables
 ### Player Strum Positions
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value.
-- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value.
-- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value.
-- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value.
-- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value.
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Value: `1068`.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Value: `956`.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Value: `844`.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Value: `732`.
+- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Value: `50`.
+- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Value: `50`.
+- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Value: `50`.
+- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value; Value: `50`.
 
 <details><summary><b>All Shortcuted to:</b></summary>
 <p>
@@ -178,14 +205,14 @@
 </details>
 
 ### Opponent Strum Positions
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value.
-- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value.
-- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value.
-- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value.
-- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value.
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Value: `428`.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Value: `316`.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Value: `204`.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Value: `92`.
+- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Value: `50`.
+- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Value: `50`.
+- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Value: `50`.
+- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value; Value: `50`.
 
 <details><summary><b>All Shortcuted to:</b></summary>
 <p>
