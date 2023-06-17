@@ -1,5 +1,9 @@
 
 # Keys/KeyBoard Press Functions
+
+<details><summary><b>Key Input Version Compatibility:</b></summary>
+<p> 
+
 | Keys     | Supported Version | Supported Function                                  |
 |----------|-------------------|-----------------------------------------------------|
 | `left`   | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
@@ -12,7 +16,8 @@
 | `pause`  | `0.6.3` and Below | `keyJustPressed()`                                  |
 | `reset`  | `0.6.3` and Below | `keyJustPressed()`                                  |
 
-***
+</p>
+</details>
 
 ### keyJustPressed(name:String)
 Gets the control keys that were <ins>recently pressed</ins> on the current game.

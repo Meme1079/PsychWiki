@@ -221,11 +221,8 @@
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
 
-
 <details><summary><b>All Shortcuted to:</b></summary>
-<p>
-
-> 
+<p> 
 
 - `boyfriendName` - `getProperty('SONG.player1')`
 - `dadName` - `getProperty('SONG.player2')`
@@ -233,11 +230,11 @@
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
 - `screenHeight` - `getPropertyFromClass('FlxG', 'heigth')`
 - `cameraX` &darr;
-     - Version `0.7.0` or Above - `getProperty('camFollowPos.x')`
-     - Version `0.6.3` or Below - `getProperty('camGame.scroll.x')`
+     - Version `0.7.0` or Above - `getProperty('camGame.scroll.x')`
+     - Version `0.6.3` or Below - `getProperty('camFollowPos.x')`
 - `cameraY` &darr;
-     - Version `0.7.0` or Above - `getProperty('camFollowPos.y')`
-     - Version `0.6.3` or Below - `getProperty('camGame.scroll.y')`
+     - Version `0.7.0` or Above - `getProperty('camGame.scroll.y')`
+     - Version `0.6.3` or Below - `getProperty('camFollowPos.y')`
 
 </p>
 </details>
