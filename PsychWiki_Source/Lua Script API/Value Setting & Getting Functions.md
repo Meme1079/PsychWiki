@@ -24,6 +24,22 @@ Examples:
 - Making the Opponent Notes invisible: `setPropertyFromClass('backend.ClientPrefs', 'data.opponentStrums', false)`.
 - Changing the loop game over song: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`.
 
+<details><summary><b>Version Compatability Support Function:</b></summary>
+<p> 
+
+```lua
+local function setPropertyVersionFromClass(class, var, value)
+     local sup1, sup2 = '', ''
+     if version > '0.7.0' then
+          sup1, sup2 = 'backend.', 'data.' 
+     end
+     return setPropertyFromClass(sup1..class, sup2..var, value);
+end
+```
+
+</p>
+</details>
+
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic)
 Sets the current <ins>property variable inside an array/group member inside the PlayState</ins> with a new value.
 
@@ -83,6 +99,22 @@ Gets the current <ins>property variable inside a class other than Playstate</ins
 - `variable` - The variable inside the class to be used.
 
 Example: Getting each frame in milliseconds, `getPropertyFromClass('backend.flixel.FlxG', 'data.elapsed')`
+
+<details><summary><b>Version Compatability Support Function:</b></summary>
+<p>
+
+```lua
+local function getPropertyVersionFromClass(class, var)
+     local sup1, sup2 = '', ''
+     if version > '0.7.0' then
+          sup1, sup2 = 'backend.', 'data.' 
+     end
+     return getPropertyFromClass(sup1..class, sup2..var);
+end
+```
+
+</p>
+</details>
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic)
 Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
