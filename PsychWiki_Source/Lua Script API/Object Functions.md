@@ -68,6 +68,13 @@ Adds a new offset value on each animation.
 - `x` - The new x offset value of the animation.
 - `y` - the new y offset value of the animation.
 
+### loadFrames(variable:String, image:String, spriteType:String = "sparrow")
+Loads the Lua sprites <ins>animation frames</ins>.
+
+- `variable` The sprite object tag name to be used.
+- `image` - The image sprite for the sprite to use.
+- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Defualt value: `sparrow`.
+
 ***
 
 # Object Order Functions

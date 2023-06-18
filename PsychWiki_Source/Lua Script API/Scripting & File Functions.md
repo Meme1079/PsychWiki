@@ -81,15 +81,15 @@ Deletes the specific file literally.
 
 - `path` - The location of the file to be deleted.
 
-***
-
-# Checking File Functions
 ### checkFileExists(filename:String, ?absolute:Bool = false)
 Checks if the file exist or not.
 
 - `filename` - The location of the Lua script file to be used.
 - `absolute` - An optional parameter, It will be ignore by the mod folder directory, causing it to be outside the mod folder.
 
+***
+
+# Lua Exists Functions
 ### luaSpriteExists(tag:String)
 Checks if the <ins>sprite object exist</ins> inside the stage or script; Returns a `boolean`.
 
@@ -151,6 +151,14 @@ function onCreatePost()
 end
 ```
 
+### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
+Executes the Haxe function from the <ins>source code or from the HScript custom functions</ins>.
+
+> **Note**: _This function is an upcoming feature in the next update of Psych Engine, becuase I'm very very impatient._
+
+- `funcToRun` - The specified Haxe function to run.
+- `funcArgs` - An optioanl parameter, The arguement(s) to be passed on the Haxe Function; Defualt value: `null`.
+
 ***
 
 ### getLuaObject(tag:String)
@@ -166,7 +174,7 @@ function onCreate()
      addLuaSprite('graphicThingy', true)
 
      runHaxeCode([[
-          var theLuaTag = game.getLuaObject('LuaTag'); // gets the lua tag
+          var theLuaTag = game.getLuaObject('graphicThingy'); // gets the lua tag
           theLuaTag.cameras = [game.camHUD]; // Sets it into 'camHUD'
           theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
           theLuaTag.angle   = 180;           // Sets the angle to '180'
@@ -237,7 +245,7 @@ Gets the current <ins>data field current value</ins>; Returns the data field val
 
 *** 
 
-# Built-In String Functions
+# Psych String Functions
 ### stringStartsWith(str:String, start:String)
 Checks the <ins>specific starting section</ins> of the string; Returns a `boolean`.
 
@@ -265,7 +273,7 @@ Removes any <ins>whitspace characters from the string</ins>. Or you could just u
 
 ***
 
-# Random Functions
+# Randomization Functions
 ### getRandomInt(min:Int, max:Int)
 Randomizes the <ins>Int number</ins> from min to max values.
 

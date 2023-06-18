@@ -77,7 +77,7 @@ end
 Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
 
 ### onCountdownStarted()
-Triggered at the <ins>post/after start of the countdown</ins>; the <ins>strums</ins> are created here.
+Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note strums</ins> are created here.
 
 ### onCountdownTick(counter)
 Triggered at <ins>each countdown tick</ins>.
@@ -88,14 +88,17 @@ Example:
 ```lua
 function onCountdownTick(counter)
      local counterArry = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
-     debugPrint('Counter Num: '..counter..' | '..counterArry[counter + 1]) -- Will Print:
-     --[[
-     Counter Num: 0 | Three
-     Counter Num: 1 | Two
-     Counter Num: 2 | One
-     Counter Num: 3 | Go!
-     Counter Num: 4 | The song starts here ]]
+     debugPrint('Counter Num: '..counter..' | '..counterArry[counter + 1])
 end
+```
+
+Will print:
+```terminal
+Counter Num: 0 | Three
+Counter Num: 1 | Two
+Counter Num: 2 | One
+Counter Num: 3 | Go!
+Counter Num: 4 | The song starts here
 ```
 
 ***
@@ -132,8 +135,6 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 - `retry` - Checks if the player pressed the retry button; Returns `true`.
 
 # Custom Substate Functions
-> **Warning**: _The `runHaxeCode()` function is used here to make a subsate._
-
 ### onCustomSubstateCreate(name)
 Works similair to <ins>`onCreate()` callback function</ins> but for your custom substate; Will only be triggered once.
 
@@ -168,7 +169,7 @@ Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestro
 Triggered if the <ins>player hit a note</ins>.
 
 - `membersIndex` - The note member id; Boyfriend: `0,1,2,3` and Opponent: `4,5,6,7`.
-- `noteDirect` - The note direction; Value: `0,1,2,3` into `Left, Down, Up, Right`.
+- `noteDirect` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 - `noteType` - The specific note type to be used.
 - `isSustainNote` - Checks if the note is long or not; Returns a `boolean`.
 
@@ -184,22 +185,24 @@ Triggered if the <ins>player miss a note</ins>.
 ### noteMissPress(noteDirect)
 Triggered if the <ins>player tap while the note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disable</ins>.
 
+- `noteDirect` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
+
 ***
 
 ### onKeyPress(key)
 Triggered if the note control buttons were <ins>recently pressed</ins>.
 
-- `key` - The note direction; Value: `0,1,2,3` into `Left, Down, Up, Right`.
+- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onKeyRelease(key)
 Triggered if the note control buttons were <ins>recently released</ins>.
 
-- `key` - The note direction; Value: `0,1,2,3` into `Left, Down, Up, Right`.
+- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onGhostTap(key)
 Triggered if the note control buttons were <ins>tap while the note isn't present</ins>; Not to be confused with `noteMissPress()`.
 
-- `key` - The note direction; Value: `0,1,2,3` into `Left, Down, Up, Right`.
+- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ***
 

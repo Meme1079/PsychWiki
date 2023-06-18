@@ -19,9 +19,9 @@ Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialog
 
 # Song Functions
 ### loadSong(name:String, difficultyNum:Int)
-> **Warning**: _You can't load a song if the week `json` has different difficulties._
-
 Loads a new song.
+
+> **Warning**: _You can't load a song if the week `json` has different difficulties._
 
 - `name` - The name of the song to be loaded.
 - `difficultyNum` - The difficulty ID number of the song.
@@ -29,12 +29,12 @@ Loads a new song.
 ### restartSong(skipTransition:Bool)
 Restarts the song.
 
-- `skipTransition` - Whether there will be a transition when the song is reset.
+- `skipTransition` - Whether there will be a transition when the song is reseting.
 
 ### exitSong(skipTransition:Bool)
 Exits the song with an optional transition; Not to be confised with `endSong()` function. 
 
-- `skipTransition` - Whether there will be a transition when the song has exited.
+- `skipTransition` - Whether there will be a transition when the song has exiting.
 
 ### endSong()
 Ends the song manually.

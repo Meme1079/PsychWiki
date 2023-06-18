@@ -62,7 +62,7 @@ Sets the current <ins>rating percent</ins> to a new value, in case you want to d
 
 - `value` - The new accuracy rating percent, Goes from `0` to `1`.
 
-### setRatingString(value:String)
+### setRatingName(value:String)
 Sets the current <ins>rating name</ins> to a new value, in case you want to do your own rating calculation.
 
 - `value` - The new rating string name.

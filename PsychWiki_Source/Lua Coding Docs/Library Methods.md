@@ -8,12 +8,12 @@ Example:
 function onCreate()
      local textString = 'IJBIOGEJBOUIEKWIWBLCUYQOWYGV'
      local stringSyntax1 = string.lower(string.gsub(string.gsub(textString, 'W', ''), 'I', ''))
-     debugPrint(stringSyntax1) -- will return 'jbogejbouekblcuyqoygv'
+     debugPrint(stringSyntax1) -- will print 'jbogejbouekblcuyqoygv'
      -- The functions being nested makes it not understandable, sure you can use this syntax
      -- just use this only ones or twice when nesting tho
 
      local stringSyntax2 = textString:gsub('W', ''):gsub('I', ''):lower()
-     debugPrint(stringSyntax1) -- will return 'jbogejbouekblcuyqoygv'
+     debugPrint(stringSyntax1) -- will print 'jbogejbouekblcuyqoygv'
      -- This syntax pretty much solves the problem and makes it more understandable
 end
 ```
@@ -25,14 +25,14 @@ Converts any <ins>upper-case characters</ins> into lower-case characters.
 
 - `str` - The string variable to be converted.
 
-Example: `('CHEeeEeEEEeeSe'):upper()`, it will return `CHEEEEEEEEEESE`.
+Example: `('CHEeeEeEEEeeSe'):upper()`; Will print `CHEEEEEEEEEESE`.
 
 ### string.lower(str:String)
 Converts any <ins>lower-case characters</ins> into upper-case characters.
 
 - `str` - The string variable to be converted.
 
-Example: `('CHEeeEeEEEeeSe'):lower()`, it will return `cheeeeeeeeeese`.
+Example: `('CHEeeEeEEEeeSe'):lower()`; Will print `cheeeeeeeeeese`.
 
 ### string.byte(str:String, ?startPos:Int = 1, ?endPos:Int = 1)
 Converts any <ins>alphabetical characters</ins> into ASCII characters; Returns an `int` number.
@@ -41,14 +41,31 @@ Converts any <ins>alphabetical characters</ins> into ASCII characters; Returns a
 - `startPos` - An optional parameter, The specified starting position to be chosen; Defualt value: `1`.
 - `endPos` - An optional parameter, The specified ending position to be chosen; Defualt value: `1`.
 
-Example: `('a'):byte()`, it will return `97`.
+Example: `('a'):byte()`; Will print `97`.
 
 ### string.char(#byte:Int)
 Converts any <ins>ASCII characters</ins> into alphabetical characters; Returns an `string`.
 
 - `byte` - An infinite parameter, The ASCII character to be converted.
 
-Example: `string.byte(97)`, it will return `a`. _(This function doesn't support a string shortcut!)_
+Example: `string.byte(97)`; Will print `a`. _(This function doesn't support the string shortcut!)_
+
+### string.rep(str:String, repeat:Int)
+Repeats the string depending on <ins>how many times you set it</ins>.
+
+- `str` - The string variable to be repeated.
+- `repeat` - How many times the string will be repeated.
+
+Example: `('repated '):rep(3)`; Will print `repated repated repated `.
+
+### string.reverse(str:String)
+Reverses the string, <ins>that's it</ins>.
+
+- `str` - The string variable to be reverse.
+
+Example: `('based'):reverse()`; Will print `desab`.
+
+***
 
 ### string.format(pattern:String, #str:String)
 Formats the string from the <ins>specified pattern type</ins>.
@@ -61,7 +78,7 @@ Example:
 function onCreate()
      local curDate = os.date('*t') -- the '*t' makes it return a table dictionary
      debugPrint(('Date: %d/%d/%d'):format(curDate.month, curDate.day, curDate.year))
-     -- as of writing currently will return '3/23/2023'
+     -- as of currently writing, it printed '3/23/2023'
 end
 ```
 
@@ -77,13 +94,13 @@ Example:
 function onCreate()
      local textString1 = 'Find the position of this \'string\''
      local textString1_Find = ({ textString1:find('\'string\'') }) -- converts it into a table
-     debugPrint(textString1_Find[1]) -- will return 27
-     debugPrint(textString1_Find[2]) -- will return 34
+     debugPrint(textString1_Find[1]) -- will print '27'
+     debugPrint(textString1_Find[2]) -- will print '34'
 
      local textString2 = 'Repeat Repeat Repeat'
      local TextString2_Find = ({ textString2:find('Repeat', 13) })
-     debugPrint(textString1_Find[1]) -- will return 15
-     debugPrint(textString1_Find[2]) -- will return 20
+     debugPrint(textString2_Find[1]) -- will print '15'
+     debugPrint(textString2_Find[2]) -- will print '20'
 end
 ```
 
@@ -98,13 +115,13 @@ Example:
 ```lua
 function onCreate()
      local textString1 = 'Cut this on half!'
-     debugPrint(textString1:sub( ({math.modf(#textString1 / 2)})[1] ))
-     -- will return 's on half!'
-
+     local textString1_Sub = textString1:sub( ({math.modf(#textString1 / 2)})[1] )
+     debugPrint(textString1_Sub) -- will print 's on half!'
+     
      local textString2 = 'Specify the selection of the string'
-     local textString2_Find = ({textString2:find('selection')}) -- will return '{13, 27}'
-     debugPrint(textString2:sub(textString2_Find[1], textString2_Find[2]))
-     -- will return 'selection'
+     local textString2_Find = ({textString2:find('selection')}) -- will print '{13, 27}'
+     local textString2_Sub  = textString2:sub(textString2_Find[1], textString2_Find[2])
+     debugPrint(textString2_Sub) -- will print 'selection'
 end
 ```
 
@@ -119,41 +136,36 @@ Extracts the <ins>specific portion of the string</ins> and <ins>replaces the con
 Example:
 ```lua
 function onCreate()
-     local textString1 = 'PsychEngine is a bad engine [in my opinion]' -- opinions are scary
-     debugPrint(textString1:gsub('bad', 'good'):gsub('%p.+%p', '')) -- no more opinion guys!
-     -- will return 'PsychEngine is a good engine'
+     local textString1 = 'PsychEngine is a bad engine [in my opinion]'       -- opinions are scary
+     debugPrint(textString1:gsub('bad', 'good'):gsub('[in my opinion]', '')) -- no more opinion guys!
+     -- will print 'PsychEngine is a good engine'
 
      local textString2 = 'Hello World World World!'
-     debugPrint(textString2:gsub('%s*World', '', 2))
-     -- will return 'Hello World!'
+     debugPrint(textString2:gsub('World World', '', 2))
+     -- will print 'Hello World!'
 end
 ```
 
 ### string.match(str:String, pattern:String, ?startPos:Int = 1)
-Checks if the <ins>specific portion of the string matches the pattern</ins>; Returns the captured match pattern.
+Checks if the <ins>specific portion of the string matches the pattern</ins>; Returns the captured match pattern, if there is no match, returns a `nil` value.
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
-- `startPos` - An optional parameter, The starting position on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Defualt value: `1`.
 
 Example:
 ```lua
-function onCreatePost()
-     setTextString('scoreTxt', 'Score: 0 | Misses: 0 | Accuracy: ?')
-end
+function onCreate()
+     local textString1 = 'Find a match!'
+     debugPrint(textString1:match('match'))   -- will print 'match'
 
-local scorePattern1 = '%d+%p+%d+%%'  -- Checks the accuracy is a float | '%d+%p+%d+%%' > '99.45%'
-local scorePattern2 = '%d+%%'        -- Checks the accuracy is a int   | '%d+%%' > '100%'
-function onUpdateScore(miss)
-     local scoreTxt = getTextString('scoreTxt')
-     local scoreTxtDisplay1 = 'Score: '..getScore()..' | Misses: '..miss..' | Accuracy: '
-     local scoreTxtDisplay2 = (scoreTxt:match(scorePattern1) or scoreTxt:match(scorePattern2))
-     setTextString('scoreTxt', scoreTxtDisplay1..scoreTxtDisplay2..' ['..ratingFC..']')
+     local textString2 = 'I like the number 38453 and 96335'
+     debugPrint(textString2:match('%d+', 25)) -- will print '96335'
 end
 ```
 
 ### string.gmatch(str:String, pattern:String)
-Works exactly the same as `string.match()` function, but it <ins>returns several matching patterns</ins> that it could find in a generic `for` loop. If not used inside of that loop, it will return a <ins>function with the first matching pattern value</ins>.
+Checks <ins>globally</ins> if the <ins>specific portion of the string matches the pattern</ins>; This function should be use in a Generic `for` loop, as shown below. If not used in a loop; Will return a function.
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
@@ -171,112 +183,10 @@ end
 
 function onCreate()
      local dictionaryString = 'isGood = true, isBad = false'
-     debugPrint(dictionarySplit(dictionaryString).isGood) -- will return 'true'
-     debugPrint(dictionarySplit(dictionaryString).isBad)  -- will return 'false'
+     debugPrint(dictionarySplit(dictionaryString).isGood) -- will print 'true'
+     debugPrint(dictionarySplit(dictionaryString).isBad)  -- will print 'false'
 end
 ```
-
-### string.rep(str:String, repeat:Int)
-Repeats the string depending on <ins>how many times you set it</ins>.
-
-- `str` - The string variable to be repeated.
-- `repeat` - How many times the string will be repeated.
-
-Example: `('repated '):rep(3)`, it will return `repated repated repated `.
-
-### string.reverse(str:String)
-Reverses the string, <ins>that's it</ins>.
-
-- `str` - The string variable to be reverse.
-
-Example: `('based'):reverse()`, it will return `desab`.
-
-***
-
-# String Patterns
-### Character Classes
-Character classes is used to <ins>represent a group of specific characters</ins> that can be used by the pattern to <ins>match the desired character</ins>. For example, the character class `%p` matches <ins>any punctuation characters</ins> so we can use this for. To <ins>manipulate the punctuation characters to whatever we want</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textString = '!oe[uiq]er/vfqw.lufv>iuhdv^n@q#erf;qerckqebkj'
-     debugPrint(textString:gsub('%p', '')) -- will return 'oeuiqervfqwlufviuhdvnqerfqerckqebkj'
-end
-```
-
-> **Warning**: _Character classes are case-sensitive, therefore if any of the characters are upper-case, it will behave in the opposite manner; Example: `%D` will only matches non-digit characters._
-
-|Character|Description|Match Pattern|
-|---------|-----------|-----|
-| `%a` | Any Letter Characters | `AaBbCcDd` |
-| `%l` | Any Lower-case Characters | `aabbccdd` |
-| `%u` | Any Upper-case Characters | `AABBCCDD` |
-| `%d` | Any Digit Characters | `01234567` |
-| `%w` | Any Alphanumeric Characters | `0123AaBb` |
-| `%p` | Any Punctuation Characters | `!@#$%;,.` |
-| `%x` | Any Hexadecimal Characters | `0123456789AaBbCcDdEeFf` |
-| `%s` | Any Space Characters | Space |
-| `%c` | Any Control Characters | Carriage Return, Escape, Delete, etc |
-| `%z` | Any Chracters representing zero. | `0` |
-
-### Magic Characters
-Magic Characters are modifiers for character classes or patterns that <ins>expand their meaning</ins>. For instance, the character `+` will be <ins>assigned the character class with the longest chain it can discover</ins>. Another example is the characters `^` and `$`; `^` will receive the <ins>beginning pattern</ins> while `$` will receive the <ins>ending pattern</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textPattern1 = '%d+' -- will get the longest chain of digit characters
-     local textPattern2 = '^Matches' -- will get 'Matches' pattern at the start
-     local textPattern3 = 'doin%?%' -- will get 'doin?' pattern at the end
-     local textPattern4 = 'exam[ples]+' -- will get each set inside of 'ples' in each characters
-
-     debugPrint(('Score: 18242'):match(textPattern1)) -- will return '18242'
-     debugPrint(('Matches some potatoes'):match(textPattern2)) -- will return 'Matches'
-     debugPrint(('Watcha doin?'):match(textPattern3)) -- will return 'doin?'
-
-     debugPrint(('examp'):match(textPattern4)) -- will return 'examp'
-     debugPrint(('exam'):match(textPattern4)) -- will return 'nil'
-end
-```
-
-|Character|Description|
-|---------|-----------|
-| `.` | Any type of characters |
-| `%` | Escape Characters for magic characters. |
-| `*` | Matches the repetitions of characters <ins>zero or more times</ins> and will match the <ins>longest possible chain</ins>. |
-| `+` | Matches the repetitions of characters <ins>one or more times</ins> and will match the <ins>longest possible chain</ins>. |
-| `-` | Matches the repetitions of characters <ins>zero or more times</ins> and will match the <ins>shortest possible chain</ins>. |
-| `?` | Matches zero or one occurrences of a character inside the class. |
-| `^` | The starting of the pattern, will forces the pattern to match it at the start of the string. |
-| `$` | The ending of the pattern, will forces the pattern to match it at the end of the string. |
-| `()` | Captures the specific string pattern to match. |
-| `[]` | The specific set of character classes to match. |
-
-### Escape Characters
-Escape characters are <ins>special characters used within a string</ins>. They are an <ins>alternate interpretation of the characters in the following character sequence</ins>. It can be interpreted as a single `''`, double `""` quotes, or backslash `\` character, they are constructed by backslash `\` character with the <ins>specified character to useafter that</ins>; Example: `\'`. And there is a reason for their existence, it's to avoid an error from occurring.
-
-So, assume you <ins>constructed a string that is surrounded by double-quote</ins> `""` <ins>characters</ins> and you want to add a double-quote inside the string, so you inserted the double-quote `""` and it <ins>resulted in an error</ins>. Because Lua thinks the string <ins>would finish there due to the inserted double-quote</ins> `""` <ins>character</ins>, it created an error. As a result, escape characters exist <ins>to solve this issue</ins>.
-
-Example:
-```lua
-function onCreate()
-     local textString1 = ""dead" (in a cool way)"    -- will cause an error
-     local textString2 = "\"dead\" (in a cool way)"  -- won't cause an error
-
-     debugPrint(textString2) -- will return '"dead" (in a cool way)'
-end
-```
-
-- `\'` - Single-quote Character
-- `\"` - Double-quote Character
-- `\\` - Backslash Character
-- `\[` - Left Bracket Character
-- `\]` - Right Bracket Character
-- `\n` - New Line
-- `\r` - Carriage Return
-- `\t` - Horizontal Tab
-- `\v` - Vertical tab 
 
 ***
 
@@ -296,8 +206,8 @@ function onCreate()
      table.insert(arrayTable, 2, 'watermelon')
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..':'..v) 
-          -- will return '1:apple 2:watermelon 3:banana 4:orange 5:grape'
+          debugPrint(k..': '..v) 
+          -- will print '1: apple 2: watermelon 3: banana 4: orange 5: grape'
      end
 end
 ```
@@ -316,8 +226,7 @@ function onCreate()
      table.remove(arrayTable, 3) -- removes 'tomato'
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..':'..v)
-          -- will return '1:apple 2:banana 3:orange'
+          debugPrint(k..': '..v) -- will print '1: apple 2: banana 3: orange'
      end
 end
 ```
@@ -336,8 +245,8 @@ function onCreate()
      local arrayTable1 = {'apple', 'banana', 'orange'}
      local arrayTable2 = {'tomato', 'broccoli', 'onion', 'beetroot', 'turnip'}
 
-     debugPrint(table.concat(arrayTable1, ', '))       -- will return 'apple, banana, orange' 
-     debugPrint(table.concat(arrayTable2, ', ', 3, 5)) -- will return 'onion, beetroot, turnip'
+     debugPrint(table.concat(arrayTable1, ', '))       -- will print 'apple, banana, orange' 
+     debugPrint(table.concat(arrayTable2, ', ', 3, 5)) -- will print 'onion, beetroot, turnip'
 end
 ```
 
@@ -355,54 +264,55 @@ function onCreate()
 
      table.sort(arrayTable1)
      table.sort(arrayTable2, function(val1, val2)
-          return val1:byte(3, 3) > val2:byte(3, 3) 
+          return val2:byte(3, 3) > val2:byte(3, 3) 
      end)
 
-     for k,v in pairs(arrayTable1) do debugPrint(v) end
-     -- will return 'apple banana grape kiwifruit orange'
-
-     for k,v in pairs(arrayTable2) do debugPrint(v) end
-     -- will return 'turnip broccoli tomato onion beetroot'
+     for k,v in pairs(arrayTable1) do 
+          debugPrint(v) -- will print 'apple, banana, grape, kiwifruit, orange'
+     end
+     for k,v in pairs(arrayTable2) do
+          debugPrint(v) -- will print 'turnip, broccoli, tomato, onion, beetroot'
+     end
 end
 ```
 
 ***
 
 # Mathematical Basic Methods
-### math.max(#num:Float)
-Checks if any of the number is the <ins>maximum value</ins>, it could find.
-
-- `num` - An infinite parameter, The number value to be checked.
-
-Example: `math.max(1, 3, 2)`, it will return `3`.
-
 ### math.min(#num:Float)
 Checks if any of the number is the <ins>minimum value</ins>, it could find.
 
 - `num` - An infinite parameter, The number value to be checked.
 
-Example: `math.max(1, 3, 2)`, it will return `1`.
+Example: `math.max(1, 3, 2)`; Will print `1`.
 
-### math.ceil(num:Float)
-Rounds the `float` number to its <ins>maximum value</ins>.
+### math.max(#num:Float)
+Checks if any of the number is the <ins>maximum value</ins>, it could find.
 
-- `num` - The number to be round.
+- `num` - An infinite parameter, The number value to be checked.
 
-Example: `math.ceil(4.3)`, it will return `5`.
+Example: `math.max(1, 3, 2)`; Will print `3`.
 
 ### math.floor(num:Float)
 Rounds the `float` number to its <ins>minimum value</ins>.
 
 - `num` - The number to be round. 
 
-Example: `math.floor(4.8)`, it will return `4`.
+Example: `math.floor(4.8)`; Will print `4`.
+
+### math.ceil(num:Float)
+Rounds the `float` number to its <ins>maximum value</ins>.
+
+- `num` - The number to be round.
+
+Example: `math.ceil(4.3)`; Will print `5`.
 
 ### math.abs(num:Float)
 Returns the <ins>absolute of the number</ins>. Basically converts <ins>negative values into positive values</ins>.
 
 - `num` - the number value to be used.
 
-Example: `math.abs(-10)`, it will return `10`.
+Example: `math.abs(-10)`; Will print `10`.
 
 ### math.sqrt(num:Float)
 Returns the square root of the number.
@@ -428,15 +338,15 @@ Example:
 ```lua
 function onCreate()
      local floatMath = ({math.modf(3.14)}) -- surround this with curly-bracket and parenthesis
-     debugPrint(floatMath[1]) -- will return '3'
-     debugPrint(floatMath[2]) -- will return '14'
+     debugPrint(floatMath[1]) -- will print '3'
+     debugPrint(floatMath[2]) -- will print '14'
 end
 ```
 
 ### math.log(exp:Float, base:Float)
 Returns the <ins>logarithm of a number to the base number</ins> which is the exponent value. Basically the inverse function of the exponentiation.
 
-Also there is a similair function called `math.log10()`, which the defualt value of the `base` parameter is `10`; Example: `math.log10(1000)`, it will return `3`.
+Also there is a similair function called `math.log10()`, which the defualt value of the `base` parameter is `10`; Example: `math.log10(1000)`; Will print `3`.
 
 - `exp` - The exponentiation value of the number.
 - `base` - The base number of the logarithm number.
@@ -444,8 +354,8 @@ Also there is a similair function called `math.log10()`, which the defualt value
 Example:
 ```lua
 function onCreate()
-     debugPrint(2^5) -- will return '32'
-     debugPrint(math.log(32, 2)) -- will return '5'
+     debugPrint(2^5)             -- will print '32'
+     debugPrint(math.log(32, 2)) -- will print '5'
 end
 ```
 
@@ -454,7 +364,7 @@ Randomize a random number <ins>between the minimum to maximum values</ins>. This
 
 Now if you don't like this to happen either use. <ins>`getRandomInt()` or `getRandomFloat()` functions</ins>, which functions as the same as `math.random()` function but more random. Or use <ins>`math.randomseed()` function</ins> that changes the seed of the `math.random` function.
 
-> **Note**: _If the all the parameters were left blank, it will return from `0` to `1` in a `float` number value; Example it returns: `0.82854631915689`._
+> **Note**: _If the all the parameters were left blank; Will print from `0` to `1` in a `float` number value; Example it returns: `0.82854631915689`._
 
 - `min` - An optional parameter, The minimum number value.
 - `max` - An optional parameter, The maximum number value.
@@ -467,7 +377,7 @@ Changes the pseudo-random number seed for the `math.random()` function. If you w
 Example:
 ```lua
 local function generateRNG(seed)
-     local seed = seed or 1 -- If the value is nil, it will return 1
+     local seed = seed or 1 -- If the value is nil; will print '1'
      local RNGTab = {}
 
      math.randomseed(seed)
@@ -478,10 +388,10 @@ local function generateRNG(seed)
 end
 
 function onCreate()
-     debugPrint(generateRNG(1)) -- will return 3 1 1
-     debugPrint(generateRNG(2)) -- will return 2 5 5
-     debugPrint(generateRNG(3)) -- will return 2 1 5
-     debugPrint(generateRNG(os.time())) -- will return 5 2 5 (for me only)
+     debugPrint(generateRNG(1))         -- will print '3 1 1'
+     debugPrint(generateRNG(2))         -- will print '2 5 5'
+     debugPrint(generateRNG(3))         -- will print '2 1 5'
+     debugPrint(generateRNG(os.time())) -- will print '5 2 5' (for me only)
 end
 ```
 

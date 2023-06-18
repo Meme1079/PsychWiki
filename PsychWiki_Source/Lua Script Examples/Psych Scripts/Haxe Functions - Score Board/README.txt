@@ -1,0 +1,1 @@
+Place the script inside the mods folder!!!
