@@ -14,8 +14,8 @@ body:
         - "New Example Script"
         - "New Page"
         - "Other (Explain it on the textarea below)"
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     attributes:
