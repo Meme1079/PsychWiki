@@ -24,7 +24,7 @@ Examples:
 - Making the Opponent Notes invisible: `setPropertyFromClass('backend.ClientPrefs', 'data.opponentStrums', false)`.
 - Changing the loop game over song: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`.
 
-<details><summary><b>Version Compatability Support Function:</b></summary>
+<details><summary><b>Version Compatibility Support Function:</b></summary>
 <p> 
 
 ```lua
@@ -50,7 +50,7 @@ Sets the current <ins>property variable inside an array/group member inside the 
 
 <details><summary>Examples:</summary>
 
-- Disabaling hit sounds:
+- Disabling hit sounds:
 ```lua
 function onCreatePost() -- after post create
      for unspawnNotes = 0, getProperty('unspawnNotes.length')-1 do
@@ -100,7 +100,7 @@ Gets the current <ins>property variable inside a class other than Playstate</ins
 
 Example: Getting each frame in milliseconds, `getPropertyFromClass('backend.flixel.FlxG', 'data.elapsed')`
 
-<details><summary><b>Version Compatability Support Function:</b></summary>
+<details><summary><b>Version Compatibility Support Function:</b></summary>
 <p>
 
 ```lua

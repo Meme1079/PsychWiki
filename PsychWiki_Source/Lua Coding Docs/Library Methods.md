@@ -232,10 +232,10 @@ end
 ```
 
 ### table.concat(tab:Table, sep:String, ?minPos:Int, ?maxPos:Int)
-Concatenates every value inside of a table with the <ins>seperation pattern on each value</ins>; Returns a `string`.
+Concatenates every value inside of a table with the <ins>separation pattern on each value</ins>; Returns a `string`.
 
 - `tab` - The table variable to be concatenated.
-- `sep` - The speration pattern on each table value.
+- `sep` - The separation pattern on each table value.
 - `minPos` - An optional parameter, The starting index position of the table to be concatenate.
 - `maxPos` - An optional parameter, The ending index position of the table for the concatenation to stop.
 

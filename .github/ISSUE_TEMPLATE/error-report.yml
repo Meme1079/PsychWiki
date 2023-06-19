@@ -1,0 +1,17 @@
+name: Error Report
+description: Report any error on the wiki
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe your error here."
+    validations:
+      required: true
+
+  - type: textarea
+    id: body-markdown
+    attributes:
+      label: "The wiki function which you found the error"
+    validations:
+      required: false

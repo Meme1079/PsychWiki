@@ -88,7 +88,7 @@ Example:
 ```lua
 function onCountdownTick(counter)
      local counterArry = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
-     debugPrint('Counter Num: '..counter..' | '..counterArry[counter + 1])
+     debugPrint('Counter Num: '..counter..' | '..counterArry[counter + 1]) 
 end
 ```
 

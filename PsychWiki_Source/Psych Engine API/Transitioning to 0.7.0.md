@@ -5,8 +5,8 @@ The `0.7.0` update of Psych Engine changed a lot of things about how the game wo
 
 # Changes
 ### Property Classes Setter/Getters
-- The `classVar` arguements should have `backend.` followed by the class name; Example: `backend.ClientPrefs`.
-- The `variable` arguements should have `data.` followed by the variable name; Example: `data.variableNameHere`.
+- The `classVar` arguments should have `backend.` followed by the class name; Example: `backend.ClientPrefs`.
+- The `variable` arguments should have `data.` followed by the variable name; Example: `data.variableNameHere`.
 
 Example:
 - Setters: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`
@@ -23,10 +23,10 @@ If you want backwards compatibility for your scripts/mods of yours use the `vers
 Example:
 ```lua
 function onCreatePost()
-	if version < '0.7.0' then
-		debugPrint(getPropertyFromClass('ClientPrefs', 'lowQuality'))
-	else
-		debugPrint(getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality'))
-	end
+    if version < '0.7.0' then
+	debugPrint(getPropertyFromClass('ClientPrefs', 'lowQuality'))
+    else
+	debugPrint(getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality'))
+    end
 end
 ```

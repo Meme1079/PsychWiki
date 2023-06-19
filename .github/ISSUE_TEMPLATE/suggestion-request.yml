@@ -1,0 +1,9 @@
+name: Suggestion Request
+description: Suggest a feature in PscyhWiki!
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Tell the suggestion it can be either an improvement, a new function, or new example script
+    validations:
+      required: true

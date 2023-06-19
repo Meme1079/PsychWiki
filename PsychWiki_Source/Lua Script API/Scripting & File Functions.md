@@ -6,7 +6,7 @@ Adds a Lua script into the game.
 - `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from.
 
 ### removeLuaScript(path:String)
-Removes a Lua script into the game, can be used for <ins>improving performaces</ins> for crappy computers.
+Removes a Lua script into the game, can be used for <ins>improving performances</ins> for crappy computers.
 
 - `path` - The location of the Lua script file to be removed.
 
@@ -109,7 +109,7 @@ Checks if the <ins>sound object exist</ins> inside the stage or script; Returns 
 
 # Haxe Script/Haxe Functions
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
-Imports haxe <ins>librarys into the interpreter</ins>. Basically an `import` statement in Haxe which <ins>imports specific packages into Haxe</ins> like sprites, text, tweens, etc.
+Imports haxe <ins>libraries into the interpreter</ins>. Basically an `import` statement in Haxe which <ins>imports specific packages into Haxe</ins> like sprites, text, tweens, etc.
 
 - `libName` - The library name.
 - `libPackage` - An optional parameter, The library package.
@@ -154,10 +154,10 @@ end
 ### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
 Executes the Haxe function from the <ins>source code or from the HScript custom functions</ins>.
 
-> **Note**: _This function is an upcoming feature in the next update of Psych Engine, becuase I'm very very impatient._
+> **Note**: _This function is an upcoming feature in the next update of Psych Engine, because I'm very very impatient._
 
 - `funcToRun` - The specified Haxe function to run.
-- `funcArgs` - An optioanl parameter, The arguement(s) to be passed on the Haxe Function; Defualt value: `null`.
+- `funcArgs` - An optional parameter, The argument(s) to be passed on the Haxe Function; Default value: `null`.
 
 ***
 
@@ -289,4 +289,4 @@ Randomizes the <ins>Float number</ins> from min to max values.
 ### getRandomBool(chance:Float = 50)
 Randomizes the chances of <ins>returning a `true` value</ins>.
 
-- `chance` - The percent of it being `true`; Goes from `0` to `100`; Defualt value: `50`.
+- `chance` - The percent of it being `true`; Goes from `0` to `100`; Default value: `50`.

@@ -26,7 +26,7 @@
 - `week` - Returns the current week name from the JSON file name.
 - `currentModDirectory` - Returns the current mod directory.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
@@ -57,7 +57,7 @@
 - `curDecStep` - The current decimal step per number.
 - `curDecBeat` - The current decimal beat per number.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `curStep` - `getProperty('curStep')`
@@ -78,7 +78,7 @@
 - `ratingName` - The current song score rating name.
 - `ratingFC` - The current song score rating combo.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `score` - The current song score.
@@ -100,7 +100,7 @@
 - `botPlay` - Checks if botplay is enable or not.
 - `practice` - Checks if practice is enable or not.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `healthGainMult` - The current health gain when hitting a note.
@@ -124,7 +124,7 @@
 - `scriptName` - Returns the location of the Lua script.
 - `buildTarget` - Returns the build target of Psych Engine; Example: `windows`, `mac`, etc.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `seenCutscene` - `getProperty('startedCountdown')`
@@ -153,7 +153,7 @@
 - `noteOffset` - Checks the note offset displayed in milliseconds, Goes from `0` to `500`.
 - `healthBarAlpha` - Checks the current alpha/opacity of the health bar.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
@@ -180,16 +180,16 @@
 
 # Strum Receptor/Character Variables
 ### Player Strum Positions
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Value: `1068`.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Value: `956`.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Value: `844`.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Value: `732`.
-- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Value: `50`.
-- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Value: `50`.
-- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Value: `50`.
-- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value; Value: `50`.
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `1068`.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `956`.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `844`.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `732`.
+- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Returns: `50`.
+- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Returns: `50`.
+- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Returns: `50`.
+- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value; Returns: `50`.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums.members', 0, 'x')`
@@ -205,16 +205,16 @@
 </details>
 
 ### Opponent Strum Positions
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Value: `428`.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Value: `316`.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Value: `204`.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Value: `92`.
-- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Value: `50`.
-- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Value: `50`.
-- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Value: `50`.
-- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value; Value: `50`.
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Returns: `428`.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `316`.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `204`.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `92`.
+- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Returns: `50`.
+- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Returns: `50`.
+- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Returns: `50`.
+- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value; Returns: `50`.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums.members', 0, 'x')`
@@ -243,19 +243,19 @@
 - `boyfriendName` - Checks the current boyfriend character.
 - `dadName` - Checks the current dad character.
 - `gfName` - Checks the current girlfriend character.
-- `screenWidth` - Returns the current width of the winow screen; default value: `720`.
+- `screenWidth` - Returns the current width of the window screen; default value: `720`.
 - `screenHeight` - Returns the current width of the window screen; default value: `1280`.
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
 
-<details><summary><b>All Shortcuted to:</b></summary>
+<details><summary><b>All Shortcut to:</b></summary>
 <p> 
 
 - `boyfriendName` - `getProperty('SONG.player1')`
 - `dadName` - `getProperty('SONG.player2')`
 - `gfName` - `getProperty('SONG.gfVersion')`
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
-- `screenHeight` - `getPropertyFromClass('FlxG', 'heigth')`
+- `screenHeight` - `getPropertyFromClass('FlxG', 'height')`
 - `cameraX` &darr;
      - Version `0.7.0` or Above - `getProperty('camGame.scroll.x')`
      - Version `0.6.3` or Below - `getProperty('camFollowPos.x')`
