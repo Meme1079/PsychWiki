@@ -20,8 +20,10 @@ jobs:
         with:
           token: ${{ github.token }}
           closeComment: >
-            **(This is an automated message)** This issue has been opend for
-            30 days or more without being closed. To prevent people who open
+            **(This is an automated message)**
+
+            This is issue has been opened for 30 days or more without being closed.
+            Why you may ask? becuase it's to prevent people who open
             an issue, state what the issue is and if respond will ghost you
             for 2^1024 years.
           daysUntilClose: 30
