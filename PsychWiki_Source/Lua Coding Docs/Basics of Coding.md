@@ -231,6 +231,7 @@ Example:
 ```lua
 local tableArray = {'Correct', 'Incorrect', 'Maybe', 'Invalid'} -- a table with string values
 function onCreate()
+     debugPrint(tableArray)    -- will print '['Correct', 'Incorrect', 'Maybe', 'Invalid']'
      debugPrint(tableArray[1]) -- will print 'Correct'
      debugPrint(tableArray[3]) -- will print 'Maybe'
 end
@@ -246,8 +247,9 @@ Example:
 local tableDict1 = {isFatherless = false, hasTouchGrass = true}
 local tableDict2 = {['air'] = 'Oxygen', ["food"] = 'potato', ["love"] = 'carbon monoxide'}
 function onCreate()
+     debugPrint(tableDict1)                   -- will print '{isFatherless => false, hasTouchGrass => true}'
      debugPrint(tableDict1.isFatherless)      -- will print 'false' (recommended syntax)
-     debugPrint(tableDict1['hasTouchGrass'])  -- will print 'true'  (not recommended syntax)
+     debugPrint(tableDict1['hasTouchGrass'])  -- will print 'true'  (recommended if there are any special characters)
 
      debugPrint(tableDict1.air)               -- will print 'Oxygen'
      debugPrint(tableDict2['food'])           -- will print 'potato'
