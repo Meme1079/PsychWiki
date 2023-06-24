@@ -1,9 +1,24 @@
 name: Suggestion Request
-description: Suggest a feature in PscyhWiki!
+description: Suggest a feature on PscyhWiki!
 labels: [enhancement]
 body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: "What type of suggestion you like?"
+      options:
+        - "New Function Description"
+        - "New Function Parameter Description"
+        - "New Function Example"
+        - "New Variable Description"
+        - "New Example Script"
+        - "New Page"
+        - "Other (Explain it on the textarea below)"
+    validations:
+      required: true
+
   - type: textarea
     attributes:
-      label: Tell the suggestion it can be either an improvement, a new function, or new example script
+      label: What suggestion you want on the PscyhWiki
     validations:
       required: true

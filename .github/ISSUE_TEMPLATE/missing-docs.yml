@@ -1,0 +1,9 @@
+name: Missing Docs
+description: Alert me if something is missing on PsychWiki
+labels: [documentation]
+body:
+  - type: textarea
+    attributes:
+      label: What needs to be documented?
+    validations:
+      required: true

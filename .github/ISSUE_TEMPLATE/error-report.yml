@@ -1,6 +1,6 @@
 name: Error Report
-description: Report any error on the wiki
-labels: [bug]
+description: Report an error on PscyhWiki!
+labels: [error]
 body:
   - type: textarea
     id: description
