@@ -238,9 +238,9 @@ end
 ```
 
 #### Dictionary
-Dictionaries are constructed in an unordered key-value pairs. To construct a Dictionary just define the `key` which is the value's name followed by an equal <kbd>=</kbd> character with the given `value` at the end. 
+Dictionaries are constructed in an unordered key-value pairs. To construct a Dictionary just define the `key` which is the value's name followed by an equal <kbd>=</kbd> character with the given `value` at the end.
 
-To read a Dictionary get the variable name followed by a dot <kbd>.</kbd> character with the `key` name to get the value; Example: `tableVar.key`. Or add a pair of brackets <kbd>[]</kbd> with the `key` name inside of it that is quoted by single <kbd>''</kbd> or double <kbd>""</kbd> characters like a `string`; Example: `tableVar.['key']` or `tableVar.["key"]`.
+To read a Dictionary get the table variable name followed by a dot <kbd>.</kbd> character with the `key` name to get the value; Example: `tableVar.key`. Or add a pair of brackets <kbd>[]</kbd> with the `key` name that quoted with single <kbd>''</kbd> or double <kbd>""</kbd> characters. Which I would recommend becuase it can include any special character inside the `key` name; Example: `tableVar.['key']` or `tableVar.["key"]`.
 
 Example:
 ```lua
@@ -482,6 +482,26 @@ function onCreate()
 end
 ```
 
+### While Loop
+While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
+
+> **Warning**: _Check the condition when making a `while` loop statement. Because it might loop infinitely and crash your game! I'd suggest you test it [here](https://www.mycompiler.io/new/lua) before implementing into the Lua script._
+
+Example:
+```lua
+function onCreate()
+     local counter   = 5
+     local factorial = 1
+
+     while counter > 0 do
+          factorial = factorial * counter
+          counter   = counter - 1
+     end
+
+     debugPrint(factorial) -- will print '120'
+end
+```
+
 ### Return Statement
 Return statement as the name suggests returns the results from the function. And stops the execution of the function. It must be relative at the end of the function or conditional statement.
 
@@ -518,28 +538,42 @@ end
 Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts.
 
 ### Creating
-To create your own custom module make a separate Lua script and placed the location of the script. Let's just say you placed them inside `mods/scripts/modules` folder and you named it `myGamingModules.lua`. Now inside of it declare a local table variable with the exact name of the Lua script module with no value(s) inside of it; Example: `local myGamingModules = {}`.
+To create your custom module, make a separate Lua script and placed the script in any location except outside the `PsychEngine` folder. Let's just say you placed your Lua script inside `mods/scripts/modules` folder and you've named the Lua script `global.lua`; this is just for an example btw.
 
-Before you declare your functions or variables each name should have the `local` table variable name followed by the dot <kbd>.</kbd> character. And at the end of the Lua script module should have the `return` statement on the `local` table variable name to export the modules to other Lua script; Example: `return myGamingModules`. (I Think)
+<details><summary><b>Path Visualizer (For Dummies):</b></summary>
+<p> 
 
-> **Warning**: _DO NOT DECLARE `LOCAL` FUNCTIONS OR VARIABLES INSIDE THE MODULES BECUASE IT WILL NOT EXPORT THEM AND MIGHT CAUSE AN ERROR, IT MUST BE A `GLOBAL` ONE OKAY!?_
+```txt
+mods/
+├╴ scripts/
+│  ├╴ main.lua
+│  └╴ modules/
+│     └╴ global.lua
+```
+
+</p>
+</details>
+
+Before you declare any functions or variables in each name should begin with the main table variable name followed by the dot <kbd>.</kbd> character before you define your functions or variables. After you've finished your module file, add the `return` statement on the main table variable name at the last line of the Lua script module to export the module contents to other Lua scripts.
+
+> **Warning**: _Declaring a `local` variable or function won't work because it will not export any of them from other Lua files. And might cause an error or something, I dunno haven't check._
 
 Example:
 ```lua
-local myGamingModules = {}
-     
+local myGamingModules = {} -- the start
+
 myGamingModules.red   = 'ff0000'
 myGamingModules.green = '00ff00'
 myGamingModules.blue  = '0000ff'
-     
-function myGamingModules.switch(case, statement) -- goofy ahh switch-case statement
-     if statement[case] ~= nil or not statement["default"] then
-          return statement[case]()
-     else
-          return statement["default"]()
+
+function myGamingModules.tobool(boo)     -- boolean to string
+     local boo = boo:lower()
+     if boo:match('true') or boo:match('false') then -- check if it's actually true of false
+          return boo == 'true' and (true or false)   -- ternary operator > "cond ? exp1 : exp2"
      end
+     return 'Not a boolean value'
 end
-     
+
 function myGamingModules.setPos(obj, pos) -- Concatenates setProperty x and y
      if pos[1] ~= nil then                -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
@@ -548,28 +582,20 @@ function myGamingModules.setPos(obj, pos) -- Concatenates setProperty x and y
           setProperty(obj..'.y', pos[2]) 
      end
 end
-     
-return myGamingModules
+
+return myGamingModules    -- exporting stuff
 ```
 
-### require(moduleName:String)
-Requires the module name and <ins>imports the functions or variables</ins>. To declare the `require` function either use the <ins>function itself or use it inside the value of the variable to change the name of it</ins>. This is the only few functions that you can <ins>add without the parenthesis</ins> <kbd>()</kbd> character that I only trust.
+### require(modulePath:String)
+Requires or imports the desired module file of yours and controls whether a file has already been run to avoid duplicating the work. To use this function it must be inside a variable also you don't have to add `.lua` to get the module file. Because the function already adds it to the arguement.
 
-- `moduleName` - The location of the Lua script module file to be used; Starts outside the `mods` folder.
-
-Syntaxes:
-```lua
-require 'mods/scripts/modules/myGamingModules'                     -- uses the default name
-local moduleName = require 'mods/scripts/modules/myGamingModules'  -- uses a custom name
-```
-
-To call the `require` function, get the specified module name to use; if it's contained inside a variable, <ins>get the variable name if not get the module name</ins>. Add a dot <kbd>.</kbd> character followed by the <ins>function or variable name inside the Lua module file</ins>.
+- `modulePath` - The location of the Lua module file to be used; Starts outside the `mods` folder.
 
 Example:
 ```lua
-local moduleName = require('mods/scripts/modules/myGamingModules') -- gets the module
-function onCreatePost()
-     moduleName.setPos('boyfriend', {500, 1200}) -- sets the boyfriend positions
+local moduleName = require('mods/scripts/modules/global') -- gets the module
+function onCreate()
+     debugPrint(type(moduleName.tobool('true'))) -- will print 'boolean'
      
      debugPrint(moduleName.red)   -- will print 'ff0000'
      debugPrint(moduleName.green) -- will print '00ff00'
