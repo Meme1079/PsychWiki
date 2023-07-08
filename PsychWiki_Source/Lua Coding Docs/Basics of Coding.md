@@ -1,101 +1,92 @@
 # Introduction
-Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you execute Lua code without compiling the game over and over again. And its a simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in defualt, limited error handling, limited pattern matching, no unicode support, no defualt parameter values just to name a few. The current version of Lua that Psych Engine is <kbd>5.1</kbd>.
+> **Note**: _You can skip this section if you want just to let ya' know._
 
-### Creating
-To create your own epic Lua file, copy and paste any `txt` file remove the contents inside of it. And replace the file format into `lua`; Example `test.lua`. Or even a better solution is to download any source-code editors like VSCode it's available in Windows, Mac, and Linux.
+Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you to execute Lua code without compiling the game over and over again. And it's simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in default, limited error handling, limited pattern matching, no unicode support, no default parameter values just to name a few.
 
-You can chose any other source-code editors if you don't like VSCode and that's fine. Anyways after you download VSCode or other epic source-code open it and press <kbd>Command + N</kbd> this will create a new file. Select the language type to use now select Lua becuase this is a Lua tutorial. Now add some code there if you're done press <kbd>Command + S</kbd> to save it and placed it somewhere inside the script(s) folder. Boom you've got yourself a Lua script it's that simple.
+## Source-Code Editors
+You don't know they're basically a text editor program designed specifically for editing source code of computer programs. They usually add such as syntax highlighting, indentation, autocomplete and brace matching. To make your programming experience more easier to code, the most popular source-code editors are [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/), [Vim](https://www.vim.org/download.php), [Sublime Text](https://www.sublimetext.com/), etc. You can use any source-code editors that you're comfortable to use.
 
-### Differences
-Lua in Psych Engine has some minor difference becuase of HaxeFlixel the main engine that Psych Engine uses. Mainly when coding the code that you made should be located inside any of the Callback Templates which are special functions that modify the game like `onCreate()`, `onUpdate()`, `onEvent()`, etc. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+## Differences
+When coding with Lua in Psych Engine, there are some minor differences. This is due to HaxeFlixel, the main engine used by Psych Engine. Anyways uuuuhhhhh here's a list of minor differences that you should 100% totally know about:
 
-Printing is also different instead of using the `print()` function it's replaced by `debugPrint()` function. The text from the function will appear at the top-left of the screen and will fade out in a couple of seconds.
+1. The code should be located inside any of the Callback Templates which are special functions. That uses the games mechanics like note types, custom events, countdowns, etc to execute the code; Examples: `onCreate()`, `onUpdate()`, `onEvent()` just to name a few of them. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+2. Printing is also different instead of using the `print()` function it's replaced by the `debugPrint()` function. The arguments passed on the `debugPrint()` function will appear at the top-left of the screen. And will fade out in a couple of seconds.
+3. Psych Engine uses Lua version <kbd>5.1</kbd> which there are missing features that Lua <kbd>5.1</kbd> doesn't has; Examples: Floor division, Bitwise operators, basic utf-8 library, support for both 64-bit and 32-bit platforms, and new functions.
 
-Example (Lua):
-```lua
-local vary1 = 'hamburgers are cool'
-local vary2 = 'potatoes are also cool, i think'
-     
-print(vary1) -- will print 'hamburgers are cool'
-print(vary2) -- will print 'potatoes are also cool, i think'
-```
-
-Example (Psych Engine):
+Example:
 ```lua
 local vary1 = 'hamburgers are cool'
 local vary2 = 'potatoes are also cool, i think'
      
 function onCreate()
-     debugPrint(vary1) -- will print 'hamburgers are cool'
-     debugPrint(vary2) -- will print 'potatoes are also cool, i think'
+     debugPrint(vary1) -- will print > 'hamburgers are cool'
+     debugPrint(vary2) -- will print > 'potatoes are also cool, i think'
 end
 ```
 
 ***
 
 # Variables
-Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua file. The data from the variable can be updated based on assigning a new value from it.
+Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua program. They're paired with an associated name which contains the data value of the variable to be used. The data from the variable can be updated when you assigned a new value from it.
 
-### Declaring
-To declare a variable assign the specified `type` of the variable, it could be a `global` type by adding nothing or a `local` type by declaring with the `local` keyword before the variable `name`. After you determine the variable type add the `name` of the variable, name it what-ever you want but there are rules when naming variables. Followed by an equal <kbd>=</kbd> character to assign the specified `value` of the variable.
+## Declaring
+To declare the variable, you must specify the variable's `type`, `name`, and `data` value. The `type` determines what scope the variable should have. It could be `global` type by default in Lua or `local` type by using the `local` keyword. Followed by the `name` of your variable name it what-ever you want it, but there are some rules to follow when declaring them. The variable's specified `data` value is then assigned using an equal <kbd>&equals;</kbd> character.
 
 Example:
 ```lua
-foo = true
-bar = false
+local foo = 73
+local bar = 29
+local baz = foo - bar
+
 function onCreate()
-     debugPrint(foo) -- will print 'true'
-     debugPrint(bar) -- will print 'false'
+     debugPrint(baz) -- will print > 44
 end
 ```
 
-You can also assign multiple variables in one line. To do this each `name` and `value` of a variable must be separated by comma <kbd>,</kbd> character. The `name` and `value` should be equal to each-other if not it will return a `nil` value or an error.
+You can also assign multiple variables in one line, if you want to reduce the lines of code for some reason. Each variable's `names` and `values` should be separated by a comma <kbd>,</kbd> character. But if the names list is not equal to the values list then the other values will be asign into `nil` value. If the opposite happens then the other extra `values` will be ignore, making them impossible to call them.
 
 Example:
 ```lua
-bar1, bar2, bar3 = 1, 2, 3   -- multi-line
-bar4, bar5, bar6 = 4, 5      -- multi-line (missing)
+local foo, bar, baz = 134, 72, 722    -- 'name and value lists' are equal
+local plu, clu, zur = 'Hello', 'Bye'  -- 'value list' is greater than 'name list'
+local qux, quy = true, true, false    -- 'name list' is greater than 'value list'
+
 function onCreate()
-     debugPrint(bar1, bar2, bar3)  -- will print '1 2 3'
-     debugPrint(bar4, bar5, bar6)  -- will print '4 5 nil'
+     debugPrint(foo, bar, baz) -- will print > 134, 72, 722
+     debugPrint(plu, clu, zur) -- will print > 'Hello', 'Bye', nil
+     debugPrint(qux, quy)      -- will print > true, true
 end
 ```
 
 ### Naming Rules
 - Variable names can only have alphanumeric `Ab12` and underscore <kbd>_</kbd> characters.
 - Variable names cannot have numbers at the start of the name.
-- Variable names are case-sensative so variable `a` and `A` are completely different to each-other.
+- Variable names are case-sensitive so variable a and A are completely different to each-other.
 - Variable names are recommended to have descriptive name like (`health`, `misses`, `alpha`) to make the code more readable.
-- Variable names cannot be named after Lua keywords.
+- Variable names cannot be named after <a href="https://www.lua.org/manual/5.1/manual.html#:~:text=2.1%20%E2%80%93-,Lexical%20Conventions,-Names%20(also%20called">Lua keywords</a>.
 
-Reserved Lua Keywords:
+Example: (Valid)
 ```lua
-and       or       not       local     true       break    
-false     nil      if        else      elseif     goto    
-then      for      in        repeat    until      self
-while     do       return    end       function
-```
-
-Example (Valid):
-```lua
-varname   = 'Hi'   -- a variable
-varName   = 'Hi'   -- a variable with a capitalize letter at the start
-var_name  = 'Hi'   -- a variable with an underscore '_' character
+varname   = 'Hi'   -- a variable (lower case)
+varName   = 'Hi'   -- a variable with a capitalize letter (camel case)
+var_name  = 'Hi'   -- a variable with an underscore '_' character (snake case)
 _var_name = 'Hi'   -- a variable with an underscore '_' character at the start 
-VARNAME   = 'Hi'   -- a variable that is all capitalize letters
+VARNAME   = 'Hi'   -- a variable that is all capitalize letters (upper case)
 varname2  = 'Hi'   -- a variable with a number
+_______   = 'Hi'   -- what the hell is this variable???
 ```
 
-Example (Invalid):
+Example: (Invalid)
 ```lua
 1varName = 'Error' -- a variable with a number at the start
-var-name = 'Error' -- a variable with a minus '-' character
+var-name = 'Error' -- a variable with a minus '-' character (kebab case)
 var name = 'Error' -- a variable with a space ' ' character
 var$name = 'Error' -- a variable with a special '$' character
 ```
 
-### Types
-They are two types of variables you can use that I mentioned before `Global` or `Local` variables. `Global` variables allows you to call them outside a Callback Templates or block, at any time throughout the program. But it's only recommended if you're getting a variable on another Callback Templates or block for data checking or something.
+## Types
+### Global
+Global variables allows you to call them outside a Callback Templates or block, at any time throughout the program. But it's only recommended if you're getting a variable on another Callback Templates or block for data checking or something.
 
 Example:
 ```lua
@@ -107,14 +98,15 @@ function onCreate()
      addLuaText(globalTextTag)       -- adds the text in the game
 end
 
-function onBeatHit() -- checks every beat hit
+function onBeatHit()      -- checks every beat hit
      if curBeat == 5 then -- checks if the 'curBeat' is equal to '5'
           setProperty(globalTextTag..'.alpha', 0.5) -- sets the text opacity into '0.5'
      end
 end
 ```
 
-`Local` variables can only be called within a function or block; if you attempted to call them outside it will return a `nil` value becuase there only local within that function or block. They're more faster to call becuase they're integrated into the environment in which they are created.
+### Local
+Local variables can only be called within a function or block; if you attempted to call them outside it will return a `nil` value because there only local within that function block. They're more faster to call because they're integrated into the environment in which they are created.
 
 Example:
 ```lua
@@ -124,7 +116,7 @@ function onCreatePost()
 end
 
 function onSongStart()
-     debugPrint(localOpacity) -- will print 'nil'
+     debugPrint(localOpacity) -- will print > nil
      doTweenAlpha('HUDTween', 'camHUD', 1, 3, 'linear') -- will tween the camera HUD elements to '1'
 end
 ```
@@ -132,128 +124,98 @@ end
 ***
 
 # Data Types
-### Strings
-Strings are a sequence of characters it can represent an alphabetical, digital, punctuation, etc. They are usually surrounded by single-quote <kbd>''</kbd> and double-quote <kbd>""</kbd> which are commonly used when creating a string. You can also surround it by double-brackets <kbd>[[]]</kbd>, this is only used for multi-line strings for longer texts.
+## Strings
+Strings are a sequence of characters it can either represent an alphabetical, digital, punctuation, or all of them. Their main purpose is to store human-readable text, like words and sentences. They're commonly surrounded by single-quotes <kbd>''</kbd>, double-quotes <kbd>""</kbd>, or double-brackets <kbd>[[]]</kbd> for multi-line strings.
 
 Example:
 ```lua
 local textString1 = 'Hello' -- a single quote
 local textString2 = "World" -- a double quote, this is optional to use
-local textString3 = [[Culturae organicae te
-capiet ad loca quae numquam 
-expectata non visere!]]     -- a double bracket, used this for longer strings
+local textString3 = [[
+     Culturae organicae te capiet ad loca quae numquam 
+     expectata non visere!
+]]                          -- a double bracket, used this for longer texts
 
 function onCreate()
      debugPrint(textString1) --   will print 'Hello'
-     debugPrint(textString2) --   will print 'World'
-     debugPrint(textString3) --[[ will print 
-     'Culturae organicae te capiet ad loca quae numquam 
-     expectata non visere!' --]]
+     debugPrint(textString2) --   will print "World"
+     debugPrint(textString3) --[=[ will print [[
+          Culturae organicae te capiet ad loca quae numquam
+          expectata non visere!
+     ]]]=]
 end
 ```
 
-#### Escape Characters
-Escape characters are special characters used within a string. They are an alternate interpretation of the characters in the following character sequence. It can be interpreted as a single <kbd>''</kbd>, double <kbd>""</kbd> quotes, or backslash <kbd>\\</kbd> character, they are constructed by backslash <kbd>\\</kbd> character with the specified character to useafter that; Example: <kbd>\\'</kbd>. And there is a reason for their existence, it's to avoid an error from occurring.
-
-So, lets assume you constructed a string that is surrounded by double-quote <kbd>""</kbd> characters and you want to add a double-quote inside the string, so you inserted the double-quote <kbd>""</kbd> and itmresulted in an error. Because Lua thinks the string would finish there due to the inserted double-quote <kbd>""</kbd> character, it created an error. As a result, escape characters exist to solve this issue.
-
-Example:
-```lua
-function onCreate()
-     local textString1 = 'i can smell the "bitch" on you!!' 
-     local textString2 = "that's racist i feel like"
-
-     debugPrint(textString1) -- will print 'i can smell the "bitch" on you!!'
-     debugPrint(textString2) -- will print 'that's racist i feel like'
-
-     local textString3 = 'Don\'t press \'Alt + F4\'' -- single quote
-     local textString4 = "dead \"(in a cool way)\""  -- double quote
-     local textString5 = 'C:\\Windows\\System32'     -- backslash
-
-     debugPrint(textString3) -- will print 'Don't press 'Alt + F4''
-     debugPrint(textString4) -- will print "dead "(in a cool way)""
-     debugPrint(textString5) -- will print 'C:\Windows\System32'
-end
-```
-
-- `\'` - Single-quote Character
-- `\"` - Double-quote Character
-- `\\` - Backslash Character
-- `\n` - New Line
-- `\r` - Carriage Return
-- `\t` - Horizontal Tab
-- `\v` - Vertical tab 
-
-### Numbers
+## Numbers
 Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Float or Int; Float numbers support decimal numbers, whilst Int numbers only uses whole numbers.
 
 Example:
 ```lua
-local intNumber1 = 81        -- an int number
-local floatNumber1 = 23.42   -- a float number
+local numInt = 81       -- integer number
+local numFlt = 23.42    -- floating-point number
 
-local floatAltNumber1 = 12.  -- a float number in whole numbers
-local floatAltNumber2 = .56  -- a float number in decimal numbers
+local numAltFlt1 = 12.
+local numAltFlt2 = .56
 function onCreate()
-     debugPrint(intNumber1)      -- will print '81'
-     debugPrint(floatNumber1)    -- will print '23.42'
-
-     debugPrint(floatAltNumber1) -- will print '12.0'
-     debugPrint(floatAltNumber2) -- will print '0.56'
+     debugPrint(numInt, numFlt)         -- will print > 81, 23.42
+     debugPrint(numAltFlt1, numAltFlt2) -- will print > 12.0, 0.56
 end
 ```
 
-### Booleans
+Numbers can also be represented in Scientific (Exponent) Notation. They are a way to expressing numbers that are too large or too small to be conveniently written in float form.
+
+Example:
+```lua
+function onCreate()
+     debugPrint(263e+4) -- will print > 2630000.0
+     debugPrint(326e-5) -- will print > 0.00326
+end
+```
+
+## Booleans
 Booleans, often shortened to Bools, are data types that can have two possible values: `true` or `false`. This is commonly used for conditional statements, which allow for different actions by modifying control flow based on whether the condition is `true` or `false`.
 
-### Nil
+## Nil
 Nil represents nothingness or non-existence of a value. This can be used for destroying a variable or table values if not used anymore. Or use conditional statements to check if the value is a `nil` or not.
 
-### Tables
-Tables are a data structuring mechanism in Lua the only one in fact. That can store multiple types values like `strings`, `numbers`, `booleans`, etc; except for `nil` values. To construct a table, use curly-braces <kbd>{}</kbd> characters rather than bracket <kbd>[]</kbd> characters like most programming languages use; each value inside a Table must be separated by a comma <kbd>,</kbd> character. Tables can be constructed as an Array or a Dictionary.
+## Tables
+Tables are a data structuring mechanism in Lua the only one in fact. They can store multiple types values like strings, numbers, booleans, even its self. This is a better alternative than listing them in each variables and makes it easy to access each element of the Table. Tables can be represented as an Array or Dictionary
 
-> **Warning**: _Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at `1`._
+### Array
+Array are the most common way to declare a Table, they're are always listed in ordered. To declare a Table Array add a pair of curly-braces <kbd>{}</kbd> characters with the elements each separated by a comma <kbd>,</kbd> character.
+
+To read a Table Array element get the name of it followed by a pair of bracket <kbd>[]</kbd> characters. With the referring to the index number inside the pair of bracket <kbd>[]</kbd> characters for specified element to get.
+
+> **Warning**: _Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at 1_.
 
 Example:
 ```lua
 local tableGroup1 = {'string', true, nil} -- a table with string, boolean, and nil values
-local tableGroup2 = {{45, 13}, {34, 76}}  -- a table inside with nested tables
+local tableGroup2 = {{45, 13}, {34, 76}}  -- a table with nested tables
 function onCreate()
-     debugPrint(tableGroup1[1])    -- will print 'string'
-     debugPrint(tableGroup2[1][2]) -- will print '45'
+     debugPrint(tableGroup1)       -- will print > ['string', true, nil]
+     debugPrint(tableGroup1[1])    -- will print > 'string'
+     debugPrint(tableGroup2[1][2]) -- will print > 13
 end
 ```
 
-#### Array
-Arrays are constructed in an ordered indexes starting from `1`. To read an Array, get the variable name followed by a pair of brackets <kbd>[]</kbd> with the provided index number of a table inside the brackets. To obtain the value from the table values.
+### Dictionary
+Dictionaries uses key-value pairs for storing elements instead of index-value pairs that Table Arrays uses. It basically uses names for reffering the elements inside the Table Dictionary. The key from the Table Dictionary can be surrounded by bracket <kbd>[]</kbd> characters with single-quoted <kbd>''</kbd> or double-quoted <kbd>""</kbd>. This is only used if the key name has a special character inside of it.
 
-Example:
-```lua
-local tableArray = {'Correct', 'Incorrect', 'Maybe', 'Invalid'} -- a table with string values
-function onCreate()
-     debugPrint(tableArray)    -- will print '['Correct', 'Incorrect', 'Maybe', 'Invalid']'
-     debugPrint(tableArray[1]) -- will print 'Correct'
-     debugPrint(tableArray[3]) -- will print 'Maybe'
-end
-```
-
-#### Dictionary
-Dictionaries are constructed in an unordered key-value pairs. To construct a Dictionary just define the `key` which is the value's name followed by an equal <kbd>=</kbd> character with the given `value` at the end.
-
-To read a Dictionary get the table variable name followed by a dot <kbd>.</kbd> character with the `key` name to get the value; Example: `tableVar.key`. Or add a pair of brackets <kbd>[]</kbd> with the `key` name that quoted with single <kbd>''</kbd> or double <kbd>""</kbd> characters. Which I would recommend becuase it can include any special character inside the `key` name; Example: `tableVar.['key']` or `tableVar.["key"]`.
+To read a Table Dictionary get the name of it followed by a dot <kbd>.</kbd> character with the name of the key to be used. Or used the bracket method as an alternative or if it has a special key name.
 
 Example:
 ```lua
 local tableDict1 = {isFatherless = false, hasTouchGrass = true}
 local tableDict2 = {['air'] = 'Oxygen', ["food"] = 'potato', ["love"] = 'carbon monoxide'}
 function onCreate()
-     debugPrint(tableDict1)                   -- will print '{isFatherless => false, hasTouchGrass => true}'
-     debugPrint(tableDict1.isFatherless)      -- will print 'false' (recommended syntax)
-     debugPrint(tableDict1['hasTouchGrass'])  -- will print 'true'  (alternative syntax)
+     debugPrint(tableDict1)                   -- will print > {isFatherless => false, hasTouchGrass => true}
+     debugPrint(tableDict1.isFatherless)      -- will print > false
+     debugPrint(tableDict1['hasTouchGrass'])  -- will print > true
 
-     debugPrint(tableDict1.air)               -- will print 'Oxygen'
-     debugPrint(tableDict2['food'])           -- will print 'potato'
-     debugPrint(tableDict2["love"])           -- will print 'carbon monoxide'
+     debugPrint(tableDict1.air)               -- will print > 'Oxygen'
+     debugPrint(tableDict2['food'])           -- will print > 'potato'
+     debugPrint(tableDict2["love"])           -- will print > 'carbon monoxide'
 end
 ```
 
@@ -483,7 +445,7 @@ end
 ```
 
 ### While Loop
-While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
+While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, Make an `if` statement but just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
 
 > **Warning**: _Check the condition when making a `while` loop statement. Because it might loop infinitely and crash your game! I'd suggest you test it [here](https://www.mycompiler.io/new/lua) before implementing into the Lua script._
 
@@ -522,13 +484,14 @@ Break statement stops the loop statements from looping. You can use this for spe
 Example:
 ```lua
 function onCreate()
-     for index = 0, 10 do
-          debugPrint(index) -- will print '0, 1, 2, 3, 4, 5'
-
-          if index == 10 / 2 then -- checks if the 'index' value is '5'
-               break -- ends the loop
+     local nums = {1, 3, 9, 5, 7, 4, 19, 13}
+     for i = 1, #nums do
+          if i > #nums / 2 then
+               break
+          else
+               debugPrint(nums[i])
           end
-     end 
+     end
 end
 ```
 
@@ -607,19 +570,19 @@ end
 
 # Predefined Functions/Variables
 ### type(value:Dynamic)
-Gets the <ins>specific value type of the argument</ins>. Can be used to check the value type inside the conditional statements; Returns either: `string`, `boolean`, `number`, `table`, `function`.
+Checks the specific data type of the arguements that is passed on. Can be used to check the value type inside the conditional statements; Returns either: `string`, `boolean`, `number`, `table`, `function`, `userdata`, and `thread`.
 
-- `value` - The argument value to be check.
+- `value` - The value to be check.
 
-### tostring(numboo:Dynamic)
-Converts any <ins>number or booleans</ins> into a real `string` value.
+### tostring(arg:Dynamic)
+Converts any `number` or `boolean` values into real `string` values.
 
-- `numboo` - The specified value to be converted.
+- `arg` - The value to be converted
 
 ### tonumber(num:String)
-Converts any <ins>number inside of a string</ins> into a real number.
+Converts any `string` values into real `number` values.
 
-- `num` - The number to be converted.
+- `num` - The value to be converted
 
 ### load(chunk:String)
 Converts the code inside the string into real Lua code; Returns a `function`.
