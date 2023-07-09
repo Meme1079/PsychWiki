@@ -58,7 +58,7 @@ function onCreate()
 end
 ```
 
-### Naming Rules
+### Naming Conventions
 - Variable names can only have alphanumeric `Ab12` and underscore <kbd>_</kbd> characters.
 - Variable names cannot have numbers at the start of the name.
 - Variable names are case-sensitive so variable a and A are completely different to each-other.
@@ -221,24 +221,24 @@ end
 
 ***
 
-# Function
-Functions are a collection of code to perform a specific task. This is used the same functions multiple times to make the code reusable. Functions are defined with the `function` keyword followed by the name of your custom function. With the pair of parenthesis <kbd>()</kbd> characters. To call a function get the name of your custom function followed by a pair of parenthesis <kbd>()</kbd> characters.
+# Functions
+Functions are a collection of code that is designed perform a specific task. They can enable reusable code across the Lua program and reduces the duplication of code. functions are defined with the `function` keyword followed by the name of the function with the pair of parentheses <kbd>()</kbd> characters.
+
+To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function id; Example: `function: 0x5616d89c0770`.
 
 Example:
 ```lua
-function hello() -- a 'hello' function
+function hello()
      debugPrint('Hello Function')
 end
 
 function onCreate()
-     hello()     -- calls the 'hello' function and will print 'Hello Function'
+     hello() -- will print > 'Hello Function'
 end
 ```
 
 ### Parameters
-Parameters are a special type of variable declared inside the parenthesis <kbd>()</kbd> character. Their purpose is to add more functionality to the function when their is an `arguement` value. Which will be passed at the parameter that they're order in.
-
-To add your own parameter just the any `name` you want like a `variable`. If you want to add more of them separate each of them  with a comma <kbd>,</kbd> character.
+Parameters are special type of variables inside the functions parentheses <kbd>()</kbd> characters. If there are two or more parameters they must be separated by a comma <kbd>,</kbd> character. Their main purpose is to add more functionality to the function. If you're calling a function you must values or "arguements" which in each parameters, this is a requirement.
 
 Example:
 ```lua
@@ -251,7 +251,7 @@ function setPos(obj, pos)  -- concatenates setProperty x and y
           setProperty(obj..'.y', pos[2]) 
      end
 end
-
+          
 function onCreatePost()
      setPos('boyfriend', {100, 500}) -- Changes the position to x = 100 and y = 500
 end
