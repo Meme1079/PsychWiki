@@ -354,11 +354,11 @@ Relational operators are used to compare multiple operands inside a condition in
 ## Logical
 Logical operators are used to combine multiple conditions and to specify on what conditions needs to be `true`.
 
-| Operators | Description                                                                               | Example   |
-|:----------|-------------------------------------------------------------------------------------------|:----------|
-|   `and`   | Returns `true` if both statements are `true`;<br> Combines multiple conditions together.       | `a and b` |
-|   `or`    | Returns `true` if one of the statements are `true`;<br> Combines multiple conditions together. | `a or b`  |
-|   `not`   | Reverses the condition; If the condition is `false`<br> it will return `true` and vice versa.  | `not a`   |
+| Operators | Description                                                                                    | Example                    | Returns |
+|:----------|------------------------------------------------------------------------------------------------|:---------------------------|---------|
+| `and`     | Returns `true` if both statements are `true`;<br> Combines multiple conditions together.       | `a == false and b == true` | `false` |
+| `or`      | Returns `true` if one of the statements are `true`;<br> Combines multiple conditions together. | `a == false or b == true`  | `true`  |
+| `not`     | Reverses the condition; If the condition is `false`<br> it will return `true` and vice versa.  | `not false`                | `true`  |
 
 ## Miscellaneous
 Miscellaneous operators only features two operators the Length and Concatenate operators.
@@ -373,12 +373,12 @@ Miscellaneous operators only features two operators the Length and Concatenate o
 # Control Statements
 Control Statements allows you to control the execution of other statements. Which analyzes the statements condition and decide whether to execute the code if it's `true` or not.
 
-### Conditional Statements
+## Conditional Statements
 These are a type of control structures that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statements.
 
 Conditional Statements are a type of Control Statements that whether or not to execute the block code return `true`. They are the most common control structures to use; Lua only has 3 Conditional Statements which are `If`, `Else`, and `ElseIf` Statements.
 
-#### If Statement
+### If Statement
 If Statement checks the condition if it's `true` or not. They are define with the `if` keyword followed by the specified condition to execute the statement with the `then` keyword.
 
 Example:
@@ -391,7 +391,7 @@ function onCreate()
 end
 ```
 
-#### Else Statement
+### Else Statement
 Else statement checks if the condition fails then this statement will be executed. They are define with the `else` keyword at the bottom of the If or ElseIf Statement that's it nothing else <!-- Comedy genius --> to say about it.
 
 Example:
@@ -406,7 +406,7 @@ function onCreate()
 end
 ```
 
-#### ElseIf Statement
+### ElseIf Statement
 Elseif Statement is an alternative condition if the other condition returns `false`. They are define with the `elseif` keyword with the new condition to execute a new condition followed by the `then` keyword.
 
 Example:
@@ -423,10 +423,10 @@ function onCreate()
 end
 ```
 
-### For Loop Statement
+## For Loop Statement
 For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of loops Generic loop or Numeric Loop.
 
-#### Numeric Loop
+### Numeric Loop
 Numeric Loop are a type of loop that use numeric values to increment or to decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 expressions when declaring a Numeric loop `initialize`, `condition`, and `iteration`.
 
 - `initialize` - The initial variable for the loop to use.
@@ -449,7 +449,7 @@ function onCreate()
 end
 ```
 
-#### Generic Loop
+### Generic Loop
 Generic Loop are a type of loop that commonly uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 expressions when declaring a Generic loop `key`, `value`, and `iteration`.
 
 - `key` - The key values from the table, you can name how you want; Example: `key`.
@@ -466,7 +466,7 @@ function onCreate()
 end
 ```
 
-### While Loop
+## While Loop
 While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, Make an `if` statement but just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
 
 > **Warning**: _Check the condition when making a `while` loop statement. Because it might loop infinitely and crash your game! I'd suggest you test it [here](https://www.mycompiler.io/new/lua) before implementing into the Lua script._
@@ -486,7 +486,7 @@ function onCreate()
 end
 ```
 
-### Return Statement
+## Return Statement
 Return statement as the name suggests returns the results from the function. And stops the execution of the function. It must be relative at the end of the function or conditional statement.
 
 Example:
@@ -500,7 +500,7 @@ function onCreate()
 end
 ```
 
-### Break Statement
+## Break Statement
 Break statement stops the loop statements from looping. You can use this for specific conditions for the loop to end. It must be relative at the end of the function or conditional statement.
 
 Example:
