@@ -466,6 +466,10 @@ function onCreate()
 end
 ```
 
+#### Pair Functions
+- `pairs()` - Returns every key-value pairs inside a table for table dictionaries; Returns as an unorganized table sort; Not to be confused with `ipairs()` functions.
+- `ipairs()` - Returns every index-value pairs inside a table for table arrays. If the table value has `nil` it will stop executing the loop there.
+
 ## While Loop
 While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, Make an `if` statement but just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
 
