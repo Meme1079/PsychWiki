@@ -437,14 +437,14 @@ Example:
 ```lua
 function onCreate()
      for index = 0, 5, 1 do  -- Increment loop
-          debugPrint(index)  -- will print '0, 1, 2, 3, 4, 5'
+          debugPrint(index)  -- will print > '0, 1, 2, 3, 4, 5'
      end
      for index = 5, 0, -1 do -- Decrement loop
-          debugPrint(index)  -- will print '5, 4, 3, 2, 1, 0'
+          debugPrint(index)  -- will print > '5, 4, 3, 2, 1, 0'
      end
 
      for index = 0, 300, 50 do -- Increment Loop with each value incremented by 50 
-          debugPrint(index)    -- will print '0, 50, 100, 150, 200, 250, 300'
+          debugPrint(index)    -- will print > '0, 50, 100, 150, 200, 250, 300'
      end
 end
 ```
@@ -461,7 +461,7 @@ Example:
 function onCreate()
      local tableThingy = {num1 = 231, num2 = 345, num3 = 234}
      for key, value in pairs(tableThingy) do
-          debugPrint(key, value)  -- will print 'num1 = 231, num2 = 345, num3 = 234'
+          debugPrint(key, value)  -- will print > 'num1 = 231, num2 = 345, num3 = 234'
      end
 end
 ```
@@ -482,7 +482,7 @@ function onCreate()
           counter   = counter - 1
      end
 
-     debugPrint(factorial) -- will print '120'
+     debugPrint(factorial) -- will print > '120'
 end
 ```
 
@@ -496,7 +496,7 @@ function getMidpointNum(ope1, ope2)
 end 
 
 function onCreate()
-     debugPrint(getMidpointNum(9 + 10))   -- will print '9.5'
+     debugPrint(getMidpointNum(9 + 10))   -- will print > '9.5'
 end
 ```
 
@@ -520,13 +520,14 @@ end
 ***
 
 # Modules
-Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts.
+Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts. 
 
-### Creating
-To create your custom module, make a separate Lua script and placed the script in any location except outside the `PsychEngine` folder. Let's just say you placed your Lua script inside `mods/scripts/modules` folder and you've named the Lua script `global.lua`; this is just for an example btw.
+Instead of using `import` or `export` statements, Lua uses a Table "Dictionary" which can consist variable or functions that you frequently and, thus creating a your very own simple module. With the `return` statement at the last line of code to export the module to other files to use.
 
-<details><summary><b>Path Visualizer (For Dummies):</b></summary>
-<p> 
+> **Warning**: _Declaring a `local` variable or function won't work because it will not export any of them from other Lua files. And might cause an error or something, I dunno haven't check._
+
+<details><summary><b>Module Location (Path Visualizer):</b></summary>
+<p>
 
 ```txt
 mods/
@@ -539,17 +540,13 @@ mods/
 </p>
 </details>
 
-Before you declare any functions or variables in each name should begin with the main table variable name followed by the dot <kbd>.</kbd> character before you define your functions or variables. After you've finished your module file, add the `return` statement on the main table variable name at the last line of the Lua script module to export the module contents to other Lua scripts.
-
-> **Warning**: _Declaring a `local` variable or function won't work because it will not export any of them from other Lua files. And might cause an error or something, I dunno haven't check._
-
 Example:
 ```lua
-local myGamingModules = {} -- the start
+local modules = {}
 
-myGamingModules.red   = 'ff0000'
-myGamingModules.green = '00ff00'
-myGamingModules.blue  = '0000ff'
+modules.red   = 'ff0000'
+modules.green = '00ff00'
+modules.blue  = '0000ff'
 
 function myGamingModules.tobool(boo)     -- boolean to string
      local boo = boo:lower()
@@ -559,8 +556,8 @@ function myGamingModules.tobool(boo)     -- boolean to string
      return 'Not a boolean value'
 end
 
-function myGamingModules.setPos(obj, pos) -- Concatenates setProperty x and y
-     if pos[1] ~= nil then                -- makes pos parameter acts like a table
+function modules.setPos(obj, pos) -- Concatenates setProperty x and y
+     if pos[1] ~= nil then        -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
      end
      if pos[2] ~= nil then
@@ -568,13 +565,11 @@ function myGamingModules.setPos(obj, pos) -- Concatenates setProperty x and y
      end
 end
 
-return myGamingModules    -- exporting stuff
+return modules
 ```
 
-### require(modulePath:String)
-Requires or imports the desired module file of yours and controls whether a file has already been run to avoid duplicating the work. To use this function it must be inside a variable also you don't have to add `.lua` to get the module file. Because the function already adds it to the arguement.
-
-- `modulePath` - The location of the Lua module file to be used; Starts outside the `mods` folder.
+## Requiring
+You want to require or import the desired module file you created, use the `require()` function. And will controls whether a file has already been run to avoid duplicating the work. The arguements should have the location of the Lua module file to be used; Starts outside the `mods` folder.
 
 Example:
 ```lua
@@ -588,121 +583,34 @@ function onCreate()
 end
 ```
 
-***
+## _G
+The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts. If you want to call the variable you must use the `getGlobalFromScript()` function or if you want to set the value, you use `setGlobalFromScript()` function. 
 
-# Predefined Functions/Variables
-### type(value:Dynamic)
-Checks the specific data type of the arguements that is passed on. Can be used to check the value type inside the conditional statements; Returns either: `string`, `boolean`, `number`, `table`, `function`, `userdata`, and `thread`.
+This will work only if the lua file from which the variable is being requested is currently executing. Or alternatively you can use this for getting multiple global variables from a loop and modify the values easily.
 
-- `value` - The value to be check.
+> **Note**: _You can't declare a `local` type variable, it must be `global` type._
 
-### tostring(arg:Dynamic)
-Converts any `number` or `boolean` values into real `string` values.
-
-- `arg` - The value to be converted
-
-### tonumber(num:String)
-Converts any `string` values into real `number` values.
-
-- `num` - The value to be converted
-
-### load(chunk:String)
-Converts the code inside the string into real Lua code; Returns a `function`.
-
-- `chunk` - The code to be converted.
-
-Example:
+Example 1 (Module):
 ```lua
+-- Path: mods/scripts/test.lua
+_G.hi = 'hello'
+```
+```lua
+-- Path: mods/scripts/main.lua
 function onCreate()
-     local loadChunk1 = load('return 4 * 6')()
-     local loadChunk2 = load('return 9 / 4')()
-
-     debugPrint(loadChunk1) -- will print '24'
-     debugPrint(loadChunk2) -- will print '2.25'
+     local hi = getGlobalFromScript('scripts/test', 'hi')
+     debugPrint(hi) -- will print > 'hello'
 end
 ```
 
-### dofile(path:String)
-Imports <ins>any `global` variables or functions</ins> on other Lua files.
-
-- `path` - The specified location of the Lua file to be used.
-
-Example: _(Path: `PsychEngine/mods/scripts/modules/scriptFile.lua`)_
-```lua
-local myVar0 = nil  -- THIS WILL NOT WORK IF IT'S LOCAL!!!!!
-myVar1 = 163        -- will work
-myVar2 = true       -- will also work
-```
-
-Example: _(Path: `PsychEngine/mods/scripts/myGamingFile.lua`)_
-```lua
-dofile('PsychEngine/mods/scripts/modules/scriptFile.lua')
-function onCreate()
-     debugPrint(myVar0)  -- will print 'nil'
-     debugPrint(myVar1)  -- will print '163'
-     debugPrint(myVar2)  -- will print 'true'
-end
-```
-
-### pairs(tab:Table)
-Returns every <ins>key-value pairs</ins> inside a table and is <ins>typically used in table dictionaries</ins>. It can return as an <ins>unorganized table sort</ins>; Not to be confused with `ipairs()` functions.
-
-Example:
-```lua
-local function read(tab) -- read through a table
-     local results = ''
-     for key, values in pairs(tab) do -- pair function
-          results = results .. key..'\t'..values..'\n'
-     end
-     return results
-end
-
-function onCreate()
-     local tableArry = {123, 567, 134}
-     local tableDict = {a = 123, b = 567, c = 134}
-
-     debugPrint(read(tableArry)) -- will print '123, 567, 123'
-     debugPrint(read(tableDict)) -- will print 'c = 134, a = 123, b = 567'
-end
-```
-
-### ipairs(tab:Table)
-Returns every <ins>index-value pairs</ins> inside a table and is <ins>typically used in table arrays or with numeric keys within a table dictionary</ins>. If the table value has `nil` it will <ins>stop executing the loop there</ins>.
-
-Example:
-```lua
-local function read(tab) -- reads through a table
-     local results = ''
-     for key, values in ipairs(tab) do -- ipair function
-          results = results .. key..'\t'..values..'\n'
-     end
-     return results
-end
-     
-function onCreate()
-     local tableArry = {123, 567, 134}
-     local tableDict = {a = 123, b = 567, c = 134}
-     
-     debugPrint(read(tableArry)) -- will print '123, 567, 123'
-     debugPrint(read(tableDict)) -- will print 'c = 134, a = 123, b = 567'
-end
-```
-
-***
-
-### _G
-The Global Variable is a special type of variable specifically a table dictionary. That gets every `global` variable and are saved inside the variable, it's defined with the `_G` keyword. Be careful when calling it because it can cause a crash. Changing its value does not affect any environment, nor vice versa.
-
-You can use this for getting multiple global variables from a loop and modify the values easily. The original intended purpose of the global variable is get other global variables from other scripts. But it's broken when using it for some reason.
-
-Example:
+Example 2 (Iterating):
 ```lua
 function onCreate()
      myGlobalVar0, myGlobalVar1 = 183, 231
      myGlobalVar2, myGlobalVar3 = 963, 263
      for nummys = 0, 3 do
-          debugPrint(_G['myGlobalVar' .. nummys])         -- will print '183, 231, 963, 263'
-          debugPrint(_G['defaultPlayerStrumX' .. nummys]) -- will print '732, 844, 956, 1068'
+          debugPrint(_G['myGlobalVar' .. nummys])         -- will print > '183, 231, 963, 263'
+          debugPrint(_G['defaultPlayerStrumX' .. nummys]) -- will print > '732, 844, 956, 1068'
      end 
 end
 ```
