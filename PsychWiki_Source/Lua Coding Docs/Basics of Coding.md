@@ -26,6 +26,39 @@ end
 
 ***
 
+# Comments
+Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters with the double minus <kbd>--</kbd> characters before it.
+
+Example:
+```lua
+function onCreate() -- Triggered at the start of the Lua script
+     makeLuaSprite('tag', 'imagePath', 0, 0) -- initializes the lua sprite
+     addLuaSprite('tag', true)               -- Adds the lua sprite
+end
+
+--[[
+function onCreatePost()
+     setProperty('iconP1.visible', false)
+     setProperty('iconP2.visible', false)
+end
+]]
+```
+
+You can also nest multi-line comments just add an equal <kbd>=</kbd> character between the double brackets <kbd>[[]]</kbd> characters of the comment; Example: <kbd>--[=[]=]</kbd>. The amount of equal <kbd>=</kbd> character determines how many levels of nesting will be created.
+
+Example:
+```lua
+--[=[
+     Here's a multi-line comment with the equal
+     sign to prevent the double bracket strings [] 
+     inside the comment to break
+
+     debugPrint([[ hi ]])
+]=]
+```
+
+***
+
 # Variables
 Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua program. They're paired with an associated name which contains the data value of the variable to be used. The data from the variable can be updated when you assigned a new value from it.
 
@@ -219,12 +252,29 @@ function onCreate()
 end
 ```
 
+### Inserting
+Tables can insert elements in any given position of the table. You can do this by calling the table with the referring to the index number or key name. followed by the element that is then assigned using an equal <kbd>&equals;</kbd> character. Or alternative you can use the `table.insert()` function to forcefully insert an element from the table without changing the element's value.
+
+Example:
+```lua
+local tableGroup1 = {'luz', 'erm', 'duq'}
+local tableGroup2 = {foo = 93, bar = 23, baz = 74}
+function onCreate()
+     tableGroup1[4] = 'rod'
+     tableGroup1[5] = 'xur'
+     tableGroup2['muz'] = 91
+     tableGroup2['quz'] = 32
+
+     debugPrint(tableGroup1) -- will print > {foo => 93, bar => 23, baz => 74, muz => 91, quz => 32}
+     debugPrint(tableGroup2) -- will print > ['luz', 'erm', 'duq', 'rod', 'xur']
+end
+```
 ***
 
 # Functions
 Functions are a collection of code that is designed perform a specific task. They can enable reusable code across the Lua program and reduces the duplication of code. functions are defined with the `function` keyword followed by the name of the function with the pair of parentheses <kbd>()</kbd> characters.
 
-To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function id; Example: `function: 0x5616d89c0770`.
+To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function's memory address; Example: `function: 0x5616d89c0770`.
 
 Example:
 ```lua
@@ -237,7 +287,7 @@ function onCreate()
 end
 ```
 
-### Parameters
+## Parameters
 Parameters are special type of variables inside the functions parentheses <kbd>()</kbd> characters. If there are two or more parameters they must be separated by a comma <kbd>,</kbd> character. Their main purpose is to add more functionality to the function. If you're calling a function you must values or "arguements" which in each parameters, this is a requirement.
 
 Example:
@@ -257,94 +307,66 @@ function onCreatePost()
 end
 ```
 
-You can also declare a infinite parameter <kbd>...</kbd> inside the parenthesis <kbd>()</kbd> character, just to let you know if you want it for some reason. But if there are non-infinite parameters declared it at the end of the parameter arrays.
+Parameters can be defined as an infinite parameter with the ellepsis <kbd>...</kbd> character. It enables an indefinite number of arguments to pass. If there are non parameters present, it must be the last parameters from the list.
 
 Example:
 ```lua
-function weirdMath(mathStuff, ...)
-     local results = 0      -- the results
-     local convert = {...}  -- converts the infinite parameter into a table
-     for i = 1, #convert do -- alternative for loop through a table
-         results = results + mathStuff + convert[i]
-     end
-     return results
+function table.pack(...)
+     return {...}
 end
 
 function onCreate()
-     local mainMath = ((5 % 6^2) / 2) * (5 % 23)
-     debugPrint(weirdMath(mainMath, 3, 54, 64, 12, 94, 23, 56)) -- will print '393.5'
+     debugPrint(table.pack(34, 23, 12, 343)[1])
+     debugPrint(table.pack(true, false, true, true)[4])
 end
-```
-
-***
-
-# Comments
-Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters.
-
-You can also nest multi-line comments just add an equal <kbd>=</kbd> character between the double brackets <kbd>[[]]</kbd> characters of the comment; Example: `--[=[]=]`. The amount of equal <kbd>=</kbd> character determines how many levels of nesting will be created.
-
-Example:
-```lua
--- Here's a single-line comment nothing special
-
---[[
-     Here's a multi-line comment for really
-     long unnecessary comments, also hi.
-]]
-
---[=[
-     Here's a multi-line comment with the equal
-     sign to prevent the double bracket strings [] 
-     inside the comment to break
-
-     debugPrint([[ hi ]])
-]=]
 ```
 
 ***
 
 # Operators
-Operators are unique symbols that are used to carry out operations on operands. For the conditional statements to use to determine if the value is `true` or `false` before executing the code block. They can be represented as Arithmetic, Relational, Logical, and Miscellaneous.
+Operators are unique symbols that are used to carry out operations on operands. For the conditional statements to use to determine if the value is `true` or `false` before executing the code block. They can be represented as Arithmetic, Relational, Logical, and Miscellaneous operators.
 
-### Arithmetic
+## Arithmetic
 Arithmetic operators are mathematical operators used to perform calculations for numeric values.
 
-- `+` - Addition
-- `-` - Subtraction
-- `*` - Multiplication
-- `/` - Division
-- `%` - [Modulus](https://www.calculatorsoup.com/calculators/math/modulo-calculator.php)
-- `^` - Exponentiation
-- `-` - Unary Negation
+| Operators | Name                                                                             | Example | Returns |
+|:---------:|----------------------------------------------------------------------------------|:--------|:--------|
+|    `+`    | Addition                                                                         | `5 + 5` |  `10`   |
+|    `-`    | Subtraction                                                                      | `8 - 3` |   `5`   |
+|    `*`    | Multiplication                                                                   | `5 * 3` |  `15`   |
+|    `/`    | Division                                                                         | `9 / 2` |  `4.5`  |
+|    `%`    | [Modulus](https://www.calculatorsoup.com/calculators/math/modulo-calculator.php) | `8 % 4` |   `0`   |
+|    `^`    | Exponentiation                                                                   |  `2^4`  |  `16`   |
+|    `-`    | Unary Negation                                                                   |  `-8`   |  `-8`   |
 
-### Relational
+## Relational
 Relational operators are used to compare multiple operands inside a condition in order for the code block to execute.
 
-|Operators|Description|Example|
-|---------|-----------|-------|
-| `==` | Checks if the condition is <ins>equal to</ins> the right. | `a == b`; Returns `false`. |
-| `~=` | Checks if the condition is <ins>not equal to</ins> the right. | `a ~= b`; Returns `true`. |
-| `>` | Checks if the condition is <ins>greater than</ins> the right. | `2 > 1`; Returns `true`. |
-| `<` | Checks if the condition is <ins>lesser than</ins> the right. | `4 < 2`; Returns `false`. |
-| `>=` | Checks if the condition is <ins>greater or equal to</ins> the right. | `3 >= 3`; Returns `true`. |
-| `<=` | Checks if the condition is <ins>lesser or equal to</ins> the right. | `2 <= 23`; Returns `false`. |
+| Operators | Description                                                          | Example  | Returns |
+|:---------:|----------------------------------------------------------------------|:---------|:--------|
+|   `==`    | Checks if the condition is <ins>equal to</ins> the right.            | `a == b` | `false` |
+|   `~=`    | Checks if the condition is <ins>not equal to</ins> the right.        | `a ~= b` | `true`  |
+|    `>`    | Checks if the condition is <ins>greater than</ins> the right.        | `4 > 5`  | `false` |
+|    `<`    | Checks if the condition is <ins>lesser than</ins> the right.         | `4 < 5`  | `true`  |
+|   `>=`    | Checks if the condition is <ins>greater or equal to</ins> the right. | `7 >= 7` | `true`  |
+|   `<=`    | Checks if the condition is <ins>lesser or equal to</ins> the right.  | `2 <= 5` | `true`  |
 
-### Logical
+## Logical
 Logical operators are used to combine multiple conditions and to specify on what conditions needs to be `true`.
 
-|Operators|Description|Example|
-|---------|-----------|-------|
-| `and` | Combines multiple conditions together; will print `true`,<br> if <ins>all the statements</ins> are `true`. | `a == true and b == true`; Returns `false` |
-| `or` | Combines multiple conditions together; will print `true`,<br> if <ins>any of the statements</ins> are `true`. | `a == true or b == true`; Returns `true` |
-| `not` | Reverses the condition; if the value is equivalent to `false`,<br> then the operator will set it into `true`, and vice versa. | `not true`; Returns `false`. |
+| Operators | Description                                                                               | Example   |
+|:----------|-------------------------------------------------------------------------------------------|:----------|
+|   `and`   | Returns `true` if both statements are `true`;<br> Combines multiple conditions together.       | `a and b` |
+|   `or`    | Returns `true` if one of the statements are `true`;<br> Combines multiple conditions together. | `a or b`  |
+|   `not`   | Reverses the condition; If the condition is `false`<br> it will return `true` and vice versa.  | `not a`   |
 
-### Miscellaneous
+## Miscellaneous
 Miscellaneous operators only features two operators the Length and Concatenate operators.
 
-|Operators|Description|Example|
-|---------|-----------|-------|
-| `#` | Length operator, Checks the maximum length size of a `string` or `table`. | `#('sussy')`; Returns `5`. |
-| `..` |Concatenate operator, Merges multiple `string` or `numbers` together. | `'snow'..'ball'`; Returns `snowball`. | 
+| Operators | Description                                                               | Example          |
+|:---------:|---------------------------------------------------------------------------|------------------|
+| `#`       | Length operator, Checks the maximum length size of a `string` or `table`. | `#'sussy'`       |
+| `..`      | Concatenate operator, Merges multiple `string` or `numbers` together.     | `'snow'..'ball'` |
 
 ***
 
