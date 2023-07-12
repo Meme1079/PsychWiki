@@ -269,6 +269,7 @@ function onCreate()
      debugPrint(tableGroup2) -- will print > ['luz', 'erm', 'duq', 'rod', 'xur']
 end
 ```
+
 ***
 
 # Functions
@@ -616,5 +617,34 @@ function onCreate()
           debugPrint(_G['myGlobalVar' .. nummys])         -- will print > '183, 231, 963, 263'
           debugPrint(_G['defaultPlayerStrumX' .. nummys]) -- will print > '732, 844, 956, 1068'
      end 
+end
+```
+
+***
+
+# Predefined Lua Functions
+### tostring(num:Dynamic)
+Converts any `number` or `boolean` values into real `string` values.
+
+- `num` - The value to be converted
+
+### tonumber(num:String)
+Converts any `string` values into real `number` values.
+
+- `num` - The value to be converted
+
+### type(data:Dynamic)
+Checks the current type of the value; Can either return: `string`, `number`, `boolean`, `nil`, `table`, `function`.
+
+- `data` - The value to be checked.
+
+### load(code:Function)
+Loads a Lua code from the argument and converts into real Lua code.
+
+Example:
+```lua
+local ope = load([[return 4 + 3]])
+function onCreate()
+     debugPrint(ope) -- will print > 7
 end
 ```
