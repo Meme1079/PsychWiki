@@ -3,21 +3,21 @@ Metatables allows you to modify behavior of any table, making it more useful tha
 
 Example:
 ```lua
-local numbers = {134, 831, 93, 253, 823}
-setmetatable(numbers, {
-     __unm = function(tab, value)
-          local result = {}
-          for i = 1, #tab do
-               table.insert(result, -tab[i])
+function getObject(tag)
+     return setmetatable({name = tag}, {
+          __index = function(tab, inde) -- get
+               return getProperty(tab.name.."."..index)
+          end,
+          __newindex = function(tab, index, value) -- set
+               setProperty(tab.name..'.'..index, value)
           end
-          return result
-     end
-})
+     })
+end
 
-function onCreate()
-     for _,v in ipairs(-numbers) do
-          debugPrint(v) -- will print > '-134, -831, -93, -253, -823'
-     end
+local boyfriend = getObject('boyfriend')
+function onCreatePost()
+     boyfriend.x = 342
+     boyfriend.y = 123
 end
 ```
 
@@ -44,6 +44,26 @@ The corresponding addition `+` operator for metamethods. The first operand from 
 
 - `tab` - The table itself that the metatable uses currently.
 - `value` - The second operand from the condition to get.
+
+Example:
+```lua
+local myNums = {132, 893, 623, 925, 232}
+local myMeta = {
+     __add = function(tab, value)
+          local results = {}
+          for i = 1, #tab do
+               table.insert(results, tab[i] + value)
+          end
+          return results
+     end
+}
+
+setmetatable(myNums, myMeta)
+function onCreate()
+     debugPrint(myNums[1] + 50) -- will print > 182
+     debugPrint(myNums[2] + 23) -- will print > 916
+end
+```
 
 ### __sub(tab:Array, value:Dynamic)
 The corresponding subtraction `-` operator for metamethods; Behaves the same as the `__add` metamethod.
