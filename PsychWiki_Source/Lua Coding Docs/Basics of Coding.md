@@ -179,6 +179,38 @@ function onCreate()
 end
 ```
 
+### Escape Characters
+Escape characters are special characters used within a string. They are an alternate interpretation of the characters in the following character sequence. It can be interpreted as a single <kbd>''</kbd>, double <kbd>""</kbd> quotes, or backslash <kbd>\\</kbd> character, they are constructed by backslash <kbd>\\</kbd> character with the specified character to use after that; Example: <kbd>\\'</kbd>. And there is a reason for their existence, it's to avoid an error from occurring.
+
+So, lets assume you constructed a string that is surrounded by double-quote <kbd>""</kbd> characters and you want to add a double-quote inside the string, so you inserted the double-quote <kbd>""</kbd> and it resulted an error. Because Lua thinks the string would finish there due to the inserted double-quote <kbd>""</kbd> character, it created an error. As a result, escape characters exist to solve this issue.
+
+Example:
+```lua
+function onCreate()
+     local textString1 = 'i can smell the "bitch" on you!!' 
+     local textString2 = "that's racist i feel like"
+
+     debugPrint(textString1) -- will print 'i can smell the "bitch" on you!!'
+     debugPrint(textString2) -- will print 'that's racist i feel like'
+
+     local textString3 = 'Don\'t press \'Alt + F4\'' -- single quote
+     local textString4 = "dead \"(in a cool way)\""  -- double quote
+     local textString5 = 'C:\\Windows\\System32'     -- backslash
+
+     debugPrint(textString3) -- will print 'Don't press 'Alt + F4''
+     debugPrint(textString4) -- will print "dead "(in a cool way)""
+     debugPrint(textString5) -- will print 'C:\Windows\System32'
+end
+```
+
+- `\'` - Single-quote Character
+- `\"` - Double-quote Character
+- `\\` - Backslash Character
+- `\n` - New Line
+- `\r` - Carriage Return
+- `\t` - Horizontal Tab
+- `\v` - Vertical tab 
+
 ## Numbers
 Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Float or Int; Float numbers support decimal numbers, whilst Int numbers only uses whole numbers.
 
