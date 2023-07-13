@@ -26,6 +26,7 @@ end
 Sets the metatable to the given table; Returns a `table`.
 
 - `tab` - The table to be used inside a metatable
+- `metatable` - The metatable to be used.
 
 ### getmetatable(tab:Table)
 Gets the metatable to the given table; Returns a `table`.
