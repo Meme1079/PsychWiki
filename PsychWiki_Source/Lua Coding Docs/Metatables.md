@@ -1,5 +1,8 @@
 # About Metatables
+
 ## Metatables Setter/Getters
+### setmetatable(tab:Table, metatable:Table)
+### getmetatable(tab:Table)
 
 ***
 
@@ -34,3 +37,7 @@
 ***
 
 # Raw Functions
+### rawequal(v1, v2)
+### rawset(tab, index)
+### rawget(tab)
+### reslen(tab)
