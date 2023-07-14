@@ -1,27 +1,28 @@
 # About Metatables
-Metatables allows you to modify behavior of any table, making it more useful than before. This uses Metamethods which  uses operators for the table to use. An example of this is the metamethod `__unm` which uses the unary negatation <kbd>-</kbd> operator. Or the metamethod `__index`, if the index is not available this will be called.
+Metatables allows you to modify or to extend behavior of any table, making it more useful than before. For instance, we can change how Lua computes the expression like `a + b`, where `a` and `b` are both tables. 
+
+Whenever you try to add two tables Lua will check, if either of them has a metatable and whether that metatable contains an `__add` field. If Lua detects this feild, it calls the associated value from the operands. Which the metamethod should be a function to compute the sum.
 
 Example:
 ```lua
-function getObject(tag)
-     return setmetatable({name = tag}, {
-          __index = function(tab, inde) -- get
-               return getProperty(tab.name.."."..index)
-          end,
-          __newindex = function(tab, index, value) -- set
-               setProperty(tab.name..'.'..index, value)
-          end
-     })
-end
+local myTable = {-343, -543, 69}
+local metatable = {
+     __add = function(tab, value)
+          local tab1 = table.concat(tab, ', ')
+          local tab2 = table.concat(value, ', ')
+          return tab1 .. ', ' .. tab2
+     end
+}
 
-local boyfriend = getObject('boyfriend')
-function onCreatePost()
-     boyfriend.x = 342
-     boyfriend.y = 123
+function onCreate()
+     setmetatable(myTable, metatable)
+     debugPrint(myTable + {623, 343, 33}) -- will print > [-343, -543, 69, 623, 343, 33]
 end
 ```
 
-## Metatables Setter/Getters
+***
+
+# Metatables Setter/Getters
 ### setmetatable(tab:Table, metatable:Table)
 Sets the metatable to the given table; Returns a `table`.
 
@@ -36,8 +37,9 @@ Gets the metatable to the given table; Returns a `table`.
 ***
 
 # Metamethods
-Metamethods are special functions that provides powerful functionalities which overide the functionalities to the operators present on the tables. These are stored in a metatable, with the name of the metamethods serving as the `key`. With the arguments included within the function to be used, but they are optional to include.
+Metamethods are special functions that provides powerful functionalities which overide the functionalities to the operators present for custom behaviors. Negating a table, converting a string to a table, calling an index that is not-present, etc. Each metamethod field starts with double <kbd>__</kbd> underscores.
 
+<!--
 ## Arithmetic
 ### __add(tab:Array, value:Dynamic)
 The corresponding addition `+` operator for metamethods. The first operand from the condition should be the table itself and the second operand should be the specified value you'd chosen; This rule applies to all metamethods.
@@ -126,9 +128,23 @@ The corresponding less than or equal to `<=` operator for metamethods.
 
 ## Miscellaneous
 ### __concat(tab:Array, value:Dynamic)
+The corresponding concatenate `..` operator for metamethods.
+
+- `tab` - The table itself that the metatable uses currently.
+- `value` - The second operand from the condition to get.
+
 ### __len(tab:Array)
+The corresponding length `#` operator for metamethods.
+
+- `tab` - The table itself that the metatable uses currently.
+
 ### __tostring(tab:Array)
+The corresponding `tostring()` function for metamethods. 
+
+- `tab` - The table itself that the metatable uses currently.
+
 ### __metatable
+Changes the corresponding `getmetatable()` function behavior when invoked.
 
 ***
 
@@ -137,3 +153,5 @@ The corresponding less than or equal to `<=` operator for metamethods.
 ### rawset(tab, index)
 ### rawget(tab)
 ### reslen(tab)
+
+-->
