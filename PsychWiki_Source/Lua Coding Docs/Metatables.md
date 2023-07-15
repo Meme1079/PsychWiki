@@ -54,8 +54,7 @@ Metamethods are special functions that provides powerful functionalities which o
 - `__le(tab, value)` - Changes the behavior of the less than or equal to operator `<=` when invoked.
 
 ## Calling
-### __index(tab, key)
-Changes the behavior of the indexing access operation `table[key]` or `table.key`. This will only be invoked, if the table isn't a `table` or the `key` isn't present inside that table. The metavalue for this event can be either a `function`, `table`, or any value with an `__newindex` metavalue.
+- `__index(tab, key)` - Changes the behavior of the indexing access operation in tables `table[key]` or `table.key`. This will only be invoked, if the table isn't a `table` or the `key` isn't present inside that table. The metavalue for this event can be either a `function`, `table`, or any value with an `__newindex` metavalue.
 
 Example:
 ```lua
@@ -68,8 +67,7 @@ function onCreate()
 end
 ```
 
-### __newindex(tab, key, value)
-Changes the behavior of the indexing assignment syntax `table[key] = value` or `table.key = value`. This will only be invoked, if the table isn't a `table` or attempting to add a new element to the metatable's table. Like with the `__index` matavalue for this event can be either a `function`, `table`, or any value with an `__newindex` metavalue.
+- `__newindex(tab, key, value)` - Changes the behavior of the indexing assignment syntax in tables `table[key] = value` or `table.key = value`. This will only be invoked, if the table isn't a `table` or attempting to add a new element to the metatable's table. Like with the `__index` matavalue for this event can be either a `function`, `table`, or any value with an `__newindex` metavalue.
 
 Example:
 ```lua
@@ -89,9 +87,7 @@ function onCreate()
 end
 ```
 
-### __call(tab, ...args)
-Changes the behavior of calling operation syntax `()`. This will only be invoked, if Lua tries to call a non-function value. The metamethod is looked up in function. If it is, function is passed as the first arguement when calling the metamethod, which is then followed by the arguments from the original call from the function. This is the only metamethod that allows multiple results.
-
+- `__call(tab, ...args)` - Changes the behavior of calling operation syntax `()`. This will only be invoked, if Lua tries to call a non-function value. The metamethod is looked up in function. If it is, function is passed as the first arguement when calling the metamethod, which is then followed by the arguments from the original call from the function. This is the only metamethod that allows multiple results.
 
 Example:
 ```lua
@@ -112,134 +108,37 @@ function onCreate()
 end
 ```
 
-
-<!-- - `__index(tab, key)` - Changes the behavior of the indexing access operation `table[key]` or `table.key`. This will only be invoked, if the `table` isn't a `table` or when the `key` not present inside the `table`. This metavalue for this event can be either a function, table, or any value with an `__newindex` metavalue.
-- `__newindex(tab, key, value)` - Changes the behavior of the indexing assignment syntax `table[key] = value` or `table.key = value`. This will only be invoked, This will only be invoked, if the `table` isn't a `table` or when attempting to add a new element to the metatable's table.
-- `__call(tab, ...args)` - Invokes if table is followed by a call operation `()` on a table. This event happens when Lua tries to call a non-function value. -->
-
 ## Miscellaneous
-### __concat
-### __len
-### __tostring
-### __metatable
-
-
-<!--
-## Arithmetic
-### __add(tab:Array, value:Dynamic)
-The corresponding addition `+` operator for metamethods. The first operand from the condition should be the table itself and the second operand should be the specified value you'd chosen; This rule applies to all metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-Example:
-```lua
-local myNums = {132, 893, 623, 925, 232}
-local myMeta = {
-     __add = function(tab, value)
-          local results = {}
-          for i = 1, #tab do
-               table.insert(results, tab[i] + value)
-          end
-          return results
-     end
-}
-
-setmetatable(myNums, myMeta)
-function onCreate()
-     debugPrint(myNums[1] + 50) -- will print > 182
-     debugPrint(myNums[2] + 23) -- will print > 916
-end
-```
-
-### __sub(tab:Array, value:Dynamic)
-The corresponding subtraction `-` operator for metamethods; Behaves the same as the `__add` metamethod.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __mul(tab:Array, value:Dynamic)
-The corresponding multiplication `*` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __div(tab:Array, value:Dynamic)
-The corresponding division `/` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __mod(tab:Array, value:Dynamic)
-The corresponding modulus `%` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __pow(tab:Array, value:Dynamic)
-The corresponding exponentiation `^` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __unm(tab:Array)
-The corresponding unary negation `-` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-
-## Relational
-### __eq(tab:Array, value:Dynamic)
-The corresponding equal to `==` operator for metamethods; Behaves the same as the `__add` metamethod. Lua in general will try a metamethod only when the values being compared, if both table are not primitively equal. The result of the call is always converted to a `boolean` always.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __lt(tab:Array, value:Dynamic)
-The corresponding less than `<` operator for metamethods; Behaves the same as the `__lt` metamethod.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __le(tab:Array, value:Dynamic)
-The corresponding less than or equal to `<=` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-## Calling
-### __index(tab:Array, index:Dynamic)
-### __newindex(tab:Array, index:Dynamic, value:Dynamic)
-### __call(tab:Array, ...args:Dynamic)
-
-## Miscellaneous
-### __concat(tab:Array, value:Dynamic)
-The corresponding concatenate `..` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-- `value` - The second operand from the condition to get.
-
-### __len(tab:Array)
-The corresponding length `#` operator for metamethods.
-
-- `tab` - The table itself that the metatable uses currently.
-
-### __tostring(tab:Array)
-The corresponding `tostring()` function for metamethods. 
-
-- `tab` - The table itself that the metatable uses currently.
-
-### __metatable
-Changes the corresponding `getmetatable()` function behavior when invoked.
+- `__concat(tab, value)` - Changes the behavior of the concatenate operator `..` when invoked.
+- `__len(tab)` - Changes the behavior of the length operator `#` when invoked.
+- `__tostring(tab)` - Changes the behavior of the `tostring()` function when invoked.
+- `__metatable` - Changes the behavior of the `getmetatable()` function when invoked.
 
 ***
 
 # Raw Functions
-### rawequal(v1, v2)
-### rawset(tab, index)
-### rawget(tab)
-### reslen(tab)
+### rawequal(value1:Dynamic, value2:Dynamic)
+Raw function for equal to operator without invoking the `__eq` field.
 
--->
+- `value1` - The table to be referenced inside the metatable.
+- `value2` - The second value to be compared.
+
+### rawset(tab:Table, index:Dynamic, value:Dynamic)
+Raw function for indexing assignment syntax in tables without invoking the `__newindex` field.
+
+- `value1` - The table to be referenced inside the metatable.
+- `index` - The index from the table to be used.
+- `value` - The new value to set.
+
+### rawget(tab:Table)
+Raw function for indexing access operation in tables without invoking the `__index` field.
+
+- `value1` - The table to be referenced inside the metatable.
+
+### reslen(tab:Table)
+Raw function for length operator without invoking the `__len` field.
+
+- `value1` - The table to be referenced inside the metatable.
 
 ***
 
