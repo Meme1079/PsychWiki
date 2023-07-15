@@ -4,7 +4,7 @@ Sets the current <ins>property variable inside the Playstate</ins> with a new va
 
 - `variable` - The variable inside the Playstate or object to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - 
+- `allowMaps` - WHAT THE HELL DOES IT SUPPOSED TO DO?????
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
 Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value.
@@ -49,15 +49,26 @@ Gets the current <ins>property variable inside an array/group member inside the 
 ***
 
 # Property Methods & Instances
-### callMethod(funcToRun:String, ?args:Array/<Dynamic/> = null)
-### callMethodFromClass(className:String, funcToRun:String, ?args:Array/<Dynamic/> = null)
-### createInstance(variableToSave:String, className:String, ?args:Array/<Dynamic/> = null)
+### callMethod(funcToRun:String, ?args:Array\<Dynamic\> = null)
+### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
+### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
 ### addInstance(objectName:String, ?inFront:Bool = false)
 
 ***
 
-# Miscellaneous Property
-### removeFromGroup(obj:String, index:Int, dontDestroy:Bool = false)
+# Miscellaneous Properties
+### removeFromGroup(obj:String, index:Int, ?dontDestroy:Bool = false)
+Removes a specific note type inside the game.
+
+- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `index` - The index number of the array/group member to be referenced.
+- `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
+
+### updateHitboxFromGroup(group:String, index:Int)
+Updates the specific <ins>note type hitboxes</ins>.
+
+- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `index` - The index number of the array/group member to be referenced.
 
 ***
 
