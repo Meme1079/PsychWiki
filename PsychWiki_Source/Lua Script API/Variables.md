@@ -256,12 +256,8 @@
 - `gfName` - `getProperty('SONG.gfVersion')`
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
 - `screenHeight` - `getPropertyFromClass('FlxG', 'height')`
-- `cameraX` &darr;
-     - Version `0.7.0` or Above - `getProperty('camGame.scroll.x')`
-     - Version `0.6.3` or Below - `getProperty('camFollowPos.x')`
-- `cameraY` &darr;
-     - Version `0.7.0` or Above - `getProperty('camGame.scroll.y')`
-     - Version `0.6.3` or Below - `getProperty('camFollowPos.y')`
+- `cameraX` - `getProperty('camGame.scroll.x')`
+- `cameraY` - `getProperty('camGame.scroll.y')`
 
 </p>
 </details>

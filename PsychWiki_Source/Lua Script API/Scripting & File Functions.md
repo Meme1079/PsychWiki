@@ -1,4 +1,4 @@
-# Scripts Functions
+# Script Functions
 ### addLuaScript(path:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a Lua script into the game.
 
@@ -9,18 +9,6 @@ Adds a Lua script into the game.
 Removes a Lua script into the game, can be used for <ins>improving performances</ins> for crappy computers.
 
 - `path` - The location of the Lua script file to be removed.
-
-### isRunning(luaFile:String)
-Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
-
-- `luaFile` - The location of the Lua script file to be used.
-
-### getRunningScripts()
-Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`.
-
-***
-
-> **Warning**: _These functions are broken at the moment, so uuuhhhhh don't use it._
 
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
 Sets the current <ins>global variable from another Lua script</ins> with a new value.
@@ -34,6 +22,18 @@ Gets the current <ins>global variable from another Lua script</ins> current valu
 
 - `luaFile` - The location of the Lua script file to be used.
 - `global` -  The variable inside the Lua script to get.
+
+### isRunning(luaFile:String)
+Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
+
+- `luaFile` - The location of the Lua script file to be used.
+
+### getRunningScripts()
+Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`.
+
+***
+
+> **Warning**: _These functions are broken at the moment, so uuuhhhhh don't use it._
 
 ### callScript(?luaFile:String, ?funcName:String, ?args:Array\<Dynamic\>)
 Calls a global function from other Lua script.
@@ -107,117 +107,6 @@ Checks if the <ins>sound object exist</ins> inside the stage or script; Returns 
 
 ***
 
-# Haxe Script/Haxe Functions
-### addHaxeLibrary(libName:String, ?libPackage:String = '')
-Imports haxe <ins>libraries into the interpreter</ins>. Basically an `import` statement in Haxe which <ins>imports specific packages into Haxe</ins> like sprites, text, tweens, etc.
-
-- `libName` - The library name.
-- `libPackage` - An optional parameter, The library package.
-
-Examples: 
-- Imports the sound library: `addHaxeLibrary('FlxSound', 'flixel.system')`
-- Imports shader filters: `addHaxeLibrary('ShaderFilter', 'openfl.filters')`
-- Imports CoolUtil: `addHaxeLibrary('CoolUtil')`
-
-In Haxe:
-```haxe
-package; // they are directories that contain modules, i dunno how it works; but very important to use.
-
-// import library_package.library_name | <-- Thats the syntax
-
-import flixel.system.FlxSound; // Imports the sound package
-import openfl.filters.ShaderFilter; // Imports the shader filter package
-import CoolUtil; // Imports CoolUtil haxe file, i think
-
-// Also the semi colon ';' character is very important when declaring functions, packages, variables, etc.
-```
-
-### runHaxeCode(codeToRun:String)
-Executes the haxe code.
-
-- `codeToRun` - The haxe code to be run, use double brackets `[[]]`.
-
-Example:
-```lua
-function onCreatePost()
-     addHaxeLibrary('FlxText', 'flixel.text')
-     runHaxeCode([[
-          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
-          var textDisplay = new FlxText(0, 0, 0, textContent[0], 35, false); // makeLuaSprite
-          textDisplay.cameras = [game.camHUD]; // setObjectCamera
-          textDisplay.screenCenter();          // screenCenter
-          game.add(textDisplay);               // addLuaText
-     ]])
-end
-```
-
-### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
-Executes the Haxe function from the <ins>source code or from the HScript custom functions</ins>.
-
-> **Note**: _This function is an upcoming feature in the next update of Psych Engine, because I'm very very impatient._
-
-- `funcToRun` - The specified Haxe function to run.
-- `funcArgs` - An optional parameter, The argument(s) to be passed on the Haxe Function; Default value: `null`.
-
-***
-
-### getLuaObject(tag:String)
-Gets the specified Lua object tag to imported inside the `runHaxeCode()` function.
-
-- `tag` - The object tag name to get.
-
-Example:
-```lua
-function onCreate()
-     makeLuaSprite('graphicThingy', nil, 0, 0)
-     makeGraphic('graphicThingy', 1000, 1000, 'ff00ff')
-     addLuaSprite('graphicThingy', true)
-
-     runHaxeCode([[
-          var theLuaTag = game.getLuaObject('graphicThingy'); // gets the lua tag
-          theLuaTag.cameras = [game.camHUD]; // Sets it into 'camHUD'
-          theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
-          theLuaTag.angle   = 180;           // Sets the angle to '180'
-     ]])
-end
-```
-
-### setVar(name:String, value:Dynamic)
-<ins>Sets the current global Haxe variable</ins> with a new value. Or <ins>initializes the creation</ins> of a global Haxe variable.
-
-- `name` - The name of the global Haxe variable to be used.
-- `value` - The new value to be set.
-
-Example:
-```lua
-function onCreate()
-     addHaxeLibrary('FlxText', 'flixel.text')
-     runHaxeCode([[
-          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
-          setVar('importArray', textContent); // Initiates the global var
-     ]])
-     runHaxeCode([[
-          var getArray = getVar('importArray'); // Gets the global var
-          var textDisplay = new FlxText(0, 0, 0, getArray[0], 35, false);
-          textDisplay.cameras = [game.camHUD];
-          textDisplay.screenCenter();
-          game.add(textDisplay);
-     ]])
-end
-```
-
-### getVar(name:String)
-<ins>Gets the current global Haxe variable</ins> current value from another `runHaxeCode()` function.
-
-- `name` - The name of the global Haxe variable to get.
-
-### removeVar(name:String)
-Removes the global Haxe variable permanently.
-
-- `name` - The name of the global Haxe variable to removed.
-
-***
-
 # Saving Data Functions
 ### initSaveData(name:String, ?folder:String = 'psychenginemods')
 Initializes/Creates the <ins>save data making it able to be called anywhere</ins>. This function is <ins>recommended to be place above the save data functions</ins> for obvious reasons.
@@ -267,7 +156,7 @@ Splits the string into <ins>multiple strings</ins>; Returns a `table`.
 Example: `stringSplit('A, B, C, D', ', ')[1]`, it will return `A`.
 
 ### stringTrim(str:String)
-Removes any <ins>whitspace characters from the string</ins>. Or you could just use `(string):gsub('% ', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
+Removes any <ins>whitspace characters from the string</ins>. Or you could just use `('string'):gsub('%s+', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
 
 - `str` - The string to be trimmed.
 
