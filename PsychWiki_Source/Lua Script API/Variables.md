@@ -1,177 +1,171 @@
-# Lua/Unique Variables
-> **Note**: _These are the only variables can be change by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use `setProperty()` function if you want to change the rest of the variables._
-
-- `Function_Continue` - Continues the game; Returns `0`.
-- `Function_StopLua` - Stops the game; Returns `1`.
-- `Function_Stop` - Stops the Lua script; Returns `2`.
-- `luaDebugMode` - Enables debug mode; default value: `false`.
-- `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode.
-- `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
+# Unique Lua Variables
 
 ***
 
-# Song/Week Variables
-- `curStage` - Checks the current stage name from the JSON file name.
-- `curBpm` - Returns the starting BPM value of the song.
-- `bpm` - Checks the current BPM value of the song.
-- `crochet` - Checks the interval between `curBeat` variable.
-- `stepCrochet` - Checks the interval between `curStep` variable.
-- `songLength` - Checks the current song length displayed in milliseconds.
-- `songName` - Checks the current song name.
-- `scrollSpeed` - Checks the scroll speed of the song.
-- `isStoryMode` - Checks if the song is in story mode or not.
-- `difficulty` - Returns the difficulty ID number.
-- `difficultyName` - Returns the difficulty name.
-- `weekRaw` - Returns the raw current week number.
-- `week` - Returns the current week name from the JSON file name.
-- `currentModDirectory` - Returns the current mod directory.
+# Song & Week Variables
+- `curBpm`
+- `bpm`
+- `scrollSpeed`
+- `crochet`
+- `stepCrochet`
+- `songLength`
+- `songName`
+- `songPath`
+- `startedCountdown`
+- `curStage`
+- `isStroyMode`
+- `difficulty`
+- `difficultyName`
+- `difficultyPath`
+- `weekRaw`
+- `week`
+- `seenCutscene`
+- `hasVocals`
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `curStage` - `getPropertyFromClass('PlayState', 'SONG.stage')`
-- `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
-- `bpm` - `getProperty('SONG.bpm')`
-- `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
-- `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
-- `songLength` - `getProperty('songLength')`
-- `songName` - `getProperty('songLength')`
-- `scrollSpeed` - `getProperty('SONG.speed')`
-- `isStoryMode` - `getProperty('isStoryMode')`
-- `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
-- `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
-- `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
-- `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
-- `currentModDirectory` - `getPropertyFromClass('Paths', 'currentModDirectory')`
-
-</p>
-</details>
-
-***
-
-# Gameplay Variables
-### Current Datas
-- `curStep` - The current step per number.
-- `curBeat` - The current beat per number.
-- `curSection` - The current section per number.
-- `curDecStep` - The current decimal step per number.
-- `curDecBeat` - The current decimal beat per number.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `curStep` - `getProperty('curStep')`
-- `curBeat` - `getProperty('curBeat')`
-- `curSection` - `getProperty('curSection')`
-- `curDecStep` - `getProperty('curDecStep')`
-- `curDecBeat` - `getProperty('curDecBeat')`
-
-</p>
-</details>
-
-### Score Datas
-- `score` - The current song score.
-- `hits` - The current note hits.
-- `misses` - The current song misses.
-- `ghostMisses` - The current song ghost misses.
-- `rating` - The current song score rating percent; Goes from `0` to `1`.
-- `ratingName` - The current song score rating name.
-- `ratingFC` - The current song score rating combo.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `score` - The current song score.
-- `hits` - The current note hits.
-- `misses` - The current song misses.
-- `ghostMisses` - The current song ghost misses.
-- `rating` - The current song score rating percent; Goes from `0` to `1`.
-- `ratingName` - The current song score rating name.
-- `ratingFC` - The current song score rating combo.
-
-</p>
-</details>
-
-### Gameplay Changers
-- `healthGainMult` - The current health gain when hitting a note.
-- `healthLossMult` - The current health loss when missing a note.
-- `instakillOnMiss` - If you miss you get insta-killed.
-- `playbackRate` - The current play-back rate of the song.
-- `botPlay` - Checks if botplay is enable or not.
-- `practice` - Checks if practice is enable or not.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `healthGainMult` - The current health gain when hitting a note.
-- `healthLossMult` - The current health loss when missing a note.
-- `instakillOnMiss` - If you miss you get insta-killed.
-- `playbackRate` - The current play-back rate of the song.
-- `botPlay` - Checks if botplay is enable or not.
-- `practice` - Checks if practice is enable or not.
-
-</p>
-</details>
-
-### Miscellaneous
-- `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
-- `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
-- `gfSection` - Checks if the section is in `GF Section` from  theChart Editor.
-- `inGameOver` - Checks if the player is in game-over screen or not.
-- `seenCutscene` - Checks if the cutscene is seen.
-- `startedCountdown` - Checks if the countdown has already begun.
-- `version` - Checks the current version of Psych Engine.
-- `scriptName` - Returns the location of the Lua script.
-- `buildTarget` - Returns the build target of Psych Engine; Example: `windows`, `mac`, etc.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `seenCutscene` - `getProperty('startedCountdown')`
-- `startedCountdown` - `getPropertyFromClass('PlayState', 'seenCutscene'))`
-- `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
+- `curBpm` - `getPropertyFromClass('backend.Conductor', 'bpm')`
+- `bpm` - `getPropertyFromClass('states.PlayState', 'SONG.bpm')` 
+- `scrollSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
+- `crochet` - `getPropertyFromClass('backend.Conductor', 'crochet')`
+- `stepCrochet` - `getPropertyFromClass('backend.Conductor', 'stepCrochet')`
+- `songLength` - `getPropertyFromClass('flixel.FlxG', 'sound.music.length')`
+- `songName` - `getPropertyFromClass('states.PlayState', 'SONG.song')`
+- `songPath` -  `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
+- `startedCountdown` - `getProperty('startedCountdown')`
+- `curStage` - `getPropertyFromClass('states.Playstate', 'curStage')`
+- `isStroyMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
+- `difficulty` - `getPropertyFromClass('states.Playstate', 'storyDifficulty')`
+- `difficultyName` - `getPropertyFromClass('backend.Difficulty', 'getString()')`
+- `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
+- `weekRaw` - `getPropertyFromClass('states.Playstate', 'storyWeek')`
+- `week` - `getPropertyFromClass('backend.WeekData', 'weeksList['..weekRaw..']')`
+- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
+- `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
 </p>
 </details>
 
 ***
 
-# Preferences Variables
-- `downscroll` - Checks if downscoll is enabled or not.
-- `middlescroll` - Checks if middlescrrol is enabled or not.
-- `opponentStrums` - Checks the opponent strums visibility.  
-- `framerate` - Checks the current framerate on the game. 
-- `ghostTapping` - Checks if ghost tapping is enabled or not. 
-- `hideHud` - Checks if the score bar/health bar elements are hidden or not
-- `timeBarType` - Checks the time bar display type.
-- `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.
+# PlayState Variables
+- `curStep`
+- `curBeat`
+- `curSection`
+- `curDecStep`
+- `curDecBeat`
+- `score`
+- `misses`
+- `hits`
+- `combo`
+- `rating`
+- `ratingName`
+- `ratingFC`
+- `version`
+- `inGameOver`
+- `mustHitSection`
+- `altAnim`
+- `gfSection`
+
+***
+
+# Gameplay Settings Variables
+- `healthGainMult`
+- `healthLossMult`
+- `playbackRate`
+- `instakillOnMiss`
+- `botPlay`
+- `practice`
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+- `healthGainMult` - `getProperty('healthGain')`
+- `healthLossMult` - `getProperty('healthLoss')`
+- `playbackRate` - `getProperty('playbackRate')`
+- `instakillOnMiss` - `getProperty('instakillOnMiss')`
+- `botPlay` - `getProperty('cpuControlled')`
+- `practice` - `getProperty('practiceMode')`
+
+</p>
+</details>
+
+***
+
+# Client Preferences Variables
+- `downscroll` - Checks if downscroll is enable or not.
+- `middlescroll` - Checks if middlescroll is enable or not.
+- `framerate` - Checks the current framerate inside the 
+- `ghostTapping` - Checks if ghost tapping is enable or not.
+- `hideHud` - Checks if the score bar/health bar elements are hidden or not.
+- `timeBarType` - Checks the current time-bar display type.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
-- `flashingLights` - Enables flashing lights on a song(s). _(Disable it, if you have epilepsy!)_
-- `shadersEnabled` - Enable shaders or not. _(Disable it, if you have motion sickness!)_
-- `lowQuality` - Enables low quality on a song(s). _(Disable it, if you have a potato computer)_
-- `noResetButton` - Enables the reset button.
-- `noteOffset` - Checks the note offset displayed in milliseconds, Goes from `0` to `500`.
-- `healthBarAlpha` - Checks the current alpha/opacity of the health bar.
+- `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.
+- `flashingLights` - Checks if flishing lights is enable or not. _(Disable this, if you have epilepsy!)_
+- `noteOffset` - Checks the note offset displayed in milliseconds; Goes from `0` to `500`.
+- `healthBarAlpha` - Checks the current amount of alpha/opacity value of the health bar.
+- `noResetButton` - Checks if the reset button is enable or not.
+- `lowQuality` - Checks if low quality on songs, is enable or not. _(Disable it, if you have a potato computer)_
+- `shadersEnabled` - Checks if shaders is enable or not. _(Disable it, if you have motion sickness!)_
+- `scriptName` - Checks the current script name.
+- `currentModDirectory` - Checks the current mod directory.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
-- `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middlescroll')`
-- `opponentStrums` - `getPropertyFromClass('ClientPrefs', 'opponentStrums')`
-- `framerate` - `getPropertyFromClass('ClientPrefs', 'framerate')`
-- `ghostTapping` - `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
-- `hideHud` - `getPropertyFromClass('ClientPrefs', 'hideHud')`
-- `hideTime` - `getPropertyFromClass('ClientPrefs', 'hideTime')`
-- `timeBarType` - `getPropertyFromClass('ClientPrefs', 'timeBarType')`
-- `cameraZoomOnBeat` - `getPropertyFromClass('ClientPrefs', 'cameraZooms')`
-- `scoreZoom` - `getPropertyFromClass('ClientPrefs', 'scoreZoom')`
-- `flashingLights` - `getPropertyFromClass('ClientPrefs', 'flashing')`
-- `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shaders')`
-- `lowQuality` - `getPropertyFromClass('ClientPrefs', 'lowQuality')`
-- `noResetButton` - `getPropertyFromClass('ClientPrefs', 'noReset')`
-- `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
-- `healthBarAlpha` - `getPropertyFromClass('ClientPrefs', 'healthBarAlpha')`
+- `downscroll` - `getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')`
+- `middlescroll` - `getPropertyFromClass('backend.ClientPrefs', 'data.middleScroll')`
+- `framerate` - `getPropertyFromClass('backend.ClientPrefs', 'data.framerate')`
+- `ghostTapping` - `getPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping')`
+- `hideHud` - `getPropertyFromClass('backend.ClientPrefs', 'data.hideHud')`
+- `timeBarType` - `getPropertyFromClass('backend.ClientPrefs', 'data.timeBarType')`
+- `scoreZoom` - `getPropertyFromClass('backend.ClientPrefs', 'data.scoreZoom')`
+- `cameraZoomOnBeat` - `getPropertyFromClass('backend.ClientPrefs', 'data.camZooms')`
+- `flashingLights` - `getPropertyFromClass('backend.ClientPrefs', 'data.flashing')`
+- `noteOffset` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteOffset')`
+- `healthBarAlpha` - `getPropertyFromClass('backend.ClientPrefs', 'data.healthBarAlpha')`
+- `noResetButton` - `getPropertyFromClass('backend.ClientPrefs', 'data.noReset')`
+- `lowQuality` - `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`
+- `shadersEnabled` - `getPropertyFromClass('backend.ClientPrefs', 'data.shaders')`
+- `scriptName` - `getPropertyFromClass('backend.ClientPrefs', 'scriptName')`
+- `currentModDirectory` - `getPropertyFromClass('backend.Mods', 'currentModDirectory')`
+
+</p>
+</details>
+
+***
+
+# Camera & Screen Variables
+- `cameraX` - Returns the current x position of camera.
+- `cameraY` - Returns the current y position of camera.
+- `screenWidth` - Returns the current width of the window screen; Default value: `720`.
+- `screenheight` - Returns the current width of the window screen; Default value: `720`.
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+- `cameraX` - `getProperty('camGame.scroll.x')`
+- `cameraY` - `getProperty('camGame.scroll.y')`
+- `screenWidth` - `getPropertyFromClass('flixel.FlxG', 'width')`
+- `screenHeight` - `getPropertyFromClass('flixel.FlxG', 'height')`
+
+</p>
+</details>
+
+***
+
+# Character Veriables
+- `boyfriendName` - Checks the current boyfriend character name.
+- `dadName` - Checks the current opponent character name.
+- `gfName` - Checks the current girlfriend character name.
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+- `boyfriendName` - `getPropertyFromClass('states.PlayState', 'SONG.player1')`
+- `dadName` - `getPropertyFromClass('states.PlayState', 'SONG.player2')`
+- `gfName` - `getPropertyFromClass('states.PlayState', 'SONG.gfVersion')`
 
 </p>
 </details>
@@ -237,27 +231,15 @@
 - `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
 - `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
 
-***
-
-# Miscellaneous Variables
-- `boyfriendName` - Checks the current boyfriend character.
-- `dadName` - Checks the current dad character.
-- `gfName` - Checks the current girlfriend character.
-- `screenWidth` - Returns the current width of the window screen; default value: `720`.
-- `screenHeight` - Returns the current width of the window screen; default value: `1280`.
-- `cameraX` - Returns the current x position of camera.
-- `cameraY` - Returns the current y position of camera.
-
 <details><summary><b>All Shortcut to:</b></summary>
-<p> 
+<p>
 
-- `boyfriendName` - `getProperty('SONG.player1')`
-- `dadName` - `getProperty('SONG.player2')`
-- `gfName` - `getProperty('SONG.gfVersion')`
-- `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
-- `screenHeight` - `getPropertyFromClass('FlxG', 'height')`
-- `cameraX` - `getProperty('camGame.scroll.x')`
-- `cameraY` - `getProperty('camGame.scroll.y')`
+- `defaultBoyfriendX` - `getProperty('BF_X')`
+- `defaultBoyfriendY` - `getProperty('BF_Y')`
+- `defaultOpponentX` - `getProperty('DAD_X')`
+- `defaultOpponentY` -`getProperty('DAD_Y')`
+- `defaultGirlfriendX` - `getProperty('GF_X')`
+- `defaultGirlfriendY` - `getProperty('GF_Y')`
 
 </p>
 </details>
