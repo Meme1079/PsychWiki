@@ -50,33 +50,53 @@
 ***
 
 # PlayState Variables
-- `curStep`
-- `curBeat`
-- `curSection`
-- `curDecStep`
-- `curDecBeat`
-- `score`
-- `misses`
-- `hits`
-- `combo`
-- `rating`
-- `ratingName`
-- `ratingFC`
-- `version`
-- `inGameOver`
-- `mustHitSection`
-- `altAnim`
-- `gfSection`
+- `curStep` - The current step per number.
+- `curBeat` - The current beat per number.
+- `curSection` - The current section per number.
+- `curDecStep` - The current decimal step per number.
+- `curDecBeat` - The current decimal beat per number.
+- `score` - The current amount of score inside the song.
+- `misses` - The current amount of note misses inside the song.
+- `hits` - The current amount of note hits inside the song.
+- `combo` - The current amount of note combo inside the song.
+- `rating` - The current song score rating percent; Goes from `0` to `1`.
+- `ratingName` - The current song score rating name.
+- `ratingFC` - The current song score rating combo.
+- `version` - The current version of Psych Engine.
+- `inGameOver` - Checks if the player is in game-over screen or not.
+- `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
+- `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
+- `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+- `curStep` - `getProperty('curStep')`
+- `curBeat` - `getProperty('curBeat')`
+- `curSection` - `getProperty('curSection')`
+- `curDecStep` - `getProperty('curDecStep')`
+- `curDecBeat` - `getProperty('curDecBeat')`
+- `score` - `getProperty('songScore')`
+- `misses` - `getProperty('songMisses')`
+- `hits` - `getProperty('songHits')`
+- `combo` - `getProperty('combo')`
+- `rating` - `getProperty('ratingPercent')`
+- `ratingName` - `getProperty('ratingName')`
+- `ratingFC` - `getProperty('ratingFC')`
+- `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
+
+</p>
+</details>
 
 ***
 
 # Gameplay Settings Variables
-- `healthGainMult`
-- `healthLossMult`
-- `playbackRate`
-- `instakillOnMiss`
-- `botPlay`
-- `practice`
+- `healthGainMult` - The amount of health gain when hitting a note.
+- `healthLossMult` - The amount of health loss when missing/missinputing a note.
+- `playbackRate` - The amount of play-back rate of the song.
+- `instakillOnMiss` - Enables instant death when missing/missinputing a note.
+- `botPlay` - Checks if botplay mode is enable or not.
+- `practice` - Checks if practice mode is enable or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -140,7 +160,7 @@
 - `cameraX` - Returns the current x position of camera.
 - `cameraY` - Returns the current y position of camera.
 - `screenWidth` - Returns the current width of the window screen; Default value: `720`.
-- `screenheight` - Returns the current width of the window screen; Default value: `720`.
+- `screenHeight` - Returns the current width of the window screen; Default value: `720`.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
