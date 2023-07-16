@@ -1,26 +1,34 @@
 # Unique Lua Variables
+> **Note**: _These are the only variables can be change by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use `setProperty()` function if you want to change the rest of the variables._
+
+- `Function_Continue` - Continues the game; Returns: `0`.
+- `Function_StopLua` - Stops the game; Returns: `1`.
+- `Function_Stop` - Stops the Lua script; Returns: `2`.
+- `luaDebugMode` - Enables debug mode; Default value: `false`.
+- `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
+- `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
 
 ***
 
 # Song & Week Variables
-- `curBpm`
-- `bpm`
-- `scrollSpeed`
-- `crochet`
-- `stepCrochet`
-- `songLength`
-- `songName`
-- `songPath`
-- `startedCountdown`
-- `curStage`
-- `isStroyMode`
-- `difficulty`
-- `difficultyName`
-- `difficultyPath`
-- `weekRaw`
-- `week`
-- `seenCutscene`
-- `hasVocals`
+- `curBpm` Checks the current BPM value of the song.
+- `bpm` - Returns the starting BPM value of the song.
+- `scrollSpeed` - Checks the scroll speed of the song.
+- `crochet` - Checks the interval between `curBeat` variable.
+- `stepCrochet` - Checks the interval between `curStep` variable.
+- `songLength` - Returns the maximum song length displayed in milliseconds.
+- `songName` - Returns the current song name.
+- `songPath` - Returns the song's path.
+- `startedCountdown` - Checks if the countdown has already begun.
+- `curStage` - Checks the current stage of the song.
+- `isStoryMode` - Checks if the song is in story mode or not.
+- `difficulty` - Returns the current difficulty ID number.
+- `difficultyName` - Returns the current difficulty name.
+- `difficultyPath` - Returns the current difficulties path.
+- `weekRaw` - Returns the raw current week number.
+- `week` - Returns the current week name from the JSON file name.
+- `seenCutscene` - Checks if the cutscene is seen.
+- `hasVocals` - Checks if the song has vocals enable or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -32,7 +40,7 @@
 - `stepCrochet` - `getPropertyFromClass('backend.Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('flixel.FlxG', 'sound.music.length')`
 - `songName` - `getPropertyFromClass('states.PlayState', 'SONG.song')`
-- `songPath` -  `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
+- `songPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
 - `startedCountdown` - `getProperty('startedCountdown')`
 - `curStage` - `getPropertyFromClass('states.Playstate', 'curStage')`
 - `isStroyMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
@@ -67,6 +75,7 @@
 - `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
 - `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
 - `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
+- `buildTarget` - Checks the current build target of Psych Engine; Returns: `windows`, `linux`, `mac`, `browser`, `android`, `unknown`.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
