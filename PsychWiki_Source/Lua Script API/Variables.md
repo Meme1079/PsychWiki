@@ -52,6 +52,31 @@
 - `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
 - `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
+<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<p>
+
+- `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
+- `bpm` - `getPropertyFromClass('PlayState', 'SONG.bpm')` 
+- `scrollSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
+- `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
+- `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
+- `songLength` - `getPropertyFromClass('FlxG', 'sound.music.length')`
+- `songName` - `getPropertyFromClass('PlayState', 'SONG.song')`
+- `songPath` - `getPropertyFromClass('Paths', 'formatToSongPath('..songName..')')`
+- `startedCountdown` - `getProperty('startedCountdown')`
+- `curStage` - `getPropertyFromClass('Playstate', 'curStage')`
+- `isStroyMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
+- `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
+- `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
+- `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
+- `weekRaw` - `getPropertyFromClass('Playstate', 'storyWeek')`
+- `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
+- `seenCutscene` - `getPropertyFromClass('PlayState', 'bpm')`
+- `hasVocals` - `getPropertyFromClass('PlayState', 'SONG.needsVoices')`
+
+</p>
+</details>
+
 </p>
 </details>
 
@@ -93,6 +118,14 @@
 - `ratingName` - `getProperty('ratingName')`
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
+
+<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<p>
+
+- `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
+
+</p>
+</details>
 
 </p>
 </details>
@@ -160,24 +193,58 @@
 - `scriptName` - `getPropertyFromClass('backend.ClientPrefs', 'scriptName')`
 - `currentModDirectory` - `getPropertyFromClass('backend.Mods', 'currentModDirectory')`
 
+<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<p>
+
+- `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
+- `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middlescroll')`
+- `framerate` - `getPropertyFromClass('ClientPrefs', 'framerate')`
+- `ghostTapping` - `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
+- `hideHud` - `getPropertyFromClass('ClientPrefs', 'hideHud')`
+- `timeBarType` - `getPropertyFromClass('ClientPrefs', 'timeBarType')`
+- `scoreZoom` - `getPropertyFromClass('ClientPrefs', 'scoreZoom')`
+- `cameraZoomOnBeat` - `getPropertyFromClass('ClientPrefs', 'camZooms')`
+- `flashingLights` - `getPropertyFromClass('ClientPrefs', 'flashing')`
+- `noteOffset` - `getPropertyFromClass('ClientPrefs', 'noteOffset')`
+- `healthBarAlpha` - `getPropertyFromClass('ClientPrefs', 'healthBarAlpha')`
+- `noResetButton` - `getPropertyFromClass('ClientPrefs', 'noReset')`
+- `lowQuality` - `getPropertyFromClass('ClientPrefs', 'lowQuality')`
+- `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shaders')`
+- `scriptName` - `getPropertyFromClass('ClientPrefs', 'scriptName')`
+- `currentModDirectory` - `getPropertyFromClass('Mods', 'currentModDirectory')`
+
+</p>
+</details>
+
 </p>
 </details>
 
 ***
 
-# Camera & Screen Variables
-- `cameraX` - Returns the current x position of camera.
-- `cameraY` - Returns the current y position of camera.
+# Screen & Camera Variables
 - `screenWidth` - Returns the current width of the window screen; Default value: `720`.
 - `screenHeight` - Returns the current width of the window screen; Default value: `720`.
+- `cameraX` - Returns the current x position of camera.
+- `cameraY` - Returns the current y position of camera.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `cameraX` - `getProperty('camGame.scroll.x')`
-- `cameraY` - `getProperty('camGame.scroll.y')`
 - `screenWidth` - `getPropertyFromClass('flixel.FlxG', 'width')`
 - `screenHeight` - `getPropertyFromClass('flixel.FlxG', 'height')`
+- `cameraX` - `getProperty('camGame.scroll.x') - (screenWidth / 2)`
+- `cameraY` - `getProperty('camGame.scroll.y') - (screenHeight / 2)`
+
+<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<p>
+
+- `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
+- `screenHeight` - `getPropertyFromClass('FlxG', 'height')`
+- `cameraX` - `getProperty('camFollowPos.x')`
+- `cameraY` - `getProperty('camFollowPos.y')`
+
+</p>
+</details>
 
 </p>
 </details>
@@ -195,6 +262,16 @@
 - `boyfriendName` - `getPropertyFromClass('states.PlayState', 'SONG.player1')`
 - `dadName` - `getPropertyFromClass('states.PlayState', 'SONG.player2')`
 - `gfName` - `getPropertyFromClass('states.PlayState', 'SONG.gfVersion')`
+
+<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<p>
+
+- `boyfriendName` - `getPropertyFromClass('PlayState', 'SONG.player1')`
+- `dadName` - `getPropertyFromClass('PlayState', 'SONG.player2')`
+- `gfName` - `getPropertyFromClass('PlayState', 'SONG.gfVersion')`
+
+</p>
+</details>
 
 </p>
 </details>

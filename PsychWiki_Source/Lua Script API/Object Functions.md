@@ -175,16 +175,3 @@ Changes the object <ins>camera state</ins>.
 
 - `obj` - The object tag name to be used.
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
-
-### removeFromGroup(obj:String, index:Int, ?dontDestroy:Bool = false)
-Removes a specific note type inside the game.
-
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
-- `index` - The index number of the array/group member.
-- `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
-
-### updateHitboxFromGroup(group:String, index:Int)
-Updates the specific <ins>note type hitboxes</ins>.
-
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
-- `index` - The index number of the array/group member.

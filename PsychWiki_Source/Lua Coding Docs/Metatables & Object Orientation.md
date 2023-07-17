@@ -1,4 +1,4 @@
-# About Metatables
+# Metatables
 Metatables allows you to modify or to extend behavior of any table, making it more useful than before. For instance, we can change how Lua computes the expression like `a + b`, where `a` and `b` are both tables. 
 
 Whenever you try to add two tables Lua will check, if either of them has a metatable and whether that metatable contains an `__add` field. If Lua detects this feild, it calls the associated value from the operands. Which the metamethod should be a function to compute the sum.
@@ -22,7 +22,7 @@ end
 
 ***
 
-# Metatables Setter/Getters
+## Metatables Setter/Getters
 ### setmetatable(tab:Table, metatable:Table)
 Sets the metatable to the given table; Returns a `table`.
 
@@ -36,10 +36,10 @@ Gets the metatable to the given table; Returns a `table`.
 
 ***
 
-# Metamethods
+## Metamethods
 Metamethods are special functions that provides powerful functionalities which overide the functionalities to the operators present for custom behaviors. Negating a table, converting a string to a table, calling an index that is not-present, etc. Each metamethod field starts with double <kbd>__</kbd> underscores.
 
-## Arithmetic
+### Arithmetic
 - `__add(tab, value)` - Changes the behavior of the addition operator `+` when invoked. The first operand from the condition should be the table itself and the second operand should be the specified value you'd chosen; This rule applies to all metamethods.
 - `__sub(tab, value)` - Changes the behavior of the subtraction operator `-` when invoked.
 - `__mul(tab, value)` - Changes the behavior of the multiplication operator `*` when invoked.
@@ -48,12 +48,12 @@ Metamethods are special functions that provides powerful functionalities which o
 - `__pow(tab, value)` - Changes the behavior of the exponentiation operator `^` when invoked.
 - `__unm(tab)` - Changes the behavior of the unary negation operator `-` when invoked.
 
-## Relational
+### Relational
 - `__eq(tab, value)` - Changes the behavior of the equal to operator `==` when invoked.
 - `__lt(tab, value)` - Changes the behavior of the less than operator `<` when invoked.
 - `__le(tab, value)` - Changes the behavior of the less than or equal to operator `<=` when invoked.
 
-## Calling
+### Calling
 - `__index(tab, key)` - Changes the behavior of the indexing access operation in tables `table[key]` or `table.key`. This will only be invoked, if the table isn't a `table` or the `key` isn't present inside that table. The metavalue for this event can be either a `function`, `table`, or any value with an `__newindex` metavalue.
 
 Example:
@@ -108,7 +108,7 @@ function onCreate()
 end
 ```
 
-## Miscellaneous
+### Miscellaneous
 - `__concat(tab, value)` - Changes the behavior of the concatenate operator `..` when invoked.
 - `__len(tab)` - Changes the behavior of the length operator `#` when invoked.
 - `__tostring(tab)` - Changes the behavior of the `tostring()` function when invoked.
@@ -116,7 +116,7 @@ end
 
 ***
 
-# Raw Functions
+## Raw Functions
 ### rawequal(value1:Dynamic, value2:Dynamic)
 Raw function for equal to operator without invoking the `__eq` field.
 
@@ -141,6 +141,9 @@ Raw function for length operator without invoking the `__len` field.
 - `value1` - The table to be referenced inside the metatable.
 
 ***
+
+# Object Orientation
+
 
 # References
 - https://www.lua.org/pil/13.html

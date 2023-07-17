@@ -1,5 +1,5 @@
 # String Methods
-Fun fact instead of writing this `string.method(string, para)` when using String Method functions, you should instead use `string:method(para)`. Why because functions being nested makes it not understandable, sure you can use this syntax; just use this only ones or twice when nesting tho.
+Fun fact instead of writing this `string.method(string, para)` when using String Method functions, you should instead use `string:method(para)`. Why because functions being nested will make it not very understandable when reading the code. Sure you can use this syntax; just use this only one or twice when nesting tho.
 
 Example:
 ```lua

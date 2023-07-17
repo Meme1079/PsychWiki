@@ -1,11 +1,24 @@
 # Haxe Functions
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
+
+- `libName`
+- `libPackage`
+
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array/<Dynamic/> = null)
+
+- `codeToRun`
+- `varsToBring`
+- `funcToRun`
+- `funcArgs`
+
 ### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
+
+- `funcToRun`
+- `funcArgs`
 
 ***
 
-# Haxe Script Functions
+# Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
 ### setVar(name:String, value:Dynamic)
 ### getVar(name:String)

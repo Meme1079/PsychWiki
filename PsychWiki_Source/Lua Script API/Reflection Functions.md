@@ -1,3 +1,5 @@
+> **Warning**: _WIP STILL RESEARCHING!!!!!!!_
+
 # Property Setters
 ### setProperty(variable:String, value:Dynamic, allowMaps:Bool = false)
 Sets the current <ins>property variable inside the Playstate</ins> with a new value.
@@ -65,7 +67,7 @@ Removes a specific note type inside the game.
 - `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
 
 ### updateHitboxFromGroup(group:String, index:Int)
-Updates the specific <ins>note type hitboxes</ins>.
+Updates the specific note type hitboxes.
 
 - `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
@@ -116,11 +118,9 @@ Updates the specific <ins>note type hitboxes</ins>.
 - `noteSplashData.disabled` - Whether the note splashes be disable or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to be used. **(String)**
 - `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's defualt splash colors. **(Boolean)**
-- `noteSplashData.r` - The note splashes red value. **(Int)**
-- `noteSplashData.g` - The note splashes green value. **(Int)**
-- `noteSplashData.b` - The note splashes blue value. **(Int)**
-- `noteSplashData.a` - The note splashes alpha/opacity value. **(Float)**
+- `noteSplashData.r` - The note splashes red value; Defualt value: `-1`. **(Int)**
+- `noteSplashData.g` - The note splashes green value; Defualt value: `-1`. **(Int)**
+- `noteSplashData.b` - The note splashes blue value; Defualt value: `-1`. **(Int)**
+- `noteSplashData.a` - The note splashes alpha/opacity value; Defualt value: `0.6`. **(Float)**
 
 ***
-
-# Version Changes
