@@ -2,40 +2,40 @@
 ### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
 Starts a tween in any value(s) to an object or note.
 
-- `tag` - The tag name for the tween function to referenced.
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
 - `vars` - The object or note name for the tween function to referenced.
 - `values` - The target value(s) for the tween function to end; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
 - `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG'}`.
 
-<!-- <details><summary><b>Options Sub-Parameters:</b></summary>
+<details><summary><b>Options Sub-Parameters:</b></summary>
 <p>
 
-- `type` - The type of tween to use, it can choose one of these.
-     - `ONESHOT` - Stops and removes itself from its core container when it finishes.
-     - `PERSIST` - Stops when it finishes. Unlike `ONESHOT`, this type of tween stays attached to the core container when it finishes.
-     - `LOOPING` - Restarts immediately when it finishes
-     - `PINGPONG` - Plays tween "hither and thither". This is like `LOOPING`, but every second execution is in reverse direction.
-     - `BACKWARD` - Plays tween in reverse direction.
-- `ease` - The specific ease type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
-- `startDelay` - Time to wait before starting this tween, in seconds
-- `loopDelay` - Time to wait before this tween is repeated, in seconds. This only applies to `LOOPING` and `PINGPONG`.
-- `onUpdate` -
-- `onStart` -
-- `onComplete` -
+- `type` - Determins the type of tween animation to use, it can choose one of these.
+     - `ONESHOT` - Will stop and removes itself from the core container, when finished.
+     - `PERSIST` - Will stop, when finished but unlike `ONESHOT`. It will always stay attached from the core container, when finished.
+     - `LOOPING` - As the name suggests, will restarts when it's finish playing the tween.
+     - `PINGPONG` - Plays a "hither and thither" tween animation. It's like `LOOPING` but every second execution is in reverse direction.
+     - `BACKWARD` - Plays the tween animation in the reverse direction, duh.
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `startDeley` - How many durations to wait before starting to play the tween, in seconds.
+- `loopDeley` - Hom many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
+- `onUpdate` - What function to update in each frame for the tween to use.
+- `onStart` - What function to execute at the beginning of the song for the tween to use.
+- `onComplete` - What function to execute when the tween finishes playing.
 
 </p>
-</details>  -->
+</details>
 
 ## Objects
 ### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 Does a tween in the <ins>x position value</ins> to the object.
 
-- `tag` - The tag name for the tween function to referenced.
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
 - `vars` - The object or note name for the tween function to referenced.
 - `value` - The target x position value for the tween function to referenced.
 - `duration` - The duration length for the tween function to end
-- `ease` - The specific ease type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 Does a tween in the <ins>y position value</ins> to the object.
@@ -55,11 +55,11 @@ Does a tween in the <ins>hex color value</ins> to the object.
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
 Does a note tween in the <ins>x position value</ins>.
 
-- `tag` - The tag name for the tween function to referenced.
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
 - `note` - The member ID of the note for the tween function to use, Opponent: `0,1,2,3` and Boyfriend: `4,5,6,7`.
 - `value` - The target x position value for the tween function to referenced.
 - `duration` - The duration length for the tween function to end
-- `ease` - The specific ease type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### noteTweenY(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
 Does a note tween in the <ins>y position value</ins>.
@@ -77,7 +77,7 @@ Does a note tween in the <ins>receptors direction value</ins>.
 
 # Other Tween & Timer Functions
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
-Runs a timer from the `onTimerCompleted()` function.
+Runs a timer, if finish the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
 
 - `tag` - The timer tag name from the `onTimerCompleted()` function to be referenced.
 - `time` - The duration length of the timer to end; Defualt value: `1`.

@@ -140,12 +140,7 @@ Raw function for length operator without invoking the `__len` field.
 
 - `value1` - The table to be referenced inside the metatable.
 
-***
-
-# Object Orientation
-
-
-# References
+<!-- # References
 - https://www.lua.org/pil/13.html
 - https://www.lua.org/manual/5.1/manual.html#2.8
-- https://www.vikasraj.dev/blog/messing-with-lua-metatables
+- https://www.vikasraj.dev/blog/messing-with-lua-metatables -->
