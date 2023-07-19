@@ -172,6 +172,8 @@
 - `shadersEnabled` - Checks if shaders is enable or not. _(Disable it, if you have motion sickness!)_
 - `scriptName` - Checks the current script name.
 - `currentModDirectory` - Checks the current mod directory.
+- `noteSkin` - The current noteskin that you're using.
+- `splashSkin` - The current splashskin that you're using.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -192,6 +194,8 @@
 - `shadersEnabled` - `getPropertyFromClass('backend.ClientPrefs', 'data.shaders')`
 - `scriptName` - `getPropertyFromClass('backend.ClientPrefs', 'scriptName')`
 - `currentModDirectory` - `getPropertyFromClass('backend.Mods', 'currentModDirectory')`
+- `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
+- `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
 
 <details><summary><b>Depracated Original Shorcuts:</b></summary>
 <p>
