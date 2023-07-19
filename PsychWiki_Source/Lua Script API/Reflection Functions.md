@@ -60,6 +60,7 @@ Calls a function from the Playstate class.
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
 Calls a function from other classes.
 
+- `className` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `funcToRun` - An optional parameter, The function name from the classes to be referenced.
 - `args` - An optional parameter, The arguement(s) to be passed to the function.
 
