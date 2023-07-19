@@ -1,20 +1,60 @@
 # Haxe Functions
 ### addHaxeLibrary(libName:String, ?libPackage:String = '')
+Imports haxe libraries into the interpreter. Basically an `import` statement in Haxe which imports specific packages into Haxe like sprites, text, tweens, etc.
 
-- `libName`
-- `libPackage`
+- `libName` - The library name to be referenced.
+- `libPackage` - An optional parameter, The library package to use.
 
-### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array/<Dynamic/> = null)
+Examples:
+- Imports the sound library: `addHaxeLibrary('FlxSound', 'flixel.system')`
+- Imports shader filters: `addHaxeLibrary('ShaderFilter', 'openfl.filters')`
+- Imports CoolUtil: `addHaxeLibrary('CoolUtil')`
 
-- `codeToRun`
-- `varsToBring`
-- `funcToRun`
-- `funcArgs`
+<details><summary><b>Import Haxe (Reference):</b></summary>
+<p>
 
-### runHaxeFunction(funcToRun:String, ?funcArgs:Array/<Dynamic/> = null)
+```haxe
+package; // they are directories that contain modules, i dunno how it works; but very important to use.
 
-- `funcToRun`
-- `funcArgs`
+// import library_package.library_name | <-- Thats the syntax
+
+import flixel.system.FlxSound; // Imports the sound package
+import openfl.filters.ShaderFilter; // Imports the shader filter package
+import CoolUtil; // Imports CoolUtil haxe file, i think
+
+// Also the semi colon ';' character is very important when declaring functions, packages, variables, etc.
+```
+
+</p>
+</details>
+
+### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
+Runs your haxe code for your Hscripts and stuff.
+
+- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
+- `varsToBring` - An optional parameter, The Haxe variable(s) to import from the other `runHaxeCode()` function.
+- `funcToRun` - An optional parameter, The Haxe function name to be referenced.
+- `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
+
+### runHaxeFunction(funcToRun:String, ?funcArgs:Array\<Dynamic\> = null)
+Executes the Haxe function from the Haxe functions inside the `runHaxeCode()` function.
+
+- `funcToRun` - The Haxe function name to be referenced.
+- `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
+
+Example:
+```lua
+function onCreate()
+     runHaxeCode([[
+          function isBool(bool:String) {
+               return bool == 'true' ? true : false;
+          }
+     ]])
+     
+     local proof = runHaxeFunction('isBool', {'true'})
+     debugPrint(type(proof)) -- will print > 'boolean'
+end
+```
 
 ***
 
