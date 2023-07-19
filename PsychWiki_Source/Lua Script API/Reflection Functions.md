@@ -123,4 +123,22 @@ Updates the specific note type hitboxes.
 - `noteSplashData.b` - The note splashes blue value; Defualt value: `-1`. **(Int)**
 - `noteSplashData.a` - The note splashes alpha/opacity value; Defualt value: `0.6`. **(Float)**
 
-***
+<details><summary><b>Depracated Group Properties:</b></summary>
+<p>
+
+- `noteSplashDisabled` - Whether the note splashes be disable or not. **(Boolean)**
+- `noteSplashTexture` - The note splashes texture to be used. **(String)**
+- `noteSplashHue` - Changes the HUE value of the note; Goes from `-180` to `180`; Default value: `0`. **(Int)**
+- `noteSplashBrt` - Changes the brightness value of the note; Goes from `-100` to `100`; Default value: `0`. **(Int)**
+- `noteSplashSat` - Changes the saturation value of the note; Goes from `-100` to `100`; Default value: `0`. **(Int)**
+
+</p>
+</details>
+
+## Group Objects
+- `notes` - Notes that are currenlty spawned.
+- `unspawnNotes` - Notes that are not spawned inside the game.
+- `eventNotes` - Self explanatory.
+- `playerStrums` - Notes from the Player strums.
+- `opponentStrums` - Notes from the Opponent strums.
+- `strumLineNotes` - Notes from both Player & Opponent strums.

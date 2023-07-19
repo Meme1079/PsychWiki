@@ -163,17 +163,19 @@ Removes any <ins>whitspace characters from the string</ins>. Or you could just u
 ***
 
 # Randomization Functions
-### getRandomInt(min:Int, max:Int)
+### getRandomInt(min:Int, max:Int = FlxMath.MAX_VALUE_INT, exclude:String = '')
 Randomizes the <ins>Int number</ins> from min to max values.
 
 - `min` - The minimum value.
 - `max` - The maximum value.
+- `exclude` - An optional parameter, The interger numbers to exclude when randomizing; Example: `1, 2, 4`.
 
-### getRandomFloat(min:Float, max:Float)
+### getRandomFloat(min:Float, max:Float = 1, exclude:String = '')
 Randomizes the <ins>Float number</ins> from min to max values.
 
 - `min` - The minimum value.
-- `max` - The maximum value.
+- `max` - The maximum value: Defualt value: `1`.
+- `exclude` - An optional parameter, The floating-point numbers to exclude when randomizing; Example: `0.1, 2.5, 6.9`.
 
 ### getRandomBool(chance:Float = 50)
 Randomizes the chances of <ins>returning a `true` value</ins>.

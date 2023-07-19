@@ -54,7 +54,7 @@ Creates a <ins>local event</ins> script or <ins>modifies</ins> the event script.
 
 - `eventName` - The name of the event to be used.
 - `value1` - The first value of the event.
-- `value2` - the second value of the event,
+- `value2` - the second value of the event.
 
 ### eventEarlyTrigger(eventName)
 Makes the <ins>event trigger earlier</ins>. Use the `return` statement with the specified offset <ins>number in milliseconds</ins>.
