@@ -29,7 +29,7 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 </details>
 
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
-Runs your haxe code for your Hscripts and stuff.
+<ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
 - `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
 - `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
@@ -46,7 +46,7 @@ end
 ```
 
 ### runHaxeFunction(funcToRun:String, ?funcArgs:Array\<Dynamic\> = null)
-Executes the Haxe function from the Haxe functions inside the `runHaxeCode()` function.
+<ins>Executes the Haxe function</ins> from the `runHaxeCode()` function.
 
 - `funcToRun` - The Haxe function name to be referenced.
 - `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
@@ -104,7 +104,32 @@ Removes the global Haxe variable permanently, if not used anymore.
 
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
+Works exactly the same as `debugPrint()` function.
+
+- `text` - The text to be outputed to the top-left of the screen.
+- `color` - An optional parameter, The color for the text to be displayed.
+
 ### getLuaObject(tag:String)
+Gets the specified tag object outside the `runHaxeCode()` function.
+
+- `tag` - The object tag name to be referenced.
+
+Example:
+```lua
+function onCreate()
+     makeLuaSprite('graphicThingy', nil, 0, 0)
+     makeGraphic('graphicThingy', 1000, 1000, 'ff00ff')
+     addLuaSprite('graphicThingy', true)
+
+     runHaxeCode([[
+          var theLuaTag = game.getLuaObject('graphicThingy'); // gets the lua tag
+          theLuaTag.cameras = [game.camHUD]; // Sets it into 'camHUD'
+          theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
+          theLuaTag.angle   = 180;           // Sets the angle to '180'
+     ]])
+end
+```
+
 ### createGlobalCallback(name:String, func:Dynamic)
 ### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
 
