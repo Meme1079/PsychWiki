@@ -6,22 +6,27 @@ Adds a Lua script into the game.
 - `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from.
 
 ### removeLuaScript(path:String)
-Removes a Lua script into the game, can be used for <ins>improving performances</ins> for crappy computers.
+Removes a Lua script into the game, if not used anymore.
 
 - `path` - The location of the Lua script file to be removed.
 
-### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-Sets the current <ins>global variable from another Lua script</ins> with a new value.
+### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
+Sets the variable globally across all currently active Lua scripts.
 
-- `luaFile` - The location of the Lua script file to be used.
-- `global` -  The variable inside the Lua script to get.
-- `val` - The new value to be set.
+- `varName` - The variable name to be referenced.
+- `arg` - The value for the variable to use.
+- `ignoreSelf` - _(Still researching)_
+- `exclusions` - _(Still researching)_
 
-### getGlobalFromScript(luaFile:String, global:String)
-Gets the current <ins>global variable from another Lua script</ins> current value; Returns a `variable` value.
+### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
+Sets the function globally across all currently active Lua scripts.
 
-- `luaFile` - The location of the Lua script file to be used.
-- `global` -  The variable inside the Lua script to get.
+- `funcName` - The function name to be referenced.
+- `args` - An optional parameter, The arguement(s) to be passed on the function.
+- `ignoreStops` - _(Still researching)_
+- `ignoreSelf` - _(Still researching)_
+- `excludeScripts` - _(Still researching)_
+- `excludeValues` - _(Still researching)_
 
 ### isRunning(luaFile:String)
 Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
@@ -33,27 +38,27 @@ Checks if <ins>multiple Lua scripts</ins> are current running; Returns a `table`
 
 ***
 
-> **Warning**: _These functions are broken at the moment, so uuuhhhhh don't use it._
+> **Warning**: _These functions are weirdly buggy, it somehow works and other times it doesn't?????._
 
-### callScript(?luaFile:String, ?funcName:String, ?args:Array\<Dynamic\>)
-Calls a global function from other Lua script.
+### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
+Calls a global variable from another Lua script and <ins>sets the current value with a new one</ins>.
 
-> **Note**: _All parameters are optional to use for some reason._
+- `luaFile` - The location of Lua script to be referenced.
+- `global` - The global variable from the Lua script to get.
+- `val` - The new value to be set for the variable.
 
-- `luaFile` - The location of the Lua script file to be used.
-- `funcName` - The function name to be used.
-- `args` - The value(s) passed on the function parameter(s).
+### getGlobalFromScript(luaFile:String, global:String)
+Calls a global variable from another script and <ins>gets the current value</ins>.
 
-### callOnLuas(?funcName:String, ?args:Array\<Dynamic\>, ignoreStops=false, ignoreSelf=true, ?exclusions:Array\<String\>)
-Calls a global function from every Lua scripts.
+- `luaFile` - The location of Lua script to be referenced.
+- `global` - The global variable from the Lua script to get.
 
-> **Note**: _All parameters are optional to use for some reason._
+### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\>)
+Calls a global function from another Lua script.
 
-- `funcName` - The function name to be used.
-- `args` - The value(s) passed on the function parameter(s).
-- `ignoreStops` - _(Researching)_
-- `ignoreSelf` - _(Researching)_
-- `exclusions` - Exclusion of Lua script(s) to prevent the function from calling them. _(Possible)_
+- `luaFile` - The location of Lua script to be referenced.
+- `funcName` - The function name from the Lua script to get.
+- `args` - An optional parameter, The arguement(s) to be passed to the function.
 
 ***
 
@@ -134,7 +139,7 @@ Gets the current <ins>data field current value</ins>; Returns the data field val
 
 *** 
 
-# Psych String Functions
+# String Tool Functions
 ### stringStartsWith(str:String, start:String)
 Checks the <ins>specific starting section</ins> of the string; Returns a `boolean`.
 

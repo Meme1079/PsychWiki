@@ -227,13 +227,14 @@ function onCreate()
 end
 ```
 
-Numbers can also be represented in Scientific (Exponent) Notation. They are a way to expressing numbers that are too large or too small to be conveniently written in float form.
+Numbers can also be represented in Scientific (Exponent) Notation. They are a way to expressing numbers that are too large or too small to be conveniently written in float form. You could also represent it as a Hexadecimal number system for colors, just to let you know.
 
 Example:
 ```lua
 function onCreate()
-     debugPrint(263e+4) -- will print > 2630000.0
-     debugPrint(326e-5) -- will print > 0.00326
+     debugPrint(263e+4)   -- will print > 2630000.0
+     debugPrint(326e-5)   -- will print > 0.00326
+     debugPrint(0xFF0000) -- will print > 16711680
 end
 ```
 
@@ -620,27 +621,12 @@ function onCreate()
 end
 ```
 
-## _G
-The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts. If you want to call the variable you must use the `getGlobalFromScript()` function or if you want to set the value, you use `setGlobalFromScript()` function. 
+***
 
-This will work only if the lua file from which the variable is being requested is currently executing. Or alternatively you can use this for getting multiple global variables from a loop and modify the values easily.
+# _G
+The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts. But unfortunately doesn't work why? idk, the only thing its used for getting multiple global variables from a loop and modify the values easily.
 
-> **Note**: _You can't declare a `local` type variable, it must be `global` type._
-
-Example 1 (Module):
-```lua
--- Path: mods/scripts/test.lua
-_G.hi = 'hello'
-```
-```lua
--- Path: mods/scripts/main.lua
-function onCreate()
-     local hi = getGlobalFromScript('scripts/test', 'hi')
-     debugPrint(hi) -- will print > 'hello'
-end
-```
-
-Example 2 (Iterating):
+Example:
 ```lua
 function onCreate()
      myGlobalVar0, myGlobalVar1 = 183, 231

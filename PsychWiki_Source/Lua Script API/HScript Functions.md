@@ -16,7 +16,7 @@ Examples:
 ```haxe
 package; // they are directories that contain modules, i dunno how it works; but very important to use.
 
-// import library_package.library_name | <-- Thats the syntax
+// import library_package.library_name | <-- That's the syntax
 
 import flixel.system.FlxSound; // Imports the sound package
 import openfl.filters.ShaderFilter; // Imports the shader filter package
@@ -32,9 +32,18 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 Runs your haxe code for your Hscripts and stuff.
 
 - `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
-- `varsToBring` - An optional parameter, The Haxe variable(s) to import from the other `runHaxeCode()` function.
+- `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
 - `funcToRun` - An optional parameter, The Haxe function name to be referenced.
 - `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
+
+Example:
+```lua
+function onCreate()
+     runHaxeCode([[
+          debugPrint(text, color); // will print > 'hi'
+     ]], {text = 'hi', color = 0xFF0000})
+end
+```
 
 ### runHaxeFunction(funcToRun:String, ?funcArgs:Array\<Dynamic\> = null)
 Executes the Haxe function from the Haxe functions inside the `runHaxeCode()` function.
@@ -46,9 +55,7 @@ Example:
 ```lua
 function onCreate()
      runHaxeCode([[
-          function isBool(bool:String) {
-               return bool == 'true' ? true : false;
-          }
+          function isBool(bool:String) { return bool == 'true' ? true : false; }
      ]])
      
      local proof = runHaxeFunction('isBool', {'true'})
@@ -68,23 +75,23 @@ Sets the current global Haxe variable with a new value. Or initializes the creat
 Example:
 ```lua
 function onCreate()
-     addHaxeLibrary('FlxText', 'flixel.text')
      runHaxeCode([[
-          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
-          setVar('importArray', textContent); // Initiates the global var
+          setVar('globalVar', 'Hello Haxe!');
+          setVar('globalYes', [34, 123, 4.20]);
      ]])
      runHaxeCode([[
-          var getArray = getVar('importArray'); // Gets the global var
-          var textDisplay = new FlxText(0, 0, 0, getArray[0], 35, false);
-          textDisplay.cameras = [game.camHUD];
-          textDisplay.screenCenter();
-          game.add(textDisplay);
+          debugPrint(getVar('globalVar'), 0xf88700);    // will print > 'Hello Haxe!'
+          debugPrint(getVar('globalYes')[2], 0xf88700); // will print > 4.20
      ]])
+
+     -- Calling a Global Haxe Variable into Lua
+     debugPrint(getProperty('globalYes')[1]) -- will print > 34
+     debugPrint(getProperty('globalYes')[2]) -- will print > 123
 end
 ```
 
 ### getVar(name:String)
-Gets the current global Haxe variable current value
+Gets the current global Haxe variable current value.
 
 - `name` - The name of the global Haxe variable to get.
 
@@ -97,6 +104,7 @@ Removes the global Haxe variable permanently, if not used anymore.
 
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
+### getLuaObject(tag:String)
 ### createGlobalCallback(name:String, func:Dynamic)
 ### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
 
