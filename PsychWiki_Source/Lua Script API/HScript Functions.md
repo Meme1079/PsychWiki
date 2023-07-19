@@ -58,11 +58,45 @@ end
 
 ***
 
+# Haxe Global Var Functions
+### setVar(name:String, value:Dynamic)
+Sets the current global Haxe variable with a new value. Or initializes the creation of a global Haxe variable if there is no global Haxe variable.
+
+- `name` - The name of the global Haxe variable to be reference.
+- `value` - The data type to use or the current value to over-write.
+
+Example:
+```lua
+function onCreate()
+     addHaxeLibrary('FlxText', 'flixel.text')
+     runHaxeCode([[
+          var textContent = ['Among us', 'This is a Text', 'Haxe is kinda cool']; // Array
+          setVar('importArray', textContent); // Initiates the global var
+     ]])
+     runHaxeCode([[
+          var getArray = getVar('importArray'); // Gets the global var
+          var textDisplay = new FlxText(0, 0, 0, getArray[0], 35, false);
+          textDisplay.cameras = [game.camHUD];
+          textDisplay.screenCenter();
+          game.add(textDisplay);
+     ]])
+end
+```
+
+### getVar(name:String)
+Gets the current global Haxe variable current value
+
+- `name` - The name of the global Haxe variable to get.
+
+### removeVar(name:String)
+Removes the global Haxe variable permanently, if not used anymore.
+
+- `name` - The name of the global Haxe variable to removed.
+
+***
+
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
-### setVar(name:String, value:Dynamic)
-### getVar(name:String)
-### removeVar(name:String)
 ### createGlobalCallback(name:String, func:Dynamic)
 ### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
 
