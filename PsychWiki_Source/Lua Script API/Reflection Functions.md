@@ -52,7 +52,17 @@ Gets the current <ins>property variable inside an array/group member inside the 
 
 # Property Methods & Instances
 ### callMethod(funcToRun:String, ?args:Array\<Dynamic\> = null)
+Calls a function from the Playstate class.
+
+- `funcToRun` - An optional parameter, The function name from the Playstate to be referenced.
+- `args` - An optional parameter, The arguement(s) to be passed to the function.
+
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
+Calls a function from other classes.
+
+- `funcToRun` - An optional parameter, The function name from the classes to be referenced.
+- `args` - An optional parameter, The arguement(s) to be passed to the function.
+
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
 ### addInstance(objectName:String, ?inFront:Bool = false)
 
