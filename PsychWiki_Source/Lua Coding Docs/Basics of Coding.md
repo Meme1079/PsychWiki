@@ -245,7 +245,7 @@ Booleans, often shortened to Bools, are data types that can have two possible va
 Nil represents nothingness or non-existence of a value. This can be used for destroying a variable or table values if not used anymore. Or use conditional statements to check if the value is a `nil` or not.
 
 ## Tables
-Tables are a data structuring mechanism in Lua the only one in fact. They can store multiple types values like strings, numbers, booleans, even its self. This is a better alternative than listing them in each variables and makes it easy to access each element of the Table. Tables can be represented as an Array or Dictionary
+Tables are a data structuring mechanism in Lua the only one in fact. They can store multiple types values like strings, numbers, booleans, even its self. This is a better alternative than listing them in each variables and makes it easy to access each element of the Table. And for making modules, metatables, and object orientation stuff which is useful in some-cases; Tables can be represented as an Array or Dictionary.
 
 ### Array
 Array are the most common way to declare a Table, they're are always listed in ordered. To declare a Table Array add a pair of curly-braces <kbd>{}</kbd> characters with the elements each separated by a comma <kbd>,</kbd> character.
@@ -326,7 +326,7 @@ Parameters are special type of variables inside the functions parentheses <kbd>(
 
 Example:
 ```lua
--- function created by Mayo78
+-- function from mayo78
 function setPos(obj, pos)  -- concatenates setProperty x and y
      if pos[1] ~= nil then -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
@@ -561,8 +561,6 @@ end
 Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts. 
 
 Instead of using `import` or `export` statements, Lua uses a Table "Dictionary" which can consist variable or functions that you frequently and, thus creating a your very own simple module. With the `return` statement at the last line of code to export the module to other files to use.
-
-> **Warning**: _Declaring a `local` variable or function won't work because it will not export any of them from other Lua files. And might cause an error or something, I dunno haven't check._
 
 <details><summary><b>Module Location (Path Visualizer):</b></summary>
 <p>

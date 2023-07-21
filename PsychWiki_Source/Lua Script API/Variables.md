@@ -174,6 +174,7 @@
 - `currentModDirectory` - Checks the current mod directory.
 - `noteSkin` - The current noteskin that you're using.
 - `splashSkin` - The current splashskin that you're using.
+- `splashAlpha` - The current alpha/opacity value of the splashnote.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>

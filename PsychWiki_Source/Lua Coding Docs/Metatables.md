@@ -111,7 +111,7 @@ end
 ### Miscellaneous
 - `__concat(tab, value)` - Changes the behavior of the concatenate operator `..` when invoked.
 - `__len(tab)` - Changes the behavior of the length operator `#` when invoked.
-- `__tostring(tab)` - Changes the behavior of the `tostring()` function when invoked.
+- `__tostring(tab)` - Changes the behavior of the `tostring()` function when invoked; Must return a `string`.
 - `__metatable` - Changes the behavior of the `getmetatable()` function when invoked.
 
 ***
@@ -139,8 +139,3 @@ Raw function for indexing access operation in tables without invoking the `__ind
 Raw function for length operator without invoking the `__len` field.
 
 - `value1` - The table to be referenced inside the metatable.
-
-<!-- # References
-- https://www.lua.org/pil/13.html
-- https://www.lua.org/manual/5.1/manual.html#2.8
-- https://www.vikasraj.dev/blog/messing-with-lua-metatables -->

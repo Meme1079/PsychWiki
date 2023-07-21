@@ -202,6 +202,24 @@ Gets the <ins>hex color of an object by pixels</ins>; Returns a jamble of random
 
 ***
 
+# Custom Substate Functions
+### openCustomSubstate(name:String, pauseGame:Bool = false)
+Opens your custom substate.
+
+- `name` - The name of your custom substate to be referenced.
+- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened; Defualt value: `false`.
+
+### insertToCustomSubstate(tag:String, ?pos:Int = -1)
+Inserts a Lua object to your custom substate, i think.
+
+- `tag` - The object tag name to be referenced.
+- `pos` - An optional parameter, The index array position; Defualt value: `-1`.
+
+### closeCustomSubstate()
+Closes your custom substate.
+
+***
+
 # Miscellaneous Functions
 ### triggerEvent(name:String, arg1:String, arg2:String)
 Triggers an event without having to insert the event into the chart editor.
@@ -220,15 +238,6 @@ Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&
 - `smallImageKey` - An optional parameter, The image key to be shown at the bottom-left corner.
 - `hasStartTimestamp` - An optional parameter, Whether your Discord RPC should have a time stamp or not.
 - `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
-
-### openCustomSubstate(name:String, pauseGame:Bool = false)
-Opens your custom substate.
-
-- `name` - The name of your custom substate to be used.
-- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened; Defualt value: `false`.
-
-### closeCustomSubstate()
-Closes your custom substate.
 
 ### getSongPosition()
 Returns the current song position in milliseconds; Shortcut to `getPropertyClass('Conductor', 'songPosition')`.
