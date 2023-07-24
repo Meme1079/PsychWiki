@@ -59,7 +59,17 @@ Reverses the string, <ins>that's it</ins>.
 Example: `('based'):reverse()`; Will print `desab`.
 
 ## String Patterns Methods
-These methods support String Patterns inside the `pattern` parameter.
+These methods support String Patterns inside the `pattern` parameter. So if there any character's that are `+-*()[]?%`, make sure you have a percent sign <kbd>%</kbd> at the start of each character. So it will display the actual character and not result an error.
+
+Example:
+```lua
+local capture = '(a)'
+
+function onCreate()
+     debugPrint( capture:gsub('(', ''):gsub(')', '')   ) -- error
+     debugPrint( capture:gsub('%(', ''):gsub('%)', '') ) -- will print 'a'
+end
+```
 
 ### string.format(pattern:String, #str:String)
 Formats the string from the <ins>specified pattern type</ins>.

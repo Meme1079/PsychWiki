@@ -65,12 +65,12 @@ end
 
 ***
 
-# Haxe Global Var Functions
-### setVar(name:String, value:Dynamic)
-Sets the current global Haxe variable with a new value. Or initializes the creation of a global Haxe variable if there is no global Haxe variable.
+# Haxe Global Variable Functions
+### setVar(varName:String, value:Dynamic)
+Works exactly the same as `setVar()` function in Lua.
 
-- `name` - The name of the global Haxe variable to be reference.
-- `value` - The data type to use or the current value to over-write.
+- `varName` - The variable to be referenced.
+- `value` - The specified type of value for the variable to use or to over-write.
 
 Example:
 ```lua
@@ -90,21 +90,21 @@ function onCreate()
 end
 ```
 
-### getVar(name:String)
-Gets the current global Haxe variable current value.
+### getVar(varName:String)
+Works exactly the same as `getVar()` function in Lua.
 
-- `name` - The name of the global Haxe variable to get.
+- `varName` - The variable to be referenced.
 
-### removeVar(name:String)
-Removes the global Haxe variable permanently, if not used anymore.
+### removeVar(varName:String)
+Removes the global variable permanently, if not used anymore.
 
-- `name` - The name of the global Haxe variable to removed.
+- `varName` - The variable to be referenced.
 
 ***
 
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
-Works exactly the same as `debugPrint()` function.
+Works exactly the same as the `debugPrint()` function.
 
 - `text` - The text to be outputed to the top-left of the screen.
 - `color` - An optional parameter, The color for the text to be displayed.

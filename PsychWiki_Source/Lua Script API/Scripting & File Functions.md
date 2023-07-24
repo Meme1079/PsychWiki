@@ -146,11 +146,35 @@ Checks the <ins>specific starting section</ins> of the string; Returns a `boolea
 - `str` - The string to be used.
 - `start` - The starting section to be called.
 
+<details><summary><b>Lua Equivalent:</b></summary>
+<p>
+
+```lua
+function string.startsWith(str, pattern)
+     return str:match('^'..pattern) and true or false
+end
+```
+
+</p>
+</details>
+
 ### stringEndsWith(str:String, end:String)
 Checks the <ins>specific ending section</ins> of the string; Returns a `boolean`.
 
 - `str` - The string to be used.
 - `end` - The ending section to be called.
+
+<details><summary><b>Lua Equivalent:</b></summary>
+<p>
+
+```lua
+function string.endWith(str, pattern)
+     return str:match(pattern..'$') and true or false
+end
+```
+
+</p>
+</details>
 
 ### stringSplit(str:String, split:String)
 Splits the string into <ins>multiple strings</ins>; Returns a `table`.
@@ -158,10 +182,26 @@ Splits the string into <ins>multiple strings</ins>; Returns a `table`.
 - `str` - The string to be split.
 - `split` - The pattern of the string to split.
 
+<details><summary><b>Lua Equivalent:</b></summary>
+<p>
+
+```lua
+function string.split(str, sep)
+     local words = {}
+     for w in string.gmatch(str, "([^"..sep.."]+)") do
+          table.insert(words, w)
+     end
+     return words
+end
+```
+
+</p>
+</details>
+
 Example: `stringSplit('A, B, C, D', ', ')[1]`, it will return `A`.
 
 ### stringTrim(str:String)
-Removes any <ins>whitspace characters from the string</ins>. Or you could just use `('string'):gsub('%s+', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
+Removes any <ins>whitspace characters from the string</ins>. Or you could just use `('string'):gsub('%s*', '')` which functions the same. So this function is confirmed useless, so don't even bother using it lmao.
 
 - `str` - The string to be trimmed.
 
@@ -186,3 +226,17 @@ Randomizes the <ins>Float number</ins> from min to max values.
 Randomizes the chances of <ins>returning a `true` value</ins>.
 
 - `chance` - The percent of it being `true`; Goes from `0` to `100`; Default value: `50`.
+
+***
+
+# Global Variable Functions
+### setVar(varName:String, value:Dynamic)
+Sets the current global variable with a new value. Or initializes the creation of a global variable if there is no global variable. This allows to access variable from other scripts, but only if the script is currently executed.
+
+- `varName` - The variable to be referenced.
+- `value` - The specified type of value for the variable to use or to over-write.
+
+### getVar(varName:String)
+Gets the current global variable current value.
+
+- `varName` - The variable to be referenced.

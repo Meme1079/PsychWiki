@@ -326,7 +326,6 @@ Parameters are special type of variables inside the functions parentheses <kbd>(
 
 Example:
 ```lua
--- function from mayo78
 function setPos(obj, pos)  -- concatenates setProperty x and y
      if pos[1] ~= nil then -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
