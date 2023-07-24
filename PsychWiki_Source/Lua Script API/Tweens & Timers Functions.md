@@ -1,82 +1,94 @@
-# Tween Functions for Objects
-> **Note**: _If the tween is finished, the `tag` parameter will be called at `onTimerCompleted()` function, this rule is applied to all `tag` parameters._
+# Tween Functions
+### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
+Starts a tween in any value(s) to an object or note.
 
-If you want a complete ease type list, click here to see the list of [Tween Eases](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).
-
-### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does an object tween on the <ins>x position value</ins>.
-
-- `tag` - The tag name for the tween function to use.
-- `vars` - The object name for the tween function to use.
-- `value` - The target value for the tween function to end.
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
+- `vars` - The object or note name for the tween function to referenced.
+- `values` - The target value(s) for the tween function to end; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
-- `ease` - The specific ease type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG'}`.
 
-Example: `doTweenX('boyfriendTweeny', 'boyfriend.scale', 1000, 3, 'sineIn')` this will tween the scale at the x axis value of boyfriend from the hit game Friday Night Funkin', same works with `doTweenY()` if you even try <ins>other tweens it will not work</ins>.
+<details><summary><b>Options Sub-Parameters:</b></summary>
+<p>
+
+- `type` - Determines the type of tween animation to use, it can choose one of these.
+     - `ONESHOT` - Will stop and removes itself from the core container, when finished.
+     - `PERSIST` - Will stop, when finished but unlike `ONESHOT`. It will always stay attached from the core container, when finished.
+     - `LOOPING` - As the name suggests, will restarts when it's finish playing the tween.
+     - `PINGPONG` - Plays a "hither and thither" tween animation. It's like `LOOPING` but every second execution is in reverse direction.
+     - `BACKWARD` - Plays the tween animation in the reverse direction, duh.
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `startDeley` - How many durations to wait before starting to play the tween, in seconds.
+- `loopDeley` - How many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
+- `onUpdate` - What function to update in each frame for the tween to use.
+- `onStart` - What function to execute at the beginning of the song for the tween to use.
+- `onComplete` - What function to execute when the tween finishes playing.
+
+</p>
+</details>
+
+## Objects
+### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
+Does a tween in the <ins>x position value</ins> to the object.
+
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
+- `vars` - The object or note name for the tween function to referenced.
+- `value` - The target x position value for the tween function to referenced.
+- `duration` - The duration length for the tween function to end
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does an object tween on the <ins>y position value</ins>.
+Does a tween in the <ins>y position value</ins> to the object.
 
 ### doTweenAngle(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does an object tween on the <ins>angle position value</ins>.
+Does a tween in the <ins>angle value</ins> to the object.
 
 ### doTweenAlpha(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does an object tween on the <ins>alpha/opacity value</ins>.
-
-- `value` - The target value for the tween function to end; Goes from `0` to `1`.
-
-### doTweenZoom(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does an object tween on the <ins>zoom value</ins>.
-
-- `vars` - The camera state to be used can be either: `camGame`, `camHUD`, or `camOther`.
+Does a tween in the <ins>alpha/opacity value</ins> to the object.
 
 ### doTweenColor(tag:String, vars:String, targetColor:String, duration:Float, ease:String)
-Does an object tween on the <ins>color value</ins>.
+Does a tween in the <ins>hex color value</ins> to the object.
 
-> **Warning**: _If you try to attempted to use the same `tag` name, it will cancel the tween itself._
+- `targetColor` - The target hex color value for the tween function to end.
 
-- `targetColor` - The new hex color value to be set.
-
-***
-
-# Tween Functions for Strum/Receptors
+## Strum/Receptors
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween on the <ins>x position value</ins>.
+Does a note tween in the <ins>x position value</ins>.
 
-- `tag` - The tag name for the tween function to use.
+- `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
 - `note` - The member ID of the note for the tween function to use, Opponent: `0,1,2,3` and Boyfriend: `4,5,6,7`.
-- `value` - The target value for the tween function to end.
-- `duration` - The duration length for the tween function to end.
-- `ease` - The specific ease type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
+- `value` - The target x position value for the tween function to referenced.
+- `duration` - The duration length for the tween function to end
+- `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### noteTweenY(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween on the <ins>y position value</ins>.
+Does a note tween in the <ins>y position value</ins>.
 
 ### noteTweenAngle(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween on the <ins>angle position value</ins>.
+Does a note tween in the <ins>angle value</ins>.
 
 ### noteTweenAlpha(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween on the <ins>alpha/opacity value</ins>.
+Does a note tween in the <ins>alpha/opacity value</ins>.
 
 ### noteTweenDirection(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween on the <ins>receptors direction value</ins>.
+Does a note tween in the <ins>receptors direction value</ins>.
 
 ***
 
-# Other Tween/Timer Functions
+# Other Tween & Timer Functions
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
-Runs a timer.
+Runs a timer, if finish the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
 
-- `tag` - The timer tag name to be used; Will be called at `onTimerCompleted()` function.
-- `time` - The duration length of the timer to end; Defualt value: `1`.
-- `loops` - How many loops will the timer execute; Defualt value: `1`.
+- `tag` - The timer tag name from the `onTimerCompleted()` function to be referenced.
+- `time` - The duration length of the timer to end; Default value: `1`.
+- `loops` - How many loops will the timer execute; Default value: `1`.
 
 ### cancelTimer(tag)
-Cancels the <ins>timer</ins> that is running.
+Cancels the <ins>timer</ins> that is currently running.
 
 - `tag` - The timer tag name to be used.
 
 ### cancelTween(tag)
 Cancels the <ins>tween</ins> that is running.
 
-- `tag` - The tween tag name to be used.
+- `tag` - The tween tag name to be currently used.

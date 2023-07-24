@@ -1,24 +1,17 @@
 # String Methods
-There are <ins>2 types of syntaxes</ins> for string method you can use. Either `string.func()` or `(string):func()` but im just gonna use the second syntax in examples. Because it makes me look smarter and makes it <ins>easier to read</ins> for instance.
-
-> **Note**: _The second syntax is only local to `string methods` and not for `table method` or `math methods`._
+Fun fact instead of writing this `string.method(string, para)` when using String Method functions, you should instead use `string:method(para)`. Why because functions being nested will make it not very understandable when reading the code. Sure you can use this syntax; just use this only one or twice when nesting tho.
 
 Example:
 ```lua
 function onCreate()
      local textString = 'IJBIOGEJBOUIEKWIWBLCUYQOWYGV'
      local stringSyntax1 = string.lower(string.gsub(string.gsub(textString, 'W', ''), 'I', ''))
-     debugPrint(stringSyntax1) -- will print 'jbogejbouekblcuyqoygv'
-     -- The functions being nested makes it not understandable, sure you can use this syntax
-     -- just use this only ones or twice when nesting tho
+     debugPrint(stringSyntax1) -- will print > 'jbogejbouekblcuyqoygv'
 
      local stringSyntax2 = textString:gsub('W', ''):gsub('I', ''):lower()
-     debugPrint(stringSyntax1) -- will print 'jbogejbouekblcuyqoygv'
-     -- This syntax pretty much solves the problem and makes it more understandable
+     debugPrint(stringSyntax1) -- will print > 'jbogejbouekblcuyqoygv'
 end
 ```
-
-***
 
 ### string.upper(str:String)
 Converts any <ins>upper-case characters</ins> into lower-case characters.
@@ -38,17 +31,17 @@ Example: `('CHEeeEeEEEeeSe'):lower()`; Will print `cheeeeeeeeeese`.
 Converts any <ins>alphabetical characters</ins> into ASCII characters; Returns an `int` number.
 
 - `str` - The string variable to be converted.
-- `startPos` - An optional parameter, The specified starting position to be chosen; Defualt value: `1`.
-- `endPos` - An optional parameter, The specified ending position to be chosen; Defualt value: `1`.
+- `startPos` - An optional parameter, The specified starting position to be chosen; Default value: `1`.
+- `endPos` - An optional parameter, The specified ending position to be chosen; Default value: `1`.
 
 Example: `('a'):byte()`; Will print `97`.
 
-### string.char(#byte:Int)
-Converts any <ins>ASCII characters</ins> into alphabetical characters; Returns an `string`.
+### string.char(...byte:Int)
+Converts any <ins>ASCII characters</ins> into alphabetical characters; Returns an `string`. _(This function doesn't support the string shortcut!)_
 
 - `byte` - An infinite parameter, The ASCII character to be converted.
 
-Example: `string.byte(97)`; Will print `a`. _(This function doesn't support the string shortcut!)_
+Example: `string.byte(97)`; Will print `a`.
 
 ### string.rep(str:String, repeat:Int)
 Repeats the string depending on <ins>how many times you set it</ins>.
@@ -56,7 +49,7 @@ Repeats the string depending on <ins>how many times you set it</ins>.
 - `str` - The string variable to be repeated.
 - `repeat` - How many times the string will be repeated.
 
-Example: `('repated '):rep(3)`; Will print `repated repated repated `.
+Example: `('repeated '):rep(3)`; Will print `repeated repeated repeated `.
 
 ### string.reverse(str:String)
 Reverses the string, <ins>that's it</ins>.
@@ -65,7 +58,18 @@ Reverses the string, <ins>that's it</ins>.
 
 Example: `('based'):reverse()`; Will print `desab`.
 
-***
+## String Patterns Methods
+These methods support String Patterns inside the `pattern` parameter. So if there any characters that are `+-*()[]?%`, make sure you have a percent sign <kbd>%</kbd> at the start of each character. So it will display the actual character and not result an error.
+
+Example:
+```lua
+local capture = '(a)'
+
+function onCreate()
+     debugPrint( capture:gsub('(', ''):gsub(')', '')   ) -- error
+     debugPrint( capture:gsub('%(', ''):gsub('%)', '') ) -- will print 'a'
+end
+```
 
 ### string.format(pattern:String, #str:String)
 Formats the string from the <ins>specified pattern type</ins>.
@@ -87,20 +91,20 @@ Finds the <ins>match from the `pattern` parameter</ins> from the string; Returns
 
 - `str` - The string variable to be used.
 - `pattern` - The specified string pattern to find.
-- `startPos` - An optional parameter, The string position on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The string position on where to start the search; Default value: `1`.
 
 Example:
 ```lua
 function onCreate()
      local textString1 = 'Find the position of this \'string\''
      local textString1_Find = ({ textString1:find('\'string\'') }) -- converts it into a table
-     debugPrint(textString1_Find[1]) -- will print '27'
-     debugPrint(textString1_Find[2]) -- will print '34'
+     debugPrint(textString1_Find[1]) -- will print > '27'
+     debugPrint(textString1_Find[2]) -- will print > '34'
 
      local textString2 = 'Repeat Repeat Repeat'
      local TextString2_Find = ({ textString2:find('Repeat', 13) })
-     debugPrint(textString2_Find[1]) -- will print '15'
-     debugPrint(textString2_Find[2]) -- will print '20'
+     debugPrint(textString2_Find[1]) -- will print > '15'
+     debugPrint(textString2_Find[2]) -- will print > '20'
 end
 ```
 
@@ -109,19 +113,19 @@ Extracts the <ins>specific portion of a string</ins> from the <ins>starting to e
 
 - `str` - The string variable to be extracted.
 - `startPos` - The starting position of the string.
-- `endPos` - An optional parameter, The ending position of the string; Defualt value: `maximum length of the string`.
+- `endPos` - An optional parameter, The ending position of the string; Default value: `maximum length of the string`.
 
 Example:
 ```lua
 function onCreate()
      local textString1 = 'Cut this on half!'
      local textString1_Sub = textString1:sub( ({math.modf(#textString1 / 2)})[1] )
-     debugPrint(textString1_Sub) -- will print 's on half!'
+     debugPrint(textString1_Sub) -- will print > 's on half!'
      
      local textString2 = 'Specify the selection of the string'
      local textString2_Find = ({textString2:find('selection')}) -- will print '{13, 27}'
      local textString2_Sub  = textString2:sub(textString2_Find[1], textString2_Find[2])
-     debugPrint(textString2_Sub) -- will print 'selection'
+     debugPrint(textString2_Sub) -- will print > 'selection'
 end
 ```
 
@@ -131,18 +135,18 @@ Extracts the <ins>specific portion of the string</ins> and <ins>replaces the con
 - `str` - The string variable to be extracted.
 - `pattern` - The specified string pattern for the string to be replace.
 - `replace` - The new content of the string to be used.
-- `repeat` - An optional parameter, How many times will the pattern be replaced; Defualt value: `1`.
+- `repeat` - An optional parameter, How many times will the pattern be replaced; Default value: `1`.
 
 Example:
 ```lua
 function onCreate()
      local textString1 = 'PsychEngine is a bad engine [in my opinion]'       -- opinions are scary
      debugPrint(textString1:gsub('bad', 'good'):gsub('[in my opinion]', '')) -- no more opinion guys!
-     -- will print 'PsychEngine is a good engine'
+     -- will print > 'PsychEngine is a good engine'
 
      local textString2 = 'Hello World World World!'
      debugPrint(textString2:gsub('World World', '', 2))
-     -- will print 'Hello World!'
+     -- will print > 'Hello World!'
 end
 ```
 
@@ -151,16 +155,16 @@ Checks if the <ins>specific portion of the string matches the pattern</ins>; Ret
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
-- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Default value: `1`.
 
 Example:
 ```lua
 function onCreate()
      local textString1 = 'Find a match!'
-     debugPrint(textString1:match('match'))   -- will print 'match'
+     debugPrint(textString1:match('match'))   -- will print > 'match'
 
      local textString2 = 'I like the number 38453 and 96335'
-     debugPrint(textString2:match('%d+', 25)) -- will print '96335'
+     debugPrint(textString2:match('%d+', 25)) -- will print > '96335'
 end
 ```
 
@@ -183,8 +187,8 @@ end
 
 function onCreate()
      local dictionaryString = 'isGood = true, isBad = false'
-     debugPrint(dictionarySplit(dictionaryString).isGood) -- will print 'true'
-     debugPrint(dictionarySplit(dictionaryString).isBad)  -- will print 'false'
+     debugPrint(dictionarySplit(dictionaryString).isGood) -- will print > true
+     debugPrint(dictionarySplit(dictionaryString).isBad)  -- will print > false
 end
 ```
 
@@ -192,31 +196,30 @@ end
 
 # Table Methods
 ### table.insert(tab:Table, ?pos:Int, value:Dynamic)
-<ins>Inserts a value</ins> inside of a table.
+Forcefully inserts an element inside a table array, this will not change the table's element if the position is occupied.
 
-- `tab` - The table variable to be used.
-- `pos` - An optional parameter, The specified index position for the value to be inserted.
-- `value` - The value to be inserted.
+- `tab` - The table variable for the element to be inserted.
+- `pos` - An optional parameter, The position index for the new element to be inserted.
+- `value` - The element's value.
 
 Example:
 ```lua
 function onCreate()
      local arrayTable = {'apple', 'banana', 'orange'}
      table.insert(arrayTable, 'grape')
-     table.insert(arrayTable, 2, 'watermelon')
+     table.insert(arrayTable, 2, 'cherry')
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..': '..v) 
-          -- will print '1: apple 2: watermelon 3: banana 4: orange 5: grape'
+          debugPrint(k..': '..v) -- will print > '1: apple, 2: cherry, 3: banana, 4: orange, 5: grape'
      end
 end
 ```
 
 ### table.remove(tab:Table, ?pos:Int)
-<ins>Removes a value</ins> inside of a table.
+Forcefully removes an element inside a table array, if the element is not being used anymore.
 
-- `tab` - The table variable to be used.
-- `pos` - An optional parameter, The specified index position for the value to be removed.
+- `tab` - The table variable for the element to be removed.
+- `pos` - An optional parameter, The position index for the new element to be removed.
 
 Example:
 ```lua
@@ -226,16 +229,16 @@ function onCreate()
      table.remove(arrayTable, 3) -- removes 'tomato'
 
      for k,v in pairs(arrayTable) do
-          debugPrint(k..': '..v) -- will print '1: apple 2: banana 3: orange'
+          debugPrint(k..': '..v) -- will print > '1: apple, 2: banana, 3: orange'
      end
 end
 ```
 
 ### table.concat(tab:Table, sep:String, ?minPos:Int, ?maxPos:Int)
-Concatenates every value inside of a table with the <ins>separation pattern on each value</ins>; Returns a `string`.
+Concatenates the table array's elements into a string with the separator pattern in each element.
 
-- `tab` - The table variable to be concatenated.
-- `sep` - The separation pattern on each table value.
+- `tab` - The table variable for the element to be concatenate.
+- `sep` - The separation pattern for each elements.
 - `minPos` - An optional parameter, The starting index position of the table to be concatenate.
 - `maxPos` - An optional parameter, The ending index position of the table for the concatenation to stop.
 
@@ -245,40 +248,42 @@ function onCreate()
      local arrayTable1 = {'apple', 'banana', 'orange'}
      local arrayTable2 = {'tomato', 'broccoli', 'onion', 'beetroot', 'turnip'}
 
-     debugPrint(table.concat(arrayTable1, ', '))       -- will print 'apple, banana, orange' 
-     debugPrint(table.concat(arrayTable2, ', ', 3, 5)) -- will print 'onion, beetroot, turnip'
+     debugPrint(table.concat(arrayTable1, ', '))       -- will print > 'apple, banana, orange' 
+     debugPrint(table.concat(arrayTable2, ', ', 3, 5)) -- will print > 'onion, beetroot, turnip'
 end
 ```
 
-### table.sort(tab:Table, ?compType:Function)
-Sorts the table in a <ins>given order</ins>.
+### table.sort(tab:Table, ?comp:Function)
+Sorts the table in a given order by alphabetical order in `strings`, lesser than to greater than in `numbers`, or with a custom sort type inside the `comp` parameter.
 
 - `tab` - The table variable to be sorted.
-- `compType` - An optional parameter, The sorting type for the table variable to be used.
+- `comp` - An optional parameter, The custom sorting type to be sorted for the function to use.
 
 Example:
 ```lua
+local function byteSort(val1, val2) 
+     return val2:byte(3, 3) > val2:byte(3, 3)
+end
+
 function onCreate()
      local arrayTable1 = {'grape', 'apple', 'banana', 'orange', 'kiwifruit'}
      local arrayTable2 = {'tomato', 'broccoli', 'onion', 'beetroot', 'turnip'}
 
      table.sort(arrayTable1)
-     table.sort(arrayTable2, function(val1, val2)
-          return val2:byte(3, 3) > val2:byte(3, 3) 
-     end)
+     table.sort(arrayTable2, byteSort)
 
      for k,v in pairs(arrayTable1) do 
-          debugPrint(v) -- will print 'apple, banana, grape, kiwifruit, orange'
+          debugPrint(v) -- will print > 'apple, banana, grape, kiwifruit, orange'
      end
      for k,v in pairs(arrayTable2) do
-          debugPrint(v) -- will print 'turnip, broccoli, tomato, onion, beetroot'
+          debugPrint(v) -- will print > 'turnip, broccoli, tomato, onion, beetroot'
      end
 end
 ```
 
 ***
 
-# Mathematical Basic Methods
+# Mathematical Methods
 ### math.min(#num:Float)
 Checks if any of the number is the <ins>minimum value</ins>, it could find.
 
@@ -346,7 +351,7 @@ end
 ### math.log(exp:Float, base:Float)
 Returns the <ins>logarithm of a number to the base number</ins> which is the exponent value. Basically the inverse function of the exponentiation.
 
-Also there is a similair function called `math.log10()`, which the defualt value of the `base` parameter is `10`; Example: `math.log10(1000)`; Will print `3`.
+Also there is a similar function called `math.log10()`, which the default value of the `base` parameter is `10`; Example: `math.log10(1000)`; Will print `3`.
 
 - `exp` - The exponentiation value of the number.
 - `base` - The base number of the logarithm number.
@@ -360,7 +365,7 @@ end
 ```
 
 ### math.random(?min:Int, ?max:Int)
-Randomize a random number <ins>between the minimum to maximum values</ins>. This function uses <ins>psuedo-random number generator (PRNG)</ins> it basically uses a seed for a number pattern. Which makes it not "truly random" becuase when you run the function it will <ins>return the exact same number pattern</ins>. Because it <ins>uses the same seed</ins> that the `math.random()` function uses.
+Randomize a random number <ins>between the minimum to maximum values</ins>. This function uses <ins>Pseudo-random Number Generator (PRNG)</ins> it basically uses a seed for a number pattern. Which makes it not "truly random" because when you run the function it will <ins>return the exact same number pattern</ins>. Because it <ins>uses the same seed</ins> that the `math.random()` function uses.
 
 Now if you don't like this to happen either use. <ins>`getRandomInt()` or `getRandomFloat()` functions</ins>, which functions as the same as `math.random()` function but more random. Or use <ins>`math.randomseed()` function</ins> that changes the seed of the `math.random` function.
 
@@ -369,6 +374,7 @@ Now if you don't like this to happen either use. <ins>`getRandomInt()` or `getRa
 - `min` - An optional parameter, The minimum number value.
 - `max` - An optional parameter, The maximum number value.
 
+### math.random(?min:Int, ?max:Int)
 ### math.randomseed(seed:Int)
 Changes the pseudo-random number seed for the `math.random()` function. If you want `math.random()` to be "truly random" use `os.time()` function. Because it returns every seconds from the Unix Epoch this started from `1 January 1970, 00:00:00`. Making the seed change every seconds.
 
@@ -377,10 +383,9 @@ Changes the pseudo-random number seed for the `math.random()` function. If you w
 Example:
 ```lua
 local function generateRNG(seed)
-     local seed = seed or 1 -- If the value is nil; will print '1'
      local RNGTab = {}
+     math.randomseed(seed)  
 
-     math.randomseed(seed)
      for rep = 1, 3 do
           table.insert(RNGTab, math.random(1, 5))
      end
@@ -388,22 +393,20 @@ local function generateRNG(seed)
 end
 
 function onCreate()
-     debugPrint(generateRNG(1))         -- will print '3 1 1'
-     debugPrint(generateRNG(2))         -- will print '2 5 5'
-     debugPrint(generateRNG(3))         -- will print '2 1 5'
-     debugPrint(generateRNG(os.time())) -- will print '5 2 5' (for me only)
+     debugPrint(generateRNG(1))         -- will print > '3 1 1'
+     debugPrint(generateRNG(2))         -- will print > '2 5 5'
+     debugPrint(generateRNG(3))         -- will print > '2 1 5'
+     debugPrint(generateRNG(os.time())) -- will print > '5 2 5' (for me only)
 end
 ```
 
 ### math.pi
-Returns the <ins>length of the pi π value</ins>; Returns `3.141592653589`.
+Returns the <ins>length of the pi <kbd>π</kbd> value</ins>; Returns `3.141592653589`.
 
 ### math.huge
 Returns the <ins>maximum number limit</ins> to become infinite; Returns `inf`. 
 
-***
-
-# Mathematical Trigonometry Methods
+## Trigonometry Methods
 > **Warning**: _This section of this wiki is still being research due to being. An advance subject that I haven't learn in my school. Soo if you've learn this already, please make a pull request of it. Help is always appreciated._
 
 ### math.sin(num:Float)
