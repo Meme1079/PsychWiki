@@ -3,6 +3,7 @@
 - Added "Translating to Haxe" Page to `Lua Coding Docs`
 - Added "Hscript Functions" Page to `Lua Script API`
 - Added new functions
+- Added new Lua Script Examples
 - Updated "Variables" **All Shortcut to** sections and added **Depracated Original Shorcuts** for compatability
 - Updated "Tweens & Timers Functions" Page
 - Revamp & Reformatted "Basics of Coding" Page
