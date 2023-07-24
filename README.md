@@ -1,16 +1,14 @@
 ![banner](https://user-images.githubusercontent.com/101881784/186165593-7f234ba2-093d-4754-8062-6afe002e93a4.png)
 
 # Psych-Wiki
-> **Note**: This not the official wiki of Psych Engine
+> **Note**: This is not the official wiki of Psych Engine
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
 # Current Update [12.0.0 Version]
-- Added "Metatables & Object Orientation" Page to `Lua Coding Docs`
-- Added "Translating to Haxe" Page to `Lua Coding Docs`
+- Added "Metatables" Page to `Lua Coding Docs`
 - Added "Hscript Functions" Page to `Lua Script API`
 - Added new functions
-- Added new Lua Script Examples
 - Updated "Variables" **All Shortcut to** sections and added **Depracated Original Shorcuts** for compatability
 - Updated "Tweens & Timers Functions" Page
 - Revamp & Reformatted "Basics of Coding" Page
