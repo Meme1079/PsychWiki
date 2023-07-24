@@ -31,8 +31,8 @@ Example: `('CHEeeEeEEEeeSe'):lower()`; Will print `cheeeeeeeeeese`.
 Converts any <ins>alphabetical characters</ins> into ASCII characters; Returns an `int` number.
 
 - `str` - The string variable to be converted.
-- `startPos` - An optional parameter, The specified starting position to be chosen; Defualt value: `1`.
-- `endPos` - An optional parameter, The specified ending position to be chosen; Defualt value: `1`.
+- `startPos` - An optional parameter, The specified starting position to be chosen; Default value: `1`.
+- `endPos` - An optional parameter, The specified ending position to be chosen; Default value: `1`.
 
 Example: `('a'):byte()`; Will print `97`.
 
@@ -49,7 +49,7 @@ Repeats the string depending on <ins>how many times you set it</ins>.
 - `str` - The string variable to be repeated.
 - `repeat` - How many times the string will be repeated.
 
-Example: `('repated '):rep(3)`; Will print `repated repated repated `.
+Example: `('repeated '):rep(3)`; Will print `repeated repeated repeated `.
 
 ### string.reverse(str:String)
 Reverses the string, <ins>that's it</ins>.
@@ -59,7 +59,7 @@ Reverses the string, <ins>that's it</ins>.
 Example: `('based'):reverse()`; Will print `desab`.
 
 ## String Patterns Methods
-These methods support String Patterns inside the `pattern` parameter. So if there any character's that are `+-*()[]?%`, make sure you have a percent sign <kbd>%</kbd> at the start of each character. So it will display the actual character and not result an error.
+These methods support String Patterns inside the `pattern` parameter. So if there any characters that are `+-*()[]?%`, make sure you have a percent sign <kbd>%</kbd> at the start of each character. So it will display the actual character and not result an error.
 
 Example:
 ```lua
@@ -91,7 +91,7 @@ Finds the <ins>match from the `pattern` parameter</ins> from the string; Returns
 
 - `str` - The string variable to be used.
 - `pattern` - The specified string pattern to find.
-- `startPos` - An optional parameter, The string position on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The string position on where to start the search; Default value: `1`.
 
 Example:
 ```lua
@@ -113,7 +113,7 @@ Extracts the <ins>specific portion of a string</ins> from the <ins>starting to e
 
 - `str` - The string variable to be extracted.
 - `startPos` - The starting position of the string.
-- `endPos` - An optional parameter, The ending position of the string; Defualt value: `maximum length of the string`.
+- `endPos` - An optional parameter, The ending position of the string; Default value: `maximum length of the string`.
 
 Example:
 ```lua
@@ -135,7 +135,7 @@ Extracts the <ins>specific portion of the string</ins> and <ins>replaces the con
 - `str` - The string variable to be extracted.
 - `pattern` - The specified string pattern for the string to be replace.
 - `replace` - The new content of the string to be used.
-- `repeat` - An optional parameter, How many times will the pattern be replaced; Defualt value: `1`.
+- `repeat` - An optional parameter, How many times will the pattern be replaced; Default value: `1`.
 
 Example:
 ```lua
@@ -155,7 +155,7 @@ Checks if the <ins>specific portion of the string matches the pattern</ins>; Ret
 
 - `str` - The string variable to be matched.
 - `pattern` - The specified string pattern for the string to be match.
-- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Defualt value: `1`.
+- `startPos` - An optional parameter, The starting position of the `string` on where to start the search; Default value: `1`.
 
 Example:
 ```lua
@@ -351,7 +351,7 @@ end
 ### math.log(exp:Float, base:Float)
 Returns the <ins>logarithm of a number to the base number</ins> which is the exponent value. Basically the inverse function of the exponentiation.
 
-Also there is a similair function called `math.log10()`, which the defualt value of the `base` parameter is `10`; Example: `math.log10(1000)`; Will print `3`.
+Also there is a similar function called `math.log10()`, which the default value of the `base` parameter is `10`; Example: `math.log10(1000)`; Will print `3`.
 
 - `exp` - The exponentiation value of the number.
 - `base` - The base number of the logarithm number.
@@ -365,7 +365,7 @@ end
 ```
 
 ### math.random(?min:Int, ?max:Int)
-Randomize a random number <ins>between the minimum to maximum values</ins>. This function uses <ins>psuedo-random number generator (PRNG)</ins> it basically uses a seed for a number pattern. Which makes it not "truly random" becuase when you run the function it will <ins>return the exact same number pattern</ins>. Because it <ins>uses the same seed</ins> that the `math.random()` function uses.
+Randomize a random number <ins>between the minimum to maximum values</ins>. This function uses <ins>Pseudo-random Number Generator (PRNG)</ins> it basically uses a seed for a number pattern. Which makes it not "truly random" because when you run the function it will <ins>return the exact same number pattern</ins>. Because it <ins>uses the same seed</ins> that the `math.random()` function uses.
 
 Now if you don't like this to happen either use. <ins>`getRandomInt()` or `getRandomFloat()` functions</ins>, which functions as the same as `math.random()` function but more random. Or use <ins>`math.randomseed()` function</ins> that changes the seed of the `math.random` function.
 

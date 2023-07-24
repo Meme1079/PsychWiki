@@ -1,7 +1,7 @@
 # Metatables
 Metatables allows you to modify or to extend behavior of any table, making it more useful than before. For instance, we can change how Lua computes the expression like `a + b`, where `a` and `b` are both tables. 
 
-Whenever you try to add two tables Lua will check, if either of them has a metatable and whether that metatable contains an `__add` field. If Lua detects this feild, it calls the associated value from the operands. Which the metamethod should be a function to compute the sum.
+Whenever you try to add two tables Lua will check, if either of them has a metatable and whether that metatable contains an `__add` field. If Lua detects this field, it calls the associated value from the operands. Which the metamethod should be a function to compute the sum.
 
 Example:
 ```lua
@@ -37,7 +37,7 @@ Gets the metatable to the given table; Returns a `table`.
 ***
 
 ## Metamethods
-Metamethods are special functions that provides powerful functionalities which overide the functionalities to the operators present for custom behaviors. Negating a table, converting a string to a table, calling an index that is not-present, etc. Each metamethod field starts with double <kbd>__</kbd> underscores.
+Metamethods are special functions that provides powerful functionalities which override the functionalities to the operators present for custom behaviors. Negating a table, converting a string to a table, calling an index that is not-present, etc. Each metamethod field starts with double <kbd>__</kbd> underscores.
 
 ### Arithmetic
 - `__add(tab, value)` - Changes the behavior of the addition operator `+` when invoked. The first operand from the condition should be the table itself and the second operand should be the specified value you'd chosen; This rule applies to all metamethods.
@@ -87,7 +87,7 @@ function onCreate()
 end
 ```
 
-- `__call(tab, ...args)` - Changes the behavior of calling operation syntax `()`. This will only be invoked, if Lua tries to call a non-function value. The metamethod is looked up in function. If it is, function is passed as the first arguement when calling the metamethod, which is then followed by the arguments from the original call from the function. This is the only metamethod that allows multiple results.
+- `__call(tab, ...args)` - Changes the behavior of calling operation syntax `()`. This will only be invoked, if Lua tries to call a non-function value. The metamethod is looked up in function. If it is, function is passed as the first argument when calling the metamethod, which is then followed by the arguments from the original call from the function. This is the only metamethod that allows multiple results.
 
 Example:
 ```lua

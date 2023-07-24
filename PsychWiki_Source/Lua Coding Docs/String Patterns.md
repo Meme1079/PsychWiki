@@ -1,7 +1,7 @@
 # Matching Patterns
-Matching Patterns are patterns used to match character combinations to get the specific output. This is used for searching, matching, verifying the text data and replacing characters in `strings`. Some String Methods support Matching Patterns that allow you to pass Matching Patterns as its arguements.
+Matching Patterns are patterns used to match character combinations to get the specific output. This is used for searching, matching, verifying the text data and replacing characters in `strings`. Some String Methods support Matching Patterns that allow you to pass Matching Patterns as its arguments.
 
-This is an replacement for Regular Expressions (RegEx) becuase the primary cause of this is size. More than 4,000 lines of code are typically required for a RegEx implementation. This exceeds the combined size of all Lua standard libraries. In contrast, Lua's pattern matching implementation comprises fewer than 500 lines.
+This is an replacement for Regular Expressions (RegEx) because the primary cause of this is size. More than 4,000 lines of code are typically required for a RegEx implementation. This exceeds the combined size of all Lua standard libraries. In contrast, Lua's pattern matching implementation comprises fewer than 500 lines.
 
 ## Special Sequences
 Special Sequence are characters used to represent a group of specific characters that can be used by the pattern to match the desired character. For example, the character class `%p` matches any punctuation characters so we can use this for. To manipulate the punctuation characters to whatever we want.

@@ -12,8 +12,8 @@ Changes the <ins>sprite texture</ins> with a new one. With an option to <ins>set
 
 - `variable` - The sprite object tag name to be used.
 - `image` - The new image sprite for the sprite object to be used.
-- `gridX` - An optional parameter, The crop width of the sprite texture; Defualt value: `0`.
-- `gridY` - An optional parameter, The crop height of the sprite texture; Defualt value: `0`.
+- `gridX` - An optional parameter, The crop width of the sprite texture; Default value: `0`.
+- `gridY` - An optional parameter, The crop height of the sprite texture; Default value: `0`.
 
 ### setBlendMode(obj:String, blend:String)
 Changes the <ins>blend mode</ins> of the object. If you want to see more blend modes, [click here](https://api.haxe.org/flash/display/BlendMode.html). _(Works similar to how Photoshop does it)_
@@ -25,13 +25,13 @@ Changes the <ins>blend mode</ins> of the object. If you want to see more blend m
 
 # Animation Functions
 ### playAnim(obj:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0)
-Plays an existing animation of the sprite object; it can <ins>override an animation</ins>. If there are two or similair names inside the `name` parameter; <ins>this rule is applied to all `name` parameters</ins>. 
+Plays an existing animation of the sprite object; it can <ins>override an animation</ins>. If there are two or similar names inside the `name` parameter; <ins>this rule is applied to all `name` parameters</ins>. 
 
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
-- `forced` - Whether will the animation will be force to restart; Defualt value: `false`.
-- `reverse` - An optional parameter, Whether the animation will be played backwards; Defualt value `false`.
-- `startFrame` - An optional parameter, The animation frame in the animation to start from; Defualt value: `0`.
+- `forced` - Whether will the animation will be force to restart; Default value: `false`.
+- `reverse` - An optional parameter, Whether the animation will be played backwards; Default value `false`.
+- `startFrame` - An optional parameter, The animation frame in the animation to start from; Default value: `0`.
 
 ### addAnimation(obj:String, name:String, frames:Array\<Int\>, framerate:Int = 24, loop:Bool = true)
 Adds a <ins>new animation</ins> of the sprite object.
@@ -39,8 +39,8 @@ Adds a <ins>new animation</ins> of the sprite object.
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
 - `frames` - The indices indicating what animation frames to play in what order; Example: `{1, 2, 3}`.
-- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
-- `loop` - Whether will the animation will loop or just plays once; Defualt is `true`.
+- `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
+- `loop` - Whether will the animation will loop or just plays once; Default is `true`.
 
 ### addAnimationByPrefix(obj:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true)
 Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use.
@@ -48,8 +48,8 @@ Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
 - `prefix` - The prefix name inside the `xml` file to be played.
-- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
-- `loop` - Whether will the animation will loop or just plays once; Defualt is `true`.
+- `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
+- `loop` - Whether will the animation will loop or just plays once; Default is `true`.
 
 ### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24)
 Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. If you want the looped version of this function use `addAnimationByIndicesLoop()`; <ins>all parameters and its use are the same</ins>.
@@ -58,7 +58,7 @@ Adds a <ins>new animation with the specified indices</ins> for the animation fra
 - `name` - The specified name of the animation to use.
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `frames` - The indices indicating what animation frames to play in what order; Example: `1, 2, 3`.
-- `framerate` - The speed in frames per second that the animation should play at; Defualt is: `24`.
+- `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
 
 ### addOffset(obj:String, anim:String, x:Float, y:Float)
 Adds a new offset value on each animation.
@@ -73,7 +73,7 @@ Loads the Lua sprites <ins>animation frames</ins>.
 
 - `variable` The sprite object tag name to be used.
 - `image` - The image sprite for the sprite to use.
-- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Defualt value: `sparrow`.
+- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
 
 ***
 
@@ -81,23 +81,23 @@ Loads the Lua sprites <ins>animation frames</ins>.
 > **Note**: _It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
 
 ### addCharacterToList(name:String, type:String)
-Precaches the <ins>sprite character</ins>, this used if you're switching charcters.
+Pre-caches the <ins>sprite character</ins>, this used if you're switching characters.
 
 - `name` - The `json` name of the character.
 - `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### precacheImage(name:String)
-Precaches the <ins>image sprite</ins>; Must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
+Pre-caches the <ins>image sprite</ins>; Must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
 
 - `name` - The image sprite for the sprite to use.
 
 ### precacheSound(name:String)
-Precaches the <ins>sound</ins>; Must be relative to `mods/sounds` or `assets/sounds` folders.
+Pre-caches the <ins>sound</ins>; Must be relative to `mods/sounds` or `assets/sounds` folders.
 
 - `name` - The `ogg` sound file to be played.
 
 ### precacheMusic(name:String)
-Precaches the <ins>music</ins>; Must be relative to `mods/music` or `assets/music` folders.
+Pre-caches the <ins>music</ins>; Must be relative to `mods/music` or `assets/music` folders.
 
 - `name` - The `ogg` music file to be played.
 
@@ -116,7 +116,7 @@ Gets the current layer position of the object <ins>current value</ins>; Returns 
 - `obj` - The object tag name to be used.
 
 ### objectsOverlap(obj1:String, obj2:String)
-Checks if two objects are <ins>overlaping each-other</ins>; Returns a `boolean`.
+Checks if two objects are <ins>overlapping each-other</ins>; Returns a `boolean`.
 
 - `obj1` - The first object tag name to be used.
 - `obj2` - The second object tag name to be used.

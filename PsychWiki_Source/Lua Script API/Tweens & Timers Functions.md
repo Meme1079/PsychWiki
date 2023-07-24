@@ -11,7 +11,7 @@ Starts a tween in any value(s) to an object or note.
 <details><summary><b>Options Sub-Parameters:</b></summary>
 <p>
 
-- `type` - Determins the type of tween animation to use, it can choose one of these.
+- `type` - Determines the type of tween animation to use, it can choose one of these.
      - `ONESHOT` - Will stop and removes itself from the core container, when finished.
      - `PERSIST` - Will stop, when finished but unlike `ONESHOT`. It will always stay attached from the core container, when finished.
      - `LOOPING` - As the name suggests, will restarts when it's finish playing the tween.
@@ -19,7 +19,7 @@ Starts a tween in any value(s) to an object or note.
      - `BACKWARD` - Plays the tween animation in the reverse direction, duh.
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 - `startDeley` - How many durations to wait before starting to play the tween, in seconds.
-- `loopDeley` - Hom many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
+- `loopDeley` - How many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
 - `onUpdate` - What function to update in each frame for the tween to use.
 - `onStart` - What function to execute at the beginning of the song for the tween to use.
 - `onComplete` - What function to execute when the tween finishes playing.
@@ -80,8 +80,8 @@ Does a note tween in the <ins>receptors direction value</ins>.
 Runs a timer, if finish the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
 
 - `tag` - The timer tag name from the `onTimerCompleted()` function to be referenced.
-- `time` - The duration length of the timer to end; Defualt value: `1`.
-- `loops` - How many loops will the timer execute; Defualt value: `1`.
+- `time` - The duration length of the timer to end; Default value: `1`.
+- `loops` - How many loops will the timer execute; Default value: `1`.
 
 ### cancelTimer(tag)
 Cancels the <ins>timer</ins> that is currently running.

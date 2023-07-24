@@ -2,10 +2,11 @@
 - Added "Metatables" Page to `Lua Coding Docs`
 - Added "Hscript Functions" Page to `Lua Script API`
 - Added new functions
-- Updated "Variables" **All Shortcut to** sections and added **Depracated Original Shorcuts** for compatability
+- Updated "Variables" **All Shortcut to** sections and added **Deprecated Original Shortcuts** for compatibility
 - Updated "Tweens & Timers Functions" Page
 - Revamp & Reformatted "Basics of Coding" Page
 - Fixed the `_G` Variable Section description.
+- Fix spelling/grammar errors.
 - Renamed "Matching Patterns" Page to "String Patterns"
 - Renamed "Value Setters & Getters Function" to "Reflection Functions"
 

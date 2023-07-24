@@ -52,7 +52,7 @@
 - `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
 - `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
-<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
@@ -119,7 +119,7 @@
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
 
-<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
@@ -198,7 +198,7 @@
 - `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
 - `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
 
-<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
@@ -240,7 +240,7 @@
 - `cameraX` - `getProperty('camGame.scroll.x') - (screenWidth / 2)`
 - `cameraY` - `getProperty('camGame.scroll.y') - (screenHeight / 2)`
 
-<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
@@ -268,7 +268,7 @@
 - `dadName` - `getPropertyFromClass('states.PlayState', 'SONG.player2')`
 - `gfName` - `getPropertyFromClass('states.PlayState', 'SONG.gfVersion')`
 
-<details><summary><b>Depracated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `boyfriendName` - `getPropertyFromClass('PlayState', 'SONG.player1')`

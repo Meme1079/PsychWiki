@@ -34,7 +34,7 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 - `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
 - `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
 - `funcToRun` - An optional parameter, The Haxe function name to be referenced.
-- `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
+- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
 
 Example:
 ```lua
@@ -49,7 +49,7 @@ end
 <ins>Executes the Haxe function</ins> from the `runHaxeCode()` function.
 
 - `funcToRun` - The Haxe function name to be referenced.
-- `funcArgs` - An optional parameter, The arguement(s) to be passed to the Haxe function.
+- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
 
 Example:
 ```lua

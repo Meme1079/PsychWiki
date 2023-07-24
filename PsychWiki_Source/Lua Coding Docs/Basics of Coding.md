@@ -266,7 +266,7 @@ end
 ```
 
 ### Dictionary
-Dictionaries uses key-value pairs for storing elements instead of index-value pairs that Table Arrays uses. It basically uses names for reffering the elements inside the Table Dictionary. The key from the Table Dictionary can be surrounded by bracket <kbd>[]</kbd> characters with single-quoted <kbd>''</kbd> or double-quoted <kbd>""</kbd>. This is only used if the key name has a special character inside of it.
+Dictionaries uses key-value pairs for storing elements instead of index-value pairs that Table Arrays uses. It basically uses names for referring the elements inside the Table Dictionary. The key from the Table Dictionary can be surrounded by bracket <kbd>[]</kbd> characters with single-quoted <kbd>''</kbd> or double-quoted <kbd>""</kbd>. This is only used if the key name has a special character inside of it.
 
 To read a Table Dictionary get the name of it followed by a dot <kbd>.</kbd> character with the name of the key to be used. Or used the bracket method as an alternative or if it has a special key name.
 
@@ -322,7 +322,7 @@ end
 ```
 
 ## Parameters
-Parameters are special type of variables inside the functions parentheses <kbd>()</kbd> characters. If there are two or more parameters they must be separated by a comma <kbd>,</kbd> character. Their main purpose is to add more functionality to the function. If you're calling a function you must values or "arguements" which in each parameters, this is a requirement.
+Parameters are special type of variables inside the functions parentheses <kbd>()</kbd> characters. If there are two or more parameters they must be separated by a comma <kbd>,</kbd> character. Their main purpose is to add more functionality to the function. If you're calling a function you must values or "arguments" which in each parameters, this is a requirement.
 
 Example:
 ```lua
@@ -340,7 +340,7 @@ function onCreatePost()
 end
 ```
 
-Parameters can be defined as an infinite parameter with the ellepsis <kbd>...</kbd> character. It enables an indefinite number of arguments to pass. If there are non parameters present, it must be the last parameters from the list.
+Parameters can be defined as an infinite parameter with the ellipsis <kbd>...</kbd> character. It enables an indefinite number of arguments to pass. If there are non parameters present, it must be the last parameters from the list.
 
 Example:
 ```lua
@@ -464,7 +464,7 @@ Numeric Loop are a type of loop that use numeric values to increment or to decre
 
 - `initialize` - The initial variable for the loop to use.
 - `condition` - The condition of the loop to execute the code block.
-- `iteration` - An optional expression, The iteration of the loop you can either incremented <kbd>+</kbd> or decremented <kbd>-</kbd> the value; Defualt value: `incremented`.
+- `iteration` - An optional expression, The iteration of the loop you can either increment <kbd>+</kbd> or decrement <kbd>-</kbd> the value; Default value: `incremented`.
 
 Example:
 ```lua
@@ -604,7 +604,7 @@ return modules
 ```
 
 ## Requiring
-You want to require or import the desired module file you created, use the `require()` function. And will controls whether a file has already been run to avoid duplicating the work. The arguements should have the location of the Lua module file to be used; Starts outside the `mods` folder.
+You want to require or import the desired module file you created, use the `require()` function. And will controls whether a file has already been run to avoid duplicating the work. The arguments should have the location of the Lua module file to be used; Starts outside the `mods` folder.
 
 Example:
 ```lua
@@ -621,7 +621,9 @@ end
 ***
 
 # _G
-The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts. But unfortunately doesn't work why? idk, the only thing its used for getting multiple global variables from a loop and modify the values easily.
+The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts.
+
+But unfortunately doesn't work why? idk, there are alternatives to Global Variable `_G` such as `setVar()` and `setOnLuas()` functions. The only thing its used for getting multiple global variables from a loop and modify the values easily.
 
 Example:
 ```lua
@@ -658,7 +660,7 @@ Loads a Lua code from the argument and converts into real Lua code.
 
 Example:
 ```lua
-local ope = load([[return 4 + 3]])
+local ope = load('return 4 + 3')()
 function onCreate()
      debugPrint(ope) -- will print > 7
 end
