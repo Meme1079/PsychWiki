@@ -10,24 +10,6 @@ Removes a Lua script into the game, if not used anymore.
 
 - `path` - The location of the Lua script file to be removed.
 
-### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets the variable globally across all currently active Lua scripts.
-
-- `varName` - The variable name to be referenced.
-- `arg` - The value for the variable to use.
-- `ignoreSelf` - _(Still researching)_
-- `exclusions` - _(Still researching)_
-
-### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Sets the function globally across all currently active Lua scripts.
-
-- `funcName` - The function name to be referenced.
-- `args` - An optional parameter, The arguement(s) to be passed on the function.
-- `ignoreStops` - _(Still researching)_
-- `ignoreSelf` - _(Still researching)_
-- `excludeScripts` - _(Still researching)_
-- `excludeValues` - _(Still researching)_
-
 ### isRunning(luaFile:String)
 Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
 
@@ -53,12 +35,100 @@ Calls a global variable from another script and <ins>gets the current value</ins
 - `luaFile` - The location of Lua script to be referenced.
 - `global` - The global variable from the Lua script to get.
 
-### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\>)
-Calls a global function from another Lua script.
+***
 
-- `luaFile` - The location of Lua script to be referenced.
-- `funcName` - The function name from the Lua script to get.
-- `args` - An optional parameter, The arguement(s) to be passed to the function.
+# Module Scripts
+> **NOTE**: _If your calling a variables from any of these functions, it must be inside the `onCreatePost()` callback function; This rule applies to all Module Script functions._
+
+> **NOTE**: _If your using these functions from a HScript or SScript, the function should start with `game.` for it to work properly; Example: `game.setOnScripts('func', [arg1, arg2]);`._
+
+### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
+Sets a variable and globally exports it to other currently executing Lua & Haxe scripts.
+
+- `varName` - The variable name to be referenced.
+- `arg` - The specified value for variable to use.
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `exclusions` - _(Still researching)_
+
+Example:
+```lua
+setOnScripts('myVar1', 'Hello String!')
+setOnScripts('myVar2', {33, 112, 43, -12})
+setOnScripts('myVar3', true)
+```
+```lua
+function onCreatePost()
+     debugPrint(myVar1)    -- will print > 'Hello String!'
+     debugPrint(myVar2[4]) -- will print > -12
+     debugPrint(myVar3)    -- will print > true
+end
+```
+
+### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
+Sets a variable and globally exports it to other currently executing Lua scripts.
+
+- `varName` - The variable name to be referenced.
+- `arg` - The specified value for variable to use.
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `exclusions` - _(Still researching)_
+
+### setOnHScript(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
+Sets a variable and globally exports it to other currently executing Haxe scripts.
+
+- `varName` - The variable name to be referenced.
+- `arg` - The specified value for variable to use.
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `exclusions` - _(Still researching)_
+
+### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
+Calls a function from another Lua & Haxe scripts that is currently executing.
+
+- `funcName` - The function from the Lua & Haxe script to use.
+- `args` - An optional parameter if there is no arguments, The argument(s) for the function to get.
+- `ignoreStops` - _(Still researching)_
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `excludeScripts` - An optional parameter, Excludes scripts for the function to not use.
+- `excludeValues` - _(Still researching)_
+
+Example:
+```lua
+function median(min, max)
+     return (min + max) / 2
+end
+```
+```haxe
+function onCreatePost() {
+     var getMedian = game.callOnScripts('median', [12, 43]);
+     debugPrint(getMedian); // will print > 27.5
+}
+```
+
+### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
+Calls a function from another Lua script that is currently executing.
+
+- `funcName` - The function from the Lua script to use.
+- `args` - An optional parameter if there is no arguments, The argument(s) for the function to get.
+- `ignoreStops` - _(Still researching)_
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `excludeScripts` - An optional parameter, Excludes scripts for the function to not use.
+- `excludeValues` - _(Still researching)_
+
+### callOnHScript(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
+Calls a function from another Haxe script that is currently executing.
+
+- `funcName` - The function from the Haxe script to use.
+- `args` - An optional parameter if there is no arguments, The argument(s) for the function to get.
+- `ignoreStops` - _(Still researching)_
+- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
+- `excludeScripts` - An optional parameter, Excludes scripts for the function to not use.
+- `excludeValues` - _(Still researching)_
+
+### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null)
+Calls a function from a specific Lua script that is currently executing.
+
+- `luaFile` - The location of the Lua script file to get the function. 
+- `funcName` - The function from the Lua & Haxe script to use.
+- `args` - An optional parameter if there is no arguments, The argument(s) for the function to get.
 
 ***
 

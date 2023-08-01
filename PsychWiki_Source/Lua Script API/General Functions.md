@@ -163,10 +163,11 @@ Ends the song manually.
 ***
 
 # Debuging Functions
-### debugPrint(text1, ?text2, ?text3, ?text4, ?text5)
+### debugPrint(text:Dynamic = '', color:String = 'WHITE')
 This will display a debug message in the <ins>top-left corner of the screen</ins>. 
 
-- `texts` - Every parameter of `debugPrint()`, all of them are optional except the `text1` parameter.
+- `text` - The text to be displayed.
+- `color` - An optional parameter, The specified hex color to display the text.
 
 Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` This will get the current bf character with the `getProperty()` function and will print `Current boyfriend character: 'bf'`.
 

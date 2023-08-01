@@ -1,9 +1,11 @@
 # Unique Lua Variables
 > **Note**: _These are the only variables can be change by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use `setProperty()` function if you want to change the rest of the variables._
 
-- `Function_Continue` - Continues the game; Returns: `0`.
-- `Function_StopLua` - Stops the game; Returns: `1`.
-- `Function_Stop` - Stops the Lua script; Returns: `2`.
+- `Function_StopLua` - Stops all Lua script currently executing.
+- `Function_StopHScript` - Stops all Haxe script currently executing.
+- `Function_StopAll` - Stops all scripts currently executing.
+- `Function_Stop` - Stops the game.
+- `Function_Continue` - Continues the game.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
