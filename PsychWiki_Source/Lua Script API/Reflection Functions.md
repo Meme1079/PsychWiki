@@ -6,7 +6,7 @@ Sets the current <ins>property variable inside the Playstate</ins> with a new va
 
 - `variable` - The variable inside the Playstate or object to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
 Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value.
@@ -14,7 +14,7 @@ Sets the current <ins>property variable inside a class other than Playstate</ins
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false)
 Sets the current <ins>property variable inside an array/group member inside the PlayState</ins> with a new value.
@@ -23,7 +23,7 @@ Sets the current <ins>property variable inside an array/group member inside the 
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ***
 
@@ -32,14 +32,14 @@ Sets the current <ins>property variable inside an array/group member inside the 
 Gets the current <ins>property variable inside the Playstate</ins> current value.
 
 - `variable` - The variable inside the Playstate or object to be used.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
 Gets the current <ins>property variable inside a class other than Playstate</ins> current value.
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false)
 Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
@@ -47,7 +47,7 @@ Gets the current <ins>property variable inside an array/group member inside the 
 - `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
-- `allowMaps` - _(Still Researching)_
+- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ***
 

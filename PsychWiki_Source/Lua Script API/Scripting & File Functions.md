@@ -1,14 +1,21 @@
 # Script Functions
-### addLuaScript(path:String, ?ignoreAlreadyRunning:Bool = false)
+### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a Lua script into the game.
 
-- `path` - The location of the Lua script file to be added.
-- `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from.
+- `luaFile` - The specified location of the Lua script to add.
+- `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
 
-### removeLuaScript(path:String)
+### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
+Adds a Haxe script into the game.
+
+- `haxeFile` - The specified location of the Haxe script to add.
+- `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
+
+### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 Removes a Lua script into the game, if not used anymore.
 
-- `path` - The location of the Lua script file to be removed.
+- `luaFile` - The specified location of the Lua script to remove.
+- `ignoreAlreadyRunning` - An optional parameter, It will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
 
 ### isRunning(luaFile:String)
 Checks if the Lua script is <ins>currently running</ins>; Returns a `boolean`.
