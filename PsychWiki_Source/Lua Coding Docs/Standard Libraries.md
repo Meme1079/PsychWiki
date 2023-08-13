@@ -374,7 +374,6 @@ Now if you don't like this to happen either use. <ins>`getRandomInt()` or `getRa
 - `min` - An optional parameter, The minimum number value.
 - `max` - An optional parameter, The maximum number value.
 
-### math.random(?min:Int, ?max:Int)
 ### math.randomseed(seed:Int)
 Changes the pseudo-random number seed for the `math.random()` function. If you want `math.random()` to be "truly random" use `os.time()` function. Because it returns every seconds from the Unix Epoch this started from `1 January 1970, 00:00:00`. Making the seed change every seconds.
 

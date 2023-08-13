@@ -1,15 +1,19 @@
 # Introduction
-> **Note**: _You can skip this section if you want just to let ya' know._
-
-Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language that is mainly used in Psych Engine. This allows you to execute Lua code without compiling the game over and over again. And it's simple and easy scripting language that an 8 year old can understand easily. The only cons that Lua has are, global scopes are always in default, limited error handling, limited pattern matching, no unicode support, no default parameter values just to name a few.
+Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language originated in 1993. It was design to be improving its speed, portability, extensibility, and ease-of-use in development. Which is why its used in Psych Engine, this allows you to execute Lua code without compiling the game over and over again, unlike doing source code in Haxe.
 
 ## Source-Code Editors
 You don't know they're basically a text editor program designed specifically for editing source code of computer programs. They usually add such as syntax highlighting, indentation, autocomplete and brace matching. To make your programming experience more easier to code, the most popular source-code editors are [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/), [Vim](https://www.vim.org/download.php), [Sublime Text](https://www.sublimetext.com/), etc. You can use any source-code editors that you're comfortable to use.
 
+If you install Visual Studio Code there are extensions which makes your coding experience even more better. Like supporting a new programming language, adding custom snippets, etc.
+
+- [Lua snippets](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) - Adds lua snippets when coding in Lua.
+- [Funkin Script AutoCompleter](https://marketplace.visualstudio.com/items?itemName=Snirozu.funkin-script-autocompleter) - Adds the Psych engine functions when coding in Lua.
+
 ## Differences
-When coding with Lua in Psych Engine, there are some minor differences. This is due to HaxeFlixel, the main engine used by Psych Engine. Anyways uuuuhhhhh here's a list of minor differences that you should 100% totally know about:
+They are some minor differences when coding in Psych Engine Lua. This is due to HaxeFlixel, the main engine used by Psych Engine. Anyways uuuuhhhhh here's a list of minor differences that you should 100% totally know about:
 
 1. The code should be located inside any of the Callback Templates which are special functions. That uses the games mechanics like note types, custom events, countdowns, etc to execute the code; Examples: `onCreate()`, `onUpdate()`, `onEvent()` just to name a few of them. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+     - In update `0.7.1h` of Psych Engine you can now put code outside of any Callback Templates, which is the best feature to be ever be implemeted in years, but this will only execute once tho.
 2. Printing is also different instead of using the `print()` function it's replaced by the `debugPrint()` function. The arguments passed on the `debugPrint()` function will appear at the top-left of the screen. And will fade out in a couple of seconds.
 3. Psych Engine uses Lua version <kbd>5.1</kbd> which there are missing features that Lua <kbd>5.1</kbd> doesn't has; Examples: Floor division, Bitwise operators, basic utf-8 library, support for both 64-bit and 32-bit platforms, and new functions.
 
@@ -27,7 +31,7 @@ end
 ***
 
 # Comments
-Comments are used to explain the context of code and prevent the execution on a specific code; Lua will just ignore them. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters with the double minus <kbd>--</kbd> characters before it.
+Comments are used to explain the context of code and what its purpose is or to disable the execution of code. This won't effect anything inside the Lua program because it will be ignored. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters with the double minus <kbd>--</kbd> characters before it.
 
 Example:
 ```lua
@@ -44,26 +48,15 @@ end
 ]]
 ```
 
-You can also nest multi-line comments just add an equal <kbd>=</kbd> character between the double brackets <kbd>[[]]</kbd> characters of the comment; Example: <kbd>--[=[]=]</kbd>. The amount of equal <kbd>=</kbd> character determines how many levels of nesting will be created.
-
-Example:
-```lua
---[=[
-     Here's a multi-line comment with the equal
-     sign to prevent the double bracket strings [] 
-     inside the comment to break
-
-     debugPrint([[ hi ]])
-]=]
-```
-
 ***
 
 # Variables
 Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua program. They're paired with an associated name which contains the data value of the variable to be used. The data from the variable can be updated when you assigned a new value from it.
 
-## Declaring
-To declare the variable, you must specify the variable's `type`, `name`, and `data` value. The `type` determines what scope the variable should have. It could be `global` type by default in Lua or `local` type by using the `local` keyword. Followed by the `name` of your variable name it what-ever you want it, but there are some rules to follow when declaring them. The variable's specified `data` value is then assigned using an equal <kbd>&equals;</kbd> character.
+## Declaring & Reassigning
+To declare a variable, you must specify the variable's `scope`, `identifier`, and `data` values. The `scope` determines what scope the variable should have. It could be `global` type by default in Lua or `local` type by using the `local` keyword. 
+
+This is followed by the variables's `identifier` or in layman's term the "name", for the variable to be referenced and used later. With assigning the `data` value for the variable to store by using an equal <kbd>&equals;</kbd> character. If you want to reassign a variable, it's basically the same as declaring a variable but the `data` value should be a different value or data type.
 
 Example:
 ```lua
@@ -73,10 +66,13 @@ local baz = foo - bar
 
 function onCreate()
      debugPrint(baz) -- will print > 44
+
+     baz = 83        -- will reassign baz variable to 83
+     debugPrint(baz) -- will print > 83
 end
 ```
 
-You can also assign multiple variables in one line, if you want to reduce the lines of code for some reason. Each variable's `names` and `values` should be separated by a comma <kbd>,</kbd> character. But if the names list is not equal to the values list then the other values will be asign into `nil` value. If the opposite happens then the other extra `values` will be ignore, making them impossible to call them.
+Variables can be assign with multiple variables in one line, if you want to reduce the lines of code for some reason. To do this each variable's `identifier` and `data` values should be separated by a comma <kbd>,</kbd> characters each of them should be equal.
 
 Example:
 ```lua
@@ -117,9 +113,8 @@ var name = 'Error' -- a variable with a space ' ' character
 var$name = 'Error' -- a variable with a special '$' character
 ```
 
-## Types
-### Global
-Global variables allows you to call them outside a Callback Templates or block, at any time throughout the program. But it's only recommended if you're getting a variable on another Callback Templates or block for data checking or something.
+### Scope Types
+- `Global` - Global variables allows you to call variables outside the scope of block, at any time throughout the program. This is only recommended if you're getting a variable on another Callback Templates or using to export a variable to another Lua script.
 
 Example:
 ```lua
@@ -138,8 +133,7 @@ function onBeatHit()      -- checks every beat hit
 end
 ```
 
-### Local
-Local variables can only be called within a function or block; if you attempted to call them outside it will return a `nil` value because there only local within that function block. They're more faster to call because they're integrated into the environment in which they are created.
+- `Local` - Local variables are declared with the `local` statement, unlike global variables their scope is limited to the block where they are declared. If you attempted to call them it will only return a `nil` value. This is a relativly good programming style becuase they avoid cluttering the global environment with unnecessary names. And are more faster to call than to global ones.
 
 Example:
 ```lua
@@ -184,6 +178,14 @@ Escape characters are special characters used within a string. They are an alter
 
 So, lets assume you constructed a string that is surrounded by double-quote <kbd>""</kbd> characters and you want to add a double-quote inside the string, so you inserted the double-quote <kbd>""</kbd> and it resulted an error. Because Lua thinks the string would finish there due to the inserted double-quote <kbd>""</kbd> character, it created an error. As a result, escape characters exist to solve this issue.
 
+- `\'` - Single-quote Character
+- `\"` - Double-quote Character
+- `\\` - Backslash Character
+- `\n` - New Line
+- `\r` - Carriage Return
+- `\t` - Horizontal Tab
+- `\v` - Vertical tab 
+
 Example:
 ```lua
 function onCreate()
@@ -203,16 +205,8 @@ function onCreate()
 end
 ```
 
-- `\'` - Single-quote Character
-- `\"` - Double-quote Character
-- `\\` - Backslash Character
-- `\n` - New Line
-- `\r` - Carriage Return
-- `\t` - Horizontal Tab
-- `\v` - Vertical tab 
-
 ## Numbers
-Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Float or Int; Float numbers support decimal numbers, whilst Int numbers only uses whole numbers.
+Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Int (Integer) or Float (Floating-point). Int only uses whole numbers whilst Float uses decimal numbers.
 
 Example:
 ```lua
@@ -306,9 +300,9 @@ end
 ***
 
 # Functions
-Functions are a collection of code that is designed perform a specific task. They can enable reusable code across the Lua program and reduces the duplication of code. functions are defined with the `function` keyword followed by the name of the function with the pair of parentheses <kbd>()</kbd> characters.
+Functions are a collection of code that is designed perform a specific task. They can enable reusable code across the Lua program and reduces the duplication of code. Functions are defined with the `function` keyword followed by the `identifier` or the name of the function with a pair of parentheses <kbd>()</kbd> characters to declare parameters.
 
-To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function's memory address; Example: `function: 0x5616d89c0770`.
+To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function's memory address; Example: `function: 0x5616d89c0770`. Functions are hoisted it's when the function is declared it will be moved at the top of the scope before code execution. This mean you can call a function even before when they're declared.
 
 Example:
 ```lua
@@ -351,6 +345,25 @@ end
 function onCreate()
      debugPrint(table.pack(34, 23, 12, 343)[1])
      debugPrint(table.pack(true, false, true, true)[4])
+end
+```
+
+## Anonymity
+Anonymous functions that is defined that is not bound to a identifier. So it only uses the `function` keyword and parenthesis <kbd>()</kbd> characters. They're pretty often used in arguements being passed to functions like the `table.sort()` function or being used for closures in some cases. 
+
+This is can only be called once or more, if the anonymous function is declared inside a variable. The use case of anonymous functions is that it could reduce the Lua file size. But the downside is that their not hoisted like regular functions.
+
+Example:
+```lua
+local grades = {93, 72, 100, 84, 76, 81, 74}
+table.sort(grades, function(a,b) -- anon function
+     return a < b
+end)
+
+function onCreate()
+     for _,v in pairs(grades) do
+          debugPrint(v) -- will print > 100, 93, 84, 81, 76, 74, 72
+     end
 end
 ```
 
@@ -460,34 +473,33 @@ end
 For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of loops Generic loop or Numeric Loop.
 
 ### Numeric Loop
-Numeric Loop are a type of loop that use numeric values to increment or to decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 expressions when declaring a Numeric loop `initialize`, `condition`, and `iteration`.
+Numeric Loop uses numeric values to increment or to decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 expressions when declaring a Numeric loop `initializer`, `condition`, and `iteration`.
 
-- `initialize` - The initial variable for the loop to use.
+- `initializer` - The initial variable for the loop to use.
 - `condition` - The condition of the loop to execute the code block.
-- `iteration` - An optional expression, The iteration of the loop you can either increment <kbd>+</kbd> or decrement <kbd>-</kbd> the value; Default value: `incremented`.
+- `iteration` - An optional expression, The iterator for the loop to use you can either increment <kbd>+</kbd> or decrement <kbd>-</kbd> the value; Default value: `incremented`.
 
 Example:
 ```lua
 function onCreate()
      for index = 0, 5, 1 do  -- Increment loop
-          debugPrint(index)  -- will print > '0, 1, 2, 3, 4, 5'
+          debugPrint(index)  -- will print > 0, 1, 2, 3, 4, 5
      end
      for index = 5, 0, -1 do -- Decrement loop
-          debugPrint(index)  -- will print > '5, 4, 3, 2, 1, 0'
+          debugPrint(index)  -- will print > 5, 4, 3, 2, 1, 0
      end
 
      for index = 0, 300, 50 do -- Increment Loop with each value incremented by 50 
-          debugPrint(index)    -- will print > '0, 50, 100, 150, 200, 250, 300'
+          debugPrint(index)    -- will print > 0, 50, 100, 150, 200, 250, 300
      end
 end
 ```
 
 ### Generic Loop
-Generic Loop are a type of loop that commonly uses pair functions to read all the table values. This is just an alternative loop for reading every table values. There are 3 expressions when declaring a Generic loop `key`, `value`, and `iteration`.
+Generic Loop are another type of loop that allows you to traverse all values from a table; return from a `iterator` function from the `in` keyword. This is just an alternative loop for iterating every table elements. There are 2 expressions when declaring a Generic Loop `initializer` and `iterator`.
 
-- `key` - The key values from the table, you can name how you want; Example: `key`.
-- `value` - The value types from the table, you can name how you want; Example: `value`.
-- `iterate` - The iteration for the loop to use, can be either the `pair` functions or `gmatch` function.
+- `initializer` - The initial variable for the loop to use. The amount of variables depends on the `iterator` function; `pairs()`, `ipairs()`, and `next()` function only uses 1 or 2 variables. But the `gmatch()` function really depends of the captures from the string.
+- `iterator` - The iterator for the loop to use, already listed from the `initializer` description.
 
 Example:
 ```lua
@@ -498,10 +510,6 @@ function onCreate()
      end
 end
 ```
-
-#### Pair Functions
-- `pairs()` - Returns every key-value pairs inside a table for table dictionaries; Returns as an unorganized table sort; Not to be confused with `ipairs()` functions.
-- `ipairs()` - Returns every index-value pairs inside a table for table arrays. If the table value has `nil` it will stop executing the loop there.
 
 ## While Loop
 While Loop statement will loop through a block of code infinitely until the specified condition returns `false`. To declare a while loop, Make an `if` statement but just replace the `if` keyword with the `while` keyword and the `then` keyword with the `do` keyword.
@@ -543,13 +551,9 @@ Break statement stops the loop statements from looping. You can use this for spe
 Example:
 ```lua
 function onCreate()
-     local nums = {1, 3, 9, 5, 7, 4, 19, 13}
-     for i = 1, #nums do
-          if i > #nums / 2 then
-               break
-          else
-               debugPrint(nums[i])
-          end
+     for i = 1, 10 do
+          debugPrint(i) -- will print > 1, 2, 3, 4, 5
+          if i >= 5 then break end
      end
 end
 ```
@@ -583,7 +587,7 @@ modules.red   = 'ff0000'
 modules.green = '00ff00'
 modules.blue  = '0000ff'
 
-function myGamingModules.tobool(boo)     -- boolean to string
+function modules.tobool(boo)     -- boolean to string
      local boo = boo:lower()
      if boo:match('true') or boo:match('false') then -- check if it's actually true of false
           return boo == 'true' and (true or false)   -- ternary operator > "cond ? exp1 : exp2"
@@ -615,53 +619,5 @@ function onCreate()
      debugPrint(moduleName.red)   -- will print 'ff0000'
      debugPrint(moduleName.green) -- will print '00ff00'
      debugPrint(moduleName.blue)  -- will print '0000ff'
-end
-```
-
-***
-
-# _G
-The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts.
-
-But unfortunately doesn't work why? idk, there are alternatives to Global Variable `_G` such as `setVar()` and `setOnLuas()` functions. The only thing its used for getting multiple global variables from a loop and modify the values easily.
-
-Example:
-```lua
-function onCreate()
-     myGlobalVar0, myGlobalVar1 = 183, 231
-     myGlobalVar2, myGlobalVar3 = 963, 263
-     for nummys = 0, 3 do
-          debugPrint(_G['myGlobalVar' .. nummys])         -- will print > '183, 231, 963, 263'
-          debugPrint(_G['defaultPlayerStrumX' .. nummys]) -- will print > '732, 844, 956, 1068'
-     end 
-end
-```
-
-***
-
-# Predefined Lua Functions
-### tostring(num:Dynamic)
-Converts any `number` or `boolean` values into real `string` values.
-
-- `num` - The value to be converted
-
-### tonumber(num:String)
-Converts any `string` values into real `number` values.
-
-- `num` - The value to be converted
-
-### type(data:Dynamic)
-Checks the current type of the value; Can either return: `string`, `number`, `boolean`, `nil`, `table`, `function`.
-
-- `data` - The value to be checked.
-
-### load(code:Function)
-Loads a Lua code from the argument and converts into real Lua code.
-
-Example:
-```lua
-local ope = load('return 4 + 3')()
-function onCreate()
-     debugPrint(ope) -- will print > 7
 end
 ```
