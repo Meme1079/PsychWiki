@@ -63,9 +63,10 @@ Returns the elements from the given table each separated. The range is determine
 Example:
 ```lua
 function onCreate()
-     debugPrint( unpack({23, 72, 12, 83, 91}) )       -- will print > 23, 72, 12, 83, 91
-     debugPrint( unpack({23, 72, 12, 83, 91}, 3) )    -- will print > 12, 83, 91
-     debugPrint( unpack({23, 72, 12, 83, 91}, 2, 4) ) -- will print > 72, 12, 83
+     local array = {23, 72, 12, 83, 91}
+     debugPrint( unpack(array) )       -- will print > 23, 72, 12, 83, 91
+     debugPrint( unpack(array, 3) )    -- will print > 12, 83, 91
+     debugPrint( unpack(array, 2, 4) ) -- will print > 72, 12, 83
 end
 ```
 
@@ -77,16 +78,22 @@ Returns the number of selected from the arguements, the selection range is deter
 
 Example:
 ```lua
+local charys = {}
+for char = 65, 70 do
+     table.insert(charys, string.char(char))
+end
+
 function onCreate()
-     debugPrint( select(3, 'A', 'B', 'C', 'D', 'E', 'F') )   -- will print > 'C', 'D', 'E', 'F'
-     debugPrint( select(-2, 'A', 'B', 'C', 'D', 'E', 'F') )  -- will print > 'E', 'F'
-     debugPrint( select('#', 'A', 'B', 'C', 'D', 'E', 'F') ) -- will print > 6
+     debugPrint( select(3,   unpack(charys)) ) -- will print > 'C', 'D', 'E', 'F'
+     debugPrint( select(-2,  unpack(charys)) ) -- will print > 'E', 'F'
+     debugPrint( select('#', unpack(charys)) ) -- will print > 6
 end
 ```
 
 ### pairs(tab:Array)
 ### ipairs(tab:Array)
 ### next(tab:Array, lastKey:Int|String)
+### assert(cond:Dynamic, ?message:String)
 ### error(message:String, ?level:Int = 1)
 ### pcall(func:Function, ...args:Dynamic)
 ### xpcall(func:Function, message:String, ...args:Dynamic)
