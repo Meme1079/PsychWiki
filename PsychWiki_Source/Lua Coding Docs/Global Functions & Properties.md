@@ -91,12 +91,116 @@ end
 ```
 
 ### pairs(tab:Array)
+Returns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
+
+- `tab` - The table to be iterated.
+
+Example:
+```lua
+local array = {[-1] = 34, [0] = 93, [1] = 45, [3] = 64, [2] = 12}
+
+array['hello'] = true
+array['bye']   = false
+function onCreate()
+     for k,v in pairs(array) do
+          debugPrint(v) -- will print > 93, 45, 12, 64, true, false, 34
+     end
+end
+```
+
 ### ipairs(tab:Array)
-### next(tab:Array, lastKey:Int|String)
-### assert(cond:Dynamic, ?message:String)
+Returns a index-value pairs and it's only used for arrays. Non-numeric keys are ignored as a whole, equivalent to numeric indices less than `1`; `nil` values will also be ignored.
+
+- `tab` - The table to be iterated.
+
+Example:
+```lua
+local array = {[-1] = 34, [0] = 93, [1] = 45, [3] = 64, [2] = 12}
+
+array['hello'] = true
+array['bye']   = false
+function onCreate()
+     for k,v in pairs(array) do
+          debugPrint(v) -- will print > 45, 12, 64
+     end
+end
+```
+
+## Handling Errors
+> **Note**: _These functions only works outside of any Callback Templates._
+
 ### error(message:String, ?level:Int = 1)
-### pcall(func:Function, ...args:Dynamic)
-### xpcall(func:Function, message:String, ...args:Dynamic)
+Throws an error message, usually error messages are strings describing what went wrong. When there is an internal error; Example: Attempting to index a non-table value.
+
+- `message` - The error message to be genarate.
+- `level` - An optional parameter, specifies how to get the error position; Defualt value: `1`.
+
+Example:
+```lua
+error('A fatal error occured!')
+```
+
+### assert(condition:Dynamic, message:String)
+Throw an error massage if the `condition` arguement returns `false` or `nil`. If the assertion passes, it returns all values passed to it.
+
+- `condition` - The codition to use.
+- `message` - The error message to be genarate.
+
+Example:
+```lua
+local function median(min, max)
+     local errmsg1 = 'min and max arguement not a number type'
+     local errmsg2 = 'min arguement has a higher value than max arguement!'
+     assert(type(min) == 'number' or type(max) == 'number', errmsg1)
+     assert(min <= max, errmsg2)
+
+     return (min + max) / 2
+end
+
+debugPrint(median(34, 25)) -- will throw > min arguement has a higher value than max arguement!
+```
+
+### pcall(func:Function, ?...args:Dynamic)
+Calls a function and runs it in protected mode and catches the error and returns a status code. The function returns two values, the code status code which returns a `boolean`, if `true` the call succeeds without errors. And the error message generated if there is any errors found, if not returns the function returning value.
+
+- `func` - The function to be runned.
+- `args` - An optional and infinite parameter, If the function is not an anonymous; the argument(s) for the function to use.
+
+Example:
+```lua
+local boolValue, errorValue = pcall(function()
+     local var = 45
+     return 34 * var
+end)
+
+debugPrint(boolValue)  -- will print > true
+debugPrint(errorValue) -- will print > 1530
+
+local boolValue, errorValue = pcall(function()
+     return 34 * var
+end)
+
+debugPrint(boolValue)  -- will print > false
+debugPrint(errorValue) -- will print > 'main.lua:2: attempt to perform arithmetic on a nil value (global 'var')'
+```
+
+### xpcall(func:Function, error:Function, ?...args:Dynamic)
+Works similar to the `pcall()` function except that you can set a new customizable error handler.
+
+- `func` - The function to be runned.
+- `error` - The function to use as an error handle if it catches an error.
+- `args` - An optional and infinite parameter, If the function is not an anonymous; the argument(s) for the function to use.
+
+Example:
+```lua
+local boolValue, errorValue = pcall(function()
+     return 34 * var
+end, function(error) -- The error parameter, returns the error message
+     debugPrint('An error occured! fix it dummy!')
+end)
+
+debugPrint(errorValue) -- will print > 'An error occured! fix it dummy!'
+```
 
 ***
 
