@@ -1,5 +1,5 @@
 # Introduction
-Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language originated in 1993. It was design to be improving its speed, portability, extensibility, and ease-of-use in development. Which is why its used in Psych Engine, this allows you to execute Lua code without compiling the game over and over again, unlike doing source code in Haxe.
+Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language that originated in 1993. It was designed to improve its speed, portability, extensibility, and ease of use in development. Which is why it is used in Psych Engine; this allows you to execute Lua code without compiling the game over and over again, unlike doing source code in Haxe.
 
 ## Source-Code Editors
 You don't know they're basically a text editor program designed specifically for editing source code of computer programs. They usually add such as syntax highlighting, indentation, autocomplete and brace matching. To make your programming experience more easier to code, the most popular source-code editors are [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/), [Vim](https://www.vim.org/download.php), [Sublime Text](https://www.sublimetext.com/), etc. You can use any source-code editors that you're comfortable to use.
@@ -15,7 +15,7 @@ They are some minor differences when coding in Psych Engine Lua. This is due to 
 1. The code should be located inside any of the Callback Templates which are special functions. That uses the games mechanics like note types, custom events, countdowns, etc to execute the code; Examples: `onCreate()`, `onUpdate()`, `onEvent()` just to name a few of them. Note that variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
      - In update `0.7.1h` of Psych Engine you can now put code outside of any Callback Templates, which is the best feature to be ever be implemeted in years, but this will only execute once tho.
 2. Printing is also different instead of using the `print()` function it's replaced by the `debugPrint()` function. The arguments passed on the `debugPrint()` function will appear at the top-left of the screen. And will fade out in a couple of seconds.
-3. Psych Engine uses Lua version <kbd>5.1</kbd> which there are missing features that Lua <kbd>5.1</kbd> doesn't has; Examples: Floor division, Bitwise operators, basic utf-8 library, support for both 64-bit and 32-bit platforms, and new functions.
+3. Psych Engine uses Lua version <kbd>5.1</kbd>, and there are some missing features that Lua <kbd>5.1</kbd> doesn't have. Examples: include floor division, bitwise operators, a basic UTF-8 library, support for both 64-bit and 32-bit platforms, and other new functions.
 
 Example:
 ```lua
@@ -31,7 +31,7 @@ end
 ***
 
 # Comments
-Comments are used to explain the context of code and what its purpose is or to disable the execution of code. This won't effect anything inside the Lua program because it will be ignored. Comments starts with a double minus <kbd>--</kbd> characters as the syntax for single-line comment. For multi-line comments should have double brackets <kbd>[[]]</kbd> characters with the double minus <kbd>--</kbd> characters before it.
+Comments are used to explain the context of code and what its purpose is, or to disable the execution of code. This won't affect anything inside the Lua program because it will be ignored. Comments start with a double minus <kbd>--</kbd> character as the syntax for a single-line comment. For multi-line comments, they should have double brackets <kbd>[[]]</kbd> characters with the double minus <kbd>--</kbd> characters before them.
 
 Example:
 ```lua
@@ -51,12 +51,12 @@ end
 ***
 
 # Variables
-Variables are an abstract manipulable containers for storing data values they can be used throughout the Lua program. They're paired with an associated name which contains the data value of the variable to be used. The data from the variable can be updated when you assigned a new value from it.
+Variables are abstract manipulable containers for storing data values; they can be used throughout the Lua program. They're paired with an associated name, which contains the data value of the variable to be used. The data from the variable can be updated when you assign a new value to it.
 
 ## Declaring & Reassigning
-To declare a variable, you must specify the variable's `scope`, `identifier`, and `data` values. The `scope` determines what scope the variable should have. It could be `global` type by default in Lua or `local` type by using the `local` keyword. 
+To declare a variable, you must specify the variable's `scope`, `identifier`, and `data` values. The `scope` determines what scope the variable should have. It could be `global` type by default in Lua or `local` type by using the `local` keyword.
 
-This is followed by the variables's `identifier` or in layman's term the "name", for the variable to be referenced and used later. With assigning the `data` value for the variable to store by using an equal <kbd>&equals;</kbd> character. If you want to reassign a variable, it's basically the same as declaring a variable but the `data` value should be a different value or data type.
+This is followed by the variable's `identifier`, or in layman's terms, the "name", for the variable to be referenced and used later. Assigning the `data` value for the variable to store by using an equal <kbd>&equals;</kbd> character. If you want to reassign a variable, it's basically the same as declaring a variable, but the `data` value should be a different value or data type.
 
 Example:
 ```lua
@@ -72,7 +72,7 @@ function onCreate()
 end
 ```
 
-Variables can be assign with multiple variables in one line, if you want to reduce the lines of code for some reason. To do this each variable's `identifier` and `data` values should be separated by a comma <kbd>,</kbd> characters each of them should be equal.
+Variables can be assigned with multiple variables in one line if you want to reduce the lines of code for some reason. To do this, each variable's `identifier` and `data` values should be separated by a comma. Each comma <kbd>,</kbd> character of them should be equal.
 
 Example:
 ```lua
@@ -152,31 +152,41 @@ end
 
 # Data Types
 ## Strings
-Strings are a sequence of characters it can either represent an alphabetical, digital, punctuation, or all of them. Their main purpose is to store human-readable text, like words and sentences. They're commonly surrounded by single-quotes <kbd>''</kbd>, double-quotes <kbd>""</kbd>, or double-brackets <kbd>[[]]</kbd> for multi-line strings.
+Strings are a sequence of characters containing any characters; they could be either alphabetical, digital, punctuation, etc. Their main purpose is to store human-readable text, like words and sentences. They're commonly surrounded by either single-quotes <kbd>''</kbd>, double-quotes <kbd>""</kbd>, or double-brackets <kbd>[[]]</kbd> for multi-line strings.
 
-Example:
+Examples:
 ```lua
 local textString1 = 'Hello' -- a single quote
 local textString2 = "World" -- a double quote, this is optional to use
+function onCreate()
+     debugPrint(textString1) -- will print > 'Hello'
+     debugPrint(textString2) -- will print > "World"
+end
+```
+```lua
 local textString3 = [[
      Culturae organicae te capiet ad loca quae numquam 
      expectata non visere!
 ]]                          -- a double bracket, used this for longer texts
-
 function onCreate()
-     debugPrint(textString1) --   will print 'Hello'
-     debugPrint(textString2) --   will print "World"
-     debugPrint(textString3) --[=[ will print [[
+     debugPrint(textString3) --[=[ will print > [[
           Culturae organicae te capiet ad loca quae numquam
           expectata non visere!
-     ]]]=]
+     ]] ]=]
 end
 ```
 
 ### Escape Characters
-Escape characters are special characters used within a string. They are an alternate interpretation of the characters in the following character sequence. It can be interpreted as a single <kbd>''</kbd>, double <kbd>""</kbd> quotes, or backslash <kbd>\\</kbd> character, they are constructed by backslash <kbd>\\</kbd> character with the specified character to use after that; Example: <kbd>\\'</kbd>. And there is a reason for their existence, it's to avoid an error from occurring.
+Escape characters are special characters used within a string. They are an alternate interpretation of the characters in the following character sequence. It allows you to insert illegal characters inside a `string`, for instance, a single-quote <kbd>'</kbd> that is surrounded by single-quotes. Each escape character starts with a backslash <kbd>\\</kbd> character, followed by the character to use after that.
 
-So, lets assume you constructed a string that is surrounded by double-quote <kbd>""</kbd> characters and you want to add a double-quote inside the string, so you inserted the double-quote <kbd>""</kbd> and it resulted an error. Because Lua thinks the string would finish there due to the inserted double-quote <kbd>""</kbd> character, it created an error. As a result, escape characters exist to solve this issue.
+Example:
+```lua
+function onCreate()
+     debugPrint('Don\'t press \'Alt + F4\'') -- will print > 'Don't press 'Alt + F4''
+     debugPrint("dead \"(in a cool way)\"")  -- will print > "dead "(in a cool way)""
+     debugPrint('C:\\Windows\\System32')     -- will print > 'C:\Windows\System32'
+end
+```
 
 - `\'` - Single-quote Character
 - `\"` - Double-quote Character
@@ -186,42 +196,23 @@ So, lets assume you constructed a string that is surrounded by double-quote <kbd
 - `\t` - Horizontal Tab
 - `\v` - Vertical tab 
 
-Example:
-```lua
-function onCreate()
-     local textString1 = 'i can smell the "bitch" on you!!' 
-     local textString2 = "that's racist i feel like"
-
-     debugPrint(textString1) -- will print 'i can smell the "bitch" on you!!'
-     debugPrint(textString2) -- will print 'that's racist i feel like'
-
-     local textString3 = 'Don\'t press \'Alt + F4\'' -- single quote
-     local textString4 = "dead \"(in a cool way)\""  -- double quote
-     local textString5 = 'C:\\Windows\\System32'     -- backslash
-
-     debugPrint(textString3) -- will print 'Don't press 'Alt + F4''
-     debugPrint(textString4) -- will print "dead "(in a cool way)""
-     debugPrint(textString5) -- will print 'C:\Windows\System32'
-end
-```
-
 ## Numbers
-Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as Int (Integer) or Float (Floating-point). Int only uses whole numbers whilst Float uses decimal numbers.
+Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as integers (Int) or floating-points (Float). Int only uses whole numbers, while Float uses decimal numbers.
 
 Example:
 ```lua
-local numInt = 81       -- integer number
-local numFlt = 23.42    -- floating-point number
+local myNumInt = 32  -- integer number
+local myNumFlt = 2.1 -- floating-point number
 
-local numAltFlt1 = 12.
-local numAltFlt2 = .56
+local myNumFlt1, myNumFlt2 = 12., .56
 function onCreate()
-     debugPrint(numInt, numFlt)         -- will print > 81, 23.42
-     debugPrint(numAltFlt1, numAltFlt2) -- will print > 12.0, 0.56
+     debugPrint(myNumInt)             -- will print > 32
+     debugPrint(myNumFlt)             -- will print > 2.1
+     debugPrint(myNumFlt1, myNumFlt2) -- will print > 12.0, 0.56
 end
 ```
 
-Numbers can also be represented in Scientific (Exponent) Notation. They are a way to expressing numbers that are too large or too small to be conveniently written in float form. You could also represent it as a Hexadecimal number system for colors, just to let you know.
+Numbers can also be represented in scientific (exponential) notation. They are a way of expressing numbers that are too large or too small to be conveniently written in float form. You could also represent it as a hexadecimal number system for colors, just to let you know.
 
 Example:
 ```lua
@@ -236,15 +227,24 @@ end
 Booleans, often shortened to Bools, are data types that can have two possible values: `true` or `false`. This is commonly used for conditional statements, which allow for different actions by modifying control flow based on whether the condition is `true` or `false`.
 
 ## Nil
-Nil represents nothingness or non-existence of a value. This can be used for destroying a variable or table values if not used anymore. Or use conditional statements to check if the value is a `nil` or not.
+Nil represents the nothingness or non-existence of a value. This can be used to destroy a variable or table element if it is not used anymore. Or use conditional statements to check if the value is a `nil` or not.
 
 ## Tables
-Tables are a data structuring mechanism in Lua the only one in fact. They can store multiple types values like strings, numbers, booleans, even its self. This is a better alternative than listing them in each variables and makes it easy to access each element of the Table. And for making modules, metatables, and object orientation stuff which is useful in some-cases; Tables can be represented as an Array or Dictionary.
+Tables are the only data structuring mechanism in Lua. They can store multiple types of values, like strings, numbers, booleans, and even themselves. This is a better alternative than listing them in each variable and makes it easier to access each element of the table. And for making modules, metatables, and classes, which is useful in some cases, tables can be represented as an Array or Dictionary.
+
+If you try to attempt to call a table it will return the table's memory address; Example: `table: 0x55557885d670`. The only way to read the table's element is to use indexing access operation which only gets a single element. Or to iterate a table from a numeric or generic `for` loop.
+
+Example:
+```lua
+function onCreate()
+     debugPrint({}) -- will print > table: 0x55b55a287670
+end
+```
 
 ### Array
-Array are the most common way to declare a Table, they're are always listed in ordered. To declare a Table Array add a pair of curly-braces <kbd>{}</kbd> characters with the elements each separated by a comma <kbd>,</kbd> character.
+Arrays is an ordered list of elements and the most common type of table to define. Each elements are separated by a comma <kbd>,</kbd> character with a pair of curly-braces <kbd>{}</kbd> characters surrounding it.
 
-To read a Table Array element get the name of it followed by a pair of bracket <kbd>[]</kbd> characters. With the referring to the index number inside the pair of bracket <kbd>[]</kbd> characters for specified element to get.
+To read the table's array element, add a indexing access operation which is a pair of bracket <kbd>[]</kbd> characters. With the given index number inside, if the index isn't present or just invalid it returns a `nil` value as a result of it.
 
 > **Warning**: _Lua uses 1-based index rather than 0-based index like other programming languages. In other words, the first index position always start at 1_.
 
@@ -260,49 +260,62 @@ end
 ```
 
 ### Dictionary
-Dictionaries uses key-value pairs for storing elements instead of index-value pairs that Table Arrays uses. It basically uses names for referring the elements inside the Table Dictionary. The key from the Table Dictionary can be surrounded by bracket <kbd>[]</kbd> characters with single-quoted <kbd>''</kbd> or double-quoted <kbd>""</kbd>. This is only used if the key name has a special character inside of it.
+Dictionaries use key-value pairs for storing elements instead of the index-value pairs that a table array uses. It basically uses names or keys to reference the elements inside a table dictionary. The keys from the dictionary could be either surrounded by a pair of brackets <kbd>[]</kbd> characters with the name to be given; Example: `['name']`. If the name has a special character inside of it or not.
 
-To read a Table Dictionary get the name of it followed by a dot <kbd>.</kbd> character with the name of the key to be used. Or used the bracket method as an alternative or if it has a special key name.
+To read the table's dictionary element, add a dot <kbd>.</kbd> character with the given name of the key. Or add a pair of brackets <kbd>[]</kbd> characters with the given name. Really just depends what your comfortable to use when coding.
 
 Example:
 ```lua
-local tableDict1 = {isFatherless = false, hasTouchGrass = true}
-local tableDict2 = {['air'] = 'Oxygen', ["food"] = 'potato', ["love"] = 'carbon monoxide'}
+local tableGroup1 = {isFatherless = false, hasTouchGrass = true}
+local tableGroup2 = {['air'] = 'Oxygen', ["food"] = 'potato', ["love"] = 'carbon monoxide'}
 function onCreate()
-     debugPrint(tableDict1)                   -- will print > {isFatherless => false, hasTouchGrass => true}
-     debugPrint(tableDict1.isFatherless)      -- will print > false
-     debugPrint(tableDict1['hasTouchGrass'])  -- will print > true
+     debugPrint(tableGroup1)                  -- will print > {isFatherless => false, hasTouchGrass => true}
+     debugPrint(tableGroup1.isFatherless)     -- will print > false
+     debugPrint(tableGroup1['hasTouchGrass']) -- will print > true
 
-     debugPrint(tableDict1.air)               -- will print > 'Oxygen'
-     debugPrint(tableDict2['food'])           -- will print > 'potato'
-     debugPrint(tableDict2["love"])           -- will print > 'carbon monoxide'
+     debugPrint(tableGroup1.air)              -- will print > 'Oxygen'
+     debugPrint(tableGroup2['food'])          -- will print > 'potato'
+     debugPrint(tableGroup2["love"])          -- will print > 'carbon monoxide'
 end
 ```
 
-### Inserting
-Tables can insert elements in any given position of the table. You can do this by calling the table with the referring to the index number or key name. followed by the element that is then assigned using an equal <kbd>&equals;</kbd> character. Or alternative you can use the `table.insert()` function to forcefully insert an element from the table without changing the element's value.
+### Manipulating Elements
+You can manipulate the table's elements given a value; you could either reassign, inserting, or removing any elements from a given table. To reassign an element, get the given element to be reassigned, followed by an equal <kbd>&equals;</kbd> with the new value to be given. To insert an element, just choose a new element to be inserted with the given value to it. And to remove an element, get the given element and replace the value with a `nil` value.
 
-Example:
+Examples:
 ```lua
-local tableGroup1 = {'luz', 'erm', 'duq'}
-local tableGroup2 = {foo = 93, bar = 23, baz = 74}
-function onCreate()
-     tableGroup1[4] = 'rod'
-     tableGroup1[5] = 'xur'
-     tableGroup2['muz'] = 91
-     tableGroup2['quz'] = 32
+local myArray = {'lemon', 'apple', 'peach', 'starfruit'} -- a stupid table
 
-     debugPrint(tableGroup1) -- will print > {foo => 93, bar => 23, baz => 74, muz => 91, quz => 32}
-     debugPrint(tableGroup2) -- will print > ['luz', 'erm', 'duq', 'rod', 'xur']
+myArray[4] = 'starapple' -- reassinging an element
+myArray[5] = 'mango'     -- inserting an element
+myArray[1] = nil         -- removing an element
+function onCreate()
+     for _,v in pairs(myArray) do
+          debugPrint(v) -- will print > 'apple', 'peach', 'starapple', 'mango'
+     end
+end
+```
+```lua
+local myDict = {fruit = 'apple', number = 42, punctuation = ';'} -- a stupid table
+
+myDict.punctuation = ':' -- reassinging an element
+myDict.idk = 'idk'       -- inserting an element
+myDict['fruit'] = nil    -- removing an element
+function onCreate()
+     for _,v in pairs(myDict) do
+          debugPrint(v) -- will print > 42, 'idk', ':'
+     end
 end
 ```
 
 ***
 
 # Functions
-Functions are a collection of code that is designed perform a specific task. They can enable reusable code across the Lua program and reduces the duplication of code. Functions are defined with the `function` keyword followed by the `identifier` or the name of the function with a pair of parentheses <kbd>()</kbd> characters to declare parameters.
+Functions are collections of code that are designed to perform a specific task. They can enable reusable code across the Lua program, which reduces the duplication of code. Functions are defined with the `function` keyword followed by the `identifier`. Or the name of the function with the calling operation <kbd>()</kbd> to declare parameters.
 
-To call a function get the function name followed by the parentheses <kbd>()</kbd> characters. If the parentheses are not present it will return the function's memory address; Example: `function: 0x5616d89c0770`. Functions are hoisted it's when the function is declared it will be moved at the top of the scope before code execution. This mean you can call a function even before when they're declared.
+To call a function, get the function's `identifier`, followed by the calling operation <kbd>()</kbd> for the arguments to be passed, if the function has parameters. If the calling operation is not present, it will return the memory address of the given function; Example: `function: 0x5616d89c0770`. 
+
+> **Note**: _Functions are hoisted; once declared, the function is moved to the top of the scope before code execution. This means that you can call a function before it has been declared._
 
 Example:
 ```lua
@@ -316,7 +329,7 @@ end
 ```
 
 ## Parameters
-Parameters are special type of variables inside the functions parentheses <kbd>()</kbd> characters. If there are two or more parameters they must be separated by a comma <kbd>,</kbd> character. Their main purpose is to add more functionality to the function. If you're calling a function you must values or "arguments" which in each parameters, this is a requirement.
+Parameters are special types of variables that are located inside the calling operation <kbd>()</kbd> of the given function. Each parameter must be separated by a comma <kbd>,</kbd> character if there are two or more of them. Their main purpose is to add more functionality to the given function for the arguments to be passed.
 
 Example:
 ```lua
@@ -334,7 +347,8 @@ function onCreatePost()
 end
 ```
 
-Parameters can be defined as an infinite parameter with the ellipsis <kbd>...</kbd> character. It enables an indefinite number of arguments to pass. If there are non parameters present, it must be the last parameters from the list.
+### Infinite Parameters
+Parameters can be defined as an infinite parameter with the ellipsis <kbd>...</kbd> character. It enables an indefinite number of arguments to pass. If there are no parameters present, they must be the last parameters on the list.
 
 Example:
 ```lua
@@ -349,9 +363,9 @@ end
 ```
 
 ## Anonymity
-Anonymous functions that is defined that is not bound to a identifier. So it only uses the `function` keyword and parenthesis <kbd>()</kbd> characters. They're pretty often used in arguements being passed to functions like the `table.sort()` function or being used for closures in some cases. 
+Anonymous functions that are defined are not bound to an identifier. So it only uses the `function` keyword and calling operation <kbd>()</kbd> characters. They're pretty often used in arguments being passed to functions like the `table.sort()` function or being used for closures in some cases.
 
-This is can only be called once or more, if the anonymous function is declared inside a variable. The use case of anonymous functions is that it could reduce the Lua file size. But the downside is that their not hoisted like regular functions.
+This can only be called once or more if the anonymous function is declared inside a variable. The use case of anonymous functions is that they could reduce the Lua file size. But the downside is that they are not hosted like regular functions.
 
 Example:
 ```lua
@@ -417,15 +431,15 @@ Miscellaneous operators only features two operators the Length and Concatenate o
 ***
 
 # Control Statements
-Control Statements allows you to control the execution of other statements. Which analyzes the statements condition and decide whether to execute the code if it's `true` or not.
+Control Statements allow you to control the execution of other statements. Which analyzes the statement's condition and decides whether to execute the code if it's `true` or not.
 
 ## Conditional Statements
-These are a type of control structures that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if else statements the `if`, `else`, `elseif` statements.
+These are a type of control structure that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if-else statements: the `if`, `else`, `elseif` statements.
 
-Conditional Statements are a type of Control Statements that whether or not to execute the block code return `true`. They are the most common control structures to use; Lua only has 3 Conditional Statements which are `If`, `Else`, and `ElseIf` Statements.
+Conditional statements are a type of control statement that determines whether or not to execute the block code and returns `true`. They are the most common control structures to use; Lua only has 3 conditional statements, which are `If`, `Else`, and `ElseIf` statements.
 
 ### If Statement
-If Statement checks the condition if it's `true` or not. They are define with the `if` keyword followed by the specified condition to execute the statement with the `then` keyword.
+The If statement checks the condition if it's `true` or not. They are define with the `if` keyword followed by the specified condition to execute the statement with the `then` keyword.
 
 Example:
 ```lua
@@ -438,7 +452,7 @@ end
 ```
 
 ### Else Statement
-Else statement checks if the condition fails then this statement will be executed. They are define with the `else` keyword at the bottom of the If or ElseIf Statement that's it nothing else <!-- Comedy genius --> to say about it.
+The Else statement checks if the condition fails, then this statement will be executed. They are defined with the `else` keyword at the bottom of the If or ElseIf statement. That's it, nothing else <!-- Comedy genius --> to say about it.
 
 Example:
 ```lua
@@ -453,7 +467,7 @@ end
 ```
 
 ### ElseIf Statement
-Elseif Statement is an alternative condition if the other condition returns `false`. They are define with the `elseif` keyword with the new condition to execute a new condition followed by the `then` keyword.
+The Elseif statement is an alternative condition if the other condition returns `false`. They are define with the `elseif` keyword with the new condition to execute a new condition followed by the `then` keyword.
 
 Example:
 ```lua
@@ -472,7 +486,7 @@ end
 ## For Loop Statement
 For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of loops Generic loop or Numeric Loop.
 
-### Numeric Loop
+### Numeric
 Numeric Loop uses numeric values to increment or to decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. There are 3 expressions when declaring a Numeric loop `initializer`, `condition`, and `iteration`.
 
 - `initializer` - The initial variable for the loop to use.
@@ -495,7 +509,7 @@ function onCreate()
 end
 ```
 
-### Generic Loop
+### Generic
 Generic Loop are another type of loop that allows you to traverse all values from a table; return from a `iterator` function from the `in` keyword. This is just an alternative loop for iterating every table elements. There are 2 expressions when declaring a Generic Loop `initializer` and `iterator`.
 
 - `initializer` - The initial variable for the loop to use. The amount of variables depends on the `iterator` function; `pairs()`, `ipairs()`, and `next()` function only uses 1 or 2 variables. But the `gmatch()` function really depends of the captures from the string.
@@ -561,63 +575,29 @@ end
 ***
 
 # Modules
-Modules are a code library these mostly contain functions or variables. They can help you maintain a code-base and break your code into different Lua files. If you're using them frequently when coding your weird Lua scripts. 
+Modules are collections of code that is mostly contain functions, classes, variables, and other types of code. These can be reused in different parts of your Lua scripts and help you maintain a code base. They are commonly used to organize code to make it easy to share and reuse code across different Lua scripts.
 
-Instead of using `import` or `export` statements, Lua uses a Table "Dictionary" which can consist variable or functions that you frequently and, thus creating a your very own simple module. With the `return` statement at the last line of code to export the module to other files to use.
-
-<details><summary><b>Module Location (Path Visualizer):</b></summary>
-<p>
-
-```txt
-mods/
-├╴ scripts/
-│  ├╴ main.lua
-│  └╴ modules/
-│     └╴ global.lua
-```
-
-</p>
-</details>
+Most programming languages use `import` and `export` statements; Lua uses table dictionaries for their modular system. To contain code and where the module's shared functions and variables or classes can be stored. With the `return` statement—returning the value of the table for the `require()` function to use.
 
 Example:
 ```lua
-local modules = {}
+local myModule = {} -- table to contain code, important
 
-modules.red   = 'ff0000'
-modules.green = '00ff00'
-modules.blue  = '0000ff'
+myModule.red   = 'ff0000' -- variable
+myModule.green = '00ff00'
+myModule.blue  = '0000ff'
 
-function modules.tobool(boo)     -- boolean to string
-     local boo = boo:lower()
-     if boo:match('true') or boo:match('false') then -- check if it's actually true of false
-          return boo == 'true' and (true or false)   -- ternary operator > "cond ? exp1 : exp2"
-     end
-     return 'Not a boolean value'
+function myModule.isEven(num) -- function
+     return num % 2 == 0
 end
 
-function modules.setPos(obj, pos) -- Concatenates setProperty x and y
-     if pos[1] ~= nil then        -- makes pos parameter acts like a table
-          setProperty(obj..'.x', pos[1])
-     end
-     if pos[2] ~= nil then
-          setProperty(obj..'.y', pos[2]) 
-     end
-end
-
-return modules
+return myModule     -- returning the table, important
 ```
-
-## Requiring
-You want to require or import the desired module file you created, use the `require()` function. And will controls whether a file has already been run to avoid duplicating the work. The arguments should have the location of the Lua module file to be used; Starts outside the `mods` folder.
-
-Example:
 ```lua
-local moduleName = require('mods/scripts/modules/global') -- gets the module
+local mod = require('mods/scripts/modules/myModule')
+
 function onCreate()
-     debugPrint(type(moduleName.tobool('true'))) -- will print 'boolean'
-     
-     debugPrint(moduleName.red)   -- will print 'ff0000'
-     debugPrint(moduleName.green) -- will print '00ff00'
-     debugPrint(moduleName.blue)  -- will print '0000ff'
+     debugPrint(mod.red)        -- will print > 'ff0000'
+     debugPrint(mod.isEven(23)) -- will print > false
 end
 ```

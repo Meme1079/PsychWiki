@@ -9,7 +9,9 @@ Sets the current <ins>property variable inside the Playstate</ins> with a new va
 - `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
-Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value.
+Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value. 
+
+In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source).
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
@@ -36,6 +38,8 @@ Gets the current <ins>property variable inside the Playstate</ins> current value
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
 Gets the current <ins>property variable inside a class other than Playstate</ins> current value.
+
+In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source).
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
