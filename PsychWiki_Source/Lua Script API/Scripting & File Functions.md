@@ -1,12 +1,12 @@
 # Script Functions
 ### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a Lua script into the game.
+Adds a <ins>Lua script</ins> into the game.
 
 - `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
 
 ### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a Haxe script into the game.
+Adds a <ins>Haxe script</ins> into the game.
 
 - `luaFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Defualt value: `false`.
@@ -36,13 +36,13 @@ Checks if the specific Lua script is currently running, returning `true` is it's
 - `luaFile` - The location for the Lua script to check.
 
 ### getRunningScripts()
-Returns every currently running scripts.
+Returns every currently <ins>running scripts</ins>.
 
 ***
 
 # Set & Call On Functions
 ### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a Lua variable into global and inserts it to any currently executing Lua script(s).
+Sets a <ins>Lua variable</ins> into global and inserts it to any currently executing Lua script(s).
 
 - `varName` - The variable's name to be given.
 - `arg` - The variable's value to be given.
@@ -66,7 +66,7 @@ end
 ```
 
 ### setOnHScript(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a Haxe variable into global and inserts it to any currently executing Haxe script(s).
+Sets a <ins>Haxe variable</ins> into global and inserts it to any currently executing Haxe script(s).
 
 - `varName` - The variable's name to be given.
 - `arg` - The variable's value to be given.
@@ -74,7 +74,7 @@ Sets a Haxe variable into global and inserts it to any currently executing Haxe 
 - `exclusions` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
 
 ### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a Lua/Haxe variable into global and inserts it to any currently executing Lua/Haxe script(s).
+Sets a <ins>Lua/Haxe variable</ins> into global and inserts it to any currently executing Lua/Haxe script(s).
 
 - `varName` - The variable's name to be given.
 - `arg` - The variable's value to be given.
@@ -82,7 +82,7 @@ Sets a Lua/Haxe variable into global and inserts it to any currently executing L
 - `exclusions` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
 
 ### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a Lua function from another currently executing Lua script.
+Calls a <ins>Lua function</ins> from another currently executing Lua script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguements of the function to be passed on.
@@ -110,7 +110,7 @@ end
 ```
 
 ### callOnHScript(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a Haxe function from another currently executing Haxe script.
+Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguements of the function to be passed on.
@@ -120,7 +120,7 @@ Calls a Haxe function from another currently executing Haxe script.
 - `excludeValues` - An optional parameter; The exclusions of the arguements, for the function to not passed on.
 
 ### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a Lua/Haxe function from another currently executing Lua/Haxe script.
+Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguements of the function to be passed on.
