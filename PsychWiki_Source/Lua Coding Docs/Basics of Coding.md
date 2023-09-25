@@ -225,7 +225,7 @@ end
 ```
 
 ## Booleans
-Booleans, often shortened to Bools, are data types that can have two possible values: `true` or `false`. This is commonly used for conditional statements, which allow for different actions by modifying control flow based on whether the condition is `true` or `false`.
+Booleans, often shortened to "Bools", are data types that can have two possible values: `true` or `false`. This is commonly used for conditional statements, which allow for different actions by modifying control flow based on whether the condition is `true` or `false`.
 
 ## Nil
 Nil represents the nothingness or non-existence of a value. This can be used to destroy a variable or table element if it is not used anymore. Or use conditional statements to check if the value is a `nil` or not.
