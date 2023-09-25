@@ -1,6 +1,6 @@
 # Functions
 ### type(data:Dynamic)
-Checks the returning argument and determins the data type of the argument; Possibly returns: `string`, `number`, `boolean`, `table`, `function`, `thread`, or `userdata`.
+Checks the returning argument and determines the data type of the argument; Possibly returns: `string`, `number`, `boolean`, `table`, `function`, `thread`, or `userdata`.
 
 - `data` - The value to return the type of.
 
@@ -28,7 +28,7 @@ end
 Converts a number value from a string into a real number from the provided argument; Returns a `nil` value if it is impossible to convert.
 
 - `arg` - The `number` value from a `string` to be converted.
-- `base` - An optional parameter, The numerical base to convert from the `arg` argument; Defualt value: `10`.
+- `base` - An optional parameter, The numerical base to convert from the `arg` argument; Default value: `10`.
 
 Example:
 ```lua
@@ -46,7 +46,7 @@ Searches the location of the Lua file and loads the given module. And controls i
 - `modulePath` - The given module to load; Starts outside the `mods` folder directory.
 
 ### load(code:String)
-Recieves the Lua code from the arguement and parses it into a real Lua code. The code that will be loaded is inside a function; Returns a `function`.
+Receives the Lua code from the argument and parses it into a real Lua code. The code that will be loaded is inside a function; Returns a `function`.
 
 - `code` - The code from the `string` to be parse into real Lua code.
 
@@ -62,7 +62,7 @@ unpack(list:Array, ?min:Int = 1, ?max:Int = #list)
 Returns the elements from the given table each separated. The range is determined from the `min` and `max` parameters.
 
 - `list` - The table to be unpacked.
-- `min` - An optional parameter, The minimum index value to select the range; Defualt value: `1`.
+- `min` - An optional parameter, The minimum index value to select the range; Default value: `1`.
 - `max` - An optional parameter, The maximum index value to select the range.
 
 Example:
@@ -76,7 +76,7 @@ end
 ```
 
 ### select(index:Int|String, ...args:Dynamic)
-Returns the number of selected from the arguements, the selection range is determined by the `index` parameter.
+Returns the number of selected from the arguments, the selection range is determined by the `index` parameter.
 
 - `index` - The index range for the arguments to be selected. If the argument is a negative number, it will return to the end of the argument list. You can also get the full range by using the hastag <kbd>#</kbd> character.
 - `args` - The argument(s) to be passed and selected; this parameter is infinite. Meaning you can add an infinite amount of arguments, each separated by a comma <kbd>,</kbd> character; Example: `23, 13, 66`.
@@ -96,7 +96,7 @@ end
 ```
 
 ### pairs(tab:Array)
-eturns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
+Returns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
 
 - `tab` - The table to be iterated.
 
@@ -137,8 +137,8 @@ end
 ### error(message:String, ?level:Int = 1)
 Throws an error message, usually error messages are strings describing what went wrong. When there is an internal error; Example: Attempting to index a non-table value.
 
-- `message` - The error message to be genarate.
-- `level` - An optional parameter, This specifies how to get the error position determined by a number. Passing level `1` means the error position is where the error function was called. Passing level `2` points the error to where the function that called the error was called, and so on. If you try to pass a level `0`, you will avoid adding error position information to the message; Defualt value: `1`.
+- `message` - The error message to be generate.
+- `level` - An optional parameter, This specifies how to get the error position determined by a number. Passing level `1` means the error position is where the error function was called. Passing level `2` points the error to where the function that called the error was called, and so on. If you try to pass a level `0`, you will avoid adding error position information to the message; Default value: `1`.
 
 Example:
 ```lua
@@ -146,29 +146,29 @@ error('A fatal error occured!')
 ```
 
 ### assert(condition:Dynamic, message:String)
-Throw an error massage if the `condition` arguement returns `false` or `nil`. If the assertion passes, it returns all values passed to it.
+Throw an error massage if the `condition` argument returns `false` or `nil`. If the assertion passes, it returns all values passed to it.
 
 - `condition` - The specified condition for the function to execute the error.
-- `message` - The error message to be genarate.
+- `message` - The error message to be generate.
 
 Example:
 ```lua
 local function median(min, max)
-     local errmsg1 = 'min and max arguement not a number type'
-     local errmsg2 = 'min arguement has a higher value than max arguement!'
+     local errmsg1 = 'min and max argument not a number type'
+     local errmsg2 = 'min argument has a higher value than max argument!'
      assert(type(min) == 'number' or type(max) == 'number', errmsg1)
      assert(min <= max, errmsg2)
 
      return (min + max) / 2
 end
 
-debugPrint(median(34, 25)) -- will throw > min arguement has a higher value than max arguement!
+debugPrint(median(34, 25)) -- will throw > min argument has a higher value than max argument!
 ```
 
 ### pcall(func:Function, ?...args:Dynamic)
 Calls a function and runs it in protected mode and catches the error and returns a status code. The function returns two values, the code status code which returns a `boolean`, if `true` the call succeeds without errors. And the error message generated if there is any errors found, if not returns the function returning value.
 
-- `func` - 	The function to be runned in protected mode.
+- `func` - The function to be runned in protected mode.
 - `args` - An optional parameter; If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
 
 Example:
@@ -213,7 +213,7 @@ debugPrint(errorValue) -- will print > 'An error occured! fix it dummy!'
 ### _G
 The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts.
 
-But unfortunately doesn't work why? idk, there are alternatives to Global Variable `_G` such as `setVar()` and `setOnLuas()` functions. The only thing its used for getting multiple global variables from a loop and modify the values easily.
+But unfortunately doesn't work why? idk, there are alternatives to Global Variable `_G` such as `setVar()` and `setOnLuas()` functions. The only thing it's used for getting multiple global variables from a loop and modify the values easily.
 
 Example:
 ```lua

@@ -3,19 +3,19 @@
 Adds a <ins>Lua script</ins> into the game.
 
 - `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
 ### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a <ins>Haxe script</ins> into the game.
 
 - `luaFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Defualt value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
 
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 Removes a Lua script into the game.
 
 - `luaFile` - The location of the Lua script to remove; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Defualt value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
 Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed</ins>; Same works with `getGlobalFromScript()` function.
@@ -70,7 +70,7 @@ Sets a <ins>Haxe variable</ins> into global and inserts it to any currently exec
 
 - `varName` - The variable's name to be given.
 - `arg` - The variable's value to be given.
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Defualt value: `false`.
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `false`.
 - `exclusions` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
 
 ### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
@@ -78,18 +78,18 @@ Sets a <ins>Lua/Haxe variable</ins> into global and inserts it to any currently 
 
 - `varName` - The variable's name to be given.
 - `arg` - The variable's value to be given.
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Defualt value: `false`.
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `false`.
 - `exclusions` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
 
 ### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
 Calls a <ins>Lua function</ins> from another currently executing Lua script.
 
 - `funcName` - The function's name to be called.
-- `args` - An optional parameter; The arguements of the function to be passed on.
-- `ignoreStops` - _(IDK what this arguement does???)_
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Defualt value: `true`.
+- `args` - An optional parameter; The arguments of the function to be passed on.
+- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter; The exclusions of the arguements, for the function to not passed on.
+- `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
 Example:
 ```lua
@@ -113,28 +113,28 @@ end
 Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
 
 - `funcName` - The function's name to be called.
-- `args` - An optional parameter; The arguements of the function to be passed on.
-- `ignoreStops` - _(IDK what this arguement does???)_
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Defualt value: `true`.
+- `args` - An optional parameter; The arguments of the function to be passed on.
+- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter; The exclusions of the arguements, for the function to not passed on.
+- `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
 ### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
 Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe script.
 
 - `funcName` - The function's name to be called.
-- `args` - An optional parameter; The arguements of the function to be passed on.
-- `ignoreStops` - _(IDK what this arguement does???)_
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Defualt value: `true`.
+- `args` - An optional parameter; The arguments of the function to be passed on.
+- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter; The exclusions of the arguements, for the function to not passed on.
+- `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
 ### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null)
 Calls a function from a specific Lua script that is currently executing.
 
 - `luaFile` - The location of the Lua script file to get the function; Starts inside the mod folder directory.
 - `funcName` - The function's name to be called.
-- `args` - An optional parameter; The arguements of the function to be passed on.
+- `args` - An optional parameter; The arguments of the function to be passed on.
 
 ***
 

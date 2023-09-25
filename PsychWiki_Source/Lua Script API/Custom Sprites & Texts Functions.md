@@ -14,13 +14,13 @@ Initializes the <ins>creation of the animated Lua sprite object</ins>. This will
 - `image` - The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
 - `x` - The x position value of the sprite object to be set.
 - `y` - The y position value of the sprite object to be set.
-- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Defualt value: `sparrow`.
+- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
 
 ### addLuaSprite(tag:String, ?front:Bool = false)
 <ins>Adds the Lua sprite object</ins> inside the game. This function will <ins>overlap other sprite objects</ins> if place below eachother.
 
 - `tag` - The tag name of the animated sprite to be added into the game.
-- `front` - An optional parameter, Whether if the sprite object gets added on top of the characters; Defualt value: `false`.
+- `front` - An optional parameter, Whether if the sprite object gets added on top of the characters; Default value: `false`.
 
 ### removeLuaSprite(tag:String, ?destroy:Bool = false)
 <ins>Removes the Lua sprite object</ins> inside the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
@@ -101,7 +101,7 @@ Sets the text object <ins>current text font</ins> with a new one.
 Sets the text object into a <ins>italic type</ins>.
 
 - `tag` - The tag name of the text to be used.
-- `italic` - Whether the text will be italized or not.
+- `italic` - Whether the text will be italicized or not.
 
 ***
 

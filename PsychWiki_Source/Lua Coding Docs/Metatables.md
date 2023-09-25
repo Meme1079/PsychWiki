@@ -138,11 +138,24 @@ end
 
 ## Raw Functions
 ### rawequal(value1:Dynamic, value2:Dynamic)
-### rawset(tab:Array, index:Dynamic, value:Dynamic)
-### rawget(tab:Array)
-### reslen(tab:Array)
+Raw function for equal to operator without invoking the `__eq` field.
 
-***
+- `value1` - The table to be referenced inside the metatable.
+- `value2` - The second value to be compared.
 
-# Object Oriented Programming
-### self
+### rawset(tab:Table, index:Dynamic, value:Dynamic)
+Raw function for indexing assignment syntax in tables without invoking the `__newindex` metafield.
+
+- `value1` - The table to be referenced inside the metatable.
+- `index` - The index from the table to be used.
+- `value` - The new value to set.
+
+### rawget(tab:Table)
+Raw function for indexing access operation in tables without invoking the `__index` metafield.
+
+- `value1` - The table to be referenced inside the metatable.
+
+### reslen(tab:Table)
+Raw function for length operator without invoking the `__len` metafield.
+
+- `value1` - The table to be referenced inside the metatable.

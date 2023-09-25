@@ -140,7 +140,7 @@ end
 ```
 
 ## Local scope
-Local variables are declared with the `local` statement, unlike `global` variables their scope is limited to the block where they are declared. If you attempted to call them it will only return a `nil` value. This is a relativly good programming style becuase they avoid cluttering the global environment with unnecessary names. And are more faster to call than to global ones.
+Local variables are declared with the `local` statement, unlike `global` variables their scope is limited to the block where they are declared. If you attempted to call them it will only return a `nil` value. This is a relatively good programming style because they avoid cluttering the global environment with unnecessary names. And are more faster to call than to global ones.
 
 Example:
 ```lua
