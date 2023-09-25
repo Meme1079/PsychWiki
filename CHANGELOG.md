@@ -1,3 +1,14 @@
+### 13.0.0 Version
+- Added "Global Functions & Variables" to `Lua Coding Docs`
+- Added new variables from the "Variables" Page
+- Added the description of the `allowMaps` parameter in the "Reflection Functions"
+- Change the parametere for the `debugPrint()` function
+- Revamp & Reformatted "Metatables" Page
+- Revamp & Reformatted "Basics of Coding" Page
+- Revamp "Custom Sprites & Texts Functions" Page
+- Revamp "Tweens & Timer Functions" Page
+- Fix spelling/grammar errors.
+
 ### 12.0.0 Version
 - Added "Metatables" Page to `Lua Coding Docs`
 - Added "Hscript Functions" Page to `Lua Script API`
