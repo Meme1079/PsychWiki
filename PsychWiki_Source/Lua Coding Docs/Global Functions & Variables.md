@@ -1,6 +1,6 @@
 # Functions
 ### type(data:Dynamic)
-Checks the returning arguement and determins the data type of the arguement; Could return: `number`, `string`, `boolean`, `table`, `function`, `thread`, and `userdata`.
+Checks the returning argument and determins the data type of the argument; Possibly returns: `string`, `number`, `boolean`, `table`, `function`, `thread`, or `userdata`.
 
 - `data` - The value to return the type of.
 
@@ -12,9 +12,9 @@ debugPrint( type({}) ) -- will print > 'table'
 ```
 
 ### tostring(arg:Dynamic)
-Converts any arguement into a real string from the provided arguement; Returns a `nil` value if impossible to convert. 
+Converts any `number` or `boolean` value into a real string from the provided argument; Returns a nil value if it is impossible to convert. 
 
-- `arg` - The `number` or `boolean` value to be converted.
+- `arg` - The `number` value to be converted, it can also use `boolean` values.
 
 Example:
 ```lua
@@ -25,10 +25,10 @@ end
 ```
 
 ### tonumber(arg:String, ?base:Int = 10)
-Converts a number value from a string into a real number from the provided arguement; Returns a `nil` value if impossible to convert.
+Converts a number value from a string into a real number from the provided argument; Returns a `nil` value if it is impossible to convert.
 
 - `arg` - The `number` value from a `string` to be converted.
-- `base` - An optional parameter, The numerical base to convert from the `arg` arguement; Defualt value: `10`.
+- `base` - An optional parameter, The numerical base to convert from the `arg` argument; Defualt value: `10`.
 
 Example:
 ```lua
@@ -39,6 +39,11 @@ function onCreate()
      debugPrint( tonumber('ff0000', 16) ) -- will print > 16711680
 end
 ```
+
+### require(modulePath:String)
+Searches the location of the Lua file and loads the given module. And controls if the Lua file has previously been executed in order to avoid duplicating the work.
+
+- `modulePath` - The given module to load; Starts outside the `mods` folder directory.
 
 ### load(code:String)
 Recieves the Lua code from the arguement and parses it into a real Lua code. The code that will be loaded is inside a function; Returns a `function`.
@@ -53,12 +58,12 @@ function onCreate()
 end
 ```
 
-### unpack(list:Array, ?min:Int = 1, ?max:Int)
+unpack(list:Array, ?min:Int = 1, ?max:Int = #list)
 Returns the elements from the given table each separated. The range is determined from the `min` and `max` parameters.
 
 - `list` - The table to be unpacked.
-- `min` - An optional parameter, The minimum index value to select; Defualt value: `1`.
-- `max` - An optional parameter, The maximum index value to select.
+- `min` - An optional parameter, The minimum index value to select the range; Defualt value: `1`.
+- `max` - An optional parameter, The maximum index value to select the range.
 
 Example:
 ```lua
@@ -73,8 +78,8 @@ end
 ### select(index:Int|String, ...args:Dynamic)
 Returns the number of selected from the arguements, the selection range is determined by the `index` parameter.
 
-- `index` - The index range for the arguements to be selected. If the result is negative, it will return to the end of the argument list. Or if want the full range just use this `#`.
-- `args` - The arguement(s) to be passed and selected.
+- `index` - The index range for the arguments to be selected. If the argument is a negative number, it will return to the end of the argument list. You can also get the full range by using the hastag <kbd>#</kbd> character.
+- `args` - The argument(s) to be passed and selected; this parameter is infinite. Meaning you can add an infinite amount of arguments, each separated by a comma <kbd>,</kbd> character; Example: `23, 13, 66`.
 
 Example:
 ```lua
@@ -91,7 +96,7 @@ end
 ```
 
 ### pairs(tab:Array)
-Returns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
+eturns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
 
 - `tab` - The table to be iterated.
 
@@ -133,7 +138,7 @@ end
 Throws an error message, usually error messages are strings describing what went wrong. When there is an internal error; Example: Attempting to index a non-table value.
 
 - `message` - The error message to be genarate.
-- `level` - An optional parameter, specifies how to get the error position; Defualt value: `1`.
+- `level` - An optional parameter, This specifies how to get the error position determined by a number. Passing level `1` means the error position is where the error function was called. Passing level `2` points the error to where the function that called the error was called, and so on. If you try to pass a level `0`, you will avoid adding error position information to the message; Defualt value: `1`.
 
 Example:
 ```lua
@@ -143,7 +148,7 @@ error('A fatal error occured!')
 ### assert(condition:Dynamic, message:String)
 Throw an error massage if the `condition` arguement returns `false` or `nil`. If the assertion passes, it returns all values passed to it.
 
-- `condition` - The codition to use.
+- `condition` - The specified condition for the function to execute the error.
 - `message` - The error message to be genarate.
 
 Example:
@@ -163,8 +168,8 @@ debugPrint(median(34, 25)) -- will throw > min arguement has a higher value than
 ### pcall(func:Function, ?...args:Dynamic)
 Calls a function and runs it in protected mode and catches the error and returns a status code. The function returns two values, the code status code which returns a `boolean`, if `true` the call succeeds without errors. And the error message generated if there is any errors found, if not returns the function returning value.
 
-- `func` - The function to be runned.
-- `args` - An optional and infinite parameter, If the function is not an anonymous; the argument(s) for the function to use.
+- `func` - 	The function to be runned in protected mode.
+- `args` - An optional parameter; If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
 
 Example:
 ```lua
@@ -187,9 +192,9 @@ debugPrint(errorValue) -- will print > 'main.lua:2: attempt to perform arithmeti
 ### xpcall(func:Function, error:Function, ?...args:Dynamic)
 Works similar to the `pcall()` function except that you can set a new customizable error handler.
 
-- `func` - The function to be runned.
-- `error` - The function to use as an error handle if it catches an error.
-- `args` - An optional and infinite parameter, If the function is not an anonymous; the argument(s) for the function to use.
+- `func` - The function to be runned in protected mode.
+- `error` - 	The function to use as the error handle, if it catches an error.
+- `args` - An optional parameter; If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
 
 Example:
 ```lua
