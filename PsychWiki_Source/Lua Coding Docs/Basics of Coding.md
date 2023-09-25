@@ -39,13 +39,15 @@ function onCreate() -- Triggered at the start of the Lua script
      makeLuaSprite('tag', 'imagePath', 0, 0) -- initializes the lua sprite
      addLuaSprite('tag', true)               -- Adds the lua sprite
 end
-
---[[
-function onCreatePost()
-     setProperty('iconP1.visible', false)
-     setProperty('iconP2.visible', false)
+```
+```lua
+function onCreate()
+     debugPrint('colon') -- will print > 'colon'
 end
-]]
+
+--[[ function onUpdate(elapsed)
+     debugPrint('lag')
+end ]]
 ```
 
 ***
@@ -60,15 +62,20 @@ This is followed by the variable's `identifier`, or in layman's terms, the "name
 
 Example:
 ```lua
-local foo = 73
-local bar = 29
-local baz = foo - bar
+local object_cost1 = 20
+local object_cost2 = 12
+local object_price = object_cost1 + object_cost2 -- adds to two object values
 
 function onCreate()
-     debugPrint(baz) -- will print > 44
+     debugPrint(object_price) -- will print > 32
+end
+```
+```lua
+local object_cost = 30 -- too expensive
+object_cost = 15       -- changes the costs value, cuz its black friday
 
-     baz = 83        -- will reassign baz variable to 83
-     debugPrint(baz) -- will print > 83
+function onCreate()
+     debugPrint(object_cost) -- will print > 15
 end
 ```
 
@@ -113,38 +120,36 @@ var name = 'Error' -- a variable with a space ' ' character
 var$name = 'Error' -- a variable with a special '$' character
 ```
 
-### Scope Types
-- `Global` - Global variables allows you to call variables outside the scope of block, at any time throughout the program. This is only recommended if you're getting a variable on another Callback Templates or using to export a variable to another Lua script.
+***
+
+# Scope
+Scope, in programming, refers to the variables or functions accessibility in certain parts of the code. This can be determined by either declaring them as having a `global` or `local` scope. Scoping helps prevent name collisions by using the same variables or functions names for different things. By allowing the same name to be used in different scopes of the program, which is cool, I guess.
+
+## Global scope
+Global variables allows you to call variables outside the scope of block, at any time throughout the program. This is only recommended if you're getting a variable on another Callback Templates or using to export/import a variable to another Lua script.
 
 Example:
 ```lua
-function onCreate()
-     globalTextTag = 'myText' -- global variable
-
-     makeLuaText(globalTextTag, 'This is a dumb text!', nil, 0, 0) -- initialize the text
-     setTextSize(globalTextTag, 30)  -- sets the text size
-     addLuaText(globalTextTag)       -- adds the text in the game
+do -- do block
+     stupidVar = 24 -- a global scope
 end
 
-function onBeatHit()      -- checks every beat hit
-     if curBeat == 5 then -- checks if the 'curBeat' is equal to '5'
-          setProperty(globalTextTag..'.alpha', 0.5) -- sets the text opacity into '0.5'
-     end
+function onCreate()
+     debugPrint(stupidVar) -- will print > 24
 end
 ```
 
-- `Local` - Local variables are declared with the `local` statement, unlike global variables their scope is limited to the block where they are declared. If you attempted to call them it will only return a `nil` value. This is a relativly good programming style becuase they avoid cluttering the global environment with unnecessary names. And are more faster to call than to global ones.
+## Local scope
+Local variables are declared with the `local` statement, unlike `global` variables their scope is limited to the block where they are declared. If you attempted to call them it will only return a `nil` value. This is a relativly good programming style becuase they avoid cluttering the global environment with unnecessary names. And are more faster to call than to global ones.
 
 Example:
 ```lua
-function onCreatePost()
-     local localOpacity = 0
-     setProperty('camHUD.alpha', localOpacity) -- sets the camera HUD elements opacity into '0'
+do -- do block
+     local stupidVar = 24 -- a local scope
 end
 
-function onSongStart()
-     debugPrint(localOpacity) -- will print > nil
-     doTweenAlpha('HUDTween', 'camHUD', 1, 3, 'linear') -- will tween the camera HUD elements to '1'
+function onCreate()
+     debugPrint(stupidVar) -- will print > 24
 end
 ```
 
@@ -199,22 +204,18 @@ end
 ## Numbers
 Numbers are arithmetic values that represent the quantity or amount of something. It can have positive or negative values, and numbers can be expressed as integers (Int) or floating-points (Float). Int only uses whole numbers, while Float uses decimal numbers.
 
+Numbers can also be represented in scientific (exponential) notation. They are a way of expressing numbers that are too large or too small to be conveniently written in float form. You could also represent it as a hexadecimal number system for colors, just to let you know.
+
 Example:
 ```lua
 local myNumInt = 32  -- integer number
 local myNumFlt = 2.1 -- floating-point number
 
-local myNumFlt1, myNumFlt2 = 12., .56
 function onCreate()
-     debugPrint(myNumInt)             -- will print > 32
-     debugPrint(myNumFlt)             -- will print > 2.1
-     debugPrint(myNumFlt1, myNumFlt2) -- will print > 12.0, 0.56
+     debugPrint(myNumInt) -- will print > 32
+     debugPrint(myNumFlt) -- will print > 2.1
 end
 ```
-
-Numbers can also be represented in scientific (exponential) notation. They are a way of expressing numbers that are too large or too small to be conveniently written in float form. You could also represent it as a hexadecimal number system for colors, just to let you know.
-
-Example:
 ```lua
 function onCreate()
      debugPrint(263e+4)   -- will print > 2630000.0
@@ -232,7 +233,7 @@ Nil represents the nothingness or non-existence of a value. This can be used to 
 ## Tables
 Tables are the only data structuring mechanism in Lua. They can store multiple types of values, like strings, numbers, booleans, and even themselves. This is a better alternative than listing them in each variable and makes it easier to access each element of the table. And for making modules, metatables, and classes, which is useful in some cases, tables can be represented as an Array or Dictionary.
 
-If you try to attempt to call a table it will return the table's memory address; Example: `table: 0x55557885d670`. The only way to read the table's element is to use indexing access operation which only gets a single element. Or to iterate a table from a numeric or generic `for` loop.
+If you try to attempt to call a table it will return the table's memory address; Example: `table: 0x55557885d670`. But in PsychLua it will return the table elements with brackets surrounding it. The only way to read the table's element is to use indexing access operation which only gets a single element. Or to iterate a table from a numeric or generic `for` loop.
 
 Example:
 ```lua
@@ -262,7 +263,7 @@ end
 ### Dictionary
 Dictionaries use key-value pairs for storing elements instead of the index-value pairs that a table array uses. It basically uses names or keys to reference the elements inside a table dictionary. The keys from the dictionary could be either surrounded by a pair of brackets <kbd>[]</kbd> characters with the name to be given; Example: `['name']`. If the name has a special character inside of it or not.
 
-To read the table's dictionary element, add a dot <kbd>.</kbd> character with the given name of the key. Or add a pair of brackets <kbd>[]</kbd> characters with the given name. Really just depends what your comfortable to use when coding.
+To read the table's dictionary element, add a dot <kbd>.</kbd> character with the given name of the key. Or add a pair of brackets <kbd>[]</kbd> characters with the given name. Really just depends what your comfortable to use when coding; Example: `table.name` or `table.['name']`.
 
 Example:
 ```lua
@@ -279,32 +280,22 @@ function onCreate()
 end
 ```
 
-### Manipulating Elements
-You can manipulate the table's elements given a value; you could either reassign, inserting, or removing any elements from a given table. To reassign an element, get the given element to be reassigned, followed by an equal <kbd>&equals;</kbd> with the new value to be given. To insert an element, just choose a new element to be inserted with the given value to it. And to remove an element, get the given element and replace the value with a `nil` value.
+### Element Manipulation
+| Methods                  | Description                                                                                                        |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------|
+| Setting element values   | Get the given existing element inside a table, followed by a equal <kbd>&equals;</kbd> character with a new value. |
+| Inserting element values | Get the given table with a new element that isn't present inside the table with the specified value to hold.       |
+| Removing element values  | Get the given table element and replace the value with a <code>nil</code> value.                                   |
 
 Examples:
 ```lua
-local myArray = {'lemon', 'apple', 'peach', 'starfruit'} -- a stupid table
+local myStupidNums = {24, 81, 42}
+myStupidNums[3] = 34  -- setting elements
+myStupidNums[4] = 95  -- inserting elements
+myStupidNums[2] = nil -- removing elements
 
-myArray[4] = 'starapple' -- reassinging an element
-myArray[5] = 'mango'     -- inserting an element
-myArray[1] = nil         -- removing an element
 function onCreate()
-     for _,v in pairs(myArray) do
-          debugPrint(v) -- will print > 'apple', 'peach', 'starapple', 'mango'
-     end
-end
-```
-```lua
-local myDict = {fruit = 'apple', number = 42, punctuation = ';'} -- a stupid table
-
-myDict.punctuation = ':' -- reassinging an element
-myDict.idk = 'idk'       -- inserting an element
-myDict['fruit'] = nil    -- removing an element
-function onCreate()
-     for _,v in pairs(myDict) do
-          debugPrint(v) -- will print > 42, 'idk', ':'
-     end
+     debugPrint(myStupidNums) [23, 34, 95]
 end
 ```
 
@@ -436,8 +427,6 @@ Control Statements allow you to control the execution of other statements. Which
 ## Conditional Statements
 These are a type of control structure that specifies whether or not to execute the block code. They are the most common control structures to use. There are only 3 if-else statements: the `if`, `else`, `elseif` statements.
 
-Conditional statements are a type of control statement that determines whether or not to execute the block code and returns `true`. They are the most common control structures to use; Lua only has 3 conditional statements, which are `If`, `Else`, and `ElseIf` statements.
-
 ### If Statement
 The If statement checks the condition if it's `true` or not. They are define with the `if` keyword followed by the specified condition to execute the statement with the `then` keyword.
 
@@ -452,7 +441,7 @@ end
 ```
 
 ### Else Statement
-The Else statement checks if the condition fails, then this statement will be executed. They are defined with the `else` keyword at the bottom of the If or ElseIf statement. That's it, nothing else <!-- Comedy genius --> to say about it.
+The Else statement checks if the condition fails, then this statement will be executed. They are defined with the `else` keyword at the bottom of the `if` or `elseif` statement. That's it, nothing else <!-- Comedy genius --> to say about it.
 
 Example:
 ```lua
@@ -460,7 +449,7 @@ local getWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
      if getWeekDay == 6 then -- checks if the current day is 'Friday'
           debugPrint('Day: Friday')
-     else -- if the condition returns 'false'
+     else                    -- if the condition returns 'false'
           debugPrint('Not Friday')
      end
 end
@@ -471,13 +460,13 @@ The Elseif statement is an alternative condition if the other condition returns 
 
 Example:
 ```lua
-local getDateWeekDay = os.date('*t').wday -- checks the current day of week
+local getWeekDay = os.date('*t').wday -- checks the current day of week
 function onCreate()
-     if getDateWeekDay == 7 then     -- checks if the day is 'Saturday'
+     if getWeekDay == 7 then     -- checks if the day is 'Saturday'
           debugPrint('Day: Saturday')
-     elseif getDateWeekDay == 1 then -- checks if the day is 'Sunday'
+     elseif getWeekDay == 1 then -- checks if the day is 'Sunday'
           debugPrint('Day: Sunday')
-     else                            -- checks if both of the condition fails
+     else                        -- checks if both of the condition fails
           debugPrint('Day: Weekdays')
      end
 end
@@ -502,7 +491,10 @@ function onCreate()
      for index = 5, 0, -1 do -- Decrement loop
           debugPrint(index)  -- will print > 5, 4, 3, 2, 1, 0
      end
-
+end
+```
+```lua
+function onCreate()
      for index = 0, 300, 50 do -- Increment Loop with each value incremented by 50 
           debugPrint(index)    -- will print > 0, 50, 100, 150, 200, 250, 300
      end
@@ -520,7 +512,7 @@ Example:
 function onCreate()
      local tableThingy = {num1 = 231, num2 = 345, num3 = 234}
      for key, value in pairs(tableThingy) do
-          debugPrint(key, value)  -- will print > 'num1 = 231, num2 = 345, num3 = 234'
+          debugPrint(key, value) -- will print > 'num1 = 231, num2 = 345, num3 = 234'
      end
 end
 ```
@@ -532,16 +524,15 @@ While Loop statement will loop through a block of code infinitely until the spec
 
 Example:
 ```lua
+local counter   = 5
+local factorial = 1
 function onCreate()
-     local counter   = 5
-     local factorial = 1
-
      while counter > 0 do
           factorial = factorial * counter
           counter   = counter - 1
      end
 
-     debugPrint(factorial) -- will print > '120'
+     debugPrint(factorial) -- will print > 120
 end
 ```
 
