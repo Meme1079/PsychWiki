@@ -29,7 +29,7 @@ Starts a tween in any value(s) to an object or note.
 
 ## Objects
 ### doTweenX(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does a tween in the <ins>x position value</ins> to the object.
+Does a tween on the object's <ins>x position value</ins>.
 
 - `tag` - The tag name for the tween function to referenced; Will be called to the `onTimerCompleted()` function after finishing.
 - `vars` - The object or note name for the tween function to referenced.
@@ -38,18 +38,23 @@ Does a tween in the <ins>x position value</ins> to the object.
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### doTweenY(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does a tween in the <ins>y position value</ins> to the object.
+Does a tween on the object's <ins>y position value</ins>.
 
 ### doTweenAngle(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does a tween in the <ins>angle value</ins> to the object.
+Does a tween on the object's <ins>angle value</ins>.
 
 ### doTweenAlpha(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
-Does a tween in the <ins>alpha/opacity value</ins> to the object.
+Does a tween on the object's <ins>alpha/opacity alue</ins>.
 
 ### doTweenColor(tag:String, vars:String, targetColor:String, duration:Float, ease:String)
-Does a tween in the <ins>hex color value</ins> to the object.
+Does a tween on the object's <ins>hex color alue</ins>.
 
 - `targetColor` - The target hex color value for the tween function to end.
+
+### doTweenZoom(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
+Does a tween on the camera's <ins>zoom value</ins>.
+
+- `vars` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
 
 ## Strum/Receptors
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)

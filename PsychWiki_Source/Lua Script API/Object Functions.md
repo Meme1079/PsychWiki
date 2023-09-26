@@ -1,6 +1,6 @@
 # Graphic Functions
 ### makeGraphic(tag:String, width:Int, height:Int, color:String)
-Initializes the <ins>creation of a colored fill texture</ins>. 
+Initializes the <ins>creation of a colored fill texture</ins>; must be declared before the `makeLuaSprite()` function. 
 
 - `tag` - The sprite object tag name to be used.
 - `width` - The width value in pixels of the object.
