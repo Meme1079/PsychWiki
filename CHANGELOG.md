@@ -1,3 +1,6 @@
+### 13.1.0 Version
+- Added the new `onEventPushed()` callback function, that's it.
+
 ### 13.0.0 Version
 - Added "Global Functions & Variables" to `Lua Coding Docs`
 - Added new variables from the "Variables" Page
