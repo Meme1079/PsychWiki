@@ -39,44 +39,32 @@ Triggered at every <ins>update change at the score</ins>.
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
 
 ### onEndSong()
-Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`.
+Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`; Must be returning `Function_Continue`.
 
 ### onMoveCamera(focus)
 Triggered at the <ins>camera focusing</ins> either the `boyfriend` or `dad`.
 
 - `focus` - Which character for the camera to focus on.
 
-### onRecalculateRating()
-Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingString()` function for your epic rating names.
-
-### onEvent(eventName, value1, value2)
-Creates a <ins>local event</ins> script or <ins>modifies</ins> the event script.
-
-- `eventName` - The name of the event to be used.
-- `value1` - The first value of the event.
-- `value2` - the second value of the event.
-
-### eventEarlyTrigger(eventName, value1, value2)
-Makes the <ins>event trigger earlier</ins>. Use the `return` statement with the specified offset <ins>number in milliseconds</ins>.
-
-- `eventName` - The name of the event to be used.
-- `value1` - The first value of the event.
-- `value2` - the second value of the event.
-
 Example:
 ```lua
-function eventEarlyTrigger(eventName)
-     if eventName == 'Your event' then
-          return 1000; -- will return 1 second earlier
-     end
+function onMoveCamera(focus)
+	if focus == 'boyfriend' then
+		-- called when the camera focus on boyfriend
+	elseif focus == 'dad' then
+		-- called when the camera focus on dad
+	end
 end
 ```
+
+### onRecalculateRating()
+Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingString()` function for your epic rating names; Must be returning `Function_Continue`.
 
 ***
 
 # Countdown Functions
 ### onStartCountdown()
-Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
+Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`; Must be returning `Function_Continue`.
 
 ### onCountdownStarted()
 Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note strums</ins> are created here.
@@ -105,6 +93,40 @@ Counter Num: 4 | The song starts here
 
 ***
 
+# Event Hook Functions
+### onEvent(eventName, value1, value2)
+Creates a <ins>local event</ins> script or <ins>modifies</ins> the event script.
+
+- `eventName` - The name of the event to be used.
+- `value1` - The first value of the event.
+- `value2` - the second value of the event.
+
+### onEventPushed(name, value1, value2, strumTime)
+Triggered for <ins>every event note</ins>, it's recommended to precache assets.
+
+- `eventName` - The name of the event to be used.
+- `value1` - The first value of the event.
+- `value2` - the second value of the event.
+- `strumTime` - The specified strum time to execute the event.
+
+### eventEarlyTrigger(eventName, value1, value2)
+Makes the <ins>event trigger earlier</ins>. Use the `return` statement with the specified offset <ins>number in milliseconds</ins>.
+
+- `eventName` - The name of the event to be used.
+- `value1` - The first value of the event.
+- `value2` - the second value of the event.
+
+Example:
+```lua
+function eventEarlyTrigger(eventName)
+     if eventName == 'Your event' then
+          return 1000; -- will return 1 second earlier
+     end
+end
+```
+
+***
+
 # Dialogue Functions
 ### onNextDialogue(dialogueCount)
 Triggered when the <ins>next dialogue is called</ins>.
@@ -120,13 +142,13 @@ Triggered when the <ins>dialogue is skip mid text</ins>.
 
 # Substate Functions
 ### onPause()
-Triggered if the game is <ins>paused from playing</ins>.
+Triggered if the game is <ins>paused from playing</ins>; Must be returning `Function_Continue`.
 
 ### onResume()
 Triggered if the game is <ins>resumed from pausing</ins>.
 
 ### onGameOver()
-Triggered if the <ins>player dies from skill issues</ins>.
+Triggered if the <ins>player dies from skill issues</ins>; Must be returning `Function_Continue`.
 
 ### onGameOverStart()
 Triggered at the <ins>start of the game-over screen</ins>.
@@ -166,7 +188,7 @@ Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestro
 
 ***
 
-# Note/Key Functions
+# Note/Key Pressing Functions
 ### goodNoteHit(membersIndex, noteDirect, noteType, isSustainNote)
 Triggered if the <ins>player hit a note</ins>.
 
@@ -188,8 +210,6 @@ Triggered if the <ins>player miss a note</ins>.
 Triggered if the <ins>player tap while the note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disable</ins>.
 
 - `noteDirect` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
-
-***
 
 ### onKeyPress(key)
 Triggered if the note control buttons were <ins>recently pressed</ins>.
@@ -221,7 +241,7 @@ Triggered after the <ins>tween tag is finished</ins>.
 
 - `tag` - The timer tween to be used.
 
-### onSoundFinished(tag)
+### onSoundCompleted(tag)
 Triggered after the <ins>sound tag is finished</ins>.
 
 - `tag` - The timer sound to be used.

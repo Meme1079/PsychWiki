@@ -5,7 +5,10 @@
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-# Current Update [13.0.0 Version]
+# Current Update [13.1.0 Version]
+- Added the new `onEventPushed()` callback function, that's it.
+
+# Previous Update [13.0.0 Version]
 - Added "Global Functions & Variables" to `Lua Coding Docs`
 - Added new variables from the "Variables" Page
 - Added the description of the `allowMaps` parameter in the "Reflection Functions"
