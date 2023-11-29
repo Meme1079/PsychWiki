@@ -28,7 +28,8 @@ Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with
 - `framerate` - How many frames per second does the animation have; Defualt is: `24`.
 
 ### addAnimationByIndicesLoop(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object as a loop; ONLY DEPRECATED ON 0.7.
+> **Note**: _This function is only deprecated on versions above 0.6.3._
+Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object as a loop.
 
 - `tag` - The sprite object tag name to be used.
 - `name` - The name of the animation to be played.
