@@ -96,12 +96,13 @@ Counter Num: 4 | The song starts here
 ***
 
 # Event Hook Functions
-### onEvent(eventName, value1, value2)
+### onEvent(eventName, value1, value2, strumTime)
 Creates a <ins>local event</ins> script or <ins>modifies</ins> the event script.
 
 - `eventName` - The name of the event to be used.
 - `value1` - The first value of the event.
 - `value2` - the second value of the event.
+- `strumTime` - The specified strum time where the event is executed.
 
 ### onEventPushed(name, value1, value2, strumTime)
 Triggered for <ins>every event note</ins>, it's recommended to precache assets.
@@ -109,14 +110,15 @@ Triggered for <ins>every event note</ins>, it's recommended to precache assets.
 - `eventName` - The name of the event to be used.
 - `value1` - The first value of the event.
 - `value2` - the second value of the event.
-- `strumTime` - The specified strum time to execute the event.
+- `strumTime` - The specified strum time where the event is executed.
 
-### eventEarlyTrigger(eventName, value1, value2)
+### eventEarlyTrigger(eventName, value1, value2, strumTime)
 Makes the <ins>event trigger earlier</ins>. Use the `return` statement with the specified offset <ins>number in milliseconds</ins>.
 
 - `eventName` - The name of the event to be used.
 - `value1` - The first value of the event.
 - `value2` - the second value of the event.
+- `strumTime` - The specified strum time where the event is executed.
 
 Example:
 ```lua
@@ -162,56 +164,56 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 
 # Custom Substate Functions
 ### onCustomSubstateCreate(name)
-Works similair to <ins>`onCreate()` callback function</ins> but for your custom substate; Will only be triggered once.
+Works similar to <ins>`onCreate()` callback function</ins> but for your custom substate; Will only be triggered once.
 
 - `name` - The name of your substate.
 
 ### onCustomSubstateCreatePost(name)
-Works similair to <ins>`onCreatePost()` callback function</ins>; Will only be triggered once.
+Works similar to <ins>`onCreatePost()` callback function</ins>; Will only be triggered once.
 
 - `name` - The name of your substate.
 
 ### onCustomSubstateUpdate(name, elapsed)
-Works similair to <ins>`onUpdate()` callback function</ins>.
+Works similar to <ins>`onUpdate()` callback function</ins>.
 
 - `name` - The name of your substate.
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onCustomSubstateUpdatePost(name, elapsed)
-Works similair to <ins>`onUpdatePost()` callback function</ins>.
+Works similar to <ins>`onUpdatePost()` callback function</ins>.
 
 - `name` - The name of your substate.
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onCustomSubstateDestroy(name)
-Triggered if the <ins>substate is closed</ins>; Works similair to <ins>`onDestroy()` callback function</ins>; Will only be triggered once.
+Triggered if the <ins>substate is closed</ins>; Works similar to <ins>`onDestroy()` callback function</ins>; Will only be triggered once.
 
 - `name` - The name of your substate.
 
 ***
 
 # Note/Key Pressing Functions
-### goodNoteHit(membersIndex, noteDirect, noteType, isSustainNote)
+### goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
 Triggered if the <ins>player hit a note</ins>.
 
 - `membersIndex` - The note member id; Boyfriend: `0,1,2,3` and Opponent: `4,5,6,7`.
-- `noteDirect` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
+- `noteData` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 - `noteType` - The specific note type to be used.
 - `isSustainNote` - Checks if the note is long or not; Returns a `boolean`.
 
-### opponentNoteHit(membersIndex, noteDirect, noteType, isSustainNote)
+### opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
 Triggered if the <ins>opponent hit a note</ins>.
 
 ### onSpawnNote(membersIndex, noteData, noteType, isSustainNote)
 Triggered if the <ins>note is spawn inside the game</ins>.
 
-### noteMiss(membersIndex, noteDirect, noteType, isSustainNote)
+### noteMiss(membersIndex, noteData, noteType, isSustainNote)
 Triggered if the <ins>player miss a note</ins>.
 
-### noteMissPress(noteDirect)
+### noteMissPress(noteData)
 Triggered if the <ins>player tap while the note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disable</ins>.
 
-- `noteDirect` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
+- `noteData` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onKeyPress(key)
 Triggered if the note control buttons were <ins>recently pressed</ins>.
