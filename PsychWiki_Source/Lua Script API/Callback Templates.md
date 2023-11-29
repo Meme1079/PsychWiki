@@ -194,24 +194,24 @@ Triggered if the <ins>substate is closed</ins>; Works similar to <ins>`onDestroy
 
 # Note/Key Pressing Functions
 ### goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player hit a note</ins>.
+Triggered if the <ins>player hits a note</ins>.
 
 - `membersIndex` - The note member id; Boyfriend: `0,1,2,3` and Opponent: `4,5,6,7`.
 - `noteData` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 - `noteType` - The specific note type to be used.
-- `isSustainNote` - Checks if the note is long or not; Returns a `boolean`.
+- `isSustainNote` - Checks if the note is a sustain note; Returns a `boolean`.
 
 ### opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>opponent hit a note</ins>.
+Triggered if the <ins>opponent hits a note</ins>.
 
 ### onSpawnNote(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>note is spawn inside the game</ins>.
+Triggered if a <ins>note is spawned</ins>.
 
 ### noteMiss(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player miss a note</ins>.
+Triggered if the <ins>player misses a note</ins>.
 
 ### noteMissPress(noteData)
-Triggered if the <ins>player tap while the note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disable</ins>.
+Triggered if the <ins>player presses while a note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disabled</ins>.
 
 - `noteData` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
@@ -226,7 +226,7 @@ Triggered if the note control buttons were <ins>recently released</ins>.
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onGhostTap(key)
-Triggered if the note control buttons were <ins>tap while the note isn't present</ins>; Not to be confused with `noteMissPress()`.
+Triggered if the note control buttons were <ins>pressed while a note isn't present</ins>; Not to be confused with `noteMissPress()`.
 
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
