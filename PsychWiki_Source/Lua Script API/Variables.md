@@ -262,17 +262,6 @@
 - `boyfriendName` - Checks the current boyfriend character name.
 - `dadName` - Checks the current opponent character name.
 - `gfName` - Checks the current girlfriend character name.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `boyfriendName` - `getProperty('boyfriend.curCharacter')`
-- `dadName` - `getProperty('dad.curCharacter')`
-- `gfName` - `getProperty('gf.curCharacter')`
-
-</p>
-</details>
-
 - `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
 - `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
 - `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
@@ -283,6 +272,9 @@
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
+- `boyfriendName` - `getProperty('boyfriend.curCharacter')`
+- `dadName` - `getProperty('dad.curCharacter')`
+- `gfName` - `getProperty('gf.curCharacter')`
 - `defaultBoyfriendX` - `getProperty('BF_X')`
 - `defaultBoyfriendY` - `getProperty('BF_Y')`
 - `defaultOpponentX` - `getProperty('DAD_X')`
