@@ -158,4 +158,4 @@ Updates the specific note type hitboxes.
 - `eventNotes` - Self explanatory.
 - `playerStrums` - Notes from the Player strums; Goes from `0` to `3`.
 - `opponentStrums` - Notes from the Opponent strums; Goes from `0` to `3`.
-- `strumLineNotes` - Notes from both Player & Opponent strums; Goes from `0` to `7`.
+- `strumLineNotes` - Notes from both Player and Opponent strums; Goes from `0` to `7`; Opponent Strums: `0,1,2,3`; Player Strums: `4,5,6,7`.
