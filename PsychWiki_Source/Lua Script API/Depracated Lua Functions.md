@@ -1,4 +1,4 @@
-> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either becuase of name or parameter changes. This page of this wiki is to inform people to not use these functions and use the new ones._
+> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either because of name or parameter changes. This page of this wiki is to inform people to not use these functions and use the new ones._
 
 # Object Functions
 ### luaSpriteMakeGraphic(tag:String, width:Int, height:Int, color:String)
@@ -20,6 +20,15 @@ Deprecation of `addAnimationByPrefix()`; Adds the <ins>specified animation</ins>
 
 ### luaSpriteAddAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
 Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object.
+
+- `tag` - The sprite object tag name to be used.
+- `name` - The name of the animation to be played.
+- `prefix` - The prefix name inside the `xml` file to be played.
+- `indices` - The specified indices/frames of the animation; Example: `1, 2, 3`.
+- `framerate` - How many frames per second does the animation have; Defualt is: `24`.
+
+### addAnimationByIndicesLoop(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
+Deprecation of `addAnimationByIndices()`ONLY DEPRECATED ON 0.7; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object as a loop.
 
 - `tag` - The sprite object tag name to be used.
 - `name` - The name of the animation to be played.
