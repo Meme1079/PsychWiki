@@ -75,14 +75,24 @@ Creates an instance of an object from the class constructor (which is basically 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class.
 - `args` - An optional parameter, The argument(s) to be passed to the class constructor.
-Example: `createInstance('tag', 'objects.Character', {0, 0, 'gf'})`; Will create a character.
+
+Example:
+```lua
+createInstance('tag', objects.Character', {0, 0, 'gf'})
+```
+Will create a character.
 
 ### addInstance(objectName:String, ?inFront:Bool = false)
 Adds the object from the specified tag name.
 
 - `objectName` - The object's tag name.
 - `inFront` - An optional parameter, Whether the object will be in front of the characters or not.
-Example: `addInstance('tag', true)`; Adds the object that we made.
+
+Example: 
+```lua
+addInstance('tag', true)`
+```
+Adds the object.
 
 ***
 
