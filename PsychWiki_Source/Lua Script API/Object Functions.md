@@ -29,7 +29,7 @@ Plays an existing animation of the sprite object; it can <ins>override an animat
 
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
-- `forced` - Whether will the animation will be force to restart; Default value: `false`.
+- `forced` - Whether the animation will restart if the animation name is the same one as the animation currently playing; Default value: `false`.
 - `reverse` - An optional parameter, Whether the animation will be played backwards; Default value `false`.
 - `startFrame` - An optional parameter, The animation frame in the animation to start from; Default value: `0`.
 
@@ -190,7 +190,7 @@ Sets the object to screen `center` with the specified `x` or `y` position.
 
 # Other Functions
 ### setScrollFactor(obj:String, scrollX:Float, scrollY:Float)
-Changes the object that moves along the camera when switching to characters.
+Changes the object's scroll factor as in changing how much the object will move when the camera moves.
 
 - `obj` - The object tag name to be used.
 - `scrollX` - The x value of the scroll to be set.
