@@ -70,7 +70,29 @@ Calls a function from other classes.
 - `args` - An optional parameter, The arguement(s) to be passed to the function.
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
+Creates an instance of an object from the class constructor (which is basically the new() arguments that you see, example: `new Character(x, y, json, isPlayer)`).
+
+- `variableToSave` - The object's tag name.
+- `className` - The name of the class.
+- `args` - An optional parameter, The argument(s) to be passed to the class constructor.
+
+Example:
+```lua
+createInstance('tag', objects.Character', {0, 0, 'gf'})
+```
+Will create a character.
+
 ### addInstance(objectName:String, ?inFront:Bool = false)
+Adds the object from the specified tag name.
+
+- `objectName` - The object's tag name.
+- `inFront` - An optional parameter, Whether the object will be in front of the characters or not.
+
+Example: 
+```lua
+addInstance('tag', true)`
+```
+Adds the object.
 
 ***
 
@@ -105,8 +127,8 @@ Updates the specific note type hitboxes.
 - `.antialiasing` - Whether the border of an object will be smooth or not, this will affect performance. **(Boolean)**
 - `.flipX` - Flips the object on the x axis. **(Boolean)**
 - `.flipY` - Flips the object on the y axis. **(Boolean)**
-- `.scale.x` - The scale at the x axis value of an object, The hitbox is not automatically update. **(Float)**
-- `.scale.y` - The scale at the y axis value of an object, The hitbox is not automatically update. **(Float)**
+- `.scale.x` - The scale at the x axis value of an object, The hitbox is not automatically updated. **(Float)**
+- `.scale.y` - The scale at the y axis value of an object, The hitbox is not automatically updated. **(Float)**
 - `.offset.x` - The x offset value of the object. **(Float)**
 - `.offset.y` - The y offset value of the object. **(Float)**
 - `.scrollFactor.x` - The scroll factor at the x value of the object. **(Float)**
@@ -117,32 +139,33 @@ Updates the specific note type hitboxes.
 - `noMissAnimation` - Disable any singing animation when missing/missinput a note. **(Boolean)**
 - `hitCausesMiss` - Enables misses when hitting a note. **(Boolean)**
 - `hitByOpponent` - Whether the opponent can hit the note or not. **(Boolean)**
-- `hitsoundDisabled` - Whether the hitsound is disable or not. **(Boolean)**
+- `hitsoundDisabled` - Whether the hitsound is disabled or not. **(Boolean)**
 - `hitsound` - The hitsound's sound to be used. **(String)**
-- `hitHealth` - The specified amount of hit health when hitting a note; Defualt value: `0.023`. **(Float)**
-- `missHealth` - The specified amount of miss health when missing/missinput a note; Defualt value: `0.0475`. **(Float)**
-- `mustPress` - Checks if the opponent or player can hit a note, I think. **(Boolean)**
-- `ignoreNote` - Whether the note should be ignore or not. **(Boolean)**
-- `isSustainNote` - Checks if the note is long. **(Boolean)**
+- `hitHealth` - The specified amount of health gained when hitting a note; Default value: `0.023`. **(Float)**
+- `missHealth` - The specified amount of health taken when missing/missinput a note; Default value: `0.0475`. **(Float)**
+- `mustPress` - Checks if the note is on the player's side. **(Boolean)**
+- `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
+- `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
 - `texture` - The note's texture to be used. **(String)**
 - `noteType` - Checks the current note type. **(String)**
 - `noteWasHit` - Checks if the note was hit, duh. **(Boolean)**
-- `copyX` - Checks if the note strums are included when changing the x position of the note. **(Boolean)**
-- `copyY` - Checks if the note strums are included when changing the y position of the note. **(Boolean)**
-- `copyAngle` - Checks if the note strums are included when changing the angle value of the note. **(Boolean)**
-- `copyAlpha` - Checks if the note strums are included when changing the alpha/opacity value of the note. **(Boolean)**
-- `noteSplashData.disabled` - Whether the note splashes be disable or not. **(Boolean)**
+- `copyX` - Variable determining if the note will follow the strum's `X` position. **(Boolean)**
+- `copyY` - Variable determining if the note will follow the strum's `Y` position. **(Boolean)**
+- `copyAngle` - Variable determining if the note will follow the strum's `angle` value. **(Boolean)**
+- `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value. **(Boolean)**
+- `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to be used. **(String)**
-- `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's defualt splash colors. **(Boolean)**
-- `noteSplashData.r` - The note splashes red value; Defualt value: `-1`. **(Int)**
-- `noteSplashData.g` - The note splashes green value; Defualt value: `-1`. **(Int)**
-- `noteSplashData.b` - The note splashes blue value; Defualt value: `-1`. **(Int)**
-- `noteSplashData.a` - The note splashes alpha/opacity value; Defualt value: `0.6`. **(Float)**
+- `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's default splash colors. **(Boolean)**
+- `noteSplashData.useRGBShader` - If set to `false`, note splashes will no longer use the RGB Shader. **(Boolean)**
+- `noteSplashData.r` - The note splashes red value; Default value: `-1`. **(Int)**
+- `noteSplashData.g` - The note splashes green value; Default value: `-1`. **(Int)**
+- `noteSplashData.b` - The note splashes blue value; Default value: `-1`. **(Int)**
+- `noteSplashData.a` - The note splashes alpha/opacity value; Default value: `0.6`. **(Float)**
 
-<details><summary><b>Depracated Group Properties:</b></summary>
+<details><summary><b>Deprecated Group Properties:</b></summary>
 <p>
 
-- `noteSplashDisabled` - Whether the note splashes be disable or not. **(Boolean)**
+- `noteSplashDisabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashTexture` - The note splashes texture to be used. **(String)**
 - `noteSplashHue` - Changes the HUE value of the note; Goes from `-180` to `180`; Default value: `0`. **(Int)**
 - `noteSplashBrt` - Changes the brightness value of the note; Goes from `-100` to `100`; Default value: `0`. **(Int)**
@@ -152,9 +175,9 @@ Updates the specific note type hitboxes.
 </details>
 
 ## Group Objects
-- `notes` - Notes that are currenlty spawned.
-- `unspawnNotes` - Notes that are not spawned inside the game.
+- `notes` - Notes that are currently spawned.
+- `unspawnNotes` - Notes that are not currently spawned.
 - `eventNotes` - Self explanatory.
-- `playerStrums` - Notes from the Player strums.
-- `opponentStrums` - Notes from the Opponent strums.
-- `strumLineNotes` - Notes from both Player & Opponent strums.
+- `playerStrums` - Notes from the Player strums; Goes from `0` to `3`.
+- `opponentStrums` - Notes from the Opponent strums; Goes from `0` to `3`.
+- `strumLineNotes` - Notes from both Player and Opponent strums; Goes from `0` to `7`; Opponent Strums: `0,1,2,3`; Player Strums: `4,5,6,7`.

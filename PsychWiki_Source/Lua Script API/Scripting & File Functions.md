@@ -8,7 +8,7 @@ Adds a <ins>Lua script</ins> into the game.
 ### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a <ins>Haxe script</ins> into the game.
 
-- `luaFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
+- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
 
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
@@ -86,7 +86,7 @@ Calls a <ins>Lua function</ins> from another currently executing Lua script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -114,7 +114,7 @@ Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -124,7 +124,7 @@ Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe s
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.

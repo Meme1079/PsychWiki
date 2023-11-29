@@ -4,8 +4,8 @@
 - `Function_StopLua` - Stops all Lua script currently executing.
 - `Function_StopHScript` - Stops all Haxe script currently executing.
 - `Function_StopAll` - Stops all scripts currently executing.
-- `Function_Stop` - Stops the game.
-- `Function_Continue` - Continues the game.
+- `Function_Stop` - Stops the function.
+- `Function_Continue` - Continues the function.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
@@ -13,31 +13,31 @@
 ***
 
 # Song & Week Variables
-- `curBpm` Checks the current BPM value of the song.
+- `curBpm` Returns the current BPM value of the song.
 - `bpm` - Returns the starting BPM value of the song.
-- `scrollSpeed` - Checks the scroll speed of the song.
-- `crochet` - Checks the interval between `curBeat` variable.
-- `stepCrochet` - Checks the interval between `curStep` variable.
+- `songSpeed` - Returns the current scroll speed of the song.
+- `crochet` - Returns the interval between `curBeat` variable.
+- `stepCrochet` - Returns the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
-- `songName` - Returns the current song name.
+- `songName` - Returns the current song name. (CASE SENSITIVE)
 - `songPath` - Returns the song's path.
 - `startedCountdown` - Checks if the countdown has already begun.
-- `curStage` - Checks the current stage of the song.
+- `curStage` - Returns the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
 - `difficulty` - Returns the current difficulty ID number.
-- `difficultyName` - Returns the current difficulty name.
+- `difficultyName` - Returns the current difficulty name. (CASE SENSITIVE)
 - `difficultyPath` - Returns the current difficulties path.
 - `weekRaw` - Returns the raw current week number.
 - `week` - Returns the current week name from the JSON file name.
-- `seenCutscene` - Checks if the cutscene is seen.
-- `hasVocals` - Checks if the song has vocals enable or not.
+- `seenCutscene` - Checks if the cutscene has been seen.
+- `hasVocals` - Checks if the song has vocals enabled or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `curBpm` - `getPropertyFromClass('backend.Conductor', 'bpm')`
 - `bpm` - `getPropertyFromClass('states.PlayState', 'SONG.bpm')` 
-- `scrollSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
+- `songSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('backend.Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('backend.Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('flixel.FlxG', 'sound.music.length')`
@@ -45,7 +45,7 @@
 - `songPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
 - `startedCountdown` - `getProperty('startedCountdown')`
 - `curStage` - `getPropertyFromClass('states.Playstate', 'curStage')`
-- `isStroyMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
+- `isStoryMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
 - `difficulty` - `getPropertyFromClass('states.Playstate', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('backend.Difficulty', 'getString()')`
 - `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
@@ -59,7 +59,7 @@
 
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
 - `bpm` - `getPropertyFromClass('PlayState', 'SONG.bpm')` 
-- `scrollSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
+- `songSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('FlxG', 'sound.music.length')`
@@ -67,7 +67,7 @@
 - `songPath` - `getPropertyFromClass('Paths', 'formatToSongPath('..songName..')')`
 - `startedCountdown` - `getProperty('startedCountdown')`
 - `curStage` - `getPropertyFromClass('Playstate', 'curStage')`
-- `isStroyMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
+- `isStoryMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
 - `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
 - `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
@@ -103,6 +103,8 @@
 - `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
 - `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
 - `buildTarget` - Checks the current build target of Psych Engine; Returns: `windows`, `linux`, `mac`, `browser`, `android`, `unknown`.
+- `skipArrowStartTween` - Whether the arrow fade in at the start of the countdown will be skipped or not.
+- `skipCountdown` - Exactly as it says; If set to `true`, countdown will be skipped.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -120,6 +122,8 @@
 - `ratingName` - `getProperty('ratingName')`
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
+- `skipArrowStartTween` - `getProperty('skipArrowStartTween')`
+- `skipCountdown` - `getProperty('skipCountdown')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
@@ -200,7 +204,7 @@
 - `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
 - `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
 
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
@@ -242,7 +246,7 @@
 - `cameraX` - `getProperty('camGame.scroll.x') - (screenWidth / 2)`
 - `cameraY` - `getProperty('camGame.scroll.y') - (screenHeight / 2)`
 
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
@@ -258,39 +262,56 @@
 
 ***
 
-# Character Veriables
-- `boyfriendName` - Checks the current boyfriend character name.
-- `dadName` - Checks the current opponent character name.
-- `gfName` - Checks the current girlfriend character name.
+# Character Variables
+- `boyfriendName` - Returns the current boyfriend character name.
+- `dadName` - Returns the current opponent character name.
+- `gfName` - Returns the current girlfriend character name.
+- `.cameraPosition[]` - Returns the character's camera `X` or `Y` position depending on the number inside the brackets, defined by the character JSON file.
+Example:
+```lua
+setProperty('boyfriend.cameraPosition[0]', 300)
+setProperty('dad.cameraPosition[1]', 100)
+```
+`0` is the `X` value, `1` is the `Y` value.
+- `boyfriendCameraOffset` - The player's camera offset, defined by the stage's JSON file.
+- `opponentCameraOffset` - The opponent's camera offset, defined by the stage's JSON file.
+- `girlfriendCameraOffset` - The girlfriend's camera offset, defined by the stage's JSON file.
+- `defaultBoyfriendX` - The player's default x position, defined by the stage's JSON file.
+- `defaultBoyfriendY` - The player's default y position, defined by the stage's JSON file.
+- `defaultOpponentX` - The opponent's default x position, defined by the stage's JSON file.
+- `defaultOpponentY` - The opponent's default y position, defined by the stage's JSON file.
+- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stage's JSON file.
+- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stage's JSON file.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `boyfriendName` - `getPropertyFromClass('states.PlayState', 'SONG.player1')`
-- `dadName` - `getPropertyFromClass('states.PlayState', 'SONG.player2')`
-- `gfName` - `getPropertyFromClass('states.PlayState', 'SONG.gfVersion')`
-
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
-<p>
-
-- `boyfriendName` - `getPropertyFromClass('PlayState', 'SONG.player1')`
-- `dadName` - `getPropertyFromClass('PlayState', 'SONG.player2')`
-- `gfName` - `getPropertyFromClass('PlayState', 'SONG.gfVersion')`
-
-</p>
-</details>
+- `boyfriendName` - `getProperty('boyfriend.curCharacter')`
+- `dadName` - `getProperty('dad.curCharacter')`
+- `gfName` - `getProperty('gf.curCharacter')`
+- `.cameraPosition[0]` - `getProperty('character.cameraPosition[0]')`
+- `.cameraPosition[1]` - `getProperty('character.cameraPosition[1]')`
+- `boyfriendCameraOffset` - `getProperty('boyfriendCameraOffset')`
+- `opponentCameraOffset` - `getProperty('opponentCameraOffset')`
+- `girlfriendCameraOffset` - `getProperty('girlfriendCameraOffset')`
+- `defaultBoyfriendX` - `getProperty('BF_X')`
+- `defaultBoyfriendY` - `getProperty('BF_Y')`
+- `defaultOpponentX` - `getProperty('DAD_X')`
+- `defaultOpponentY` -`getProperty('DAD_Y')`
+- `defaultGirlfriendX` - `getProperty('GF_X')`
+- `defaultGirlfriendY` - `getProperty('GF_Y')`
 
 </p>
 </details>
 
 ***
 
-# Strum Receptor/Character Variables
+# Strum Receptor Variables
 ### Player Strum Positions
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `1068`.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `956`.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `844`.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `732`.
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `732`.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `844`.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `956`.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `1068`.
 - `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Returns: `50`.
 - `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Returns: `50`.
 - `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Returns: `50`.
@@ -312,10 +333,10 @@
 </details>
 
 ### Opponent Strum Positions
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Returns: `428`.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `316`.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `204`.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `92`.
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Returns: `92`.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `204`.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `316`.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `428`.
 - `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Returns: `50`.
 - `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Returns: `50`.
 - `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Returns: `50`.
@@ -332,27 +353,6 @@
 - `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
 - `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
 - `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
-
-</p>
-</details>
-
-### Character Strum Positions
-- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
-- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
-- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
-- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
-- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
-- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `defaultBoyfriendX` - `getProperty('BF_X')`
-- `defaultBoyfriendY` - `getProperty('BF_Y')`
-- `defaultOpponentX` - `getProperty('DAD_X')`
-- `defaultOpponentY` -`getProperty('DAD_Y')`
-- `defaultGirlfriendX` - `getProperty('GF_X')`
-- `defaultGirlfriendY` - `getProperty('GF_Y')`
 
 </p>
 </details>

@@ -84,7 +84,7 @@ Returns the <ins>current y value</ins> of the mouse on the specific camera.
 ***
 
 # Gamepad Functions
-> **Warning**: _Take this section of this page with a grain of salt because I'm not sure if this is how you use this function. And its barley use in scripts, so please help me._
+> **Warning**: _Take this section with a grain of salt because I'm not sure if this is how you use these functions since they are barely used in scripts, so please help me._
 
 [Click here to see the list of ID controls](https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html)
 

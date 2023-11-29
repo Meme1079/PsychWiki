@@ -28,10 +28,38 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 </p>
 </details>
 
+<details><summary><b>Pre-imported Libraries:</b></summary>
+<p>
+
+```haxe
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxCamera;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxColor;
+import states.PlayState;
+import backend.Paths;
+import backend.Conductor;
+import backend.ClientPrefs;
+import objects.Character;
+import objects.Alphabet;
+import objects.Note;
+import psychlua.CustomSubstate;
+import backend.BaseStage.Countdown;
+import flixel.addons.display.FlxRuntimeShader;
+import openfl.filters.ShaderFilter;
+import StringTools;
+```
+
+</p>
+</details>
+
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
 <ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
-- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
+- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for multiline strings.
 - `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
 - `funcToRun` - An optional parameter, The Haxe function name to be referenced.
 - `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
