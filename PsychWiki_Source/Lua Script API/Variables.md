@@ -270,6 +270,8 @@
 - `dadName` - `getProperty('dad.curCharacter')`
 - `gfName` - `getProperty('gf.curCharacter')`
 
+</p>
+</details>
 ***
 
 # Strum Receptor/Character Variables
