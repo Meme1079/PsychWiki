@@ -74,7 +74,7 @@ Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note str
 ### onCountdownTick(counter)
 Triggered at <ins>each countdown tick</ins>.
 
-- `counter` - The specified countdown tick; Goes from `0` to `3`.
+- `counter` - The specified countdown tick; Goes from `0` to `4`.
 
 Example:
 ```lua
