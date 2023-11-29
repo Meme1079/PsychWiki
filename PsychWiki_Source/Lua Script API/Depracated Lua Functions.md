@@ -1,4 +1,4 @@
-> **Warning**: _The functions featured here are depracated meaning they are not recommended by use and outdated. Either becuase of name or parameter changes. This page of this wiki is to inform people to not use these functions and use the new ones._
+> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either becuase of name or parameter changes. This page of this wiki is to inform people to not use these functions and use the new ones._
 
 # Object Functions
 ### luaSpriteMakeGraphic(tag:String, width:Int, height:Int, color:String)
