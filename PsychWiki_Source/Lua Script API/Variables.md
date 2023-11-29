@@ -103,6 +103,7 @@
 - `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
 - `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
 - `buildTarget` - Checks the current build target of Psych Engine; Returns: `windows`, `linux`, `mac`, `browser`, `android`, `unknown`.
+- `skipArrowStartTween` - Whether the arrow fade in at the start of the countdown will be skipped or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -120,6 +121,7 @@
 - `ratingName` - `getProperty('ratingName')`
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
+- `skipArrowStartTween` - `getProperty('skipArrowStartTween')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
