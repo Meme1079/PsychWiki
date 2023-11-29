@@ -59,7 +59,7 @@ import StringTools;
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
 <ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
-- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
+- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for multiline strings.
 - `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
 - `funcToRun` - An optional parameter, The Haxe function name to be referenced.
 - `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
