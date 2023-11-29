@@ -7,7 +7,7 @@ The `0.7.0` update of Psych Engine changed a lot of things about how the game wo
 ### Property Classes Setter/Getters
 - The `classVar` argument should have <ins>the class folder</ins> followed by the class name; Example: `backend.ClientPrefs`; `substates.GameOverSubstate`; `states.PlayState`.
 - If you are getting/setting from the ClientPrefs class, you must have `data.` before the variable name; Example:
-`data.VariableNameHere`.
+`data.variableNameHere`.
 
 Example:
 - Setters:
