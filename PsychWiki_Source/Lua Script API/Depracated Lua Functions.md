@@ -34,7 +34,7 @@ Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with
 - `name` - The name of the animation to be played.
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `indices` - The specified indices/frames of the animation; Example: `1, 2, 3`.
-- `framerate` - How many frames per second does the animation has; Defualt is: `24`.
+- `framerate` - How many frames per second does the animation have; Defualt is: `24`.
 
 ### luaSpritePlayAnimation(tag:String, name:String, forced:Bool = false)
 Deprecation of `playAnim()`; Plays an animation of the sprite object.
