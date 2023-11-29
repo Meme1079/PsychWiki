@@ -272,6 +272,7 @@
 
 </p>
 </details>
+
 ***
 
 # Strum Receptor/Character Variables
