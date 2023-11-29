@@ -40,7 +40,7 @@ Adds a <ins>new animation</ins> of the sprite object.
 - `name` - The specified name of the animation to use.
 - `frames` - The indices indicating what animation frames to play in what order; Example: `{1, 2, 3}`.
 - `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
-- `loop` - Whether will the animation will loop or just plays once; Default is `true`.
+- `loop` - Whether the animation will loop or not; Default is `true`.
 
 ### addAnimationByPrefix(obj:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true)
 Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use.
@@ -49,7 +49,7 @@ Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use
 - `name` - The specified name of the animation to use.
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
-- `loop` - Whether will the animation will loop or just plays once; Default is `true`.
+- `loop` - Whether the animation will loop or not; Default is `true`.
 
 ### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24, loop:Bool = false)
 > **Note**: _In versions below 0.7, you must use `addAnimationByIndicesLoop` if you want to loop your animation, as the sixth parameter here does not exist; <ins>All the parameters will be the same excluding the loop parameter</ins>._
@@ -61,6 +61,7 @@ Adds a <ins>new animation with the specified indices</ins> for the animation fra
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `frames` - The indices indicating what animation frames to play in what order; Example: `1, 2, 3`.
 - `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
+- `loop` - Whether the animation will loop or not; Default is `false`.
 
 ### addOffset(obj:String, anim:String, x:Float, y:Float)
 Adds a new offset value on each animation.
