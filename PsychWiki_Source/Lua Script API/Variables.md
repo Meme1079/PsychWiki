@@ -273,9 +273,29 @@
 </p>
 </details>
 
+- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
+- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
+- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
+- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
+- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
+- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+- `defaultBoyfriendX` - `getProperty('BF_X')`
+- `defaultBoyfriendY` - `getProperty('BF_Y')`
+- `defaultOpponentX` - `getProperty('DAD_X')`
+- `defaultOpponentY` -`getProperty('DAD_Y')`
+- `defaultGirlfriendX` - `getProperty('GF_X')`
+- `defaultGirlfriendY` - `getProperty('GF_Y')`
+
+</p>
+</details>
+
 ***
 
-# Strum Receptor/Character Variables
+# Strum Receptor Variables
 ### Player Strum Positions
 - `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `732`.
 - `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `844`.
@@ -322,27 +342,6 @@
 - `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
 - `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
 - `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
-
-</p>
-</details>
-
-### Character Default Positions
-- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
-- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
-- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
-- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
-- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
-- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
-
-<details><summary><b>All Shortcut to:</b></summary>
-<p>
-
-- `defaultBoyfriendX` - `getProperty('BF_X')`
-- `defaultBoyfriendY` - `getProperty('BF_Y')`
-- `defaultOpponentX` - `getProperty('DAD_X')`
-- `defaultOpponentY` -`getProperty('DAD_Y')`
-- `defaultGirlfriendX` - `getProperty('GF_X')`
-- `defaultGirlfriendY` - `getProperty('GF_Y')`
 
 </p>
 </details>
