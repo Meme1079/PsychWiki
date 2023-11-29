@@ -181,7 +181,7 @@ Gets the <ins>screen y position</ins> of the object; Returns a `float` number.
 - `variable` - The object tag name to be used.
 
 ### screenCenter(obj:String, pos:String = 'xy')
-Sets the object to screen `center` with the specified `x` or `y` position.
+Centers the object to either the `X` or `Y` position; Can also be both.
 
 - `obj` - The object tag name to be used.
 - `pos` - The position you want to set in; Can be either: `X`, `Y`, `XY`; Default is `XY`.
@@ -197,7 +197,7 @@ Changes the object's <ins>scroll factor</ins> as in changing how much the object
 - `scrollY` - The y value of the scroll to be set.
 
 ### setObjectCamera(obj:String, camera:String)
-Changes the object <ins>camera state</ins>.
+Changes the object's <ins>camera state</ins>.
 
-- `obj` - The object tag name to be used.
+- `obj` - The object's tag name to be used.
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
