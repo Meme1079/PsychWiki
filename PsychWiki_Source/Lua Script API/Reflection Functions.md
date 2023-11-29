@@ -70,11 +70,11 @@ Calls a function from other classes.
 - `args` - An optional parameter, The arguement(s) to be passed to the function.
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the specified class name.
+Creates an instance of an object from the class constructor (which is basically the new() arguments that you see, example: `new Character(x, y, json, isPlayer)`).
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class.
-- `args` - An optional parameter, The argument(s) to be passed to the function.
+- `args` - An optional parameter, The argument(s) to be passed to the class constructor.
 Example: `createInstance('tag', 'objects.Character', {0, 0, 'gf'})`; Will create a character.
 
 ### addInstance(objectName:String, ?inFront:Bool = false)
