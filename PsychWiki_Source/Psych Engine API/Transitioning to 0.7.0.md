@@ -5,12 +5,17 @@ The `0.7.0` update of Psych Engine changed a lot of things about how the game wo
 
 # Changes
 ### Property Classes Setter/Getters
-- The `classVar` arguments should have `backend.` followed by the class name; Example: `backend.ClientPrefs`.
+- The `classVar` argument should have <ins>the class folder</ins> followed by the class name; Example: `backend.ClientPrefs`; `substates.GameOverSubstate`; `states.PlayState`.
 - The `variable` arguments should have `data.` followed by the variable name; Example: `data.variableNameHere`.
+<ins>THIS ONLY APPLIES TO THE ClientPrefs CLASS</ins>.
 
 Example:
-- Setters: `setPropertyFromClass('backend.GameOverSubstate', 'data.loopSoundName', 'your_song_name')`
+- Setters:
+`setPropertyFromClass('backend.ClientPrefs', 'data.lowQuality', false)` `setPropertyFromClass('substates.GameOverSubstate', 'loopSoundName', 'your_song_name')`
+`setPropertyFromClass('states.PlayState', 'chartingMode',true)`
 - Getters: `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`
+`getPropertyFromClass('substates.GameOverSubstate', 'loopSoundName')`
+`getPropertyFromClass('states.PlayState', 'chartingMode')`
 
 ### camFollowPos
 This is removed in this update, instead use `camGame.scroll`; Example: `getProperty('camGame.scroll.x')`.
