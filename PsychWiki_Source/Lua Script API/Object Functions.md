@@ -190,7 +190,7 @@ Sets the object to screen `center` with the specified `x` or `y` position.
 
 # Other Functions
 ### setScrollFactor(obj:String, scrollX:Float, scrollY:Float)
-Changes the object's scroll factor as in changing how much the object will move when the camera moves.
+Changes the object's <ins>scroll factor</ins> as in changing how much the object will move when the camera moves.
 
 - `obj` - The object tag name to be used.
 - `scrollX` - The x value of the scroll to be set.
