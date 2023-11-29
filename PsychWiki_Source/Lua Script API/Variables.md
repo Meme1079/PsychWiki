@@ -13,31 +13,31 @@
 ***
 
 # Song & Week Variables
-- `curBpm` Checks the current BPM value of the song.
+- `curBpm` Returns the current BPM value of the song.
 - `bpm` - Returns the starting BPM value of the song.
-- `scrollSpeed` - Checks the scroll speed of the song.
-- `crochet` - Checks the interval between `curBeat` variable.
-- `stepCrochet` - Checks the interval between `curStep` variable.
+- `songSpeed` - Returns the current scroll speed of the song.
+- `crochet` - Returns the interval between `curBeat` variable.
+- `stepCrochet` - Returns the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
 - `songName` - Returns the current song name. (CASE SENSITIVE)
 - `songPath` - Returns the song's path.
 - `startedCountdown` - Checks if the countdown has already begun.
-- `curStage` - Checks the current stage of the song.
+- `curStage` - Returns the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
 - `difficulty` - Returns the current difficulty ID number.
 - `difficultyName` - Returns the current difficulty name. (CASE SENSITIVE)
 - `difficultyPath` - Returns the current difficulties path.
 - `weekRaw` - Returns the raw current week number.
 - `week` - Returns the current week name from the JSON file name.
-- `seenCutscene` - Checks if the cutscene is seen.
-- `hasVocals` - Checks if the song has vocals enable or not.
+- `seenCutscene` - Checks if the cutscene has been seen.
+- `hasVocals` - Checks if the song has vocals enabled or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `curBpm` - `getPropertyFromClass('backend.Conductor', 'bpm')`
 - `bpm` - `getPropertyFromClass('states.PlayState', 'SONG.bpm')` 
-- `scrollSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
+- `songSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('backend.Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('backend.Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('flixel.FlxG', 'sound.music.length')`
@@ -59,7 +59,7 @@
 
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
 - `bpm` - `getPropertyFromClass('PlayState', 'SONG.bpm')` 
-- `scrollSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
+- `songSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('FlxG', 'sound.music.length')`
@@ -104,6 +104,7 @@
 - `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
 - `buildTarget` - Checks the current build target of Psych Engine; Returns: `windows`, `linux`, `mac`, `browser`, `android`, `unknown`.
 - `skipArrowStartTween` - Whether the arrow fade in at the start of the countdown will be skipped or not.
+- `skipCountdown` - Exactly as it says; If set to `true`, countdown will be skipped.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -122,6 +123,7 @@
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
 - `skipArrowStartTween` - `getProperty('skipArrowStartTween')`
+- `skipCountdown` - `getProperty('skipCountdown')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
@@ -261,15 +263,21 @@
 ***
 
 # Character Variables
-- `boyfriendName` - Checks the current boyfriend character name.
-- `dadName` - Checks the current opponent character name.
-- `gfName` - Checks the current girlfriend character name.
-- `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
-- `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
-- `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
-- `defaultOpponentY` - The opponent's default y position, defined by the stages JSON file.
-- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stages JSON file.
-- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stages JSON file.
+- `boyfriendName` - Returns the current boyfriend character name.
+- `dadName` - Returns the current opponent character name.
+- `gfName` - Returns the current girlfriend character name.
+- `.cameraPosition[]` - Returns the character's camera `X` or `Y` position depending on the number inside the brackets, defined by the character JSON file; Example: `setProperty('boyfriend.cameraPosition[0]', 300)`.
+`setProperty('dad.cameraPosition[1]', 100)`
+`0` is the `X` value, `1` is the `Y` value.
+- `boyfriendCameraOffset` - The player's camera offset, defined by the stage's JSON file.
+- `opponentCameraOffset` - The opponent's camera offset, defined by the stage's JSON file.
+- `girlfriendCameraOffset` - The girlfriend's camera offset, defined by the stage's JSON file.
+- `defaultBoyfriendX` - The player's default x position, defined by the stage's JSON file.
+- `defaultBoyfriendY` - The player's default y position, defined by the stage's JSON file.
+- `defaultOpponentX` - The opponent's default x position, defined by the stage's JSON file.
+- `defaultOpponentY` - The opponent's default y position, defined by the stage's JSON file.
+- `defaultGirlfriendX` - The girlfriend's default x position, defined by the stage's JSON file.
+- `defaultGirlfriendY` - The girlfriend's default x position, defined by the stage's JSON file.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -277,6 +285,9 @@
 - `boyfriendName` - `getProperty('boyfriend.curCharacter')`
 - `dadName` - `getProperty('dad.curCharacter')`
 - `gfName` - `getProperty('gf.curCharacter')`
+- `boyfriendCameraOffset` - `getProperty('boyfriendCameraOffset')`
+- `opponentCameraOffset` - `getProperty('opponentCameraOffset')`
+- `girlfriendCameraOffset` - `getProperty('girlfriendCameraOffset')`
 - `defaultBoyfriendX` - `getProperty('BF_X')`
 - `defaultBoyfriendY` - `getProperty('BF_Y')`
 - `defaultOpponentX` - `getProperty('DAD_X')`
