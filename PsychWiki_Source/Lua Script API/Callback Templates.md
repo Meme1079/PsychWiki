@@ -42,7 +42,7 @@ Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of t
 Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`; Must be returning `Function_Continue`.
 
 ### onMoveCamera(focus)
-Triggered at the <ins>camera focusing</ins> either the `boyfriend` or `dad`.
+Triggered at the <ins>camera focusing</ins> either the `boyfriend` or `dad` or `gf`.
 
 - `focus` - Which character for the camera to focus on.
 
@@ -50,9 +50,11 @@ Example:
 ```lua
 function onMoveCamera(focus)
 	if focus == 'boyfriend' then
-		-- called when the camera focus on boyfriend
+		-- called when the camera focuses on boyfriend
 	elseif focus == 'dad' then
-		-- called when the camera focus on dad
+		-- called when the camera focuses on dad
+	elseif focus == 'gf' then
+		-- called when the camera focuses on gf
 	end
 end
 ```
@@ -77,8 +79,8 @@ Triggered at <ins>each countdown tick</ins>.
 Example:
 ```lua
 function onCountdownTick(counter)
-     local counterArry = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
-     debugPrint('Counter Num: '..counter..' | '..counterArry[counter + 1]) 
+     local counterArray = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
+     debugPrint('Counter Num: '..counter..' | '..counterArray[counter + 1]) 
 end
 ```
 
