@@ -119,8 +119,8 @@ Updates the specific note type hitboxes.
 - `hitByOpponent` - Whether the opponent can hit the note or not. **(Boolean)**
 - `hitsoundDisabled` - Whether the hitsound is disabled or not. **(Boolean)**
 - `hitsound` - The hitsound's sound to be used. **(String)**
-- `hitHealth` - The specified amount of hit health when hitting a note; Default value: `0.023`. **(Float)**
-- `missHealth` - The specified amount of miss health when missing/missinput a note; Default value: `0.0475`. **(Float)**
+- `hitHealth` - The specified amount of health gained when hitting a note; Default value: `0.023`. **(Float)**
+- `missHealth` - The specified amount of health taken when missing/missinput a note; Default value: `0.0475`. **(Float)**
 - `mustPress` - Checks if the note is on the player's side. **(Boolean)**
 - `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
 - `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
