@@ -6,13 +6,13 @@ The `0.7.0` update of Psych Engine changed a lot of things about how the game wo
 # Changes
 ### Property Classes Setter/Getters
 - The `classVar` argument should have <ins>the class folder</ins> followed by the class name; Example: `backend.ClientPrefs`; `substates.GameOverSubstate`; `states.PlayState`.
-- The `variable` arguments should have `data.` followed by the variable name; Example: `data.variableNameHere`.
-<ins>THIS ONLY APPLIES TO THE ClientPrefs CLASS</ins>.
+- If you are getting/setting from the ClientPrefs class, you must have `data.` before the variable name; Example:
+`data.VariableNameHere`.
 
 Example:
 - Setters:
 `setPropertyFromClass('backend.ClientPrefs', 'data.lowQuality', false)` `setPropertyFromClass('substates.GameOverSubstate', 'loopSoundName', 'your_song_name')`
-`setPropertyFromClass('states.PlayState', 'chartingMode',true)`
+`setPropertyFromClass('states.PlayState', 'chartingMode', true)`
 - Getters: `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`
 `getPropertyFromClass('substates.GameOverSubstate', 'loopSoundName')`
 `getPropertyFromClass('states.PlayState', 'chartingMode')`
