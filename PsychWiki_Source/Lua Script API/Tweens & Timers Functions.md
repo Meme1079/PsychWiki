@@ -2,7 +2,7 @@
 ### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
 Starts a tween in any value(s) to an object or note.
 
-- `tag` - The tag name for the tween function to reference; Unlike other tween functions, you MUST manually set the onComplete callback
+- `tag` - The tag name for the tween function to reference; Unlike other tween functions, you MUST manually set the onComplete callback.
 - `vars` - The object or note name for the tween function to reference.
 - `values` - The target value(s) for the tween function to end; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
@@ -82,7 +82,7 @@ Does a note tween in the <ins>receptors direction value</ins>.
 
 # Other Tween & Timer Functions
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
-Runs a timer, if finished the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
+Runs a timer; If finished, the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
 
 - `tag` - The timer tag name from the `onTimerCompleted()` function to be referenced.
 - `time` - The duration length of the timer to end; Default value: `1`.
