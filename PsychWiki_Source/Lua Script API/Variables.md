@@ -266,8 +266,11 @@
 - `boyfriendName` - Returns the current boyfriend character name.
 - `dadName` - Returns the current opponent character name.
 - `gfName` - Returns the current girlfriend character name.
-- `.cameraPosition[]` - Returns the character's camera `X` or `Y` position depending on the number inside the brackets, defined by the character JSON file; Example: `setProperty('boyfriend.cameraPosition[0]', 300)`.
-`setProperty('dad.cameraPosition[1]', 100)`
+- `.cameraPosition[]` - Returns the character's camera `X` or `Y` position depending on the number inside the brackets, defined by the character JSON file.
+Example:
+```lua setProperty('boyfriend.cameraPosition[0]', 300)
+setProperty('dad.cameraPosition[1]', 100)
+```
 `0` is the `X` value, `1` is the `Y` value.
 - `boyfriendCameraOffset` - The player's camera offset, defined by the stage's JSON file.
 - `opponentCameraOffset` - The opponent's camera offset, defined by the stage's JSON file.
