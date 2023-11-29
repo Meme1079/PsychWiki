@@ -287,10 +287,10 @@
 
 # Strum Receptor/Character Variables
 ### Player Strum Positions
-- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `1068`.
-- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `956`.
-- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `844`.
-- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `732`.
+- `defaultPlayerStrumX0` - The player's <ins>left arrow</ins> default x position value; Returns: `732`.
+- `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `844`.
+- `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `956`.
+- `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `1068`.
 - `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Returns: `50`.
 - `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Returns: `50`.
 - `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Returns: `50`.
@@ -312,10 +312,10 @@
 </details>
 
 ### Opponent Strum Positions
-- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Returns: `428`.
-- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `316`.
-- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `204`.
-- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `92`.
+- `defaultOpponentStrumX0` - The opponent's <ins>left arrow</ins> default x position value; Returns: `92`.
+- `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `204`.
+- `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `316`.
+- `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `428`.
 - `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Returns: `50`.
 - `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Returns: `50`.
 - `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Returns: `50`.
