@@ -4,8 +4,8 @@
 - `Function_StopLua` - Stops all Lua script currently executing.
 - `Function_StopHScript` - Stops all Haxe script currently executing.
 - `Function_StopAll` - Stops all scripts currently executing.
-- `Function_Stop` - Stops the game.
-- `Function_Continue` - Continues the game.
+- `Function_Stop` - Stops the function.
+- `Function_Continue` - Continues the function.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
