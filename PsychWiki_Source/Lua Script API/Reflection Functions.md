@@ -1,5 +1,3 @@
-> **Warning**: _WIP STILL RESEARCHING!!!!!!!_
-
 # Property Setters
 ### setProperty(variable:String, value:Dynamic, ?allowMaps:Bool = false)
 Sets the current <ins>property variable inside the Playstate</ins> with a new value.
@@ -78,7 +76,7 @@ Creates an instance of an object from the class constructor (which is basically 
 
 Example:
 ```lua
-createInstance('tag', objects.Character', {0, 0, 'gf'})
+createInstance('tag', 'objects.Character', {0, 0, 'gf'})
 ```
 Will create a character.
 
@@ -90,7 +88,7 @@ Adds the object from the specified tag name.
 
 Example: 
 ```lua
-addInstance('tag', true)`
+addInstance('tag', true)
 ```
 Adds the object.
 
@@ -100,14 +98,14 @@ Adds the object.
 ### removeFromGroup(obj:String, index:Int, ?dontDestroy:Bool = false)
 Removes a specific note type inside the game.
 
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
 
 ### updateHitboxFromGroup(group:String, index:Int)
 Updates the specific note type hitboxes.
 
-- `obj` - The name of the array/group member, Example `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 
 ***
@@ -120,7 +118,7 @@ Updates the specific note type hitboxes.
 - `.height` - The height size value of the object. **(Float)**
 - `.alpha` - The alpha/opacity value of the object; Goes from `0` to `1`. **(Float)**
 - `.angle` - The angle value of the object. **(Float)**
-- `.color` - The hex color of the object. **(String)**
+- `.color` - The hex color of the object. **(Int)** _(Must be a hexadecimal value)_
 - `.length` - The length value of an array. **(Array)**
 - `.visible` - Whether the object is visible or not. **(Boolean)**
 - `.stunned` - Will disable the idle animation and key pressing. **(Boolean)**

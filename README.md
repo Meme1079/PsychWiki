@@ -12,7 +12,7 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 - Added "Global Functions & Variables" to `Lua Coding Docs`
 - Added new variables from the "Variables" Page
 - Added the description of the `allowMaps` parameter in the "Reflection Functions"
-- Change the parametere for the `debugPrint()` function
+- Change the parameter for the `debugPrint()` function
 - Revamp & Reformatted "Metatables" Page
 - Revamp & Reformatted "Basics of Coding" Page
 - Revamp "Custom Sprites & Texts Functions" Page
@@ -29,7 +29,8 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 ***
 
 # Contributors:
-- [kingyomoma](https://github.com/kingyomoma) - for fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
+- [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
+- [kingyomoma](https://github.com/kingyomoma) - For fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
 
 ***
 

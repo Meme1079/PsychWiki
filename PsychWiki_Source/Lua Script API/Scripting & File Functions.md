@@ -197,7 +197,7 @@ Checks if the <ins>sound exists</ins> inside the game, returns `true` if it exis
 - `folder` - An optional parameter; The folder to create or load the save file in; Default value: `psychenginemods`.
 
 ### setDataFromSave(name:String, field:String, value:Dynamic)
-<ins>Initializes the creation</ins> of the save data variable field. Or sets the current save data variable with a new value.
+Sets the current save data variable with a new value. If the `field` save data doesn't exist it will <ins>initializes the creation</ins> of a save data variable field.
 
 - `name` - The save data name to be used.
 - `field` - The save data variable name to be given.
@@ -210,7 +210,7 @@ Gets the current save data variable current value.
 - `field` - The save data variable name to get.
 
 ### flushSaveData(name:String)
-<ins>Applies all the changes</ins> to the saved file and updates it with new values[^26].
+<ins>Applies all the changes</ins> to the saved file and updates it with new values.
 
 - `name` - The save data name to be used.
 

@@ -61,7 +61,7 @@ Adds a <ins>new animation with the specified indices</ins> for the animation fra
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `frames` - The indices indicating what animation frames to play in what order; Example: `1, 2, 3`.
 - `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
-- `loop` - Whether the animation will loop or not; Default is `false`.
+- `loop` - Whether the animation will loop or not; Default value: `false`.
 
 ### addOffset(obj:String, anim:String, x:Float, y:Float)
 Adds a new offset value on each animation.
