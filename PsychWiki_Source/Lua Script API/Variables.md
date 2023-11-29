@@ -326,7 +326,7 @@
 </p>
 </details>
 
-### Character Strum Positions
+### Character Default Positions
 - `defaultBoyfriendX` - The player's default x position, defined by the stages JSON file.
 - `defaultBoyfriendY` - The player's default y position, defined by the stages JSON file.
 - `defaultOpponentX` - The opponent's default x position, defined by the stages JSON file.
