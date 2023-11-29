@@ -51,8 +51,8 @@ Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use
 - `framerate` - The speed in frames per second that the animation should play at; Default is: `24`.
 - `loop` - Whether will the animation will loop or just plays once; Default is `true`.
 
-### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. If you want the looped version of this function use `addAnimationByIndicesLoop()`; <ins>all parameters and its use are the same</ins>.
+### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24, loop:Bool = false)
+Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. In versions below 0.7, you must use `addAnimationByIndicesLoop` if you want to loop your animation, as the sixth parameter here does not exist; All the parameters will be the same excluding the loop parameter.
 
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
@@ -130,7 +130,7 @@ Sets the object <ins>graphic size by pixels</ins>; Not to be confused with `scal
 - `obj` - The object tag name to be used.
 - `x` - The width value of the object to be set.
 - `y` - The height value of the object to be set.
-- `updateHitbox` - Whether it will update the object's dimension or hitbox; Defualt is `true`.
+- `updateHitbox` - Whether it will update the object's dimension or hitbox; Default is `true`.
 
 ### scaleObject(obj:String, x:Float, y:Float, updateHitbox:Bool = true)
 Sets the object <ins>size by scale properties</ins>.
@@ -138,7 +138,7 @@ Sets the object <ins>size by scale properties</ins>.
 - `obj` - The object tag name to be used.
 - `x` - The `scale.x` value of the object to be set.
 - `y` - The `scale.y` value of the object to be set.
-- `updateHitbox` - Whether it will update the object's dimension or hitbox; Defualt is `true`.
+- `updateHitbox` - Whether it will update the object's dimension or hitbox; Default is `true`.
 
 ### updateHitbox(obj:String)
 Updates the object's <ins>dimension or hitboxes</ins>. Used this if you're changing scale of the object. 
@@ -184,7 +184,7 @@ Gets the <ins>screen y position</ins> of the object; Returns a `float` number.
 Sets the object to screen `center` with the specified `x` or `y` position.
 
 - `obj` - The object tag name to be used.
-- `pos` - The position you want to set in; Can be either: `X`, `Y`, `XY`.
+- `pos` - The position you want to set in; Can be either: `X`, `Y`, `XY`; Default is `XY`.
 
 ***
 
