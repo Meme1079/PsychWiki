@@ -19,13 +19,13 @@
 - `crochet` - Checks the interval between `curBeat` variable.
 - `stepCrochet` - Checks the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
-- `songName` - Returns the current song name.
+- `songName` - Returns the current song name. (CASE SENSITIVE)
 - `songPath` - Returns the song's path.
 - `startedCountdown` - Checks if the countdown has already begun.
 - `curStage` - Checks the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
 - `difficulty` - Returns the current difficulty ID number.
-- `difficultyName` - Returns the current difficulty name.
+- `difficultyName` - Returns the current difficulty name. (CASE SENSITIVE)
 - `difficultyPath` - Returns the current difficulties path.
 - `weekRaw` - Returns the raw current week number.
 - `week` - Returns the current week name from the JSON file name.
@@ -45,7 +45,7 @@
 - `songPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
 - `startedCountdown` - `getProperty('startedCountdown')`
 - `curStage` - `getPropertyFromClass('states.Playstate', 'curStage')`
-- `isStroyMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
+- `isStoryMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
 - `difficulty` - `getPropertyFromClass('states.Playstate', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('backend.Difficulty', 'getString()')`
 - `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
@@ -67,7 +67,7 @@
 - `songPath` - `getPropertyFromClass('Paths', 'formatToSongPath('..songName..')')`
 - `startedCountdown` - `getProperty('startedCountdown')`
 - `curStage` - `getPropertyFromClass('Playstate', 'curStage')`
-- `isStroyMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
+- `isStoryMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
 - `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
 - `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
@@ -200,7 +200,7 @@
 - `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
 - `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
 
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
 - `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
@@ -242,7 +242,7 @@
 - `cameraX` - `getProperty('camGame.scroll.x') - (screenWidth / 2)`
 - `cameraY` - `getProperty('camGame.scroll.y') - (screenHeight / 2)`
 
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
 - `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
@@ -258,7 +258,7 @@
 
 ***
 
-# Character Veriables
+# Character Variables
 - `boyfriendName` - Checks the current boyfriend character name.
 - `dadName` - Checks the current opponent character name.
 - `gfName` - Checks the current girlfriend character name.
@@ -266,22 +266,9 @@
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `boyfriendName` - `getPropertyFromClass('states.PlayState', 'SONG.player1')`
-- `dadName` - `getPropertyFromClass('states.PlayState', 'SONG.player2')`
-- `gfName` - `getPropertyFromClass('states.PlayState', 'SONG.gfVersion')`
-
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
-<p>
-
-- `boyfriendName` - `getPropertyFromClass('PlayState', 'SONG.player1')`
-- `dadName` - `getPropertyFromClass('PlayState', 'SONG.player2')`
-- `gfName` - `getPropertyFromClass('PlayState', 'SONG.gfVersion')`
-
-</p>
-</details>
-
-</p>
-</details>
+- `boyfriendName` - `getProperty('boyfriend.curCharacter')`
+- `dadName` - `getProperty('dad.curCharacter')`
+- `gfName` - `getProperty('gf.curCharacter')`
 
 ***
 
