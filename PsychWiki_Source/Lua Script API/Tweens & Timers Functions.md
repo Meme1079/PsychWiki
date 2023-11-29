@@ -14,12 +14,12 @@ Starts a tween in any value(s) to an object or note.
 - `type` - Determines the type of tween animation to use, it can choose one of these.
      - `ONESHOT` - Will stop and removes itself from the core container, when finished.
      - `PERSIST` - Will stop, when finished but unlike `ONESHOT`. It will always stay attached from the core container, when finished.
-     - `LOOPING` - As the name suggests, will restart when it's finish playing the tween.
+     - `LOOPING` - As the name suggests, will restart when it's finished playing the tween.
      - `PINGPONG` - Plays a "hither and thither" tween animation. It's like `LOOPING` but every second execution is in reverse direction.
      - `BACKWARD` - Plays the tween animation in the reverse direction, duh.
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
-- `startDeley` - How many durations to wait before starting to play the tween, in seconds.
-- `loopDeley` - How many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
+- `startDelay` - How many durations to wait before starting to play the tween, in seconds.
+- `loopDelay` - How many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
 - `onUpdate` - What function to update in each frame for the tween to use.
 - `onStart` - What function to execute at the beginning of the song for the tween to use.
 - `onComplete` - What function to execute when the tween finishes playing.
