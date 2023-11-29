@@ -28,6 +28,34 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 </p>
 </details>
 
+<details><summary><b>Pre-imported Libraries:</b></summary>
+<p>
+
+```haxe
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxCamera;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxColor;
+import states.PlayState;
+import backend.Paths;
+import backend.Conductor;
+import backend.ClientPrefs;
+import objects.Character;
+import objects.Alphabet;
+import objects.Note;
+import psychlua.CustomSubstate;
+import backend.BaseStage.Countdown;
+import flixel.addons.display.FlxRuntimeShader;
+import openfl.filters.ShaderFilter;
+import StringTools;
+```
+
+</p>
+</details>
+
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
 <ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
