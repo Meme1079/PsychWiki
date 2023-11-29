@@ -268,7 +268,8 @@
 - `gfName` - Returns the current girlfriend character name.
 - `.cameraPosition[]` - Returns the character's camera `X` or `Y` position depending on the number inside the brackets, defined by the character JSON file.
 Example:
-```lua setProperty('boyfriend.cameraPosition[0]', 300)
+```lua
+setProperty('boyfriend.cameraPosition[0]', 300)
 setProperty('dad.cameraPosition[1]', 100)
 ```
 `0` is the `X` value, `1` is the `Y` value.
