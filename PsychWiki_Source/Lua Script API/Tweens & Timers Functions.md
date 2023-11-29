@@ -6,7 +6,7 @@ Starts a tween in any value(s) to an object or note.
 - `vars` - The object or note name for the tween function to reference.
 - `values` - The target value(s) for the tween function to end; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
-- `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG'}`.
+- `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG', onComplete = 'onTweenCompleted'}`.
 
 <details><summary><b>Options Sub-Parameters:</b></summary>
 <p>
@@ -58,7 +58,7 @@ Does a tween on the camera's <ins>zoom value</ins>.
 
 ## Strum/Receptors
 ### noteTweenX(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween in the <ins>x position value</ins>.
+Does a tween on the strum's <ins>x position value</ins>.
 
 - `tag` - The tag name for the tween function to reference; Will be called to the `onTweenCompleted()` function after finishing.
 - `note` - The member ID of the note for the tween function to use, Opponent: `0,1,2,3` and Boyfriend: `4,5,6,7`.
@@ -67,16 +67,16 @@ Does a note tween in the <ins>x position value</ins>.
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
 
 ### noteTweenY(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween in the <ins>y position value</ins>.
+Does a tween on the strum's <ins>y position value</ins>.
 
 ### noteTweenAngle(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween in the <ins>angle value</ins>.
+Does a tween on the strum's <ins>angle value</ins>.
 
 ### noteTweenAlpha(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween in the <ins>alpha/opacity value</ins>.
+Does a tween on the strum's <ins>alpha/opacity value</ins>.
 
 ### noteTweenDirection(tag:String, note:Int, value:Dynamic, duration:Float, ease:String)
-Does a note tween in the <ins>receptors direction value</ins>.
+Does a tween on the strum's <ins>receptor direction value</ins>.
 
 ***
 
