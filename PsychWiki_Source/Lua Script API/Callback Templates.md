@@ -241,7 +241,7 @@ Triggered after the <ins>tween tag is finished</ins>.
 
 - `tag` - The timer tween to be used.
 
-### onSoundCompleted(tag)
+### onSoundFinished(tag)
 Triggered after the <ins>sound tag is finished</ins>.
 
 - `tag` - The timer sound to be used.
