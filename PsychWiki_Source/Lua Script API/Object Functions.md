@@ -52,7 +52,7 @@ Adds a <ins>new animation from the `xml` file</ins> for the sprite object to use
 - `loop` - Whether will the animation will loop or just plays once; Default is `true`.
 
 ### addAnimationByIndices(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24, loop:Bool = false)
-Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. In versions below 0.7, you must use `addAnimationByIndicesLoop` if you want to loop your animation, as the sixth parameter here does not exist; All the parameters will be the same excluding the loop parameter.
+Adds a <ins>new animation with the specified indices</ins> for the animation frames to play for the sprite object to use. In versions below 0.7, you must use `addAnimationByIndicesLoop` if you want to loop your animation, as the sixth parameter here does not exist; <ins>All the parameters will be the same excluding the loop parameter</ins>.
 
 - `obj` - The sprite object tag name to be used.
 - `name` - The specified name of the animation to use.
