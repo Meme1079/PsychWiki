@@ -91,7 +91,7 @@
 - `curDecStep` - The current decimal step per number.
 - `curDecBeat` - The current decimal beat per number.
 - `defaultCamZoom` - The camera's zoom; Will not zoom in/out if camZooming is disabled; And also not related to camZooming's camera.
-- `camZooming` - Whether the camera will zoom on beat or not; Activated when the opponent hits a note.
+- `camZooming` - Whether the camera will zoom on beat or not; Activated when the opponent hits a note; Will be disabled if the option `Camera Zooms` is disabled.
 - `camZoomingMult` - WIP
 - `camZoomingDecay` - How long it will take for camGame/camHUD to go back to its original zoom.
 - `score` - The current amount of score inside the song.
@@ -170,11 +170,11 @@
 ***
 
 # Client Preferences Variables
-- `downscroll` - Checks if downscroll is enable or not.
-- `middlescroll` - Checks if middlescroll is enable or not.
-- `framerate` - Checks the current framerate inside the 
-- `ghostTapping` - Checks if ghost tapping is enable or not.
-- `hideHud` - Checks if the score bar/health bar elements are hidden or not.
+- `downscroll` - Checks if downscroll is enabled or not.
+- `middlescroll` - Checks if middlescroll is enabled or not.
+- `framerate` - Returns the framerate chosen in the options menu.
+- `ghostTapping` - Checks if ghost tapping is enabled or not.
+- `hideHud` - Checks if the score bar/health bar elements will be hidden or not.
 - `timeBarType` - Checks the current time-bar display type.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
 - `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.
