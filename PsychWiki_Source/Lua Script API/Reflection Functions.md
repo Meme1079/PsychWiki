@@ -4,7 +4,7 @@ Sets one of <ins>PlayState's variable value</ins> to a new value.
 
 - `variable` - The variable inside PlayState to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
 Sets the current <ins>property variable inside a class</ins> with a new value. 
@@ -16,7 +16,7 @@ Sets the current <ins>property variable inside a class</ins> with a new value.
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false)
 Sets one of PlayState's current <ins>member property variable inside of an array/group</ins> with a new value.
@@ -25,7 +25,7 @@ Sets one of PlayState's current <ins>member property variable inside of an array
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ***
 
@@ -34,7 +34,7 @@ Sets one of PlayState's current <ins>member property variable inside of an array
 Gets one of <ins>PlayState's variable value</ins>.
 
 - `variable` - The variable inside PlayState to get.
-- `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
 Gets one of the <ins>variable value from a class</ins>.
@@ -45,7 +45,7 @@ Gets one of the <ins>variable value from a class</ins>.
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
-- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false)
 Gets one of PlayState's current <ins>member property variable inside of an array/group</ins> current value.
@@ -53,7 +53,7 @@ Gets one of PlayState's current <ins>member property variable inside of an array
 - `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
-- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ***
 
@@ -62,21 +62,21 @@ Gets one of PlayState's current <ins>member property variable inside of an array
 Calls a function from PlayState.
 
 - `funcToRun` - The function name from PlayState to be referenced.
-- `args` - An optional parameter, The argument(s) to be passed to the function.
+- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
 
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
 Calls a function from any class.
 
 - `className` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `funcToRun` - The function name from the classes to be referenced.
-- `args` - An optional parameter, The argument(s) to be passed to the function.
+- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the class constructor (which is basically the new() arguments that you see, example: `new Character(x, y, json, isPlayer)`).
+Creates an instance of an object from the class constructor (which is basically the new() arguments that you see; Example from the `Character` class: `new Character(x, y, json, isPlayer)`).
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class.
-- `args` - An optional parameter, The argument(s) to be passed to the class constructor.
+- `args` - An optional parameter, The argument(s) to be passed to the class constructor; Default value: `null` (no arguments).
 
 Example:
 ```lua
@@ -88,7 +88,7 @@ Will create a character.
 Adds the object from the specified tag name.
 
 - `objectName` - The object's tag name.
-- `inFront` - An optional parameter, Whether the object will be in front of the characters or not.
+- `inFront` - An optional parameter, Whether the object will be in front of the characters or not; Default value: `false`.
 
 Example: 
 ```lua
@@ -104,7 +104,7 @@ Removes an object from the group with its specified member ID
 
 - `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
-- `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
+- `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default value: `false`.
 
 ### updateHitboxFromGroup(group:String, index:Int)
 Updates the object's hitboxes with its specified member ID.
@@ -146,11 +146,11 @@ Updates the object's hitboxes with its specified member ID.
 - `hitsound` - The hitsound's sound to be used. **(String)**
 - `hitHealth` - The specified amount of health gained when hitting this note; Default value: `0.023`. **(Float)**
 - `missHealth` - The specified amount of health taken when missing/missinputting this note; Default value: `0.0475`. **(Float)**
-- `mustPress` - Checks if the note is on the player's side. **(Boolean)**
+- `mustPress` - Returns if the note is on the player's side. **(Boolean)**
 - `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
-- `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
-- `texture` - The texture of the note type. **(String)**
-- `noteType` - Returns the current note type. **(String)**
+- `isSustainNote` - Returns if the note is a sustain note. **(Boolean)**
+- `texture` - The texture of the note. **(String)**
+- `noteType` - Returns the specified note type. **(String)**
 - `gfNote` - Returns if GF is singing. **(Boolean)**
 - `noteWasHit` - Returns if the note was hit, duh. **(Boolean)**
 - `offsetX` - Offsets the note's `X` position; Does not require `copyX` to be turned off. **(Float)**
@@ -167,7 +167,11 @@ Updates the object's hitboxes with its specified member ID.
 Example on how to disable the shader:
 ```lua
 setPropertyFromGroup('unspawnNotes', i, 'rgbShader.enabled', false)
+-- Notes will now no longer have the RGB Shader and will use the spritesheet colors.
+
 setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
+-- Strums will now no longer have the RGB Shader and will use the spritesheet colors.
+
 ```
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to be used. **(String)**
