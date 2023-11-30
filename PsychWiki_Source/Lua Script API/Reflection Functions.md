@@ -72,7 +72,11 @@ Calls a function from any class.
 - `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the class constructor (which is basically the new() arguments that you see; Example from the `Character` class: `new Character(x, y, json, isPlayer)`).
+Creates an instance of an object from the class constructor (which is basically the new() arguments that you see).
+Example from the `Character` class:
+```haxe
+new Character(x, y, json, isPlayer);
+```
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class.
