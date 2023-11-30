@@ -157,10 +157,10 @@ Updates the object's hitboxes with its specified member ID.
 - `noteType` - Returns the specified note type. **(String)**
 - `gfNote` - Returns if GF is singing. **(Boolean)**
 - `noteWasHit` - Returns if the note was hit, duh. **(Boolean)**
-- `offsetX` - Offsets the note's `X` position; Does not require `copyX` to be turned off. **(Float)**
-- `offsetY` - Offsets the note's `Y` position; Does not require `copyY` to be turned off. **(Float)**
-- `offsetAngle` - Offsets the note's `angle` position; Does not require `copyAngle` to be turned off. **(Float)**
-- `multAlpha` - The `alpha` value of the note; Does not require `copyAlpha` to be turned off. **(Float)**
+- `offsetX` - Offsets the note's `X` position; Does <ins>not</ins> require `copyX` to be turned off. **(Float)**
+- `offsetY` - Offsets the note's `Y` position; Does <ins>not</ins> require `copyY` to be turned off. **(Float)**
+- `offsetAngle` - Offsets the note's `angle` position; Does <ins>not</ins> require `copyAngle` to be turned off. **(Float)**
+- `multAlpha` - The `alpha` value of the note; Does <ins>not</ins> require `copyAlpha` to be turned off. **(Float)**
 - `copyX` - Variable determining if the note will follow the strum's `X` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
 - `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
 - `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
