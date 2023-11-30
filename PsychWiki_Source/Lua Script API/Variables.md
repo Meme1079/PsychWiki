@@ -20,7 +20,7 @@
 - `stepCrochet` - Returns the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
 - `songName` - Returns the current song name. (CASE SENSITIVE)
-- `songPath` - Returns the song's path.
+- `songPath` - Returns the song's JSON path.
 - `startedCountdown` - Checks if the countdown has already begun.
 - `curStage` - Returns the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
@@ -90,6 +90,10 @@
 - `curSection` - The current section per number.
 - `curDecStep` - The current decimal step per number.
 - `curDecBeat` - The current decimal beat per number.
+- `defaultCamZoom` - The camera's zoom; Will not zoom in/out if camZooming is disabled; And also not related to camZooming's camera.
+- `camZooming` - Whether the camera will zoom on beat or not; Activated when the opponent hits a note.
+- `camZoomingMult` - WIP
+- `camZoomingDecay` - How long it will take for camGame/camHUD to go back to its original zoom.
 - `score` - The current amount of score inside the song.
 - `misses` - The current amount of note misses inside the song.
 - `hits` - The current amount of note hits inside the song.
@@ -114,6 +118,10 @@
 - `curSection` - `getProperty('curSection')`
 - `curDecStep` - `getProperty('curDecStep')`
 - `curDecBeat` - `getProperty('curDecBeat')`
+- `defaultCamZoom` - `getProperty('defaultCamZoom')`
+- `camZooming` - `getProperty('camZooming')`
+- `camZoomingMult` - `getProperty('camZoomingMult')`
+- `camZoomingDecay` - `getProperty('camZoomingDecay')`
 - `score` - `getProperty('songScore')`
 - `misses` - `getProperty('songMisses')`
 - `hits` - `getProperty('songHits')`
