@@ -61,7 +61,7 @@ Does a tween on the camera's <ins>zoom value</ins>.
 Does a tween on the strum's <ins>x position value</ins>.
 
 - `tag` - The tag name for the tween function to reference; Will be called to the `onTweenCompleted()` function after finishing.
-- `note` - The member ID of the strum for the tween function to use, Opponent: `0,1,2,3` and Boyfriend: `4,5,6,7`.
+- `note` - The member ID of the strum for the tween function to use; Opponent: `0,1,2,3`; Player: `4,5,6,7`.
 - `value` - The target x position value for the tween function to reference.
 - `duration` - The duration length for the tween function to end
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
