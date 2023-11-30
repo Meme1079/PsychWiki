@@ -132,10 +132,11 @@ Updates the specific note type hitboxes.
 - `.scrollFactor.x` - The scroll factor at the x value of the object. **(Float)**
 - `.scrollFactor.y` - The scroll factor at the y value of the object. **(Float)**
 
-## Group Properties
-- `noAnimation` - Disable any singing animation when hitting a note. **(Boolean)**
-- `noMissAnimation` - Disable any singing animation when missing/missinput a note. **(Boolean)**
+## Note Properties
+- `noAnimation` - Disables any singing animation when hitting a note. **(Boolean)**
+- `noMissAnimation` - Disables any singing animation when missing/missinput a note. **(Boolean)**
 - `hitCausesMiss` - Enables misses when hitting a note. **(Boolean)**
+- `blockHit` - Disables hits on this note; Only works on player, if you want to use on the opponent, use `ignoreNote`.**(Boolean)**
 - `hitByOpponent` - Whether the opponent can hit the note or not. **(Boolean)**
 - `hitsoundDisabled` - Whether the hitsound is disabled or not. **(Boolean)**
 - `hitsound` - The hitsound's sound to be used. **(String)**
@@ -144,13 +145,26 @@ Updates the specific note type hitboxes.
 - `mustPress` - Checks if the note is on the player's side. **(Boolean)**
 - `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
 - `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
-- `texture` - The note's texture to be used. **(String)**
+- `texture` - The texture of the note type. **(String)**
 - `noteType` - Checks the current note type. **(String)**
+- `gfNote` - Checks if GF is singing. **(Boolean)**
 - `noteWasHit` - Checks if the note was hit, duh. **(Boolean)**
-- `copyX` - Variable determining if the note will follow the strum's `X` position. **(Boolean)**
-- `copyY` - Variable determining if the note will follow the strum's `Y` position. **(Boolean)**
-- `copyAngle` - Variable determining if the note will follow the strum's `angle` value. **(Boolean)**
-- `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value. **(Boolean)**
+- `offsetX` - Offsets the note's `X` position; Does not require `copyX` to be turned off. **(Float)**
+- `offsetY` - Offsets the note's `Y` position; Does not require `copyY` to be turned off. **(Float)**
+- `offsetAngle` - Offsets the note's `angle` position; Does not require `copyAngle` to be turned off. **(Float)**
+- `multAlpha` - The `alpha` value of the note; Does not require `copyAlpha` to be turned off. **(Float)**
+- `copyX` - Variable determining if the note will follow the strum's `X` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
+- `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
+- `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
+- `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended you use the `multAlpha` variable instead of turning this off. **(Boolean)**
+- `rgbShader` - The RGB Shader that the notes are using. **(Boolean)**
+- `useRGBShader` - The RGB Shader that the strums are using. **(Boolean)**
+
+Example on how to disable the shader:
+```lua
+setPropertyFromGroup('unspawnNotes', i, 'rgbShader.enabled', false)
+setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
+```
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to be used. **(String)**
 - `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's default splash colors. **(Boolean)**
@@ -160,7 +174,7 @@ Updates the specific note type hitboxes.
 - `noteSplashData.b` - The note splashes blue value; Default value: `-1`. **(Int)**
 - `noteSplashData.a` - The note splashes alpha/opacity value; Default value: `0.6`. **(Float)**
 
-<details><summary><b>Deprecated Group Properties:</b></summary>
+<details><summary><b>Deprecated Note Properties:</b></summary>
 <p>
 
 - `noteSplashDisabled` - Whether the note splashes will be disabled or not. **(Boolean)**
@@ -172,7 +186,7 @@ Updates the specific note type hitboxes.
 </p>
 </details>
 
-## Group Objects
+## Note Group Objects
 - `notes` - Notes that are currently spawned.
 - `unspawnNotes` - Notes that are not currently spawned.
 - `eventNotes` - Self explanatory.
