@@ -1,25 +1,27 @@
 # Property Setters
 ### setProperty(variable:String, value:Dynamic, ?allowMaps:Bool = false)
-Sets the current <ins>property variable inside the Playstate</ins> with a new value.
+Sets one of <ins>PlayState's variable value</ins> to a new value.
 
-- `variable` - The variable inside the Playstate or object to be used.
+- `variable` - The variable inside PlayState to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value `false`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
-Sets the current <ins>property variable inside a class other than Playstate</ins> with a new value. 
+Sets the current <ins>property variable inside a class</ins> with a new value. 
 
-In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source).
+> **Note**: _In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+
+> **Note 2**: _If you are trying to set/get a static variable from PlayState, this is required since the normal set/getProperty uses PlayState.instance._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `variable` - The variable inside the Playstate or object to be used.
+- `variable` - The variable inside the class to be used.
 - `value` - The new value for the `variable` parameter to be set.
 - `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false)
-Sets the current <ins>property variable inside an array/group member inside the PlayState</ins> with a new value.
+Sets one of PlayState's current <ins>member property variable inside of an array/group</ins> with a new value.
 
-- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
 - `value` - The new value for the `variable` parameter to be set.
@@ -29,24 +31,26 @@ Sets the current <ins>property variable inside an array/group member inside the 
 
 # Property Getters
 ### getProperty(variable:String, ?allowMaps:Bool = false)
-Gets the current <ins>property variable inside the Playstate</ins> current value.
+Gets one of <ins>PlayState's variable value</ins>.
 
-- `variable` - The variable inside the Playstate or object to be used.
-- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
+- `variable` - The variable inside PlayState to get.
+- `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
-Gets the current <ins>property variable inside a class other than Playstate</ins> current value.
+Gets one of the <ins>variable value from a class</ins>.
 
-In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source).
+> **Note**: _In version `0.7.0` or above the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+
+> **Note 2**: _If you are trying to set/get a static variable from PlayState, this is required since the normal set/getProperty uses PlayState.instance._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the Playstate or object to be used.
 - `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false)
-Gets the current <ins>property variable inside an array/group member inside the PlayState</ins> current value.
+Gets one of PlayState's current <ins>member property variable inside of an array/group</ins> current value.
 
-- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
 - `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Defualt value `false`.
@@ -55,17 +59,17 @@ Gets the current <ins>property variable inside an array/group member inside the 
 
 # Property Methods & Instances
 ### callMethod(funcToRun:String, ?args:Array\<Dynamic\> = null)
-Calls a function from the Playstate class.
+Calls a function from PlayState.
 
-- `funcToRun` - An optional parameter, The function name from the Playstate to be referenced.
-- `args` - An optional parameter, The arguement(s) to be passed to the function.
+- `funcToRun` - The function name from PlayState to be referenced.
+- `args` - An optional parameter, The argument(s) to be passed to the function.
 
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
-Calls a function from other classes.
+Calls a function from any class.
 
 - `className` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `funcToRun` - An optional parameter, The function name from the classes to be referenced.
-- `args` - An optional parameter, The arguement(s) to be passed to the function.
+- `funcToRun` - The function name from the classes to be referenced.
+- `args` - An optional parameter, The argument(s) to be passed to the function.
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
 Creates an instance of an object from the class constructor (which is basically the new() arguments that you see, example: `new Character(x, y, json, isPlayer)`).
@@ -96,16 +100,16 @@ Adds the object.
 
 # Miscellaneous Properties
 ### removeFromGroup(obj:String, index:Int, ?dontDestroy:Bool = false)
-Removes a specific note type inside the game.
+Removes an object from the group with its specified member ID
 
 - `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default is `false`.
 
 ### updateHitboxFromGroup(group:String, index:Int)
-Updates the specific note type hitboxes.
+Updates the object's hitboxes with its specified member ID.
 
-- `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
+- `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 
 ***
@@ -133,22 +137,22 @@ Updates the specific note type hitboxes.
 - `.scrollFactor.y` - The scroll factor at the y value of the object. **(Float)**
 
 ## Note Properties
-- `noAnimation` - Disables any singing animation when hitting a note. **(Boolean)**
-- `noMissAnimation` - Disables any singing animation when missing/missinput a note. **(Boolean)**
-- `hitCausesMiss` - Enables misses when hitting a note. **(Boolean)**
-- `blockHit` - Disables hits on this note; Only works on player, if you want to use on the opponent, use `ignoreNote`.**(Boolean)**
+- `noAnimation` - Disables any singing animation when hitting this note. **(Boolean)**
+- `noMissAnimation` - Disables any singing animation when missing/missinputting this note. **(Boolean)**
+- `hitCausesMiss` - Causes misses when hitting this note. **(Boolean)**
+- `blockHit` - Disables hits on this note; Only works on player; Refer to `ignoreNote` for the opponent.**(Boolean)**
 - `hitByOpponent` - Whether the opponent can hit the note or not. **(Boolean)**
 - `hitsoundDisabled` - Whether the hitsound is disabled or not. **(Boolean)**
 - `hitsound` - The hitsound's sound to be used. **(String)**
-- `hitHealth` - The specified amount of health gained when hitting a note; Default value: `0.023`. **(Float)**
-- `missHealth` - The specified amount of health taken when missing/missinput a note; Default value: `0.0475`. **(Float)**
+- `hitHealth` - The specified amount of health gained when hitting this note; Default value: `0.023`. **(Float)**
+- `missHealth` - The specified amount of health taken when missing/missinputting this note; Default value: `0.0475`. **(Float)**
 - `mustPress` - Checks if the note is on the player's side. **(Boolean)**
 - `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
 - `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
 - `texture` - The texture of the note type. **(String)**
-- `noteType` - Checks the current note type. **(String)**
-- `gfNote` - Checks if GF is singing. **(Boolean)**
-- `noteWasHit` - Checks if the note was hit, duh. **(Boolean)**
+- `noteType` - Returns the current note type. **(String)**
+- `gfNote` - Returns if GF is singing. **(Boolean)**
+- `noteWasHit` - Returns if the note was hit, duh. **(Boolean)**
 - `offsetX` - Offsets the note's `X` position; Does not require `copyX` to be turned off. **(Float)**
 - `offsetY` - Offsets the note's `Y` position; Does not require `copyY` to be turned off. **(Float)**
 - `offsetAngle` - Offsets the note's `angle` position; Does not require `copyAngle` to be turned off. **(Float)**
