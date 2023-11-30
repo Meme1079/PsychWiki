@@ -65,7 +65,7 @@ Calls a function from PlayState.
 - `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
 
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
-Calls a function from any class.
+Calls a function from the specified class.
 
 - `className` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `funcToRun` - The function name from the classes to be referenced.
