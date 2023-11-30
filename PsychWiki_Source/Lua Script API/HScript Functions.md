@@ -91,39 +91,6 @@ function onCreate()
 end
 ```
 
-### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
-Creates a local function based on which lua script you applied it on.
-
-**WIP**
-
-- `name` - The name of the function.
-- `func` - The function code.
-- `funk` - An optional parameter, Which lua script to apply this callback on.
-
-### createGlobalCallback(name:String, func:Dynamic)
-Creates a global function across <ins>all lua scripts</ins>.
-
-- `name` - The name of the function.
-- `func` - The function code.
-
-Example:
-
-Script 1 (Haxe):
-```haxe
-function onCreate() {
-    createGlobalCallback('print', function(text:String) {
-        debugPrint(text);
-    });
-}
-```
-
-Script 2 (Lua):
-```lua
-function onCreatePost()
-    print('hello') -- will print 'hello'
-end
-```
-
 ***
 
 # Haxe Global Variable Functions
@@ -188,5 +155,38 @@ function onCreate()
           theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
           theLuaTag.angle   = 180;           // Sets the angle to '180'
      ]])
+end
+```
+
+### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
+Creates a local function based on which lua script you applied it on.
+
+**WIP**
+
+- `name` - The name of the function.
+- `func` - The function code.
+- `funk` - An optional parameter, Which lua script to apply this callback on.
+
+### createGlobalCallback(name:String, func:Dynamic)
+Creates a global function across <ins>all lua scripts</ins>.
+
+- `name` - The name of the function.
+- `func` - The function code.
+
+Example:
+
+Script 1 (Haxe):
+```haxe
+function onCreate() {
+    createGlobalCallback('print', function(text:String) {
+        debugPrint(text);
+    });
+}
+```
+
+Script 2 (Lua):
+```lua
+function onCreatePost()
+    print('hello') -- will print 'hello'
 end
 ```
