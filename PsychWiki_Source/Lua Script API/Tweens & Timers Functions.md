@@ -1,12 +1,17 @@
 # Tween Functions
 ### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
-Starts a tween in any value(s) to an object or note.
+Starts a tween in any value(s) to an object or note objects.
 
 - `tag` - The tag name for the tween function to reference; Unlike other tween functions, you MUST manually set the onComplete callback.
-- `vars` - The object or note name for the tween function to reference.
-- `values` - The target value(s) for the tween function to end; Example: `{angle = 360, alpha = 0}`.
+- `vars` - The object for the tween function to reference.
+- `values` - The object properties to tween; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
 - `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG', onComplete = 'onTweenCompleted'}`.
+
+It is also possible to tween PlayState's variables:
+```lua
+startTween('tag', 'this', {songLength = 215000, defaultCamZoom = 1.2, ['camGame.zoom'] = 1.2}, 1, {ease = 'linear', onComplete = 'onTweenCompleted'})
+```
 
 <details><summary><b>Options Sub-Parameters:</b></summary>
 <p>
