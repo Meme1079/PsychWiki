@@ -166,7 +166,7 @@ Creates a local function inside the script.
 
 - `name` - The name of the function.
 - `func` - The function code.
-- `funk` - >_Not known, refer to the note._
+- `funk` - > _Not known, refer to the note._
 
 Example:
 
