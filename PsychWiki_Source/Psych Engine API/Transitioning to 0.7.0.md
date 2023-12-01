@@ -21,7 +21,7 @@ Example:
 This is removed in this update, instead use `camGame.scroll`; Example: `getProperty('camGame.scroll.x')`.
 
 ### Note Colors
-In `0.7`, the note color system has been changed from a HUE/Brt/Sat system to an RGB system; But because of this, the spritesheet of the notes would now have to be colored in a specific way to correctly apply the RGB shader on it.
+The note color system has been changed from a HUE/Brt/Sat system to an RGB system; But because of this, the spritesheet of the notes would now have to be colored in a specific way to correctly apply the RGB shader on it.
 
 To disable for the notes:
 ```lua
