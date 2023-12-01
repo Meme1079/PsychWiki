@@ -98,7 +98,7 @@ Makes the <ins>camera focus</ins> on the target.
 Makes the <ins>camera shake</ins>.
 
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
-- `intensity` - How much intesity will the camera shake, recommended value is `0.05`.
+- `intensity` - How intense the camera will shake, recommended value is `0.05`.
 - `duration` - The duration length of the camera shake to end.
 
 ### cameraFlash(camera:String, color:String, duration:Float, forced:Bool)
@@ -107,7 +107,7 @@ Makes the <ins>camera flash</ins>.
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
 - `color` - The hex color of the flash.
 - `duration` - The duration length of the camera flash to end.
-- `forced` - If set to `true`, then the flash will be reset.
+- `forced` - If set to `true`, the flash will be restarted if there's already a flash currently happening.
 
 ### cameraFade(camera:String, color:String, duration:Float, forced:Bool)
 Makes the <ins>camera fade</ins>.
@@ -115,7 +115,7 @@ Makes the <ins>camera fade</ins>.
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
 - `color` - The hex color of the fade.
 - `duration` - The duration length of the camera fade to end.
-- `forced` - If set to `true`, then the fade will be reset.
+- `forced` - If set to `true`, the fade will be restarted if there's already a fade currently happening.
 
 ***
 
