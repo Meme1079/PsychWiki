@@ -20,6 +20,36 @@ Example:
 ### camFollowPos
 This is removed in this update, instead use `camGame.scroll`; Example: `getProperty('camGame.scroll.x')`.
 
+### Note Colors
+In `0.7`, the note color system has been changed from a HUE/Brt/Sat system to an RGB system; But because of this, the spritesheet of the notes would now have to be colored in a specific way to correctly apply the RGB shader on it.
+
+To disable for the notes:
+```lua
+function onCreatePost()
+    for i = 0, getProperty('unspawnNotes.length')-1 do
+        setPropertyFromGroup('unspawnNotes', i, 'rgbShader.enabled', false)
+    end
+end
+```
+
+To disable for the strums:
+```lua
+function onCreatePost()
+    for i = 0, 7 do
+        setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
+    end
+end
+```
+
+To disable for the note splashes:
+```lua
+function onCreatePost()
+    for i = 0, getProperty('unspawnNotes.length')-1 do
+        setPropertyFromGroup('unspawnNotes', i, 'noteSplashData.useRGBShader', false)
+    end
+end
+```
+
 ***
 
 # Version
