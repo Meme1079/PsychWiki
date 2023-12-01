@@ -182,6 +182,7 @@ end
 function onCreatePost()
     print('Hello') -- will print "Hello"
 end
+```
 
 ### createGlobalCallback(name:String, func:Dynamic)
 Creates a global function across <ins>all lua scripts</ins>.
