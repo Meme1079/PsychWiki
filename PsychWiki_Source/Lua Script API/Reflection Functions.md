@@ -126,7 +126,7 @@ Updates the object's hitboxes with its specified member ID.
 - `.height` - The height size value of the object. **(Float)**
 - `.alpha` - The alpha/opacity value of the object; Goes from `0` to `1`. **(Float)**
 - `.angle` - The angle value of the object. **(Float)**
-- `.angularVelocity` - How fast the object will spin in degrees per second. **(Float)**
+- `.angularVelocity` - How fast the object will spin in degrees per second; Note that if this is set, the object will automatically spin. **(Float)**
 - `.color` - The hex color of the object. **(Int)** _(Must be a hexadecimal value)_
 - `.length` - The length value of an array. **(Array)**
 - `.visible` - Whether the object is visible or not. **(Boolean)**
