@@ -1,4 +1,4 @@
-> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either because of name or parameter changes. This page of this wiki is to inform people to not use these functions and use the new ones._
+> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either because of name or parameter changes. This page of this wiki is to inform people to not use these functions and instead to use the new ones._
 
 # Object Functions
 ### luaSpriteMakeGraphic(tag:String, width:Int, height:Int, color:String)
@@ -28,7 +28,7 @@ Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with
 - `framerate` - How many frames per second does the animation have; Defualt is: `24`.
 
 ### addAnimationByIndicesLoop(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
-> **Note**: _This function is only deprecated on versions above 0.6.3._
+> **Note**: _This function is only deprecated on versions above `0.6.3`._
 
 Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object as a loop.
 
@@ -101,7 +101,7 @@ Deprecation of `getProperty()`; Gets the current <ins>property variable inside t
 
 # Sound & Music Functions
 ### musicFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1)
-Deprecation of `musicFadeIn()`; Makes the sound <ins>fade-in at the start</ins> when of the sound.
+Deprecation of `soundFadeIn()`; Makes the sound <ins>fade-in at the start</ins> when of the sound.
 
 - `tag` - The sound object tag name to be used. If you want to fade the music leave the `tag` parameter blank, not a `nil` value. This will work on fade and volume/time functions.
 - `duration` - The duration length of the sound to fade-in, from `fromValue` and `toValue`.
@@ -109,7 +109,7 @@ Deprecation of `musicFadeIn()`; Makes the sound <ins>fade-in at the start</ins> 
 - `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Defualt value: `1`.
 
 ### musicFadeOut(tag:String, duration:Float, toValue:Float = 0)
-Deprecation of `musicFadeOut()`; Makes the sound <ins>fade-out at the end</ins> of the sound.
+Deprecation of `soundFadeOut()`; Makes the sound <ins>fade-out at the end</ins> of the sound.
 
 - `tag` - The sound object tag name to be used.
 - `duration` - The duration length of the sound to fade-out, from `toValue`.
