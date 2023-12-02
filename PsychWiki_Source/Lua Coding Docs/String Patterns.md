@@ -180,12 +180,35 @@ end
 ```
 Negated set tries NOT to match each individual character inside the given set; nothing else to say honestly.
 
-### Miscellaneous
-
-- `.`
-- `%`
-- `%n`
-- `%bxy`
-- `%f[set]`
-
 ### Captures
+Captures are a pattern that can have sub-patterns contained in parenthesis <kbd>()</kbd>. If a match is successful, the substrings of the subject string that the match catches are saved for later use. In the `gsub()` function, for example, the character set `%n` is used to format a string.
+
+Example:
+```lua
+local support = 'I love the "RGB" Community!'
+function onCreate()
+     debugPrint((support):match('"(RGB)"')) -- will print > 'RGB'
+     debugPrint((support):match('"RGB"'))   -- will print > '"RGB"'
+end
+```
+
+### Miscellaneous
+| Characters | Descriptions                                                            |
+|:-----------|-------------------------------------------------------------------------|
+| `%`        | An escape character for the given character sets and even itself.       |
+| `%n`       | The captured matched substring can only go between `1` to `9` captures. |
+
+Examples:
+```lua
+function onCreate()
+     debugPrint(('100%'):match('%d+%%'))                      --> 100%
+     debugPrint(('1 + -4 = ???'):match('%d %+ %-4 = %?%?%?')) --> 1 + -4 = ???
+end
+```
+```lua
+function onCreate()
+     local pattern = '&(%d+); &(%d+); &(%d+);'
+     local output  = 'Chars: %1, %2, %3'
+     debugPrint(('&41; &93; &23;'):gsub(pattern, output)) --> Chars: 41, 93, 23
+end
+```
