@@ -165,8 +165,8 @@ Updates the object's hitboxes with its specified member ID.
 - `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
 - `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
 - `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended you use the `multAlpha` variable instead of turning this off. **(Boolean)**
-- `rgbShader` - The RGB Shader that the notes are using. **(Boolean)**
-- `useRGBShader` - The RGB Shader that the strums are using. **(Boolean)**
+- `rgbShader` - The RGB Shader that the strums and notes are using. **(RGBShaderReference)**
+- `useRGBShader` - Variable determining if strums should use the RGB shader; This will fully turn it off. **(Boolean)**
 
 Example on how to disable the shader:
 ```lua
