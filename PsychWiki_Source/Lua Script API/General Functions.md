@@ -241,4 +241,9 @@ Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&
 - `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
 
 ### getSongPosition()
-Returns the current song position in milliseconds; Shortcut to `getPropertyClass('Conductor', 'songPosition')`.
+Returns the current song position in milliseconds.
+
+Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
+
+Deprecated Original Shortcut to:
+`getPropertyFromClass('Conductor', 'songPosition')`.
