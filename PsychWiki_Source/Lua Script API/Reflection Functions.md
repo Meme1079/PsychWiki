@@ -126,6 +126,7 @@ Updates the object's hitboxes with its specified member ID.
 - `.height` - The height size value of the object. **(Float)**
 - `.alpha` - The alpha/opacity value of the object; Goes from `0` to `1`. **(Float)**
 - `.angle` - The angle value of the object. **(Float)**
+- `.angularVelocity` - How fast the object will spin in degrees per second. **(Float)**
 - `.color` - The hex color of the object. **(Int)** _(Must be a hexadecimal value)_
 - `.length` - The length value of an array. **(Array)**
 - `.visible` - Whether the object is visible or not. **(Boolean)**
@@ -137,6 +138,8 @@ Updates the object's hitboxes with its specified member ID.
 - `.scale.y` - The scale at the y axis value of an object, The hitbox is not automatically updated. **(Float)**
 - `.offset.x` - The x offset value of the object. **(Float)**
 - `.offset.y` - The y offset value of the object. **(Float)**
+- `.origin.x` - The x origin value of the object. **(Float)**
+- `.origin.y` - The y origin value of the object. **(Float)**
 - `.scrollFactor.x` - The scroll factor at the x value of the object. **(Float)**
 - `.scrollFactor.y` - The scroll factor at the y value of the object. **(Float)**
 
@@ -175,6 +178,7 @@ setPropertyFromGroup('unspawnNotes', i, 'rgbShader.enabled', false)
 
 setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
 -- Strums will now no longer have the RGB Shader and will use the spritesheet colors.
+-- Note that doing rgbShader.enabled on strums won't work as they get turned off and on everytime the strums play an animation.
 
 ```
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
