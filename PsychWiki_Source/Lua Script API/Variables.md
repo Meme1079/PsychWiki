@@ -51,10 +51,10 @@
 - `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
 - `weekRaw` - `getPropertyFromClass('states.Playstate', 'storyWeek')`
 - `week` - `getPropertyFromClass('backend.WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
+- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'seenCutscene')`
 - `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
-<details><summary><b>Deprecated Original Shorcuts:</b></summary>
+<details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
@@ -73,7 +73,7 @@
 - `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
 - `weekRaw` - `getPropertyFromClass('Playstate', 'storyWeek')`
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('PlayState', 'bpm')`
+- `seenCutscene` - `getPropertyFromClass('PlayState', 'seenCutscene')`
 - `hasVocals` - `getPropertyFromClass('PlayState', 'SONG.needsVoices')`
 
 </p>
@@ -92,7 +92,7 @@
 - `curDecBeat` - The current decimal beat per number.
 - `defaultCamZoom` - The camera's zoom; Will not zoom in/out if camZooming is disabled; And also not related to camZooming's camera.
 - `camZooming` - Whether the camera will zoom on beat or not; Activated when the opponent hits a note; Will be disabled if the option `Camera Zooms` is disabled.
-- `camZoomingMult` - WIP
+- `camZoomingMult` - How much the camera will zoom in.
 - `camZoomingDecay` - How long it will take for camGame/camHUD to go back to its original zoom.
 - `score` - The current amount of score inside the song.
 - `misses` - The current amount of note misses inside the song.
