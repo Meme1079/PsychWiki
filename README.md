@@ -5,19 +5,17 @@
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-# Current Update [13.1.0 Version]
-- Added the new `onEventPushed()` callback function, that's it.
-
-# Previous Update [13.0.0 Version]
-- Added "Global Functions & Variables" to `Lua Coding Docs`
-- Added new variables from the "Variables" Page
-- Added the description of the `allowMaps` parameter in the "Reflection Functions"
-- Change the parametere for the `debugPrint()` function
-- Revamp & Reformatted "Metatables" Page
-- Revamp & Reformatted "Basics of Coding" Page
-- Revamp "Custom Sprites & Texts Functions" Page
-- Revamp "Tweens & Timer Functions" Page
+### Current Update [14.0.0 Version]
+- Added some additional context on descriptions
+- Added descriptions to `createInstance()` and `addInstance()` functions
+- Added new names for some function & variable for newer versions
+- Added Pre-imported Libraries for references in "HScript Functions" Page
+- Added missing variables and functions
+- Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
 - Fix spelling/grammar errors.
+
+# Previous Update [13.1.0 Version]
+- Added the new `onEventPushed()` callback function, that's it.
 
 ***
 
@@ -29,7 +27,8 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 ***
 
 # Contributors:
-- [kingyomoma](https://github.com/kingyomoma) - for fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
+- [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
+- [kingyomoma](https://github.com/kingyomoma) - For fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
 
 ***
 

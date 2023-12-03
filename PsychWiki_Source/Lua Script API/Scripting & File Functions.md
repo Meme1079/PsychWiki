@@ -8,7 +8,7 @@ Adds a <ins>Lua script</ins> into the game.
 ### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a <ins>Haxe script</ins> into the game.
 
-- `luaFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
+- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
 
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
@@ -86,7 +86,7 @@ Calls a <ins>Lua function</ins> from another currently executing Lua script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -114,7 +114,7 @@ Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -124,7 +124,7 @@ Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe s
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - _(IDK what this argument does???)_
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -197,7 +197,7 @@ Checks if the <ins>sound exists</ins> inside the game, returns `true` if it exis
 - `folder` - An optional parameter; The folder to create or load the save file in; Default value: `psychenginemods`.
 
 ### setDataFromSave(name:String, field:String, value:Dynamic)
-<ins>Initializes the creation</ins> of the save data variable field. Or sets the current save data variable with a new value.
+Sets the current save data variable with a new value. If the `field` save data doesn't exist it will <ins>initializes the creation</ins> of a save data variable field.
 
 - `name` - The save data name to be used.
 - `field` - The save data variable name to be given.
@@ -210,7 +210,7 @@ Gets the current save data variable current value.
 - `field` - The save data variable name to get.
 
 ### flushSaveData(name:String)
-<ins>Applies all the changes</ins> to the saved file and updates it with new values[^26].
+<ins>Applies all the changes</ins> to the saved file and updates it with new values.
 
 - `name` - The save data name to be used.
 

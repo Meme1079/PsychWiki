@@ -28,10 +28,38 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 </p>
 </details>
 
+<details><summary><b>Pre-imported Libraries:</b></summary>
+<p>
+
+```haxe
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxCamera;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxColor;
+import states.PlayState;
+import backend.Paths;
+import backend.Conductor;
+import backend.ClientPrefs;
+import objects.Character;
+import objects.Alphabet;
+import objects.Note;
+import psychlua.CustomSubstate;
+import backend.BaseStage.Countdown;
+import flixel.addons.display.FlxRuntimeShader;
+import openfl.filters.ShaderFilter;
+import StringTools;
+```
+
+</p>
+</details>
+
 ### runHaxeCode(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array\<Dynamic\> = null)
 <ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
-- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for the string.
+- `codeToRun` - The haxe code to be run, use double brackets `[[]]` for multiline strings.
 - `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
 - `funcToRun` - An optional parameter, The Haxe function name to be referenced.
 - `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
@@ -127,5 +155,54 @@ function onCreate()
           theLuaTag.alpha   = 0.5;           // Sets the opacity to '0.5'
           theLuaTag.angle   = 180;           // Sets the angle to '180'
      ]])
+end
+```
+
+### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
+> **Note from LarryFrosty**: _The only way I could get this function working was if I used it in a lua script along with runHaxeCode. Third argument returns null every single time. If there's any info about this function, I'd love to hear it._
+
+Creates a local function inside the script.
+
+- `name` - The given name of the callback function.
+- `func` - The function code to use.
+- `funk` - _Not known, refer to the note._
+
+Example:
+
+```lua
+function onCreate()
+    runHaxeCode([[
+        createCallback('print', function(text:String) {
+            debugPrint(text);
+        });
+    ]])
+end
+
+function onCreatePost()
+    print('Hello') -- will print "Hello"
+end
+```
+
+### createGlobalCallback(name:String, func:Dynamic)
+Creates a global function across <ins>all lua scripts</ins>.
+
+- `name` - The given name of the global callback function.
+- `func` - The function code to use.
+
+Example:
+
+Script 1 (Haxe):
+```haxe
+function onCreate() {
+    createGlobalCallback('print', function(text:String) {
+        debugPrint(text);
+    });
+}
+```
+
+Script 2 (Lua):
+```lua
+function onCreatePost()
+    print('Hello') -- will print "Hello"
 end
 ```

@@ -1,3 +1,15 @@
+### 14.0.0 Version
+- Added some additional context on descriptions
+- Added descriptions to `createInstance()` and `addInstance()` functions
+- Added new names for some function & variable for newer versions
+- Added Pre-imported Libraries for references in "HScript Functions" Page
+- Added missing variables and functions
+- Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
+- Fix spelling/grammar errors.
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
+
 ### 13.1.0 Version
 - Added the new `onEventPushed()` callback function, that's it.
 

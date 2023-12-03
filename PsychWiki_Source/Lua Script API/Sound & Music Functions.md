@@ -4,7 +4,7 @@ Plays a <ins>sound</ins> inside the game. If the sound is finished the `tag` par
 
 - `sound` - The `ogg` sound file to be played; Must be relative to `mods/sounds` or `assets/sounds` folders.
 - `volume` - An optional parameter, The specified volume percent of the sound; Goes from `0` to `1`; Defualt value: `1`.
-- `tag` - An optional parameter, The sound object tag name to be used.
+- `tag` - An optional parameter, The sound object tag name to be used. This will be required if you want to control the sound.
 
 ### playMusic(sound:String, volume:Float = 1, loop:Bool = false)
 Plays a <ins>music</ins> inside the game.
