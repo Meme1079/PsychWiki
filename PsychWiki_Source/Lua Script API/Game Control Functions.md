@@ -25,12 +25,12 @@ Gets the control keys that were <ins>recently pressed</ins> on the current game.
 - `name` - The name of the key to be used.
 
 ### keyPressed(name:String)
-Gets the control keys were <ins>currently pressed</ins> on the current game.
+Gets the control keys that are <ins>currently pressed</ins> on the current game.
 
 - `name` - The name of the key to be used.
 
 ### keyReleased(name:String)
-Gets the control keys were <ins>recently released</ins> on the current game.
+Gets the control keys that were <ins>recently released</ins> on the current game.
 
 - `name` - The name of the key to be used.
 
@@ -40,7 +40,7 @@ Gets the keyboard keys that were <ins>recently pressed</ins> on the current game
 - `name` - The name of the keys on the keyboard.
 
 ### keyboardPressed(name:String)
-Gets the keyboard keys that were <ins>currently pressed</ins> on the current game.
+Gets the keyboard keys that are <ins>currently pressed</ins> on the current game.
 
 - `name` - The name of the keys on the keyboard.
 
@@ -60,7 +60,7 @@ Gets the mouse buttons that were <ins>recently pressed</ins> on the current fram
 - `name` The name of the mouse buttons; Defualt value: `left`.
 
 ### mousePressed(name:String)
-Gets the mouse buttons that were <ins>currently pressed</ins> on the current frame.
+Gets the mouse buttons that are <ins>currently pressed</ins> on the current frame.
 
 - `name` The name of the mouse buttons; Defualt value: `left`.
 
@@ -95,7 +95,7 @@ Gets the gamepad buttons that were <ins>recently pressed</ins> on the current fr
 - `name` - The name of the gamepad controls.
 
 ### gamepadPressed(id:Int, name:String)
-Gets the gamepad buttons that were <ins>currently pressed</ins> on the current frame.
+Gets the gamepad buttons that are <ins>currently pressed</ins> on the current frame.
 
 - `id` - The ID controls of the gamepad.
 - `name` - The name of the gamepad controls.
@@ -112,7 +112,7 @@ Gets <ins>any gamepad</ins> buttons that were <ins>recently pressed</ins> on the
 - `name` - The name of the controls of any gamepad.
 
 ### anyGamepadPressed(name:String)
-Gets <ins>any gamepad</ins> buttons that were <ins>currently pressed</ins> on the current frame.
+Gets <ins>any gamepad</ins> buttons that are <ins>currently pressed</ins> on the current frame.
 
 - `name` - The name of the controls of any gamepad.
 

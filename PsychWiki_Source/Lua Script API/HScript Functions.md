@@ -157,3 +157,53 @@ function onCreate()
      ]])
 end
 ```
+
+### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
+
+> **Note from LarryFrosty**: _The only way I could get this function working was if I used it in a lua script along with runHaxeCode. Third argument returns null every single time. If there's any info about this function, I'd love to hear it._
+
+Creates a local function inside the script.
+
+- `name` - The name of the function.
+- `func` - The function code.
+- `funk` - _Not known, refer to the note._
+
+Example:
+
+```lua
+function onCreate()
+    runHaxeCode([[
+        createCallback('print', function(text:String) {
+            debugPrint(text);
+        });
+    ]])
+end
+
+function onCreatePost()
+    print('Hello') -- will print "Hello"
+end
+```
+
+### createGlobalCallback(name:String, func:Dynamic)
+Creates a global function across <ins>all lua scripts</ins>.
+
+- `name` - The name of the function.
+- `func` - The function code.
+
+Example:
+
+Script 1 (Haxe):
+```haxe
+function onCreate() {
+    createGlobalCallback('print', function(text:String) {
+        debugPrint(text);
+    });
+}
+```
+
+Script 2 (Lua):
+```lua
+function onCreatePost()
+    print('Hello') -- will print "Hello"
+end
+```
