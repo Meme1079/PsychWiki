@@ -10,7 +10,9 @@ Starts a tween in any value(s) to an object or note objects.
 
 It is also possible to tween PlayState's variables:
 ```lua
-startTween('tag', 'this', {songLength = 215000, defaultCamZoom = 1.2, ['camGame.zoom'] = 1.2}, 1, {ease = 'linear', onComplete = 'onTweenCompleted'})
+local tag_varsParam = {songLength = 215000, defaultCamZoom = 1.2, ['camGame.zoom'] = 1.2}
+local tag_optnParam = {ease = 'linear', onComplete = 'onTweenCompleted'}
+startTween('tag', 'this', tag_varsParam, 1, tag_optnParam)
 ```
 
 <details><summary><b>Options Sub-Parameters:</b></summary>

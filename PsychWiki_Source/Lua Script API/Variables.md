@@ -20,7 +20,7 @@
 - `stepCrochet` - Returns the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
 - `songName` - Returns the current song name. (CASE SENSITIVE)
-- `songPath` - Returns the song's JSON path.
+- `songPath` - Returns the song's path.
 - `startedCountdown` - Checks if the countdown has already begun.
 - `curStage` - Returns the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
@@ -51,10 +51,10 @@
 - `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
 - `weekRaw` - `getPropertyFromClass('states.Playstate', 'storyWeek')`
 - `week` - `getPropertyFromClass('backend.WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'seenCutscene')`
+- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
 - `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
-<details><summary><b>Deprecated Original Shortcuts:</b></summary>
+<details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `curBpm` - `getPropertyFromClass('Conductor', 'bpm')`
@@ -73,7 +73,7 @@
 - `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
 - `weekRaw` - `getPropertyFromClass('Playstate', 'storyWeek')`
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('PlayState', 'seenCutscene')`
+- `seenCutscene` - `getPropertyFromClass('PlayState', 'bpm')`
 - `hasVocals` - `getPropertyFromClass('PlayState', 'SONG.needsVoices')`
 
 </p>
@@ -90,10 +90,6 @@
 - `curSection` - The current section per number.
 - `curDecStep` - The current decimal step per number.
 - `curDecBeat` - The current decimal beat per number.
-- `defaultCamZoom` - The camera's zoom; Will not zoom in/out if camZooming is disabled; And also not related to camZooming's camera.
-- `camZooming` - Whether the camera will zoom on beat or not; Activated when the opponent hits a note; Will be disabled if the option `Camera Zooms` is disabled.
-- `camZoomingMult` - How much the camera will zoom in.
-- `camZoomingDecay` - How long it will take for camGame/camHUD to go back to its original zoom.
 - `score` - The current amount of score inside the song.
 - `misses` - The current amount of note misses inside the song.
 - `hits` - The current amount of note hits inside the song.
@@ -118,10 +114,6 @@
 - `curSection` - `getProperty('curSection')`
 - `curDecStep` - `getProperty('curDecStep')`
 - `curDecBeat` - `getProperty('curDecBeat')`
-- `defaultCamZoom` - `getProperty('defaultCamZoom')`
-- `camZooming` - `getProperty('camZooming')`
-- `camZoomingMult` - `getProperty('camZoomingMult')`
-- `camZoomingDecay` - `getProperty('camZoomingDecay')`
 - `score` - `getProperty('songScore')`
 - `misses` - `getProperty('songMisses')`
 - `hits` - `getProperty('songHits')`
@@ -170,11 +162,11 @@
 ***
 
 # Client Preferences Variables
-- `downscroll` - Checks if downscroll is enabled or not.
-- `middlescroll` - Checks if middlescroll is enabled or not.
-- `framerate` - Returns the framerate chosen in the options menu.
-- `ghostTapping` - Checks if ghost tapping is enabled or not.
-- `hideHud` - Checks if the score bar/health bar elements will be hidden or not.
+- `downscroll` - Checks if downscroll is enable or not.
+- `middlescroll` - Checks if middlescroll is enable or not.
+- `framerate` - Checks the current framerate inside the 
+- `ghostTapping` - Checks if ghost tapping is enable or not.
+- `hideHud` - Checks if the score bar/health bar elements are hidden or not.
 - `timeBarType` - Checks the current time-bar display type.
 - `scoreZoom` - Checks if the score is being zoom when hitting a note.
 - `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.

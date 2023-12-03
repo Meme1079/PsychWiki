@@ -1,9 +1,10 @@
-### 14.0.0 Version _(WIP)_
+### 14.0.0 Version
 - Added some additional context on descriptions
 - Added descriptions to `createInstance()` and `addInstance()` functions
 - Added new names for some function & variable for newer versions
 - Added Pre-imported Libraries for references in "HScript Functions" Page
-- Added missing variables
+- Added missing variables and functions
+- Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
 - Fix spelling/grammar errors.
 
 #### Contributers
