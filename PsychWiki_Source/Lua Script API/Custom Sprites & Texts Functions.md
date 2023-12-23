@@ -66,11 +66,23 @@ Sets the text object <ins>current text size</ins> with a new one.
 - `tag` - The tag name of the text to be used.
 - `size` - The new text size to be set in.
 
+### setTextAutoSize(tag:String, value:Bool)
+Sets the text object whether determins if the <ins>width and height should be determined automatically</ins>.
+
+- `tag` - The tag name of the text to be used.
+- `size` - Whether the width and height should be determined automatically.
+
 ### setTextWidth(tag:String, width:Float)
 Sets the text object <ins>current text-box width</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `width` - The new text-box width to be set in.
+
+### setTextHeight(tag:String, height:Float)
+Sets the text object <ins>current text-box height</ins> with a new one.
+
+- `tag` - The tag name of the text to be used.
+- `height` - The new text-box height to be set in.
 
 ### setTextBorder(tag:String, size:Int, color:String)
 Sets the text object <ins>current text border size and color</ins> with a new one.

@@ -178,7 +178,7 @@ Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place 
 
 # Color Functions
 ### getColorFromHex(color:String)
-Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest.
+Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest. This function as alternative names you can use: `FlxColor()`, `getColorFromName()`, `getColorFromString()`.
 
 - `color` - The specified hex color duh.
 
@@ -203,24 +203,6 @@ Gets the <ins>hex color of an object by pixels</ins>; Returns a jamble of random
 
 ***
 
-# Custom Substate Functions
-### openCustomSubstate(name:String, pauseGame:Bool = false)
-Opens your custom substate.
-
-- `name` - The name of your custom substate to be referenced.
-- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened; Defualt value: `false`.
-
-### insertToCustomSubstate(tag:String, ?pos:Int = -1)
-Inserts a Lua object to your custom substate, i think.
-
-- `tag` - The object tag name to be referenced.
-- `pos` - An optional parameter, The index array position; Defualt value: `-1`.
-
-### closeCustomSubstate()
-Closes your custom substate.
-
-***
-
 # Miscellaneous Functions
 ### triggerEvent(name:String, arg1:String, arg2:String)
 Triggers an event without having to insert the event into the chart editor.
@@ -228,6 +210,14 @@ Triggers an event without having to insert the event into the chart editor.
 - `name` - The name of the event in the Chart editor.
 - `arg1` - The value on Value 1.
 - `arg2` - The value on Value 2.
+
+### getModSetting(saveTag:String, ?modName:String = null)
+Gets the settings `json` from the mod's `data` folder.
+
+> **Warning**: _This is only for the experimental branch of Psych Engine_
+
+- `saveTag` - The specified setting elements from the `json`.
+- `modName` - An optional parameter, The given mod name; Default value: `nil`.
 
 ### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&ved=2ahUKEwiki5S_4879AhWwKbcAHUNXBpwQ2-cCegQIABAA&oq=discord+rpc&gs_lcp=CgNpbWcQAzIECCMQJ1DKCljKCmCfDGgAcAB4AIABcIgBcJIBAzAuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=d8cJZOTzNbDT3LUPw66Z4Ak&bih=764&biw=1440#imgrc=hzmwyXBaIPRmXM) status.

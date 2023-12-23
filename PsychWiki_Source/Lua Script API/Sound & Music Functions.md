@@ -69,6 +69,13 @@ Sets the current <ins>sound position of the sound object</ins> with a new value.
 - `tag` - The sound object tag name to be used.
 - `value` - The new sound position value.
 
+### setSoundPitch(tag:String, value:Float, doPause:Bool = false)
+Sets the <ins>determined pitch value</ins> of the sound object.
+
+- `tag` - The sound object tag name to be used.
+- `value` - The determined pitch value.
+- `doPause` - An optional parameter, Does a pause when a sound is currently playing.
+
 ### getSoundVolume(tag:String)
 Gets the current <ins>sound volume of the sound object</ins> current volume value; Returns a `float` number.
 
@@ -76,5 +83,10 @@ Gets the current <ins>sound volume of the sound object</ins> current volume valu
 
 ### getSoundTime(tag:String)
 Gets the current <ins>sound position of the sound object</ins> current position value; Returns a `float` number.
+
+- `tag` - The sound object tag name to be used.
+
+### getSoundPitch(tag:String,)
+Gets the current <ins>sound pitch of the sound object</ins> current pitch value; Returns a `float` number.
 
 - `tag` - The sound object tag name to be used.
