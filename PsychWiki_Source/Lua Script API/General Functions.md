@@ -178,7 +178,7 @@ Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place 
 
 # Color Functions
 ### getColorFromHex(color:String)
-Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest.
+Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest. This function as alternative names you can use: `FlxColor()`, `getColorFromName()`, `getColorFromString()`.
 
 - `color` - The specified hex color duh.
 
@@ -200,24 +200,6 @@ Gets the <ins>hex color of an object by pixels</ins>; Returns a jamble of random
 - `obj` - The object tag name to be used.
 - `x` - The x-coordinate value in pixels.
 - `y` - The y-coordinate value in pixels.
-
-***
-
-# Custom Substate Functions
-### openCustomSubstate(name:String, pauseGame:Bool = false)
-Opens your custom substate.
-
-- `name` - The name of your custom substate to be referenced.
-- `pauseGame` - An optional parameter, will pause your game after the custom substate has been opened; Defualt value: `false`.
-
-### insertToCustomSubstate(tag:String, ?pos:Int = -1)
-Inserts a Lua object to your custom substate, i think.
-
-- `tag` - The object tag name to be referenced.
-- `pos` - An optional parameter, The index array position; Defualt value: `-1`.
-
-### closeCustomSubstate()
-Closes your custom substate.
 
 ***
 

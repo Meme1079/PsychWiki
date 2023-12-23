@@ -162,34 +162,6 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 
 - `retry` - Checks if the player pressed the retry button; Returns `true`.
 
-# Custom Substate Functions
-### onCustomSubstateCreate(name)
-Works similar to <ins>`onCreate()` callback function</ins> but for your custom substate; Will only be triggered once.
-
-- `name` - The name of your substate.
-
-### onCustomSubstateCreatePost(name)
-Works similar to <ins>`onCreatePost()` callback function</ins>; Will only be triggered once.
-
-- `name` - The name of your substate.
-
-### onCustomSubstateUpdate(name, elapsed)
-Works similar to <ins>`onUpdate()` callback function</ins>.
-
-- `name` - The name of your substate.
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
-
-### onCustomSubstateUpdatePost(name, elapsed)
-Works similar to <ins>`onUpdatePost()` callback function</ins>.
-
-- `name` - The name of your substate.
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
-
-### onCustomSubstateDestroy(name)
-Triggered if the <ins>substate is closed</ins>; Works similar to <ins>`onDestroy()` callback function</ins>; Will only be triggered once.
-
-- `name` - The name of your substate.
-
 ***
 
 # Note/Key Pressing Functions
