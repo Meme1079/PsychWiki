@@ -5,7 +5,12 @@
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-### Current Update [14.0.0 Version]
+### Current Update [14.1.0 Version]
+- Added "Custom Substate" Page
+- Added new 0.7.2 functions
+- Some orginizations from the wiki pages
+
+### Previous Update [14.0.0 Version]
 - Added some additional context on descriptions
 - Added descriptions to `createInstance()` and `addInstance()` functions
 - Added new names for some function & variable for newer versions
@@ -14,7 +19,7 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 - Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
 - Fix spelling/grammar errors.
 
-# Previous Update [13.1.0 Version]
+### Previous Update [13.1.0 Version]
 - Added the new `onEventPushed()` callback function, that's it.
 
 ***
