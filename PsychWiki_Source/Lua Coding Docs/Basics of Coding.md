@@ -264,7 +264,16 @@ end
 ```
 
 ### Hexadecimal
-Numbers can be represented in hexadecimal a base-16 numbering system, you already know what hexadecimal is duh. But each hexadecimal should start with <code>0x</code> after the preceding hexadecimal number, for instance `0xfff0ff`. You can obviously use this for numbers sure you could use this coloring an object but it just fucks it up.
+Numbers can be represented in hexadecimal a base-16 numbering system, you already know what hexadecimal is duh. But each hexadecimal should start with <code>0x</code> after the preceding hexadecimal number, for instance `0xfff0ff`. 
+
+You can obviously use this for numbers sure you could use this coloring an object, like if you're using the `setProperty()` function to set the color. Other than that if you're not using `setProperty()` or `getProperty()` functions for coloring an object it will fuck up the colors.
+
+Example:
+```lua
+function onCreatePost()
+     setProperty('boyfriend.color', 0xff0000)
+end
+```
 
 ## Booleans
 Booleans, often shortened to "Bools", are data types that can have two possible values: `true` or `false`. This is commonly used for conditional statements, which allow for different actions by modifying control flow based on whether the condition is `true` or `false`.

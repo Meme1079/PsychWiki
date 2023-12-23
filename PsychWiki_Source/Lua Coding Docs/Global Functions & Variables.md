@@ -6,9 +6,11 @@ Checks the returning argument and determines the data type of the argument; Poss
 
 Example:
 ```lua
-debugPrint( type('') ) -- will print > 'string'
-debugPrint( type(42) ) -- will print > 'number'
-debugPrint( type({}) ) -- will print > 'table'
+function onCreate()
+     debugPrint( type('') ) --> string
+     debugPrint( type(42) ) --> number
+     debugPrint( type({}) ) --> table
+end
 ```
 
 ### tostring(arg:Dynamic)
@@ -19,8 +21,8 @@ Converts any `number` or `boolean` value into a real string from the provided ar
 Example:
 ```lua
 function onCreate()
-     debugPrint( type(tostring(4425)) ) -- will print > 'string'
-     debugPrint( type(tostring(true)) ) -- will print > 'string'
+     debugPrint( type(tostring(4425)) ) --> string
+     debugPrint( type(tostring(true)) ) --> string
 end
 ```
 
@@ -33,10 +35,10 @@ Converts a number value from a string into a real number from the provided argum
 Example:
 ```lua
 function onCreate()
-     debugPrint( type(tonumber('5323')) ) -- will print > 'number'
-     debugPrint( type(tonumber('1.25')) ) -- will print > 'number'
-     debugPrint( tonumber('32e2') )       -- will print > 3200.0
-     debugPrint( tonumber('ff0000', 16) ) -- will print > 16711680
+     debugPrint( type(tonumber('5323')) ) --> number
+     debugPrint( type(tonumber('1.25')) ) --> number
+     debugPrint( tonumber('32e2') )       --> 3200.0
+     debugPrint( tonumber('ff0000', 16) ) --> 16711680
 end
 ```
 
@@ -53,8 +55,8 @@ Receives the Lua code from the argument and parses it into a real Lua code. The 
 Example:
 ```lua
 function onCreate()
-     debugPrint( load('return 23 % 5')() ) -- will print 3
-     debugPrint( load('return \'Hi\'')() ) -- will print 'Hi'
+     debugPrint( load('return 23 % 5')() ) --> 3
+     debugPrint( load('return \'Hi\'')() ) --> Hi
 end
 ```
 
@@ -69,9 +71,9 @@ Example:
 ```lua
 function onCreate()
      local array = {23, 72, 12, 83, 91}
-     debugPrint( unpack(array) )       -- will print > 23, 72, 12, 83, 91
-     debugPrint( unpack(array, 3) )    -- will print > 12, 83, 91
-     debugPrint( unpack(array, 2, 4) ) -- will print > 72, 12, 83
+     debugPrint( unpack(array) )       --> 23, 72, 12, 83, 91
+     debugPrint( unpack(array, 3) )    --> 12, 83, 91
+     debugPrint( unpack(array, 2, 4) ) --> 72, 12, 83
 end
 ```
 
@@ -89,9 +91,9 @@ for char = 65, 70 do
 end
 
 function onCreate()
-     debugPrint( select(3,   unpack(charys)) ) -- will print > 'C', 'D', 'E', 'F'
-     debugPrint( select(-2,  unpack(charys)) ) -- will print > 'E', 'F'
-     debugPrint( select('#', unpack(charys)) ) -- will print > 6
+     debugPrint( select(3,   unpack(charys)) ) --> C, D, E, F
+     debugPrint( select(-2,  unpack(charys)) ) --> E, F
+     debugPrint( select('#', unpack(charys)) ) --> 6
 end
 ```
 
@@ -108,7 +110,7 @@ array['hello'] = true
 array['bye']   = false
 function onCreate()
      for k,v in pairs(array) do
-          debugPrint(v) -- will print > 93, 45, 12, 64, true, false, 34
+          debugPrint(v) --> 93, 45, 12, 64, true, false, 34
      end
 end
 ```
@@ -126,7 +128,7 @@ array['hello'] = true
 array['bye']   = false
 function onCreate()
      for k,v in pairs(array) do
-          debugPrint(v) -- will print > 45, 12, 64
+          debugPrint(v) --> 45, 12, 64
      end
 end
 ```
@@ -162,7 +164,7 @@ local function median(min, max)
      return (min + max) / 2
 end
 
-debugPrint(median(34, 25)) -- will throw > min argument has a higher value than max argument!
+debugPrint(median(34, 25)) --> min argument has a higher value than max argument!
 ```
 
 ### pcall(func:Function, ?...args:Dynamic)
@@ -178,15 +180,15 @@ local boolValue, errorValue = pcall(function()
      return 34 * var
 end)
 
-debugPrint(boolValue)  -- will print > true
-debugPrint(errorValue) -- will print > 1530
+debugPrint(boolValue)  --> true
+debugPrint(errorValue) --> 1530
 
 local boolValue, errorValue = pcall(function()
      return 34 * var
 end)
 
-debugPrint(boolValue)  -- will print > false
-debugPrint(errorValue) -- will print > 'main.lua:2: attempt to perform arithmetic on a nil value (global 'var')'
+debugPrint(boolValue)  --> false
+debugPrint(errorValue) --> attempt to perform arithmetic on a nil value (global 'var')
 ```
 
 ### xpcall(func:Function, error:Function, ?...args:Dynamic)
@@ -204,7 +206,7 @@ end, function(error) -- The error parameter, returns the error message
      debugPrint('An error occured! fix it dummy!')
 end)
 
-debugPrint(errorValue) -- will print > 'An error occured! fix it dummy!'
+debugPrint(errorValue) --> An error occured! fix it dummy!
 ```
 
 ***
@@ -221,8 +223,8 @@ function onCreate()
      myGlobalVar0, myGlobalVar1 = 183, 231
      myGlobalVar2, myGlobalVar3 = 963, 263
      for nummys = 0, 3 do
-          debugPrint(_G['myGlobalVar' .. nummys])         -- will print > '183, 231, 963, 263'
-          debugPrint(_G['defaultPlayerStrumX' .. nummys]) -- will print > '732, 844, 956, 1068'
+          debugPrint(_G['myGlobalVar' .. nummys])         --> 183, 231, 963, 263
+          debugPrint(_G['defaultPlayerStrumX' .. nummys]) --> 732, 844, 956, 1068
      end 
 end
 ```

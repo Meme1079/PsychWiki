@@ -229,6 +229,12 @@ Triggers an event without having to insert the event into the chart editor.
 - `arg1` - The value on Value 1.
 - `arg2` - The value on Value 2.
 
+### getModSetting(saveTag:String, ?modName:String = null)
+Gets the settings `json` from the mod's `data` folder.
+
+- `saveTag` - The specified setting elements from the `json`.
+- `modName` - An optional parameter, The given mod name; Default value: `nil`.
+
 ### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&ved=2ahUKEwiki5S_4879AhWwKbcAHUNXBpwQ2-cCegQIABAA&oq=discord+rpc&gs_lcp=CgNpbWcQAzIECCMQJ1DKCljKCmCfDGgAcAB4AIABcIgBcJIBAzAuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=d8cJZOTzNbDT3LUPw66Z4Ak&bih=764&biw=1440#imgrc=hzmwyXBaIPRmXM) status.
 

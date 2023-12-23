@@ -193,7 +193,7 @@ Checks if the <ins>sound exists</ins> inside the game, returns `true` if it exis
 ### initSaveData(name:String, ?folder:String = 'psychenginemods')
 <ins>Initializes the creation</ins> of the save data or <ins>loads the saved data</ins> if it exists. You must use this function first before using other saving data functions. Why? it doesn't exists yet, stupid.
 
-- `name` - The save data name to be given.
+- `name` - The save data name to be used.
 - `folder` - An optional parameter; The folder to create or load the save file in; Default value: `psychenginemods`.
 
 ### setDataFromSave(name:String, field:String, value:Dynamic)
@@ -213,6 +213,19 @@ Gets the current save data variable current value.
 <ins>Applies all the changes</ins> to the saved file and updates it with new values.
 
 - `name` - The save data name to be used.
+
+### eraseSaveData(name:String)
+Deletes the saved data.
+
+- `name` - The save data name to be used.
+
+# Achievement Functions
+### isAchievementUnlocked(name:String)
+### unlockAchievement(name:String)
+### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
+### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
+### getAchievementScore(name:String)
+### achievementExists(name:String)
 
 ***
 
