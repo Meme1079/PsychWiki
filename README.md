@@ -8,7 +8,7 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 ### Current Update [14.1.0 Version]
 - Added "Custom Substate" Page
 - Added new 0.7.2 functions
-- Some orginizations from the wiki pages
+- Organized some pages from the wiki
 
 ### Previous Update [14.0.0 Version]
 - Added some additional context on descriptions
