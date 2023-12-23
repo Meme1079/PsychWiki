@@ -214,6 +214,8 @@ Triggers an event without having to insert the event into the chart editor.
 ### getModSetting(saveTag:String, ?modName:String = null)
 Gets the settings `json` from the mod's `data` folder.
 
+> **Warning**: _This is only for the experimental branch of Psych Engine_
+
 - `saveTag` - The specified setting elements from the `json`.
 - `modName` - An optional parameter, The given mod name; Default value: `nil`.
 
