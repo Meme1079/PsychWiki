@@ -87,7 +87,7 @@ Sets the text object's <ins>current text-box height</ins> with a new one.
 - `tag` - The tag name of the text to be used.
 - `height` - The new text-box height to be set in.
 
-### setTextBorder(tag:String, size:Int, color:String, ?style:String = 'outline')
+### setTextBorder(tag:String, size:Float, color:String, ?style:String = 'outline')
 Sets the text object's <ins>current text border size, color and style</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
