@@ -78,7 +78,7 @@ Triggered <ins>before the calculation</ins> of the rating. Recommended to use `s
 # Countdown Functions
 ### onStartCountdown()
 
-> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the countdown to start.
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the countdown to start and for `onCountdownStarted` to be called.
 
 Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
 
