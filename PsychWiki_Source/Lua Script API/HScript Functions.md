@@ -6,9 +6,9 @@ Imports haxe libraries into the interpreter. Basically an `import` statement in 
 - `libPackage` - An optional parameter, The library package to use.
 
 Examples:
-- Imports the sound library: `addHaxeLibrary('FlxSound', 'flixel.system')`
+- Imports the sound library: `addHaxeLibrary('FlxSound', 'flixel.sound')`
 - Imports shader filters: `addHaxeLibrary('ShaderFilter', 'openfl.filters')`
-- Imports CoolUtil: `addHaxeLibrary('CoolUtil')`
+- Imports CoolUtil: `addHaxeLibrary('CoolUtil', 'backend')`
 
 <details><summary><b>Import Haxe (Reference):</b></summary>
 <p>
@@ -18,9 +18,9 @@ package; // they are directories that contain modules, i dunno how it works; but
 
 // import library_package.library_name | <-- That's the syntax
 
-import flixel.system.FlxSound; // Imports the sound package
+import flixel.sound.FlxSound; // Imports the sound package
 import openfl.filters.ShaderFilter; // Imports the shader filter package
-import CoolUtil; // Imports CoolUtil haxe file, i think
+import backend.CoolUtil; // Imports CoolUtil haxe file
 
 // Also the semi colon ';' character is very important when declaring functions, packages, variables, etc.
 ```
@@ -33,24 +33,28 @@ import CoolUtil; // Imports CoolUtil haxe file, i think
 
 ```haxe
 import flixel.FlxG;
+import flixel.math.FlxMath;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
+import backend.PsychCamera;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import flixel.util.FlxColor;
+import psychlua.HScript.CustomFlxColor;
+import backend.BaseStage.Countdown;
 import states.PlayState;
 import backend.Paths;
 import backend.Conductor;
 import backend.ClientPrefs;
+import backend.Achievements;
 import objects.Character;
 import objects.Alphabet;
 import objects.Note;
 import psychlua.CustomSubstate;
-import backend.BaseStage.Countdown;
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 import StringTools;
+import flxanimate.FlxAnimate;
 ```
 
 </p>
