@@ -31,9 +31,9 @@ Triggered at <ins>post/after every frame</ins> in the game; The <ins>HUD element
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### preUpdateScore(miss)
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the score to update and for `onUpdateScore` to be called.
+
 Triggered before the <ins>score change</ins>.
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the score to update and for `onUpdateScore` to be called.
 
 - `miss` - Returns if the player missed a note; This parameter is a `bool`.
 
@@ -46,9 +46,9 @@ Triggered after the <ins>score change</ins>.
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
 
 ### onEndSong()
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the song to end.
+
 Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`; 
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the song to end.
 
 ### onMoveCamera(focus)
 Triggered when the <ins>camera focuses on a character</ins>; Can either be `boyfriend`, `dad` or `gf`.
@@ -69,23 +69,23 @@ end
 ```
 
 ### onRecalculateRating()
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the rating to be recalculated.
+
 Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingString()` function for your epic rating names;
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the rating to be recalculated.
 
 ***
 
 # Countdown Functions
 ### onStartCountdown()
+
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the countdown to start.
+
 Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the countdown to start.
 
 ### onCountdownStarted()
 Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note strums</ins> are created here.
 
 ### onCountdownTick(counter)
-
 > **Note**: _On HScript, the parameters are changed to `onCountdownTick(tick, counter)`_.
 
 Triggered at <ins>each countdown tick</ins>.
@@ -162,17 +162,17 @@ Triggered when the <ins>dialogue is skip mid text</ins>.
 
 # Substate Functions
 ### onPause()
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the pause menu to open.
+
 Triggered if the game is <ins>paused from playing</ins>;
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the pause menu to work.
 
 ### onResume()
 Triggered if the game is <ins>resumed from pausing</ins>.
 
 ### onGameOver()
+> **Note**: `Function_Stop` is able to be used on this callback; Must be returning `Function_Continue` for the player to die.
+
 Triggered if the <ins>player dies from skill issues</ins>.
-`Function_Stop` is able to be used on this callback.
-Must be returning `Function_Continue` for the player to die.
 
 ### onGameOverStart()
 Triggered at the <ins>start of the game-over screen</ins>.
@@ -189,6 +189,8 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 > **Warning**: _For Note related callbacks, the parameters on HScript are replaced with just the Note itself; Example: `note.noteType`_.
 
 ### goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+> **Note**: `Function_Stop` is able to be used on this callback, BUT weirdly enough, it is only used to prevent the HScript version from getting called; For the HScript version to work, Lua version must be returning `Function_Continue`.
+
 Triggered if the <ins>player hits a note</ins>.
 
 - `membersIndex` - The note member id.
@@ -196,8 +198,24 @@ Triggered if the <ins>player hits a note</ins>.
 - `noteType` - The note type to check.
 - `isSustainNote` - Checks if the note is a sustain note; Returns a `boolean`.
 
+### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
+> **Note**: `Function_Stop` is able to be used on this callback, BUT weirdly enough, it is only used to prevent the HScript version from getting called; For the HScript version to work, Lua version must be returning `Function_Continue`.
+
+Triggered after `goodNoteHit`.
+
+Has the same parameters as `goodNoteHit`.
+
 ### opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
+> **Note**: `Function_Stop` is able to be used on this callback, BUT weirdly enough, it is only used to prevent the HScript version from getting called; For the HScript version to work, Lua version must be returning `Function_Continue`.
+
 Triggered if the <ins>opponent hits a note</ins>.
+
+Has the same parameters as `goodNoteHit`.
+
+### opponentNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
+> **Note**: `Function_Stop` is able to be used on this callback, BUT weirdly enough, it is only used to prevent the HScript version from getting called; For the HScript version to work, Lua version must be returning `Function_Continue`.
+
+Triggered after `opponentNoteHit`.
 
 Has the same parameters as `goodNoteHit`.
 
@@ -211,6 +229,8 @@ Triggered if a <ins>note is spawned</ins>.
 - `strumTime` - Returns the note's strumTime; Returns a `float`.
 
 ### noteMiss(membersIndex, noteData, noteType, isSustainNote)
+> **Note**: `Function_Stop` is able to be used on this callback, BUT weirdly enough, it is only used to prevent the HScript version from getting called; For the HScript version to work, Lua version must be returning `Function_Continue`.
+
 Triggered if the <ins>player misses a note</ins>.
 
 Has the same parameters as `goodNoteHit`.
