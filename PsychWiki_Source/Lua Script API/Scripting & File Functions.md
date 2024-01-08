@@ -94,7 +94,6 @@ Calls a <ins>Lua function</ins> from another currently executing Lua script.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
 Example:
-
 ```lua
 function round(num, dp) -- i stole this
      local mult = 10^(dp or 0);
@@ -105,7 +104,6 @@ function onCreatePost()
      callOnLuas('round', {23.532, 2}, false) -- will print > 23.53
 end
 ```
-
 ```lua
 function onCreatePost()
      callOnLuas('round', {632.1224, 2}) -- will print > 632.12
