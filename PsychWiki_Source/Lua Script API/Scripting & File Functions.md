@@ -50,6 +50,7 @@ Sets a <ins>Lua variable</ins> into global and inserts it to any currently execu
 - `exclusions` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
 
 Example:
+
 ```lua
 function onCreatePost()
      setOnLuas('stupidVar1', 'string')
@@ -58,6 +59,7 @@ function onCreatePost()
      debugPrint(stupidVar2) -- will print > nil
 end
 ```
+
 ```lua
 function onCreatePost()
      debugPrint(stupidVar1) -- will print > 'string'
@@ -92,6 +94,7 @@ Calls a <ins>Lua function</ins> from another currently executing Lua script.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
 Example:
+
 ```lua
 function round(num, dp) -- i stole this
      local mult = 10^(dp or 0);
@@ -102,6 +105,7 @@ function onCreatePost()
      callOnLuas('round', {23.532, 2}, false) -- will print > 23.53
 end
 ```
+
 ```lua
 function onCreatePost()
      callOnLuas('round', {632.1224, 2}) -- will print > 632.12
@@ -204,7 +208,7 @@ Sets the current save data variable with a new value. If the `field` save data d
 - `value` - The specified value to set in.
 
 ### getDataFromSave(name:String, field:String)
-Gets the current save data variable current value.
+Gets the current save data variable value.
 
 - `name` - The save data name to be used.
 - `field` - The save data variable name to get.
@@ -221,11 +225,38 @@ Deletes the saved data.
 
 # Achievement Functions
 ### isAchievementUnlocked(name:String)
+Checks if the <ins>achievement is unlocked</ins>, returns `true` if it is.
+
+- `name` - The achievement name to be used.
+
 ### unlockAchievement(name:String)
+Unlocks the achievement.
+
+- `name` - The achievement name to be used.
+
 ### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
+Sets the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+
+- `name` - The achievement name to be used.
+- `value` - An optional parameter; it will add to the achievement score value with the amount specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+
 ### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
+Set the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+
+- `name` - The achievement name to be used.
+- `value` - An optional parameter; it will set the achievement score value to the value specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+
 ### getAchievementScore(name:String)
+Gets the current achievement score value.
+
+- `name` - The achievement name to be used.
+
 ### achievementExists(name:String)
+Checks if the <ins>achievement exists</ins> inside the game, returns `true` if it exists.
+
+- `name` - The achievement name to be used.
 
 ***
 
@@ -249,7 +280,7 @@ Splits the string that is <ins>determined by the pattern</ins> into an array of 
 - `split` - The delimeter, the pattern separator for the string to split.
 
 ### stringTrim(str:String)
-<ins>Removes any whitespace</ins> it could find from the string. Or you could just use `(string):gsub('%s*')` :trollface:.
+<ins>Removes any whitespace</ins> at the start and end of a string.
 
 - `str` - The string to be trimmed.
 
