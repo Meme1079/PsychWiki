@@ -214,8 +214,6 @@ Triggers an event without having to insert the event into the chart editor.
 ### getModSetting(saveTag:String, ?modName:String = null)
 Gets the settings `json` from the mod's `data` folder.
 
-> **Warning**: _This is only for the experimental branch of Psych Engine_
-
 - `saveTag` - The specified setting elements from the `json`.
 - `modName` - An optional parameter, The given mod name; Default value: `nil`.
 
@@ -231,9 +229,6 @@ Changes your [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discor
 - `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
 
 ### getSongPosition()
-Returns the current song position in milliseconds.
+Returns the current song position in milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
 
-Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
-
-Deprecated Original Shortcut to:
-`getPropertyFromClass('Conductor', 'songPosition')`.
+Deprecated Original Shortcut: `getPropertyFromClass('Conductor', 'songPosition')`

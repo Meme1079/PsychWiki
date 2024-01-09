@@ -1,32 +1,35 @@
 # Creating/Adding/Removing Sprite
-### makeLuaSprite(tag:String, image:String, x:Float, y:Float)
+
+> **Note for the `tag` parameter**: _If you use the same tag name again, the previous object with the same tag will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
+
+### makeLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, y:Float = 0)
 Initializes the <ins>creation of the Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
-- `tag` - The tag name of the sprite to be referenced later. If you use the same tag name again, it will be removed from the game; this rule applies to all `tag` parameters.
-- `image` - The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
-- `x` - The x position value of the sprite object to be set.
-- `y` - The y position value of the sprite object to be set.
+- `tag` - The tag name of the sprite to be referenced later.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
+- `x` - An optional parameter, The x position value of the sprite object to be set.
+- `y` - An optional parameter, The y position value of the sprite object to be set.
 
-### makeAnimatedLuaSprite(tag:String, image:String, x:Float, y:Float, ?spriteType:String = "sparrow")
+### makeAnimatedLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "sparrow")
 Initializes the <ins>creation of the animated Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
-- `tag` - The tag name of the animated sprite to be referenced later. If you use the same tag name again, it will be removed from the game; this rule applies to all `tag` parameters.
-- `image` - The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
-- `x` - The x position value of the sprite object to be set.
-- `y` - The y position value of the sprite object to be set.
+- `tag` - The tag name of the animated sprite to be referenced later.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
+- `x` - An optional parameter, The x position value of the sprite object to be set.
+- `y` - An optional parameter, The y position value of the sprite object to be set.
 - `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
 
-### addLuaSprite(tag:String, ?front:Bool = false)
-<ins>Adds the Lua sprite object</ins> inside the game. This function will <ins>overlap other sprite objects</ins> if place below eachother.
+### addLuaSprite(tag:String, front:Bool = false)
+<ins>Adds the Lua sprite object</ins> into the game. This function will <ins>overlap other sprite objects</ins> if placed below eachother.
 
-- `tag` - The tag name of the animated sprite to be added into the game.
-- `front` - An optional parameter, Whether if the sprite object gets added on top of the characters; Default value: `false`.
+- `tag` - The tag name of the sprite to be added into the game.
+- `front` - Whether if the sprite object gets added on top of the characters; For camHUD objects, setting it to `true` would place it above the HUD elements; Default value: `false`.
 
-### removeLuaSprite(tag:String, ?destroy:Bool = false)
-<ins>Removes the Lua sprite object</ins> inside the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
+### removeLuaSprite(tag:String, destroy:Bool = true)
+<ins>Removes the Lua sprite object</ins> out of the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
 
 - `tag` - The tag name of the animated sprite to be removed into the game.
-- `destroy` - An optional parameter, If set to `true` it will be permanently removed from the game. Making it impossible to re-add it.
+- `destroy` - If set to `true` it will be permanently removed from the game. Making it impossible to re-add it without remaking the sprite; Default value: `true`.
 
 ***
 
@@ -34,83 +37,84 @@ Initializes the <ins>creation of the animated Lua sprite object</ins>. This will
 ### makeLuaText(tag:String, text:String, width:Int, x:Float, y:Float)
 Initializes the <ins>creation of the text object</ins>. This will not add the text into the game yet, this can be only achieved by the `addLuaText()` function.
 
-- `tag` - The tag name of the text to be referenced later. If you use the same tag name again, it will be removed from the game; this rule applies to all `tag` parameters.
+- `tag` - The tag name of the text to be referenced later.
 - `text` - The text content to be displayed inside the game.
 - `width` - The text-box with to be set in; setting it to `0` will automatically determins the width for you.
 - `x` - The x position value of the text object to be set.
 - `y` - The y position value of the text object to be set.
 
 ### addLuaText(tag:String)
-<ins>Adds the text object</ins> inside the game. This function will <ins>overlap other text objects</ins> if place below eachother.
+<ins>Adds the text object</ins> into the game. This function will <ins>overlap other text objects</ins> if placed below eachother.
 
 - `tag` - The tag name of the text to be added into the game.
 
-### removeLuaText(tag:String, ?destroy:Bool = false)
-<ins>Removes the text object</ins> inside the game. Recommended to use this if the <ins>text object isn't used anymore</ins>, for performance purposes duh.
+### removeLuaText(tag:String, destroy:Bool = true)
+<ins>Removes the text object</ins> out of the game. Recommended to use this if the <ins>text object isn't used anymore</ins>, for performance purposes duh.
 
 - `tag` - The tag name of the text to be removed into the game.
-- `destroy` - An optional parameter, If set to `true` it will be permanently removed from the game. Making it impossible to re-add it.
+- `destroy` - If set to `true` it will be permanently removed from the game. Making it impossible to re-add it without remaking the text; Default value: `true`.
 
 ***
 
 # Text Property Setters
 ### setTextString(tag:String, text:String)
-Sets the text object <ins>current text content</ins> with a new one.
+Sets the text object's <ins>current text content</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `text` - The new text content to be set in.
 
 ### setTextSize(tag:String, size:Int)
-Sets the text object <ins>current text size</ins> with a new one.
+Sets the text object's <ins>current text size</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `size` - The new text size to be set in.
 
-### setTextAutoSize(tag:String, value:Bool)
-Sets the text object whether determins if the <ins>width and height should be determined automatically</ins>.
+### setTextAutosize(tag:String, value:Bool)
+Sets the text object's `autoSize` value where it will determine if the <ins>width and height should be determined automatically</ins>.
 
 - `tag` - The tag name of the text to be used.
-- `size` - Whether the width and height should be determined automatically.
+- `value` - Whether the width and height should be determined automatically.
 
 ### setTextWidth(tag:String, width:Float)
-Sets the text object <ins>current text-box width</ins> with a new one.
+Sets the text object's <ins>current text-box width</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `width` - The new text-box width to be set in.
 
 ### setTextHeight(tag:String, height:Float)
-Sets the text object <ins>current text-box height</ins> with a new one.
+Sets the text object's <ins>current text-box height</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `height` - The new text-box height to be set in.
 
-### setTextBorder(tag:String, size:Int, color:String)
-Sets the text object <ins>current text border size and color</ins> with a new one.
+### setTextBorder(tag:String, size:Float, color:String, ?style:String = 'outline')
+Sets the text object's <ins>current text border size, color and style</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `size` - The new text border size to be set in.
 - `color` - The new text border color to be set in.
+- `style` - An optional parameter, The new text style to be set in; Default value: `outline`.
 
 ### setTextColor(tag:String, color:String)
-Sets the text object <ins>current text color</ins> with a new one.
+Sets the text object's <ins>current text color</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
 - `color` - The new text color to be set in.
 
-### setTextAlignment(tag:String, alignment:String)
-Sets the text object <ins>current text alignment</ins> with a new one.
+### setTextAlignment(tag:String, alignment:String = 'left')
+Sets the text object's <ins>current text alignment</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
-- `alignment` - The new text alignment to be set in; Could be either `left`, `right`, `center`.
+- `alignment` - The new text alignment to be set in; Could be either `left`, `right`, `center`; Default value: `left`.
 
-### setTextFont(tag:String, font:String)
-Sets the text object <ins>current text font</ins> with a new one.
+### setTextFont(tag:String, newFont:String)
+Sets the text object's <ins>current text font</ins> with a new one.
 
 - `tag` - The tag name of the text to be used.
-- `font` - The new text font to be set in. The text font must be relative to `mods/fonts` folder.
+- `newFont` - The new text font to be set in. The text font must be relative to `mods/fonts` folder.
 
 ### setTextItalic(tag:String, italic:Bool)
-Sets the text object into a <ins>italic type</ins>.
+Sets the text object into an <ins>italic type</ins>.
 
 - `tag` - The tag name of the text to be used.
 - `italic` - Whether the text will be italicized or not.

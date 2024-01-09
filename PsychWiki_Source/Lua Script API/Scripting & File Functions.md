@@ -1,24 +1,30 @@
 # Script Functions
 ### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a <ins>Lua script</ins> into the game.
+Adds a Lua script into the game.
 
 - `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
-### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a <ins>Haxe script</ins> into the game.
-
-- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
-
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Removes a Lua script into the game.
+Removes a Lua script from the game.
 
 - `luaFile` - The location of the Lua script to remove; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
+### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
+Adds a Haxe script into the game.
+
+- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+
+### removeHScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
+Removes a Hexe script from the game.
+
+- `haxeFile` - The location of the Haxe script to remove; Starts inside the mod folder directory.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed</ins>; Same works with `getGlobalFromScript()` function.
+Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed; Same works with `getGlobalFromScript()` function.
 
 - `luaFile` - The location for the Lua script to get the given variable.
 - `global` - The global variable given name to set.

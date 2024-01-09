@@ -71,6 +71,19 @@ Calls a function from the specified class.
 - `funcToRun` - The function name from the classes to be referenced.
 - `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
 
+### instanceArg(instanceName:String, ?className:String = null)
+Used in combination with callMethod/callMethodFromClass; Allows you to use objects as arguments.
+
+- `instanceName` - The object name.
+- `className` - An optional parameter, The class to take the object from.
+
+Example:
+```lua
+function onCreatePost()
+    callMethod('uiGroup.remove', {instanceArg('scoreTxt')})
+end
+```
+
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
 Creates an instance of an object from the class constructor (which is basically the new() arguments that you see).
 Example from the `Character` class:

@@ -207,8 +207,8 @@
 <details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
-- `downscroll` - `getPropertyFromClass('ClientPrefs', 'downscroll')`
-- `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middlescroll')`
+- `downscroll` - `getPropertyFromClass('ClientPrefs', 'downScroll')`
+- `middlescroll` - `getPropertyFromClass('ClientPrefs', 'middleScroll')`
 - `framerate` - `getPropertyFromClass('ClientPrefs', 'framerate')`
 - `ghostTapping` - `getPropertyFromClass('ClientPrefs', 'ghostTapping')`
 - `hideHud` - `getPropertyFromClass('ClientPrefs', 'hideHud')`
