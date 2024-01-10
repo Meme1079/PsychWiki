@@ -1,5 +1,5 @@
 # Character Functions
-### characterDance(character:String) 
+### characterDance(character:String)
 Makes character do the idle dance.
 
 - `character` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
@@ -153,7 +153,7 @@ Restarts the song.
 - `skipTransition` - Whether there will be a transition when the song is reseting.
 
 ### exitSong(skipTransition:Bool)
-Exits the song with an optional transition; Not to be confised with `endSong()` function. 
+Exits the song with an optional transition; Not to be confised with `endSong()` function.
 
 - `skipTransition` - Whether there will be a transition when the song has exiting.
 
@@ -164,7 +164,7 @@ Ends the song manually.
 
 # Debuging Functions
 ### debugPrint(text:Dynamic = '', color:String = 'WHITE')
-This will display a debug message in the <ins>top-left corner of the screen</ins>. 
+This will display a debug message in the <ins>top-left corner of the screen</ins>.
 
 - `text` - The text to be displayed.
 - `color` - An optional parameter, The specified hex color to display the text.
@@ -195,7 +195,7 @@ Changes the <ins>time bar</ins> background-colors.
 - `rightHex` - An optional parameter, The background-color hex color of the time bar.
 
 ### getPixelColor(obj:String, x:Int, y:Int)
-Gets the <ins>hex color of an object by pixels</ins>; Returns a jamble of random `numbers`, I dunno whats the value its returning. Maybe `RGBA` value? I dunno, you should probably not use this.
+Gets the <ins>hex color of an object by pixels</ins>; Returns a `number` that when converted into hexidecimal, becomes formatted as `FFFFFFFFAARRGGBB`.
 
 - `obj` - The object tag name to be used.
 - `x` - The x-coordinate value in pixels.
@@ -218,7 +218,7 @@ Gets the settings `json` from the mod's `data` folder.
 - `modName` - An optional parameter, The given mod name; Default value: `nil`.
 
 ### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
-Changes your [Discord RPC](https://www.google.com/search?q=discord+rpc&tbm=isch&ved=2ahUKEwiki5S_4879AhWwKbcAHUNXBpwQ2-cCegQIABAA&oq=discord+rpc&gs_lcp=CgNpbWcQAzIECCMQJ1DKCljKCmCfDGgAcAB4AIABcIgBcJIBAzAuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=d8cJZOTzNbDT3LUPw66Z4Ak&bih=764&biw=1440#imgrc=hzmwyXBaIPRmXM) status.
+Changes your [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) status.
 
 > **Warning**: _This function is currently being research on the parameters._
 
