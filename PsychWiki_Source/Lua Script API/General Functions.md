@@ -220,8 +220,6 @@ Gets the settings `json` from the mod's `data` folder.
 ### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 Changes your [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) status.
 
-> **Warning**: _This function is currently being research on the parameters._
-
 - `details` - Your details on what your doing inside the game.
 - `state` - The description of the `details`.
 - `smallImageKey` - An optional parameter, The image key to be shown at the bottom-left corner.

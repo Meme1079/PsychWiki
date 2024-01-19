@@ -227,6 +227,8 @@ Deletes the saved data.
 
 - `name` - The save data name to be used.
 
+***
+
 # Achievement Functions
 ### isAchievementUnlocked(name:String)
 Checks if the <ins>achievement is unlocked</ins>, returns `true` if it is.
@@ -239,7 +241,7 @@ Unlocks the achievement.
 - `name` - The achievement name to be used.
 
 ### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
-Sets the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+Adds the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
 
 - `name` - The achievement name to be used.
 - `value` - An optional parameter; it will add to the achievement score value with the amount specified; Default value: `1`.
