@@ -58,41 +58,6 @@ end
 
 And now you have your very own custom substate yay!!!!!!!! It's not really special it can only pause which is lame but you can just modified the code. Like adding restart, resume, or exit song buttons and even a new design to make a proper pause menu.
 
-<!-- 
-Here will make a simple pause screen, let's start off with `onCustomSubstateCreate()` works excatly the same as `onCreate()` callback. This is where will set up our own custom substate. Before we do that you'll have to add an `if` statement for the `name` parameter to use our custom substate. This is a requirement for all custom substates' callback functions, if you want to manipulate you custom substate.
-
-If you want to replace the existing pause menu to make your own customize pause menu. Add `openCustomSubstate()` function with the given name of your substate; add `true` to that function to manually pause the game. Inside the `onPause()` callback function.
-
-Example:
-```lua
-function onPause()
-     openCustomSubstate('My Substate', true)
-     return Function_Stop;
-end
-```
-
-Now if you want to close your custom substate, configure a key pressing detection with any key button to check. The `closeCustomSubstate()` function should be included inside the statement, it doesn't require the name of your substate because it can only open one substate at a time. This must be all inside the `onCustomSubstateUpdate()` callback function to check each frame while inside the substate.
-
-Example:
-```lua
-function onCustomSubstateUpdate(name, elapsed)
-     if keyboardJustPressed('ENTER') then
-          closeCustomSubstate()
-     end
-end
-```
-
-Lastly on `onCustomSubstateDestroy()`, works excatly the same as `onDestroy()` callback. Removing sprites, text, and objects should be used here to make sure the substate elements won't distract you when playing the game. And probably reduced lag and improve performance.
-
-Example:
-```lua
-function onCustomSubstateDestroy(name)
-     if name == 'My Substate' then
-          removeLuaSprite('substate_bg', false)
-     end
-end
-``` -->
-
 ***
 
 # Custom Substate Functions

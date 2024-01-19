@@ -5,22 +5,20 @@
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-### Current Update [14.1.0 Version]
+### Current Update [14.2.0 Version]
+- Added custom achievement functions
+- Added new callback functions
+- Fixed some information on some functions
+- Fix spelling/grammar errors
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty) - For adding some new callback functions to the wiki, that I didn't know existed
+- [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
+
+### Previous Update [14.1.0 Version]
 - Added "Custom Substate" Page
 - Added new 0.7.2 functions
-- Organized some pages from the wiki
-
-### Previous Update [14.0.0 Version]
-- Added some additional context on descriptions
-- Added descriptions to `createInstance()` and `addInstance()` functions
-- Added new names for some function & variable for newer versions
-- Added Pre-imported Libraries for references in "HScript Functions" Page
-- Added missing variables and functions
-- Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
-- Fix spelling/grammar errors.
-
-### Previous Update [13.1.0 Version]
-- Added the new `onEventPushed()` callback function, that's it.
+- Some orginizations from the wiki pages
 
 ***
 
@@ -32,6 +30,7 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 ***
 
 # Contributors:
+- [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
 - [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
 - [kingyomoma](https://github.com/kingyomoma) - For fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
 

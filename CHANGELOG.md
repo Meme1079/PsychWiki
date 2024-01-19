@@ -1,3 +1,13 @@
+### 14.2.0 Version
+- Added custom achievement functions
+- Added new callback functions
+- Fixed some information on some functions
+- Fix spelling/grammar errors
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty) - For adding some new callback functions to the wiki, that I didn't know existed
+- [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
+
 ### 14.1.0 Version
 - Added "Custom Substate" Page
 - Added new 0.7.2 functions

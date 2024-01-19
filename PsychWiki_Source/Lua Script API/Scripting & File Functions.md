@@ -1,24 +1,30 @@
 # Script Functions
 ### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a <ins>Lua script</ins> into the game.
+Adds a Lua script into the game.
 
 - `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
-### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a <ins>Haxe script</ins> into the game.
-
-- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
-
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Removes a Lua script into the game.
+Removes a Lua script from the game.
 
 - `luaFile` - The location of the Lua script to remove; Starts inside the mod folder directory.
 - `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
 
+### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
+Adds a Haxe script into the game.
+
+- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+
+### removeHScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
+Removes a Hexe script from the game.
+
+- `haxeFile` - The location of the Haxe script to remove; Starts inside the mod folder directory.
+- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed</ins>; Same works with `getGlobalFromScript()` function.
+Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed; Same works with `getGlobalFromScript()` function.
 
 - `luaFile` - The location for the Lua script to get the given variable.
 - `global` - The global variable given name to set.
@@ -50,6 +56,7 @@ Sets a <ins>Lua variable</ins> into global and inserts it to any currently execu
 - `exclusions` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
 
 Example:
+
 ```lua
 function onCreatePost()
      setOnLuas('stupidVar1', 'string')
@@ -58,6 +65,7 @@ function onCreatePost()
      debugPrint(stupidVar2) -- will print > nil
 end
 ```
+
 ```lua
 function onCreatePost()
      debugPrint(stupidVar1) -- will print > 'string'
@@ -204,7 +212,7 @@ Sets the current save data variable with a new value. If the `field` save data d
 - `value` - The specified value to set in.
 
 ### getDataFromSave(name:String, field:String)
-Gets the current save data variable current value.
+Gets the current save data variable value.
 
 - `name` - The save data name to be used.
 - `field` - The save data variable name to get.
@@ -219,13 +227,42 @@ Deletes the saved data.
 
 - `name` - The save data name to be used.
 
+***
+
 # Achievement Functions
 ### isAchievementUnlocked(name:String)
+Checks if the <ins>achievement is unlocked</ins>, returns `true` if it is.
+
+- `name` - The achievement name to be used.
+
 ### unlockAchievement(name:String)
+Unlocks the achievement.
+
+- `name` - The achievement name to be used.
+
 ### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
+Adds the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+
+- `name` - The achievement name to be used.
+- `value` - An optional parameter; it will add to the achievement score value with the amount specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+
 ### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
+Set the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+
+- `name` - The achievement name to be used.
+- `value` - An optional parameter; it will set the achievement score value to the value specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+
 ### getAchievementScore(name:String)
+Gets the current achievement score value.
+
+- `name` - The achievement name to be used.
+
 ### achievementExists(name:String)
+Checks if the <ins>achievement exists</ins> inside the game, returns `true` if it exists.
+
+- `name` - The achievement name to be used.
 
 ***
 
@@ -249,7 +286,7 @@ Splits the string that is <ins>determined by the pattern</ins> into an array of 
 - `split` - The delimeter, the pattern separator for the string to split.
 
 ### stringTrim(str:String)
-<ins>Removes any whitespace</ins> it could find from the string. Or you could just use `(string):gsub('%s*')` :trollface:.
+<ins>Removes any whitespace</ins> at the start and end of a string.
 
 - `str` - The string to be trimmed.
 
