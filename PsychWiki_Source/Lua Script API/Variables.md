@@ -173,7 +173,7 @@
 - `noResetButton` - Checks if the reset button is enabled or not.
 - `lowQuality` - Checks if low quality on songs, is enabled or not. _(Enable it, if you have a potato computer)_
 - `shadersEnabled` - Checks if shaders are enabled or not. _(Disable it, if you have motion sickness!)_
-- `scriptName` - Checks the current script name.
+- `scriptName` - Returns the script path.
 - `currentModDirectory` - Checks the current mod directory.
 - `noteSkin` - Checks the current noteskin that the player is using.
 - `noteSkinPostfix` - Checks the current noteskin postfix from the current noteskin image that the player is using.
