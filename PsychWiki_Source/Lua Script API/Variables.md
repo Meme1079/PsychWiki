@@ -201,9 +201,9 @@
 - `scriptName` - _(Idk how to get this one)_
 - `currentModDirectory` - `getPropertyFromClass('backend.Mods', 'currentModDirectory')`
 - `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
-- `noteSkinPostfix` - `callMethodFromClass('objects.Note', 'getNoteSkinPostfix', {})`
+- `noteSkinPostfix` - `callMethodFromClass('objects.Note', 'getNoteSkinPostfix', {''})`
 - `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
-- `splashSkinPostfix` - `callMethodFromClass('objects.NoteSplash', 'getSplashSkinPostfix', {})`
+- `splashSkinPostfix` - `callMethodFromClass('objects.NoteSplash', 'getSplashSkinPostfix', {''})`
 - `splashAlpha` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashAlpha')`
 
 <details><summary><b>Deprecated Original Shortcuts:</b></summary>
