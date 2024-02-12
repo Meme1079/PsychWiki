@@ -75,7 +75,7 @@ end
 ```
 
 ### camFollowPos
-This is removed in this update, instead use `camFollow`; Example: `getProperty('camFollow.x')`.
+This is removed in this update, instead use `camGame.scroll`; Example: `getProperty('camGame.scroll.x')`.
 
 ### healthBarBG/timeBarBG
 These variables <ins>no longer exist</ins> due to both of them now using the `Bar` class and not having a need for a seperate sprite variable, but now having their own `bg` variable; The variables are: `healthBar.bg` and `timeBar.bg`.
