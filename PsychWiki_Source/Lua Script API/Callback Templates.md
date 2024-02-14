@@ -36,9 +36,9 @@ Triggered after the <ins>score change</ins>.
 - `miss` - Returns if the player missed a note; This parameter is a `bool`.
 
 ### preUpdateScore(miss)
-Triggered before the <ins>score change</ins>.
+Triggered before the calculation of the <ins>score change</ins>.
 
-> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the score to update and for `onUpdateScore` to be called._
+> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the score to update and for `onUpdateScore()` to be called._
 
 - `miss` - Returns if the player missed a note; This parameter is a `bool`.
 
