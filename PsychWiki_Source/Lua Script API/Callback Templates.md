@@ -265,7 +265,7 @@ Triggered if the player releases <ins>one of the note control buttons</ins>.
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onKeyReleasePre(key)
-Triggered <ins>before the key release calculations</ins>
+Triggered <ins>before the key release calculations</ins>.
 
 > **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` and `onGhostTap()` to be called._
 
