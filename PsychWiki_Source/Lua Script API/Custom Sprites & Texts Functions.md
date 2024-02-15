@@ -39,7 +39,7 @@ Initializes the <ins>creation of the text object</ins>. This will not add the te
 
 - `tag` - The tag name of the text to be referenced later.
 - `text` - The text content to be displayed inside the game.
-- `width` - The text-box with to be set in; setting it to `0` will automatically determins the width for you.
+- `width` - The text-box with to be set in; setting it to `0` will automatically determine the width for you.
 - `x` - The x position value of the text object to be set.
 - `y` - The y position value of the text object to be set.
 
