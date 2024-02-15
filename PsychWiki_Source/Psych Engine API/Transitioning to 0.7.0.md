@@ -19,7 +19,7 @@ Examples:
     - `getPropertyFromClass('substates.GameOverSubstate', 'loopSoundName')`
     - `getPropertyFromClass('states.PlayState', 'chartingMode')`
 
-### Note RGB Colors
+### RGB Note Colors
 The note color system has been changed from a HUE/Brt/Sat system to an RGB system; But because of this, the spritesheet of the notes would now have to be colored in a specific way to correctly apply the RGB shader on it.
 
 Examples on how to disable it:
