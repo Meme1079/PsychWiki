@@ -40,7 +40,7 @@ import backend.PsychCamera;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import psychlua.HScript.CustomFlxColor;
+import psychlua.HScript.CustomFlxColor; // Not the actual FlxColor, since it is an Abstract (HScript can't use Abstracts), which means some functions and variables from FlxColor will be missing.
 import backend.BaseStage.Countdown;
 import states.PlayState;
 import backend.Paths;
@@ -140,6 +140,11 @@ Works exactly the same as the `debugPrint()` function.
 
 - `text` - The text to be outputed to the top-left of the screen.
 - `color` - An optional parameter, The color for the text to be displayed.
+
+### addBehindBF(obj:FlxBasic)
+Adds the object behind Boyfriend; Identical functions: `addBehindGF`, `addBehindDad`.
+
+- `obj` - The object to add.
 
 ### getLuaObject(tag:String)
 Gets the specified tag object outside the `runHaxeCode()` function.
