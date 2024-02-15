@@ -1,28 +1,28 @@
 # Character Functions
 ### characterDance(character:String)
-Makes character do the idle dance.
+Makes a character do the idle dance.
 
 - `character` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### setCharacterX(type:String, value:Float)
-Sets the current <ins>x position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
+Sets the current <ins>x position value</ins> of a character group to a new value. This will also move all precached characters from the same type into the position you want.
 
 - `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new x value of the character position.
 
 ### setCharacterY(type:String, value:Float)
-Sets the current <ins>y position value</ins> of a character to a new value. This will also move all precached characters from the same type into the position you want.
+Sets the current <ins>y position value</ins> of a character group to a new value. This will also move all precached characters from the same type into the position you want.
 
 - `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 - `value` - The new y value of the character position.
 
 ### getCharacterX(type:String)
-Gets the current <ins>x position value</ins> of a character; Returns an `int` number.
+Gets the current <ins>x position value</ins> of a character group; Returns a `float` number.
 
 - `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
 ### getCharacterY(type:String)
-Gets the current <ins>y position value</ins> of a character; Returns an `int` number.
+Gets the current <ins>y position value</ins> of a character group; Returns a `float` number.
 
 - `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
 
@@ -39,7 +39,7 @@ Adds the `value` parameter to the current <ins>song miss total</ins> and recalcu
 Adds the `value` parameter to the current <ins>song hit total</ins> and recalculates the rating.
 
 ### addHealth(value:Float = 0)
-Adds the `value` parameter to the current <ins>song health total</ins> and recalculates the rating.
+Adds the `value` parameter to the current <ins>song health total</ins>.
 
 ***
 
@@ -53,7 +53,7 @@ Sets the `value` parameter of the current <ins>song miss total</ins> with a new 
 Sets the `value` parameter of the current <ins>song hit total</ins> with a new value and recalculates the rating.
 
 ### setHealth(value:Int = 0)
-Sets the `value` parameter of the current <ins>song health total</ins> with a new value and recalculates the rating.
+Sets the `value` parameter of the current <ins>song health total</ins> with a new value.
 
 ***
 
@@ -84,7 +84,7 @@ Gets the current <ins>songs miss total</ins> current value; Returns an `int` num
 Gets the current <ins>songs hit total</ins> current value; Returns an `int` number.
 
 ### getHealth()
-Gets the current <ins>songs health total</ins> current value; Returns an `float` number.
+Gets the current <ins>songs health total</ins> current value; Returns a `float` number.
 
 ***
 
@@ -121,7 +121,7 @@ Makes the <ins>camera fade</ins>.
 
 # Dialogues/Cutscene Functions
 ### startDialogue(dialogueFile:String, song:String = null)
-Starts the <ins>dialogue stuff</ins>, it will load the `json` file relative to `data/your-song-name/` folder. When the <ins>dialogue is finished</ins>, `startCountdown()` function will be called.
+Starts the <ins>dialogue stuff</ins>, it will load the `json` file relative to `data/your-song-name/` folder. When the <ins>dialogue is finished</ins>, the `startCountdown()` or `endSong()` function will be called depending on where you started the dialogue.
 
 If the <ins>dialogue line has finished</ins>, `onNextDialogue()` callback will be called. If it <ins>skips</ins> then `onSkipDialogue()` callback will be called.
 
@@ -129,7 +129,7 @@ If the <ins>dialogue line has finished</ins>, `onNextDialogue()` callback will b
 - `song` - An optional parameter, The `ogg` music file to be played; Must be relative to `mods/music` or `assets/music` folders.
 
 ### startVideo(videoFile:String)
-Starts the <ins>video</ins> during a cutscene.
+Starts a <ins>video</ins>.
 
 - `videoFile` - The name of the video `mp4` file; Must be relative to `mods/videos` folder.
 
@@ -142,7 +142,7 @@ Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialog
 ### loadSong(name:String, difficultyNum:Int)
 Loads a new song.
 
-> **Warning**: _You can't load a song if the week `json` has different difficulties._
+> **Warning**: _You can't load the song if the song's week `json` does not have one of the same difficulty names as the current song's week `json`_.
 
 - `name` - The name of the song to be loaded.
 - `difficultyNum` - The difficulty ID number of the song.
@@ -172,15 +172,20 @@ This will display a debug message in the <ins>top-left corner of the screen</ins
 Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` This will get the current bf character with the `getProperty()` function and will print `Current boyfriend character: 'bf'`.
 
 ### close()
-Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place it at the <ins>stage script</ins> since it's not being used anymore.
+Stops your script in the next <ins>100 milliseconds</ins>. Recommended to place it at the <ins>stage script</ins> since it's not being used anymore; Do not place this function anywhere if the script needs to be constantly updated; e.g `onUpdate()` or `onStepHit`.
 
 ***
 
 # Color Functions
 ### getColorFromHex(color:String)
-Gets the <ins>specific hex color</ins> to use. Very useful expecially when setting/getting a specific hex color, really useful to be honest. This function as alternative names you can use: `FlxColor()`, `getColorFromName()`, `getColorFromString()`.
+Gets the <ins>specific hex color</ins> . Very useful especially when setting/getting a specific hex color, really useful to be honest.
 
 - `color` - The specified hex color duh.
+
+### getColorFromName(color:String)
+Gets the color <ins>from its name</ins>. This function has alternative names you can use: `FlxColor()`, `getColorFromString()`.
+
+- `color` - The color name.
 
 ### setHealthBarColors(leftHex:String, ?rightHex:String)
 Changes the <ins>health bar</ins> background-colors.
