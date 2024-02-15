@@ -1,34 +1,36 @@
 # Tween Functions
 ### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
-Starts a tween in any value(s) to an object or note objects.
+Starts a tween on the object's properties.
 
-- `tag` - The tag name for the tween function to reference; Unlike other tween functions, you MUST manually set the onComplete callback.
+> **Note**: _This function does not automatically call `onTweenCompleted()` when the tween is finished. You have to add the onComplete callback manually, example is shown below_.
+
+- `tag` - The tag name for the tween function to reference.
 - `vars` - The object for the tween function to reference.
 - `values` - The object properties to tween; Example: `{angle = 360, alpha = 0}`.
 - `duration` - The duration length for the tween function to end.
 - `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG', onComplete = 'onTweenCompleted'}`.
 
-It is also possible to tween PlayState's variables:
+It is also possible to tween PlayState's variables by setting the `vars` value as `this`:
 ```lua
-local tag_varsParam = {songLength = 215000, defaultCamZoom = 1.2, ['camGame.zoom'] = 1.2}
+local tag_valParam = {songLength = 215000, defaultCamZoom = 1.2, ['camGame.zoom'] = 1.2}
 local tag_optnParam = {ease = 'linear', onComplete = 'onTweenCompleted'}
-startTween('tag', 'this', tag_varsParam, 1, tag_optnParam)
+startTween('tag', 'this', tag_valParam, 1, tag_optnParam)
 ```
 
 <details><summary><b>Options Sub-Parameters:</b></summary>
 <p>
 
-- `type` - Determines the type of tween animation to use, it can choose one of these.
-     - `ONESHOT` - Will stop and removes itself from the core container, when finished.
-     - `PERSIST` - Will stop, when finished but unlike `ONESHOT`. It will always stay attached from the core container, when finished.
-     - `LOOPING` - As the name suggests, will restart when it's finished playing the tween.
+- `type` - Determines the type of tween to use, it can be one of these types:
+     - `ONESHOT` - Will stop and remove itself from the core container when finished.
+     - `PERSIST` - Will stop when finished, but unlike `ONESHOT`. It will always stay attached to the core container.
+     - `LOOPING` - As the name suggests, will restart when the tween is finished playing.
      - `PINGPONG` - Plays a "hither and thither" tween animation. It's like `LOOPING` but every second execution is in reverse direction.
      - `BACKWARD` - Plays the tween animation in the reverse direction, duh.
 - `ease` - The specific [ease](https://github.com/ShadowMario/FNF-PsychEngine/blob/experimental/source/psychlua/LuaUtils.hx#L335C1-L371C59) type to play; Examples: `linear`, `sineIn`, `bounceOut`, etc.
-- `startDelay` - How many durations to wait before starting to play the tween, in seconds.
-- `loopDelay` - How many durations to wait before looping the tween, in seconds; Only applies to `LOOPING` & `PINGPONG` types.
-- `onUpdate` - What function to update in each frame for the tween to use.
-- `onStart` - What function to execute at the beginning of the song for the tween to use.
+- `startDelay` - How many seconds to wait before the tween will play.
+- `loopDelay` - How many seconds to wait before the tween loops again; Only applies to `LOOPING` & `PINGPONG` types.
+- `onUpdate` - What function to execute on each frame that the tween is active.
+- `onStart` - What function to execute when the tween starts playing.
 - `onComplete` - What function to execute when the tween finishes playing.
 
 </p>
@@ -98,7 +100,7 @@ Runs a timer; If finished, the tag from the `tag` parameter will be called to th
 ### cancelTimer(tag)
 Cancels the <ins>timer</ins> that is currently running.
 
-- `tag` - The timer tag name to be used.
+- `tag` - The timer tag name to be currently used.
 
 ### cancelTween(tag)
 Cancels the <ins>tween</ins> that is running.
