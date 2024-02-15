@@ -31,16 +31,16 @@ Triggered at <ins>post/after every frame</ins> in the game; The <ins>HUD element
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdateScore(miss)
-Triggered after the <ins>score change</ins>.
+Triggered when the <ins>`scoreTxt` text updates</ins>.
 
-- `miss` - Returns if the player missed a note; This parameter is a `bool`.
+- `miss` - Checks if the player missed a note; Returns a `bool`.
 
 ### preUpdateScore(miss)
-Triggered before the calculation of the <ins>score change</ins>.
+Triggered <ins>before the calculation</ins> of the `scoreTxt` text update.
 
-> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the score to update and for `onUpdateScore()` to be called._
+> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` to update and for `onUpdateScore()` to be called._
 
-- `miss` - Returns if the player missed a note; This parameter is a `bool`.
+- `miss` - Checks if the player missed a note; Returns a `bool`.
 
 ### onSongStart()
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
@@ -165,12 +165,12 @@ end
 
 # Dialogue Functions
 ### onNextDialogue(dialogueCount)
-Triggered when the player<ins>moves on to the next dialogue line</ins>.
+Triggered if the player <ins>moves on to the next dialogue line</ins>.
 
 - `dialogueCount` - The next dialogue line to check for; Starts at `0`, but won't actually get called until the next dialogue line.
 
 ### onSkipDialogue(dialogueCount)
-Triggered when the <ins>current dialogue line is skipped mid text</ins>.
+Triggered if the <ins>current dialogue line is skipped mid text</ins>.
 
 - `dialogueCount` - The current dialogue line to check for; Starts at `0`.
 
@@ -255,7 +255,7 @@ Triggered if the player presses <ins>one of the note control buttons</ins>.
 ### onKeyPressPre(key)
 Triggered <ins>before the key press calculations</ins>.
 
-> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the <ins>input system to work</ins> and for `onKeyPress()` to be called; Would not recommend using `Function_Stop` on this unless you plan on making your own input system._
+> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the <ins>input system to work</ins> and for `onKeyPress()` and `onGhostTap()` to be called; Would not recommend using `Function_Stop` on this unless you plan on making your own input system._
 
 - `key` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
 
@@ -267,7 +267,7 @@ Triggered if the player releases <ins>one of the note control buttons</ins>.
 ### onKeyReleasePre(key)
 Triggered <ins>before the key release calculations</ins>.
 
-> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` and `onGhostTap()` to be called._
+> **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` to be called._
 
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
@@ -296,6 +296,8 @@ Triggered when a <ins>tween is finished</ins>.
 Triggered when a <ins>sound is finished</ins>.
 
 - `tag` - The sound tag to be used.
+
+***
 
 # Dynamic Functions
 Dynamic functions/callbacks are able to <ins>be overridden</ins> on HScript/runHaxeCode, meaning you can change how the functions work; Example:
