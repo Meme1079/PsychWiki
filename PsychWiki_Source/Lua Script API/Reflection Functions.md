@@ -85,7 +85,7 @@ end
 ```
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the class constructor (which is basically the new() arguments that you see).
+Creates an instance of an object from the class constructor (which is basically the new() arguments from a class);
 Class Constructor Example from the `Character` class:
 ```haxe
 new Character(x, y, json, isPlayer);
@@ -97,7 +97,7 @@ new Character(x, y, json, isPlayer);
 
 Example:
 ```lua
-createInstance('tag', 'objects.Character', {0, 0, 'gf'})
+createInstance('characterTag', 'objects.Character', {0, 0, 'gf'})
 ```
 Will create a character.
 
@@ -183,7 +183,7 @@ Updates the object's hitboxes with its specified member ID.
 - `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended to <ins>use the `offsetY` variable</ins> instead of turning this off. **(Boolean)**
 - `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended to <ins>use the `offsetAngle` variable</ins> instead of turning this off. **(Boolean)**
 - `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended to <ins>use the `multAlpha` variable</ins> instead of turning this off. **(Boolean)**
-- `rgbShader` - The RGB Shader that the strums and notes are using; [More info on how to disable it or change the colors here!!](https://github.com/Meme1079/PsychWiki/wiki/Psych-Engine-API:-Transitioning-to-0.7.0#note-colors) **(RGBShaderReference)**
+- `rgbShader` - The RGB Shader that the strums and notes are using; [More info on how to disable it or change the colors here!!](https://github.com/Meme1079/PsychWiki/wiki/Psych-Engine-API:-Transitioning-to-0.7.0#rgb-note-colors) **(RGBShaderReference)**
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to use. **(String)**
 - `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's default splash colors. **(Boolean)**
