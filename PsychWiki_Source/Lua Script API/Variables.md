@@ -1,11 +1,11 @@
 ﻿# Unique Lua Variables
-> **Note**: _These are the only variables that can be changed by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
+> **Note**: _These are the only variables that can be changed using `= true` or `= false`; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
 
 - `Function_StopLua` - Stops the Lua version of the function that this is used on; Must be returned.
 - `Function_StopHScript` - Stops the HScript version of the function that this is used on; Must be returned.
 - `Function_StopAll` - Stops both the Lua and HScript version of the function that this is used on; Must be returned.
 - `Function_Stop` - Stops the function that this is used on; Must be returned.
-- `Function_Continue` - Continues the function that this is used on; Must be returned.
+- `Function_Continue` - Resumes the function that this is used on; Must be returned.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
@@ -29,7 +29,7 @@
 - `difficultyPath` - Returns the current difficulties path.
 - `weekRaw` - Returns the current week number.
 - `week` - Returns the current week name from the JSON file name.
-- `seenCutscene` - Checks if the cutscene has been seen.
+- `seenCutscene` - Checks if the cutscene has already been seen.
 - `hasVocals` - Checks if the song has vocals enabled or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
@@ -137,10 +137,10 @@
 - `healthGainMult` - The amount of health gain when hitting a note.
 - `healthLossMult` - The amount of health loss when missing/missinputting a note.
 - `playbackRate` - The play-back rate multiplier of the song.
+- `guitarHeroSustains` - Checks if Guitar Hero Sustains are enabled. _(Sustains As One Note Option)_
 - `instakillOnMiss` - Enables instant death when missing/missinputing a note.
 - `botPlay` - Checks if Botplay is enabled or not.
 - `practice` - Checks if Practice Mode is enabled or not.
-- `guitarHeroSustains` - Checks if Guitar Hero Sustains are enabled. _(Sustains As One Note Option)_
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -148,10 +148,10 @@
 - `healthGainMult` - `getProperty('healthGain')`
 - `healthLossMult` - `getProperty('healthLoss')`
 - `playbackRate` - `getProperty('playbackRate')`
+- `guitarHeroSustains - `getProperty('guitarHeroSustains')`
 - `instakillOnMiss` - `getProperty('instakillOnMiss')`
 - `botPlay` - `getProperty('cpuControlled')`
 - `practice` - `getProperty('practiceMode')`
-- `guitarHeroSustains - `getProperty('guitarHeroSustains')`
 
 </p>
 </details>
@@ -166,7 +166,7 @@
 - `hideHud` - Checks if the score txt/health bar/rating elements will be hidden or not.
 - `timeBarType` - Checks the current time-bar txt display type.
 - `scoreZoom` - Checks if the score will do a zoom bop when hitting a note.
-- `cameraZoomOnBeat` - Checks if the camera will do a zoom every 4th beat. _("Add Camera Zoom" event will not work if this is disabled)_
+- `cameraZoomOnBeat` - Checks if the camera will do a zoom every section. _("Add Camera Zoom" event will not work if this is disabled)_
 - `flashingLights` - Checks if flashing lights are enabled or not. _(Disable this, if you have epilepsy!)_
 - `noteOffset` - Checks the note offset displayed in milliseconds; Goes from `0` to `500`.
 - `healthBarAlpha` - Checks the current amount of alpha/opacity value of the health bar.
@@ -176,9 +176,9 @@
 - `scriptName` - Returns the script path.
 - `currentModDirectory` - Checks the current mod directory.
 - `noteSkin` - Checks the current noteskin that the player is using.
-- `noteSkinPostfix` - Checks the current noteskin postfix from the current noteskin image that the player is using.
+- `noteSkinPostfix` - Checks the current noteskin postfix from the current noteskin image name that the player is using.
 - `splashSkin` - Checks the current splashskin that the player is using.
-- `splashSkinPostfix` - Checks the current splashskin postfix from the current splashskin image that the player is using.
+- `splashSkinPostfix` - Checks the current splashskin postfix from the current splashskin image name that the player is using.
 - `splashAlpha` - The current alpha/opacity value of the splashnote.
 
 <details><summary><b>All Shortcut to:</b></summary>
