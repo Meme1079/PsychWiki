@@ -31,12 +31,12 @@ Triggered at <ins>post/after every frame</ins> in the game; The <ins>HUD element
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdateScore(miss)
-Triggered when the <ins>`scoreTxt` text updates</ins>.
+Triggered when the <ins>`scoreTxt` updates</ins>.
 
 - `miss` - Checks if the player missed a note; Returns a `bool`.
 
 ### preUpdateScore(miss)
-Triggered <ins>before the calculation</ins> of the `scoreTxt` text update.
+Triggered <ins>before the calculation</ins> of the `scoreTxt` update.
 
 > **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` to update and for `onUpdateScore()` to be called._
 
@@ -129,7 +129,7 @@ Counter: START | 4
 
 # Event Hook Functions
 ### onEvent(eventName, value1, value2, strumTime)
-Triggers <ins>everytime an event note plays</ins>; Can be used to create an event.
+Triggered if <ins> an event note plays</ins>; Can be used to create an event.
 
 - `eventName` - The name of the event to be used.
 - `value1` - The first value of the event.
