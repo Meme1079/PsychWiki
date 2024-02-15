@@ -70,7 +70,6 @@ function onCreatePost()
         for i = 0, getProperty('unspawnNotes.length')-1 do
             setPropertyFromGroup('unspawnNotes', i, 'noteSplashData.rgbShader.r', 0x00FF00) -- red value is now colored green
         end
-    -- alright im done yapping now
 end
 ```
 
