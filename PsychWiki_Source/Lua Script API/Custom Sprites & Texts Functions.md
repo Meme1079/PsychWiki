@@ -6,7 +6,7 @@
 Initializes the <ins>creation of the Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
 - `tag` - The tag name of the sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images` or `assets/images` folders.
 - `x` - An optional parameter, The x position value of the sprite object to be set.
 - `y` - An optional parameter, The y position value of the sprite object to be set.
 
@@ -14,7 +14,7 @@ Initializes the <ins>creation of the Lua sprite object</ins>. This will not add 
 Initializes the <ins>creation of the animated Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
 - `tag` - The tag name of the animated sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/images`, or `assets/shared/images` folders.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images` or `assets/images` folders.
 - `x` - An optional parameter, The x position value of the sprite object to be set.
 - `y` - An optional parameter, The y position value of the sprite object to be set.
 - `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
@@ -39,7 +39,7 @@ Initializes the <ins>creation of the text object</ins>. This will not add the te
 
 - `tag` - The tag name of the text to be referenced later.
 - `text` - The text content to be displayed inside the game.
-- `width` - The text-box with to be set in; setting it to `0` will automatically determins the width for you.
+- `width` - The text-box with to be set in; setting it to `0` will automatically determine the width for you.
 - `x` - The x position value of the text object to be set.
 - `y` - The y position value of the text object to be set.
 

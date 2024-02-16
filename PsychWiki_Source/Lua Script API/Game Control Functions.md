@@ -1,6 +1,8 @@
 
 # Keys/KeyBoard Press Functions
 
+> **Note**: _All the keyboard and gamepad functions here were recently added to HScript on 0.7.2+_.
+
 <details><summary><b>Key Input Version Compatibility:</b></summary>
 <p> 
 

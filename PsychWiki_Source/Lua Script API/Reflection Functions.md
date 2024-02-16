@@ -4,28 +4,28 @@ Sets one of <ins>PlayState's variable value</ins> to a new value.
 
 - `variable` - The variable inside PlayState to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
+- `allowMaps` - An optional parameter, Whether to allow to set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
-Sets the current <ins>property variable inside a class</ins> with a new value. 
+Sets one of the specified <ins>classes variable value </ins> to a new value. 
 
 > **Warning**: _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
-> **Note**: _If you are trying to set/get a static variable from PlayState, this is required since the normal set/getProperty uses PlayState.instance._
+> **Note**: _If you are trying to set a static variable from PlayState, this is required since the normal setProperty only works on non-static variables._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
+- `allowMaps` - An optional parameter, Whether to allow to set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false)
-Sets one of PlayState's current <ins>member property variable inside of an array/group</ins> with a new value.
+Sets one of PlayState's <ins>array/group variable member</ins> to a new value.
 
 - `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
 - `value` - The new value for the `variable` parameter to be set.
-- `allowMaps` - An optional parameter, Whether to allow the set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
+- `allowMaps` - An optional parameter, Whether to allow to set the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ***
 
@@ -37,23 +37,23 @@ Gets one of <ins>PlayState's variable value</ins>.
 - `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
-Gets one of the <ins>variable value from a class</ins>.
+Gets one of the specified <ins>classes variable value</ins>.
 
 > **Warning**: _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
-> **Note**: _If you are trying to set/get a static variable from PlayState, this is required since the normal set/getProperty uses PlayState.instance._
+> **Note**: _If you are trying to get a static variable from PlayState, this is required since the normal getProperty only works on non-static variables._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `variable` - The variable inside the Playstate or object to be used.
-- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
+- `variable` - The variable inside the class to be used.
+- `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false)
-Gets one of PlayState's current <ins>member property variable inside of an array/group</ins> current value.
+Gets one of PlayState's <ins>array/group variable member's</ins> current value.
 
 - `obj` - The name of the array/group; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
 - `variable` - The variable to be used for the array/group member.
-- `allowMaps` - An optional parameter, Whether to allow the get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
+- `allowMaps` - An optional parameter, Whether to allow to get the value of maps or not, which is basically a haxe dictionary just to let you know; Default value: `false`.
 
 ***
 
@@ -62,20 +62,20 @@ Gets one of PlayState's current <ins>member property variable inside of an array
 Calls a function from PlayState.
 
 - `funcToRun` - The function name from PlayState to be referenced.
-- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
+- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `nil`.
 
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
 Calls a function from the specified class.
 
-- `className` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `funcToRun` - The function name from the classes to be referenced.
-- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `null` (no arguments).
+- `className` - The name of the class; Example: `LuaUtils`, `Conductor`, `CoolUtil`, etc.
+- `funcToRun` - The function name from the class to be referenced.
+- `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `nil`.
 
 ### instanceArg(instanceName:String, ?className:String = null)
 Used in combination with callMethod/callMethodFromClass; Allows you to use objects as arguments.
 
 - `instanceName` - The object name.
-- `className` - An optional parameter, The class to take the object from.
+- `className` - An optional parameter, The class to get the object from.
 
 Example:
 ```lua
@@ -85,19 +85,19 @@ end
 ```
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the class constructor (which is basically the new() arguments that you see).
-Example from the `Character` class:
+Creates an instance of an object from the class constructor (which is basically the new() arguments from a class);
+Class Constructor Example from the `Character` class:
 ```haxe
 new Character(x, y, json, isPlayer);
 ```
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class.
-- `args` - An optional parameter, The argument(s) to be passed to the class constructor; Default value: `null` (no arguments).
+- `args` - An optional parameter, The argument(s) to be passed to the class constructor; Default value: `nil`.
 
 Example:
 ```lua
-createInstance('tag', 'objects.Character', {0, 0, 'gf'})
+createInstance('characterTag', 'objects.Character', {0, 0, 'gf'})
 ```
 Will create a character.
 
@@ -106,12 +106,6 @@ Adds the object from the specified tag name.
 
 - `objectName` - The object's tag name.
 - `inFront` - An optional parameter, Whether the object will be in front of the characters or not; Default value: `false`.
-
-Example: 
-```lua
-addInstance('tag', true)
-```
-Adds the object.
 
 ***
 
@@ -133,13 +127,15 @@ Updates the object's hitboxes with its specified member ID.
 
 # Property Attributes
 ## Object Properties
+
+> **Note**: _More object properties can be found on the [HaxeFlixel](https://api.haxeflixel.com/flixel/) website ([FlxBasic](https://api.haxeflixel.com/flixel/FlxBasic.html), [FlxObject](https://api.haxeflixel.com/flixel/FlxObject.html), [FlxSprite](https://api.haxeflixel.com/flixel/FlxSprite.html), etc)_.
+
 - `.x` - The x position value of the object. **(Float)**
 - `.y` - The y position value of the object. **(Float)**
 - `.width` - The width size value of the object. **(Float)**
 - `.height` - The height size value of the object. **(Float)**
 - `.alpha` - The alpha/opacity value of the object; Goes from `0` to `1`. **(Float)**
 - `.angle` - The angle value of the object. **(Float)**
-- `.angularVelocity` - How fast the object will spin in degrees per second; Note that if this is set, the object will automatically spin. **(Float)**
 - `.color` - The hex color of the object. **(Int)** _(Must be a hexadecimal value)_
 - `.length` - The length value of an array. **(Array)**
 - `.visible` - Whether the object is visible or not. **(Boolean)**
@@ -157,45 +153,39 @@ Updates the object's hitboxes with its specified member ID.
 - `.scrollFactor.y` - The scroll factor at the y value of the object. **(Float)**
 
 ## Note Properties
-- `noAnimation` - Disables any singing animation when hitting this note. **(Boolean)**
-- `noMissAnimation` - Disables any singing animation when missing/missinputting this note. **(Boolean)**
-- `hitCausesMiss` - Causes misses when hitting this note. **(Boolean)**
-- `blockHit` - Disables hits on this note; Only works on player; Refer to `ignoreNote` for the opponent.**(Boolean)**
-- `hitByOpponent` - Whether the opponent can hit the note or not. **(Boolean)**
-- `hitsoundDisabled` - Whether the hitsound is disabled or not. **(Boolean)**
-- `hitsound` - The hitsound's sound to be used. **(String)**
+- `noteData` - Which strum this note will go on; Goes from `0 ` to `3` **(Int)**
+- `strumTime` - Where this note in the chart is, in milliseconds. **(Float)**
+- `noAnimation` - Disables any singing animations when hitting this note. **(Boolean)**
+- `noMissAnimation` - Disables any missing animations when missing this note. **(Boolean)**
+- `hitCausesMiss` - Gives misses when hitting this note. **(Boolean)**
+- `blockHit` - Blocks the player from being able to hit this note.**(Boolean)**
+- `ignoreNote` - Whether this note should have a penalty for missing. **(Boolean)**
+- `canBeHit` - Checks if this note is in range and can be hit by the player. **(Boolean)**
+- `noteWasHit` - Checks if this note was hit, duh. **(Boolean)**
+- `wasGoodHit` - Checks if this note was hit by the player. **(Boolean)**
+- `hitByOpponent` - Checks if this note was hit by the opponent. **(Boolean)**
+- `tooLate` - Checks if this note is no longer in range and cannot be hit. **(Boolean)**
+- `hitsoundDisabled` - Whether the hitsound should be disabled on this note. **(Boolean)**
+- `hitsound` - Which sound to play when hitting this note. **(String)**
 - `hitHealth` - The specified amount of health gained when hitting this note; Default value: `0.023`. **(Float)**
-- `missHealth` - The specified amount of health taken when missing/missinputting this note; Default value: `0.0475`. **(Float)**
-- `mustPress` - Returns if the note is on the player's side. **(Boolean)**
-- `ignoreNote` - Whether the note should be ignored, will not give misses or deal damage if missed. **(Boolean)**
-- `isSustainNote` - Returns if the note is a sustain note. **(Boolean)**
+- `missHealth` - The specified amount of health lost when missing this note; Default value: `0.0475`. **(Float)**
+- `mustPress` - Checks if this note is on the player's side. **(Boolean)**
+- `isSustainNote` - Checks if the note is a sustain note. **(Boolean)**
 - `texture` - The texture of the note. **(String)**
-- `noteType` - Returns the specified note type. **(String)**
-- `gfNote` - Returns if GF is singing. **(Boolean)**
-- `noteWasHit` - Returns if the note was hit, duh. **(Boolean)**
-- `offsetX` - Offsets the note's `X` position; Does <ins>not</ins> require `copyX` to be turned off. **(Float)**
-- `offsetY` - Offsets the note's `Y` position; Does <ins>not</ins> require `copyY` to be turned off. **(Float)**
-- `offsetAngle` - Offsets the note's `angle` position; Does <ins>not</ins> require `copyAngle` to be turned off. **(Float)**
-- `multAlpha` - The `alpha` value of the note; Does <ins>not</ins> require `copyAlpha` to be turned off. **(Float)**
-- `copyX` - Variable determining if the note will follow the strum's `X` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
-- `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
-- `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended you use the offset variables instead of turning this off. **(Boolean)**
-- `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended you use the `multAlpha` variable instead of turning this off. **(Boolean)**
-- `rgbShader` - The RGB Shader that the strums and notes are using. **(RGBShaderReference)**
-- `useRGBShader` - Variable determining if strums should use the RGB shader; This will fully turn it off. **(Boolean)**
-
-Example on how to disable the shader:
-```lua
-setPropertyFromGroup('unspawnNotes', i, 'rgbShader.enabled', false)
--- Notes will now no longer have the RGB Shader and will use the spritesheet colors.
-
-setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
--- Strums will now no longer have the RGB Shader and will use the spritesheet colors.
--- Note that doing rgbShader.enabled on strums won't work as they get turned off and on everytime the strums play an animation.
-
-```
+- `noteType` - Checks the note type. **(String)**
+- `gfNote` - Checks if GF is singing. **(Boolean)**
+- `offsetX` - Offsets the note's `X` position; <ins>Does not</ins> require `copyX` to be turned off. **(Float)**
+- `offsetY` - Offsets the note's `Y` position; <ins>Does not</ins> require `copyY` to be turned off. **(Float)**
+- `offsetAngle` - Offsets the note's `angle` position; <ins>Does not</ins> require `copyAngle` to be turned off. **(Float)**
+- `multAlpha` - The `alpha` multiplier value of the note; <ins>Does not</ins> require `copyAlpha` to be turned off. **(Float)**
+- `multSpeed` - The scroll speed multiplier of the note. **(Float)**
+- `copyX` - Variable determining if the note will follow the strum's `X` position; It's recommended to <ins>use the `offsetX` variable</ins> instead of turning this off. **(Boolean)**
+- `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended to <ins>use the `offsetY` variable</ins> instead of turning this off. **(Boolean)**
+- `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended to <ins>use the `offsetAngle` variable</ins> instead of turning this off. **(Boolean)**
+- `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended to <ins>use the `multAlpha` variable</ins> instead of turning this off. **(Boolean)**
+- `rgbShader` - The RGB Shader that the strums and notes are using; [More info on how to disable it or change the colors here!!](https://github.com/Meme1079/PsychWiki/wiki/Psych-Engine-API:-Transitioning-to-0.7.0#rgb-note-colors) **(RGBShaderReference)**
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
-- `noteSplashData.texture` - The note splashes texture to be used. **(String)**
+- `noteSplashData.texture` - The note splashes texture to use. **(String)**
 - `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's default splash colors. **(Boolean)**
 - `noteSplashData.useRGBShader` - If set to `false`, note splashes will no longer use the RGB Shader. **(Boolean)**
 - `noteSplashData.r` - The note splashes red value; Default value: `-1`. **(Int)**
@@ -218,6 +208,7 @@ setPropertyFromGroup('strumLineNotes', i, 'useRGBShader', false)
 ## Note Group Objects
 - `notes` - Notes that are currently spawned.
 - `unspawnNotes` - Notes that are not currently spawned.
+- `grpNoteSplashes` - The note splash group.
 - `eventNotes` - Self explanatory.
 - `playerStrums` - Notes from the Player strums; Goes from `0` to `3`.
 - `opponentStrums` - Notes from the Opponent strums; Goes from `0` to `3`.
