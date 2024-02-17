@@ -62,14 +62,14 @@ function onCreatePost()
      setOnLuas('stupidVar1', 'string')
      setOnLuas('stupidVar2', 23, true)
 
-     debugPrint(stupidVar2) -- will print > nil
+     debugPrint(stupidVar2) --> nil
 end
 ```
 
 ```lua
 function onCreatePost()
-     debugPrint(stupidVar1) -- will print > 'string'
-     debugPrint(stupidVar2) -- will print > 23
+     debugPrint(stupidVar1) --> 'string'
+     debugPrint(stupidVar2) --> 23
 end
 ```
 
@@ -107,13 +107,13 @@ function round(num, dp) -- i stole this
 end
 
 function onCreatePost()
-     callOnLuas('round', {23.532, 2}, false) -- will print > 23.53
+     callOnLuas('round', {23.532, 2}, false) --> 23.53
 end
 ```
 ```lua
 function onCreatePost()
-     callOnLuas('round', {632.1224, 2}) -- will print > 632.12
-     callOnLuas('round', {381.1213, 3}) -- will print > 381.121
+     callOnLuas('round', {632.1224, 2}) --> 632.12
+     callOnLuas('round', {381.1213, 3}) --> 381.121
 end
 ```
 
@@ -226,43 +226,6 @@ Gets the current save data variable value.
 Deletes the saved data.
 
 - `name` - The save data name to be used.
-
-***
-
-# Achievement Functions
-### isAchievementUnlocked(name:String)
-Checks if the <ins>achievement is unlocked</ins>, returns `true` if it is.
-
-- `name` - The achievement name to be used.
-
-### unlockAchievement(name:String)
-Unlocks the achievement.
-
-- `name` - The achievement name to be used.
-
-### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
-Adds the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
-
-- `name` - The achievement name to be used.
-- `value` - An optional parameter; it will add to the achievement score value with the amount specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
-
-### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
-Set the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
-
-- `name` - The achievement name to be used.
-- `value` - An optional parameter; it will set the achievement score value to the value specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
-
-### getAchievementScore(name:String)
-Gets the current achievement score value.
-
-- `name` - The achievement name to be used.
-
-### achievementExists(name:String)
-Checks if the <ins>achievement exists</ins> inside the game, returns `true` if it exists.
-
-- `name` - The achievement name to be used.
 
 ***
 

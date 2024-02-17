@@ -46,7 +46,7 @@ Triggered <ins>before the calculation</ins> of the `scoreTxt` update.
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
 
 ### onEndSong()
-Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`; 
+Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`.
 
 > **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the song to end._
 
@@ -87,7 +87,7 @@ Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note str
 ### onCountdownTick(counter)
 Triggered every <ins>countdown tick</ins>.
 
-> **Note**: _On HScript, the parameters are changed to `onCountdownTick(tick, counter)`_.
+> **Note**: _On HScript, the parameters are changed to `onCountdownTick(tick, counter)`._
 
 - `tick` - **(HScript Exclusive)** - The current countdown tick in words; Goes from `THREE` to `START`.
 - `counter` - The current countdown tick; Goes from `0` to `4`.
@@ -247,6 +247,8 @@ Triggered if the <ins>player presses while a note isn't present</ins>. This will
 
 - `noteData` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
 
+***
+
 ### onKeyPress(key)
 Triggered if the player presses <ins>one of the note control buttons</ins>.
 
@@ -300,35 +302,36 @@ Triggered when a <ins>sound is finished</ins>.
 ***
 
 # Dynamic Functions
-Dynamic functions/callbacks are able to <ins>be overridden</ins> on HScript/runHaxeCode, meaning you can change how the functions work; Example:
+Dynamic functions/callbacks are able to <ins>be overridden</ins> on HScript or `runHaxeCode()`, meaning you can change how the functions work. 
+
+Example:
 ```haxe
 function onCreatePost() {
-    game.updateIconsPosition = function() {
-        game.iconP1.x = 314;
-        game.iconP2.x = 114;
-        // Instead of updating the positions depending on the health
-        // The icons will now update on these positions and stay static
-        // You can even make the function empty if you don't want it to do anything
-    }
+     game.updateIconsPosition = function() {
+          game.iconP1.x = 314;
+          game.iconP2.x = 114;
+          // Instead of updating the positions depending on the health
+          // The icons will now update on these positions and stay static
+          // You can even make the function empty if you don't want it to do anything
+     }
 }
 ```
 List of Dynamic functions/callbacks currently available:
-  - updateIconsPosition
-  - updateIconsScale
-  - updateScore
-  - fullComboFunction
+     - `updateIconsPosition()`
+     - `updateIconsScale()`
+     - `updateScore()`
+     - `fullComboFunction()`
 
 ***
 
 # Deprecated Functions
 ### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-> **Warning**: _Added in 0.7.2, Removed in 0.7.3.
+> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`.
 
-In 0.7.2, this is triggered AFTER `goodNoteHit` and `goodNoteHit` gets called before the good note hit calculations; Has the same parameters as `goodNoteHit`.
+In `0.7.2`, this is triggered AFTER `goodNoteHit` and `goodNoteHit` gets called before the good note hit calculations; Has the same parameters as `goodNoteHit`.
 
 ### opponentNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
 
-> **Warning**: _Added in 0.7.2, Removed in 0.7.3.
+> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`.
 
-In 0.7.2, this is triggered AFTER `opponentNoteHit` and `opponentNoteHit` gets called before the opponent note hit calculations; Has the same parameters as `opponentNoteHit`.
-
+In `0.7.2`, this is triggered AFTER `opponentNoteHit` and `opponentNoteHit` gets called before the opponent note hit calculations; Has the same parameters as `opponentNoteHit`.

@@ -60,7 +60,7 @@ function onCreate()
 end
 ```
 
-unpack(list:Array, ?min:Int = 1, ?max:Int = #list)
+### unpack(list:Array, ?min:Int = 1, ?max:Int = #list)
 Returns the elements from the given table each separated. The range is determined from the `min` and `max` parameters.
 
 - `list` - The table to be unpacked.

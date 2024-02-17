@@ -59,22 +59,22 @@ Gets one of PlayState's <ins>array/group variable member's</ins> current value.
 
 # Property Methods & Instances
 ### callMethod(funcToRun:String, ?args:Array\<Dynamic\> = null)
-Calls a function from PlayState.
+Calls a function from a PlayState.
 
 - `funcToRun` - The function name from PlayState to be referenced.
 - `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `nil`.
 
 ### callMethodFromClass(className:String, funcToRun:String, ?args:Array\<Dynamic\> = null)
-Calls a function from the specified class.
+Calls a function from a specified class.
 
 - `className` - The name of the class; Example: `LuaUtils`, `Conductor`, `CoolUtil`, etc.
 - `funcToRun` - The function name from the class to be referenced.
 - `args` - An optional parameter, The argument(s) to be passed to the function; Default value: `nil`.
 
 ### instanceArg(instanceName:String, ?className:String = null)
-Used in combination with callMethod/callMethodFromClass; Allows you to use objects as arguments.
+Used in combination with `callMethod()` or `callMethodFromClass()` functions; Allows you to use objects as arguments.
 
-- `instanceName` - The object name.
+- `instanceName` - The object name to be used.
 - `className` - An optional parameter, The class to get the object from.
 
 Example:
@@ -85,21 +85,21 @@ end
 ```
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from the class constructor (which is basically the new() arguments from a class);
-Class Constructor Example from the `Character` class:
-```haxe
-new Character(x, y, json, isPlayer);
-```
+Creates an instance of an object from a class by calling the constructor method.
 
 - `variableToSave` - The object's tag name.
-- `className` - The name of the class.
+- `className` - The name of the class to use.
 - `args` - An optional parameter, The argument(s) to be passed to the class constructor; Default value: `nil`.
 
 Example:
 ```lua
-createInstance('characterTag', 'objects.Character', {0, 0, 'gf'})
+createInstance('characterTag', 'objects.Character', {0, 0, 'gf'}) -- Will create a character
 ```
-Will create a character.
+
+Creating an instance from the Character class (Reference):
+```haxe
+new Character(x, y, json, isPlayer);
+```
 
 ### addInstance(objectName:String, ?inFront:Bool = false)
 Adds the object from the specified tag name.

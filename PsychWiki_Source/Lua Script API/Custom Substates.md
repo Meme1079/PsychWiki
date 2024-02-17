@@ -39,7 +39,7 @@ end
 
 Now if you wish to close your custom substate, use the `closeCustomSubstate()` function with a key pressing detection configured in an `if` statement; any key button can be used. Now all of this should be inside the `onCustomSubstateUpdate()` callback function becuase this only check each frame when substate is opened. Cuz `onUpdate()` won't effect properly when the substate is currently opened.
 
-Lastly on `onCustomSubstateDestroy()`, works excatly the same as `onDestroy()` callback. Sprites should already get removed if you added them into the substate correctly when the substate closes, so you don't have to manually remove them; However, `insertToCustomSubstate()` unfortunately does not currently support text objects, so you'll still have to use `addLuaText()` and use `removeLuaText()` on `onCustomSubstateDestroy()`
+Lastly on `onCustomSubstateDestroy()`, works excatly the same as `onDestroy()` callback. Sprites should already get removed if you added them into the substate correctly when the substate closes, so you don't have to manually remove them; However, `insertToCustomSubstate()` unfortunately does not currently support text objects, so you'll still have to use `addLuaText()` and use `removeLuaText()` on `onCustomSubstateDestroy()`.
 
 Example:
 ```lua

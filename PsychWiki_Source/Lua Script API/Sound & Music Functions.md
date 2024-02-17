@@ -86,7 +86,7 @@ Gets the current <ins>sound position of the sound object</ins> current position 
 
 - `tag` - The sound object tag name to be used.
 
-### getSoundPitch(tag:String,)
+### getSoundPitch(tag:String)
 Gets the current <ins>sound pitch of the sound object</ins> current pitch value; Returns a `float` number.
 
 - `tag` - The sound object tag name to be used.
