@@ -85,7 +85,7 @@ end
 ```
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates an instance of an object from a class by calling the constructor method.
+Creates a class constructor of an object from a class by calling the constructor method.
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class to use.
@@ -96,7 +96,7 @@ Example:
 createInstance('characterTag', 'objects.Character', {0, 0, 'gf'}) -- Will create a character
 ```
 
-Creating an instance from the Character class (Reference):
+Creating a class constructor from the Character class (Reference):
 ```haxe
 new Character(x, y, json, isPlayer);
 ```
