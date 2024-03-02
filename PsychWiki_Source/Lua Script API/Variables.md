@@ -1,11 +1,11 @@
-# Unique Lua Variables
-> **Note**: _These are the only variables can be change by using `= true` or `= false` for now; Example: `luaDebugMode = true`. For now you will have to use `setProperty()` function if you want to change the rest of the variables._
+﻿# Unique Lua Variables
+> **Note**: _These are the only variables that can be changed using `= true` or `= false`; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
 
-- `Function_StopLua` - Stops all Lua script currently executing.
-- `Function_StopHScript` - Stops all Haxe script currently executing.
-- `Function_StopAll` - Stops all scripts currently executing.
-- `Function_Stop` - Stops the function.
-- `Function_Continue` - Continues the function.
+- `Function_StopLua` - Stops the Lua version of the function that this is used on; Must be returned.
+- `Function_StopHScript` - Stops the HScript version of the function that this is used on; Must be returned.
+- `Function_StopAll` - Stops both the Lua and HScript version of the function that this is used on; Must be returned.
+- `Function_Stop` - Stops the function that this is used on; Must be returned.
+- `Function_Continue` - Resumes the function that this is used on; Must be returned.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
 - `luaDeprecatedWarnings` - Checks if the function or variable is deprecated or not; Only works in debug mode tho.
 - `inChartEditor` - Checks if the Lua script is running inside the Chart Editor's chart playtest.
@@ -15,21 +15,21 @@
 # Song & Week Variables
 - `curBpm` Returns the current BPM value of the song.
 - `bpm` - Returns the starting BPM value of the song.
-- `songSpeed` - Returns the current scroll speed of the song.
+- `scrollSpeed` - Returns the current scroll speed of the song.
 - `crochet` - Returns the interval between `curBeat` variable.
 - `stepCrochet` - Returns the interval between `curStep` variable.
 - `songLength` - Returns the maximum song length displayed in milliseconds.
-- `songName` - Returns the current song name. (CASE SENSITIVE)
+- `songName` - Returns the current song name.
 - `songPath` - Returns the song's path.
 - `startedCountdown` - Checks if the countdown has already begun.
 - `curStage` - Returns the current stage of the song.
 - `isStoryMode` - Checks if the song is in story mode or not.
 - `difficulty` - Returns the current difficulty ID number.
-- `difficultyName` - Returns the current difficulty name. (CASE SENSITIVE)
+- `difficultyName` - Returns the current difficulty name.
 - `difficultyPath` - Returns the current difficulties path.
-- `weekRaw` - Returns the raw current week number.
+- `weekRaw` - Returns the current week number.
 - `week` - Returns the current week name from the JSON file name.
-- `seenCutscene` - Checks if the cutscene has been seen.
+- `seenCutscene` - Checks if the cutscene has already been seen.
 - `hasVocals` - Checks if the song has vocals enabled or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
@@ -37,21 +37,21 @@
 
 - `curBpm` - `getPropertyFromClass('backend.Conductor', 'bpm')`
 - `bpm` - `getPropertyFromClass('states.PlayState', 'SONG.bpm')` 
-- `songSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
+- `scrollSpeed` - `getPropertyFromClass('states.PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('backend.Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('backend.Conductor', 'stepCrochet')`
 - `songLength` - `getPropertyFromClass('flixel.FlxG', 'sound.music.length')`
 - `songName` - `getPropertyFromClass('states.PlayState', 'SONG.song')`
-- `songPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..songName..')')`
+- `songPath` - `callMethodFromClass('backend.Paths', 'formatToSongPath', {songName})`
 - `startedCountdown` - `getProperty('startedCountdown')`
-- `curStage` - `getPropertyFromClass('states.Playstate', 'curStage')`
-- `isStoryMode` - `getPropertyFromClass('states.Playstate', 'isStoryMode')`
-- `difficulty` - `getPropertyFromClass('states.Playstate', 'storyDifficulty')`
-- `difficultyName` - `getPropertyFromClass('backend.Difficulty', 'getString()')`
-- `difficultyPath` - `getPropertyFromClass('backend.Paths', 'formatToSongPath('..difficultyName..')')`
-- `weekRaw` - `getPropertyFromClass('states.Playstate', 'storyWeek')`
+- `curStage` - `getPropertyFromClass('states.PlayState', 'curStage')`
+- `isStoryMode` - `getPropertyFromClass('states.PlayState', 'isStoryMode')`
+- `difficulty` - `getPropertyFromClass('states.PlayState', 'storyDifficulty')`
+- `difficultyName` - `callMethodFromClass('backend.Difficulty', 'getString', {difficulty})`
+- `difficultyPath` - `callMethodFromClass('backend.Paths', 'formatToSongPath', {difficultyName})`
+- `weekRaw` - `getPropertyFromClass('states.PlayState', 'storyWeek')`
 - `week` - `getPropertyFromClass('backend.WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'bpm')`
+- `seenCutscene` - `getPropertyFromClass('states.PlayState', 'seenCutscene')`
 - `hasVocals` - `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
@@ -62,18 +62,17 @@
 - `songSpeed` - `getPropertyFromClass('PlayState', 'SONG.speed')`
 - `crochet` - `getPropertyFromClass('Conductor', 'crochet')`
 - `stepCrochet` - `getPropertyFromClass('Conductor', 'stepCrochet')`
-- `songLength` - `getPropertyFromClass('FlxG', 'sound.music.length')`
 - `songName` - `getPropertyFromClass('PlayState', 'SONG.song')`
-- `songPath` - `getPropertyFromClass('Paths', 'formatToSongPath('..songName..')')`
+- `songPath` - `runHaxeCode('Paths.formatToSongPath('..songName..');')`
 - `startedCountdown` - `getProperty('startedCountdown')`
-- `curStage` - `getPropertyFromClass('Playstate', 'curStage')`
-- `isStoryMode` - `getPropertyFromClass('Playstate', 'isStoryMode')`
+- `curStage` - `getPropertyFromClass('PlayState', 'curStage')`
+- `isStoryMode` - `getPropertyFromClass('PlayState', 'isStoryMode')`
 - `difficulty` - `getPropertyFromClass('PlayState', 'storyDifficulty')`
 - `difficultyName` - `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')`
-- `difficultyPath` - `getPropertyFromClass('Paths', 'formatToSongPath(Difficulty.getString())')`
-- `weekRaw` - `getPropertyFromClass('Playstate', 'storyWeek')`
+- `difficultyPath` - `runHaxeCode('Paths.formatToSongPath(Difficulty.getString());')`
+- `weekRaw` - `getPropertyFromClass('PlayState', 'storyWeek')`
 - `week` - `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')`
-- `seenCutscene` - `getPropertyFromClass('PlayState', 'bpm')`
+- `seenCutscene` - `getPropertyFromClass('PlayState', 'seenCutscene')`
 - `hasVocals` - `getPropertyFromClass('PlayState', 'SONG.needsVoices')`
 
 </p>
@@ -98,13 +97,11 @@
 - `ratingName` - The current song score rating name.
 - `ratingFC` - The current song score rating combo.
 - `version` - The current version of Psych Engine.
-- `inGameOver` - Checks if the player is in game-over screen or not.
-- `mustHitSection` - Checks if the section is in `Must Hit Section` from the Chart Editor.
-- `altAnim` - Checks if the section is in `Alt Animation Section` from the Chart Editor.
-- `gfSection` - Checks if the section is in `GF Section` from the Chart Editor.
-- `buildTarget` - Checks the current build target of Psych Engine; Returns: `windows`, `linux`, `mac`, `browser`, `android`, `unknown`.
-- `skipArrowStartTween` - Whether the arrow fade in at the start of the countdown will be skipped or not.
-- `skipCountdown` - Exactly as it says; If set to `true`, countdown will be skipped.
+- `inGameOver` - Checks if the player is in the game-over screen or not.
+- `mustHitSection` - Checks if the section is a `Must Hit Section` from the Chart Editor.
+- `altAnim` - Checks if the section is an `Alt Animation` section from the Chart Editor.
+- `gfSection` - Checks if the section is a `GF Section` from the Chart Editor.
+- `buildTarget` - Checks the current OS that the current Psych Engine is running on; Can return: `windows`, `linux`, `mac`, `browser`, `android`, `switch`, or `unknown`.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -122,8 +119,6 @@
 - `ratingName` - `getProperty('ratingName')`
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
-- `skipArrowStartTween` - `getProperty('skipArrowStartTween')`
-- `skipCountdown` - `getProperty('skipCountdown')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
@@ -140,11 +135,12 @@
 
 # Gameplay Settings Variables
 - `healthGainMult` - The amount of health gain when hitting a note.
-- `healthLossMult` - The amount of health loss when missing/missinputing a note.
-- `playbackRate` - The amount of play-back rate of the song.
+- `healthLossMult` - The amount of health loss when missing/missinputting a note.
+- `playbackRate` - The play-back rate multiplier of the song.
+- `guitarHeroSustains` - Checks if Guitar Hero Sustains are enabled. _(Sustains As One Note Option)_
 - `instakillOnMiss` - Enables instant death when missing/missinputing a note.
-- `botPlay` - Checks if botplay mode is enable or not.
-- `practice` - Checks if practice mode is enable or not.
+- `botPlay` - Checks if Botplay is enabled or not.
+- `practice` - Checks if Practice Mode is enabled or not.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -152,6 +148,7 @@
 - `healthGainMult` - `getProperty('healthGain')`
 - `healthLossMult` - `getProperty('healthLoss')`
 - `playbackRate` - `getProperty('playbackRate')`
+- `guitarHeroSustains - `getProperty('guitarHeroSustains')`
 - `instakillOnMiss` - `getProperty('instakillOnMiss')`
 - `botPlay` - `getProperty('cpuControlled')`
 - `practice` - `getProperty('practiceMode')`
@@ -162,24 +159,26 @@
 ***
 
 # Client Preferences Variables
-- `downscroll` - Checks if downscroll is enable or not.
-- `middlescroll` - Checks if middlescroll is enable or not.
-- `framerate` - Checks the current framerate inside the 
-- `ghostTapping` - Checks if ghost tapping is enable or not.
-- `hideHud` - Checks if the score bar/health bar elements are hidden or not.
-- `timeBarType` - Checks the current time-bar display type.
-- `scoreZoom` - Checks if the score is being zoom when hitting a note.
-- `cameraZoomOnBeat` - Checks if the camera does a zoom on beat hit.
-- `flashingLights` - Checks if flishing lights is enable or not. _(Disable this, if you have epilepsy!)_
+- `downscroll` - Checks if downscroll is enabled or not.
+- `middlescroll` - Checks if middlescroll is enabled or not.
+- `framerate` - Returns the current framerate inside the options menu.
+- `ghostTapping` - Checks if ghost tapping is enabled or not.
+- `hideHud` - Checks if the score txt/health bar/rating elements will be hidden or not.
+- `timeBarType` - Checks the current time-bar txt display type.
+- `scoreZoom` - Checks if the score will do a zoom bop when hitting a note.
+- `cameraZoomOnBeat` - Checks if the camera will do a zoom every section. _("Add Camera Zoom" event will not work if this is disabled)_
+- `flashingLights` - Checks if flashing lights are enabled or not. _(Disable this, if you have epilepsy!)_
 - `noteOffset` - Checks the note offset displayed in milliseconds; Goes from `0` to `500`.
 - `healthBarAlpha` - Checks the current amount of alpha/opacity value of the health bar.
-- `noResetButton` - Checks if the reset button is enable or not.
-- `lowQuality` - Checks if low quality on songs, is enable or not. _(Disable it, if you have a potato computer)_
-- `shadersEnabled` - Checks if shaders is enable or not. _(Disable it, if you have motion sickness!)_
-- `scriptName` - Checks the current script name.
+- `noResetButton` - Checks if the reset button is enabled or not.
+- `lowQuality` - Checks if low quality on songs, is enabled or not. _(Enable it, if you have a potato computer)_
+- `shadersEnabled` - Checks if shaders are enabled or not. _(Disable it, if you have motion sickness!)_
+- `scriptName` - Returns the script path.
 - `currentModDirectory` - Checks the current mod directory.
-- `noteSkin` - The current noteskin that you're using.
-- `splashSkin` - The current splashskin that you're using.
+- `noteSkin` - Checks the current noteskin that the player is using.
+- `noteSkinPostfix` - Checks the current noteskin postfix from the current noteskin image name that the player is using.
+- `splashSkin` - Checks the current splashskin that the player is using.
+- `splashSkinPostfix` - Checks the current splashskin postfix from the current splashskin image name that the player is using.
 - `splashAlpha` - The current alpha/opacity value of the splashnote.
 
 <details><summary><b>All Shortcut to:</b></summary>
@@ -199,10 +198,13 @@
 - `noResetButton` - `getPropertyFromClass('backend.ClientPrefs', 'data.noReset')`
 - `lowQuality` - `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')`
 - `shadersEnabled` - `getPropertyFromClass('backend.ClientPrefs', 'data.shaders')`
-- `scriptName` - `getPropertyFromClass('backend.ClientPrefs', 'scriptName')`
+- `scriptName` - _(Idk how to get this one)_
 - `currentModDirectory` - `getPropertyFromClass('backend.Mods', 'currentModDirectory')`
 - `noteSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')`
+- `noteSkinPostfix` - `callMethodFromClass('objects.Note', 'getNoteSkinPostfix', {''})`
 - `splashSkin` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')`
+- `splashSkinPostfix` - `callMethodFromClass('objects.NoteSplash', 'getSplashSkinPostfix', {''})`
+- `splashAlpha` - `getPropertyFromClass('backend.ClientPrefs', 'data.splashAlpha')`
 
 <details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
@@ -221,7 +223,6 @@
 - `noResetButton` - `getPropertyFromClass('ClientPrefs', 'noReset')`
 - `lowQuality` - `getPropertyFromClass('ClientPrefs', 'lowQuality')`
 - `shadersEnabled` - `getPropertyFromClass('ClientPrefs', 'shaders')`
-- `scriptName` - `getPropertyFromClass('ClientPrefs', 'scriptName')`
 - `currentModDirectory` - `getPropertyFromClass('Mods', 'currentModDirectory')`
 
 </p>
@@ -233,24 +234,22 @@
 ***
 
 # Screen & Camera Variables
-- `screenWidth` - Returns the current width of the window screen; Default value: `720`.
+- `screenWidth` - Returns the current width of the window screen; Default value: `1280`.
 - `screenHeight` - Returns the current width of the window screen; Default value: `720`.
-- `cameraX` - Returns the current x position of camera.
-- `cameraY` - Returns the current y position of camera.
+- `cameraX` - Returns the current x position of the camera.
+- `cameraY` - Returns the current y position of the camera.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
 - `screenWidth` - `getPropertyFromClass('flixel.FlxG', 'width')`
 - `screenHeight` - `getPropertyFromClass('flixel.FlxG', 'height')`
-- `cameraX` - `getProperty('camGame.scroll.x') - (screenWidth / 2)`
-- `cameraY` - `getProperty('camGame.scroll.y') - (screenHeight / 2)`
+- `cameraX` - `getProperty('camFollow.x')`
+- `cameraY` - `getProperty('camFollow.y')`
 
 <details><summary><b>Deprecated Original Shortcuts:</b></summary>
 <p>
 
-- `screenWidth` - `getPropertyFromClass('FlxG', 'width')`
-- `screenHeight` - `getPropertyFromClass('FlxG', 'height')`
 - `cameraX` - `getProperty('camFollowPos.x')`
 - `cameraY` - `getProperty('camFollowPos.y')`
 
@@ -266,13 +265,6 @@
 - `boyfriendName` - Returns the current boyfriend character name.
 - `dadName` - Returns the current opponent character name.
 - `gfName` - Returns the current girlfriend character name.
-- `charName.cameraPosition[ind]` - Returns the character's camera x or y position depending on the number inside the brackets, defined by the character JSON file.
-     - The `charName` could be either: `boyfriend` or `dad`.
-     - The `ind` could be either: `0` for x position or `1` for y position.
-     - Examples: `setProperty('boyfriend.cameraPosition[0]', 300)`, `setProperty('dad.cameraPosition[1]', 100)`.
-- `boyfriendCameraOffset` - The player's camera offset, defined by the stage's JSON file.
-- `opponentCameraOffset` - The opponent's camera offset, defined by the stage's JSON file.
-- `girlfriendCameraOffset` - The girlfriend's camera offset, defined by the stage's JSON file.
 - `defaultBoyfriendX` - The player's default x position, defined by the stage's JSON file.
 - `defaultBoyfriendY` - The player's default y position, defined by the stage's JSON file.
 - `defaultOpponentX` - The opponent's default x position, defined by the stage's JSON file.
@@ -286,11 +278,6 @@
 - `boyfriendName` - `getProperty('boyfriend.curCharacter')`
 - `dadName` - `getProperty('dad.curCharacter')`
 - `gfName` - `getProperty('gf.curCharacter')`
-- `charName.cameraPosition[0]` - `getProperty('character.cameraPosition[0]')`
-- `charName.cameraPosition[1]` - `getProperty('character.cameraPosition[1]')`
-- `boyfriendCameraOffset` - `getProperty('boyfriendCameraOffset')`
-- `opponentCameraOffset` - `getProperty('opponentCameraOffset')`
-- `girlfriendCameraOffset` - `getProperty('girlfriendCameraOffset')`
 - `defaultBoyfriendX` - `getProperty('BF_X')`
 - `defaultBoyfriendY` - `getProperty('BF_Y')`
 - `defaultOpponentX` - `getProperty('DAD_X')`
@@ -309,22 +296,22 @@
 - `defaultPlayerStrumX1` - The player's <ins>down arrow</ins> default x position value; Returns: `844`.
 - `defaultPlayerStrumX2` - The player's <ins>up arrow</ins> default x position value; Returns: `956`.
 - `defaultPlayerStrumX3` - The player's <ins>right arrow</ins> default x position value; Returns: `1068`.
-- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Returns: `50`.
-- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Returns: `50`.
-- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Returns: `50`.
-- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value; Returns: `50`.
+- `defaultPlayerStrumY0` - The player's <ins>left arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**.
+- `defaultPlayerStrumY1` - The player's <ins>down arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**.
+- `defaultPlayerStrumY2` - The player's <ins>up arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**.
+- `defaultPlayerStrumY3` - The player's <ins>right arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**.
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums.members', 0, 'x')`
-- `defaultPlayerStrumX1` - `getPropertyFromGroup('playerStrums.members', 1, 'x')`
-- `defaultPlayerStrumX2` - `getPropertyFromGroup('playerStrums.members', 2, 'x')`
-- `defaultPlayerStrumX3` - `getPropertyFromGroup('playerStrums.members', 3, 'x')`
-- `defaultPlayerStrumY0` - `getPropertyFromGroup('playerStrums.members', 0, 'y')`
-- `defaultPlayerStrumY1` - `getPropertyFromGroup('playerStrums.members', 1, 'y')`
-- `defaultPlayerStrumY2` - `getPropertyFromGroup('playerStrums.members', 2, 'y')`
-- `defaultPlayerStrumY3` - `getPropertyFromGroup('playerStrums.members', 3, 'y')`
+- `defaultPlayerStrumX0` - `getPropertyFromGroup('playerStrums', 0, 'x')`
+- `defaultPlayerStrumX1` - `getPropertyFromGroup('playerStrums', 1, 'x')`
+- `defaultPlayerStrumX2` - `getPropertyFromGroup('playerStrums', 2, 'x')`
+- `defaultPlayerStrumX3` - `getPropertyFromGroup('playerStrums', 3, 'x')`
+- `defaultPlayerStrumY0` - `getPropertyFromGroup('playerStrums', 0, 'y')`
+- `defaultPlayerStrumY1` - `getPropertyFromGroup('playerStrums', 1, 'y')`
+- `defaultPlayerStrumY2` - `getPropertyFromGroup('playerStrums', 2, 'y')`
+- `defaultPlayerStrumY3` - `getPropertyFromGroup('playerStrums', 3, 'y')`
 
 </p>
 </details>
@@ -334,22 +321,22 @@
 - `defaultOpponentStrumX1` - The opponent's <ins>down arrow</ins> default x position value; Returns: `204`.
 - `defaultOpponentStrumX2` - The opponent's <ins>up arrow</ins> default x position value; Returns: `316`.
 - `defaultOpponentStrumX3` - The opponent's <ins>right arrow</ins> default x position value; Returns: `428`.
-- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Returns: `50`.
-- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Returns: `50`.
-- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Returns: `50`.
-- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value; Returns: `50`.
+- `defaultOpponentStrumY0` - The opponent's <ins>left arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**
+- `defaultOpponentStrumY1` - The opponent's <ins>down arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**
+- `defaultOpponentStrumY2` - The opponent's <ins>up arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**
+- `defaultOpponentStrumY3` - The opponent's <ins>right arrow</ins> default y position value; Returns: `50` **(Upscroll)** or `570` **(Downscroll)**
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
 
-- `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums.members', 0, 'x')`
-- `defaultOpponentStrumX1` - `getPropertyFromGroup('opponentStrums.members', 1, 'x')`
-- `defaultOpponentStrumX2` - `getPropertyFromGroup('opponentStrums.members', 2, 'x')`
-- `defaultOpponentStrumX3` - `getPropertyFromGroup('opponentStrums.members', 3, 'x')`
-- `defaultOpponentStrumY0` - `getPropertyFromGroup('opponentStrums.members', 0, 'y')`
-- `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums.members', 1, 'y')`
-- `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums.members', 2, 'y')`
-- `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums.members', 3, 'y')`
+- `defaultOpponentStrumX0` - `getPropertyFromGroup('opponentStrums', 0, 'x')`
+- `defaultOpponentStrumX1` - `getPropertyFromGroup('opponentStrums', 1, 'x')`
+- `defaultOpponentStrumX2` - `getPropertyFromGroup('opponentStrums', 2, 'x')`
+- `defaultOpponentStrumX3` - `getPropertyFromGroup('opponentStrums', 3, 'x')`
+- `defaultOpponentStrumY0` - `getPropertyFromGroup('opponentStrums', 0, 'y')`
+- `defaultOpponentStrumY1` - `getPropertyFromGroup('opponentStrums', 1, 'y')`
+- `defaultOpponentStrumY2` - `getPropertyFromGroup('opponentStrums', 2, 'y')`
+- `defaultOpponentStrumY3` - `getPropertyFromGroup('opponentStrums', 3, 'y')`
 
 </p>
 </details>

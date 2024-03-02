@@ -3,25 +3,25 @@
 Adds a Lua script into the game.
 
 - `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; Whether the function should be allowed to add an already running Lua script or not; Default value: `false`.
 
 ### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 Removes a Lua script from the game.
 
 - `luaFile` - The location of the Lua script to remove; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Lua script that it's running from; Default value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; Whether the function should be allowed to remove an already running Lua script or not; Default value: `false`.
 
-### addHScript(HaxeFile:String, ?ignoreAlreadyRunning:Bool = false)
+### addHScript(haxeFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a Haxe script into the game.
 
 - `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; Whether the function should be allowed to add an already running Haxe script or not; Default value: `false`.
 
-### removeHScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Removes a Hexe script from the game.
+### removeHScript(haxeFile:String, ?ignoreAlreadyRunning:Bool = false)
+Removes a Haxe script from the game.
 
 - `haxeFile` - The location of the Haxe script to remove; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter; will execute while ignoring the Haxe script that it's running from; Default value: `false`.
+- `ignoreAlreadyRunning` - An optional parameter; Whether the function should be allowed to remove an already running Haxe script or not; Default value: `false`.
 
 ### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
 Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed; Same works with `getGlobalFromScript()` function.
@@ -62,14 +62,14 @@ function onCreatePost()
      setOnLuas('stupidVar1', 'string')
      setOnLuas('stupidVar2', 23, true)
 
-     debugPrint(stupidVar2) -- will print > nil
+     debugPrint(stupidVar2) --> nil
 end
 ```
 
 ```lua
 function onCreatePost()
-     debugPrint(stupidVar1) -- will print > 'string'
-     debugPrint(stupidVar2) -- will print > 23
+     debugPrint(stupidVar1) --> 'string'
+     debugPrint(stupidVar2) --> 23
 end
 ```
 
@@ -94,7 +94,7 @@ Calls a <ins>Lua function</ins> from another currently executing Lua script.
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopAll`; Default value: `false`.
+- `ignoreStops` - An optional parameter; Whether it should ignore returns from `Function_StopLua` or `Function_StopAll`; You also need to put the returns in `excludeValues`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -107,13 +107,13 @@ function round(num, dp) -- i stole this
 end
 
 function onCreatePost()
-     callOnLuas('round', {23.532, 2}, false) -- will print > 23.53
+     callOnLuas('round', {23.532, 2}, false) --> 23.53
 end
 ```
 ```lua
 function onCreatePost()
-     callOnLuas('round', {632.1224, 2}) -- will print > 632.12
-     callOnLuas('round', {381.1213, 3}) -- will print > 381.121
+     callOnLuas('round', {632.1224, 2}) --> 632.12
+     callOnLuas('round', {381.1213, 3}) --> 381.121
 end
 ```
 
@@ -123,7 +123,7 @@ Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
 - `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
-- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
+- `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; You also need to put the returns in `excludeValues`; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
 
@@ -132,7 +132,7 @@ Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe s
 
 - `funcName` - The function's name to be called.
 - `args` - An optional parameter; The arguments of the function to be passed on.
-- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopHScript` or `Function_StopAll`; Default value: `false`.
+- `ignoreStops` - An optional parameter; Whether it will ignore returns from `Function_StopLua` or `Function_StopHScript` or `Function_StopAll`; You also need to put the returns in `excludeValues`; Default value: `false`.
 - `ignoreSelf` - An optional parameter; This will ignore itself within the script that it's in; Default value: `true`.
 - `excludeScripts` - An optional parameter; The exclusions of Lua/Haxe scripts, for the function to not insert in.
 - `excludeValues` - An optional parameter; The exclusions of the arguments, for the function to not passed on.
@@ -310,18 +310,18 @@ Randomizes and <ins>floating-point number</ins>, determined by the `min` and `ma
 ### getRandomBool(chance:Float = 50)
 <ins>Randomizes the chances</ins> of returning to `true`.
 
-- `chance` - The numbers of chances to return `true`; Default value: `50`; Goes from `0` to `100`.
+- `chance` - The chances to return `true`; Default value: `50`; Goes from `0` to `100`.
 
 ***
 
-# Playstate Variable Functions
+# PlayState Variable Functions
 ### setVar(varName:String, value:Dynamic)
-<ins>Initializes the creation</ins> of a playstate variable, if it doesn't exist or sets the current playstate variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed</ins>; Same works with `getVar()` function.
+Creates and sets the variable into <ins>PlayState's variables map</ins> if it doesn't exist yet, which is basically <ins>creating a new global variable</ins>; Otherwise will set the variable with a new value. This will only work if the <ins>Lua script that the function is in, is currently executed</ins>; Same works with `getVar()` function.
 
-- `varName` - The playstate variable's name to be given.
+- `varName` - The variable name to be given.
 - `value` - The specified value to set in.
 
 ### getVar(varName:String)
-Gets the current playstate variable current value.
+Gets the variable's current value from PlayState's variables map.
 
-- `varName` - The playstate variable's name to get.
+- `varName` - The variable name to get.

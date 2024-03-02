@@ -1,3 +1,14 @@
+### 14.3.0 Version
+- Added Dynamic Functions and Deprecated Functions in "Callback Templates" Page
+- Edited some shortcuts in some variables so that they actually do what they're supposed to do
+- More note properties in "Reflection Functions" Page
+- Added more infos on some functions & variables
+- Proper Formatted on some pages
+- Fix spelling/grammar errors
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty)
+
 ### 14.2.0 Version
 - Added custom achievement functions
 - Added new callback functions

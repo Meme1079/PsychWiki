@@ -14,13 +14,12 @@ Examples:
 <p>
 
 ```haxe
-package; // they are directories that contain modules, i dunno how it works; but very important to use.
+package; // they are directories that contain modules, i dunno how it works, but very important to use.
 
 // import library_package.library_name | <-- That's the syntax
-
-import flixel.sound.FlxSound; // Imports the sound package
+import flixel.sound.FlxSound;       // Imports the sound package
 import openfl.filters.ShaderFilter; // Imports the shader filter package
-import backend.CoolUtil; // Imports CoolUtil haxe file
+import backend.CoolUtil;            // Imports CoolUtil haxe file
 
 // Also the semi colon ';' character is very important when declaring functions, packages, variables, etc.
 ```
@@ -40,7 +39,7 @@ import backend.PsychCamera;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import psychlua.HScript.CustomFlxColor;
+import psychlua.HScript.CustomFlxColor; // Not the actual FlxColor, since it is an Abstract (HScript can't use Abstracts), which means some functions and variables from FlxColor will be missing.
 import backend.BaseStage.Countdown;
 import states.PlayState;
 import backend.Paths;
@@ -136,10 +135,15 @@ Removes the global variable permanently, if not used anymore.
 
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
-Works exactly the same as the `debugPrint()` function.
+Works exactly the same as the `debugPrint()` function. If you want to print multiple values use a table `{}` inside the `text` argument; Example: `debugPrint({'Hello', 'World!'})`
 
 - `text` - The text to be outputed to the top-left of the screen.
 - `color` - An optional parameter, The color for the text to be displayed.
+
+### addBehindBF(obj:FlxBasic)
+Adds the object behind Boyfriend; Identical functions: `addBehindGF`, `addBehindDad`.
+
+- `obj` - The object to add.
 
 ### getLuaObject(tag:String)
 Gets the specified tag object outside the `runHaxeCode()` function.

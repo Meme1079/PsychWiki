@@ -10,8 +10,8 @@ local chars = setmetatable({'boyfriend', 'dad', 'gf'}, {
 })
 
 function onCreate()
-     debugPrint(chars[1]) -- will print > 'boyfriend'
-     debugPrint(chars[4]) -- will print > 'Invalid index value!'
+     debugPrint(chars[1]) --> 'boyfriend'
+     debugPrint(chars[4]) --> 'Invalid index value!'
 end
 ```
 
@@ -38,8 +38,8 @@ local x = setmetatable({23, 42}, {
 local y = setmetatable({72, 21}, getmetatable(x))
 local w = setmetatable({73, 12}, getmetatable(x))
 function onCreate()
-     debugPrint(y[3]) -- will print > 'Invalid index value!'
-     debugPrint(w[3]) -- will print > 'Invalid index value!'
+     debugPrint(y[3]) --> 'Invalid index value!'
+     debugPrint(w[3]) --> 'Invalid index value!'
 end
 ```
 
@@ -56,8 +56,8 @@ local tab = setmetatable({bar = true}, {
 })
 
 function onCreate()
-     debugPrint(tab.bar) -- will print > true
-     debugPrint(tab.foo) -- will print > false
+     debugPrint(tab.bar) --> true
+     debugPrint(tab.foo) --> false
 end
 ```
 
@@ -74,9 +74,9 @@ local tab = setmetatable({foo = true, bar = true}, {
 
 function onCreate()
      tab.foo = false      -- this will not invoked the __newindex metamethod.
-     debugPrint(tab1.foo) -- will print > false
+     debugPrint(tab1.foo) --> false
 
-     tab.baz = false      -- will print > 'Indexing can't be allowed!'
+     tab.baz = false      --> 'Indexing can't be allowed!'
 end
 ```
 
@@ -94,8 +94,8 @@ local coins = setmetatable({12, 23, 8, 10, 30}, {
 
 coins('%', 5) -- calculates modulo of 5 in each value
 function onCreate()
-     debugPrint(coins[1]) -- will print > 2
-     debugPrint(coins[2]) -- will print > 3
+     debugPrint(coins[1]) --> 2
+     debugPrint(coins[2]) --> 3
 end
 ```
 
@@ -113,7 +113,7 @@ local mytab = setmetatable({45, 23}, {
 
 function onCreate()
      for k,v in pairs(taby + {26, 82}) do
-          debugPrint(v) -- will print > 45, 23, 26, 82
+          debugPrint(v) --> 45, 23, 26, 82
      end
 end
 ```
@@ -137,11 +137,30 @@ end
 - `__metatable` - Changes the behavior of the `getmetatable()` function when invoked.
 
 ## Raw Functions
+Raw functions are special functions that do not invoke the said metafield that they're set to. They are only placed inside the metafield's function that they're in. This is to prevent a infinite recursion which cause a stack overflow.
+
 ### rawequal(value1:Dynamic, value2:Dynamic)
-Raw function for equal to operator without invoking the `__eq` field.
+Raw function for equal to operator without invoking the `__eq` metafield.
 
 - `value1` - The table to be referenced inside the metatable.
 - `value2` - The second value to be compared.
+
+Example:
+```lua
+local mytab = setmetatable({23, 43, 12}, {
+     __eq = function(tab, value)
+          if rawequal(#tab, #value) then
+               return true
+          end
+          return false
+     end
+})
+
+function onCreate()
+     debugPrint(mytab == {74, 23, 43})      --> true 
+     debugPrint(mytab == {74, 23, 43, 94})  --> false
+end
+```
 
 ### rawset(tab:Table, index:Dynamic, value:Dynamic)
 Raw function for indexing assignment syntax in tables without invoking the `__newindex` metafield.
@@ -152,10 +171,5 @@ Raw function for indexing assignment syntax in tables without invoking the `__ne
 
 ### rawget(tab:Table)
 Raw function for indexing access operation in tables without invoking the `__index` metafield.
-
-- `value1` - The table to be referenced inside the metatable.
-
-### reslen(tab:Table)
-Raw function for length operator without invoking the `__len` metafield.
 
 - `value1` - The table to be referenced inside the metatable.
