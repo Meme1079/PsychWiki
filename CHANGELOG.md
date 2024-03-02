@@ -3,7 +3,7 @@
 - Edited some shortcuts in some variables so that they actually do what they're supposed to do
 - More note properties in "Reflection Functions" Page
 - Added more infos on some functions & variables
-- Propert Formatted on some pages
+- Proper Formatted on some pages
 - Fix spelling/grammar errors
 
 #### Contributers
