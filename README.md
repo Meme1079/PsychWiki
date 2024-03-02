@@ -5,7 +5,18 @@
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-### Current Update [14.2.0 Version]
+### Current Update [14.3.0 Version]
+- Added Dynamic Functions and Deprecated Functions in "Callback Templates" Page
+- Edited some shortcuts in some variables so that they actually do what they're supposed to do
+- More note properties in "Reflection Functions" Page
+- Added more infos on some functions & variables
+- Propert Formatted on some pages
+- Fix spelling/grammar errors
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty)
+
+### Previous Update [14.2.0 Version]
 - Added custom achievement functions
 - Added new callback functions
 - Fixed some information on some functions
@@ -14,11 +25,6 @@ Welcome to PsychWiki! This is where we dedicate to documenting functions/other t
 #### Contributers
 - [LarryFrosty](https://github.com/LarryFrosty) - For adding some new callback functions to the wiki, that I didn't know existed
 - [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
-
-### Previous Update [14.1.0 Version]
-- Added "Custom Substate" Page
-- Added new 0.7.2 functions
-- Some orginizations from the wiki pages
 
 ***
 
