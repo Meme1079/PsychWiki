@@ -9,9 +9,11 @@ Sets one of <ins>PlayState's variable value</ins> to a new value.
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
 Sets one of the specified <ins>classes variable value </ins> to a new value. 
 
-> **Warning**: _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+> [!WARNING]
+> _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
-> **Note**: _If you are trying to set a static variable from PlayState, this is required since the normal setProperty only works on non-static variables._
+> [!NOTE] 
+> _If you are trying to set a static variable from PlayState, this is required since the normal setProperty only works on non-static variables._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
@@ -39,9 +41,11 @@ Gets one of <ins>PlayState's variable value</ins>.
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
 Gets one of the specified <ins>classes variable value</ins>.
 
-> **Warning**: _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+> [!WARNING]
+> _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
-> **Note**: _If you are trying to get a static variable from PlayState, this is required since the normal getProperty only works on non-static variables._
+> [!NOTE] 
+> _If you are trying to get a static variable from PlayState, this is required since the normal getProperty only works on non-static variables._
 
 - `classVar` - The name of the class; Example: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
 - `variable` - The variable inside the class to be used.
@@ -128,7 +132,8 @@ Updates the object's hitboxes with its specified member ID.
 # Property Attributes
 ## Object Properties
 
-> **Note**: _More object properties can be found on the [HaxeFlixel](https://api.haxeflixel.com/flixel/) website ([FlxBasic](https://api.haxeflixel.com/flixel/FlxBasic.html), [FlxObject](https://api.haxeflixel.com/flixel/FlxObject.html), [FlxSprite](https://api.haxeflixel.com/flixel/FlxSprite.html), etc)_.
+> [!TIP]
+> _More object properties can be found on the [HaxeFlixel](https://api.haxeflixel.com/flixel/) website ([FlxBasic](https://api.haxeflixel.com/flixel/FlxBasic.html), [FlxObject](https://api.haxeflixel.com/flixel/FlxObject.html), [FlxSprite](https://api.haxeflixel.com/flixel/FlxSprite.html), etc)_.
 
 - `.x` - The x position value of the object. **(Float)**
 - `.y` - The y position value of the object. **(Float)**

@@ -1,4 +1,5 @@
-> **Warning**: _Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter; help is always appreciated._
+> [!WARNING]
+> _Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter; help is always appreciated._
 
 # About Shaders
 Shaders in computer graphics, are a type of code that is executed on the Graphics Processing Unit (GPU). <ins>Which manipulates the rendered object</ins> with special effects like a `blur`, `distortion`, `higher/lower hue`, etc. _(Blah blah blah you get the point of it)_

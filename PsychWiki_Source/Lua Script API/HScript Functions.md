@@ -75,12 +75,12 @@ function onCreate()
           debugPrint(text, color); // will print > 'hi'
      ]], {text = 'hi', color = 0xFF0000})
 
-    -- funcToRun and funcArgs example
-    runHaxeCode([[
-        function isEven(num:Int) {
-            debugPrint(num % 2 == 0);
-        }
-    ]], nil, 'isEven', {4})
+     -- funcToRun and funcArgs example
+     runHaxeCode([[
+          function isEven(num:Int) {
+               debugPrint(num % 2 == 0);
+          }
+     ]], nil, 'isEven', {4})
 end
 ```
 
@@ -181,23 +181,24 @@ end
 ```
 
 ### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
-> **Note**: _Third argument is broken due to some parentLua statement shit_.
-
 Creates a local function inside a lua script.
+
+> [!WARNING]
+> _Third argument is broken due to some parentLua statement shit_.
 
 - `name` - The given name of the function.
 - `func` - The function code to use.
-- `funk` - _Currently broken_. An optional parameter, The script that the function is gonna be created on; Default value: `nil`. _(If used in runHaxeCode, will choose the script that runHaxeCode was used in)_
+- `funk` - An optional parameter, The script that the function is gonna be created on; Default value: `nil`. _(If used in runHaxeCode, will choose the script that runHaxeCode was used in)_
 
 Example:
 
 ```lua
 function onCreate()
-    runHaxeCode([[
-        createCallback('print', function(text:String) {
-            debugPrint(text);
-        });
-    ]])
+     runHaxeCode([[
+          createCallback('print', function(text:String) {
+               debugPrint(text);
+          });
+     ]])
 end
 
 function onCreatePost()

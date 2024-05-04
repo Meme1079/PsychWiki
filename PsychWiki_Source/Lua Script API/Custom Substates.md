@@ -5,7 +5,8 @@ In Psych Engine we can create our own custom substate by using one of the custom
 
 While open, in this state, you can't do anything; even tapping the debug buttons won't help you. So you'll need to configure a key pressing detection. Inside that `if` statement should have a `closeCustomSubstate()` function to deactivate or close the current substate manually.
 
-> **Note**: _Custom Substates can only have one substate active at a time, so no multiple activated substates._
+> [!NOTE] 
+> _Custom Substates can only have one substate active at a time, so no multiple activated substates._
 
 ## Creating a Custom Substate
 In this stupid goddamn tutorial, I will make a simple pause screen to give you a sense on how custom substates are created. I promise it won't be that "complicated" to understand it.

@@ -1,5 +1,6 @@
 ﻿# Unique Lua Variables
-> **Note**: _These are the only variables that can be changed using `= true` or `= false`; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
+> [!NOTE]
+> _These are the only variables that can be changed using `= true` or `= false`; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
 
 - `Function_StopLua` - Stops the Lua function from getting called on the rest of the Lua scripts; Must be returned.
 - `Function_StopHScript` - Stops the Haxe function from getting called on the rest of the Haxe scripts; Must be returned.

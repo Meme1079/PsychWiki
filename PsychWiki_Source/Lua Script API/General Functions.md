@@ -142,7 +142,8 @@ Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialog
 ### loadSong(?name:String = null, ?difficultyNum:Int = -1)
 Loads a new song.
 
-> **Warning**: _You can't load the song if the song's week `json` difficulties name is not the same as the current one.
+> [!WARNING] 
+> _You can't load the song if the song's week `json` difficulties name is not the same as the current one.
 
 - `name` - An optional parameter, The name of the song to be loaded; Default value: `nil`. _(Meaning that it will choose the current song name)_
 - `difficultyNum` - An optional parameter, The difficulty ID number of the song; Default value: `-1`. _(Meaning it will choose the current difficulty number that the song is playing on)_

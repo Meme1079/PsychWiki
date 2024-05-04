@@ -2,7 +2,8 @@
 ### startTween(tag:String, vars:String, values:Any = null, duration:Float, options:Any = null)
 Starts a tween on the object's properties.
 
-> **Note**: _This function does not automatically call `onTweenCompleted()` when the tween is finished. You have to add the onComplete callback manually, example is shown below; This also allows you to put custom function names for when the tween is completed_.
+> [!WARNING] 
+> _This function does not automatically call `onTweenCompleted()` when the tween is finished. You have to add the onComplete callback manually, example is shown below; This also allows you to put custom function names for when the tween is completed_.
 
 - `tag` - The tag name for the tween function to reference.
 - `vars` - The object for the tween function to reference.

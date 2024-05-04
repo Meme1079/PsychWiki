@@ -1,7 +1,8 @@
 
 # Keys/KeyBoard Press Functions
 
-> **Note**: _All the keyboard and gamepad functions here were recently added to HScript on 0.7.2+_.
+> [!NOTE]
+> _All the keyboard and gamepad functions here were recently added to HScript on 0.7.2+_.
 
 <details><summary><b>Key Input Version Compatibility:</b></summary>
 <p> 
@@ -86,7 +87,8 @@ Returns the <ins>current y value</ins> of the mouse on the specific camera.
 ***
 
 # Gamepad Functions
-> **Warning**: _Take this section with a grain of salt because I'm not sure if this is how you use these functions since they are barely used in scripts, so please help me._
+> [!WARNING]
+> _Take this section with a grain of salt because I'm not sure if this is how you use these functions since they are barely used in scripts, so please help me._
 
 [Click here to see the list of ID controls](https://api.haxeflixel.com/flixel/input/gamepad/FlxGamepadInputID.html)
 
