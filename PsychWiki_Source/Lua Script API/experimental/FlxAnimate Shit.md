@@ -8,7 +8,7 @@ Initializes a <ins>new FlxAnimate sprite</ins>; Will not be added yet, this can 
 - `loadFolder` - An optional parameter, The folder to load the spritemap and Animation jsons and png from; Default value: `nil`.
 
 ### loadAnimateAtlas(tag:String, folderOrImg:Dynamic, ?spriteJson:Dynamic = null, ?animationJson:Dynamic = null)
-> **Note**: _(The `spriteJson` and `animationJson` parameters needs the full path alongside the .json, example: `mods/images/spritemap1.json`)_
+> **Note**: _The `spriteJson` and `animationJson` parameters needs the full path alongside the .json, example: `mods/images/spritemap1.json`._
 
 Loads a <ins>new Texture Atlas sprite map</ins> on an existing FlxAnimate sprite.
 
