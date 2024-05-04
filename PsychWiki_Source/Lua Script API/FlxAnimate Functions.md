@@ -8,14 +8,18 @@ Initializes a <ins>new FlxAnimate sprite</ins>; Will not be added yet, this can 
 - `loadFolder` - An optional parameter, The folder to load the spritemap and Animation jsons and png from; Default value: `nil`.
 
 ### loadAnimateAtlas(tag:String, folderOrImg:Dynamic, ?spriteJson:Dynamic = null, ?animationJson:Dynamic = null)
-> **Note**: _The `spriteJson` and `animationJson` parameters needs the full path alongside the .json, example: `mods/images/spritemap1.json`_
-
 Loads a <ins>new Texture Atlas sprite map</ins> on an existing FlxAnimate sprite.
+
+> [!NOTE]
+> _The `spriteJson` and `animationJson` parameters needs the full path alongside the `.json`; Example: `mods/images/spritemap1.json`_
+
+> [!TIP]
+> Both `spriteJson` and `animationJson`, is recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe
 
 - `tag` - The existing tag name of the sprite to use.
 - `folderOrImg` - The folder path or image path to load the spritemap and Animation jsons and png from.
-- `spriteJson` - An optional parameter, The spritemap json path to use; Default value: `nil`. _(Recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe)_
-- `animationJson` - An optional parameter, The Animation json path to use; Default value: `nil`. _(Recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe)_
+- `spriteJson` - An optional parameter, The spritemap json path to use; Default value: `nil`.
+- `animationJson` - An optional parameter, The Animation json path to use; Default value: `nil`.
 
 ### addAnimationBySymbol(tag:String, name:String, symbol:String, ?framerate:Float = 24, ?loop:Bool = false, ?matX:Float = 0, ?matY:Float = 0)
 Adds a <ins>new animation from the `Animation.json` file</ins> for the sprite to play.
