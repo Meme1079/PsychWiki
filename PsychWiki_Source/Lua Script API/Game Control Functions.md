@@ -12,44 +12,44 @@
 | `down`   | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `up`     | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `right`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `accept`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `back` | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `pause`   | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `reset`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `space`  | `0.6.3` and Below | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
-| `accept` | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `back`   | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `pause`  | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `reset`  | `0.6.3` and Below | `keyJustPressed()`                                  |
 
 </p>
 </details>
 
 ### keyJustPressed(name:String)
-Gets the control keys that were <ins>recently pressed</ins> on the current game.
+Gets the control keybinds that were <ins>recently pressed</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyPressed(name:String)
-Gets the control keys that are <ins>currently pressed</ins> on the current game.
+Gets the control keybinds that are <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyReleased(name:String)
-Gets the control keys that were <ins>recently released</ins> on the current game.
+Gets the control keybinds that were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyboardJustPressed(name:String)
 Gets the keyboard keys that were <ins>recently pressed</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ### keyboardPressed(name:String)
 Gets the keyboard keys that are <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ### keyboardReleased(name:String)
 Gets the keyboard keys that were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ***
 
