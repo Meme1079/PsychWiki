@@ -1,46 +1,46 @@
 # Start/End functions
 ### onCreate()
-Triggered at the <ins>start of the script</ins>, can be used for creating objects, precaching, property setters/getters; <ins>Some variables</ins> aren't created yet; Will only be triggered once.
+Triggered <ins>every time the script is started</ins>, can be used for creating objects, precaching, property setters/getters; <ins>Some variables</ins> aren't created yet depending on when it is started.
 
 ### onCreatePost()
 Triggered at the <ins>post/after start of the script</ins>; The <ins>HUD elements and characters</ins> are created here; Will only be triggered once.
 
 ### onDestroy()
-Triggered at the <ins>end of the script</ins>; Will only be triggered once.
+Triggered when the <ins>script has been closed</ins>.
 
 ***
 
 # Gameplay/Song Functions
 ### onBeatHit()
-Triggered at max <ins>4 times</ins> per section; The `curBeat` variable is <ins>recommended to be used</ins> here since it will be called every beat.
+Triggered at default <ins>4 times</ins> per section; The `curBeat` variable is <ins>recommended to be used</ins> here since it will be called every beat.
 
 ### onStepHit()
-Triggered at max <ins>16 times</ins> per section; The `curStep` variable is <ins>recommended to be used</ins> here since it will be called every step.
+Triggered at default <ins>16 times</ins> per section; The `curStep` variable is <ins>recommended to be used</ins> here since it will be called every step.
 
 ### onSectionHit()
 Triggered at max <ins>1 time</ins> per section; The `curSection` variable is <ins>recommended to be used</ins> here since it will be called every section.
 
 ### onUpdate(elapsed)
-Triggered <ins>every frame</ins> in the game.
+Triggered <ins>before every frame</ins> in the game.
 
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdatePost(elapsed)
-Triggered at <ins>post/after every frame</ins> in the game; The <ins>HUD elements</ins> are updated here.
+Triggered <ins>every frame</ins> in the game; The <ins>HUD elements</ins> are updated here.
 
 - `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
 ### onUpdateScore(miss)
-Triggered when the <ins>`scoreTxt` updates</ins>.
+Triggered after the <ins>`scoreTxt` updates</ins>.
 
-- `miss` - Checks if the player missed a note; Returns a `bool`.
+- `miss` - Checks if the player missed a note; Returns a `boolean`.
 
 ### preUpdateScore(miss)
-Triggered <ins>before the calculation</ins> of the `scoreTxt` update.
+Triggered <ins>before the `scoreTxt` updates</ins>.
 
 > **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` to update and for `onUpdateScore()` to be called._
 
-- `miss` - Checks if the player missed a note; Returns a `bool`.
+- `miss` - Checks if the player missed a note; Returns a `boolean`.
 
 ### onSongStart()
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
@@ -69,7 +69,7 @@ end
 ```
 
 ### onRecalculateRating()
-Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingString()` function for your epic rating names;
+Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingName()` function for your epic rating names;
 
 > **Note**: _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the rating to be recalculated._
 
@@ -317,21 +317,25 @@ function onCreatePost() {
 }
 ```
 List of Dynamic functions/callbacks currently available:
-     - `updateIconsPosition()`
-     - `updateIconsScale()`
-     - `updateScore()`
-     - `fullComboFunction()`
-
+    From `PlayState.hx`:
+       - `updateIconsPosition()`
+       - `updateIconsScale(elapsed)`
+       - `updateScore(miss)`
+       - `fullComboFunction()`
+    From `FPSCounter.hx`:
+       - `updateText()` _(Accessed by using `Main.fpsVar.updateText`)_
+    From `Discord.hx`:
+       - `shutdown()` _(Static function)_
 ***
 
 # Deprecated Functions
 ### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`.
+> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`._
 
 In `0.7.2`, this is triggered AFTER `goodNoteHit` and `goodNoteHit` gets called before the good note hit calculations; Has the same parameters as `goodNoteHit`.
 
 ### opponentNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
 
-> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`.
+> **Warning**: _Added in `0.7.2`, Removed in `0.7.3`._
 
 In `0.7.2`, this is triggered AFTER `opponentNoteHit` and `opponentNoteHit` gets called before the opponent note hit calculations; Has the same parameters as `opponentNoteHit`.
