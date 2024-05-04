@@ -1,9 +1,9 @@
 ﻿# Unique Lua Variables
 > **Note**: _These are the only variables that can be changed using `= true` or `= false`; Example: `luaDebugMode = true`. For now you will have to use the `setProperty()` function if you want to change the rest of the variables._
 
-- `Function_StopLua` - Stops the Lua version of the function that this is used on; Must be returned.
-- `Function_StopHScript` - Stops the HScript version of the function that this is used on; Must be returned.
-- `Function_StopAll` - Stops both the Lua and HScript version of the function that this is used on; Must be returned.
+- `Function_StopLua` - Stops the Lua function from getting called on the rest of the Lua scripts; Must be returned.
+- `Function_StopHScript` - Stops the Haxe function from getting called on the rest of the Haxe scripts; Must be returned.
+- `Function_StopAll` - Stops the Lua and Haxe function from getting called on the rest of the Lua and Haxe scripts; Must be returned.
 - `Function_Stop` - Stops the function that this is used on; Must be returned.
 - `Function_Continue` - Resumes the function that this is used on; Must be returned.
 - `luaDebugMode` - Enables debug mode; Default value: `false`.
@@ -119,11 +119,18 @@
 - `ratingName` - `getProperty('ratingName')`
 - `ratingFC` - `getProperty('ratingFC')`
 - `version` - `getPropertyFromClass('states.MainMenuState', 'psychEngineVersion')`
+- `inGameOver` - _(Exclusive to Lua and HScript)_
+- `mustHitSection` - `getPropertyFromClass('states.PlayState', 'SONG.notes['..curSection..'].mustHitSection')`
+- `altAnim` - `getPropertyFromClass('states.PlayState', 'SONG.notes['..curSection..'].altAnim')`
+- `gfSection` - `getPropertyFromClass('states.PlayState', 'SONG.notes['..curSection..'].gfSection')`
 
 <details><summary><b>Deprecated Original Shorcuts:</b></summary>
 <p>
 
 - `version` - `getPropertyFromClass('MainMenuState', 'psychEngineVersion')`
+- `mustHitSection` - `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].mustHitSection')`
+- `altAnim` - `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].altAnim')`
+- `gfSection` - `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].gfSection')`
 
 </p>
 </details>
@@ -148,7 +155,7 @@
 - `healthGainMult` - `getProperty('healthGain')`
 - `healthLossMult` - `getProperty('healthLoss')`
 - `playbackRate` - `getProperty('playbackRate')`
-- `guitarHeroSustains - `getProperty('guitarHeroSustains')`
+- `guitarHeroSustains` - `getProperty('guitarHeroSustains')`
 - `instakillOnMiss` - `getProperty('instakillOnMiss')`
 - `botPlay` - `getProperty('cpuControlled')`
 - `practice` - `getProperty('practiceMode')`

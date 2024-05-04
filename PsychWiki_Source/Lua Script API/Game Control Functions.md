@@ -12,44 +12,44 @@
 | `down`   | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `up`     | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `right`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `accept`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `back` | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `pause`   | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
+| `reset`  | Still Used        | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
 | `space`  | `0.6.3` and Below | `keyJustPressed()`, `keyPressed()`, `keyReleased()` |
-| `accept` | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `back`   | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `pause`  | `0.6.3` and Below | `keyJustPressed()`                                  |
-| `reset`  | `0.6.3` and Below | `keyJustPressed()`                                  |
 
 </p>
 </details>
 
 ### keyJustPressed(name:String)
-Gets the control keys that were <ins>recently pressed</ins> on the current game.
+Gets the control keybinds that were <ins>recently pressed</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyPressed(name:String)
-Gets the control keys that are <ins>currently pressed</ins> on the current game.
+Gets the control keybinds that are <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyReleased(name:String)
-Gets the control keys that were <ins>recently released</ins> on the current game.
+Gets the control keybinds that were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the key to be used.
+- `name` - The name of the keybind to be used.
 
 ### keyboardJustPressed(name:String)
 Gets the keyboard keys that were <ins>recently pressed</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ### keyboardPressed(name:String)
 Gets the keyboard keys that are <ins>currently pressed</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ### keyboardReleased(name:String)
 Gets the keyboard keys that were <ins>recently released</ins> on the current game.
 
-- `name` - The name of the keys on the keyboard.
+- `name` - The name of the keys on the keyboard; Must be in all uppercase.
 
 ***
 
@@ -59,17 +59,17 @@ Buttons: `left`, `right`, `middle`
 ### mouseClicked(name:String)
 Gets the mouse buttons that were <ins>recently pressed</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ### mousePressed(name:String)
 Gets the mouse buttons that are <ins>currently pressed</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ### mouseReleased(name:String)
 Gets the mouse buttons that were <ins>recently released</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ***
 
@@ -129,10 +129,10 @@ Gets <ins>any gamepad</ins> buttons that were <ins>recently released</ins> on th
 The <ins>x axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left or right analog stick; Defualt value: `true`.
+- `leftStick` - Whether if its the left or right analog stick; Default value: `true`.
 
 ### gamepadAnalogY(id:Int, ?leftStick:Bool = true)
 The <ins>y axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left or right analog stick; Defualt value: `true`.
+- `leftStick` - Whether if its the left or right analog stick; Default value: `true`.

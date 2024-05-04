@@ -6,9 +6,9 @@ Starts a tween on the object's properties.
 
 - `tag` - The tag name for the tween function to reference.
 - `vars` - The object for the tween function to reference.
-- `values` - The object properties to tween; Example: `{angle = 360, alpha = 0}`.
+- `values` - The object properties to tween, must be a table dictionary; Example: `{angle = 360, alpha = 0}`; Default value: `nil`.
 - `duration` - The duration length for the tween function to end.
-- `options` - Other option properties for the tween to use; Example: `{ease = 'linear', type = 'PINGPONG', onComplete = 'onTweenCompleted'}`.
+- `options` - Other option properties for the tween to use, must be a table dictionary; Example: `{ease = 'linear', type = 'PINGPONG', onComplete = 'onTweenCompleted'}`; Default value: `nil`.
 
 It is also possible to tween PlayState's variables by setting the `vars` value as `this`:
 ```lua
@@ -58,7 +58,7 @@ Does a tween on the object's <ins>alpha/opacity alue</ins>.
 ### doTweenColor(tag:String, vars:String, targetColor:String, duration:Float, ease:String)
 Does a tween on the object's <ins>hex color alue</ins>.
 
-- `targetColor` - The target hex color value for the tween function to end.
+- `targetColor` - The target color value for the tween function to end.
 
 ### doTweenZoom(tag:String, vars:String, value:Dynamic, duration:Float, ease:String)
 Does a tween on the camera's <ins>zoom value</ins>.
@@ -91,18 +91,18 @@ Does a tween on the strum's <ins>receptor direction value</ins>.
 
 # Other Tween & Timer Functions
 ### runTimer(tag:String, time:Float = 1, loops:Int = 1)
-Runs a timer; If finished, the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
+Runs a timer; When finished, the tag from the `tag` parameter will be called to the `onTimerCompleted()` function.
 
-- `tag` - The timer tag name from the `onTimerCompleted()` function to be referenced.
+- `tag` - The tag name for the timer to be given.
 - `time` - The duration length of the timer to end; Default value: `1`.
-- `loops` - How many loops will the timer execute; Default value: `1`.
+- `loops` - How many loops will the timer execute; Default value: `1`. _(Put 0 to loop indefinitely)_
 
 ### cancelTimer(tag)
 Cancels the <ins>timer</ins> that is currently running.
 
-- `tag` - The timer tag name to be currently used.
+- `tag` - The timer tag name to cancel.
 
 ### cancelTween(tag)
 Cancels the <ins>tween</ins> that is running.
 
-- `tag` - The tween tag name to be currently used.
+- `tag` - The tween tag name to cancel.
