@@ -59,17 +59,17 @@ Buttons: `left`, `right`, `middle`
 ### mouseClicked(name:String)
 Gets the mouse buttons that were <ins>recently pressed</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ### mousePressed(name:String)
 Gets the mouse buttons that are <ins>currently pressed</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ### mouseReleased(name:String)
 Gets the mouse buttons that were <ins>recently released</ins> on the current frame.
 
-- `name` The name of the mouse buttons; Defualt value: `left`.
+- `name` The name of the mouse buttons; Default value: `left`.
 
 ***
 
@@ -129,10 +129,10 @@ Gets <ins>any gamepad</ins> buttons that were <ins>recently released</ins> on th
 The <ins>x axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left or right analog stick; Defualt value: `true`.
+- `leftStick` - Whether if its the left or right analog stick; Default value: `true`.
 
 ### gamepadAnalogY(id:Int, ?leftStick:Bool = true)
 The <ins>y axis value</ins> of the gamepad analog.
 
 - `id` - The ID controls of the gamepad.
-- `leftStick` - Whether if its the left or right analog stick; Defualt value: `true`.
+- `leftStick` - Whether if its the left or right analog stick; Default value: `true`.
