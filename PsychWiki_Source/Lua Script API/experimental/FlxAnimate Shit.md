@@ -15,7 +15,7 @@ Loads a <ins>new Texture Atlas sprite map</ins> on an existing FlxAnimate sprite
 - `tag` - The existing tag name of the sprite to use.
 - `folderOrImg` - The folder path or image path to load the spritemap and Animation jsons and png from.
 - `spriteJson` - An optional parameter, The spritemap json path to use; Default value: `nil`. _(Recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe)_
-- `animateJson` - An optional parameter, The Animation json path to use; Default value: `nil`. _(Recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe)_
+- `animationJson` - An optional parameter, The Animation json path to use; Default value: `nil`. _(Recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe)_
 
 ### addAnimationBySymbol(tag:String, name:String, symbol:String, ?framerate:Float = 24, ?loop:Bool = false, ?matX:Float = 0, ?matY:Float = 0)
 Adds a <ins>new animation from the `Animation.json` file</ins> for the sprite to play.
