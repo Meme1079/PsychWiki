@@ -36,10 +36,7 @@ Triggered after the <ins>`scoreTxt` updates</ins>.
 - `miss` - Checks if the player missed a note; Returns a `boolean`.
 
 ### preUpdateScore(miss)
-Triggered <ins>before the `scoreTxt` updates</ins>.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` to update and for `onUpdateScore()` to be called._
+Triggered <ins>before the `scoreTxt` updates</ins>. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` to update and for `onUpdateScore()` to be called.
 
 - `miss` - Checks if the player missed a note; Returns a `boolean`.
 
@@ -47,10 +44,7 @@ Triggered <ins>before the `scoreTxt` updates</ins>.
 Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
 
 ### onEndSong()
-Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the song to end._
+Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the song to end.
 
 ### onMoveCamera(focus)
 Triggered when the <ins>camera focuses on a character</ins>; Can either be `boyfriend`, `dad` or `gf`.
@@ -71,19 +65,13 @@ end
 ```
 
 ### onRecalculateRating()
-Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingName()` function for your epic rating names;
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the rating to be recalculated._
+Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation. And the `setRatingName()` function for your epic rating names. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the rating to be recalculated.
 
 ***
 
 # Countdown Functions
 ### onStartCountdown()
-Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the countdown to start and for `onCountdownStarted()` to be called._
+Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the countdown to start and for `onCountdownStarted()` to be called.
 
 ### onCountdownStarted()
 Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note strums</ins> are created here.
@@ -94,10 +82,13 @@ Triggered every <ins>countdown tick</ins>.
 > [!NOTE] 
 > _On HScript, the parameters are changed to `onCountdownTick(tick, counter)`._
 
-- `tick` - **(HScript Exclusive)** - The current countdown tick in words; Goes from `THREE` to `START`.
+- `tick` - The current countdown tick in words; Goes from `THREE` to `START`. **(HScript Exclusive)**
 - `counter` - The current countdown tick; Goes from `0` to `4`.
 
-Lua Example:
+<details><summary><b>Lua Example:</b></summary>
+<p> 
+
+Code:
 ```lua
 function onCountdownTick(counter)
      local counterArray = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
@@ -114,21 +105,31 @@ Counter Num: 3 | Go!
 Counter Num: 4 | The song starts here
 ```
 
-HScript Example:
-```haxe
-function onCountdownTick(tick, counter) {
-    debugPrint('Counter: '+tick+' | '+counter);
-}
+</p>
+</details>
+
+<details><summary><b>Haxe Example:</b></summary>
+<p> 
+
+Code:
+```lua
+function onCountdownTick(counter)
+     local counterArray = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
+     debugPrint('Counter Num: '..counter..' | '..counterArray[counter + 1]) 
+end
 ```
 
 Will print:
 ```terminal
-Counter: THREE | 0
-Counter: TWO | 1
-Counter: ONE | 2
-Counter: GO | 3
-Counter: START | 4
+Counter Num: 0 | Three
+Counter Num: 1 | Two
+Counter Num: 2 | One
+Counter Num: 3 | Go!
+Counter Num: 4 | The song starts here
 ```
+
+</p>
+</details>
 
 ***
 
@@ -183,19 +184,13 @@ Triggered if the <ins>current dialogue line is skipped mid text</ins>.
 
 # Substate Functions
 ### onPause()
-Triggered if the game is <ins>paused from playing</ins>.
-
-> [!Note] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the pause menu to open._
+Triggered if the game is <ins>paused from playing</ins>. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the pause menu to open.
 
 ### onResume()
 Triggered if the game is <ins>resumed from pausing</ins>.
 
 ### onGameOver()
-Triggered if the <ins>player dies from skill issues</ins>.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the player to be able to die._
+Triggered if the <ins>player dies from skill issues</ins>. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the player to be able to die.
 
 ### onGameOverStart()
 Triggered at the <ins>start of the game-over screen</ins>.
@@ -212,10 +207,7 @@ Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
 > _For Note related callbacks, the parameters on HScript are replaced with just the Note itself; Example: `note.noteType`_.
 
 ### goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player hits a note</ins>.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
+Triggered if the <ins>player hits a note</ins>. `Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called.
 
 - `membersIndex` - The note member id.
 - `noteData` - The direction of the notes; Values: `0,1,2,3`.
@@ -223,22 +215,13 @@ Triggered if the <ins>player hits a note</ins>.
 - `isSustainNote` - Checks if the note is a sustain note; Returns a `boolean`.
 
 ### goodNoteHitPre(membersIndex, noteData, noteType, isSustainNote)
-Triggered <ins>before the good note hit calculations</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
+Triggered <ins>before the good note hit calculations</ins>; Has the same parameters as `goodNoteHit`. `Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called.
 
 ### opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>opponent hits a note</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
+Triggered if the <ins>opponent hits a note</ins>; Has the same parameters as `goodNoteHit`. `Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called.
 
 ### opponentNoteHitPre(membersIndex, noteData, noteType, isSustainNote)
-Triggered <ins>before the opponent note hit calculations</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
+Triggered <ins>before the opponent note hit calculations</ins>; Has the same parameters as `goodNoteHit`. `Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called.
 
 ### onSpawnNote(membersIndex, noteData, noteType, isSustainNote, strumTime)
 Triggered if a <ins>note is spawned</ins>.
@@ -250,10 +233,7 @@ Triggered if a <ins>note is spawned</ins>.
 - `strumTime` - Returns the note's strum time; Returns a `float`.
 
 ### noteMiss(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player misses a note</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
+Triggered if the <ins>player misses a note</ins>; Has the same parameters as `goodNoteHit`. `Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called.
 
 ### noteMissPress(noteData)
 Triggered if the <ins>player presses while a note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disabled</ins>.
@@ -268,10 +248,7 @@ Triggered if the player presses <ins>one of the note control buttons</ins>.
 - `key` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onKeyPressPre(key)
-Triggered <ins>before the key press calculations</ins>.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the <ins>input system to work</ins> and for `onKeyPress()` and `onGhostTap()` to be called; Would not recommend using `Function_Stop` on this unless you plan on making your own input system._
+Triggered <ins>before the key press calculations</ins>. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the <ins>input system to work</ins> and for `onKeyPress()` and `onGhostTap()` to be called; Would not recommend using `Function_Stop` on this unless you plan on making your own input system.
 
 - `key` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
 
@@ -281,10 +258,7 @@ Triggered if the player releases <ins>one of the note control buttons</ins>.
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
 ### onKeyReleasePre(key)
-Triggered <ins>before the key release calculations</ins>.
-
-> [!NOTE] 
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` to be called._
+Triggered <ins>before the key release calculations</ins>. `Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` to be called.
 
 - `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
 
@@ -344,15 +318,11 @@ List of Dynamic functions/callbacks currently available:
 ***
 
 # Deprecated Functions
-### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-> [!WARNING] 
-> _Added in `0.7.2`, Removed in `0.7.3`._
+> [!CAUTION]
+> Both of these functions were added in `0.7.2`, but later removed in `0.7.3`.
 
+### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
 In `0.7.2`, this is triggered AFTER `goodNoteHit` and `goodNoteHit` gets called before the good note hit calculations; Has the same parameters as `goodNoteHit`.
 
 ### opponentNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-
-> [!WARNING] 
-> _Added in `0.7.2`, Removed in `0.7.3`._
-
 In `0.7.2`, this is triggered AFTER `opponentNoteHit` and `opponentNoteHit` gets called before the opponent note hit calculations; Has the same parameters as `opponentNoteHit`.

@@ -5,16 +5,16 @@ Initializes a <ins>new FlxAnimate sprite</ins>; Will not be added yet, this can 
 - `tag` - The tag name of the sprite to be referenced later.
 - `x` - An optional parameter, The x axis of the sprite; Default value: `0`.
 - `y` - An optional parameter, The y axis of the sprite; Default value: `0`.
-- `loadFolder` - An optional parameter, The folder to load the spritemap and Animation jsons and png from; Default value: `nil`.
+- `loadFolder` - An optional parameter, The folder to load the spritemap and animation jsons and png from; Default value: `nil`.
 
 ### loadAnimateAtlas(tag:String, folderOrImg:Dynamic, ?spriteJson:Dynamic = null, ?animationJson:Dynamic = null)
 Loads a <ins>new Texture Atlas sprite map</ins> on an existing FlxAnimate sprite.
 
-> [!NOTE]
-> _The `spriteJson` and `animationJson` parameters needs the full path alongside the `.json`; Example: `mods/images/spritemap1.json`_
-
 > [!TIP]
-> Both `spriteJson` and `animationJson`, is recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe
+> Both `spriteJson` and `animationJson` parameters, it's recommended to leave this `nil` if you are gonna use `folderOrImg` since `folderOrImg` already searches for the spritemap and Animation jsons, unless the json is in like a different path or something maybe.
+
+> [!NOTE]
+> _Both `spriteJson` and `animationJson` parameters needs the full path alongside the `.json`; Example: `mods/images/spritemap1.json`._
 
 - `tag` - The existing tag name of the sprite to use.
 - `folderOrImg` - The folder path or image path to load the spritemap and Animation jsons and png from.

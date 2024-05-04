@@ -1,7 +1,8 @@
 ![banner](https://user-images.githubusercontent.com/101881784/186165593-7f234ba2-093d-4754-8062-6afe002e93a4.png)
 
 # Psych-Wiki
-> **Note**: This is not the official wiki of Psych Engine
+> ![NOTE]
+> This is not the official wiki of Psych Engine
 
 Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
