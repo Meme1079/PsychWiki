@@ -85,7 +85,7 @@ end
 ```
 
 ### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null)
-Creates a class constructor of an object from a class by calling the constructor method.
+Creates an object instance of the class by calling the constructor.
 
 - `variableToSave` - The object's tag name.
 - `className` - The name of the class to use.
@@ -96,7 +96,7 @@ Example:
 createInstance('characterTag', 'objects.Character', {0, 0, 'gf'}) -- Will create a character
 ```
 
-Creating a class constructor from the Character class (Reference):
+Creating an object instance of a class using the Character class (Reference):
 ```haxe
 new Character(x, y, json, isPlayer);
 ```
@@ -110,12 +110,12 @@ Adds the object from the specified tag name.
 ***
 
 # Miscellaneous Properties
-### removeFromGroup(obj:String, index:Int, ?dontDestroy:Bool = false)
+### removeFromGroup(obj:String, index:Int, dontDestroy:Bool = false)
 Removes an object from the group with its specified member ID
 
 - `obj` - The name of the array/group member; Example: `opponentStrums`, `playerStrums`, etc.
 - `index` - The index number of the array/group member to be referenced.
-- `dontDestroy` - An optional parameter, Whether if the note type will be removed permanently making it unable to be re-added; Default value: `false`.
+- `dontDestroy` - Whether if the object will be removed permanently making it unable to be re-added; Default value: `false`.
 
 ### updateHitboxFromGroup(group:String, index:Int)
 Updates the object's hitboxes with its specified member ID.
@@ -137,9 +137,7 @@ Updates the object's hitboxes with its specified member ID.
 - `.alpha` - The alpha/opacity value of the object; Goes from `0` to `1`. **(Float)**
 - `.angle` - The angle value of the object. **(Float)**
 - `.color` - The hex color of the object. **(Int)** _(Must be a hexadecimal value)_
-- `.length` - The length value of an array. **(Array)**
 - `.visible` - Whether the object is visible or not. **(Boolean)**
-- `.stunned` - Will disable the idle animation and key pressing. **(Boolean)**
 - `.antialiasing` - Whether the border of an object will be smooth or not, this will affect performance. **(Boolean)**
 - `.flipX` - Flips the object on the x axis. **(Boolean)**
 - `.flipY` - Flips the object on the y axis. **(Boolean)**
@@ -183,10 +181,10 @@ Updates the object's hitboxes with its specified member ID.
 - `copyY` - Variable determining if the note will follow the strum's `Y` position; It's recommended to <ins>use the `offsetY` variable</ins> instead of turning this off. **(Boolean)**
 - `copyAngle` - Variable determining if the note will follow the strum's `angle` value; It's recommended to <ins>use the `offsetAngle` variable</ins> instead of turning this off. **(Boolean)**
 - `copyAlpha` - Variable determining if the note will follow the strum's `alpha` value; It's recommended to <ins>use the `multAlpha` variable</ins> instead of turning this off. **(Boolean)**
-- `rgbShader` - The RGB Shader that the strums and notes are using; [More info on how to disable it or change the colors here!!](https://github.com/Meme1079/PsychWiki/wiki/Psych-Engine-API:-Transitioning-to-0.7.0#rgb-note-colors) **(RGBShaderReference)**
+- `rgbShader` - The RGB Shader that the strums and notes are using; [More info on how to disable it here!!](https://github.com/Meme1079/PsychWiki/wiki/Psych-Engine-API:-Transitioning-to-0.7.0#note-colors) **(RGBShaderReference)**
 - `noteSplashData.disabled` - Whether the note splashes will be disabled or not. **(Boolean)**
 - `noteSplashData.texture` - The note splashes texture to use. **(String)**
-- `noteSplashData.useGlobalShader` - If set to `true`, the custom note will use the note's default splash colors. **(Boolean)**
+- `noteSplashData.useGlobalShader` - If set to `true`, the note splash will use the note's default RGB colors in the options. **(Boolean)**
 - `noteSplashData.useRGBShader` - If set to `false`, note splashes will no longer use the RGB Shader. **(Boolean)**
 - `noteSplashData.r` - The note splashes red value; Default value: `-1`. **(Int)**
 - `noteSplashData.g` - The note splashes green value; Default value: `-1`. **(Int)**
