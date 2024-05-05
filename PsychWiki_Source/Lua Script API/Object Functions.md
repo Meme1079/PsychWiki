@@ -82,7 +82,7 @@ Loads the Lua sprites <ins>animation frames</ins>.
 
 # Precaching Functions
 > [!IMPORTANT] 
-> _It's highly recommended that you use this `function onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
+> _It's highly recommended that you use this on the `onCreate()` callback. These functions are mainly used for avoiding a massive game freeze when an asset first gets used._
 
 ### addCharacterToList(name:String, type:String)
 Pre-caches the <ins>sprite character</ins>, this used if you're switching characters.

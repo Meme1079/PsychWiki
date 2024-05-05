@@ -1,4 +1,4 @@
-# Functions
+# Built-in Functions
 ### type(data:Dynamic)
 Checks the returning argument and determines the data type of the argument; Possibly returns: `string`, `number`, `boolean`, `table`, `function`, `thread`, or `userdata`.
 
@@ -134,7 +134,8 @@ end
 ```
 
 ## Handling Errors
-> **Note**: _These functions only works outside of any Callback Templates._
+> [!NOTE]
+> _These functions only work, outside of any Callback Templates._
 
 ### error(message:String, ?level:Int = 1)
 Throws an error message, usually error messages are strings describing what went wrong. When there is an internal error; Example: Attempting to index a non-table value.
@@ -211,7 +212,7 @@ debugPrint(errorValue) --> An error occured! fix it dummy!
 
 ***
 
-# Properties
+# Built-in Constants
 ### _G
 The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts.
 
