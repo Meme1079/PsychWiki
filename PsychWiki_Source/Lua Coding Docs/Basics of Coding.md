@@ -167,8 +167,8 @@ function onCreate()
 end
 ```
 
-### Escape CHaracters
-Escape characters are a special characters used within a string, they are an alternate interpretation of the characters in the following character sequence, it basically allows you to insert illegal characters inside a string. For instance a single-quote character <kbd>'</kbd> that is surrounded by single-quote string, which will cause an error on the Lua program. They are define with the backslash character <kbd>\</kbd> followed by the specified character to use after that; they're listed below.
+### Escape Characters
+Escape characters are a special characters used within a string, they are an alternate interpretation of the characters in the following character sequence, it basically allows you to insert illegal characters inside a string. For instance a single-quote character <kbd>'</kbd> that is surrounded by single-quote string, which will cause an error on the Lua program. They are define with the backslash character <kbd>\\</kbd> followed by the specified character to use after that; they're listed below.
 
 Example:
 ```lua
@@ -439,7 +439,7 @@ end
 ```
 
 ### Repeat-until Loop
-Repeat until statement works similarly as `while` loop, but has a major differences. The block of code has a guaranteed to be executed at least once, before checking if the condition is `true`, it will repeat the loop until its condition is met. It is declared with the `repeat` keyword followed by the body of code, with the `until` keyword next to the condition to loop over.
+Repeat until statement works similarly as the `while` loop, but has a major differences. The block of code has a guaranteed to be executed at least once, before checking if the condition is `true`, it will repeat the loop until its condition is met. It is declared with the `repeat` keyword followed by the body of code, with the `until` keyword next to the condition to loop over.
 
 > [!CAUTION]
 > Please make sure to check the condition of the while loop. Becuase it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
