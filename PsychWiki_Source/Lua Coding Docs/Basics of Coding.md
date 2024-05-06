@@ -633,6 +633,15 @@ Modules are collection of encapsulate data mostly variables or functions. They c
 
 Modules are simple to create, it uses table dictionaries for its modular system containing libraries to store; functions or variables, as seen below. With the return statement, returning the table at the last line of code. If you want to import said module, you'll use the `require()` function to import your modules.
 
+Path:
+```txt
+mods
+└─scripts
+  ├─modules
+  │ └─test_modules.lua
+  └─script.lua
+```
+
 Example:
 ```lua
 local myModule = {} -- table to contain code, important
