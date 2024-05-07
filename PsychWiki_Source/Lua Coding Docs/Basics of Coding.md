@@ -629,18 +629,12 @@ end
 ***
 
 # Modules
-Modules are collection of encapsulate data mostly variables or functions. They can be pretty useful in reusing library code in different parts of your Lua scripts and help you maintain a code base. It avoids duplication of code and organize code to make it easy to share and reuse code across different Lua scripts.
+Modules are a collection encapsulate data mostly variables and functions. Which uses a table to wrapped around the functions and variables within, it acts as the namespace. This is pretty useful becuase it avoids duplication of code by creating a reusable library code across every Lua script. And helps organization of code to maintain your little code base of yours. Lua offers a built-in modules in their language, which are: `string`, `table`, and `math`.
 
-Modules are simple to create, it uses table dictionaries for its modular system containing libraries to store; functions or variables, as seen below. With the return statement, returning the table at the last line of code. If you want to import said module, you'll use the `require()` function to import your modules.
+A simple way to create your own modules, we use tables as I mentioned before. You declare `local` variable that holds a table, which acts as a prefix for each object in the module. With each objects inserted into the table, as seen below. Followed by the return statement, returning the table at the last line of code.
 
-Path:
-```txt
-mods
-└─scripts
-  ├─modules
-  │ └─test_modules.lua
-  └─script.lua
-```
+> [!IMPORTANT]
+> This should be in a separate Lua file, and it should located where this file isn't executed.
 
 Example:
 ```lua
@@ -656,6 +650,10 @@ end
 
 return myModule -- returning the table, important
 ```
+
+After you created your own modules, you want your module to import into your Lua scripts. It offers a higher-level function to load and run libraries, called the `require()` function, it returns a table from the given module. To use it make a `local` variable at the top of the code, with a `require()` function. The argument it should receive is the path to the module starting outside the `mods` folder. You could use the slash character <kbd>/</kbd> or a period character <kbd>.</kbd> as a separator.
+
+Example:
 ```lua
 local mod = require 'mods.scripts.modules.test_modules' -- imports the module
 
@@ -663,4 +661,13 @@ function onCreate()
      debugPrint(mod.red)        --> ff0000
      debugPrint(mod.isEven(23)) --> false
 end
+```
+
+Path Reference:
+```txt
+mods
+└─scripts
+  ├─modules
+  │ └─test_modules.lua
+  └─script.lua
 ```
