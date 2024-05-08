@@ -62,10 +62,6 @@ And now you have your very own custom substate yay!!!!!!!! It's not really speci
 
 ***
 
-# Custom Substate HScript Variables
-- `customSubstate` - The current opened custom substate instance. If none is opened, this will be `null`.
-- `customSubstateName` - The name of the current opened custom substate. If none is opened, this will be `unnamed`.
-
 # Custom Substate Functions
 ### openCustomSubstate(name:String, ?pauseGame:Bool = false)
 Opens your custom substate.
@@ -111,3 +107,9 @@ Works exactly the same as the <ins>`onUpdatePost()` callback</ins> but for custo
 Works exactly the same as the <ins>`onDestroy()` callback</ins> but for custom substates; Will be triggered when a custom substate is closed.
 
 - `name` - The name of a custom substate to check.
+
+***
+
+# Custom Substate HScript Variables
+- `customSubstate` - The current opened custom substate instance. If none is opened, this will be `null`.
+- `customSubstateName` - The name of the current opened custom substate. If none is opened, this will be `unnamed`.

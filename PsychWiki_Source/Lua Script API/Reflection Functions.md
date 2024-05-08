@@ -10,7 +10,7 @@ Sets one of <ins>PlayState's variable value</ins> to a new value.
 Sets one of the specified <ins>classes variable value </ins> to a new value. 
 
 > [!WARNING]
-> _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+> _In versions <kbd>0.7</kbd> or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.PlayState`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
 > [!NOTE] 
 > _If you are trying to set a static variable from PlayState, this is required since the normal setProperty only works on non-static variables._
@@ -42,7 +42,7 @@ Gets one of <ins>PlayState's variable value</ins>.
 Gets one of the specified <ins>classes variable value</ins>.
 
 > [!WARNING]
-> _In versions `0.7` or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
+> _In versions <kbd>0.7</kbd> or above, the `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character. With the name of the class that you've chosen; Example: `backend.ClientPrefs`, `states.Playstate`, `flixel.FlxG`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)._
 
 > [!NOTE] 
 > _If you are trying to get a static variable from PlayState, this is required since the normal getProperty only works on non-static variables._

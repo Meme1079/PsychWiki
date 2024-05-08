@@ -1,8 +1,7 @@
-# Creating/Adding/Removing Sprite
-
 > [!NOTE]
 > _For the `tag` parameters, if you use the same tag name again, the previous object with the same tag AND the same object type (e.g. sprites, texts, timers, etc) will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
 
+# Creating/Adding/Removing Sprite
 ### makeLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0)
 Initializes the <ins>creation of the Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 

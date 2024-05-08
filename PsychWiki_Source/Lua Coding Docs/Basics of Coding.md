@@ -515,6 +515,8 @@ end
 ***
 
 # Functions
+> Want to learn more about [functions](https://www.lua.org/pil/6.html)?
+
 Functions are collections of code that are designed to perform a specific task. They can enable reusable code across your Lua program, which reduces the duplication of code. And carry out a specific task procedure or subroutine in other languages or compute and return values.
 
 Functions are defined with the `function` keyword followed by the `identifier` of the function. With the calling operation <kbd>()</kbd> to declare with or without the given parameters. Also The `identifier` of function follows the same rules as the naming convetion of variables. _(Just to let you know!)_
