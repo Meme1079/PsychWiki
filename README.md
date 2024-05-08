@@ -1,4 +1,4 @@
-![banner](https://user-images.githubusercontent.com/101881784/186165593-7f234ba2-093d-4754-8062-6afe002e93a4.png)
+![banner_new](https://github.com/Meme1079/PsychWiki/assets/101881784/04fc3f94-2ce2-4697-baba-4b63e1aa1457)
 
 # PsychWiki
 > [!NOTE]
