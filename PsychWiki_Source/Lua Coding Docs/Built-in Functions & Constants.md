@@ -1,8 +1,8 @@
 # Built-in Functions
 ### type(data:Dynamic)
-Checks the returning argument and determines the data type of the argument; Possibly returns: `string`, `number`, `boolean`, `table`, `function`, `thread`, or `userdata`.
+Checks the given data argument and returns the determine type of its argument, coded as a string. Which will return either: `string`, `number`, `boolean`, `nil`, `table`, `function`, `thread`, or `userdata`.
 
-- `data` - The value to return the type of.
+- `data` - The data argument to determine the specified type.
 
 Example:
 ```lua
@@ -13,10 +13,10 @@ function onCreate()
 end
 ```
 
-### tostring(arg:Dynamic)
-Converts any `number` or `boolean` value into a real string from the provided argument; Returns a nil value if it is impossible to convert. 
+### tostring(data:Dynamic)
+Converts a given data argument into a literal string; Returns a `nil` value if an conversion error occured.
 
-- `arg` - The `number` value to be converted, it can also use `boolean` values.
+- `data` - the data argument to convert it inta literal string.
 
 Example:
 ```lua
@@ -26,11 +26,11 @@ function onCreate()
 end
 ```
 
-### tonumber(arg:String, ?base:Int = 10)
-Converts a number value from a string into a real number from the provided argument; Returns a `nil` value if it is impossible to convert.
+### tonumber(data:String, ?base:Int = 10)
+Converts a given string argument into a real number, if the argument is returning a number or tring it will convert it to a number. Then it will return its number; Returns a `nil` value if an conversion error occured.
 
-- `arg` - The `number` value from a `string` to be converted.
-- `base` - An optional parameter, The numerical base to convert from the `arg` argument; Default value: `10`.
+- `data` - The string argument to convert into a real number.
+- `base` - An optional parameter, The specified [base](https://en.wikipedia.org/wiki/Radix) to interpret the numeral; Default value: `10`.
 
 Example:
 ```lua
@@ -42,30 +42,12 @@ function onCreate()
 end
 ```
 
-### require(modulePath:String)
-Searches the location of the Lua file and loads the given module. And controls if the Lua file has previously been executed in order to avoid duplicating the work.
+### unpack(list:Array, ?min:Int = 1, ?max:Int)
+Returns each elements from a given table, each separated. The range can be specified from the `min` parameter to the `max` parameter.
 
-- `modulePath` - The given module to load; Starts outside the `mods` folder directory.
-
-### load(code:String)
-Receives the Lua code from the argument and parses it into a real Lua code. The code that will be loaded is inside a function; Returns a `function`.
-
-- `code` - The code from the `string` to be parse into real Lua code.
-
-Example:
-```lua
-function onCreate()
-     debugPrint( load('return 23 % 5')() ) --> 3
-     debugPrint( load('return \'Hi\'')() ) --> Hi
-end
-```
-
-### unpack(list:Array, ?min:Int = 1, ?max:Int = #list)
-Returns the elements from the given table each separated. The range is determined from the `min` and `max` parameters.
-
-- `list` - The table to be unpacked.
-- `min` - An optional parameter, The minimum index value to select the range; Default value: `1`.
-- `max` - An optional parameter, The maximum index value to select the range.
+- `list` - The given table to unpack the elements.
+- `min` - An optional parameter, The minimum index position to select the range; Default value: `1`.
+- `max` - An optional parameter, The maximum index position to select the range.
 
 Example:
 ```lua
@@ -77,10 +59,10 @@ function onCreate()
 end
 ```
 
-### select(index:Int|String, ...args:Dynamic)
-Returns the number of selected from the arguments, the selection range is determined by the `index` parameter.
+### select(index:Dynamic, ...args:Dynamic)
+Returns the selected range of multiple arguments from the `args` parameter. The starting range can be specified by the `index` parameter.
 
-- `index` - The index range for the arguments to be selected. If the argument is a negative number, it will return to the end of the argument list. You can also get the full range by using the hastag <kbd>#</kbd> character.
+- `index` - The starting index position to start the selection if the argument is a negative number, it will return to the end of the argument list. If you want to get the total number of the argument list use the hashtag character <kbd>#</kbd>.
 - `args` - The argument(s) to be passed and selected; this parameter is infinite. Meaning you can add an infinite amount of arguments, each separated by a comma <kbd>,</kbd> character; Example: `23, 13, 66`.
 
 Example:
@@ -97,51 +79,64 @@ function onCreate()
 end
 ```
 
-### pairs(tab:Array)
-Returns a key-value pairs and it's commonly used for dictionaries; keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
+### load(code:String)
+Loads a chunk by using a string if there are no errors, it returns the compiled chunk as a function. The environment of the returned function is the global environment. <!-- Am lazy to make my own description -->
 
-- `tab` - The table to be iterated.
+- `code` - The chunk code to compiled as a function.
 
 Example:
 ```lua
-local array = {[-1] = 34, [0] = 93, [1] = 45, [3] = 64, [2] = 12}
-
-array['hello'] = true
-array['bye']   = false
 function onCreate()
-     for k,v in pairs(array) do
-          debugPrint(v) --> 93, 45, 12, 64, true, false, 34
+     debugPrint( load('return 23 % 5')() ) --> 3
+     debugPrint( load('return \'Hi\'')() ) --> Hi
+end
+```
+
+### require(path:String)
+Runs and loads the given module, with the `path` argument to find the designated module. You could use the slash character <kbd>/</kbd> or a period character <kbd>.</kbd> as a separator. Additionally, it controls whether the file has been executed previously to prevent duplication of loading. If function has problem on loading or running the module, or it doesn't find the said module. Then it will signal an error; Returns a `table`.
+
+- `path` - The path to run and load the given module; Starts outside of the `mods` folder.
+
+## Iterators
+### pairs(iter:Array)
+Iterates over key-value pairs for tables, recommended for dictionaries & mixed ones tho. The keys are all preserved but returns as an unorganized sort; Not to be confused with `ipairs()` function.
+
+- `iter` - The table to iterate over.
+
+Example:
+```lua
+function onCreate()
+     local iter = {a = true, b = true, c = false}
+     for k,v in pairs(iter) do
+          debugPrint({k,v}) --> [c, false], [b, true], [a, true]
      end
 end
 ```
 
-### ipairs(tab:Array)
-Returns a index-value pairs and it's only used for arrays. Non-numeric keys are ignored as a whole, equivalent to numeric indices less than `1`; `nil` values will also be ignored.
+### ipairs(iter:Array)
+Iterates over index-value pairs for tables, this only works for array types due to non-numeric keys being ignored as a whole. Additionally any `nil` values it can find, will also be ignored and will stop the iteration.
 
-- `tab` - The table to be iterated.
+- `iter` - The table to iterate over.
 
 Example:
 ```lua
-local array = {[-1] = 34, [0] = 93, [1] = 45, [3] = 64, [2] = 12}
-
-array['hello'] = true
-array['bye']   = false
 function onCreate()
-     for k,v in pairs(array) do
-          debugPrint(v) --> 45, 12, 64
+     local iter = {'a', 'c', 'b', nil, 'd'}
+     for k,v in ipairs(iter) do
+          debugPrint({k,v}) --> [1, a], [2, c], [b, 3]
      end
 end
 ```
 
 ## Handling Errors
-> [!NOTE]
-> _These functions only work, outside of any Callback Templates._
-
 ### error(message:String, ?level:Int = 1)
-Throws an error message, usually error messages are strings describing what went wrong. When there is an internal error; Example: Attempting to index a non-table value.
+Throws an error message and terminates the running Lua file. It can also set the error position at the beginning of the message by using the `level` parameter.
+
+> [!WARNING]
+> _Calling this function won't work if it's inside of any callback templates._
 
 - `message` - The error message to be generate.
-- `level` - An optional parameter, This specifies how to get the error position determined by a number. Passing level `1` means the error position is where the error function was called. Passing level `2` points the error to where the function that called the error was called, and so on. If you try to pass a level `0`, you will avoid adding error position information to the message; Default value: `1`.
+- `level` - An optional parameter, The specified error position to throw, it is determined by a number. Passing level `1` means the error position is where the error function was called. Passing level `2` points the error to where the function that called the error was called, and so on. If you try to pass a level `0`, you will avoid adding error position information to the message; Default value: `1`.
 
 Example:
 ```lua
@@ -151,81 +146,85 @@ error('A fatal error occured!')
 ### assert(condition:Dynamic, message:String)
 Throw an error massage if the `condition` argument returns `false` or `nil`. If the assertion passes, it returns all values passed to it.
 
-- `condition` - The specified condition for the function to execute the error.
+> [!WARNING]
+> _Calling this function won't work if it's inside of any callback templates._
+
+- `condition` - The specified condition for the function to throw an error.
 - `message` - The error message to be generate.
 
 Example:
 ```lua
-local function median(min, max)
-     local errmsg1 = 'min and max argument not a number type'
-     local errmsg2 = 'min argument has a higher value than max argument!'
-     assert(type(min) == 'number' or type(max) == 'number', errmsg1)
-     assert(min <= max, errmsg2)
-
+function midrange(min, max)
+     assert(min <= max, 'min argument has a higher value')
      return (min + max) / 2
 end
 
-debugPrint(median(34, 25)) --> min argument has a higher value than max argument!
+debugPrint(median(34, 25)) --> min argument has a higher value!
 ```
 
-### pcall(func:Function, ?...args:Dynamic)
+### pcall(handle:Function, ?...args:Dynamic)
 Calls a function and runs it in protected mode and catches the error and returns a status code. The function returns two values, the code status code which returns a `boolean`, if `true` the call succeeds without errors. And the error message generated if there is any errors found, if not returns the function returning value.
 
-- `func` - The function to be runned in protected mode.
-- `args` - An optional parameter; If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
+- `handle` - The given function to be handle in protected mode.
+- `args` - An optional parameter, If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
 
-Example:
+Examples:
 ```lua
-local boolValue, errorValue = pcall(function()
-     local var = 45
-     return 34 * var
-end)
+function radius()
+     return cir / (2 * math.pi)
+end
 
-debugPrint(boolValue)  --> true
-debugPrint(errorValue) --> 1530
+local radiusErrorBool, radiusErrorMessage = pcall(radius)
+debugPrint(radiusErrorBool)    --> false
+debugPrint(radiusErrorMessage) --> attempt to perform arithmetic on a nil value (global 'cir')
+```
+```lua
+function radius(cir)
+     return cir / (2 * math.pi)
+end
 
-local boolValue, errorValue = pcall(function()
-     return 34 * var
-end)
-
-debugPrint(boolValue)  --> false
-debugPrint(errorValue) --> attempt to perform arithmetic on a nil value (global 'var')
+local radiusErrorBool, radiusErrorMessage = pcall(test, true)
+debugPrint(radiusErrorBool)    --> false
+debugPrint(radiusErrorMessage) --> attempt to perform arithmetic on a boolean value (local 'cir')
 ```
 
-### xpcall(func:Function, error:Function, ?...args:Dynamic)
-Works similar to the `pcall()` function except that you can set a new customizable error handler.
+### xpcall(handle:Function, error:Function, ?...args:Dynamic)
+Works similar to the `pcall()` function except that you can set your own error message handler.
 
-- `func` - The function to be runned in protected mode.
-- `error` - 	The function to use as the error handle, if it catches an error.
-- `args` - An optional parameter; If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
+- `handle` - The given function to be handle in protected mode.
+- `error` - The given function to use as an error handler, if it catches an error.
+     - `message` - An optional sub-parameter, The error message that it generated.
+- `args` - An optional parameter, If the function is not anonymous, the argument(s) for the function to use. The argument is an infinite parameter.
 
 Example:
 ```lua
-local boolValue, errorValue = pcall(function()
-     return 34 * var
-end, function(error) -- The error parameter, returns the error message
-     debugPrint('An error occured! fix it dummy!')
-end)
+function radius()
+     return cir / (2 * math.pi)
+end
 
-debugPrint(errorValue) --> An error occured! fix it dummy!
+local radiusErrorBool, radiusErrorMessage = xpcall(radius, function(message)
+     return message .. ' lol'
+end, true)
+debugPrint(radiusErrorBool)    --> false
+debugPrint(radiusErrorMessage) --> attempt to perform arithmetic on a boolean value (local 'cir') lol
 ```
 
 ***
 
 # Built-in Constants
 ### _G
-The Global Variable `_G` is special type of table dictionary that holds the global environment. This allows you to insert variables and functions across all of your Lua scripts.
+The `_G` variable is special type of table where Lua keeps all its global variables, called the environment. This allows you manipulate this table as any other table. Such as iterating over elements like `defaultPlayerStrum` and `defaultOpponentStrum` variables, as shown below.
 
-But unfortunately doesn't work why? idk, there are alternatives to Global Variable `_G` such as `setVar()` and `setOnLuas()` functions. The only thing it's used for getting multiple global variables from a loop and modify the values easily.
+This variable is a bit broken, when you try to set a elements inside the `_G`. It would be saved across script meaning you can reuse this variable on other scripts. But in Psych Engine it doesn't work properly, there are alternatives to this you could use `setVar()` or `setOnLuas()` functions.
 
-Example:
+Examples:
 ```lua
 function onCreate()
-     myGlobalVar0, myGlobalVar1 = 183, 231
-     myGlobalVar2, myGlobalVar3 = 963, 263
-     for nummys = 0, 3 do
-          debugPrint(_G['myGlobalVar' .. nummys])         --> 183, 231, 963, 263
-          debugPrint(_G['defaultPlayerStrumX' .. nummys]) --> 732, 844, 956, 1068
+     for index = 0, 3 do
+          debugPrint(_G['defaultPlayerStrumX' .. index]) --> 732, 844, 956, 1068
      end 
 end
 ```
+
+### _VERSION
+This returns the current Lua version it uses; Returns: <kbd>5.1</kbd>. <!-- Joke -->
