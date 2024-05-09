@@ -15,8 +15,20 @@ When contrubuting this repostory you must abide these rule and follow the format
 ### functionName(parName1:Type, ?parName2:Type, parName3:Type = Value, ?parName4:Type = Value, #parName5:Type)
 Function decription. _(Your dumb comments, this is optional)_
 
-> **Note**: _This is optional, use this if you want to inform something on the parameters._
-> **Warning**: _This is optional, use this if you there is something really important to do in parameters._
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 
 - `parameter1` - Description. _(Your dumb comments, this is optional)_
 - `parameter2` - An optional parameter, Description.
@@ -45,4 +57,4 @@ Example:
 ## Using Font Styles
 - `<code>` - Use this if you're reffering to programming languages like `lua`. Or data types like `string`, `table`, `boolean`, etc. Parameters and functions are also included examples: `functionName()` and `param`.
 - `<ins>` - Use this for highlighting on really important description parts; Example: This stupid function <ins>does this</ins>.
-- `<kbd>` - Use this if you're using single characters or commands; Example: <kbd>a</kbd>, <kbd>5</kbd>, <kbd>%</kbd>, <kbd>Command + S</kbd>
+- `<kbd>` - Use this if you're using single characters, commands, versions; Example: <kbd>a</kbd>, <kbd>5</kbd>, <kbd>%</kbd>, <kbd>Command + S</kbd>

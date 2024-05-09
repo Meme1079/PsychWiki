@@ -1,3 +1,20 @@
+### 15.0.0 Version
+- New Logo & Banner
+- New Blockquote highlights
+- Added "FlxAnimate Functions" page
+- Added HScript variables section to the "Custom Substates" page
+- Added new dynamic functions to the "Callback Templates" page
+- Added new table methods to "Library Methods" page
+- Renamed "Global Functions & Variables" to "Built-in Functions & Constants" page
+- Overhual "Basics of Coding" page
+- Overhual "Built-in Functions & Constants" page
+- Updated some function arguments
+- Fix some formatting
+- Fix spelling/grammar errors
+
+#### Contributers
+- [LarryFrosty](https://github.com/LarryFrosty)
+
 ### 14.3.0 Version
 - Added Dynamic Functions and Deprecated Functions in "Callback Templates" Page
 - Edited some shortcuts in some variables so that they actually do what they're supposed to do

@@ -1,49 +1,34 @@
-![banner_new](https://github.com/Meme1079/PsychWiki/assets/101881784/04fc3f94-2ce2-4697-baba-4b63e1aa1457)
+![banner_new](https://github.com/Meme1079/PsychWiki/assets/101881784/430b6025-989e-4fdf-9f5e-f91adfce8823)
 
 # PsychWiki
-> [!NOTE]
-> This is not the official wiki of Psych Engine
+Welcome to PsychWiki! This is a unofficial wiki for Psych Engine. This is where we dedicate to documenting missing functions and other stuff, with high quality descriptions with examples. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-Welcome to PsychWiki! This is where we dedicate to documenting functions/other that is or not in official wiki with high quality descriptions and researching. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
-
-### Current Update [14.3.0 Version]
-- Added Dynamic Functions and Deprecated Functions in "Callback Templates" Page
-- Edited some shortcuts in some variables so that they actually do what they're supposed to do
-- More note properties in "Reflection Functions" Page
-- Added more infos on some functions & variables
-- Proper Formatted on some pages
+### Current Update [15.0.0 Version]
+- New Logo & Banner
+- New Blockquote highlights
+- Added "FlxAnimate Functions" page
+- Added HScript variables section to the "Custom Substates" page
+- Added new dynamic functions to the "Callback Templates" page
+- Added new table methods to "Library Methods" page
+- Renamed "Global Functions & Variables" to "Built-in Functions & Constants" page
+- Overhual "Basics of Coding" page
+- Overhual "Built-in Functions & Constants" page
+- Updated some function arguments
+- Fix some formatting
 - Fix spelling/grammar errors
 
 #### Contributers
 - [LarryFrosty](https://github.com/LarryFrosty)
 
-### Previous Update [14.2.0 Version]
-- Added custom achievement functions
-- Added new callback functions
-- Fixed some information on some functions
-- Fix spelling/grammar errors
+***
 
-#### Contributers
-- [LarryFrosty](https://github.com/LarryFrosty) - For adding some new callback functions to the wiki, that I didn't know existed
-- [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
+# Contributors & Credits
+- [LarryFrosty](https://github.com/LarryFrosty) - Main contributer, Adding new functions & additional info for functions
+- [galactic2005](https://github.com/galactic2005) - Adding custom achievement functions & documenting the use of the `getPixelColor()` function
+- [kingyomoma](https://github.com/kingyomoma) - Adding additional context on `Basic of Coding` and `Custom Texts and Sprite` pages
 
 ***
 
-# To-do List:
-- [x] Finish the shader wiki
-- [x] Add all the unmentioned callback
-- [ ] Finish the `Lua Script Examples` folder
-
-***
-
-# Contributors:
-- [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
-- [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
-- [kingyomoma](https://github.com/kingyomoma) - For fixing the grammar and additional context on `Basic of Coding` and `Custom Texts and Sprite`
-
-***
-
-# Credits:
 - Shadow Mario - Main Programmer and the Creator of PsychEngine
 - RiverOaken - Main Artist/Animator of PsychEngine
 - Yoshubs - Assistant Programmer
