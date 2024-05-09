@@ -1,4 +1,5 @@
-> **Warning**: _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either because of name or parameter changes. This page of this wiki is to inform people to not use these functions and instead to use the new ones._
+> [!CAUTION] 
+> _The functions featured here are deprecated meaning they are not recommended by use and outdated. Either because of name or parameter changes. This page of this wiki is to inform people to not use these functions and instead to use the new ones._
 
 # Object Functions
 ### luaSpriteMakeGraphic(tag:String, width:Int, height:Int, color:String)
@@ -15,8 +16,8 @@ Deprecation of `addAnimationByPrefix()`; Adds the <ins>specified animation</ins>
 - `tag` - The sprite object tag name to be used.
 - `name` - The name of the animation to be played.
 - `prefix` - The prefix name inside the `xml` file to be played.
-- `framerate` - How many frames per second does the animation has; Defualt is: `24`.
-- `loop` - Whether will the animation will loop when the animation is finished; Defualt is `true`.
+- `framerate` - How many frames per second does the animation has; Default value: `24`.
+- `loop` - Whether will the animation will loop when the animation is finished; Default value: `true`.
 
 ### luaSpriteAddAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
 Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with each indices/frames</ins> of the sprite object.
@@ -25,7 +26,7 @@ Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with
 - `name` - The name of the animation to be played.
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `indices` - The specified indices/frames of the animation; Example: `1, 2, 3`.
-- `framerate` - How many frames per second does the animation have; Defualt is: `24`.
+- `framerate` - How many frames per second does the animation have; Default value: `24`.
 
 ### addAnimationByIndicesLoop(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24)
 > **Note**: _This function is only deprecated on versions above `0.6.3`._
@@ -36,22 +37,22 @@ Deprecation of `addAnimationByIndices()`; Adds the <ins>specified animation with
 - `name` - The name of the animation to be played.
 - `prefix` - The prefix name inside the `xml` file to be played.
 - `indices` - The specified indices/frames of the animation; Example: `1, 2, 3`.
-- `framerate` - How many frames per second does the animation have; Defualt is: `24`.
+- `framerate` - How many frames per second does the animation have; Default value: `24`.
 
 ### luaSpritePlayAnimation(tag:String, name:String, forced:Bool = false)
 Deprecation of `playAnim()`; Plays an animation of the sprite object.
 
 - `tag` - The sprite object tag name to be used.
 - `name` - The name of the animation to be played.
-- `forced` - Will resets if the animation is played again; Defualt is `false`.
+- `forced` - Whether the animation will restart if the animation name is the same one as the animation currently playing; Default value: `false`.
 
 ### objectPlayAnimation(obj:String, name:String, forced:Bool = false, ?startFrame:Int = 0)
 Deprecation of `playAnim()`; Plays an animation of the sprite object.
 
 - `obj` - The sprite object tag name to be used.
 - `name` - The name of the animation to be played.
-- `forced` - Will resets if the animation is played again; Defualt is `false`.
-- `reverse` - An optional parameter, Will play the animation from the `last` to the `start` frame.
+- `forced` - Whether the animation will restart if the animation name is the same one as the animation currently playing; Default value: `false`.
+- `reverse` - An optional parameter, Will play the animation from the `last` to the `first` frame.
 - `startFrame` - An optional parameter, The specified starting frame of the animation.
 
 ### characterPlayAnim(character:String, anim:String, ?forced:Bool = false)
@@ -59,7 +60,7 @@ Deprecation of `playAnim()`; Plays an animation of the sprite object.
 
 - `obj` - The sprite object tag name to be used.
 - `anim` - The name of the animation to be played.
-- `forced` - An optional parameter, Will resets if the animation is played again; Defualt is `false`.
+- `forced` - An optional parameter, Whether the animation will restart if the animation name is the same one as the animation currently playing; Default value: `false`.
 
 ### setLuaSpriteCamera(tag:String, camera:String = '')
 Deprecation of `setObjectCamera()`; Changes the object <ins>camera state</ins>.
@@ -68,7 +69,7 @@ Deprecation of `setObjectCamera()`; Changes the object <ins>camera state</ins>.
 - `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
 
 ### setLuaSpriteScrollFactor(tag:String, scrollX:Float, scrollY:Float)
-Deprecation of `setScrollFactor()`; Changes the object that moves along the camera when switching to characters.
+Deprecation of `setScrollFactor()`; Changes how much the object scrolls when the camera moves.
 
 - `obj` - The object tag name to be used.
 - `scrollX` - The x value of the scroll to be set.
@@ -100,17 +101,15 @@ Deprecation of `getProperty()`; Gets the current <ins>property variable inside t
 ***
 
 # Sound & Music Functions
-### musicFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1)
-Deprecation of `soundFadeIn()`; Makes the sound <ins>fade-in at the start</ins> when of the sound.
+### musicFadeIn(duration:Float, fromValue:Float = 0, toValue:Float = 1)
+Deprecation of `soundFadeIn()`; Makes the music <ins>fade-in</ins>; Does not support Lua sounds unlike `soundFadeIn()`.
 
-- `tag` - The sound object tag name to be used. If you want to fade the music leave the `tag` parameter blank, not a `nil` value. This will work on fade and volume/time functions.
-- `duration` - The duration length of the sound to fade-in, from `fromValue` and `toValue`.
+- `duration` - The duration length of the sound to fade-in, from `fromValue` to `toValue`.
 - `fromValue` - An optional parameter, The starting volume of the fade; Goes from `0` to `1`; Defualt value: `0`.
 - `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Defualt value: `1`.
 
-### musicFadeOut(tag:String, duration:Float, toValue:Float = 0)
-Deprecation of `soundFadeOut()`; Makes the sound <ins>fade-out at the end</ins> of the sound.
+### musicFadeOut(duration:Float, toValue:Float = 0)
+Deprecation of `soundFadeOut()`; Makes the music <ins>fade-out</ins>; Does not support Lua sounds unlike `soundFadeOut()`.
 
-- `tag` - The sound object tag name to be used.
-- `duration` - The duration length of the sound to fade-out, from `toValue`.
+- `duration` - The duration length of the sound to fade-out, from the current volume to `toValue`.
 - `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Defualt value: `0`.

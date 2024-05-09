@@ -1,12 +1,12 @@
+> [!NOTE]
+> _For the `tag` parameters, if you use the same tag name again, the previous object with the same tag AND the same object type (e.g. sprites, texts, timers, etc) will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
+
 # Creating/Adding/Removing Sprite
-
-> **Note for the `tag` parameter**: _If you use the same tag name again, the previous object with the same tag will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
-
-### makeLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, y:Float = 0)
+### makeLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0)
 Initializes the <ins>creation of the Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
 - `tag` - The tag name of the sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images` or `assets/images` folders.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/shared/images` or `assets/images` folders.
 - `x` - An optional parameter, The x position value of the sprite object to be set.
 - `y` - An optional parameter, The y position value of the sprite object to be set.
 
@@ -14,7 +14,7 @@ Initializes the <ins>creation of the Lua sprite object</ins>. This will not add 
 Initializes the <ins>creation of the animated Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
 
 - `tag` - The tag name of the animated sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images` or `assets/images` folders.
+- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/shared/images` or `assets/images` folders.
 - `x` - An optional parameter, The x position value of the sprite object to be set.
 - `y` - An optional parameter, The y position value of the sprite object to be set.
 - `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
@@ -28,8 +28,8 @@ Initializes the <ins>creation of the animated Lua sprite object</ins>. This will
 ### removeLuaSprite(tag:String, destroy:Bool = true)
 <ins>Removes the Lua sprite object</ins> out of the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
 
-- `tag` - The tag name of the animated sprite to be removed into the game.
-- `destroy` - If set to `true` it will be permanently removed from the game. Making it impossible to re-add it without remaking the sprite; Default value: `true`.
+- `tag` - The tag name of the sprite to be removed into the game.
+- `destroy` - If set to `true`, will permanently remove the sprite from the game. Making it impossible to re-add it without remaking the sprite; Default value: `true`.
 
 ***
 
@@ -52,7 +52,7 @@ Initializes the <ins>creation of the text object</ins>. This will not add the te
 <ins>Removes the text object</ins> out of the game. Recommended to use this if the <ins>text object isn't used anymore</ins>, for performance purposes duh.
 
 - `tag` - The tag name of the text to be removed into the game.
-- `destroy` - If set to `true` it will be permanently removed from the game. Making it impossible to re-add it without remaking the text; Default value: `true`.
+- `destroy` - If set to `true`, will permanently remove the text from the game. Making it impossible to re-add it without remaking the text; Default value: `true`.
 
 ***
 
@@ -69,7 +69,7 @@ Sets the text object's <ins>current text size</ins> with a new one.
 - `tag` - The tag name of the text to be used.
 - `size` - The new text size to be set in.
 
-### setTextAutosize(tag:String, value:Bool)
+### setTextAutoSize(tag:String, value:Bool)
 Sets the text object's `autoSize` value where it will determine if the <ins>width and height should be determined automatically</ins>.
 
 - `tag` - The tag name of the text to be used.
@@ -93,7 +93,7 @@ Sets the text object's <ins>current text border size, color and style</ins> with
 - `tag` - The tag name of the text to be used.
 - `size` - The new text border size to be set in.
 - `color` - The new text border color to be set in.
-- `style` - An optional parameter, The new text style to be set in; Default value: `outline`.
+- `style` - An optional parameter, The new text border style to be set in; Default value: `outline`.
 
 ### setTextColor(tag:String, color:String)
 Sets the text object's <ins>current text color</ins> with a new one.

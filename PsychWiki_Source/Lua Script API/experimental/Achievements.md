@@ -1,8 +1,6 @@
 # About Achievements
-
 ## Creating an Achievement
 ## JSON Setting
-
 
 ***
 
@@ -21,15 +19,15 @@ Unlocks the achievement.
 Adds the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
 
 - `name` - The achievement name to be used.
-- `value` - An optional parameter; it will add to the achievement score value with the amount specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+- `value` - An optional parameter, it will add to the achievement score value with the amount specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, it will save the score isn't at or above the maxScore value; Default value: `true`.
 
 ### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
 Set the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
 
 - `name` - The achievement name to be used.
-- `value` - An optional parameter; it will set the achievement score value to the value specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter; it will save the score isn't at or above the maxScore value; Default value: `true`.
+- `value` - An optional parameter, it will set the achievement score value to the value specified; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, it will save the score isn't at or above the maxScore value; Default value: `true`.
 
 ### getAchievementScore(name:String)
 Gets the current achievement score value.

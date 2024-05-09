@@ -3,7 +3,7 @@
 Imports haxe libraries into the interpreter. Basically an `import` statement in Haxe which imports specific packages into Haxe like sprites, text, tweens, etc.
 
 - `libName` - The library name to be referenced.
-- `libPackage` - An optional parameter, The library package to use.
+- `libPackage` - An optional parameter, The library package to use; Default value: `''`.
 
 Examples:
 - Imports the sound library: `addHaxeLibrary('FlxSound', 'flixel.sound')`
@@ -63,16 +63,24 @@ import flxanimate.FlxAnimate;
 <ins>Runs your haxe code</ins> for your Hscripts and stuff.
 
 - `codeToRun` - The haxe code to be run, use double brackets `[[]]` for multiline strings.
-- `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary.
-- `funcToRun` - An optional parameter, The Haxe function name to be referenced.
-- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
+- `varsToBring` - An optional parameter, The Haxe variable(s) to import for string interpolation; Must be a table dictionary; Default value: `nil`.
+- `funcToRun` - An optional parameter, The Haxe function name inside the runHaxeCode to run; Must be a string; Default value: `nil`.
+- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function inside the runHaxeCode; Must be a table containing all of the values; Default value: `nil`.
 
 Example:
 ```lua
 function onCreate()
+     -- varsToBring example
      runHaxeCode([[
           debugPrint(text, color); // will print > 'hi'
      ]], {text = 'hi', color = 0xFF0000})
+
+     -- funcToRun and funcArgs example
+     runHaxeCode([[
+          function isEven(num:Int) {
+               debugPrint(num % 2 == 0);
+          }
+     ]], nil, 'isEven', {4})
 end
 ```
 
@@ -80,7 +88,7 @@ end
 <ins>Executes the Haxe function</ins> from the `runHaxeCode()` function.
 
 - `funcToRun` - The Haxe function name to be referenced.
-- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function.
+- `funcArgs` - An optional parameter, The argument(s) to be passed to the Haxe function; Default value: `nil`.
 
 Example:
 ```lua
@@ -97,36 +105,42 @@ end
 ***
 
 # Haxe Global Variable Functions
-### setVar(varName:String, value:Dynamic)
-Works exactly the same as `setVar()` function in Lua.
+### setVar(name:String, value:Dynamic)
+Creates and sets the variable into <ins>PlayState's variables map</ins> if it doesn't exist yet, which is basically <ins>creating a new global variable</ins>; Otherwise will set the variable with a new value. This will only work if the <ins>Haxe script that the function is in, is currently executed</ins>; Same works with `getVar()` function.
 
 - `varName` - The variable to be referenced.
 - `value` - The specified type of value for the variable to use or to over-write.
 
-Example:
+HScript Example (Script 1):
+```haxe
+function onCreate() {
+     setVar('globalVar', 'Hello Haxe!');
+     setVar('globalYes', [34, 123, 4.20]);
+}
+```
+
+HScript Example (Script 2):
+```haxe
+function onCreate() {
+     debugPrint(getVar('globalVar'), 0xFFF88700);    // will print > 'Hello Haxe!'
+     debugPrint(getVar('globalYes')[2], 0xFFF88700); // will print > 4.20
+}
+```
+
+Calling a global Haxe variable into Lua:
 ```lua
 function onCreate()
-     runHaxeCode([[
-          setVar('globalVar', 'Hello Haxe!');
-          setVar('globalYes', [34, 123, 4.20]);
-     ]])
-     runHaxeCode([[
-          debugPrint(getVar('globalVar'), 0xf88700);    // will print > 'Hello Haxe!'
-          debugPrint(getVar('globalYes')[2], 0xf88700); // will print > 4.20
-     ]])
-
-     -- Calling a Global Haxe Variable into Lua
      debugPrint(getProperty('globalYes')[1]) -- will print > 34
      debugPrint(getProperty('globalYes')[2]) -- will print > 123
 end
 ```
 
-### getVar(varName:String)
-Works exactly the same as `getVar()` function in Lua.
+### getVar(name:String)
+Gets the variable's current value from PlayState's variables map.
 
 - `varName` - The variable to be referenced.
 
-### removeVar(varName:String)
+### removeVar(name:String)
 Removes the global variable permanently, if not used anymore.
 
 - `varName` - The variable to be referenced.
@@ -135,7 +149,7 @@ Removes the global variable permanently, if not used anymore.
 
 # Haxe In-Script Functions
 ### debugPrint(text:String, ?color:FlxColor = null)
-Works exactly the same as the `debugPrint()` function. If you want to print multiple values use a table `{}` inside the `text` argument; Example: `debugPrint({'Hello', 'World!'})`
+This will display a debug message in the <ins>top-left corner of the screen</ins>.
 
 - `text` - The text to be outputed to the top-left of the screen.
 - `color` - An optional parameter, The color for the text to be displayed.
@@ -167,23 +181,24 @@ end
 ```
 
 ### createCallback(name:String, func:Dynamic, ?funk:FunkinLua = null)
-> **Note from LarryFrosty**: _The only way I could get this function working was if I used it in a lua script along with runHaxeCode. Third argument returns null every single time. If there's any info about this function, I'd love to hear it._
+Creates a local function inside a lua script.
 
-Creates a local function inside the script.
+> [!WARNING]
+> _Third argument is broken due to some parentLua statement shit_.
 
-- `name` - The given name of the callback function.
+- `name` - The given name of the function.
 - `func` - The function code to use.
-- `funk` - _Not known, refer to the note._
+- `funk` - An optional parameter, The script that the function is gonna be created on; Default value: `nil`. _(If used in runHaxeCode, will choose the script that `runHaxeCode()` function was used in)_
 
 Example:
 
 ```lua
 function onCreate()
-    runHaxeCode([[
-        createCallback('print', function(text:String) {
-            debugPrint(text);
-        });
-    ]])
+     runHaxeCode([[
+          createCallback('print', function(text:String) {
+               debugPrint(text);
+          });
+     ]])
 end
 
 function onCreatePost()
@@ -194,7 +209,7 @@ end
 ### createGlobalCallback(name:String, func:Dynamic)
 Creates a global function across <ins>all lua scripts</ins>.
 
-- `name` - The given name of the global callback function.
+- `name` - The given name of the global function.
 - `func` - The function code to use.
 
 Example:
