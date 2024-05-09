@@ -1,4 +1,4 @@
-# String Modules
+# String Methods
 String libraries provide the most common functions when manipulating strings, such as finding and extracting substrings, conversion from letter-cases and ASCII character, and pattern matching.
 
 Example:
@@ -266,7 +266,7 @@ end
 
 ***
 
-# Table Modules
+# Table Methods
 ### table.insert(tab:Table, ?pos:Int, value:Any)
 <ins>Forcefully inserts an element inside a given table array</ins>, this will not change the table's element if the position is occupied. It will just push the other elements to new index position.
 
@@ -343,6 +343,76 @@ end)
 function onCreate()
      debugPrint(table.concat(arrayTable1, ', ')) --> apple, banana, grape, kiwifruit, orange
      debugPrint(table.concat(arrayTable2, ', ')) --> tomato, beetroot, onion, broccoli, turnip
+end
+```
+
+### table.foreach(tab:Table, iter:Function)
+<ins>Iterates the table, by passing the key and values</ins> of each iteration over to the provided function. Basically it iterates over the `pairs()` function.
+
+- `tab` - The table to iterate over
+- `iter` - The provided function to iterate over.
+
+Example:
+```lua
+function onCreate()
+     table.foreach({a = 93, b = 23, c = true}, function(k,v)
+          debugPrint({k,v}) --> [b = 23], [a = 93], [c, true]
+     end)
+end
+```
+
+### table.foreachi(tab:Table, iter:Function)
+<ins>Iterates the table, by passing the index and values</ins> of each iteration over to the provided function. Basically it iterates over the `ipairs()` function.
+
+- `tab` - The table to iterate over
+- `iter` - The provided function to iterate over.
+
+Example:
+```lua
+function onCreate()
+     table.foreachi({38, 29, 12, true}, function(i,v)
+          debugPrint({i,v}) --> [1, 38], [2, 29], [3, 12], [4, true]
+     end)
+end
+```
+
+***
+
+### table.new(narray:Int, nhash:Int)
+<ins>Creates a new empty table</ins> and pushes it onto the memory stack. The new table includes pre-allocated space for the `narray` parameter for array elements and the `nhash` parameter for dictionary elements. The pre-allocation is pretty useful, if you know the exact elements will the table have; Requires: `require('table.new')`.
+
+> [!WARNING]
+> This method has limited information when I research this, so please take it with a grain of salt on the descriptions.
+
+- `narray` - The specified number of array elements.
+- `nhash` - The specified number of dictionary elements.
+
+Example:
+```lua
+require('table.new')
+
+local newArray = table.new(4, 0)
+local newHash  = table.new(0, 4)
+function onCreate()
+     debugPrint(newArray) --> []
+     debugPrint(newHash)  --> []
+end
+```
+
+### table.clear(tab:Table)
+Clears all the table's elements, keys and values, but preserves the allocated size of arrays or hash. Which makes re-inserting elements be more faster, pretty useful in this case; Requires: `require('table.clear')`.
+
+- `tab` - The table to clear its contents.
+
+Example:
+```lua
+require('table.clear')
+
+local theNermals = {23, 74, 23, 43}
+table.clear(theNermals)
+
+function onCreate()
+     debugPrint(theNermals) --> []
 end
 ```
 

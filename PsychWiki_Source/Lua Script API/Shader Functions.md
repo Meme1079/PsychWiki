@@ -1,4 +1,5 @@
-> **Warning**: _Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter; help is always appreciated._
+> [!WARNING]
+> _Take all the shader functions a grain of salt due to my lack of knowledge on shaders, you can do pull request to correct the description of the function and parameter; help is always appreciated._
 
 # About Shaders
 Shaders in computer graphics, are a type of code that is executed on the Graphics Processing Unit (GPU). <ins>Which manipulates the rendered object</ins> with special effects like a `blur`, `distortion`, `higher/lower hue`, etc. _(Blah blah blah you get the point of it)_
@@ -43,11 +44,11 @@ void main() { // The "mainImage(out vec4 fragColor, in vec2 fragCoord)" replaced
 ***
 
 # Creating/Removing Shader
-### initLuaShader(name:String, glslVersion:Int = 120)
+### initLuaShader(name:String, ?glslVersion:Int = 120)
 Initializes the shader for the object to use.
 
 - `name` - The name of the shader.
-- `glslVersion` - An optional parameter, The GLSL shader version; Defualt is `120`.
+- `glslVersion` - An optional parameter, The GLSL shader version; Default value: `120`.
 
 ### setSpriteShader(obj:String, shader:String)
 Sets the specified shader for the object to use.
@@ -93,12 +94,12 @@ Sets the current shader <ins>`sampler2D` type variable</ins> with a new value.
 
 ***
 
-### setShaderIntArray(obj:String, prop:String, value:Dynamic)
+### setShaderIntArray(obj:String, prop:String, values:Dynamic)
 Sets the current shader <ins>`int` number type array variable</ins> with a new value.
 
 - `obj` - The object tag name to be used.
 - `prop` - The `int` array variable to be used.
-- `value` - The new value for the `int` array variable.
+- `values` - The new value for the `int` array variable.
 
 Reference (Shader Array Syntax):
 ```frag
@@ -113,14 +114,14 @@ Sets the current shader <ins>`float` number type array variable</ins> with a new
 
 - `obj` - The object tag name to be used.
 - `prop` - The `float` array variable to be used.
-- `value` - The new value for the `float` array variable.
+- `values` - The new value for the `float` array variable.
 
 ### setShaderBoolArray(obj:String, prop:String, value:Dynamic)
 Sets the current shader <ins>`boolean` type array variable</ins> with a new value.
 
 - `obj` - The object tag name to be used.
 - `prop` - The `boolean` array variable to be used.
-- `value` - The new value for the `boolean` array variable.
+- `values` - The new value for the `boolean` array variable.
 
 ***
 
