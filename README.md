@@ -1,4 +1,4 @@
-![banner_new](https://github.com/Meme1079/PsychWiki/assets/101881784/430b6025-989e-4fdf-9f5e-f91adfce8823)
+![banner_new](https://github.com/Meme1079/PsychWiki/assets/101881784/ad64d355-d8a1-43e8-84db-ab1132969846)
 
 # PsychWiki
 Welcome to PsychWiki! This is a unofficial wiki for Psych Engine. This is where we dedicate to documenting missing functions and other stuff, with high quality descriptions with examples. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?

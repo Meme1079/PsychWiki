@@ -73,7 +73,7 @@ To declare a variables you should assign the `scope`, `identifier`, and `data` v
 Now you can assign the variable by using the assignment <kbd>=</kbd> operator to specify the `data` value to hold. If the assigning isn't present, the variable will just have a `nil` value as a replacement. But you could later initialize the variable later on another line of code somewhere. This only works for `local` variables not for `global` ones.
 
 > [!IMPORTANT]
-> I highly recommend to use `local` variables instead of `global` variables. It helps avoid cluttering the global environment with unnecessary identifiers, better performance, and are genarally faster than `global` variables. Why there faster because `local` variables are stored in a memory stack while `global` variables are stored in a global environment.
+> I highly recommend to use `local` variables instead of `global` variables. It helps avoid cluttering the global environment with unnecessary identifiers, better performance, and are generally faster than `global` variables. Why there faster because `local` variables are stored in a memory stack while `global` variables are stored in a global environment.
 
 Examples:
 ```lua
@@ -128,7 +128,7 @@ end
 
 ### Naming Conventions
 Naming conventions are a set of special rules when you're naming an `identifier`, here are following rules to abide to:
-- Identifiers can have a combinations of characters e.g. digit, alphabetical, or undescore characters.
+- Identifiers can have a combinations of characters e.g. digit, alphabetical, or underscore characters.
 - Identifiers cannot have digit characters at the start of the name.
 - Identifiers cannot have special characters e.g. <kbd>$</kbd>, <kbd>,</kbd>, <kbd>=</kbd>, etc.
 - Identifiers cannot be named after Lua keywords.
@@ -423,7 +423,7 @@ end
 While loop statement will loop infinitely until the condition returns `false`. This is rarely used but if it is, it's only used if you're iterating based on a condition rather than number of times, the use this loop. It is declared with the `while` keyword followed by the condition to loop over until it returns `false`, with the `do` keyword last.
 
 > [!CAUTION]
-> Please make sure to check the condition of the while loop. Becuase it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
+> Please make sure to check the condition of the while loop. Because it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
 
 Example:
 ```lua
@@ -442,7 +442,7 @@ end
 Repeat until statement works similarly as the `while` loop, but has a major differences. The block of code has a guaranteed to be executed at least once, before checking if the condition is `true`, it will repeat the loop until its condition is met. It is declared with the `repeat` keyword followed by the body of code, with the `until` keyword next to the condition to loop over.
 
 > [!CAUTION]
-> Please make sure to check the condition of the while loop. Becuase it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
+> Please make sure to check the condition of the while loop. Because it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
 
 Example:
 ```lua
@@ -631,7 +631,7 @@ end
 ***
 
 # Modules
-Modules are a collection encapsulate data mostly variables and functions. Which uses a table to wrapped around the functions and variables within, it acts as the namespace. This is pretty useful becuase it avoids duplication of code by creating a reusable library code across every Lua script. And helps organization of code to maintain your little code base of yours. Lua offers a built-in modules in their language, which are: `string`, `table`, and `math`.
+Modules are a collection encapsulate data mostly variables and functions. Which uses a table to wrapped around the functions and variables within, it acts as the namespace. This is pretty useful because it avoids duplication of code by creating a reusable library code across every Lua script. And helps organization of code to maintain your little code base of yours. Lua offers a built-in modules in their language, which are: `string`, `table`, and `math`.
 
 A simple way to create your own modules, we use tables as I mentioned before. You declare `local` variable that holds a table, which acts as a prefix for each object in the module. With each objects inserted into the table, as seen below. Followed by the return statement, returning the table at the last line of code.
 

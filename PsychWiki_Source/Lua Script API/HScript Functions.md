@@ -188,7 +188,7 @@ Creates a local function inside a lua script.
 
 - `name` - The given name of the function.
 - `func` - The function code to use.
-- `funk` - An optional parameter, The script that the function is gonna be created on; Default value: `nil`. _(If used in runHaxeCode, will choose the script that runHaxeCode was used in)_
+- `funk` - An optional parameter, The script that the function is gonna be created on; Default value: `nil`. _(If used in runHaxeCode, will choose the script that `runHaxeCode()` function was used in)_
 
 Example:
 

@@ -284,7 +284,7 @@ Checks if the <ins>string ends</ins> with the specified pattern, returning `true
 Splits the string that is <ins>determined by the pattern</ins> into a table of substrings and returns it.
 
 - `str` - The string to be split.
-- `split` - The delimeter, the pattern separator for the string to split.
+- `split` - The delimiter, the pattern separator for the string to split.
 
 ### stringTrim(str:String)
 <ins>Removes any whitespace</ins> at the start and end of a string.
