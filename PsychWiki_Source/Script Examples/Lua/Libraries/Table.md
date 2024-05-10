@@ -1,0 +1,11 @@
+### table.find
+### table.clone
+### table.sub
+### table.move
+### table.concat
+### table.copy
+### table.count
+### table.filter
+### table.reverse
+### table.freeze
+### table.isFrozen
