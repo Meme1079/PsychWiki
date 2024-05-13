@@ -515,20 +515,51 @@ end
 ***
 
 # Functions
-> Want to learn more about [functions](https://www.lua.org/pil/6.html)?
+Functions _(also called subroutine or procedure)_ are sequence of code that are designed to perform a specific task, and be called anywhere in the throughout program. They can enable reusable code across your Lua program, which reduces the duplication of code. Functions have the attributes to values such as strings, numbers, etc, which can be stored in variables.
 
-Functions are collections of code that are designed to perform a specific task. They can enable reusable code across your Lua program, which reduces the duplication of code. And carry out a specific task procedure or subroutine in other languages or compute and return values.
+Functions are defined with the `function` keyword followed by the `identifier` of the function. The `identifier` of function follows the same rules as the naming convetion of variables. Afterwards, the calling operation <kbd>()</kbd> to declare with or without the given parameters. With the function body for the code to execute when called, along with the `end` keyword to mark the end of a block of code.
 
-Functions are defined with the `function` keyword followed by the `identifier` of the function. With the calling operation <kbd>()</kbd> to declare with or without the given parameters. Also The `identifier` of function follows the same rules as the naming convetion of variables. _(Just to let you know!)_
+Since functions are values that a variable can hold, the `local` keyword can be optionally used here. This is because we're using a syntactic sugar when defining a function. And it is always recommended to make a local type, to improve performance and stuff.
 
-To call a function, get the function's identifier, followed by the calling operation <kbd>()</kbd> for the arguments to be passed, if the function has parameters. If the calling operation is not present, it will return the memory address of the given function; Example: `function: 0x5616d89c0770`.
+> [!WARNING]
+> _Just in case, if you decide to declare a local type on callbacks it will not work properly. So please don't do it; it's stupid._
 
-> [!TIP]
-> Functions are hoisted; once declared, the function is moved to the top of the scope before code execution. This means that you can call a function before the line of code that is declared in. But it should be a global type function.
+<details><summary><b>Syntax:</b></summary>
+<p>
+
+Syntactic Sugar Syntax:
+```lua
+function name(parameter1, parameter2, parameterX)
+     -- function code
+end
+```
+
+Non-Sugar Syntax:
+```lua
+local name = function(parameter1, parameter2, parameterX)
+     -- function code
+end
+```
+
+</p>
+</details>
 
 Example:
 ```lua
-function hello()
+local function hello()
+     debugPrint('Hello Function')
+end
+```
+
+## Calling
+To call a function, get the function's said identifier, followed by the calling operation <kbd>()</kbd> for the arguments to be passed, if the function has parameters. If the calling operation is not present for some reason, it will return the memory address of the given function; Example: `function: 0x5616d89c0770`.
+
+> [!TIP]
+> _Functions are hoisted; once declared, the function is moved to the top of the scope before code execution. This means that you can call a function before the line of code that is declared in. This will not work if it is declared with the `local` keyword._
+
+Example:
+```lua
+local function hello()
      debugPrint('Hello Function')
 end
 
@@ -537,26 +568,26 @@ function onCreate()
 end
 ```
 
-Another special rule when calling a function. If the function has one single argument and this argument is either a literal string or a table constructor, then the parentheses are optional to use here. You could probably used this for named arguments when calling a function for organization purposes.
+When calling a function most of the time it will include the calling operation <kbd>()</kbd>. However there is a special rule for this, if there is only one argument to passed and it's either a literal string or a table constructor. Then the calling operation <kbd>()</kbd> is optional to use here, only requiring a space. Useful in some cases due to looks or for named arguments when calling a function for organization purposes.
 
 Example:
 ```lua
-function print(args)
-     debugPrint(args.text, args.color)
-end
-
 function onCreate()
-     print{text = 'FATAL ERROR', color = 'ff0000'} --> FATAL ERROR
+     debugPrint "Wow, so cool"     --> Wow, so cool
+     debugPrint {3.14, 3.14, 3.14} --> [3.14, 3.14, 3.14]
 end
 ```
 
 ## Parameters
-Parameters are special types of variables that are located inside the calling operation <kbd>()</kbd> of the given function. Each parameter must be separated by a comma <kbd>,</kbd> character if there are two or more of them. Their main purpose is to add more functionality to the given function for the arguments to be passed.
+Parameters are special types of variables that are located inside the calling operation <kbd>()</kbd> of the given function. Since they're variables locally inside a function, they hold any value you could use a indexing access operation for tables, seen below or calling operation for functions. Each parameter must be separated by a comma <kbd>,</kbd> character if there are two or more of them. Their main purpose is to add more functionality to the given function for any arguments to be passed on.
+
+> [!NOTE]
+> _The word parameters and arguments are used interchangeably but they're not the same. Parameters are a special variable in a function definition, while arguments are the values to be passed on the parameters._
 
 Example:
 ```lua
-function setPos(obj, pos)  -- concatenates setProperty x and y
-     if pos[1] ~= nil then -- makes pos parameter acts like a table
+local function setPos(obj, pos)  -- concatenates setProperty x and y
+     if pos[1] ~= nil then       -- makes pos parameter acts like a table
           setProperty(obj..'.x', pos[1])
      end
      if pos[2] ~= nil then
@@ -569,11 +600,11 @@ function onCreatePost()
 end
 ```
 
-In addition, they serve as `local` variables, initialized with the parameters that were provided in the function call. A function can be called with a different number of arguments than parameters. Lua adjusts the number of arguments to the number of parameters, as it does in a multiple assignment. Extra arguments are thrown away; additional parameters receive a `nil` value.
+Lua adjusts the number of arguments to the number of parameters, as it does in a multiple assignment. Any extra arguments that are not assigned to any parameters are thrown away. If a parameter doesn't receive any arguments it will recieve a `nil` value.
 
 Example:
 ```lua
-function choose(a, b)
+local function choose(a, b)
      debugPrint(a or b)
 end
 
@@ -584,12 +615,14 @@ function onCreate()
 end
 ```
 
-Parameters can have infinite parameter definied with the ellipsis <kbd>...</kbd> character at the end of its argument list. This enables an indefinite number of arguments to pass after the preceding parameters. I'd recommended to declare a local variable containing the ellipsis <kbd>...</kbd> character surrounded by curly-braces <kbd>{}</kbd>. To convert the arguments into a table to iterate.
+## Special Types
+### Variadic
+Variadic functions _(also called vararg functions)_ are a special type of function that accepts the number of arguments. It is indicated by a ellipsis character <kbd>...</kbd> at the end of its parameter list. The number of arguments from the ellipsis character <kbd>...</kbd>, will return multiple results. So it's recommended to contain it inside a table constrcutore <kbd>{}</kbd>; Example: `{...}`. 
 
 Example:
 ```lua
-function average(...)
-     local sum = ({...})
+local function average(...)
+     local sum = {...}
      local result = 0
      for i = 1, #sum do
           result = result + sum[i]
@@ -604,8 +637,8 @@ function onCreate()
 end
 ```
 
-## Anonymity
-Anonymous Functions are a special way to declare a function. It doesn't include any `identifiers`, it only include the start and end with the function and `end` keywords, with some parameters if it even has one. This is only used for callbacks for specific built-in functions or a specific parameter requires a function to execute.
+### Anonymous
+Anonymous functions are a special way to declare a function. It doesn't include any `identifiers`, it only include the start and end with the function and `end` keywords, with some parameters if it includes one. This is only used for callbacks for specific built-in functions or a specific parameter requires a function to execute.
 
 Example:
 ```lua
