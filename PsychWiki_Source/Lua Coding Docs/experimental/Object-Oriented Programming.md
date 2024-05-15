@@ -7,6 +7,26 @@ There are some advantages when using OOP, these includes modularity, reusability
 
 ***
 
+# Self
+The `self` keyword is special keyword which is the central point in OOP, it refers to the current object of a class within a method or constructor. It is generally used to get instance attributes, which are attributes defined within the constructor, and to get its own methods. To use within a method to manipulate, to apply, and to calculate the given instance attributes.
+
+Most object-oriented languages have the `self` keyword partially hidden so that it does not have to be declared in a method's parameters or included into the method's first argument. Fortunately, Lua can disguise this with the colon operator <kbd>:</kbd>. It adds an additional hidden parameter in a method declaration and a hidden argument in a method call, namely the `self` keyword, making it more convenient and less annoying. For instance: `Class.method(self, args)` to `Class:method(args)`.
+
+Example:
+```lua
+local Rectangle = {length = 100, width = 150}
+
+function Rectangle:area()
+     return self.length * self.width
+end
+
+function onCreate()
+     debugPrint(Rectangle:area()) --> 15000
+end
+```
+
+***
+
 # Classes
 Classes is an extensible code-template for creating objects, providing a initial values for member variables and implementations of behavior like methods. To define a class we use a table obviously especially a `local` type, we'll name it `Sound` becuase we're making a class for the sound functions as an example duh.
 
@@ -19,8 +39,11 @@ local Sound = {} -- our class, so amazing
 return Sound
 ```
 
-## Contructor 
+## Constructor
+A constructor is a special type of method within a class. It is used to initialize the object's attributes and setting up the object's state. It accepts the passed arguments from a object so that the constructor to required the set of member variables. Which are the parameters for the constructor to define the class definiton.
+
 ## Methods
+
 ## Objects
 
 ***
