@@ -42,11 +42,25 @@ return Sound
 ## Constructor
 A constructor is a special type of method with a class the is invoked whed a new object is created. It is used to assign the object's attributes to the instance attributes. By getting the specified amount of arguments from an object. So that the class can get the instance attributes to use within its methods to manipulate, to apply, and to calculate it.
 
-To design a constructor, create a method within the class called `new` for our method. With the constructor's parameters for the class to utilize it. Before we can assign the object's attributes to the instance attributes, we must create a local variable that contains a metatable. 
+To define a constructor, create a method within the class called `new` for our method. With the constructor's parameters for the class to utilize it. Before we can assign the object's attributes to the instance attributes, we must create a local variable that contains a metatable. 
 
 The first argument should be an empty table, and the second should be a metacontent with a `__index` metamethod containing the class itself; Example: `setmetatable({}, {__index = self})`. Now we can insert constructor's parameters to the instance attributes for the class to utilize. Lastly return the table that contains a metatable to distribute throughout the class.
 
 Example:
+```lua
+function Sound:new(sound, volume, tag)
+     local self = setmetatable({}, {__index = self})
+     self.sound  = sound   -- instance attribute
+     self.volume = volume
+     self.tag    = tag
+
+     return self -- distribute throughout the class
+end
+```
+
+<details><summary>Example (Full Code):</summary>
+<p>
+
 ```lua
 local Sound = {} -- our class, so amazing
 
@@ -62,7 +76,61 @@ end
 return Sound
 ```
 
+</p>
+</details>
+
 ## Methods
+A method is basically the equivalent of a function in OOP, a sequence of code that are designed to perform a specific task. The difference is that a method can get instance attributes to maniuplate with arguments it recieves. In addition it must be with an associated object when calling a method.
+
+In this example, we added the `play()` method to play a sound. It also determins if you want to play a sound or music by the `soundType` parameter. Additionally it includes the instance attributes to set the sound/music function to fill in the given arguments.
+
+Example:
+```lua
+function Sound:play(soundType) -- method
+     if soundType == 'sound' then
+          playSound(self.sound, self.volume, self.tag)
+     elseif soundType == 'music' then
+          musicSound(self.sound, self.volume, self.tag)
+     end
+     debugPrint('Invalid soundType argument: {'..soundType..'}')
+     return error('', 2)
+end
+```
+
+<details><summary>Example (Full Code):</summary>
+<p>
+
+```lua
+local Sound = {} -- our class, so amazing
+
+function Sound:new(sound, volume, tag)
+     local self = setmetatable({}, {__index = self})
+     self.sound  = sound   -- instance attribute
+     self.volume = volume
+     self.tag    = tag
+
+     return self -- distribute throughout the class
+end
+
+function Sound:play(soundType) -- method
+     if soundType == 'sound' then
+          playSound(self.sound, self.volume, self.tag)
+     elseif soundType == 'music' then
+          musicSound(self.sound, self.volume, self.tag)
+     end
+     debugPrint('Invalid soundType argument: {'..soundType..'}')
+     return error('', 2)
+end
+
+function Sound:remove() -- removes the instance attributes and object
+     setmetatable(self, nil)
+end
+
+return Sound
+```
+
+</p>
+</details>
 
 ## Objects
 
