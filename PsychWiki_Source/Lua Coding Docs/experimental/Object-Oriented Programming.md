@@ -8,7 +8,7 @@ There are some advantages when using OOP, these includes modularity, reusability
 ***
 
 # Self
-The `self` keyword is special keyword which is the central point in OOP, it refers to the current object of a class within a method or constructor. It is generally used to get instance attributes, which are attributes defined within the constructor, and to get its own methods. To use within a method to manipulate, to apply, and to calculate the given instance attributes.
+The `self` keyword is special keyword which is the central point in OOP, it refers to the current object of a class within a method or constructor. It is generally used to get instance attributes, which are attributes defined within the constructor, and to get its own methods from the class itself. To use within a method to manipulate, to apply, and to calculate the given instance attributes.
 
 Most object-oriented languages have the `self` keyword partially hidden so that it does not have to be declared in a method's parameters or included into the method's first argument. Fortunately, Lua can disguise this with the colon operator <kbd>:</kbd>. It adds an additional hidden parameter in a method declaration and a hidden argument in a method call, namely the `self` keyword, making it more convenient and less annoying. For instance: `Class.method(self, args)` to `Class:method(args)`.
 
@@ -40,7 +40,27 @@ return Sound
 ```
 
 ## Constructor
-A constructor is a special type of method within a class. It is used to initialize the object's attributes and setting up the object's state. It accepts the passed arguments from a object so that the constructor to required the set of member variables. Which are the parameters for the constructor to define the class definiton.
+A constructor is a special type of method with a class the is invoked whed a new object is created. It is used to assign the object's attributes to the instance attributes. By getting the specified amount of arguments from an object. So that the class can get the instance attributes to use within its methods to manipulate, to apply, and to calculate it.
+
+To design a constructor, create a method within the class called `new` for our method. With the constructor's parameters for the class to utilize it. Before we can assign the object's attributes to the instance attributes, we must create a local variable that contains a metatable. 
+
+The first argument should be an empty table, and the second should be a metacontent with a `__index` metamethod containing the class itself; Example: `setmetatable({}, {__index = self})`. Now we can insert constructor's parameters to the instance attributes for the class to utilize. Lastly return the table that contains a metatable to distribute throughout the class.
+
+Example:
+```lua
+local Sound = {} -- our class, so amazing
+
+function Sound:new(sound, volume, tag)
+     local self = setmetatable({}, {__index = self})
+     self.sound  = sound   -- instance attribute
+     self.volume = volume
+     self.tag    = tag
+
+     return self -- distribute throughout the class
+end
+
+return Sound
+```
 
 ## Methods
 
