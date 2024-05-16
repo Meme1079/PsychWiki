@@ -64,7 +64,7 @@ end
 ```lua
 local Sound = {} -- our class, so amazing
 
-function Sound:new(sound, volume, tag)
+function Sound:new(sound, volume, tag) -- constructor
      local self = setmetatable({}, {__index = self})
      self.sound  = sound   -- instance attribute
      self.volume = volume
@@ -87,13 +87,12 @@ In this example, we added the `play()` method to play a sound. It also determins
 Example:
 ```lua
 function Sound:play(soundType) -- method
-     if soundType == 'sound' then
+     local soundType = soundType == false and true or false -- dafault value: false
+     if soundType == false then
           playSound(self.sound, self.volume, self.tag)
-     elseif soundType == 'music' then
-          musicSound(self.sound, self.volume, self.tag)
+          return -- stops the code execution at the bottom
      end
-     debugPrint('Invalid soundType argument: {'..soundType..'}')
-     return error('', 2)
+     musicSound(self.sound, self.volume, self.tag)
 end
 ```
 
@@ -103,7 +102,7 @@ end
 ```lua
 local Sound = {} -- our class, so amazing
 
-function Sound:new(sound, volume, tag)
+function Sound:new(sound, volume, tag) -- constructor
      local self = setmetatable({}, {__index = self})
      self.sound  = sound   -- instance attribute
      self.volume = volume
@@ -113,13 +112,12 @@ function Sound:new(sound, volume, tag)
 end
 
 function Sound:play(soundType) -- method
-     if soundType == 'sound' then
+     local soundType = soundType == false and true or false -- dafault value: false
+     if soundType == false then
           playSound(self.sound, self.volume, self.tag)
-     elseif soundType == 'music' then
-          musicSound(self.sound, self.volume, self.tag)
+          return -- stops the code execution at the bottom
      end
-     debugPrint('Invalid soundType argument: {'..soundType..'}')
-     return error('', 2)
+     musicSound(self.sound, self.volume, self.tag)
 end
 
 function Sound:remove() -- removes the instance attributes and object
@@ -133,6 +131,38 @@ return Sound
 </details>
 
 ## Objects
+Objects are an instance, creating a copy of a class created with a specified amount of data to define. Each object has a unique state and behaviors which will differentiate each-other. In layman's terms, it's basically calling class, kinda like a function.
+
+To get an object from a specified class, call the class' constructor method and pass in the specified amount of arguments; Example: `Class:new(args)`. This object should be held in a local variable; if you wish to use the class' method, call the local variable with the associated method; Example: `ClassVar:method(args)`.
+
+Example:
+```lua
+local Sound = require 'mods.scripts.libraries.Sound'
+
+local dingding = Sound:new('scrollMenu', 1)       -- first object
+local boomboom = Sound:new('ANGRY_TEXT_BOX', 0.8) -- second object
+function onCountdownTick(counter)
+     if counter < 4 then
+          dingding:play() -- calling a method on an object
+     else
+          boomboom:play()
+     end
+end
+```
+
+<details><summary>Path Reference:</summary>
+<p>
+
+```txt
+mods
+└─scripts
+  ├─libraries
+  │ └─Sound.lua
+  └─script.lua
+```
+
+</p>
+</details>
 
 ***
 
