@@ -168,6 +168,106 @@ mods
 ***
 
 # Inheritance
+Inheritance, often called a sub-class or child class is one the main concepts of OOP. It's a mechanism where a class is inherites from another class that shares its instance attributes and methods. It useful for code reuse and develops ties between classes, additionally it gives an ability to change the behaviors of a specified methods.
+
+In other programming languages it is often defined with the `extends` keyword followed by the given class to inherite. In Lua, replace the class's own table with the inherit class. By calling the constructor method without passing the said amount of arguments, for it to work properly; Example: `local SubClass = SuperClass:new()`.
+
+Now it inherits the inherited class, or super-class its instance attributes and methods. Meaning you can use the method from the super-class without declaring it, on a sub-class.
+
+
+<details><summary>Parallelogram Class (Module):</summary>
+<p>
+
+```lua
+local Parallelogram = {}
+function Parallelogram:new(length, width)
+     local self = setmetatable({}, {__index = self})
+     self.length = length
+     self.width  = width
+
+     return self
+end
+
+function Parallelogram:intro()     -- method, will change on the sub-class
+     return 'Parallelograms are cool'
+end
+
+function Parallelogram:perimeter() -- method, will inherit from the sub-class
+     return 2 * (self.length + self.width)
+end
+
+return Parallelogram
+```
+
+</p>
+</details>
+
+<details><summary>Rectangle Class (Module):</summary>
+<p>
+
+```lua
+local Parallelogram = require 'mods.scripts.libraries.Parallelogram' -- import class
+
+local Rectangle = Parallelogram:new() -- inherit from the Parallelogram class
+function Rectangle:new(length, width)
+     local self = setmetatable({}, {__index = self})
+     self.length = length
+     self.width  = width
+
+     return self
+end
+
+function Rectangle:intro() -- method, changed
+     return 'Rectangles are better'
+end
+
+return Rectangle
+```
+
+</p>
+</details>
+
+
+Examples:
+```lua
+-- the super-class which the class Rectangle will inherit from
+local Parallelogram = {}
+
+-- the sub-class Rectangle is holding 'Parallelogram:new()'
+-- now it get the instance attributes and methods from the super-class
+-- click on the "widget" at the top too see further deatils
+local Rectangle = Parallelogram:new()
+```
+```lua
+local Parallelogram = require 'mods.scripts.libraries.Parallelogram'
+local Rectangle     = require 'mods.scripts.libraries.Rectangle'
+
+function onCreate()
+     local shapelogram = Parallelogram:new(100, 150)
+     debugPrint(shapelogram:intro())     -- Parallelograms are cool
+     debugPrint(shapelogram:perimeter()) -- 500
+     
+     local shapect = Rectangle:new(30, 50)
+     debugPrint(shapect:intro())         -- Rectangles are better
+     debugPrint(shapect:perimeter())     -- 160
+end
+```
+
+<details><summary>Path Reference:</summary>
+<p>
+
+```txt
+mods
+└─scripts
+  ├─libraries
+  │ ├─Parallelogram.lua
+  │ └─Rectangle.lua
+  └─script.lua
+```
+
+</p>
+</details>
+
 
 ***
 
