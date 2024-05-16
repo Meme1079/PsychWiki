@@ -48,7 +48,7 @@ The first argument should be an empty table, and the second should be a metacont
 
 Example:
 ```lua
-function Sound:new(sound, volume, tag)
+function Sound:new(sound, volume, tag) -- constructor
      local self = setmetatable({}, {__index = self})
      self.sound  = sound   -- instance attribute
      self.volume = volume
@@ -142,10 +142,11 @@ local Sound = require 'mods.scripts.libraries.Sound'
 local dingding = Sound:new('scrollMenu', 1)       -- first object
 local boomboom = Sound:new('ANGRY_TEXT_BOX', 0.8) -- second object
 function onCountdownTick(counter)
-     if counter < 4 then
-          dingding:play() -- calling a method on an object
+     if counter < 3 then
+          dingding:play()   -- calling a method on an object
      else
           boomboom:play()
+          boomboom:remove() -- removes any data from an object
      end
 end
 ```
