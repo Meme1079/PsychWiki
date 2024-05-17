@@ -3,7 +3,9 @@ Object-Oriented Programming _(OOP)_ is a style of programming characterized by a
 
 However you can implement this by the use of tables. In Lua a table is an "object" becuase they have a state and an identity that is independent of their values. For instance, two objects with the same value are differenct to each-other, while an object can have different values but it is always the same object.
 
-There are some advantages when using OOP, these includes modularity, reusability, code maintenance, simplified problem-solving ability. etc. But there are some disadvantages due to steeper learning curve, increased complexity, and maybe performance issues.
+There are some advantages when using OOP, these includes modularity, reusability, code maintenance, simplified problem-solving ability. etc. But there are some disadvantages due to steeper learning curve, increased complexity, and maybe performance issues. 
+
+OOP should only be used when you have a complex system with multiple methods that require a lot of interaction between different objects. For example: setting or getting a value from an object. Sometimes it's best to perform pure calculations with simple inputs and outputs. Don't try to look smart, learn when to use it.
 
 ***
 
@@ -135,6 +137,9 @@ Objects are an instance, creating a copy of a class created with a specified amo
 
 To get an object from a specified class, call the class' constructor method and pass in the specified amount of arguments; Example: `Class:new(args)`. This object should be held in a local variable; if you wish to use the class' method, call the local variable with the associated method; Example: `ClassVar:method(args)`.
 
+> [!IMPORTANT]
+> _I'd recommend to declare an object outside any callbacks and especially to get the object throughout your program._
+
 Example:
 ```lua
 local Sound = require 'mods.scripts.libraries.Sound'
@@ -173,7 +178,6 @@ Inheritance, often called a sub-class or child class is one the main concepts of
 In other programming languages it is often defined with the `extends` keyword followed by the given class to inherite. In Lua, replace the class's own table with the inherit class. By calling the constructor method without passing the said amount of arguments, for it to work properly; Example: `local SubClass = SuperClass:new()`.
 
 Now it inherits the inherited class, or super-class its instance attributes and methods. Meaning you can use the method from the super-class without declaring it, on a sub-class.
-
 
 <details><summary>Parallelogram Class (Module):</summary>
 <p>
@@ -267,9 +271,3 @@ mods
 
 </p>
 </details>
-
-
-***
-
-# Proper Usage
-<!-- But it should only be used when you have a complex system with multiple methods that require a lot of interaction between different objects. It is also best for reusability and modularity becuase of the creation and reusing of objects. -->
