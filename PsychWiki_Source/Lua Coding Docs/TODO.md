@@ -1,1 +1,0 @@
-Add Bitwise operations to this am lazy as hell
