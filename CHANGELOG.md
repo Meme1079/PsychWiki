@@ -1,3 +1,8 @@
+### 15.1.0 Version
+- Added "Object-Oriented Programming" Page
+- Overhual the Functions section from "Basics of Coding" page
+- Overhual "Metatable" page
+
 ### 15.0.0 Version
 - New Logo & Banner
 - New Blockquote highlights
