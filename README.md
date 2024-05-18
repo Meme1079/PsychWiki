@@ -3,19 +3,10 @@
 # PsychWiki
 Welcome to PsychWiki! This is a unofficial wiki for Psych Engine. This is where we dedicate to documenting missing functions and other stuff, with high quality descriptions with examples. This repository was made because the official wiki hasn't been updated for a while, so I decided to make my own wiki cuz why the hell not?
 
-### Current Update [15.0.0 Version]
-- New Logo & Banner
-- New Blockquote highlights
-- Added "FlxAnimate Functions" page
-- Added HScript variables section to the "Custom Substates" page
-- Added new dynamic functions to the "Callback Templates" page
-- Added new table methods to "Library Methods" page
-- Renamed "Global Functions & Variables" to "Built-in Functions & Constants" page
-- Overhual "Basics of Coding" page
-- Overhual "Built-in Functions & Constants" page
-- Updated some function arguments
-- Fix some formatting
-- Fix spelling/grammar errors
+### Current Update [15.1.0 Version]
+- Added "Object-Oriented Programming" Page
+- Overhual the Functions section from "Basics of Coding" page
+- Overhual "Metatable" page
 
 #### Contributers
 - [LarryFrosty](https://github.com/LarryFrosty)
