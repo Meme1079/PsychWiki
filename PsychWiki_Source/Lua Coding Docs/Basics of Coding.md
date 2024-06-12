@@ -388,17 +388,17 @@ end
 ```
 
 ## Iterative Statements
-Iterative statements allows statements to execute zero or more times, until the condition is met or it breaks the loop. They are commonly used for repeating code or iterating a table. There are only 3 iterative statements: `for`, `while`, and `repeat-until` loop.
+Iterative statements allow statements to execute zero or more times until they meet a condition or something breaks the loop. Iterative statements are for repeating code or iterating through a table. There are only three iterative statements: `for`, `while`, and `repeat-until` loop.
 
 ### For Loop
-For loop statement allows you to loop a specific number of times. This loop is commonly used for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, or something. And used for reading a table values or performing on numeric values. There are 2 types of `for` loops: Generic loop and Numeric Loop.
+The `for` loop statement allows you to loop a specific number of times. This loop is for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions for note modification, modcharts, etc., and for reading table values or performing on numeric values. There are two types of `for` loops: `generic` loops and `numeric` loops.
 
 #### Numeric
-Numeric Loop uses numeric values to increment or decrement a value. This loop is usually the most common loop to use for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. They are defined with the for keyword followed by 3 expressions: `initializer`, `maximum`, and `iteration`. With the do keyword last.
+A numeric loop uses numeric values to increment or decrement a value. This loop is usually the most common for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. They use the `for` keyword followed by three expressions: `initializer`, `maximum`, and `iteration`. They end with the `do` keyword at the end.
 
 - `initializer` - The initial variable for the numeric loop to use.
 - `maximum` - The maximum number for the numeric loop to stop at.
-- `iteration` - The iterator for the numeric loop to use you can either increment or decrement the value. This expression doesn't need to be initialized it will default, to add `1` after each loop.
+- `iteration` - The iterator for the numeric loop to use. You can either increase or decrease the value. Since it will default to `1` after each loop, this expression doesn't need to be initialized.
 
 Example:
 ```lua
@@ -406,6 +406,7 @@ function onCreate()
      for index = 0, 5 do     -- Incrementing loop
           debugPrint(index)  --> 0, 1, 2, 3, 4, 5
      end
+     
      for index = 5, 0, -1 do -- Decrementing loop
           debugPrint(index)  --> 5, 4, 3, 2, 1, 0
      end
