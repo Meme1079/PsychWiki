@@ -1,6 +1,6 @@
 # Built-in Functions
 ### type(data:Dynamic)
-Checks the given data argument and returns the determine type of its argument, coded as a string. Which will return either: `string`, `number`, `boolean`, `nil`, `table`, `function`, `thread`, or `userdata`.
+Checks the given data argument and returns the data type of its argument, coded as a string. It will either return: `string`, `number`, `boolean`, `nil`, `table`, `function`, `thread`, or `userdata`.
 
 - `data` - The data argument to determine the specified type.
 
@@ -14,9 +14,9 @@ end
 ```
 
 ### tostring(data:Dynamic)
-Converts a given data argument into a literal string; Returns a `nil` value if an conversion error occured.
+Converts a given data argument into a literal string. Returns a `nil` value if a conversion error is raised.
 
-- `data` - the data argument to convert it inta literal string.
+- `data` - The data argument that will convert into a literal string.
 
 Example:
 ```lua
@@ -27,10 +27,10 @@ end
 ```
 
 ### tonumber(data:String, ?base:Int = 10)
-Converts a given string argument into a real number, if the argument is returning a number or tring it will convert it to a number. Then it will return its number; Returns a `nil` value if an conversion error occured.
+Converts a given string argument into a number. If the argument returns a number or string, it will convert it into a number. After the value converts into a number, it will return the number. Returns a `nil` value if a conversion error is raised.
 
-- `data` - The string argument to convert into a real number.
-- `base` - An optional parameter, The specified [base](https://en.wikipedia.org/wiki/Radix) to interpret the numeral; Default value: `10`.
+- `data` - The string argument to convert into a number.
+- `base` - An optional parameter. The specified [base](https://en.wikipedia.org/wiki/Radix) to interpret the numeral. The default value: `10`.
 
 Example:
 ```lua
