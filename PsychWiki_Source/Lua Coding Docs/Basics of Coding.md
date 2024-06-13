@@ -58,7 +58,7 @@ function onCreate()
 end
 
 function onUpdate(elapsed)
-     -- code here or something, idk
+     -- code here or something idk
 end
 ]=]
 ```
@@ -315,12 +315,12 @@ Relational operators are used to compare multiple operands inside a condition fo
 |   `<=`    | Checks if the condition is <ins>lesser or equal to</ins> the right.  | `2 <= 5` | `true`  |
 
 ## Logical
-Logical operators are for combining multiple conditions and to specify what conditions need to be `true`.
+Logical operators are for combining multiple conditions and specifying what conditions need to be `true`.
 
 | Operators | Description                                                                                    | Example                    | Returns |
 |:----------|------------------------------------------------------------------------------------------------|:---------------------------|---------|
 | `and`     | Returns `true` if both statements are `true`;<br> Combines multiple conditions.       | `a == false and b == true` | `false` |
-| `or`      | Returns `true` if one of the statements are `true`;<br> Combines multiple conditions. | `a == false or b == true`  | `true`  |
+| `or`      | Returns `true` if one statement is `true`;<br> Combines multiple conditions. | `a == false or b == true`  | `true`  |
 | `not`     | Reverses the condition. If the condition is `false`<br> it will return `true` and vice versa.  | `not false`                | `true`  |
 
 ## Miscellaneous
@@ -396,7 +396,7 @@ The `for` loop statement allows you to loop a specific number of times. This loo
 #### Numeric
 A numeric loop uses numeric values to increment or decrement a value. This loop is usually the most common for `setPropertyFromGroup()` and `getPropertyFromGroup()` functions. They use the `for` keyword followed by three expressions: `initializer`, `maximum`, and `iteration`. They end with the `do` keyword at the end.
 
-- `initializer` - The initial variable for the numeric loop to use.
+- `initializer` - The initial variable for the numeric loop.
 - `maximum` - The maximum number for the numeric loop to stop at.
 - `iteration` - The iterator for the numeric loop to use. You can either increase or decrease the value. Since it will default to `1` after each loop, this expression doesn't need to be initialized.
 
@@ -414,10 +414,10 @@ end
 ```
 
 #### Generic
-Generic Loop are another type of loop that allows you to traverse all values from a table; return from a iterator function from the `in` keyword. This is just an alternative loop for iterating every table elements. The defining of this loop is the same as the numeric loop, but the there are only 2 expressions: `initializer` and `iteration`.
+A generic loop is another loop that allows you to traverse all values from a table and return from an iterator function with the `in` keyword. A generic loop is an alternative loop for iterating every table element. You define this loop the same as the numeric loop, but there are only two expressions: `initializer` and `iteration`.
 
-- `initializer` - The initial variable for the generic loop to use. The amount of variables depends on the iterator function that you're using, `pairs()`, `ipairs()`, and `next()` function only uses `1` or `2` variables. But the `string.gmatch()` functions depends on the captures from the string.
-- `iteration` - The iterator for the generic loop to use; iterators to use here are already listed above of this description. You can also use custom iterators function, if you want to, but we're not gonna talk about it. _(Don't even dare)_
+- `initializer` - The initial variable for the generic loop. The amount of variables depends on the iterator function that you're using. The `pairs()`, `ipairs()`, and `next()` functions only use `1` or `2` variables, but the `string.gmatch()` function depends on the captures from the string.
+- `iteration` - The iterator for the generic loop to use. The valid Iterators are listed above. You can also use a custom iterator function if you want to, but we won't cover that.
 
 Example:
 ```lua
@@ -430,10 +430,10 @@ end
 ```
 
 ### While Loop
-While loop statement will loop infinitely until the condition returns `false`. This is rarely used but if it is, it's only used if you're iterating based on a condition rather than number of times, the use this loop. It is declared with the `while` keyword followed by the condition to loop over until it returns `false`, with the `do` keyword last.
+A while loop will loop infinitely until the condition it’s bounded to returns `false`. A while loop is often unused. They are commonly used if you're iterating based on a condition rather than several times. It is declared using the `while` keyword followed by the condition to loop over until it returns `false`, with the `do` keyword at the end.
 
 > [!CAUTION]
-> Please make sure to check the condition of the while loop. Because it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
+> Please check the condition of a while loop because it may loop infinitely and either crash or softlock your game. It is recommended to test it [here](https://onecompiler.com/lua) before implementing it into your Lua script.
 
 Example:
 ```lua
@@ -449,10 +449,10 @@ end
 ```
 
 ### Repeat-until Loop
-Repeat until statement works similarly as the `while` loop, but has a major differences. The block of code has a guaranteed to be executed at least once, before checking if the condition is `true`, it will repeat the loop until its condition is met. It is declared with the `repeat` keyword followed by the body of code, with the `until` keyword next to the condition to loop over.
+A repeat until statement works similarly to the `while` loop but has a main difference: the code wrapped inside the statement is guaranteed to execute once. Before checking if the condition is `true`, it will repeat the loop until its condition is met. It is declared with the `repeat` keyword followed by the body of code, with the `until` keyword next to the condition to loop over.
 
 > [!CAUTION]
-> Please make sure to check the condition of the while loop. Because it might loop infinitely and crash or softlock your game! I'd suggest you testing it [here](https://onecompiler.com/lua) before implementing into your Lua script.
+> Please check the condition of a repeat until loop because it may loop infinitely and either crash or softlock your game. It is recommended to test it [here](https://onecompiler.com/lua) before implementing it into your Lua script.
 
 Example:
 ```lua
@@ -465,10 +465,10 @@ end
 ```
 
 ## Jump Statements
-Jump statements allows the manipulate the flow of the program, if the condition is met. They are used to manage the control flow of iterative statements and functions. There are only 2 jump statements: `return` and `break` statements.
+Jump statements allow the manipulation of the program’s flow if the condition is met. They are used to manage the control flow of iterative statements and functions. There are only two jump statements: `return` and `break`.
 
 ### Return Statement
-Return statement causes the function to terminate its execution and returns with or without the value. If the return statement didn't provide any values to return, it actually returns nothing, no `nil` values, it's just nothing. They are define with the `return` keyword obviously with the optionally provided value.
+A return statement causes the function to terminate its execution and returns with or without a value. If the return statement does not provide any values to return, it returns nothing, not even a `nil value. They use the `return` keyword with the optional value.
 
 Example:
 ```lua
@@ -481,7 +481,7 @@ function onCreate()
 end
 ```
 
-They can also return multiple values each must be separated by comma characters <kbd>,</kbd>; Example: `return 3, 4, 6`. If you want to get the values convert it into a table, it will only get the first value if you didn't do it. If you don't like it using this method, you could use variables by using multiple assigning of variables depending of the returning values.
+They can also return multiple values. Each value must be separated with a comma <kbd>,</kbd>. An example would be `return 3, 4, 6`. If you want the values to convert into a table, it will only get the first value if you don't do it. If you don't like using this method, you could use variables by assigning multiple variables depending on the returning values.
 
 Examples:
 ```lua
@@ -508,7 +508,7 @@ end
 ```
 
 ### Break Statement
-Break statement forcefully stops any iterative statements from looping. This mainly used to forcefully break the loop on a specific condition that is set on. This is define with the `break` keyword obviously.
+A break statement forcefully stops any iterative statements from looping. A break statement is mainly used to forcefully break the loop depending on a specific condition. A break statement uses the `break` keyword.
 
 Example:
 ```lua
