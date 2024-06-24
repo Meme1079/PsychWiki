@@ -317,10 +317,10 @@ Logical operators are used to combine multiple conditions and to specify on what
 ## Miscellaneous
 Miscellaneous operators only features two operators the Length and Concatenate operators.
 
-| Operators | Description                                                               | Example          |
-|:---------:|---------------------------------------------------------------------------|------------------|
-| `#`       | Length operator, Checks the maximum length size of a `string` or `table`. | `#'sussy'`       |
-| `..`      | Concatenate operator, Merges multiple `string` or `numbers` together.     | `'snow'..'ball'` |
+| Operators | Description                                                               | Example          | Returns    |
+|:---------:|---------------------------------------------------------------------------|------------------|------------|
+| `#`       | Length operator, Checks the maximum length size of a `string` or `table`. | `#'quad'`        | `4`        |
+| `..`      | Concatenate operator, Merges multiple `string` or `numbers` together.     | `'snow'..'ball'` | `snowball` |
 
 ***
 
