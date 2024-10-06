@@ -1,57 +1,60 @@
 > [!NOTE]
-> _For the `tag` parameters, if you use the same tag name again, the previous object with the same tag AND the same object type (e.g. sprites, texts, timers, etc) will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
+> _For every `tag` parameters in each function on this page. If you use the same tag name is again, the previous object with the same tag AND the same object type (e.g. sprites, texts, timers, etc) will be <ins>deleted</ins>; This rule applies to ALL `tag` parameters._
 
 # Creating/Adding/Removing Sprite
 ### makeLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0)
-Initializes the <ins>creation of the Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
+Initializes the <ins>creation of a Lua sprite object</ins>. It will not add the sprite object immediately into the game yet. This can be only done by the `addLuaSprite()` function.
 
-- `tag` - The tag name of the sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/shared/images` or `assets/images` folders.
-- `x` - An optional parameter, The x position value of the sprite object to be set.
-- `y` - An optional parameter, The y position value of the sprite object to be set.
+- `tag` - The tag for the sprite to inherit.
+- `image` - An optional parameter, The image to be displayed on the sprite. The sprite image must be relative to these folders: `mods/images`, `assets/shared/images`, or `assets/images`
+- `x` - An optional parameter, The x position value of the sprite object to be set in.
+- `y` - An optional parameter, The y position value of the sprite object to be set in.
 
 ### makeAnimatedLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "sparrow")
-Initializes the <ins>creation of the animated Lua sprite object</ins>. This will not add the sprite into the game yet, this can be only achieved by the `addLuaSprite()` function.
+Initializes the <ins>creation of an animated Lua sprite object</ins>. It will not add the sprite object immediately into the game yet. This can be only done by the `addLuaSprite()` function.
 
-- `tag` - The tag name of the animated sprite to be referenced later.
-- `image` - An optional parameter, The image to be displayed. The sprite image must be relative to `mods/images`, `assets/shared/images` or `assets/images` folders.
-- `x` - An optional parameter, The x position value of the sprite object to be set.
-- `y` - An optional parameter, The y position value of the sprite object to be set.
-- `spriteType` - An optional parameter, The specified sprite type of the Lua sprite could be either a sprite-sheet for `sparrow` or texture-atlas for `tex`; Default value: `sparrow`.
+- `tag` - The tag for the sprite to inherit.
+- `image` - An optional parameter, The image to be displayed on the sprite. The sprite image must be relative to these folders: `mods/images`, `assets/shared/images`, or `assets/images`
+- `x` - An optional parameter, The x position value of the sprite object to be set in.
+- `y` - An optional parameter, The y position value of the sprite object to be set in.
+- `spriteType` - An optional parameter, The sprite's atlas format to use when playing animations. Atlas formats are a bunch of data for each of the sprites corresponding animation to play. The most common one is `sparrow` for `xml` files; Default value: `sparrow`.
+     - `sparrow` - A group of animation images into one large sprite-sheet, with a provided `xml` file for each animation frames.
+     - `packer` - A single animation images into a single sheet, with a provided `txt` file for each animation frames; <br/>Alternative values: `packeratlas`, or `pac`.
+     - `aseprite` - A group of pixel-art images into one large sprite-sheet, with a provided `json` file for each animation frames; Alternative values: `jsoni8`.
 
 ### addLuaSprite(tag:String, front:Bool = false)
-<ins>Adds the Lua sprite object</ins> into the game. This function will <ins>overlap other sprite objects</ins> if placed below eachother.
+<ins>Adds the Lua sprite object</ins> into the game. Each call to this function will <ins>overlap the previous one</ins>, causing the last sprite, usually the bottom one, to be placed in front of every sprite in the game.
 
-- `tag` - The tag name of the sprite to be added into the game.
-- `front` - Whether if the sprite object gets added on top of the characters; For camHUD objects, setting it to `true` would place it above the HUD elements; Default value: `false`.
+- `tag` - The tag of the object sprite to add.
+- `front` - An optional parameter, If set to `true`, it will always be in front of every sprite in the game, regardless of any overlaps; Default value: `false`.
 
 ### removeLuaSprite(tag:String, destroy:Bool = true)
 <ins>Removes the Lua sprite object</ins> out of the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
 
-- `tag` - The tag name of the sprite to be removed into the game.
+- `tag` - The tag of the object sprite to remove.
 - `destroy` - If set to `true`, will permanently remove the sprite from the game. Making it impossible to re-add it without remaking the sprite; Default value: `true`.
 
 ***
 
 # Creating/Adding/Removing Text
 ### makeLuaText(tag:String, text:String, width:Int, x:Float, y:Float)
-Initializes the <ins>creation of the text object</ins>. This will not add the text into the game yet, this can be only achieved by the `addLuaText()` function.
+Initializes the <ins>creation of a Lua text object</ins>. It will not add the text object immediately into the game yet. This can be only done by the `addLuaText()` function.
 
 - `tag` - The tag name of the text to be referenced later.
-- `text` - The text content to be displayed inside the game.
+- `text` - The text content for the text to display inside the game.
 - `width` - The text-box with to be set in; setting it to `0` will automatically determine the width for you.
 - `x` - The x position value of the text object to be set.
 - `y` - The y position value of the text object to be set.
 
 ### addLuaText(tag:String)
-<ins>Adds the text object</ins> into the game. This function will <ins>overlap other text objects</ins> if placed below eachother.
+<ins>Adds the Lua text object</ins> into the game. Each call to this function will <ins>overlap the previous one</ins>, causing the last text object, usually the bottom one, to be placed in front of every text object in the game.
 
-- `tag` - The tag name of the text to be added into the game.
+- `tag` - The tag of the text object to add.
 
 ### removeLuaText(tag:String, destroy:Bool = true)
 <ins>Removes the text object</ins> out of the game. Recommended to use this if the <ins>text object isn't used anymore</ins>, for performance purposes duh.
 
-- `tag` - The tag name of the text to be removed into the game.
+- `tag` - The tag of the object text to remove.
 - `destroy` - If set to `true`, will permanently remove the text from the game. Making it impossible to re-add it without remaking the text; Default value: `true`.
 
 ***

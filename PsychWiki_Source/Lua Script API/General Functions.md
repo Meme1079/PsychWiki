@@ -97,44 +97,42 @@ Makes the <ins>camera focus</ins> on the target.
 ### cameraShake(camera:String, intensity:Float, duration:Float)
 Makes the <ins>camera shake</ins>.
 
-- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
-- `intensity` - How intense the camera will shake, recommended value is `0.05`.
-- `duration` - The duration length of the camera shake to end.
+- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `intensity` - The intensity of the shaking of the camera; Recommended value: `0.05`.
+- `duration` - The duration length of the camera shaking to manually end.
 
-### cameraFlash(camera:String, color:String, duration:Float, forced:Bool)
+### cameraFlash(camera:String, color:String, duration:Float, ?forced:Bool)
 Makes the <ins>camera flash</ins>.
 
-- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
-- `color` - The color of the flash.
-- `duration` - The duration length of the camera flash to end.
-- `forced` - If set to `true`, the flash will be restarted if there's already a flash currently happening.
+- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The flash color to display.
+- `duration` - The duration length of the camera flash to manually end.
+- `forced` - If set to `true`, the flash will restart if there's already a flash currently happening.
 
 ### cameraFade(camera:String, color:String, duration:Float, forced:Bool)
 Makes the <ins>camera fade into the color</ins>.
 
-- `camera` - The camera state to be set in; Can be either: `camGame`, `camHUD` or `camOther`.
-- `color` - The color of the fade.
-- `duration` - The duration length of the camera fade to end.
-- `forced` - If set to `true`, the fade will be restarted if there's already a fade currently happening.
+- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The fade color to display.
+- `duration` - The duration length of the camera fade to manually end.
+- `forced` - If set to `true`, the fade will restart if there's already a fade currently happening.
 
 ***
 
 # Dialogues/Cutscene Functions
 ### startDialogue(dialogueFile:String, music:String = null)
-Starts the <ins>dialogue stuff</ins>, it will load the `json` file relative to `data/your-song-name/` folder. When the <ins>dialogue is finished</ins>, the `startCountdown()` or `endSong()` function will be called depending on where you started the dialogue.
+Starts the dialogue stuff. When the dialogue is finished, both the `startCountdown()` or `endSong()` functions will be executed depending on where you started the dialogue.
 
-If the <ins>dialogue line has finished</ins>, `onNextDialogue()` will be called. If it gets <ins>skipped</ins> then `onSkipDialogue()` will be called.
-
-- `dialogueFile` - The name of the dialogue `json` file.
-- `music` - An optional parameter, The `ogg` music file to be played; Must be relative to `mods/music` or `assets/music` folders; Default value: `nil`.
+- `dialogueFile` - The dialogue `json` file to load; Must be relative to: `data/song-name` folder.
+- `music` - An optional parameter, plays a background music while being in a dialogue without having to use `playMusic()` function; Must be relative to: `mods/music` or `assets/music` folders; Default value: `nil`.
 
 ### startVideo(videoFile:String)
-Starts a <ins>video</ins>.
+Starts a video.
 
-- `videoFile` - The name of the video `mp4` file; Must be relative to `mods/videos` folder.
+- `videoFile` - The `mp4` video file to play; Must be relative to `mods/videos` folder.
 
 ### startCountdown()
-Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialogue or video manually.
+Starts the countdown immediately, if you want to skip the annoying dialogue or video manually.
 
 ***
 
@@ -142,95 +140,119 @@ Starts the <ins>countdown</ins>, used it if you want to skip the annoying dialog
 ### loadSong(?name:String = null, ?difficultyNum:Int = -1)
 Loads a new song.
 
-> [!WARNING] 
-> _You can't load the song if the song's week `json` difficulties name is not the same as the current one._
+> [!WARNING]
+> _The function will failed to execute, if the week's `json` difficulty list is different from one another._
 
-- `name` - An optional parameter, The name of the song to be loaded; Default value: `nil`. _(Meaning that it will choose the current song name)_
-- `difficultyNum` - An optional parameter, The difficulty ID number of the song; Default value: `-1`. _(Meaning it will choose the current difficulty number that the song is playing on)_
+- `name` - An optional parameter, the name of the song to be loaded. If the argument value isn't present, it will load the song itself; basically it resets; Default: `nil`.
+- `difficultyNum` - An optional parameter, the difficulty ID number to set when loaded. If the argument value isn't present, it will load the its difficulty ID number; Default: `-1`.
 
 ### restartSong(?skipTransition:Bool = false)
 Restarts the song.
 
-- `skipTransition` - An optional parameter, Whether there will be a transition when the song is restarting; Default value: `false`.
+- `skipTransition` - An optional parameter, Whether a fade transition plays when reseting the song; Default value: `false`.
 
 ### exitSong(?skipTransition:Bool = false)
-Exits the song with an optional transition; Not to be confised with the `endSong()` function.
+Exits the song to story mode or freeplay; Not to be confised with the `endSong()` function.
 
-- `skipTransition` - An optional parameter, Whether there will be a transition when the song has exiting; Default value: `false`.
+- `skipTransition` - An optional parameter, Whether a fade transition plays when exitting the song; Default value: `false`.
 
 ### endSong()
-Ends the song manually.
+Ends the song.
+
+***
+
+# Color Functions
+### getPixelColor(obj:String, x:Int, y:Int)
+Gets the hexadecimal color value of an object by pixel size. And returns it into a 32-bit decimal interger, if converted into a hexadecimal number it will formated as: `FFFFFFFFAARRGGBB`.
+
+- `obj` - The object tag to get the color.
+- `x` - The x position value on the object tag's pixel.
+- `y` - The y position value on the object tag's pixel.
+
+### getColorFromName(color:String)
+Parses the hexadecimal color within a `string` and returns the corresponding `FlxColor` value. You can use either values to parse: <ins>`0xff0000`, `#ff0000`, or `red` it can be in upper-cases or not</ins>.
+
+- `color` - The hexadecimal color value to parse.
+
+### getColorFromHex(color:String)
+Parses the hexadecimal color within a `string` and returns the corresponding `FlxColor` value. The only difference about `getColorFromName()` function that <ins>it doesn't require `#` or `0x` at the start</ins>.
+
+- `color` - The hexadecimal color value to parse.
+
+***
+
+### setHealthBarColors(left:String, right:String)
+Sets the <ins>health bar background-colors</ins> with a new color on each sides.
+
+- `left` - The opponent's health bar to set the hexadecimal color.
+- `right` - The player's health bar to set the hexadecimal color.
+
+### setTimeBarColors(left:String, right:String)
+Sets the <ins>time bar background-colors</ins> with a new color on each sections.
+
+- `left` - The precentage bar to set the hexadecimal color.
+- `right` - The background-color to set the hexadecimal color.
 
 ***
 
 # Debuging Functions
 ### debugPrint(text:Dynamic = '', color:String = 'WHITE')
-This will display a debug message in the <ins>top-left corner of the screen</ins>.
+Displays a debug text at the top-left corner of the screen, and disappears in a few seconds.
 
-- `text` - The text to be displayed.
-- `color` - An optional parameter, The specified color to display the text as.
+> [!TIP]
+> If you want to display multiple values at the same time, you should use a table containing the values on the `text` argument.
 
-Example: `debugPrint("Current boyfriend character: ", getProperty('boyfriend.curCharacter')` This will get the current bf character with the `getProperty()` function and will print `Current boyfriend character: 'bf'`.
+- `text` - The text content to display, usually just values.
+- `color` - An optional parameter, The color of the debug text to display. Could be used for error messages or other stuff.
+
+Examples:
+```lua
+function onCreate()
+     local curBF = getProperty('boyfriend.curCharacter')  -- gets the current bf character
+     debugPrint("Current boyfriend character: " .. curBF) --> Current boyfriend character: 'bf'
+end
+```
+```lua
+function onCreate()
+     local curBFX = getProperty('boyfriend.x') -- gets the current bf's x position
+     local curBFY = getProperty('boyfriend.y') -- gets the current bf's y position
+     debugPrint({curBFX, curBFY})              --> [770, 450]
+end
+```
 
 ### close()
-Stops the script that this is used on</ins>. Recommended to place it on <ins>stage scripts</ins> since they usually aren't being used anymore; Do not place this function anywhere if the script needs to be constantly updated or has constantly updating stuff; e.g `onUpdate()` or `onStepHit`.
+<ins>Immediately stops the script</ins> that is currently being in use. This is only recommended to execute this on stage scripts since they usually aren't being used anymore.
 
-***
-
-# Color Functions
-### getColorFromHex(color:String)
-Gets the <ins>specific hex color</ins> . Very useful especially when setting/getting a specific hex color, really useful to be honest.
-
-- `color` - The specified hex color duh.
-
-### getColorFromName(color:String)
-Gets the color <ins>from its name</ins>. This function has alternative names you can use: `FlxColor()`, `getColorFromString()`.
-
-- `color` - The color name.
-
-### setHealthBarColors(leftHex:String, rightHex:String)
-Changes the <ins>health bar</ins> background-colors.
-
-- `leftHex` - The opponent hex color of the health bar.
-- `rightHex` - The player hex color of the health bar.
-
-### setTimeBarColors(leftHex:String, rightHex:String)
-Changes the <ins>time bar</ins> background-colors.
-
-- `leftHex` - The percentage bar hex color of the time bar.
-- `rightHex` - The background-color hex color of the time bar.
-
-### getPixelColor(obj:String, x:Int, y:Int)
-Gets the <ins>hex color of an object by pixels</ins>; Returns a `number` that when converted into hexidecimal, becomes formatted as `FFFFFFFFAARRGGBB`.
-
-- `obj` - The object tag name to be used.
-- `x` - The x-coordinate value in pixels.
-- `y` - The y-coordinate value in pixels.
-
-***
+> [!CAUTION] 
+> _Do not execute this function anywhere if the said script needs to be constantly updated or has constantly updating stuff for something. For instance, if the script has: `onUpdate()`, `onStepHit()`, `onSpawnNote()` callbacks._ 
 
 # Miscellaneous Functions
 ### triggerEvent(name:String, arg1:Dynamic, arg2:Dynamic)
-Triggers an event without having to insert the event into the chart editor.
+Triggers an execution of an event. Basically an alternative way of triggering an event without going to the chart editor.
 
-- `name` - The name of the event.
-- `arg1` - The value on Value 1.
-- `arg2` - The value on Value 2.
+- `name` - The said name of the event to trigger.
+- `arg1` - The first argument value for the event to use, if it even requires one.
+- `arg2` - The second argument value for the event to use, if it even requires one.
 
 ### getModSetting(saveTag:String, ?modName:String = null)
-Gets a setting value from the settings `json` inside the mod's `data` folder.
+Gets the mod settings' element from a `json` file current values.
 
-- `saveTag` - The specified setting name tag from the `json`.
-- `modName` - An optional parameter, The given mod name; Default value: `nil`.
+- `saveTag` - The settings' `json` element tag to get the current value.
+- `modName` - An optional parameter, The local mod file that it will only get the `json` file; Default: `nil`. 
 
-### changePresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
-Changes your [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) status.
+### changeDiscordPresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
+Changes your current [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) status.
 
-- `details` - Your details on what your doing inside the game.
-- `state` - The description of the `details`.
-- `smallImageKey` - An optional parameter, The image key to be shown at the bottom-left corner.
+- `details` - The current details on what your doing inside the game.
+- `state` - The description of the said detail.
+- `smallImageKey` - An optional parameter, The image key to display at the bottom-left corner.
 - `hasStartTimestamp` - An optional parameter, Whether your Discord RPC should have a time stamp or not.
 - `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
+
+### changeDiscordClientID(?newID:String = null)
+Changes your current Discord Client ID.
+
+- `newID` - The new id for the discord client to inherit.
 
 ### getSongPosition()
 Returns the current song position in milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.

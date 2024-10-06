@@ -1,169 +1,254 @@
-# Start/End Callbacks
-### onCreate()
-Triggered <ins>every time the script is started</ins>, can be used for creating objects, precaching, property setters/getters; <ins>Some variables</ins> aren't created yet depending on when it is started.
+# About
+Before getting into it, a bit of context about this. An event is an action or occurrence that signify either a user events, such as pressing buttons or pausing, or a system events, such as spawning notes or the camera moving. When a specific event occurs the corresponding callback will be executed from that event.
 
-### onCreatePost()
-Triggered at the <ins>post/after start of the script</ins>. The <ins>HUD elements and characters</ins> are created here; Will only be triggered once.
+Callbacks are special event handler functions that are dealt for specific events design for it. It uses a regular function syntax for its callbacks. Instead of being designed to be stored as data and be execute by another function, from an event listener function. This is were you'll put the designated code for a specific event. Some functions and variables are only exclusive and work properly with callbacks; additionally, it's the only way to get currently updating values for certain variables and functions.
 
-### onDestroy()
-Triggered when the <ins>script has been closed</ins>.
+Callbacks are also included in HScript. But with a slight alteration of the given parameters by giving its corresponding type, and may include extra parameters in some cases. With an added syntax alteration becuase of Haxe.
+
+Examples:
+```lua
+function onCreate() -- start script
+end
+
+function onUpdate(elapsed) -- update every frame
+end
+```
+```haxe
+function onCreate() { // start script
+}
+
+function onUpdate(elapsed:Float) { // update every frame
+}
+```
 
 ***
 
-# Gameplay Callbacks
+# Event Callbacks
+> [!NOTE]
+> 
+
+## Initiate Callbacks
+### onCreate()
+<ins>Triggered when the script has initiated/started</ins>, this is only triggered once. This is only used for creating objects, precaching, and setting and getting properties. 
+
+### onCreatePost()
+<ins>Triggered post initiation of the script,</ins> this is only triggered once. This only for manipulating its HUD elements, especially for the notes or splashes properties.
+
+### onDestroy()
+<ins>Triggered when the script has been destroyed</ins>, in other words the script has stop executing.
+
+### onSongStart()
+<ins>Triggered when the song start</ins> after the countdown ended.
+
+### onEndSong()
+<ins>Triggered when the song ends</ins> after the song's timer is completed.
+
+## Gameplay Callbacks
 ### onStepHit()
-Triggered at default <ins>16 times per section</ins>. I'd recommended to use the `curStep` variable here, since it will be called every beat.
+<ins>Triggered every step, 16 beat per section</ins> of the song; this only executes after the countdown. Both the `curStep` and `curDecStep` variables must be recommended to be used here, since they were both specifically designed for this purpose.
 
 ### onBeatHit()
-Triggered at default <ins>4 times per section</ins>. I'd recommended to use the `curBeat` variable here, since it will be called every beat.
+<ins>Triggered every beat, 4 beat per section</ins> of the song; this only executes after the countdown. Both the `curBeat` and `curDecBeat` variables must be recommended to be used here, since they were both specifically designed for this purpose.
 
 ### onSectionHit()
-Triggered at max <ins>1 time per section</ins>. I'd recommended to use the `curSection` variable here, since it will be called every beat.
+<ins>Triggered every 1 beat per section</ins> of the song; this only executes after the countdown. The `curSection` variable must be recommended to be used here, since it was specifically designed for this purpose.
 
-### onRecalculateRating()
-Triggered <ins>before the calculation</ins> of the rating. Recommended to use `setRatingPercent()` function for the accuracy percent on the calculation, and the `setRatingName()` function for your epic rating names.
+### onMoveCamera(focus:String)
+<ins>Triggered when the camera moves to focus on a specific character</ins>, either the player, opponent, or girlfriend.
 
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the rating to be recalculated._
-
-### onMoveCamera(focus)
-Triggered when the <ins>camera focuses on a character</ins>; Can either be `boyfriend`, `dad` or `gf`.
-
-- `focus` - The character to check for.
+- `focus` - The current character that the camera focus to; Could either return: `boyfriend`, `dad`, `gf`.
 
 Example:
 ```lua
 function onMoveCamera(focus)
-	if focus == 'boyfriend' then
-		-- called when the section has Must Hit Section enabled; Aka when the camera focuses to boyfriend.
-	elseif focus == 'dad' then
-		-- called when the section does not have Must Hit Section enabled; Aka when the camera focuses to dad.
-	elseif focus == 'gf' then
-		-- called when the section has GF Section enabled; Aka when the camera focuses to gf.
-	end
+     if focus == 'boyfriend' then 
+          -- called if the section is a "Must Hit Section"; focusing the camera to boyfriend.
+     elseif focus == 'dad' then
+          -- called if the section is NOT a "Must Hit Section"; focusing the camera to dad.
+     elseif focus == 'gf' then
+          -- called if the section is a "GF Section"; focusing the camera to gf.
+     end
 end
 ```
 
-## Updates
-### onUpdate(elapsed)
-Triggered <ins>before every frame</ins> in the game.
+## Gameplay & Score Update Callbacks
+### onUpdate(elapsed:Float)
+<ins>Triggered every current frame</ins> of the game, used for updating values from variables.
 
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
-### onUpdatePost(elapsed)
-Triggered <ins>every frame</ins> in the game. The HUD elements are updated here.
+### onUpdatePost(elapsed:Float)
+<ins>Triggered after every current frame</ins> of the game, used for updating values from variables. This only for manipulating its HUD elements, especially for the notes or splashes properties.
 
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
-### onUpdateScore(miss)
-Triggered <ins>after</ins> the `scoreTxt` text updates.
+### onUpdateScore(miss:Bool)
+<ins>Triggered before every score update</ins>, from hitting or missing notes. This is only recommended to be used for manipulating the score's current text content either by setting or getting.
 
-- `miss` - Checks if the player missed a note; Returns a `boolean`.
+- `miss` - Whether the player misses or not, returns `true` if missed.
 
-### preUpdateScore(miss)
-Triggered <ins>before</ins> the `scoreTxt` text updates.
+Example:
+```lua
+local function round(num, decimals)
+     local mult = 10^(decimals or 0)
+     return math.floor(num * mult + 0.5) / mult
+end
 
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for `scoreTxt` variable to update and for `onUpdateScore()` to be called._
+function onCreatePost()      -- Initial start
+     setProperty('scoreTxt.text', 'Taxes: 0 • Ratios: 0 • Knuckles: ?')
+end
 
-- `miss` - Checks if the player missed a note; Returns a `boolean`.
+function onUpdateScore(miss) -- Changes when the score updates
+     local newScore    = 'Taxes: '..score..' • '
+     local newMiss     = 'Ratios: '..misses..' • '
+     local newAccuracy = 'Knuckles: '..ratingName..' ('..round(rating, 2)..'%)'..' - '..ratingFC
+     setProperty('scoreTxt.text', newScore..newMiss..newAccuracy)
+end
+```
 
-## Songs
-### onSongStart()
-Triggered at the <ins>beginning of the song</ins> or at the <ins>completion of the countdown</ins>.
+### preUpdateScore(miss:Bool)
+<ins>Triggered every score update</ins>, from hitting or missing notes. This is only recommended to be used for manipulating the score's rating percent, name, and fc from their derived functions, from: `setRatingPercent()`, `setRatingName()`, `setRatingFC()` functions.
 
-### onEndSong()
-Triggered at the <ins>end of the song</ins>, will be <ins>delayed if an achievement is unlocked</ins>; Not to be confused with `onDestroy()`.
+- `miss` - Whether the player misses or not, returns `true` if missed.
 
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the song to end._
+Example:
+```lua
+-- These will change the current ratings to:
+-- Wario Wah (3.14%) - PP
+function preUpdateScore(miss)
+     setRatingPercent(math.pi / 100)
+     setRatingName('Wario Wah')
+     setRatingFC('PP')
+end
+```
 
-***
+### onRecalculateRating()
+<ins>Triggered before the calculation of the rating data</ins>.
 
-# Countdown Callbacks
+## Countdown Callbacks
 ### onStartCountdown()
-Triggered at the <ins>start of the countdown</ins>; Not to be confused with `onCountdownStarted()`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the countdown to start and for `onCountdownStarted()` to be called._
+<ins>Triggered before the countdown</ins> has started.
 
 ### onCountdownStarted()
-Triggered at the <ins>post/after start of the countdown</ins>; the <ins>note strums</ins> are created here.
+<ins>Triggered when the countdown</ins> has already been started, the note's strumlines will update to their new positions.
 
-### onCountdownTick(counter)
-Triggered every <ins>countdown tick</ins>.
+Example:
+```lua
+-- Swaps the player and opponent positions opposite to each-other
+local playerStrumLines   = {732, 844, 956, 1068}
+local opponentStrumLines = {92, 204, 316, 428}
+function onCountdownStarted()
+     for ind = 0,3 do            -- stupid for loop
+          local newInd = ind + 1 -- becuase lua uses 1-index for its table
+          setPropertyFromGroup('playerStrums', ind, 'x', opponentStrumLines[newInd])
+          setPropertyFromGroup('opponentStrums', ind, 'x', playerStrumLines[newInd])
+     end
+end
+```
+
+### onCountdownTick(counter:Int)
+<ins>Triggered in every countdown tick</ins> until it ends.
 
 - `counter` - The current countdown tick; Goes from `0` to `4`.
 
 Example:
 ```lua
-function onCountdownTick(counter)
-     local counterArray = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
-     debugPrint('Counter Num: '..counter..' | '..counterArray[counter + 1]) 
+local countdownContent = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
+function onCountdownStarted(counter)
+     debugPrint('Counter Tick: '..counter..' = '..countdownContent[counter + 1])
+     --> Counter Tick: 0 = Three
+     --> Counter Tick: 1 = Two
+     --> Counter Tick: 2 = One
+     --> Counter Tick: 3 = Go!
+     --> Counter Tick: 4 = The song starts here
 end
 ```
 
-Will print:
-```terminal
-Counter Num: 0 | Three
-Counter Num: 1 | Two
-Counter Num: 2 | One
-Counter Num: 3 | Go!
-Counter Num: 4 | The song starts here
-```
+## Dialogue Callbacks
+### onNextDialogue(dialogueCount:Int)
+<ins>Triggered when the next dialogue line starts</ins>.
 
-<details><summary><b>Haxe Exclusive:</b></summary>
-<p> 
+- `dialogueCount` - The current dialogue line; Starts at `1`.
 
-- `tick` - The current countdown tick in words; Goes from `THREE` to `START`.
-- `counter` - The current countdown tick; Goes from `0` to `4`.
+### onSkipDialogue(dialogueCount:Int)
+<ins>Triggered when skipping a dialogue</ins> that was still being typed.
 
-Example:
-```lua
-function onCountdownTick(counter)
-     local counterArray = {'Three', 'Two', 'One', 'Go!', 'The song starts here'}
-     debugPrint('Counter Num: '..counter..' | '..counterArray[counter + 1]) 
-end
-```
+- `dialogueCount` - The current dialogue line; Starts at `1`.
 
-Will print:
-```terminal
-Counter Num: 0 | Three
-Counter Num: 1 | Two
-Counter Num: 2 | One
-Counter Num: 3 | Go!
-Counter Num: 4 | The song starts here
-```
+## Note Callbacks
+> [!NOTE]
+> The parameters of each callback of this section have been listed here. Due to stupid the repetitive copy and paste on each callbacks description. And all of theme just work the same as usual. If you want to know what parameters the don't include or include stuff and it type on each callbacks. Just check the title, idiot.
 
-</p>
-</details>
+- `membersIndex` - The current note member ID index.
+- `noteData` - The current direction index of the note; Goes from: `0` to `3`, basically left, down, up and right.
+- `noteType` - The current notetype of the note.
+- `isSustainNote` - Whether the notes are sustain (long notes) or not.
+- `strumTime` - The current strum time of the note, if the notes are sustain.
 
 ***
 
-# Event Hook Callbacks
-### onEvent(eventName, value1, value2, strumTime)
-Triggered if <ins> an event note plays</ins>; Can be used to create an event.
+### onSpawnNote(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float, strumTime:Float)
+<ins>Triggered on every note that has spawned</ins>.
 
-- `eventName` - The name of the event to be used.
-- `value1` - The first value of the event.
-- `value2` - the second value of the event.
+### goodNoteHit(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+<ins>Triggered if the player hits</ins> the note.
+
+### opponentNoteHit(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+<ins>Triggered if the opponent hits</ins> the note.
+
+### goodNoteHitPre(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+<ins>Triggered before the player note</ins> hit calculations.
+
+### opponentNoteHitPre(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+<ins>Triggered before the opponent note</ins> hit calculations.
+
+### noteMiss(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+<ins>Triggered if the player misses</ins> a note.
+
+### noteMissPress(noteData:Int)
+<ins>Triggered if the player mispresses</ins> while a note isn't present.
+
+## Key Callbacks
+> [!NOTE]
+> The parameters of each callback of this section have been listed here. Due to stupid the repetitive copy and paste on each callbacks description. And all of theme just work the same as usual. If you want to know what parameters the don't include or include stuff and it type on each callbacks. Just check the title, idiot.
+
+- `key` - The key associate for each note direction index; Goes from: `0` to `3`, basically left, down, up and right. 
+
+***
+
+### onKeyPress(key:Int)
+<ins>Triggered if the player presses</ins> their own key associate for each note.
+
+### onKeyRelease(key:Int)
+<ins>Triggered if the player releases</ins> their own key associate for each note.
+
+### onKeyPressPre(key:Int)
+<ins>Triggered before any calculation when the player presses</ins> their own key associate for each note.
+
+### onKeyReleasePre(key:Int)
+<ins>Triggered before any calculation when the player releases</ins> their own key associate for each note.
+
+### onGhostTap(key:Int)
+<ins>Triggered if the player mispresses</ins> their own key associate for each note.
+
+## Event Hook Callbacks
+> [!NOTE]
+> The parameters of each callback of this section have been listed here. Due to stupid the repetitive copy and paste on each callbacks description. And all of theme just work the same as usual. If you want to know what parameters the don't include or include stuff and it type on each callbacks. Just check the title, idiot.
+
+- `eventName` - The said event name from the played event note.
+- `value1` - The first value inherited by the event.
+- `value2` - The secondary value inherited by the event.
 - `strumTime` - The strum time where the event was executed.
 
-### onEventPushed(name, value1, value2, strumTime)
-Triggered for <ins>every event note</ins>, it's recommended to precache assets.
+### onEvent(eventName:String, value1:String, value2:String, strumTime:Float)
+<ins>Triggered if an event note executes</ins> or from the `triggerEvent()` function. This is where you put the functionality of the event, for each corresponding event name.
 
-- `eventName` - The name of the event to be used.
-- `value1` - The first value of the event.
-- `value2` - the second value of the event.
-- `strumTime` - The strum time where the event was executed.
+### onEventPushed(eventName:String, value1:String, value2:String, strumTime:Float)
+<ins>Triggered for every event note</ins> inside the chart.
 
-### eventEarlyTrigger(eventName, value1, value2, strumTime)
-Makes the <ins>event trigger earlier</ins>. Use the `return` statement with the specified offset <ins>number in milliseconds</ins>.
+### eventEarlyTrigger(eventName:String)
+<ins>Makes the specific event trigger earlier</ins>. By returning the specified amount of offset before executing in milliseconds.
 
-- `eventName` - The name of the event to be used.
-- `value1` - The first value of the event.
-- `value2` - the second value of the event.
-- `strumTime` - The strum time where the event was executed.
 
 Example:
 ```lua
@@ -174,185 +259,52 @@ function eventEarlyTrigger(eventName)
 end
 ```
 
-***
-
-# Dialogue Callbacks
-### onNextDialogue(dialogueCount)
-Triggered if the player <ins>moves on to the next dialogue line</ins>.
-
-- `dialogueCount` - The next dialogue line to check for; Starts at `0`, but won't actually get called until the next dialogue line.
-
-### onSkipDialogue(dialogueCount)
-Triggered if the <ins>current dialogue line is skipped mid text</ins>.
-
-- `dialogueCount` - The current dialogue line to check for; Starts at `0`.
-
-***
-
-# Substate Callbacks
+## Substates & Gameover Substate Callbacks
 ### onPause()
-Triggered if the game is <ins>paused from playing</ins>.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the pause menu to open._
+Triggered if the game is currently paused.
 
 ### onResume()
-Triggered if the game is <ins>resumed from pausing</ins>.
+<ins>Triggered if the game resumed</ins> from being paused.
 
 ### onGameOver()
-Triggered if the <ins>player dies from skill issues</ins>.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the player to be able to die._
+<ins>Triggered if the health has reach</ins> no value causing a game-over screen.
 
 ### onGameOverStart()
-Triggered at the <ins>start of the game-over screen</ins>.
+Triggered if the game has started a game-over screen.
 
-### onGameOverConfirm(retry)
-Triggered if the <ins>player confirmed the retry</ins> or go back to the menu.
+### onGameOverConfirm(retry:Bool)
+Triggered if the player confirms a retry or exit to menu.
 
-- `retry` - Checks if the player pressed the retry button; Returns a `boolean`.
+- `retry` - Whether the player retries in the game-over screen or not.
 
-***
-
-# Pressing Callbacks
-## Notes
-> [!Warning] 
-> _For Note related callbacks, the parameters on HScript are replaced with just the Note itself; Example: `note.noteType`_.
-
-### goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player hits a note</ins>.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
-
-- `membersIndex` - The note member id.
-- `noteData` - The direction of the notes; Values: `0,1,2,3`.
-- `noteType` - The note type to check.
-- `isSustainNote` - Checks if the note is a sustain note; Returns a `boolean`.
-
-### goodNoteHitPre(membersIndex, noteData, noteType, isSustainNote)
-Triggered <ins>before the good note hit calculations</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
-
-### opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>opponent hits a note</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
-
-### opponentNoteHitPre(membersIndex, noteData, noteType, isSustainNote)
-Triggered <ins>before the opponent note hit calculations</ins>; Has the same parameters as `goodNoteHit`. 
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
-
-### onSpawnNote(membersIndex, noteData, noteType, isSustainNote, strumTime)
-Triggered if a <ins>note is spawned</ins>.
-
-### noteMiss(membersIndex, noteData, noteType, isSustainNote)
-Triggered if the <ins>player misses a note</ins>; Has the same parameters as `goodNoteHit`.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback, but it is currently only used to prevent the HScript version from getting called; Lua version must NOT be returning `Function_Stop` for the HScript version to get called._
-
-### noteMissPress(noteData)
-Triggered if the <ins>player presses while a note isn't present</ins>. This will only activate when <ins>`Ghost Tapping` is disabled</ins>.
-
-- `noteData` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
-
-## Keys
-### onKeyPress(key)
-Triggered if the player presses <ins>one of the note control buttons</ins>.
-
-- `key` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
-
-### onKeyPressPre(key)
-Triggered <ins>before the key press calculations</ins>.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the input system to work and for `onKeyPress()` and `onGhostTap()` to be called; Would not recommend using `Function_Stop` on this unless you plan on making your own input system._
-
-- `key` - The direction in each strum note; Values: `0,1,2,3` into `left, down, up, right`.
-
-### onKeyRelease(key)
-Triggered if the player releases <ins>one of the note control buttons</ins>.
-
-- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
-
-### onKeyReleasePre(key)
-Triggered <ins>before the key release calculations</ins>.
-
-> [!NOTE]
-> _`Function_Stop` is able to be used on this callback; Must NOT be returning `Function_Stop` for the strum animations to play and for `onKeyRelease()` to be called._
-
-- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
-
-### onGhostTap(key)
-Triggered if the note control buttons are <ins>pressed while a note isn't present</ins>; Not to be confused with `noteMissPress()`.
-
-- `key` - The note direction in each strum of the note; Values: `0,1,2,3` into `left, down, up, right`.
+## Complete Hook Callbacks
+### onTimerCompleted(tag:String, loops:Int, loopsLeft:Int)
+### onTweenCompleted(tag:String, vars:String)
+### onSoundFinished(tag:String)
 
 ***
 
-# Complete Callbacks
-### onTimerCompleted(tag, loops, loopsLeft)
-Triggered when a <ins>timer is finished</ins>; Not to be confused with `onTweenCompleted()` function, just in case to add this lol.
+# Dynamic Callback Functions
+## PlayState
+### updateIconsPosition()
+### updateIconsScale(elapsed)
+### updateScore(miss)
+### fullComboFunction()
 
-- `tag` - The timer tag to be used.
-- `loops` - Checks how many loops it will have done when it ends completely.
-- `loopsLeft` - Checks how many loops remaining on the timer.
+## FPSCounter
+### updateText()
 
-### onTweenCompleted(tag, vars)
-Triggered when a <ins>tween is finished</ins>.
-
-- `tag` - The tween tag to be used.
-- `vars` - The vars that was in the tween to be used; Only gets called on `startTween()` and `doTween()` functions.
-
-### onSoundFinished(tag)
-Triggered when a <ins>sound is finished</ins>.
-
-- `tag` - The sound tag to be used.
+## Discord
+### shutdown()
 
 ***
 
-# Dynamic Functions
-Dynamic functions/callbacks are able to <ins>be overridden</ins> on HScript or `runHaxeCode()`, meaning you can change how the functions work. 
+# Callbacks Affected by `Function_Stop`
 
-Example:
-```haxe
-function onCreatePost() {
-     game.updateIconsPosition = function() {
-          game.iconP1.x = 314;
-          game.iconP2.x = 114;
-          // Instead of updating the positions depending on the health
-          // The icons will now update on these positions and stay static
-          // You can even make the function empty if you don't want it to do anything
-     }
-}
-```
+***
 
-List of Dynamic functions/callbacks currently available:
-- From `PlayState.hx`:
-     - `updateIconsPosition()`
-     - `updateIconsScale(elapsed)`
-     - `updateScore(miss)`
-     - `fullComboFunction()`
-- From `FPSCounter.hx`:
-     - `updateText()` _(Accessed by using `Main.fpsVar.updateText`)_
-- From `Discord.hx`:
-     - `shutdown()` _(Static function)_
+# Callbacks Altered by Haxe
 
 ***
 
 # Deprecated Callbacks
-> [!CAUTION]
-> Both of these functions were added in `0.7.2`, but later removed in `0.7.3`.
-
-### goodNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-In `0.7.2`, this is triggered AFTER `goodNoteHit()` and `goodNoteHit()` gets called before the good note hit calculations; Has the same parameters as `goodNoteHit()` callback.
-
-### opponentNoteHitPost(membersIndex, noteData, noteType, isSustainNote)
-In `0.7.2`, this is triggered AFTER `opponentNoteHit()` and `opponentNoteHit()` gets called before the opponent note hit calculations; Has the same parameters as `opponentNoteHit()` callback.
