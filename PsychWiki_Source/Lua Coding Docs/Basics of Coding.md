@@ -1,17 +1,17 @@
 # Introduction
 Lua is a lightweight, high-level, dynamically typed, multi-paradigm scripting language, created in 1993, Brazil It was designed to improve its speed, portability, extensibility, and ease of use in development. Which is why it is used in Psych Engine; this allows you to execute Lua code without compiling the game over and over again, unlike doing source code in Haxe.
 
-## Differences
-Coding in Psych Engine has some "minor differences" compared when coding in vanilla Lua. This is due to HaxeFlixel, the main engine used by Psych Engine and LuaJIT a tracing just-in-time compiler for Lua. Anyways uuuuhhhhh here's a list of minor differences that you should 100% totally know about:
+## Scripting Adjustment
+Coding in Psych Engine has some "minor adjustment" compared when coding in vanilla Lua. This is due to HaxeFlixel, the main engine used by Psych Engine. Another reason is due to LuaJIT, a tracing just-in-time compiler for Lua. Anyways uuuuhhhhh here's a list of minor adjustment that you should 100% totally know about:
 
-1. If you want your code to execute on a specific event during the game, you should use callback templates to do that; Examples: `onCreate()`, `onUpdate()`, `onEvent()` just to name a few of them. But variables, functions, and built-in Lua functions can be declared outside of any Callback Templates.
+1. Code should be used inside of Event Callbacks, a special event handler functions for specific game events that occured. For example: `onCreate()` initiated at the start of the game; `onUpdate()` updated in each frame; `onEvent()` used for creating events. Some variables or functions would not work properly if declared outside. But some variables and function, in PsychLua or not can work outside tho. For further information just click here.
 
 > [!TIP]
 > In update <kbd>0.7.1h</kbd> of Psych Engine you can now put code outside of any Callback Templates, which is the best feature to be ever be implemeted in years, but this will only execute once tho.
 
-2. Printing is also different instead of using the `print()` function it's replaced by the `debugPrint()` function. The arguments passed on the `debugPrint()` function will appear at the top-left of the screen. And will fade out in a couple of second
+2. Printing is slightly altered, instead of using the `print()` function—it's replaced by the `debugPrint()` function. The arguments passed on the `debugPrint()` function will appear at the top-left of the screen. And will fade out in a couple of second.
 
-3. Psych Engine uses LuaJIT for it's Lua programming language, it also uses Lua version <kbd>5.1</kbd> which has some missing features. But it has extensions you might probably use like bitwise operations, FFI library, etc.
+3. Psych Engine uses LuaJIT for it's Lua programming language, due to this. LuaJit uses version <kbd>5.1</kbd> of Lua which is outdated and has some missing features from future versions. But it has extensions you might probably or never use like bitwise operations, FFI library, etc.
 
 ## Source-Code Editors
 You don't know they're basically a text editor program designed specifically for editing source code of computer programs. They usually add such as syntax highlighting, indentation, autocomplete and brace matching. To make your programming experience more easier to code, the most popular source-code editors are [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/), [Vim](https://www.vim.org/download.php), [Sublime Text](https://www.sublimetext.com/), etc. You can use any source-code editors that you're comfortable to use.

@@ -198,7 +198,7 @@ Works similar to the `pcall()` function except that you can set your own error m
 
 Example:
 ```lua
-function radius()
+function radius(cir)
      return cir / (2 * math.pi)
 end
 

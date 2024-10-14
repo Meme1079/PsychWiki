@@ -212,22 +212,22 @@ Triggered when <ins>skipping a dialogue that was still being typed/loaded</ins>.
 Triggered on <ins>every note that has currently spawned</ins>.
 
 ### goodNoteHit(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
-Triggered on <ins>each *note hit* from the *player*</ins>.
+Triggered on <ins>each **note hit** from the **player**</ins>.
 
 ### goodNoteHitPre(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
-Triggered <ins>*before note hit* calculations from the *player*</ins>.
+Triggered <ins>**before note hit** calculations from the **player**</ins>.
 
 ### opponentNoteHit(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
-Triggered on <ins>each *note hit* from the *opponent*</ins>.
+Triggered on <ins>each **note hit** from the **opponent**</ins>.
 
 ### opponentNoteHitPre(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
-Triggered <ins>*before note hit* calculations from the *opponent*</ins>.
+Triggered <ins>**before note hit** calculations from the **opponent**</ins>.
 
 ### noteMiss(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
-Triggered on <ins>each *note miss* from the *player*</ins>.
+Triggered on <ins>each **note miss** from the **player**</ins>.
 
 ### noteMissPress(noteData:Int)
-Triggered on <ins>each *misspress* from the *player*, while no note isn't present</ins>. This will be disabled if the "Ghost Tapping" option is enabled.
+Triggered on <ins>each **misspress** from the **player**, while no note isn't present</ins>. This will be disabled if the "Ghost Tapping" option is enabled.
 
 ## Key Pressing Callbacks
 > [!NOTE]
@@ -319,4 +319,4 @@ Triggered <ins>when the **sound**</ins> has completed its timer.
 
 # See also
 - Deprecated Callbacks
-- List of Modified Callbacks exclusive to Haxe
+- Unique Haxe Parameter Callbacks
