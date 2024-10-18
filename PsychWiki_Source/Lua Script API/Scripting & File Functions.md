@@ -1,4 +1,4 @@
-# Script Functions
+# Scripting Functions
 ### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 Adds a Lua script into the game.
 
