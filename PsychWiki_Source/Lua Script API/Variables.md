@@ -282,13 +282,12 @@
 
 ***
 
-# Screen & Camera Variables
+# Miscellaneous Variables
 | Variables 	| Description 	|
 |---	|---	|
 | `screenWidth` 	| The current width value of the game window; Default value: `1280` 	|
 | `screenHeight` 	| The current height value of the game window; Default value: `720` 	|
-| `cameraX` 	| The current x-position of the camera. 	|
-| `cameraY` 	| The current y-position of the camera. 	|
+
 
 <details><summary><b>All Shortcut to:</b></summary>
 <p>
@@ -297,8 +296,28 @@
 |---	|---	|
 | `screenWidth` 	| `getPropertyFromClass('flixel.FlxG', 'width')` 	|
 | `screenHeight` 	| `getPropertyFromClass('flixel.FlxG', 'height')` 	|
+
+</p>
+</details>
+
+<details><summary><b>Removed Variables:</b></summary>
+<p>
+
+| Variables 	| Description 	|
+|---	|---	|
+| `cameraX` 	| The current x-position of the camera. 	|
+| `cameraY` 	| The current y-position of the camera. 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcuts 	|
+|---	|---	|
 | `cameraX` 	| `getProperty('camFollow.x')` 	|
 | `cameraY` 	| `getProperty('camFollow.y')` 	|
+
+</p>
+</details>
 
 </p>
 </details>

@@ -119,6 +119,47 @@ Makes the <ins>camera fade into the color</ins>.
 
 ***
 
+# Camera Property Setter/Getters Functions
+### setCameraScroll(x:Float, y:Float)
+<ins>Sets the camera coordinate point</ins> of the game's world coordinates to a new value.
+
+- `x` - The x-coordinate point of the game's world coordinate to set to.
+- `y` - The y-coordinate point of the game's world coordinate to set to.
+
+### setCameraFollowPoint(x:Float, y:Float)
+<ins>Sets the camera position to focus</ins> on, to a new value.
+
+- `x` - The x position value to set to, for the camera to focus on.
+- `y` - The y position value to set to, for the camera to focus on.
+
+### addCameraScroll(?x:Float, ?y:Float)
+<ins>Adds a value to the camera coordinate point</ins> of the game's world coordinates
+
+- `x` - An optional parameter, The x-coordinate point of the game's world coordinate to add to.
+- `y` - An optional parameter, The y-coordinate point of the game's world coordinate to add to.
+
+### addCameraFollowPoint(?x:Float, ?y:Float)
+<ins>Adds a value to the camera position to focus on</ins>, to a new value.
+
+- `x` - The x position value to add to, for the camera to focus on.
+- `y` - The y position value to add to, for the camera to focus on.
+
+***
+
+### getCameraScrollX()
+Gets the current <ins>x-coordinate point of the game's world coordinates</ins>; Returns `Float`.
+
+### getCameraScrollY()
+Gets the current <ins>y-coordinate point of the game's world coordinates</ins>; Returns `Float`.
+
+### getCameraFollowX()
+Gets the current <ins>x position camera that it focus to</ins>; Returns `Float`.
+
+### getCameraFollowY()
+Gets the current <ins>y position camera that it focus to</ins>; Returns `Float`.
+
+***
+
 # Dialogues/Cutscene Functions
 ### startDialogue(dialogueFile:String, music:String = null)
 Starts the dialogue stuff. When the dialogue is finished, both the `startCountdown()` or `endSong()` functions will be executed depending on where you started the dialogue.
@@ -126,10 +167,11 @@ Starts the dialogue stuff. When the dialogue is finished, both the `startCountdo
 - `dialogueFile` - The dialogue `json` file to load; Must be relative to: `data/song-name` folder.
 - `music` - An optional parameter, plays a background music while being in a dialogue without having to use `playMusic()` function; Must be relative to: `mods/music` or `assets/music` folders; Default value: `nil`.
 
-### startVideo(videoFile:String)
+### startVideo(videoFile:String, ?canSkip:Bool = true)
 Starts a video.
 
 - `videoFile` - The `mp4` video file to play; Must be relative to `mods/videos` folder.
+- `canSkip` - An optional parameter, Whether the video can have the ability to skip or not; Default value: `true`.
 
 ### startCountdown()
 Starts the countdown immediately, if you want to skip the annoying dialogue or video manually.
@@ -258,3 +300,6 @@ Changes your current Discord Client ID.
 Returns the current song position in milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
 
 Deprecated Original Shortcut: `getPropertyFromClass('Conductor', 'songPosition')`
+
+### updateScoreText()
+Updates the scores' text content.

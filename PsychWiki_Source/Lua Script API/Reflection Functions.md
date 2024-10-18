@@ -23,7 +23,7 @@ function onCreate()
 end
 ```
 
-### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false)
+### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false)
 Sets one of the <ins>classes' instance variables</ins> to a new value.
 
 It can also uses haxe libraries to set its own instance variables to set a new value to; Examples: `FlxG`, `FlxMath`, `FlxBasic`. Keep in mind that it should contain the library package; Example: `flixel.FlxG`. You can check each haxe libraries package by [clicking here](https://api.haxeflixel.com/flixel/FlxBasic.html).
@@ -32,9 +32,10 @@ It can also uses haxe libraries to set its own instance variables to set a new v
 > _If you're using Psych Engine version `0.7` and below. The `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character for separation. Followed by the the said class you'd want to use; Example: `backend.ClientPrefs`, `states.PlayState`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)<br><br>Another thing is that when trying to the `ClientPrefs` instance variables it should have the prefix `data` in the `variables` parameter. For you to get the instance variables; Example: `data.comboStacking`, `data.lowQuality`, etc_
 
 - `classVar` - The specified name of the class; Examples: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `variable` - The classes' instance variable to set the value to.
-- `value` - The said new value to set to.
-- `allowMaps` - An optional parameter, allows you to use haxe maps or dictionaries to set the key-value pairs' value. If the instance variable holds a map type; Default value: `false`.
+- `variable` - The classes' instance variable value to set a new value to.
+- `value` - The new value for the classes' instance variable to have.
+- `allowMaps` - An optional parameter, allows the ability to use haxe maps or dictionaries to set key-value pair values; Default value: `false`.
+- `allowInstances` - An optional parameter, allows the ability to use object instances to set a value; Default value: `false`.
 
 Examples:
 ```lua
@@ -90,7 +91,7 @@ function onCreatePost()
 end
 ```
 
-### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false)
+### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false, ?allowInstances:Bool = false)
 Gets one of the <ins>classes' instance variables</ins> current value.
 
 It can also uses haxe libraries to set its own instance variables to get the current value; Examples: `FlxG`, `FlxMath`, `FlxBasic`. Keep in mind that it should contain the library package; Example: `flixel.FlxG`. You can check each haxe libraries package by [clicking here](https://api.haxeflixel.com/flixel/FlxBasic.html).
@@ -99,8 +100,9 @@ It can also uses haxe libraries to set its own instance variables to get the cur
 > _If you're using Psych Engine version `0.7` and below. The `classVar` parameter should have the file name in which the class is located, followed by a dot <kbd>.</kbd> character for separation. Followed by the the said class you'd want to use; Example: `backend.ClientPrefs`, `states.PlayState`, etc. You can check where the class files are located, [just click here!!!!](https://github.com/ShadowMario/FNF-PsychEngine/tree/main/source)<br><br>Another thing is that when trying to the `ClientPrefs` instance variables it should have the prefix `data` in the `variables` parameter. For you to get the instance variables; Example: `data.comboStacking`, `data.lowQuality`, etc_
 
 - `classVar` - The specified name of the class; Examples: `ClientPrefs`, `Conductor`, `CoolUtil`, etc.
-- `variable` - The classes' instance variable to get the current value.
-- `allowMaps` - An optional parameter, allows you to use haxe maps or dictionaries to set the key-value pairs' value. If the instance variable holds a map type; Default value: `false`.
+- `variable` - The classes' instance variable value to get the current value.
+- `allowMaps` - An optional parameter, allows the ability to use haxe maps or dictionaries to get key-value pair values; Default value: `false`.
+- `allowInstances` - An optional parameter, allows the ability to use object instances to get a value; Default value: `false`.
 
 Example:
 ```lua
@@ -223,19 +225,21 @@ end
 
 ***
 
-# Miscellaneous Properties
-### removeFromGroup(obj:String, index:Int, dontDestroy:Bool = false)
-Removes an object from the group with its specified member ID
+# Group Properties
+### addToGroup(group:String, tag:String, ?index:Int = -1)
+<ins>Adds and inserts an object</ins> from the group instance variables.
 
-- `obj` - The specified name of the grouped instance variables; Examples: `opponentStrums`, `playerStrums`, etc.
-- `index` - The index position of the grouped instance variables to use.
-- `dontDestroy` - Whether if the object will be removed permanently making it unable to be re-added; Default value: `false`.
+- `group` - The specified name of the grouped instance variables; Examples: `opponentStrums`, `playerStrums`, etc.
+- `tag` - The specified object tag to be inserted to the grouped instance variables.
+- `index` - The index position of the grouped instance variables to be inserted to; Default value: `-1`.
 
-### updateHitboxFromGroup(group:String, index:Int)
-Updates the object's hitboxes with its specified member ID.
+### removeFromGroup(group:String, ?index:Int = -1, ?tag:String = null, ?destroy:Bool = true)
+<ins>Removes an object</ins> from the group instance variables.
 
-- `obj` - The specified name of the grouped instance variables; Examples: `opponentStrums`, `playerStrums`, etc.
-- `index` - The index position of the grouped instance variables to use.
+- `group` - The specified name of the grouped instance variables; Examples: `opponentStrums`, `playerStrums`, etc.
+- `index` - The index position of the grouped instance variables to be removed from; Default value: `-1`.
+- `tag` - The specified object tag to be removed from the grouped instance variables.
+- `destroy` - Whether the object will be permanently removed from the game, making it unable to be re-added; Default value: `true`.
 
 ***
 

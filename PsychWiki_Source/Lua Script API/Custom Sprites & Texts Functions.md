@@ -10,17 +10,17 @@ Initializes the <ins>creation of a Lua sprite object</ins>. It will not add the 
 - `x` - An optional parameter, The x position value of the sprite object to be set in.
 - `y` - An optional parameter, The y position value of the sprite object to be set in.
 
-### makeAnimatedLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "sparrow")
+### makeAnimatedLuaSprite(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "auto")
 Initializes the <ins>creation of an animated Lua sprite object</ins>. It will not add the sprite object immediately into the game yet. This can be only done by the `addLuaSprite()` function.
 
 - `tag` - The tag for the sprite to inherit.
 - `image` - An optional parameter, The image to be displayed on the sprite. The sprite image must be relative to these folders: `mods/images`, `assets/shared/images`, or `assets/images`
 - `x` - An optional parameter, The x position value of the sprite object to be set in.
 - `y` - An optional parameter, The y position value of the sprite object to be set in.
-- `spriteType` - An optional parameter, The sprite's atlas format to use when playing animations. Atlas formats are a bunch of data for each of the sprites corresponding animation to play. The most common one is `sparrow` for `xml` files; Default value: `sparrow`.
-     - `sparrow` - A group of animation images into one large sprite-sheet, with a provided `xml` file for each animation frames.
+- `spriteType` - An optional parameter, The sprite's atlas format to use when playing animations. Atlas formats are a bunch of data for each of the sprites corresponding animation to play. The most common one is `sparrow` for `xml` files; Default value: `auto`.
+     - `sparrow` - A group of animation images into one large sprite-sheet, with a provided `xml` file for each animation frames; Alternative values: `sparrowatlas`, or `sparrowv2`.
      - `packer` - A single animation images into a single sheet, with a provided `txt` file for each animation frames; <br/>Alternative values: `packeratlas`, or `pac`.
-     - `aseprite` - A group of pixel-art images into one large sprite-sheet, with a provided `json` file for each animation frames; Alternative values: `jsoni8`.
+     - `aseprite` - A group of pixel-art images into one large sprite-sheet, with a provided `json` file for each animation frames; Alternative values: `ase`, `json`, or `jsoni8`.
 
 ### addLuaSprite(tag:String, front:Bool = false)
 <ins>Adds the Lua sprite object</ins> into the game. Each call to this function will <ins>overlap the previous one</ins>, causing the last sprite, usually the bottom one, to be placed in front of every sprite in the game.
@@ -28,11 +28,12 @@ Initializes the <ins>creation of an animated Lua sprite object</ins>. It will no
 - `tag` - The tag of the object sprite to add.
 - `front` - An optional parameter, If set to `true`, it will always be in front of every sprite in the game, regardless of any overlaps; Default value: `false`.
 
-### removeLuaSprite(tag:String, destroy:Bool = true)
+### removeLuaSprite(tag:String, destroy:Bool = true, ?group:String = null)
 <ins>Removes the Lua sprite object</ins> out of the game. Recommended to use this if the <ins>sprite object isn't used anymore</ins>, for performance purposes duh.
 
 - `tag` - The tag of the object sprite to remove.
 - `destroy` - If set to `true`, will permanently remove the sprite from the game. Making it impossible to re-add it without remaking the sprite; Default value: `true`.
+- `group` - An optional parameter, The specified name of the grouped instance variables to remove the object sprite from.
 
 ***
 

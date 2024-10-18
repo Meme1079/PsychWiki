@@ -84,7 +84,8 @@ Deprecation of `scaleObject()`; Sets the object <ins>size by scale properties</i
 
 ***
 
-# Value Setting & Getting Functions
+# Reflection Functions
+## Property Setters
 ### setPropertyLuaSprite(tag:String, variable:String, value:Dynamic)
 Deprecation of `setProperty()`; Sets the current <ins>property variable inside the Playstate</ins> with a new value.
 
@@ -92,11 +93,19 @@ Deprecation of `setProperty()`; Sets the current <ins>property variable inside t
 - `variable` - The property attribute for the object; Example: `x`, `y`, `alpha`, etc.
 - `value` - The new value to be set.
 
+## Property Getters
 ### getPropertyLuaSprite(tag:String, variable:String)
 Deprecation of `getProperty()`; Gets the current <ins>property variable inside the Playstate</ins> current value.
 
 - `tag` - The variable inside the Playstate or object to be used.
 - `variable` - The property attribute for the object; Example: `x`, `y`, `alpha`, etc.
+
+# Miscellaneous Properties
+### updateHitboxFromGroup(group:String, index:Int)
+Deprecation of `updateHitbox()`; Updates the object's hitboxes with its specified member ID.
+
+- `obj` - The specified name of the grouped instance variables; Examples: `opponentStrums`, `playerStrums`, etc.
+- `index` - The index position of the grouped instance variables to use.
 
 ***
 
