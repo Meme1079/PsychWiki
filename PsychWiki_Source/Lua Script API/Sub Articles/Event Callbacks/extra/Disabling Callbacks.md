@@ -14,7 +14,7 @@ end
 ***
 
 # Supported Event Callbacks
-- `Affected Callbacks` - Referes to any affected callbacks disables, if the callback link to it is disabled.
+- `Affected Callbacks` - Refers to any affected callbacks disables, if the callback link to it is disabled.
 
 | Event Callbacks 	| Description 	| Affected Callbacks 	| Availability 	|
 |---	|---	|---	|---	|
@@ -43,9 +43,9 @@ function onStartCountdown()
      if allowCountdown == false and seenCutscene == false then
           startVideo('your_cutscene') -- Plays a video cutscene; insert your video file from "videos/name.mp4"
           allowCountdown = true       -- Sets the 'allowCountdown' to true to re-enable the callback
-          return Function_Stop        -- Disables the callback's functionality
+          return Function_Stop        -- Disables the callbacks' functionality
      end
-     return Function_Continue         -- Re-enables the callback's functionality, after playing the video
+     return Function_Continue         -- Re-enables the callbacks' functionality, after playing the video
 end
 ```
 

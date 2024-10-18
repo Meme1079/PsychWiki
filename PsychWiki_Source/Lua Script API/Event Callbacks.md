@@ -3,6 +3,9 @@ Before getting into it, a bit of context about this. An event is an action or oc
 
 Callbacks are special event handler functions that are dealt for specific events design for it. It uses a regular function syntax for its callbacks. Instead of being designed to be stored as data and be execute by another function, from an event listener function. This is were you'll put the designated code for a specific event. Some functions and variables are only have their functionality exclusive to callbacks. For instance updated values for variables and some functions like the `getProperty()` function.
 
+> [!NOTE]
+> _Some event callbacks have different parameters included in HScript compared to Lua. Some parameters are just added to only HScript and some pre-existing parameters have been removed entirely. If you want to check the list, just [click here](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Unique-Haxe-Parameters)._
+
 Examples:
 ```lua
 function onCreate()
@@ -24,7 +27,7 @@ function onUpdate(elapsed:Float) {
 ```
 
 ## Disabling Callbacks
-> *For more information; Main article:* Disabling Callbacks
+> *For more information; Main article:* [Disabling Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Disabling-Callbacks)
 
 Callbacks have the ability to be disabled completely, this is done by returning `Function_Stop` variable inside the said callback. This is useful for making your own custom functionality for that callback or disabling the callback altogether. But this is only applied to specific callbacks that have this ability.
 
@@ -36,7 +39,7 @@ end
 ```
 
 ## Dynamic Callbacks
-> *For more information; Main article:* Dynamic Callbacks
+> *For more information; Main article:* [Dynamic Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Dynamic-Callbacks)
 
 Dynamic callbacks are only exclusive to HScript or the `runHaxeCode()` function. It has the ability to override the original functionality by reassigning it with new function content and with the given parameters, if included.
 
@@ -162,7 +165,7 @@ local playerStrumLines   = {732, 844, 956, 1068}
 local opponentStrumLines = {92, 204, 316, 428}
 function onCountdownStarted()
      for ind = 0,3 do            -- stupid for loop
-          local newInd = ind + 1 -- becuase lua uses 1-index for its table
+          local newInd = ind + 1 -- because lua uses 1-index for its table
           setPropertyFromGroup('playerStrums', ind, 'x', opponentStrumLines[newInd])
           setPropertyFromGroup('opponentStrums', ind, 'x', playerStrumLines[newInd])
      end
@@ -204,7 +207,7 @@ Triggered when <ins>skipping a dialogue that was still being typed/loaded</ins>.
 
 - `membersIndex` - The current note member ID index.
 - `noteData` - The current direction index of the note; Goes from: `0` to `3`, basically left, down, up and right.
-- `noteType` - The current notetype of the note.
+- `noteType` - The current note-type of the note.
 - `isSustainNote` - Whether the notes are sustain (long notes) or not.
 - `strumTime` - The strum time of the notes appearing in game.
 
@@ -318,5 +321,5 @@ Triggered <ins>when the **sound**</ins> has completed its timer.
 ***
 
 # See also
-- Deprecated Callbacks
-- Unique Haxe Parameter Callbacks
+- [Deprecated Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Deprecated-Callbacks)
+- [Unique Haxe Parameter](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Unique-Haxe-Parameters)

@@ -2,7 +2,7 @@
 Languages are a system of communication that consists of speech, manual (signed), or written symbols. In version `1.0` pre-release of Psych Engine, it added the support for languages to make more accessible to people who don't natively speak English. It uses a language localization file or a `lang` file to translate words and phrases to different languages. Like the text's content or the sprite's image, without doing it hard-coded.
 
 ## Setting up
-Firstly make a `lang` file that is relative to: `assets/shared/data` or `mods/data` folders. You can name this file anything you want but I'd recommend using the language code format. For organization and easily use a pre-existing `lang` file. As an example: `en-US` for english in USA; `en-CA` for english in Cananda; and `es` for spanish. You can see the list of language code for each [countries](http://www.lingoes.net/en/translator/langcode.htm).
+Firstly make a `lang` file that is relative to: `assets/shared/data` or `mods/data` folders. You can name this file anything you want but I'd recommend using the language code format. For organization and easily use a pre-existing `lang` file. As an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish. You can see the list of language code for each [countries](http://www.lingoes.net/en/translator/langcode.htm).
 
 Path (Reference):
 ```txt
@@ -20,7 +20,7 @@ The contents within a `lang` file should include the given title of the language
 ### Title
 The first line of the `lang` file is the title of the given language. Which is the name of the language with the specified country to associate with. If the language is used by that country, for instance: `English (US)` and `English (UK)`. 
 
-This is important becuase the title will be displayed on the Language options to be selected. If the titles from different `lang` files are the same, assuming no typos. Both will merged their contents and overrides any translatable keys, if both exist in the content and depending on the mods priority.
+This is important because the title will be displayed on the Language options to be selected. If the titles from different `lang` files are the same, assuming no typos. Both will merged their contents and overrides any translatable keys, if both exist in the content and depending on the mods priority.
 
 Example:
 ```lang

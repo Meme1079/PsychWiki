@@ -1,7 +1,41 @@
+### 16.0.0 Version
+- Added "Language Translation" Page
+     - Includes a tutorial
+     - New functions: `getFileTranslation()` and `getTranslationPhrase()`
+- Updated Pages
+     - "Basics of Coding" Page
+          - Renamed "Difference" to "Scripting Adjustment" section
+          - Adjusted "Scripting Adjustment" section for context on callbacks
+          - Adjusted "Operators" > "Miscellaneous" sub-section for new examples
+     - "Built-in Functions and Constants" Page
+          - Fixed an example; missing a parameter
+     - "Custom Sprites & Texts Functions" Page
+          - Improved functions and parameter description
+          - Added a new parameter `group` in `removeLuaSprite()` function
+     - "Deprecated Lua Functions" Page
+          - Renamed "Value Setting & Getting Functions" to "Reflection Function" section
+          - Organize the "Reflection Function" section
+               - Added `updateHitboxFromGroup()` function
+- Overhaul Pages
+     - "Event Callbacks" Page
+          - New descriptions that fixes and adds more context, including examples
+          - Renamed "Callback Templates" to "Event Callbacks"
+          - Includes an about section and sub-articles
+               - Sub-aritcles include "Dynamic Callbacks", "Disabling Callbacks", "Deprecated Callbacks", and "Unique Haxe Parameters"
+     - "General Functions" Page
+          - Improved functions and parameter description
+          - Added "Camera Property Setter/Getters Functions" section, for recently added new functions
+     - "Reflection Functions" Page
+          - Improved functions and parameter description
+          - Includes re-formatted list that uses tables
+          - Added `addToGroup()` function
+     - "Variables" Page
+          - Includes re-formatted list that uses tables
+
 ### 15.1.0 Version
 - Added "Object-Oriented Programming" Page
-- Overhual the Functions section from "Basics of Coding" page
-- Overhual "Metatable" page
+- Overhaul the Functions section from "Basics of Coding" page
+- Overhaul "Metatable" page
 
 ### 15.0.0 Version
 - New Logo & Banner
@@ -11,13 +45,13 @@
 - Added new dynamic functions to the "Callback Templates" page
 - Added new table methods to "Library Methods" page
 - Renamed "Global Functions & Variables" to "Built-in Functions & Constants" page
-- Overhual "Basics of Coding" page
-- Overhual "Built-in Functions & Constants" page
+- Overhaul "Basics of Coding" page
+- Overhaul "Built-in Functions & Constants" page
 - Updated some function arguments
 - Fix some formatting
 - Fix spelling/grammar errors
 
-#### Contributers
+#### Contributors
 - [LarryFrosty](https://github.com/LarryFrosty)
 
 ### 14.3.0 Version
@@ -28,7 +62,7 @@
 - Proper Formatted on some pages
 - Fix spelling/grammar errors
 
-#### Contributers
+#### Contributors
 - [LarryFrosty](https://github.com/LarryFrosty)
 
 ### 14.2.0 Version
@@ -37,7 +71,7 @@
 - Fixed some information on some functions
 - Fix spelling/grammar errors
 
-#### Contributers
+#### Contributors
 - [LarryFrosty](https://github.com/LarryFrosty) - For adding some new callback functions to the wiki, that I didn't know existed
 - [galactic2005](https://github.com/galactic2005) - For on how to use `getPixelColor()` function and added custom achievement functions
 
@@ -55,7 +89,7 @@
 - Revamp "Basics of Coding", "Global Functions & Variables", "Library Methods", and "String Patterns" Page
 - Fix spelling/grammar errors.
 
-#### Contributers
+#### Contributors
 - [LarryFrosty](https://github.com/LarryFrosty) - For fixing some grammar, adding more additional context on descriptions, adding descriptions to `createInstance()` and `addInstance()` functions, etc
 
 ### 13.1.0 Version
@@ -65,7 +99,7 @@
 - Added "Global Functions & Variables" to `Lua Coding Docs`
 - Added new variables from the "Variables" Page
 - Added the description of the `allowMaps` parameter in the "Reflection Functions"
-- Change the parametere for the `debugPrint()` function
+- Change the parameters for the `debugPrint()` function
 - Revamp & Reformatted "Metatables" Page
 - Revamp & Reformatted "Basics of Coding" Page
 - Revamp "Custom Sprites & Texts Functions" Page

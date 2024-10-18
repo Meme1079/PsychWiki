@@ -194,9 +194,9 @@ Restarts the song.
 - `skipTransition` - An optional parameter, Whether a fade transition plays when reseting the song; Default value: `false`.
 
 ### exitSong(?skipTransition:Bool = false)
-Exits the song to story mode or freeplay; Not to be confised with the `endSong()` function.
+Exits the song to story mode or freeplay; Not to be confused with the `endSong()` function.
 
-- `skipTransition` - An optional parameter, Whether a fade transition plays when exitting the song; Default value: `false`.
+- `skipTransition` - An optional parameter, Whether a fade transition plays when exiting the song; Default value: `false`.
 
 ### endSong()
 Ends the song.
@@ -205,7 +205,7 @@ Ends the song.
 
 # Color Functions
 ### getPixelColor(obj:String, x:Int, y:Int)
-Gets the hexadecimal color value of an object by pixel size. And returns it into a 32-bit decimal interger, if converted into a hexadecimal number it will formated as: `FFFFFFFFAARRGGBB`.
+Gets the hexadecimal color value of an object by pixel size. And returns it into a 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
 
 - `obj` - The object tag to get the color.
 - `x` - The x position value on the object tag's pixel.
@@ -232,12 +232,12 @@ Sets the <ins>health bar background-colors</ins> with a new color on each sides.
 ### setTimeBarColors(left:String, right:String)
 Sets the <ins>time bar background-colors</ins> with a new color on each sections.
 
-- `left` - The precentage bar to set the hexadecimal color.
+- `left` - The percentage bar to set the hexadecimal color.
 - `right` - The background-color to set the hexadecimal color.
 
 ***
 
-# Debuging Functions
+# Debugging Functions
 ### debugPrint(text:Dynamic = '', color:String = 'WHITE')
 Displays a debug text at the top-left corner of the screen, and disappears in a few seconds.
 
