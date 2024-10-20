@@ -2,25 +2,40 @@
 ### string.upper(str:String):String
 Converts lower-case characters from a string to a upper-case characters.
 
+- `str` - The string content characters to be converted to upper-case characters.
+
 ### string.lower(str:String):String
 Converts upper-case characters from a string to a lower-case characters.
 
-### string.byte(str:String, startPos:Int = 1, endPos:Int = 1):Int
-Converts any characters from a string to a ASCII number corresponding to the characters.
+- `str` - The string content characters to be converted to lower-case characters.
+
+### string.byte(str:String, startPos:Int = 1, endPos:Int = 1):Int,Int...
+Converts any characters from a string to a ASCII number corresponding to the characters. Returns multiple values, depending how larg the range of selected characters to convert.
+
+- `str` - The string content characters to be converted to the corresponding ASCII number.
+- `startPos` - The selected starting position of the string to convert; Default value: `1`.
+- `endPos` - The selected ending position of the string to convert; Default value: `1`.
 
 ### string.char(byte:Int...):String
 Converts a single or multiple ASCII number to the corresponding character.
 
-### string.repeat(str:String, repeat:Int):String
+- `byte` - An infinite parameter, The byte or ASCII number to be converted to the corresponding character.
+
+### string.rep(str:String, repeat:Int):String
 Repeats the content of the string, the repetition is determined by how much will it repeat.
+
+- `str` - The string content to be repeated.
+- `repeat` - The amount of repitition will the string content be repeated.
 
 ### string.reverse(str:String):String
 Reverses the content of the string, that's it.
 
+- `str` - The string content to be reversed.
+
 ### string.format(fromat:String, str:String...):String
 Formats the supplied string content using the given format specifiers. A format specifiers represent what position of the values to be inserted in, with specifiers that will change the result. This function is based on the C function `printf()` and generally follows the same rules. 
 
-Some format specifiers being options and modifiers these include: `l`, `L`, `F`, `n`, `h`, and `*` are not supported in Lua. Additionally there is an extra format specifier type: `q` for quotes.
+Some format specifiers being options and modifiers these include: <kbd>l</kbd>, <kbd>L</kbd>, <kbd>F</kbd>, <kbd>n</kbd>, <kbd>h</kbd>, and <kbd>*</kbd> are not supported in Lua. Additionally there is an extra format specifier <kbd>q</kbd> type.
 
 Format Specifier Syntax:
 > The syntax includes the flags, width, precision, and type. The format specifiers inside brackets are optional to use.
@@ -28,7 +43,7 @@ Format Specifier Syntax:
 %[flags][width].[precision]type
 ```
 
-- `format` - The format of the string to be written to.
+- `format` - The provided format of the string to be written to.
 - `str` - The string content to be formatted to each corresponding format specifiers, if it exists.
 
 <details><summary> Types </summary><br/>
@@ -49,6 +64,8 @@ Format Specifier Syntax:
 </details>
 
 <details><summary> Precision </summary><br/>
+
+
 
 </details>
 
