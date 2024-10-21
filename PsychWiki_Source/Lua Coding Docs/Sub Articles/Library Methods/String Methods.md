@@ -66,19 +66,33 @@ Example:
 debugPrint( ('askew'):reverse() ) --> weksa
 ```
 
-### string.format(format:String, str:String...):String
+### string.sub(str:String, startPos:Int = 1, ?endPos:Int):String
+Substring, extracts a given segment, more specifically the range of the string from the start and end index position of the string. Removes any characters that aren't selected from the range.
+
+- `str` - The string content to substring for a given segment.
+- `startPos` - The starting index position for the segment to get; Default value: `1`.
+- `endPos` - An optional parameter, The ending index position for the segment to get.
+
+Examples:
+> We substring this string to get the word "Javascript", by finding the index position of the word. The string index always start at `1`, so at the start of the range we use `14` to get "J" and at the end `25` to get "t". Thus resulting output "Javascript".
+```lua
+local content = 'Hello world in Javascript, I think'
+debugPrint( (content):sub(14, 25) ) --> Javascript
+```
+
+### string.format(format:String, str:Any...):String
 Formats the supplied string content using the given format specifiers. A format specifiers represent what position of the values to be inserted in, with specifiers that will change the result. This function is based on the C function `printf()` and generally follows the same rules. 
 
-Some format specifiers being options and modifiers these include: <kbd>l</kbd>, <kbd>L</kbd>, <kbd>F</kbd>, <kbd>n</kbd>, <kbd>h</kbd>, and <kbd>*</kbd> are not supported in Lua. Additionally there is an extra format specifier <kbd>q</kbd> type.
+Some format specifiers being options and modifiers these include: <kbd>l</kbd>, <kbd>L</kbd>, <kbd>F</kbd>, <kbd>n</kbd>, <kbd>h</kbd>, and <kbd>*</kbd> are not supported in Lua. Additionally there is an extra format specifier <kbd>q</kbd> type. Format specifiers includes the type, the specific character to use; precision, how many characters will it output; width, for padding empty spaces; and flags, for modifying the padding characters.
 
 Format Specifier Syntax:
-> The syntax includes the flags, width, precision, and type. The format specifiers inside brackets are optional to use.
+> The format specifiers encased in brackets are optional to use.
 ```txt
 %[flags][width].[precision]type
 ```
 
-- `format` - The provided format of the string to be written to.
-- `str` - The string content to be formatted to each corresponding format specifiers, if it exists.
+- `format` - The provided format pattern for the given string to be written to.
+- `str` - The string content to be formatted to the provided format and each corresponding format specifiers, if it exists. Numbers can also be used as an argument here.
 
 <details><summary> Types </summary><br/>
 
@@ -124,13 +138,37 @@ Format Specifier Syntax:
 
 </details>
 
+Example:
+```lua
+local date = os.date('*t')
+debugPrint( ('Date: %d/%d/%d'):format(date.month, date.day, date.year) )
+```
+
 ## Pattern Matching Methods
 > *For more information; Main article:* String Patterns
 
 Pattern-matching uses string patterns to match a series of character combinations to get the specific output. These are only used for searching, matching, verifying text data, and replacing characters. Typically these string patterns are only used in the `pattern` parameter in each method. 
 
-### string.find(str:String, pattern:String, index:Int):String
-### string.sub(str:String, startPos:Int, ?endPos:Int):String
-### string.gsub(str:String, pattern:String, replace:Any, repeat:Int = 1):String
+### string.find(str:String, pattern:String, index:Int = 1):String
+Finds the first specific pattern within the content of the string.
+
+- `str` - The string content to find the specific pattern.
+- `pattern` - The specific pattern to find within the string content.
+- `index` - The index position of to start finding the given pattern; Default value: `1`.
+
+### string.gsub(str:String, pattern:String, replace:Any, ?limit:Int):String
+Short for "global substitution", finds multiple occurrences of a given pattern and substitutes (replaces) with the given content. Additionally the `replace` parameter can have different data types, each giving different methods to replace the given patterns. These data types includes: string, table, and function.
+
+The string replaces the specified pattern directly, the default method. The table utilizes its keys to represent the
+characters or words to replace, it doesn't support string patterns. And its values represents the content to replace with. Finally the function, called after a specific pattern is found, you can do particular algorithms to manipulate the results.
+
+- `str` - The string content to substitute a specific pattern with the new content.
+- `pattern` - The multiple occurrences of a specific pattern to be substituted.
+- `replace` - The given content to replace the specific pattern.
+- `limit` - An optional parameter, the maximum amount of times the substitution to make.
+
 ### string.match(str:String, pattern:String, startPos:Int = 1):String
+Finds the first matching pattern from the string content. If the match has been found, it will return the captured match removing unnecessary unmatch patterns. If there is no match found, then returns a `nil` value.
+
 ### string.gmatch(str:String, pattern:String):String
+Works exactly the same as the `string.match()` method; tries to find multiple matching pattern from the string content. This method should be recommended to be used in generic for loops, as shown below.
