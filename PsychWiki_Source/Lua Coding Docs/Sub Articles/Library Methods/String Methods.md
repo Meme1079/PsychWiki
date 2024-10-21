@@ -66,7 +66,7 @@ Example:
 debugPrint( ('askew'):reverse() ) --> weksa
 ```
 
-### string.format(fromat:String, str:String...):String
+### string.format(format:String, str:String...):String
 Formats the supplied string content using the given format specifiers. A format specifiers represent what position of the values to be inserted in, with specifiers that will change the result. This function is based on the C function `printf()` and generally follows the same rules. 
 
 Some format specifiers being options and modifiers these include: <kbd>l</kbd>, <kbd>L</kbd>, <kbd>F</kbd>, <kbd>n</kbd>, <kbd>h</kbd>, and <kbd>*</kbd> are not supported in Lua. Additionally there is an extra format specifier <kbd>q</kbd> type.
