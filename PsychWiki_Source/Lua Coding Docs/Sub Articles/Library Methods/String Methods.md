@@ -25,8 +25,8 @@ debugPrint( ('sUbTErFuGE!!'):lower() ) --> subterfuge!!
 Converts any characters from a string to a ASCII number corresponding to the characters. Returns multiple values, depending how larg the range of selected characters to convert.
 
 - `str` - The string content characters to be converted to the corresponding ASCII number.
-- `startPos` - The selected starting position of the string to convert; Default value: `1`.
-- `endPos` - The selected ending position of the string to convert; Default value: `1`.
+- `startPos` - An optional parameter, The selected starting position of the string to convert; Default value: `1`.
+- `endPos` - An optional parameter, The selected ending position of the string to convert; Default value: `1`.
 
 Example:
 > The method selected the index position from `1` to `2`, which it got `47` from the string. Then converting to the corresponding ASCII number, for `4` is `52` and `7` is `55`. The method is enclose with a table, becuase it will use up the arguments of the `debugPrint()` which will only print `52`.
@@ -70,7 +70,7 @@ debugPrint( ('askew'):reverse() ) --> weksa
 Substring, extracts a given segment, more specifically the range of the string from the start and end index position of the string. Removes any characters that aren't selected from the range.
 
 - `str` - The string content to substring for a given segment.
-- `startPos` - The starting index position for the segment to get; Default value: `1`.
+- `startPos` - An optional parameter, The starting index position for the segment to get; Default value: `1`.
 - `endPos` - An optional parameter, The ending index position for the segment to get.
 
 Examples:
@@ -164,7 +164,7 @@ Finds the first specific pattern within the content of the string. Returns the s
 
 - `str` - The string content to find the specific pattern.
 - `pattern` - The specific pattern to find within the string content.
-- `index` - The index position of to start finding the given pattern; Default value: `1`.
+- `index` - An optional parameter, The index position of to start finding the given pattern; Default value: `1`.
 
 Examples:
 > Finds the first pattern found within the string content. The first line found the pattern between index positions `1` and `3`. The second line found the pattern between index positions `5` and `7`.
@@ -222,7 +222,7 @@ Finds the first matching pattern from the string content. If the match has been 
 
 - `str` - The string content to find the first matched pattern.
 - `pattern` - The specific pattern to find the match.
-- `startPos` - The starting index position of the string to find the first match; Default value: `1`.
+- `startPos` - An optional parameter, The starting index position of the string to find the first match; Default value: `1`.
 
 Example:
 ```lua
