@@ -74,7 +74,7 @@ Substring, extracts a given segment, more specifically the range of the string f
 - `endPos` - An optional parameter, The ending index position for the segment to get.
 
 Examples:
-> We substring this string to get the word "Javascript", by finding the index position of the word. The string index always start at `1`, so at the start of the range we use `14` to get "J" and at the end `25` to get "t". Thus resulting output "Javascript".
+> We substring the string to get the word "Javascript", by finding the index position of the word. The string index always start at `1`, so the starting index position is `14` which is where the character <kbd>J</kbd> occupies. The ending position is `25` which is the character <kbd>t</kbd> occupies, thus resulting the output "Javascript".
 ```lua
 local content = 'Hello world in Javascript, I think'
 debugPrint( (content):sub(14, 25) ) --> Javascript
@@ -103,7 +103,7 @@ Format Specifier Syntax:
 | `%u` 	| An unsigned integer, represents only positive decimal integers. If you<br>attempted to use negative integers, it will return the maximum representable <br>value. 	| `94`<br>`-1` 	| `94`<br>`1.84e+20` 	|
 | `%o` 	| An unsigned integer, represents only positive octal (base 8) integer. Converts<br>a decimal integer to an octal integer. 	| `471` 	| `731` 	|
 | `%x`, `%X` 	| An unsigned integer, represents only positive hexadecimal (base 16) integer.<br>Converts a decimal integer to a hexadecimal integer. For type `%x` converts<br>upper alphabetical character to lower-case and vice versa for type `%X`. It<br>must have either `0x` or `0X` for the hexadecimal. 	| `0xff43ba`<br>`0XFF43BA` 	| `0XFF43BA`<br>`0xff43ba` 	|
-| `%e`, `%E` 	| A signed integer, represents both positive and negative scientific (exponential) <br>notation number. Converts a number to a notation number by `6` decimal places. <br>For type `%e` converts the letter lower-case <kbd>e</kbd> to a upper-case <kbd>E</kbd><br>character and vice versa for type `%E`. 	| `58.3e+27`<br>`93.5E-73` 	| `58.3E+27`,<br>`93.5e-73` 	|
+| `%e`, `%E` 	| A signed integer, represents both positive and negative scientific (exponential) <br>notation number. Converts a number to a notation number by `6` decimal places. For type `%e` converts the letter lower-case <kbd>e</kbd> to a upper-case <kbd>E</kbd><br>character and vice versa for type `%E`. 	| `58.3e+27`<br>`93.5E-73` 	| `58.3E+27`,<br>`93.5e-73` 	|
 | `%c` 	| An unsigned integer, represents only a positive ASCII number corresponding to <br>a specific character. Converts a character to the corresponding ASCII number, that's it. 	| `97` 	| `a` 	|
 | `%s` 	| A string, that's it. 	| `Sup` 	| `Sup` 	|
 | `%q` 	| A string, represents a string but will be quoted with double-quote characters <br><kbd>""</kbd>. If there is a double-quote characters inside a string, it will add an<br>backslash character <kbd>\\</kbd> to that character. 	| `print("hi")` 	| `"print(\"hi\")"` 	|
@@ -138,10 +138,20 @@ Format Specifier Syntax:
 
 </details>
 
-Example:
+Examples:
+> Gets the current date from the `os.date()` method, and formats the month, day, and year to each format specifiers.
 ```lua
-local date = os.date('*t')
+local date = os.date('*t') -- gets the current date, month, day, and year
 debugPrint( ('Date: %d/%d/%d'):format(date.month, date.day, date.year) )
+```
+> Conversion of decimal to octals and hexadecimal. All including there base prefixes to differentiate each other.
+```lua
+debugPrint( ('Octals: %#o'):format(3848) )      --> Octals: 07410
+debugPrint( ('Haxedecimal: %#x'):format(3848) ) --> Haxedecimal: 0xf08
+```
+> Rounds a pi number to two decimal places.
+```lua
+debugPrint( ('%.2f'):format(math.pi) ) --> 3.14
 ```
 
 ## Pattern Matching Methods
@@ -150,11 +160,22 @@ debugPrint( ('Date: %d/%d/%d'):format(date.month, date.day, date.year) )
 Pattern-matching uses string patterns to match a series of character combinations to get the specific output. These are only used for searching, matching, verifying text data, and replacing characters. Typically these string patterns are only used in the `pattern` parameter in each method. 
 
 ### string.find(str:String, pattern:String, index:Int = 1):String
-Finds the first specific pattern within the content of the string.
+Finds the first specific pattern within the content of the string. Returns the starting and ending index positions of the found pattern within the string content.
 
 - `str` - The string content to find the specific pattern.
 - `pattern` - The specific pattern to find within the string content.
 - `index` - The index position of to start finding the given pattern; Default value: `1`.
+
+Examples:
+> Finds the first pattern found within the string content. The first line found the pattern between index positions `1` and `3`. The second line found the pattern between index positions `5` and `7`.
+```lua
+debugPrint( ('cir cir cir'):find('cir') )    --> 1, 3
+debugPrint( ('sio cir cir'):find('cir') )    --> 5, 7
+```
+> Finds the first pattern at the index position `9`.
+```lua
+debugPrint( ('cir cir cir'):find('cir', 7) ) --> 9, 11
+```
 
 ### string.gsub(str:String, pattern:String, replace:Any, ?limit:Int):String
 Short for "global substitution", finds multiple occurrences of a given pattern and substitutes (replaces) with the given content. Additionally the `replace` parameter can have different data types, each giving different methods to replace the given patterns. These data types includes: string, table, and function.
@@ -162,13 +183,73 @@ Short for "global substitution", finds multiple occurrences of a given pattern a
 The string replaces the specified pattern directly, the default method. The table utilizes its keys to represent the
 characters or words to replace, it doesn't support string patterns. And its values represents the content to replace with. Finally the function, called after a specific pattern is found, you can do particular algorithms to manipulate the results.
 
+The method returns two values, the substituted string content. And the amount of pattern that was removed from the string content.
+
 - `str` - The string content to substitute a specific pattern with the new content.
 - `pattern` - The multiple occurrences of a specific pattern to be substituted.
 - `replace` - The given content to replace the specific pattern.
 - `limit` - An optional parameter, the maximum amount of times the substitution to make.
 
+Examples:
+> Replaces the any word that is "yolo" with "polo" instead. The second removes the word "World" by replacing with an empty string. This only limits to two occurrences of that word.
+```lua
+local content1 = 'How many holes in a yolo?'
+debugPrint( content1:gsub('yolo', 'polo') )   --> How many holes in a polo?
+
+local content2 = 'Hello World World World!'
+debugPrint( content2:gsub('%sWorld', '', 2) ) --> Hello World!
+```
+> The keys in the table are the characters to replace with the value of the new value to replace.
+```lua
+local content1 = 'There is nothing'
+local replace1 = {is = 'was', nothing = 'something'}
+debugPrint( content1:gsub('%w+', replace1) ) --> There was something
+
+local content2 = 'I like the numbers 34, 92, and 56'
+local replace2 = {['34'] = 38, ['56'] = 97}
+debugPrint( content2:gsub('%d+', replace2) ) --> I like the numbers 38, 92, and 97
+```
+> Finds any numbers within the string content and multiplies it by `2`. The `str` parameter from the function is the returned pattern that will be substituted.
+```lua
+local content = 'Multiply by two: 2, 43, 12, 43'
+debugPrint(content:gsub('%d+', function(str)
+     return tonumber(str) * 2
+end)) --> Multiply by two: 4, 86, 24, 86
+```
+
 ### string.match(str:String, pattern:String, startPos:Int = 1):String
 Finds the first matching pattern from the string content. If the match has been found, it will return the captured match removing unnecessary unmatch patterns. If there is no match found, then returns a `nil` value.
 
+- `str` - The string content to find the first matched pattern.
+- `pattern` - The specific pattern to find the match.
+- `startPos` - The starting index position of the string to find the first match; Default value: `1`.
+
+Example:
+```lua
+debugPrint( ('Found the match!'):match('match!') )        --> match!
+debugPrint( ('I like numbers 9 and 1'):match('%d+', 17) ) --> 1
+```
+
 ### string.gmatch(str:String, pattern:String):String
 Works exactly the same as the `string.match()` method; tries to find multiple matching pattern from the string content. This method should be recommended to be used in generic for loops, as shown below.
+
+- `str` - The string content to find multiple matched pattern.
+- `pattern` - The specfic pattern to find the match.
+
+Example:
+> Here we have a custom function that converts a dictionary syntax within a string to get the value. The `string.gmatch()` method looks for any multiple occuring patterns with the string content, if found. The found patterns will be insert to the `result` table variable, for every pattern found. Once done the `result` table variable will be returned from the custom function.
+
+```lua
+local function dictionarySplit(str)
+     local result  = {}
+     local pattern = '(%w+)%s*=%s*(%w+)' -- Checks the dictionary syntax of the string
+     for k,v in (str):gmatch(pattern) do -- '(%w+)%s*=%s*(%w+)' > '(key) = (value)'
+          result[k] = v
+     end
+     return result
+end
+
+local dictionaryString = 'isGood = true, isBad = false'
+debugPrint(dictionarySplit(dictionaryString).isGood) --> true
+debugPrint(dictionarySplit(dictionaryString).isBad)  --> false
+```
