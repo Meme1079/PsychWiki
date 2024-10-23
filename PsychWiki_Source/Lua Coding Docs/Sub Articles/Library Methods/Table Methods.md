@@ -81,15 +81,38 @@ debugPrint( content ) --> [3982, 8351, 8743, 9374]
 
 ## LuaJIT Exclusive Methods
 > [!WARNING]
-> _The methods listed have limited information and documentation that were very vague._
+> _The methods listed have limited information and very vague documentation._
 
 ### table.new(narray:Int, nhash:Int):Table
 > Requires: `require('table.new')`
 
-Creates a new empty table and pushes it onto the memory stack, it also includes a pre-allocated space. The pre-allocation is pretty useful for performance, when you know exactly the amount of elements will the table contain. This method is based on the C API function `lua_createtable()`.
+Creates a new pre-sized table and pushes it onto the stack and pre-allocates memory. The pre-allocation is pretty useful for performance, when you know exactly the amount of elements will the table contain. For instance for holding a lot of elements within a table, if the exact table size is known. Automaticly resizing the table might cause performance issue. This method is based on the C API function `lua_createtable()`.
 
-- `narray` - The amount of element values will the new table array have.
-- `nhash` - The amount of element values will the new table dictionary have.
+> [!CAUTION]
+> _Only one parameter can only hold a value, the other parameter must hold a zero value. Becuase it might fuck up the method or something idk, most examples I saw have this rule._
+
+- `narray` - The amount of elements, index-value pairs will the new table array have.
+- `nhash` - The amount of elements, key-value pairs will the new table dictionary have.
+
+Example:
+```lua
+require('table.new')
+
+local content = table.new(3, 0)
+content[1] = 0x83
+content[2] = 0x9d
+content[3] = 0xff
+debugPrint(content) --> [131, 157, 255]
+```
+```lua
+require('table.new')
+
+local content = table.new(0, 3)
+content.a = true
+content.b = false
+content.c = false
+debugPrint(content) --> ["a" => true, "b" => false, "c" => false]
+```
 
 ### table.clear(tbl:Table):Void
 > Requires: `require('table.clear')`
@@ -100,3 +123,16 @@ Clears any element key and values from the given table, but preserves the alloca
 > _This method is meant for very specific situations, that in most cases. It's better to replace the link, usually single with a new table and let the [garbage collection](https://devforum.roblox.com/t/a-beginners-guide-to-lua-garbage-collection/1756677) do its work._
 
 - `tbl` - The table to clear its elements, key and values.
+
+Example:
+```lua
+require('table.clear')
+
+local content = table.new(3, 0)
+content[1] = 384
+content[2] = 281
+content[3] = 934
+
+table.clear(content)
+debugPrint(content) --> {}
+```
