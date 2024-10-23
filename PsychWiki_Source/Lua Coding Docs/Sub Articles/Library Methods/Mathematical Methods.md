@@ -4,30 +4,78 @@ Finds the minumum number by searching through each argument passed until it find
 
 - `multi` - An infinite parameter, The multiple number arguments to find the minumum number.
 
+Examples:
+```lua
+debugPrint( math.min(43, 34, 19, 34)    )    --> 19
+debugPrint( math.min(1.34, 0.37, 94.34) )    --> 0.37
+debugPrint( math.min(0x83, 0x8a, 0xff)  )    --> 131
+```
+```lua
+debugPrint( math.min(-43, -34, -19, -34)   ) --> -43
+debugPrint( math.min(-1.34, -0.37, -94.34) ) --> -94.34
+debugPrint( math.min(-0x83, -0x8a, -0xff)  ) --> -255
+```
+
 ### math.max(multi:Float...):Float
 Finds the maximum number by searching through each argument passed until it finds one.
 
 - `multi` - An infinite parameter, The multiple number arguments to find the maximum number.
+
+Example:
+```lua
+debugPrint( math.max(43, 34, 19, 34)    )    --> 43
+debugPrint( math.max(1.34, 0.37, 94.34) )    --> 94.34
+debugPrint( math.max(0x83, 0x8a, 0xff)  )    --> 255
+```
+```lua
+debugPrint( math.max(-43, -34, -19, -34)   ) --> -19
+debugPrint( math.max(-1.34, -0.37, -94.34) ) --> -0.37
+debugPrint( math.max(-0x83, -0x8a, -0xff)  ) --> -131
+```
 
 ### math.floor(num:Float):Float
 Rounds down a floating-point number to its nearest integer value.
 
 - `num` - The number to round down closest integer number.
 
+Example:
+```lua
+debugPrint( math.floor(93.73) ) --> 93
+debugPrint( math.floor(54.23) ) --> 54
+```
+
 ### math.ceil(num:Float):Float
 Rounds up a floating-point number to its nearest integer value.
 
 - `num` - The number to round up closest integer number.
+
+Example:
+```lua
+debugPrint( math.floor(93.73) ) --> 94
+debugPrint( math.floor(54.23) ) --> 55
+```
 
 ### math.abs(num:Float):Float
 The absolute value from a given number, distance of the number from zero `0`.
 
 - `num` - The number to returns its absolute number.
 
+Example:
+```lua
+debugPrint( math.abs(-47) ) --> 47
+debugPrint( math.abs(47) )  --> 47
+```
+
 ### math.sqrt(num:Float):Float
 The square root of the given number.
 
 - `num` - The square root of the number.
+
+Example:
+```lua
+debugPrint( math.sqrt(4) ) --> 2
+debugPrint( math.sqrt(2) ) --> 1.4142135623731
+```
 
 ### math.log(num:Float, ?base:Float = 2):Float
 The logarithmic of the number to its base number, inverse (opposite) of exponential.
@@ -35,10 +83,25 @@ The logarithmic of the number to its base number, inverse (opposite) of exponent
 - `num` - The given logarithmic number to its base.
 - `base` - An optional parameter, The base of the logarithmic number; Default value: `2`.
 
+> [!CAUTION]
+> _The `base` parameter value cannot have one `1` or below as its base._
+
+Example:
+```lua
+debugPrint( math.log(32, 2) ) --> 5.0
+debugPrint( math.log(13, 2) ) --> 3.7004397181411
+```
+
 ### math.log10(num:Float):Float
 The logarithmic of the number to base ten `10`.
 
 - `num` - The given logarithmic number to its base ten `10`.
+
+Example:
+```lua
+debugPrint( math.log10(1000) ) --> 3.0
+debugPrint( math.log10(567)  ) --> 2.7535830588929
+```
 
 ### math.random(?min:Int = 0, ?max:Int = 1):Float
 Randomizes a number between the minimum to maximum numbers. It utilizes a Pseudo-Random Number Generator (PRNG), an mathematical algorithm that takes use of formulas. To produce a sequences of random numbers; utilizing a seed to initializing the PRNG. 
@@ -51,6 +114,12 @@ Since it's not truly "random", due to computer limiations. It will always return
 - `min` - An optional parameter, the minimum number value range to start randomizing; Default value: `0`.
 - `max` - An optional parameter, the maximum number value range to end randomizing; Default value: `1`.
 
+Example:
+```lua
+debugPrint( math.random()     ) --> 0.84018771676347
+debugPrint( math.random(1, 6) ) --> 5
+```
+
 ### math.randomseed(seed:Int):Int
 Sets the seed of the pseudo-random number generator; equal seeds produce equal sequences of numbers.
 
@@ -59,8 +128,22 @@ Sets the seed of the pseudo-random number generator; equal seeds produce equal s
 
 - `seed` - The specified seed to generate a new random number sequence.
 
+Examples:
+```lua
+math.randomseed(103)
+debugPrint( math.random(4, 6)  ) --> 5
+debugPrint( math.random(1, 40) ) --> 37
+```
+```lua
+math.randomseed(os.time())
+debugPrint( math.random(4, 6)  ) --> 4
+debugPrint( math.random(1, 40) ) --> 23
+```
+
 ## Trigonometry Methods
 ### math.deg(rad:Float):Float
+
+
 ### math.rad(deg:Float):Float
 ### math.sin(rad:Float):Float
 ### math.cos(rad:Float):Float
