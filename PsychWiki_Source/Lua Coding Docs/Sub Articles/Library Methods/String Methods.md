@@ -21,7 +21,7 @@ debugPrint( ('SUBTERFUGE!!'):lower() ) --> subterfuge!!
 debugPrint( ('sUbTErFuGE!!'):lower() ) --> subterfuge!!
 ```
 
-### string.byte(str:String, startPos:Int = 1, endPos:Int = 1):Int,Int...
+### string.byte(str:String, startPos:Int = 1, endPos:Int = 1):\<Int, Int...\>
 Converts any characters from a string to a ASCII number corresponding to the characters. Returns multiple values, depending how larg the range of selected characters to convert.
 
 - `str` - The string content characters to be converted to the corresponding ASCII number.
@@ -177,7 +177,7 @@ debugPrint( ('sio cir cir'):find('cir') )    --> 5, 7
 debugPrint( ('cir cir cir'):find('cir', 7) ) --> 9, 11
 ```
 
-### string.gsub(str:String, pattern:String, replace:Any, ?limit:Int):String
+### string.gsub(str:String, pattern:String, replace:Any, ?limit:Int):\<String, Int\>
 Short for "global substitution", finds multiple occurrences of a given pattern and substitutes (replaces) with the given content. Additionally the `replace` parameter can have different data types, each giving different methods to replace the given patterns. These data types includes: string, table, and function.
 
 The string replaces the specified pattern directly, the default method. The table utilizes its keys to represent the

@@ -63,7 +63,7 @@ The absolute value from a given number, distance of the number from zero `0`.
 Example:
 ```lua
 debugPrint( math.abs(-47) ) --> 47
-debugPrint( math.abs(47) )  --> 47
+debugPrint( math.abs(47)  ) --> 47
 ```
 
 ### math.sqrt(rad:Float):Float
@@ -158,40 +158,96 @@ Converts a radians to degrees.
 
 - `deg` - The degree number to convert to radians.
 
+Example:
+```lua
+debugPrint( math.rad(90)  ) --> 1.5707963267949 or (1/2)π
+debugPrint( math.rad(180) ) --> 3.1415926535898 or π
+debugPrint( math.rad(30)  ) --> 0.5235987755983 or (1/6)π
+```
+
 ### math.deg(rad:Float):Float
 Converts a degrees to radians.
 
 - `rad` - The radian number to convert to degrees.
+
+Example:
+```lua
+debugPrint( math.deg( math.pi/2 )   ) --> 90.0
+debugPrint( math.deg( 6*math.pi/6 ) ) --> 180.0
+debugPrint( math.deg( 8*math.pi/6 ) ) --> 240.0
+```
 
 ### math.sin(rad:Float):Float
 Returns the sine of the number, given in radians.
 
 - `rad` - The radians to calculate the sine value.
 
+Example:
+```lua
+debugPrint(math.sin(180))         --> -0.80115263573383
+debugPrint(math.sin(360))         --> 0.95891572341431
+debugPrint(math.sin(2 * math.pi)) --> -2.4492935982947e-16
+```
+
 ### math.cos(rad:Float):Float
 Returns the cosine of the number, given in radians.
 
 - `rad` - The radians to calculate the cosine value.
+
+Example:
+```lua
+debugPrint(math.cos(180))         --> -0.59846006905786
+debugPrint(math.cos(360))         --> -0.28369109148653
+debugPrint(math.cos(2 * math.pi)) --> 1.0
+```
 
 ### math.tan(rad:Float):Float
 Returns the tangent of the number, given in radians.
 
 - `rad` - The radians to calculate the tangent value.
 
+Example:
+```lua
+debugPrint(math.tan(180))         --> 1.3386902103512
+debugPrint(math.tan(360))         --> -3.380140413961
+debugPrint(math.tan(2 * math.pi)) --> -2.4492935982947e-16
+```
+
 ### math.asin(rad:Float):Float
 Returns the arc (inverse) sine of the number, given in radians. Returns between $-\frac{\pi}{2}$ radians ($-90^\circ$ degrees) and $\frac{\pi}{2}$ radians ($90^\circ$ degrees).
 
 - `rad` - The radians to calculate the inverse sine value; Goes from `-1` to `1`.
+
+Example:
+```lua
+debugPrint( math.asin(-1) ) --> -1.5707963267949 or -(1/2)π
+debugPrint( math.asin(0)  ) --> 0.0
+debugPrint( math.asin(1)  ) --> 1.5707963267949  or (1/2)π
+```
 
 ### math.acos(rad:Float):Float
 Returns the arc (inverse) cosine of the number, given in radians. Returns between $\pi$ radians ($180^\circ$ degrees) and $0$ radians ($0^\circ$ degrees).
 
 - `rad` - The radians to calculate the inverse cosine value; Goes from `-1` to `1`.
 
+Example:
+```lua
+debugPrint( math.acos(-1) ) --> 3.1415926535898 or π
+debugPrint( math.acos(0)  ) --> 1.5707963267949 or π/2
+debugPrint( math.acos(1)  ) --> 0.0
+```
+
 ### math.atan(rad:Float):Float
 Returns the arc (inverse) tangent of the number, given in radians. Returns between $-\frac{\pi}{2}$ radians ($-90^\circ$ degrees) and $\frac{\pi}{2}$ radians ($90^\circ$ degrees).
 
 - `rad` - The radians to calculate the inverse tangent value.
+
+Example:
+```lua
+debugPrint( math.atan(-1) ) --> -0.78539816339745 or -(π/4)
+debugPrint( math.atan(0)  ) --> 0.0
+debugPrint( math.atan(1)  ) --> 0.78539816339745  or π/4
+```
 
 ### math.atan2(y:Float, x:Float):Float
 Returns the calculated arc (inverse) tangent of x and y coordinate points, given in radians. Between the between the positive x-axis and the ray from the origin to the x and y coordinate points in the Cartesian plane.
@@ -199,21 +255,57 @@ Returns the calculated arc (inverse) tangent of x and y coordinate points, given
 - `y` - The given y position to calculate.
 - `x` - The given x position to calculate.
 
+Example:
+> Calculates the given x and y coordinate plane degrees.
+```lua
+local calcDeg = function() -- i stole this example
+     return (math.atan2(y, x) * 180) / math.pi
+end
+
+debugPrint( calcDeg(10, 10)   ) --> 45.0
+debugPrint( calcDeg(180, 0)   ) --> 90.0
+debugPrint( calcDeg(270, 180) ) --> 56.30993247402
+```
+
 ### math.sinh(rad:Float):Float
 Returns the hyperbolic sine of the number, given in radians.
 
 - `rad` - The radians to calculate the hyperbolic sine value.
+
+Example:
+```lua
+debugPrint( math.sinh(1)  ) --> 1.1752011936438
+debugPrint( math.sinh(0.3)) --> 0.30452029344714
+debugPrint( math.sinh(-5) ) --> -74.203210577789
+```
 
 ### math.cosh(rad:Float):Float
 Returns the hyperbolic cosine of the number, given in radians.
 
 - `rad` - The radians to calculate the hyperbolic cosine value.
 
+Example:
+```lua
+debugPrint( math.cosh(1)   ) --> 1.5430806348152
+debugPrint( math.cosh(0.3) ) --> 1.0453385141289
+debugPrint( math.cosh(-5)  ) --> 74.209948524788
+```
+
 ### math.tanh(rad:Float):Float
 Returns the hyperbolic tangent of the number, given in radians.
 
 - `rad` - The radians to calculate the hyperbolic tangent value.
 
+Example:
+```lua
+debugPrint( math.tanh(1)   ) --> 0.76159415595576
+debugPrint( math.tanh(0.3) ) --> 0.29131261245159
+debugPrint( math.tanh(-5)  ) --> -0.9999092042626
+```
+
 ## Constants
 ### math.pi
+The constant value of pi $\pi$ in `14` fractional digits; Returns: `3.1415926535898`.
+
 ### math.huge
+The constant value of "infinity", any number that is greater than $2^{1024}$; Returns `inf`.
