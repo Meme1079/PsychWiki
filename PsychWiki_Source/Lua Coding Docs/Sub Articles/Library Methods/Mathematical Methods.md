@@ -66,10 +66,10 @@ debugPrint( math.abs(-47) ) --> 47
 debugPrint( math.abs(47) )  --> 47
 ```
 
-### math.sqrt(num:Float):Float
+### math.sqrt(rad:Float):Float
 The square root of the given number.
 
-- `num` - The square root of the number.
+- `num` - The radicand of the given number.
 
 Example:
 ```lua
@@ -77,7 +77,19 @@ debugPrint( math.sqrt(4) ) --> 2
 debugPrint( math.sqrt(2) ) --> 1.4142135623731
 ```
 
-### math.log(num:Float, ?base:Float = 2)
+### math.modf(num:Float):\<Int, Float\>
+Returns the floating-point integral part (integer) and fractional part (decimal places).
+
+- `num` - The floating-point to split into integral and fractional parts.
+
+Example:
+```lua
+local int, frc = math.modf(364.36452)
+debugPrint(int) --> 364
+debugPrint(frc) --> 0.36452
+```
+
+### math.log(num:Float, ?base:Float = 2):Float
 The logarithmic of a number to the base, inverse (opposite) of exponential. Which makes the base number is the exponent must be raised to produced the number. For an example, since $\log_{2}(8)=3$, its inverse equivalent is $2^3=8$.
 
 > [!CAUTION]
@@ -141,20 +153,66 @@ debugPrint( math.random(1, 40) ) --> 23
 ```
 
 ## Trigonometry Methods
-### math.deg(rad:Float):Float
-
-
 ### math.rad(deg:Float):Float
+Converts a radians to degrees.
+
+- `deg` - The degree number to convert to radians.
+
+### math.deg(rad:Float):Float
+Converts a degrees to radians.
+
+- `rad` - The radian number to convert to degrees.
+
 ### math.sin(rad:Float):Float
+Returns the sine of the number, given in radians.
+
+- `rad` - The radians to calculate the sine value.
+
 ### math.cos(rad:Float):Float
+Returns the cosine of the number, given in radians.
+
+- `rad` - The radians to calculate the cosine value.
+
 ### math.tan(rad:Float):Float
+Returns the tangent of the number, given in radians.
+
+- `rad` - The radians to calculate the tangent value.
+
 ### math.asin(rad:Float):Float
+Returns the arc (inverse) sine of the number, given in radians. Returns between $-\frac{\pi}{2}$ radians ($-90^\circ$ degrees) and $\frac{\pi}{2}$ radians ($90^\circ$ degrees).
+
+- `rad` - The radians to calculate the inverse sine value; Goes from `-1` to `1`.
+
 ### math.acos(rad:Float):Float
+Returns the arc (inverse) cosine of the number, given in radians. Returns between $\pi$ radians ($180^\circ$ degrees) and $0$ radians ($0^\circ$ degrees).
+
+- `rad` - The radians to calculate the inverse cosine value; Goes from `-1` to `1`.
+
 ### math.atan(rad:Float):Float
-### math.atan2(yrad:Float, xrad:Float):Float
+Returns the arc (inverse) tangent of the number, given in radians. Returns between $-\frac{\pi}{2}$ radians ($-90^\circ$ degrees) and $\frac{\pi}{2}$ radians ($90^\circ$ degrees).
+
+- `rad` - The radians to calculate the inverse tangent value.
+
+### math.atan2(y:Float, x:Float):Float
+Returns the calculated arc (inverse) tangent of x and y coordinate points, given in radians. Between the between the positive x-axis and the ray from the origin to the x and y coordinate points in the Cartesian plane.
+
+- `y` - The given y position to calculate.
+- `x` - The given x position to calculate.
+
 ### math.sinh(rad:Float):Float
+Returns the hyperbolic sine of the number, given in radians.
+
+- `rad` - The radians to calculate the hyperbolic sine value.
+
 ### math.cosh(rad:Float):Float
+Returns the hyperbolic cosine of the number, given in radians.
+
+- `rad` - The radians to calculate the hyperbolic cosine value.
+
 ### math.tanh(rad:Float):Float
+Returns the hyperbolic tangent of the number, given in radians.
+
+- `rad` - The radians to calculate the hyperbolic tangent value.
 
 ## Constants
 ### math.pi
