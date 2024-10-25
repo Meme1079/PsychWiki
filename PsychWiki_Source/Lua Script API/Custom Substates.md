@@ -39,22 +39,21 @@ function onPause()
 end
 ```
 
-### Closing & Destroying
-Substates are closed (deactivated) by using the `closeCustomSubstate()` function
+### Closing
+Substates are closed (deactivated) by using the `closeCustomSubstate()` function, this will deactive the currently active substate. Once closed the parent state is reactivated into updating the game. Any sprite and text objects present in the substate are removed, not deleted and are readded back if the substate was open again.
+
+In this example, we closed the substate by pressing the enter key <kbd>↵</kbd>. Within the `onCustomSubstateUpdate()` event callback, which exactly works the same as `onUpdate()` event callback. Don't forget adding this to your substate because you'll be softlock in the game. 
 
 ```lua
 function onCustomSubstateUpdate(name, elapsed)
-     if name == 'Awesome Substate' and keyboardJustPressed('ENTER') then
+     if keyboardJustPressed('ENTER') then
           closeCustomSubstate()
      end
 end
-
-function onCustomSubstateDestroy(name)
-     if name == 'Awesome Substate' then
-          removeLuaSprite('awesomeSubstateBG', false)
-     end
-end
 ```
+
+### Conclusion
+And now you have your very own custom substate yay!!!!!!!! It's not really special it can only pause which is lame but you can just modify the code. Like adding restart, resume, or exit song buttons and even a new design to make a proper pause menu.
 
 ***
 
