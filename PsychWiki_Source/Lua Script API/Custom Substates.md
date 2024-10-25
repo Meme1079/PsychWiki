@@ -59,18 +59,54 @@ And now you have your very own custom substate yay!!!!!!!! It's not really speci
 
 # Custom Substate Functions
 ### openCustomSubstate(name:String, ?pauseGame:Bool = false):Void
+Opens a custom substate.
+
+- `name` - The given name to open the custom substate.
+- `pauseGame` - An optional parameter, weather the custom substate will pause the parent state; Default value: `false`.
+
 ### insertToCustomSubstate(tag:String, ?pos:Int = -1):Void
+Inserts an object (sprite or text) to the custom substate with the given position.
+
+- `tag` - The specified object to be inserted to the custom substate.
+- `pos` - An optional parameter, The position order of the object to render. Leave it blank if you want to insert in each object normally; Default value: `-1`.
+
 ### closeCustomSubstate():Void
+Close the currently activate substate.
 
 ***
 
 # Custom Substate Event Callbacks
 ### onCustomSubstateCreate(name:String)
+<ins>Triggered when the substate has initiated/started</ins>, this is only triggered once.
+
+- `name` - The name of the substate to inherit.
+
 ### onCustomSubstateCreatePost(name:String)
+Triggered <ins>post initiation/start of the substate</ins>, this is only triggered once.
+
+- `name` - The name of the substate to inherit post start.
+
 ### onCustomSubstateUpdate(name:String, elapsed:Float)
+Triggered <ins>every current frame</ins> of the substate.
+
+- `name` - The name of the substate to update.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+
 ### onCustomSubstateUpdatePost(name:String, elapsed:Float)
+Triggered <ins>after every current frame</ins> of the game.
+
+- `name` - The name of the substate to post update.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+
 ### onCustomSubstateDestroy(name:String)
+Triggered when the <ins>substate has been destroyed</ins>.
+
+- `name` - The name of the substate to be destroyed.
 
 ***
 
 # Custom Substate HScript Variables
+| Variables 	| Description 	|
+|---	|---	|
+| `customSubstate` 	| The current opened custom substate instance. If none are open, returns: `null` 	|
+| `customSubstateName` 	| The name of the current opened custom substate.If none are open, returns: `unamed` 	|
