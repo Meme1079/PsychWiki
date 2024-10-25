@@ -109,4 +109,4 @@ Triggered when the <ins>substate has been destroyed</ins>.
 | Variables 	| Description 	|
 |---	|---	|
 | `customSubstate` 	| The current opened custom substate instance. If none are open, returns: `null` 	|
-| `customSubstateName` 	| The name of the current opened custom substate.If none are open, returns: `unamed` 	|
+| `customSubstateName` 	| The name of the current opened custom substate. If none are open, returns: `unamed` 	|
