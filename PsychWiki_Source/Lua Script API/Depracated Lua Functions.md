@@ -114,11 +114,11 @@ Deprecation of `updateHitbox()`; Updates the object's hitboxes with its specifie
 Deprecation of `soundFadeIn()`; Makes the music <ins>fade-in</ins>; Does not support Lua sounds unlike `soundFadeIn()`.
 
 - `duration` - The duration length of the sound to fade-in, from `fromValue` to `toValue`.
-- `fromValue` - An optional parameter, The starting volume of the fade; Goes from `0` to `1`; Defualt value: `0`.
-- `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Defualt value: `1`.
+- `fromValue` - An optional parameter, The starting volume of the fade; Goes from `0` to `1`; Default value: `0`.
+- `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Default value: `1`.
 
 ### musicFadeOut(duration:Float, toValue:Float = 0)
 Deprecation of `soundFadeOut()`; Makes the music <ins>fade-out</ins>; Does not support Lua sounds unlike `soundFadeOut()`.
 
 - `duration` - The duration length of the sound to fade-out, from the current volume to `toValue`.
-- `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Defualt value: `0`.
+- `toValue` - An optional parameter, The ending volume of the fade; Goes from `0` to `1`; Default value: `0`.

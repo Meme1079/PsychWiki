@@ -4,7 +4,7 @@ Before getting into it, a bit of context about this. An event is an action or oc
 Callbacks are special event handler functions that are dealt for specific events design for it. It uses a regular function syntax for its callbacks. Instead of being designed to be stored as data and be execute by another function, from an event listener function. This is were you'll put the designated code for a specific event. Some functions and variables are only have their functionality exclusive to callbacks. For instance updated values for variables and some functions like the `getProperty()` function.
 
 > [!NOTE]
-> _Some event callbacks have different parameters included in HScript compared to Lua. Some parameters are just added to only HScript and some pre-existing parameters have been removed entirely. If you want to check the list, just [click here](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Unique-Haxe-Parameters)._
+> _Some event callbacks have different parameters included in HScript compared to Lua. Some parameters are just added to only HScript and some pre-existing parameters have been removed entirely. If you want to check the list, just [click here](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Unique-Haxe-Parameters)._
 
 Examples:
 ```lua
@@ -27,7 +27,7 @@ function onUpdate(elapsed:Float) {
 ```
 
 ## Disabling Callbacks
-> *For more information; Main article:* [Disabling Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Disabling-Callbacks)
+> *For more information; Main article:* [Disabling Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Disabling-Callbacks)
 
 Callbacks have the ability to be disabled completely, this is done by returning `Function_Stop` variable inside the said callback. This is useful for making your own custom functionality for that callback or disabling the callback altogether. But this is only applied to specific callbacks that have this ability.
 
@@ -39,7 +39,7 @@ end
 ```
 
 ## Dynamic Callbacks
-> *For more information; Main article:* [Dynamic Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Dynamic-Callbacks)
+> *For more information; Main article:* [Dynamic Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Dynamic-Callbacks)
 
 Dynamic callbacks are only exclusive to HScript or the `runHaxeCode()` function. It has the ability to override the original functionality by reassigning it with new function content and with the given parameters, if included.
 
@@ -321,5 +321,6 @@ Triggered <ins>when the **sound**</ins> has completed its timer.
 ***
 
 # See also
-- [Deprecated Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Deprecated-Callbacks)
-- [Unique Haxe Parameter](https://github.com/Meme1079/PsychWiki/wiki/Sub-Aritcles-Event-Callbacks:-Unique-Haxe-Parameters)
+- [Custom Substates](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Custom-Substates)
+- [Deprecated Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Deprecated-Callbacks)
+- [Unique Haxe Parameter](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Unique-Haxe-Parameters)
