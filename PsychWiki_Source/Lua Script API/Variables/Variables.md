@@ -74,65 +74,79 @@
 ***
 
 # Client Preferences
-- `downscroll`
-- `middlescroll`
-- `ghostTapping`
-- `hideHud`
-- `scoreZoom`
-- `cmeraZoomOnBeat`
-- `flashingLights`
-- `lowQuality`
-- `shadersEnabled`
-- `noResetButton`
-- `timeBarType`
-- `noteOffset`
-- `healthBarAlpha`
-- `framerate`
-- `guitarHeroSustains`
-- `noteSkin`
-- `noteSkinPostfix`
-- `splashSkin`
-- `splashSkinPostfix`
-- `splashAlpha`
+| Variables 	| Description 	| Type 	|
+|---	|---	|---	|
+| `downscroll` 	| Whether if downscroll is enabled in gameplay or not. 	| `Boolean` 	|
+| `middlescroll` 	| Whether if middlescroll is enabled in gameplay or not. 	| `Boolean` 	|
+| `ghostTapping` 	| Whether if ghost tapping is enabled in gameplay or not. 	| `Boolean` 	|
+| `hideHud` 	| Whether if the HUD elements are hidden in gameplay or not. 	| `Boolean` 	|
+| `scoreZoom` 	| Whether the score will zoom when hitting notes or not. 	| `Boolean` 	|
+| `cameraZoomOnBeat` 	| Whether the camera will zoom on each beat of the song. 	| `Boolean` 	|
+| `guitarHeroSustains` 	| Whether the sustain notes (long notes) can be pressed again when missed. 	| `Boolean` 	|
+| `noResetButton` 	| Whether the reset button is enabled or not. 	| `Boolean` 	|
+| `flashingLights` 	| Whether flashing lights are enabled or not. This is recommended to use when flashing <br>lights are present on the song. To prevent seizures who are suffering from<br>Photosensitive epilepsy. 	| `Boolean` 	|
+| `lowQuality` 	| Whether low quality is enabled or not. This is recommended to use for objects that<br>might cause lag on lower-end devices. 	| `Boolean` 	|
+| `shadersEnabled` 	| Whether shaders being displayed is enabled or not. This is recommended for preventing<br>lag on lower-end devices and prevent simulation sickness. 	| `Boolean` 	|
+| `timeBarType` 	| The current time bar text display format. 	| `String` 	|
+| `noteOffset` 	| The current note offset when hitting notes, displayed in milliseconds; Goes from `0` to `500`. 	| `Float` 	|
+| `healthBarAlpha` 	| The current alpha/opacity of the health bar, useful if you're having trouble on seeing <br>incoming notes. 	| `Float` 	|
+| `framerate` 	| The current frame rate for the game to display on screen. Recommended to capped at a certain value to match your computer's frame rate. 	| `Int` 	|
+| `noteSkin` 	| The current selected note skin name you've selected. 	| `String` 	|
+| `noteSkinPostfix` 	| The current selected note skin suffix name you've selected. 	| `String` 	|
+| `splashSkin` 	| The current selected splash skin name you've selected. 	| `String` 	|
+| `splashSkinPostfix` 	| The current selected splash skin suffix name you've selected. 	| `String` 	|
+| `splashAlpha` 	| The current alpha/opacity of the splash skin. 	| `Float` 	|
 
 ***
 
 # Strum Receptor
 ## Player Strums
-- `defaultPlayerStrumX0`
-- `defaultPlayerStrumX1`
-- `defaultPlayerStrumX2`
-- `defaultPlayerStrumX3`
-- `defaultPlayerStrumY0`
-- `defaultPlayerStrumY1`
-- `defaultPlayerStrumY2`
-- `defaultPlayerStrumY3`
+| Variables 	| Description 	| Type 	| Default Value 	|
+|---	|---	|---	|---	|
+| `defaultPlayerStrumX0` 	| The default x-position of the player's left strum arrow. 	| `Float` 	| `732` 	|
+| `defaultPlayerStrumX1` 	| The default x-position of the player's down strum arrow. 	| `Float` 	| `844` 	|
+| `defaultPlayerStrumX2` 	| The default x-position of the player's up strum arrow. 	| `Float` 	| `956` 	|
+| `defaultPlayerStrumX3` 	| The default x-position of the player's right strum arrow. 	| `Float` 	| `1068` 	|
+| `defaultPlayerStrumY0` 	| The default y-position of the player's left strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultPlayerStrumY1` 	| The default y-position of the player's down strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultPlayerStrumY2` 	| The default y-position of the player's up strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultPlayerStrumY3` 	| The default y-position of the player's right strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 
 ## Opponent Strums
-- `defaultOpponentStrumX0`
-- `defaultOpponentStrumX1`
-- `defaultOpponentStrumX2`
-- `defaultOpponentStrumX3`
-- `defaultOpponentStrumY0`
-- `defaultOpponentStrumY1`
-- `defaultOpponentStrumY2`
-- `defaultOpponentStrumY3`
+| Variables 	| Description 	| Type 	| Default Value 	|
+|---	|---	|---	|---	|
+| `defaultOpponentStrumX0` 	| The default x-position of the opponent's <br>left strum arrow. 	| `Float` 	| `92` 	|
+| `defaultOpponentStrumX1` 	| The default x-position of the opponent's <br>down strum arrow. 	| `Float` 	| `204` 	|
+| `defaultOpponentStrumX2` 	| The default x-position of the opponent's <br>up strum arrow. 	| `Float` 	| `316` 	|
+| `defaultOpponentStrumX3` 	| The default x-position of the opponent's <br>right strum arrow. 	| `Float` 	| `428` 	|
+| `defaultOpponentStrumY0` 	| The default y-position of the opponent's <br>left strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultOpponentStrumY1` 	| The default y-position of the opponent's <br>down strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultOpponentStrumY2` 	| The default y-position of the opponent's <br>up strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
+| `defaultOpponentStrumY3` 	| The default y-position of the opponent's <br>right strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 
 ***
 
 # Application
-- `screenWidth`
-- `screenHeight`
-- `version`
-- `buildTarget`
-- `currentModDirectory`
+| Variables 	| Description 	| Type 	|
+|---	|---	|---	|
+| `screenWidth` 	| The current width of the screen in game pixels. 	| `Float` 	|
+| `screenHeight` 	| The current height of the screen in game pixels. 	| `Float` 	|
+| `version` 	| The current version of Psych Engine. 	| `String` 	|
+| `buildTarget` 	| The current build target (device) of Psych Engine. 	| `String` 	|
+| `currentModDirectory` 	| The current mod folder that's running in. 	| `String` 	|
 
 ***
 
 # Debugging
-- `luaDebugMode`
-- `luaDeprecatedWarnings`
-- `Function_Continue`
-- `Function_Stop`
-- `Function_StopLua`
-- `Function_StopHScript`
+> [!NOTE]
+> _For special variables that are "settable", meaning you can re-assign new values manually, for instance: `luaDebugMode = true`._
+
+| Variables 	| Description 	| Type 	| Settable 	|
+|---	|---	|---	|---	|
+| `luaDebugMode` 	| Enables the ability to see hidden error messages, recommended if you're<br>coding. 	| `Boolean` 	| `true` 	|
+| `luaDeprecatedWarnings` 	| Enables the ability to show deprecated warnings for deprecated functions.<br>Recommended to disable if you're using some deprecated functions. 	| `Boolean` 	| `true` 	|
+| `Function_Continue` 	| Enables the event callbacks functionality. 	| `String` 	| `false` 	|
+| `Function_Stop` 	| Disables the event callbacks functionality. 	| `String` 	| `false` 	|
+| `Function_StopLua` 	| Disables the event callbacks functionality, only in Lua. 	| `String` 	| `false` 	|
+| `Function_StopHScript` 	| Disables the event callbacks functionality, only in HScript. 	| `String` 	| `false` 	|
+| `Function_StopAll` 	| Disables the event callbacks functionality, only both in Lua and HScript. 	| `String` 	| `false` 	|
