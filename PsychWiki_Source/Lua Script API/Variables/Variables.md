@@ -10,6 +10,22 @@
 | `crochet` 	| The amount of time intervals between beats in a section. 	| `Float` 	|
 | `stepChrochet` 	| The amount of time intervals between steps in a section. 	| `Float` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `curStage` 	| `getPropertyFromClass('states.PlayState', 'curStage')` 	|
+| `hasVocals` 	| `getPropertyFromClass('states.PlayState', 'SONG.needsVoices')` 	|
+| `scrollSpeed` 	| `getPropertyFromClass('states.PlayState', 'SONG.speed')` 	|
+| `bpm` 	| `getPropertyFromClass('states.PlayState', 'SONG.bpm')` 	|
+| `curBpm` 	| `getPropertyFromClass('backend.Conductor', 'bpm')` 	|
+| `crochet` 	| `getPropertyFromClass('backend.Conductor', 'crochet')` 	|
+| `stepChrochet` 	| `getPropertyFromClass('backend.Conductor', 'stepCrochet')` 	|
+
+</p>
+</details>
+
 ## Data
 | Variables 	| Description 	| Type 	|
 |---	|---	|---	|
@@ -25,6 +41,26 @@
 | `difficultyNameTranslation` 	| The stage's translated difficulty name, based on its current language set to. 	| `String` 	|
 | `difficultyPath` 	| The stage's difficulty path folder. 	| `String` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `week` 	| `getPropertyFromClass('backend.WeekData', 'weeksList, true)[weekRaw]` 	|
+| `weekRaw` 	| `getPropertyFromClass('states.PlayState', 'storyWeek')` 	|
+| `songName` 	| `getPropertyFromClass('states.PlayState', 'SONG.song')` 	|
+| `songPath` 	| `callMethodFromClass('backend.Paths', 'formatToSongPath', {songName})` 	|
+| `songLength` 	| `getPropertyFromClass('flixel.FlxG', 'sound.music.length')` 	|
+| `loadedSongName` 	| `getPropertyFromClass('backend.Song', 'loadedSongName')` 	|
+| `loadedSongPath` 	| `callMethodFromClass('backend.Paths', 'formatToSongPath', {loadedSongPath})` 	|
+| `difficulty` 	| `getPropertyFromClass('states.PlayState', 'storyDifficulty')` 	|
+| `difficultyName` 	| `callMethodFromClass('backend.Difficulty', 'getString', {difficulty, false})` 	|
+| `difficultyNameTranslation` 	| `callMethodFromClass('backend.Difficulty', 'getString', {difficulty, true})` 	|
+| `difficultyPath` 	| `callMethodFromClass('backend.Paths', 'formatToSongPath', {difficultyName})` 	|
+
+</p>
+</details>
+
 ## In-Game
 | Variables 	| Description 	| Type 	|
 |---	|---	|---	|
@@ -32,9 +68,19 @@
 | `seenCutscene` 	| Whether the cutscene has been already seen or not. This will set to `true`, if the song<br>has been restarted or you've died _(skill issue)_. Useful for not seeing the cutscene<br>multiple times. 	| `Boolean` 	|
 | `isStoryMode` 	| Whether is it in story mode or not. 	| `Boolean` 	|
 | `inGameOver` 	| Whether the player died from skill issue or not. 	| `Boolean` 	|
-| `boyfriendName` 	| The current boyfriend (player) character name. 	| `String` 	|
-| `dadName` 	| The current dad (opponent) character name. 	| `String` 	|
-| `gfName` 	| The current girlfriend (supporting) character name. 	| `String` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `startedCountdown` 	| `getProperty('startedCountdown')` 	|
+| `seenCutscene` 	| `getPropertyFromClass('states.PlayState', 'seenCutscene')` 	|
+| `isStoryMode` 	| `getPropertyFromClass('states.PlayState', 'isStoryMode')` 	|
+| `inGameOver` 	| _None_ 	|
+
+</p>
+</details>
 
 ***
 
@@ -51,15 +97,49 @@
 | `altAnim` 	| Whether the section is intended for to play alternate animation characters, from the chart editor. 	| `Boolean` 	|
 | `gfSection` 	| Whether the section is intended for the girlfriend, from the chart editor. 	| `Boolean` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `curStep` 	| `getProperty('curStep')` 	|
+| `curBeat` 	| `getProperty('curBeat')` 	|
+| `curSection` 	| `getProperty('curSection')` 	|
+| `curDecStep` 	| `getProperty('curDecStep')` 	|
+| `curDecBeat` 	| `getProperty('curDecBeat')` 	|
+| `mustHitSection` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['mustHitSection']` 	|
+| `altAnim` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['altAnim']` 	|
+| `gfSection` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['gfSection']` 	|
+
+</p>
+</details>
+
 ## Ratings
 | Variables 	| Description 	| Type 	|
 |---	|---	|---	|
 | `score` 	| The current score you've gained when playing. 	| `Int` 	|
 | `misses` 	| The current misses you've gained when playing. 	| `Int` 	|
 | `combo` 	| The current combo you've gained when playing. 	| `Int` 	|
+| `hits` 	| The current note hits you've gained when playing. 	| `Int` 	|
 | `rating` 	| The current rating accuracy percent; Goes from `0` to `1`. 	| `Int` 	|
 | `ratingName` 	| The current rating name. 	| `String` 	|
 | `ratingFC` 	| The current rating combo name. 	| `String` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `score` 	| `getProperty('songScore')` 	|
+| `misses` 	| `getProperty('songMisses')` 	|
+| `combo` 	| `getProperty('combo')` 	|
+| `hits` 	| `getProperty('songHits')` 	|
+| `rating` 	| `getProperty('ratingPercent')` 	|
+| `ratingName` 	| `getProperty('ratingName')` 	|
+| `ratingFC` 	| `getProperty('ratingFC')` 	|
+
+</p>
+</details>
 
 ## Option Settings
 | Variables 	| Description 	| Type 	|
@@ -70,6 +150,21 @@
 | `instakillOnMiss` 	| Whether missing a note grants a insta-kill or not. 	| `Boolean` 	|
 | `botPlay` 	| Whether botplay will be enabled in gameplay or not. 	| `Boolean` 	|
 | `practice` 	| Whether practice mode will be enabled in gameplay or not. _(Holy fuck, Geometry Dash reference)_ 	| `Boolean` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `healthGainMult` 	| `getProperty('healthGain')` 	|
+| `healthLossMult` 	| `getProperty('healthLoss')` 	|
+| `playbackRate` 	| `getProperty('playbackRate')` 	|
+| `instakillOnMiss` 	| `getProperty('instakillOnMiss')` 	|
+| `botPlay` 	| `getProperty('cpuControlled')` 	|
+| `practice` 	| `getProperty('practiceMode')` 	|
+
+</p>
+</details>
 
 ***
 
@@ -97,6 +192,82 @@
 | `splashSkinPostfix` 	| The current selected splash skin suffix name you've selected. 	| `String` 	|
 | `splashAlpha` 	| The current alpha/opacity of the splash skin. 	| `Float` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `downscroll` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')` 	|
+| `middlescroll` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.middleScroll')` 	|
+| `ghostTapping` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping')` 	|
+| `hideHud` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.hideHud')` 	|
+| `scoreZoom` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.scoreZoom')` 	|
+| `cameraZoomOnBeat` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.camZooms')` 	|
+| `guitarHeroSustains` 	| `getProperty('guitarHeroSustains')` 	|
+| `noResetButton` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.noReset')` 	|
+| `flashingLights` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.flashing')` 	|
+| `lowQuality` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.lowQuality')` 	|
+| `shadersEnabled` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.shaders')` 	|
+| `timeBarType` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.timeBarType')` 	|
+| `noteOffset` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.noteOffset')` 	|
+| `healthBarAlpha` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.healthBarAlpha')` 	|
+| `framerate` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.framerate')` 	|
+| `noteSkin` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.noteSkin')` 	|
+| `noteSkinPostfix` 	| `callMethodFromClass('objects.Note', 'getNoteSkinPostfix', {''})` 	|
+| `splashSkin` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')` 	|
+| `splashSkinPostfix` 	| `callMethodFromClass('objects.NoteSplash', 'getSplashSkinPostfix', {''})` 	|
+| `splashAlpha` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.splashAlpha')` 	|
+
+</p>
+</details>
+
+***
+
+# Characters
+## Names
+| Variables 	| Description 	| Type 	|
+|---	|---	|---	|
+| `boyfriendName` 	| The current boyfriend (player) character name. 	| `String` 	|
+| `dadName` 	| The current dad (opponent) character name. 	| `String` 	|
+| `gfName` 	| The current girlfriend (supporting) character name. 	| `String` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `boyfriendName` 	| `getProperty('boyfriend.curCharacter')` 	|
+| `dadName` 	| `getProperty('dad.curCharacter')` 	|
+| `gfName` 	| `getProperty('gf.curCharacter')` 	|
+
+</p>
+</details>
+
+## Positions
+| Variables 	| Description 	| Type 	|
+|---	|---	|---	|
+| `defaultBoyfriendX` 	| The default boyfriend (player) character x-position of the stage. 	| `Float` 	|
+| `defaultBoyfriendY` 	| The default boyfriend (player) character y-position of the stage. 	| `Float` 	|
+| `defaultOpponentX` 	| The default dad (opponent) character x-position of the stage. 	| `Float` 	|
+| `defaultOpponentY` 	| The default dad (opponent) character y-position of the stage. 	| `Float` 	|
+| `defaultGirlfriendX` 	| The default girlfriend (supporting) character x-position of the stage. 	| `Float` 	|
+| `defaultGirlfriendY` 	| The default girlfriend (supporting) character x-position of the stage. 	| `Float` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `defaultBoyfriendX` 	| `getProperty('BF_X')` 	|
+| `defaultBoyfriendY` 	| `getProperty('BF_Y')` 	|
+| `defaultOpponentX` 	| `getProperty('DAD_X')` 	|
+| `defaultOpponentY` 	| `getProperty('DAD_Y')` 	|
+| `defaultGirlfriendX` 	| `getProperty('GF_X')` 	|
+| `defaultGirlfriendY` 	| `getProperty('GF_Y')` 	|
+
+</p>
+</details>
+
 ***
 
 # Strum Receptor
@@ -112,6 +283,23 @@
 | `defaultPlayerStrumY2` 	| The default y-position of the player's up strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 | `defaultPlayerStrumY3` 	| The default y-position of the player's right strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `defaultPlayerStrumX0` 	| `getPropertyFromGroup('playerStrums', 0, 'x')` 	|
+| `defaultPlayerStrumX1` 	| `getPropertyFromGroup('playerStrums', 1, 'x')` 	|
+| `defaultPlayerStrumX2` 	| `getPropertyFromGroup('playerStrums', 2, 'x')` 	|
+| `defaultPlayerStrumX3` 	| `getPropertyFromGroup('playerStrums', 3, 'x')` 	|
+| `defaultPlayerStrumY0` 	| `getPropertyFromGroup('playerStrums', 0, 'y')` 	|
+| `defaultPlayerStrumY1` 	| `getPropertyFromGroup('playerStrums', 1, 'y')` 	|
+| `defaultPlayerStrumY2` 	| `getPropertyFromGroup('playerStrums', 2, 'y')` 	|
+| `defaultPlayerStrumY3` 	| `getPropertyFromGroup('playerStrums', 3, 'y')` 	|
+
+</p>
+</details>
+
 ## Opponent Strums
 | Variables 	| Description 	| Type 	| Default Value 	|
 |---	|---	|---	|---	|
@@ -124,6 +312,23 @@
 | `defaultOpponentStrumY2` 	| The default y-position of the opponent's <br>up strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 | `defaultOpponentStrumY3` 	| The default y-position of the opponent's <br>right strum arrow. 	| `Float` 	| **Upscroll**: `50` **DownScroll**: `570` 	|
 
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `defaultOpponentStrumX0` 	| `getPropertyFromGroup('opponentStrums', 0, 'x')` 	|
+| `defaultOpponentStrumX1` 	| `getPropertyFromGroup('opponentStrums', 1, 'x')` 	|
+| `defaultOpponentStrumX2` 	| `getPropertyFromGroup('opponentStrums', 2, 'x')` 	|
+| `defaultOpponentStrumX3` 	| `getPropertyFromGroup('opponentStrums', 3, 'x')` 	|
+| `defaultOpponentStrumY0` 	| `getPropertyFromGroup('opponentStrums', 0, 'y')` 	|
+| `defaultOpponentStrumY1` 	| `getPropertyFromGroup('opponentStrums', 1, 'y')` 	|
+| `defaultOpponentStrumY2` 	| `getPropertyFromGroup('opponentStrums', 2, 'y')` 	|
+| `defaultOpponentStrumY3` 	| `getPropertyFromGroup('opponentStrums', 3, 'y')` 	|
+
+</p>
+</details>
+
 ***
 
 # Application
@@ -133,7 +338,23 @@
 | `screenHeight` 	| The current height of the screen in game pixels. 	| `Float` 	|
 | `version` 	| The current version of Psych Engine. 	| `String` 	|
 | `buildTarget` 	| The current build target (device) of Psych Engine. 	| `String` 	|
+| `scriptName` 	| The current script name that's running from. 	| `String` 	|
 | `currentModDirectory` 	| The current mod folder that's running in. 	| `String` 	|
+
+<details><summary><b>All Shortcut to:</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `screenWidth` 	| `getPropertyFromClass('flixel.FlxG', 'width')` 	|
+| `screenHeight` 	| `getPropertyFromClass('flixel.FlxG', 'height')` 	|
+| `version` 	| `getPropertyFromClass('MainMenuState', 'psychEngineVersion')` 	|
+| `buildTarget` 	| `callMethodFromClass('psychlua.LuaUtils', 'getBuildTarget')` 	|
+| `scriptName` 	| _None_ 	|
+| `currentModDirectory` 	| `getPropertyFromClass('backend.Mods', 'currentModDirectory')` 	|
+
+</p>
+</details>
 
 ***
 
