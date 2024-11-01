@@ -26,6 +26,22 @@
 </p>
 </details>
 
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `curStage` 	| `getPropertyFromClass('PlayState', 'curStage')` 	|
+| `hasVocals` 	| `getPropertyFromClass('PlayState', 'SONG.needsVoices')` 	|
+| `scrollSpeed` 	| `getPropertyFromClass('PlayState', 'SONG.speed')` 	|
+| `bpm` 	| `getPropertyFromClass('PlayState', 'SONG.bpm')` 	|
+| `curBpm` 	| `getPropertyFromClass('Conductor', 'bpm')` 	|
+| `crochet` 	| `getPropertyFromClass('Conductor', 'crochet')` 	|
+| `stepChrochet` 	| `getPropertyFromClass('Conductor', 'stepCrochet')` 	|
+
+</p>
+</details>
+
 ## Data
 | Variables 	| Description 	| Type 	|
 |---	|---	|---	|
@@ -61,6 +77,26 @@
 </p>
 </details>
 
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `week` 	| `getPropertyFromClass('WeekData', 'weeksList['..weekRaw..']')` 	|
+| `weekRaw` 	| `getPropertyFromClass('PlayState', 'storyWeek')` 	|
+| `songName` 	| `getPropertyFromClass('PlayState', 'SONG.song')` 	|
+| `songPath` 	| `runHaxeCode('Paths.formatToSongPath('..songName..');')` 	|
+| `songLength` 	| `getPropertyFromClass('flixel.FlxG', 'sound.music.length')` 	|
+| `loadedSongName` 	| _Not Available; Only at `1.0` Pre-Release version._ 	|
+| `loadedSongPath` 	| _Not Available; Only at `1.0` Pre-Release version._ 	|
+| `difficulty` 	| `getPropertyFromClass('PlayState', 'storyDifficulty')` 	|
+| `difficultyName` 	| `getPropertyFromClass('CoolUtil', 'difficulties['..difficulty..']')` 	|
+| `difficultyNameTranslation` 	| _Not Available; Only at `1.0` Pre-Release version._ 	|
+| `difficultyPath` 	| `runHaxeCode('Paths.formatToSongPath(Difficulty.getString());')` 	|
+
+</p>
+</details>
+
 ## In-Game
 | Variables 	| Description 	| Type 	|
 |---	|---	|---	|
@@ -77,6 +113,19 @@
 | `startedCountdown` 	| `getProperty('startedCountdown')` 	|
 | `seenCutscene` 	| `getPropertyFromClass('states.PlayState', 'seenCutscene')` 	|
 | `isStoryMode` 	| `getPropertyFromClass('states.PlayState', 'isStoryMode')` 	|
+| `inGameOver` 	| _None_ 	|
+
+</p>
+</details>
+
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `startedCountdown` 	| _No Changes_ 	|
+| `seenCutscene` 	| `getPropertyFromClass('PlayState', 'seenCutscene')` 	|
+| `isStoryMode` 	| `getPropertyFromClass('PlayState', 'isStoryMode')` 	|
 | `inGameOver` 	| _None_ 	|
 
 </p>
@@ -110,6 +159,23 @@
 | `mustHitSection` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['mustHitSection']` 	|
 | `altAnim` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['altAnim']` 	|
 | `gfSection` 	| `getPropertyFromClass('states.PlayState', 'SONG.notes', true)[curSection]['gfSection']` 	|
+
+</p>
+</details>
+
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `curStep` 	| _No Changes_ 	|
+| `curBeat` 	| _No Changes_ 	|
+| `curSection` 	| _No Changes_ 	|
+| `curDecStep` 	| _No Changes_ 	|
+| `curDecBeat` 	| _No Changes_ 	|
+| `mustHitSection` 	| `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].mustHitSection')` 	|
+| `altAnim` 	| `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].gfSection')` 	|
+| `gfSection` 	| `getPropertyFromClass('PlayState', 'SONG.notes['..curSection..'].altAnim')` 	|
 
 </p>
 </details>
@@ -217,6 +283,35 @@
 | `splashSkin` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.splashSkin')` 	|
 | `splashSkinPostfix` 	| `callMethodFromClass('objects.NoteSplash', 'getSplashSkinPostfix', {''})` 	|
 | `splashAlpha` 	| `getPropertyFromClass('backend.ClientPrefs', 'data.splashAlpha')` 	|
+
+</p>
+</details>
+
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `downscroll` 	| `getPropertyFromClass('ClientPrefs', 'downScroll')` 	|
+| `middlescroll` 	| `getPropertyFromClass('ClientPrefs', 'middleScroll')` 	|
+| `ghostTapping` 	| `getPropertyFromClass('ClientPrefs', 'ghostTapping')` 	|
+| `hideHud` 	| `getPropertyFromClass('ClientPrefs', 'hideHud')` 	|
+| `scoreZoom` 	| `getPropertyFromClass('ClientPrefs', 'scoreZoom')` 	|
+| `cameraZoomOnBeat` 	| `getPropertyFromClass('ClientPrefs', 'camZooms')` 	|
+| `guitarHeroSustains` 	| _No Changes_ 	|
+| `noResetButton` 	| `getPropertyFromClass('ClientPrefs', 'noReset')` 	|
+| `flashingLights` 	| `getPropertyFromClass('ClientPrefs', 'flashing')` 	|
+| `lowQuality` 	| `getPropertyFromClass('ClientPrefs', 'lowQuality')` 	|
+| `shadersEnabled` 	| `getPropertyFromClass('ClientPrefs', 'shaders')` 	|
+| `timeBarType` 	| `getPropertyFromClass('ClientPrefs', 'timeBarType')` 	|
+| `noteOffset` 	| `getPropertyFromClass('ClientPrefs', 'noteOffset')` 	|
+| `healthBarAlpha` 	| `getPropertyFromClass('ClientPrefs', 'healthBarAlpha')` 	|
+| `framerate` 	| `getPropertyFromClass('ClientPrefs', 'framerate')` 	|
+| `noteSkin` 	| `getPropertyFromClass('ClientPrefs', 'noteSkin')` 	|
+| `noteSkinPostfix` 	| _Not Available; Only at `0.7.0` Release version._ 	|
+| `splashSkin` 	| `getPropertyFromClass('ClientPrefs', 'splashSkin')` 	|
+| `splashSkinPostfix` 	| _Not Available; Only at `0.7.0` Release version._ 	|
+| `splashAlpha` 	| `getPropertyFromClass('ClientPrefs', 'splashAlpha')` 	|
 
 </p>
 </details>
@@ -352,6 +447,21 @@
 | `buildTarget` 	| `callMethodFromClass('psychlua.LuaUtils', 'getBuildTarget')` 	|
 | `scriptName` 	| _None_ 	|
 | `currentModDirectory` 	| `getPropertyFromClass('backend.Mods', 'currentModDirectory')` 	|
+
+</p>
+</details>
+
+<details><summary><b>All Shortcut to (Deprecated; Pre-Source Code Overhual):</b></summary>
+<p>
+
+| Variables 	| Shortcut 	|
+|---	|---	|
+| `screenWidth` 	| _No Changes_ 	|
+| `screenHeight` 	| _No Changes_ 	|
+| `version` 	| _No Changes_ 	|
+| `buildTarget` 	| _None_ 	|
+| `scriptName` 	| _None_ 	|
+| `currentModDirectory` 	| `getPropertyFromClass('Mods', 'currentModDirectory')` 	|
 
 </p>
 </details>
