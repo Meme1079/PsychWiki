@@ -62,7 +62,7 @@
 
 | Variables 	| Shortcut 	|
 |---	|---	|
-| `week` 	| `getPropertyFromClass('backend.WeekData', 'weeksList, true)[weekRaw]` 	|
+| `week` 	| `getPropertyFromClass('backend.WeekData', 'weeksList', true)[weekRaw]` 	|
 | `weekRaw` 	| `getPropertyFromClass('states.PlayState', 'storyWeek')` 	|
 | `songName` 	| `getPropertyFromClass('states.PlayState', 'SONG.song')` 	|
 | `songPath` 	| `callMethodFromClass('backend.Paths', 'formatToSongPath', {songName})` 	|
