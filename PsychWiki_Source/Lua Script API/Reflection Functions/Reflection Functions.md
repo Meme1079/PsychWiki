@@ -1,7 +1,49 @@
 # Property Instances
-### instanceArg(instanceName:String, ?className:String = null):String
-### createInstance(variableToSave:String, className:String, ?args:Array\<Dynamic\> = null):Any
+### createInstance(objectName:String, className:String, ?args:Array\<Dynamic\> = null):Any
+Creates an instance (object) from the specified class, the arguments are derived from the constructor method of the class.
+
+- `objectName` - The tag for the instance class to inherit.
+- `className` - The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc.
+- `args` - An optional parameter, the arguments from the classes' constructor method, if it includes one.
+
+Example:
+> Creates an instance of the `Character` class derived from the `objects` library package, by creating a character of girlfriend. The second example below is the Haxe equivalent of the Lua example above as a reference.
+```lua
+createInstance('epicGF', 'objects.Character', {0, 0, 'gf', false})
+```
+```haxe
+var epicGF:Character = new Character(0, 0, 'gf', false);
+```
+
 ### addInstance(objectName:String, ?inFront:Bool = false):Void
+Adds the instance (object) from the specified class to the game.
+
+- `objectName` - The tag of the instance class to add.
+- `inFront` - An optional parameter, Whether it will be in front of every object in the game; Default value: `false`.
+
+Example:
+```lua
+addInstance('epicGF', true)
+```
+
+### instanceArg(instanceName:String, ?className:String = null):String
+Gets an instance from a specified class. It encrypts the instance, so that the code will know it's not a string.
+
+- `instanceName` - The tag from the instance class to get.
+- `className` - An optional parameter, The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc. If left blank it utilize the `Playstates` class.
+
+Examples:
+> Gets both the `iconP1` and `iconP2` instance variables and removes it from the game.
+```lua
+callMethod('remove', {instanceArg('iconP1')})
+callMethod('remove', {instanceArg('iconP2')})
+```
+> Removes entirely the notes from the game, but you still die lmao.
+```lua
+function onCreatePost()
+     callMethod('noteGroup.remove', {instanceArg('notes')})
+end
+```
 
 ***
 
@@ -28,7 +70,7 @@ setProperty('gf.visible', false)
 ### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
 Sets a specified classes' instance variable with a new value, the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
 
-- `classVar` - The specified class to be utilize with; Examples: `backend.ClientPrefs`, `psychlua.LuaUtils`, `flixel.FlxG`, etc.
+- `classVar` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
 - `variable` - The classes instance variable to set a new value to.
 - `value` - The specified new value to set to.
 - `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
@@ -89,7 +131,7 @@ end
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false):Any
 Gets a specified classes' instance variable current value, the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
 
-- `classVar` - The specified class to be utilize with; Examples: `backend.ClientPrefs`, `psychlua.LuaUtils`, `flixel.FlxG`, etc.
+- `classVar` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
 - `variable` - The classes instance variable to get the current value.
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
@@ -156,7 +198,7 @@ end
 ### callMethodFromClass(className:String, method:String, ?args:Array\<Dynamic\> = null):Any
 Calls the specified classes' instance method (function), the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
 
-- `className` - The specified class to be utilize with; Examples: `backend.ClientPrefs`, `psychlua.LuaUtils`, `flixel.FlxG`, etc.
+- `className` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
 - `method` - The classes' instance method to call from.
 - `args` - An optional parameter, the arguments from the classes' instance method, if it includes one.
 
