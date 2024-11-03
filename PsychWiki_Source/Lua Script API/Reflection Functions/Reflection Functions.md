@@ -30,7 +30,7 @@ addInstance('epicGF', true)
 Gets an instance from a specified class. It encrypts the instance, so that the code will know it's not a string.
 
 - `instanceName` - The tag from the instance class to get.
-- `className` - An optional parameter, The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc. If left blank it utilize the `Playstates` class.
+- `className` - An optional parameter, The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc. If left blank it will utilize the `Playstates` class.
 
 Examples:
 > Gets both the `iconP1` and `iconP2` instance variables and removes it from the game.
