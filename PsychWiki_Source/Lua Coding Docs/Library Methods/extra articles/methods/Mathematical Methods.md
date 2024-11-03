@@ -56,7 +56,7 @@ debugPrint( math.floor(54.23) ) --> 55
 ```
 
 ### math.abs(num:Float):Float
-The absolute value from a given number, distance of the number from zero `0`.
+The absolute value from a given number, distance of the number from $0$.
 
 - `num` - The number to returns its absolute number.
 
@@ -93,7 +93,7 @@ debugPrint(frc) --> 0.36452
 The logarithmic of a number to the base, inverse (opposite) of exponential. Which makes the base number is the exponent must be raised to produced the number. For an example, since $\log_{2}(8)=3$, its inverse equivalent is $2^3=8$.
 
 > [!CAUTION]
-> Logarithmics cannot have negative numbers and the base must be above one `1`. Remember it is the inverse of exponential, so if you're saying $\log_{2}(8)=n$ then its inverse is $2^n=-8$, which is impossible to do. If we try using base one `1` let's say $\log_{1}(5)=n$ its inverse is $1^5=n$, again impossible becuase $1^5$ is always equal to one `1`. <!-- removed italics due to a visiual bug -->
+> Logarithmics cannot have negative numbers and the base must be above $1$. Remember it is the inverse of exponential, so if you're saying $\log_{2}(-8)=n$ then its inverse is $2^n=-8$, which is impossible to do. If we try using base one $1$ let's say $\log_{1}(5)=n$ its inverse is $1^5=n$, again impossible becuase $1^5$ is always equal to $1$. <!-- removed italics due to a visiual bug -->
 
 - `num` - The logarithmic of the given number to its base.
 - `base` - An optional parameter, The logarithmic base number; Default value: `2`.
@@ -105,9 +105,9 @@ debugPrint( math.log(13, 2) ) --> 3.7004397181411
 ```
 
 ### math.log10(num:Float):Float
-The logarithmic of a number to the base of ten `10`, the common logarithm.
+The logarithmic of a number to the base of $10$, the common logarithm.
 
-- `num` - The logarithmic of the given number to the base ten `10`.
+- `num` - The logarithmic of the given number to the base ten $10$.
 
 Example:
 ```lua
@@ -305,7 +305,7 @@ debugPrint( math.tanh(-5)  ) --> -0.9999092042626
 
 ## Constants
 ### math.pi
-The constant value of pi $\pi$ in `14` fractional digits; Returns: `3.1415926535898`.
+The constant value of pi $\pi$ in $14$ fractional digits; Returns: `3.1415926535898`.
 
 ### math.huge
-The constant value of "infinity", any number that is greater than $2^{1024}$; Returns `inf`.
+The constant value of "infinity", any number that is greater than or equal to $2^{1024}$; Returns `inf`.
