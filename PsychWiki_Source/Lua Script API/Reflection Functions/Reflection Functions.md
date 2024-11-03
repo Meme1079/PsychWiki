@@ -16,9 +16,11 @@ Sets a specified Playstates' instance variable or the object itself or its prope
 - `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
 
 Examples:
+> Sets the instance variable health value to $2$, making you having full health.
 ```lua
 setProperty('health', 2)
 ```
+> Sets the girlfriend character visibility to `false`.
 ```lua
 setProperty('gf.visible', false)
 ```
@@ -33,9 +35,11 @@ Sets a specified classes' instance variable with a new value, the classes could 
 - `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
 
 Examples:
+> Uses the `ClientPrefs` class from the `backend` library package (folder), to disable ghost tapping during gameplay.
 ```lua
 setPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping', false)
 ```
+> Uses the `FlxG` class from the `flixel` library package (folder), to enable fullscreen.
 ```lua
 setPropertyFromClass('flixel.FlxG', 'fullscreen', true)
 ```
@@ -51,6 +55,7 @@ Sets a specified instance group variable by its members with a new value. It emp
 - `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
 
 Example:
+> Iterates a `for` loop at the `unspawnNotes` instance group variable, so each unspawned note will have a low health ($0.1$) when hitting and missing notes.
 ```lua
 function onCreatePost()
      for members = 0, getProperty('unspawnNotes.length') - 1 do
@@ -68,11 +73,13 @@ Gets a specified Playstates' instance variable or the object itself or its prope
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
 Examples:
+> Checks if it's using botplay, if `true` it will print this amazing text.
 ```lua
 if getProperty('cpuControlled') == true then
      debugPrint('Skill Issue!!!', 'ff0000')
 end
 ```
+> Sets the boyfriend character's angle value by getting its current angle value and adds it by $\pi$, don't ask why.
 ```lua
 function onUpdate(elapsed)
      setProperty('boyfriend.angle', getProperty('boyfriend.angle') + math.pi)
@@ -87,6 +94,7 @@ Gets a specified classes' instance variable current value, the classes could eit
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
 Example:
+> Uses the `ClientPrefs` class from the `backend` library package (folder), to check if the gameplay setting enables instakill when missing a note. Thus causing this stupid message.
 ```lua
 if getPropertyFromClass('backend.ClientPrefs', 'data.gameplaySettings').instakill == true then
      debugPrint('Gaming 100%', '00ff00')
@@ -102,9 +110,11 @@ Gets a specified instance group variable by its members current value. It employ
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
 Example:
+> Iterates a `for` loop at the `unspawnNotes` instance group variable (again), to change both the player and opponent note skins. By checking if the instance variable `mustPress` is `true` or not.
 ```lua
-local playerSkin, playerSplash = '', ''
-local opponentSkin = ''
+local playerSkin   = 'noteSkins/NOTE_assets-INSERT_SKIN_HERE'
+local playerSplash = 'noteSplashes/noteSplashes-INSERT_SKIN_HERE'
+local opponentSkin = 'noteSkins/NOTE_assets-INSERT_SKIN_HERE'
 function onCreatePost()
      for members = 0, getProperty('unspawnNotes.length') - 1 do
           if getPropertyFromGroup('unspawnNotes', members, 'mustPress') == true then
@@ -125,11 +135,15 @@ Calls the specified Playstates' instance method (function).
 - `args` - An optional parameter, the arguments from the Playstates' instance method, if it includes one.
 
 Examples:
+> Calls the Playstates instance method `openPauseMenu()`, when the song starts after the countdown.
 ```lua
 function onSongStart()
      callMethod('openPauseMenu')
 end
 ```
+> Switches the health bar placements for both the player and the opponent. By calling the `set_leftToRight()` instance method from the `healthBar` instance variable, setting the argument to `true`. And calling the `changeIcon()` instance method from both the `iconP1` and `iconP2` instance variable, switching their respective icons to each other in their arguments. Furthermore, it changes the health bar colors from both the player and opponent.
+
+> If you're wondering why some instance variable can call methods and use variables, like the `healthBar` instance variable. Because it is type-annotated by a class, meaning it has all the instance variable and methods from the class. So the `healthBar` instance variable is type-annotated by the `Bar` class. And both `iconP1` and `iconP2` instance variable are type-annotated by the `HealthIcon` class.
 ```lua
 function onCreatePost()
      callMethod('healthBar.set_leftToRight', {true})
@@ -146,6 +160,8 @@ Calls the specified classes' instance method (function), the classes could eithe
 - `method` - The classes' instance method to call from.
 - `args` - An optional parameter, the arguments from the classes' instance method, if it includes one.
 
+Examples:
+> Recreates the rating percent by calling the `floorDecimal()` instance method. From the `CoolUtil` class through the `backend` library package, it uses two arguments. The first argument rounds down the value, while the second argument specifies how many fractions of the number to display.
 ```lua
 function onUpdatePost(elapsed)
      local ratingPercent = getProperty('ratingPercent') * 100
@@ -153,7 +169,7 @@ function onUpdatePost(elapsed)
      debugPrint(rating)
 end
 ```
-
+> Parses the JSON, converting it to a table. It calls the `parse()` instance method from the `TJSON` class using the `tjson` library package.
 ```lua
 local iconGetJSON = [[{
      "icons": {
@@ -163,7 +179,7 @@ local iconGetJSON = [[{
      }
 }]]
 
-local iconJSON    = callMethodFromClass('tjson.TJSON', 'parse', {iconGetJSON})
+local iconJSON = callMethodFromClass('tjson.TJSON', 'parse', {iconGetJSON})
 debugPrint(iconJSON.bf)          --> [image => bf, color => [49, 177, 209]]
 debugPrint(iconJSON.bf.image)    --> bf
 debugPrint(iconJSON.gf.color[1]) --> 165
