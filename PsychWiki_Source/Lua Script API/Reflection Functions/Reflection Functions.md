@@ -86,11 +86,11 @@ setPropertyFromClass('backend.ClientPrefs', 'data.ghostTapping', false)
 setPropertyFromClass('flixel.FlxG', 'fullscreen', true)
 ```
 
-### setPropertyFromGroup(obj:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets a specified instance group variable by its members with a new value. It employs the use of class from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+### setPropertyFromGroup(group:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
+Sets a specified instance group variable by its members with a new value. It uses the classes from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
 - `group` - The instance group variable to set a new value to.
-- `index` - The index position of the instance group variable to use.
+- `index` - The index position member of the instance group variable to use.
 - `variable` - The classes' instance variable from the instance group variable to use.
 - `value` - The specified new value to set to.
 - `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
@@ -143,11 +143,11 @@ if getPropertyFromClass('backend.ClientPrefs', 'data.gameplaySettings').instakil
 end
 ```
 
-### getPropertyFromGroup(obj:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false):Any
-Gets a specified instance group variable by its members current value. It employs the use of class from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+### getPropertyFromGroup(group:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false):Any
+Gets a specified instance group variable by its members current value. It uses the classes from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
-- `group` - The instance group variable to getthe current value.
-- `index` - The index position of the instance group variable to use.
+- `group` - The instance group variable to get the current value.
+- `index` - The index position member of the instance group variable to use.
 - `variable` - The classes' instance variable from the instance group variable to use.
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
@@ -183,9 +183,9 @@ function onSongStart()
      callMethod('openPauseMenu')
 end
 ```
-> Switches the health bar placements for both the player and the opponent. By calling the `set_leftToRight()` instance method from the `healthBar` instance variable, setting the argument to `true`. And calling the `changeIcon()` instance method from both the `iconP1` and `iconP2` instance variable, switching their respective icons to each other in their arguments. Furthermore, it changes the health bar colors from both the player and opponent.
+> Switches the health bar placements from both the player and the opponent. By switching the health bar directions, changing their icons from their respective places, and changing the health bar color to match their respective places.
 
-> If you're wondering why some instance variable can call methods and use variables, like the `healthBar` instance variable. Because it is type-annotated by a class, meaning it has all the instance variable and methods from the class. So the `healthBar` instance variable is type-annotated by the `Bar` class. And both `iconP1` and `iconP2` instance variable are type-annotated by the `HealthIcon` class.
+> The instance variables mentioned here are attached to their corresponding classes. Allowing them to call instance methods from that class. For example, the `healthBar` instance variable holds the `Bar` class from the `objects` library class.
 ```lua
 function onCreatePost()
      callMethod('healthBar.set_leftToRight', {true})
@@ -211,7 +211,7 @@ function onUpdatePost(elapsed)
      debugPrint(rating)
 end
 ```
-> Parses the JSON, converting it to a table. It calls the `parse()` instance method from the `TJSON` class using the `tjson` library package.
+> Parses the JSON, converting it to a table. It calls the `parse()` instance method from the `TJSON` class using the `tjson` library package. Very useful if you want to do JSON stuff.
 ```lua
 local iconGetJSON = [[{
      "icons": {
@@ -231,14 +231,124 @@ debugPrint(iconJSON.gf.color[1]) --> 165
 
 # Group Properties
 ### addToGroup(group:String, tag:String, ?index:Int = -1):Void
+Adds an object to the specified instance group variable. It uses the classes from the `flixel.group` library package, typically from both the `FlxSpriteGroup` and `FlxTypedGroup` classes.
+
+- `group` - The instance group variable to add the object.
+- `tag` - The specified tag of the object to add to the group.
+- `index` - An optional parameter, The index position member of the group for the object to be added; Default value: `-1`.
+
 ### removeFromGroup(group:String, ?index:Int = -1, ?tag:String = null, ?destroy:Bool = true):Void
+Removes an object from the specified instance group variable or itself entirely.
+
+- `group` - The instance group variable to remove the object or itself.
+- `index` - An optional parameter, The index position member of the group of the object to be removed; Default value: `-1`.
+- `tag` - An optional parameter, The specified tag of the object to be remove to the group.
+- `destroy` - An optional parameter, Whether the object from the group will be permanently remove or not; Default value: `true`.
 
 ***
 
-# Property Attributes & Instances
-## Object Attributes
-## Group Instances
-## Note Instances
+# Property Attributes
+
+***
+
+# Property Group Instances
+## User Interface
+- `uiGroup`
+- `comboGroup`
+
+## Characters
+- `boyfriendGroup`
+- `dadGroup`
+- `gfGroup`
+
+## Notes
+- `notes`
+- `unspawnNotes`
+- `eventNotes`
+- `grpNoteSplashes`
+- `playerStrums`
+- `opponentStrums`
+- `strumLineNotes`
+
+
+***
+
+
+```haxe
+public var strumTime:Float = 0;
+public var noteData:Int = 0;
+
+public var mustPress:Bool = false;
+public var canBeHit:Bool = false;
+public var tooLate:Bool = false;
+
+public var wasGoodHit:Bool = false;
+public var missed:Bool = false;
+
+public var ignoreNote:Bool = false;
+public var hitByOpponent:Bool = false;
+public var noteWasHit:Bool = false;
+public var prevNote:Note;
+public var nextNote:Note;
+
+public var spawned:Bool = false;
+
+public var blockHit:Bool = false; // only works for player
+
+public var sustainLength:Float = 0;
+public var isSustainNote:Bool = false;
+public var noteType(default, set):String = null;
+
+public var eventName:String = '';
+public var eventLength:Int = 0;
+public var eventVal1:String = '';
+public var eventVal2:String = '';
+
+public var animSuffix:String = '';
+public var gfNote:Bool = false;
+public var earlyHitMult:Float = 1;
+public var lateHitMult:Float = 1;
+
+public var noteSplashData:NoteSplashData = {
+	disabled: false,
+	texture: null,
+	antialiasing: !PlayState.isPixelStage,
+	useGlobalShader: false,
+	useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
+	a: ClientPrefs.data.splashAlpha
+};
+
+public var offsetX:Float = 0;
+public var offsetY:Float = 0;
+public var offsetAngle:Float = 0;
+public var multAlpha:Float = 1;
+public var multSpeed(default, set):Float = 1;
+
+public var copyX:Bool = true;
+public var copyY:Bool = true;
+public var copyAngle:Bool = true;
+public var copyAlpha:Bool = true;
+
+public var hitHealth:Float = 0.02;
+public var missHealth:Float = 0.1;
+public var rating:String = 'unknown';
+public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
+public var ratingDisabled:Bool = false;
+
+public var texture(default, set):String = null;
+
+public var noAnimation:Bool = false;
+public var noMissAnimation:Bool = false;
+public var hitCausesMiss:Bool = false;
+public var distance:Float = 2000;
+
+public var hitsoundDisabled:Bool = false;
+public var hitsoundChartEditor:Bool = true;
+
+public var hitsoundForce:Bool = false;
+public var hitsoundVolume(get, default):Float = 1.0;
+```
+
 ### Hits
 ### Offsets
 ### Ratings
