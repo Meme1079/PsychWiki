@@ -1,13 +1,17 @@
+> [!NOTE]
+> _When importing said class from the `className` parameter. The said classes that can be imported can be either from Psych Engine's `source` folder or from HaxeFlixel itself. Both each containing their own classes, accompanying its corresponding library package (i.e. the path to the class), for instance: `backend.ClientPrefs`, `objects.CheckboxThingie`, `psychlua.LuaUtils`, etc.</br></br>_
+> _In Psych Engine version <kbd>0.6.3</kbd> and below, the need of including library package when importing classes isn't necessary to add. Becuase all of Psych Engine's classes doesn't contain a folder to each classes._
+
 # Property Instances
 ### createInstance(objectName:String, className:String, ?args:Array\<Dynamic\> = null):Any
-Creates an instance (object) from the specified class, the arguments are derived from the constructor method of the class.
+Creates a class instance (object) from the utilize class. Each argument from this function is derived from the classes' constructor method, if the argument(s) exists.
 
-- `objectName` - The tag for the instance class to inherit.
-- `className` - The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc.
-- `args` - An optional parameter, the arguments from the classes' constructor method, if it includes one.
+- `objectName` - The name of the class instance to inherit from the specified class.
+- `className` - The specified class to be utilize with.
+- `args` - An optional parameter, the argument(s) to be passed on, if the argument(s) exists.
 
 Example:
-> Creates an instance of the `Character` class derived from the `objects` library package, by creating a character of girlfriend. The second example below is the Haxe equivalent of the Lua example above as a reference.
+> Creates an extra character using girlfriend, by utilizing the `Character` class derived from the `objects` library package. At the bottom is the Haxe equivalent of the Lua example above as a reference.
 ```lua
 createInstance('epicGF', 'objects.Character', {0, 0, 'gf', false})
 ```
@@ -16,27 +20,33 @@ var epicGF:Character = new Character(0, 0, 'gf', false);
 ```
 
 ### addInstance(objectName:String, ?inFront:Bool = false):Void
-Adds the instance (object) from the specified class to the game.
+Adds the class instance (object) from the utilize class to the game.
 
-- `objectName` - The tag of the instance class to add.
-- `inFront` - An optional parameter, Whether it will be in front of every object in the game; Default value: `false`.
+- `objectName` - The name of the class instance to add to the game.
+- `inFront` - An optional parameter, whether the class instance will be in-front of all objects or not; Default value: `false`.
 
 Example:
+> Adds the extra character using girlfriend in the game.
 ```lua
+createInstance('epicGF', 'objects.Character', {0, 0, 'gf', false})
 addInstance('epicGF', true)
 ```
 
 ### instanceArg(instanceName:String, ?className:String = null):String
-Gets an instance from a specified class. It encrypts the instance, so that the code will know it's not a string.
+Utilizes a class instance (object) from the derived class. It encrypts the class instance to prevent the code from thinking it's a string data type, preventing errors and stuff.
 
-- `instanceName` - The tag from the instance class to get.
-- `className` - An optional parameter, The specified class to be utilize with; Examples: `Character`, `Alphabet`, `HealthIcon`, etc. If left blank it will utilize the `Playstates` class.
+> [!IMPORTANT]
+> _When using this function on property setter functions, i.e. `setProperty()` function. The `allowInstances` parameter must be set to `true` to allow the usage of the class instance._
+
+- `instanceName` - The specified class instance name to utilize.
+- `className` - An optional parameter, The specified class to utilize the class instance on. If the argument is left blank, it will default to the `Playstate` class.
 
 Examples:
-> Gets both the `iconP1` and `iconP2` instance variables and removes it from the game.
+> Uses the class instance `epicGF` to set it its visibility to `false`.
 ```lua
-callMethod('remove', {instanceArg('iconP1')})
-callMethod('remove', {instanceArg('iconP2')})
+createInstance('epicGF', 'objects.Character', {0, 0, 'gf', false})
+setProperty(instanceArg('epicGF.visible'), false, true)
+addInstance('epicGF', true)
 ```
 > Removes entirely the notes from the game, but you still die lmao.
 ```lua
@@ -48,14 +58,14 @@ end
 ***
 
 # Property Functions
-## Property Setters
+## Setters
 ### setProperty(variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets a specified Playstates' instance variable or the object itself or its properties with a new value. The objects may refer to sprites, texts, or inserted storage variables. This is commonly used for changing the Playstates' instance variables, as well as changing the sprite or text object properties.
+Sets the specified Playstate's instance variable, the object itself, or the object's properties with a new value. The object refers to any sprite, text, and inserted storage variables.
 
-- `variable` - The Playstates' instance variable or the object to set a new value to.
-- `value` - The specified new value to set to.
+- `variable` - The Playstate's instance variable, object, or object properties to set a new value to.
+- `value` - The new value to set to.
 - `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
-- `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
+- `allowInstances` - An optional parameter, allows the ability to utilize a class instance; Default value: `false`.
 
 Examples:
 > Sets the instance variable health value to $2$, making you having full health.
@@ -67,14 +77,14 @@ setProperty('health', 2)
 setProperty('gf.visible', false)
 ```
 
-### setPropertyFromClass(classVar:String, variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets a specified classes' instance variable with a new value, the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
+### setPropertyFromClass(className:String, variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
+Sets the specified instance variable from the given class with a new value.
 
-- `classVar` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
-- `variable` - The classes instance variable to set a new value to.
-- `value` - The specified new value to set to.
+- `className` - The specified class to utilize the instance variable.
+- `variable` - The classes' instance variable to set a new value to.
+- `value` - The new value to set to.
 - `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
-- `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
+- `allowInstances` - An optional parameter, allows the ability to utilize a class instance; Default value: `false`.
 
 Examples:
 > Uses the `ClientPrefs` class from the `backend` library package (folder), to disable ghost tapping during gameplay.
@@ -87,17 +97,17 @@ setPropertyFromClass('flixel.FlxG', 'fullscreen', true)
 ```
 
 ### setPropertyFromGroup(group:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets a specified instance group variable by its members with a new value. It uses the classes from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+Sets the specified group instance variable by each of its members with a new value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
-- `group` - The instance group variable to set a new value to.
-- `index` - The index position member of the instance group variable to use.
-- `variable` - The classes' instance variable from the instance group variable to use.
-- `value` - The specified new value to set to.
+- `group` - The group instance variable to set its members a new value to.
+- `index` - The specified index position of the member to set a new value to.
+- `variable` - The classes' instance variable to set a new value to.
+- `value` - The new value to set to.
 - `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
 - `allowInstances` - An optional parameter, allows the ability to use the classes' instance variable; Default value: `false`.
 
 Example:
-> Iterates a `for` loop at the `unspawnNotes` instance group variable, so each unspawned note will have a low health ($0.1$) when hitting and missing notes.
+> Iterates a `for` loop at the `unspawnNotes` instance group variable, so each unspawned note will have a low health (`0.1`) when hitting and missing notes.
 ```lua
 function onCreatePost()
      for members = 0, getProperty('unspawnNotes.length') - 1 do
@@ -107,11 +117,11 @@ function onCreatePost()
 end
 ```
 
-## Property Getters
+## Getters
 ### getProperty(variable:String, ?allowMaps:Bool = false):Any
-Gets a specified Playstates' instance variable or the object itself or its properties current value. The objects may refer to sprites, texts, or inserted storage variables. This is commonly used for getting its current the Playstates' instance variable values, as well as getting the sprite or the text object property values.
+Gets the specified Playstate's instance variable, the object itself, or the object's properties current value. The object refers to any sprite, text, and inserted storage variables.
 
-- `variable` - The Playstates' instance variable or the object to get the current value.
+- `variable` - The Playstate's instance variable, object, or object properties to get the current value from.
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
 
 Examples:
@@ -129,11 +139,11 @@ end
 ```
 
 ### getPropertyFromClass(classVar:String, variable:String, ?allowMaps:Bool = false):Any
-Gets a specified classes' instance variable current value, the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
+Gets the specified instance variable from the given class current value.
 
-- `classVar` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
-- `variable` - The classes instance variable to get the current value.
-- `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
+- `className` - The specified class to utilize the instance variable.
+- `variable` - The classes' instance variable to get the current value from.
+- `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
 
 Example:
 > Uses the `ClientPrefs` class from the `backend` library package (folder), to check if the gameplay setting enables instakill when missing a note. Thus causing this stupid message.
@@ -144,12 +154,12 @@ end
 ```
 
 ### getPropertyFromGroup(group:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false):Any
-Gets a specified instance group variable by its members current value. It uses the classes from the `flixel.group` library package, it includes: `FlxGroup`, `FlxSpriteGroup`, and especially the `FlxTypeGroup` classes. It can also include special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+Gets the specified group instance variable by each of its members current value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
-- `group` - The instance group variable to get the current value.
-- `index` - The index position member of the instance group variable to use.
-- `variable` - The classes' instance variable from the instance group variable to use.
-- `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.
+- `group` - The group instance variable to set its members to get the current value from.
+- `index` - The specified index position of the member to get the current value from.
+- `variable` - The classes' instance variable to get the current value from.
+- `allowMaps` - An optional parameter, allows the ability to set the maps key-value pair elements; Default value: `false`.
 
 Example:
 > Iterates a `for` loop at the `unspawnNotes` instance group variable (again), to change both the player and opponent note skins. By checking if the instance variable `mustPress` is `true` or not.
@@ -169,12 +179,12 @@ function onCreatePost()
 end
 ```
 
-## Property Calling Methods
+## Calling Methods
 ### callMethod(method:String, ?args:Array\<Dynamic\> = null):Any
-Calls the specified Playstates' instance method (function).
+Calls an instance method from the Playstate class.
 
-- `method` - The Playstates' instance method to call from.
-- `args` - An optional parameter, the arguments from the Playstates' instance method, if it includes one.
+- `method` - The Playstate's instance method to call from.
+- `args` - An optional parameter, The arguments from the Playstate's instance method, if the argument(s) exists.
 
 Examples:
 > Calls the Playstates instance method `openPauseMenu()`, when the song starts after the countdown.
@@ -196,11 +206,11 @@ end
 ```
 
 ### callMethodFromClass(className:String, method:String, ?args:Array\<Dynamic\> = null):Any
-Calls the specified classes' instance method (function), the classes could either be from Psych Engine itself or from HaxeFlixel. When importing classes it must include its library package (i.e. the path to the class), for example: `backend.ClientPrefs`.
+Calls an instance method from the given class.
 
-- `className` - The specified class to be utilize with; Examples: `ClientPrefs`, `LuaUtils`, `FlxG`, etc.
-- `method` - The classes' instance method to call from.
-- `args` - An optional parameter, the arguments from the classes' instance method, if it includes one.
+- `className` - The specified class to utilize the instance method.
+- `method` - The Playstate's instance method to call from.
+- `args` - An optional parameter, The arguments from the Playstate's instance method, if the argument(s) exists.
 
 Examples:
 > Recreates the rating percent by calling the `floorDecimal()` instance method. From the `CoolUtil` class through the `backend` library package, it uses two arguments. The first argument rounds down the value, while the second argument specifies how many fractions of the number to display.
@@ -230,127 +240,55 @@ debugPrint(iconJSON.gf.color[1]) --> 165
 ***
 
 # Group Properties
-### addToGroup(group:String, tag:String, ?index:Int = -1):Void
-Adds an object to the specified instance group variable. It uses the classes from the `flixel.group` library package, typically from both the `FlxSpriteGroup` and `FlxTypedGroup` classes.
+> [!NOTE]
+> _If each `index` paremeter from these functions are left blank (no value). It will default to adding the inserted object to the current index position order of the group._
 
-- `group` - The instance group variable to add the object.
-- `tag` - The specified tag of the object to add to the group.
-- `index` - An optional parameter, The index position member of the group for the object to be added; Default value: `-1`.
+### addToGroup(group:String, tag:String, ?index:Int = -1):Void
+Adds a new object to the specified group instance variable.
+
+- `group` - The group instance variable to add a new object.
+- `tag` - The object's tag to add to the group instance variable.
+- `index` - An optional parameter, the specified index position order for the added to object; Default value: `-1`.
 
 ### removeFromGroup(group:String, ?index:Int = -1, ?tag:String = null, ?destroy:Bool = true):Void
-Removes an object from the specified instance group variable or itself entirely.
+Removes the current object to the specified group instance variable.
 
-- `group` - The instance group variable to remove the object or itself.
-- `index` - An optional parameter, The index position member of the group of the object to be removed; Default value: `-1`.
-- `tag` - An optional parameter, The specified tag of the object to be remove to the group.
-- `destroy` - An optional parameter, Whether the object from the group will be permanently remove or not; Default value: `true`.
-
-***
-
-# Property Attributes
+- `group` - The group instance variable to remove the current object.
+- `index` - An optional parameter, the specified index position order for the added to object; Default value: `-1`.
+- `tag` - An optional parameter, the object's tag to remove from the group instance variable.
+- `destroy` - An optional parameter, whether the object from the group instance variable will be destroyed permanently or not; Default value: `true`.
 
 ***
 
-# Property Group Instances
-## User Interface
-- `uiGroup`
-- `comboGroup`
+# Property Object Attributes
+Here listed are the most common property attributes for objects to utilize in property functions like `setProperty()` function. This list doesn't contain the full list of attributes, if you want to the full list. Just go to the [FlxObject](https://api.haxeflixel.com/flixel/FlxObject.html) for object attributes, [FlxGraphic](https://api.haxeflixel.com/flixel/graphics/FlxGraphic.html) for graphic attributes, and [FlxBasic](https://api.haxeflixel.com/flixel/IFlxBasic.html) for any basic attributes.
 
-## Characters
-- `boyfriendGroup`
-- `dadGroup`
-- `gfGroup`
-
-## Notes
-- `notes`
-- `unspawnNotes`
-- `eventNotes`
-- `grpNoteSplashes`
-- `playerStrums`
-- `opponentStrums`
-- `strumLineNotes`
-
+| Attributes 	| Description 	| Type 	| Settable 	|
+|---	|---	|---	|---	|
+| `x` 	| The x position value of an object. 	| `Float` 	| _Yes_ 	|
+| `y` 	| The y position value of an object. 	| `Float` 	| _Yes_ 	|
+| `width` 	| The width value of an object. 	| `Float` 	| _Yes_ 	|
+| `height` 	| The height value of an object. 	| `Float` 	| _Yes_ 	|
+| `angle` 	| The angle position value of an object. 	| `Float` 	| _Yes_ 	|
+| `alpha` 	| The alpha (opacity) value of an object. 	| `Float` 	| _Yes_ 	|
+| `color` 	| The hexadecimal color value of an object. 	| `Int` 	| _Yes_ 	|
+| `camera` 	| The game camera of an object to display at. 	| `String` 	| _Yes_ 	|
+| `visible` 	| The visibility of an object to display. 	| `Boolean` 	| _Yes_ 	|
+| `antialiasing` 	| The anti-aliasing of an object to display. 	| `Boolean` 	| _Yes_ 	|
+| `flipX` 	| Whether the object is flipped by the x-axis. 	| `Boolean` 	| _Yes_ 	|
+| `flipY` 	| Whether the object is flipped by the y-axis. 	| `Boolean` 	| _Yes_ 	|
+| `scale.x` 	| The graphic size by pixels in x value of the object. 	| `Float` 	| _Yes_ 	|
+| `scale.y` 	| The graphic size by pixels in y value of the object. 	| `Float` 	| _Yes_ 	|
+| `offset.x` 	| The offsets in x value of the object. 	| `Float` 	| _Yes_ 	|
+| `offset.y` 	| The offsets in y value of the object. 	| `Float` 	| _Yes_ 	|
+| `velocity.x` 	| The speed in pixels per second in x value of the object. 	| `Float` 	| _Yes_ 	|
+| `velocity.y` 	| The speed in pixels per second in y value of the object. 	| `Float` 	| _Yes_ 	|
+| `scrollFactor.x` 	| The camera strolling in the x-axis affecting the object. 	| `Float` 	| _Yes_ 	|
+| `scrollFactor.y` 	| The camera strolling in the y-axis affecting the object. 	| `Float` 	| _Yes_ 	|
+| `graphics.key` 	| The image inherit from the object. 	| `String` 	| _No_ 	|
+| `graphics.useCount` 	| The amount of usage of the same multiple image from other objects. 	| `Int` 	| _No_ 	|
 
 ***
 
-
-```haxe
-public var strumTime:Float = 0;
-public var noteData:Int = 0;
-
-public var mustPress:Bool = false;
-public var canBeHit:Bool = false;
-public var tooLate:Bool = false;
-
-public var wasGoodHit:Bool = false;
-public var missed:Bool = false;
-
-public var ignoreNote:Bool = false;
-public var hitByOpponent:Bool = false;
-public var noteWasHit:Bool = false;
-public var prevNote:Note;
-public var nextNote:Note;
-
-public var spawned:Bool = false;
-
-public var blockHit:Bool = false; // only works for player
-
-public var sustainLength:Float = 0;
-public var isSustainNote:Bool = false;
-public var noteType(default, set):String = null;
-
-public var eventName:String = '';
-public var eventLength:Int = 0;
-public var eventVal1:String = '';
-public var eventVal2:String = '';
-
-public var animSuffix:String = '';
-public var gfNote:Bool = false;
-public var earlyHitMult:Float = 1;
-public var lateHitMult:Float = 1;
-
-public var noteSplashData:NoteSplashData = {
-	disabled: false,
-	texture: null,
-	antialiasing: !PlayState.isPixelStage,
-	useGlobalShader: false,
-	useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
-	a: ClientPrefs.data.splashAlpha
-};
-
-public var offsetX:Float = 0;
-public var offsetY:Float = 0;
-public var offsetAngle:Float = 0;
-public var multAlpha:Float = 1;
-public var multSpeed(default, set):Float = 1;
-
-public var copyX:Bool = true;
-public var copyY:Bool = true;
-public var copyAngle:Bool = true;
-public var copyAlpha:Bool = true;
-
-public var hitHealth:Float = 0.02;
-public var missHealth:Float = 0.1;
-public var rating:String = 'unknown';
-public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
-public var ratingDisabled:Bool = false;
-
-public var texture(default, set):String = null;
-
-public var noAnimation:Bool = false;
-public var noMissAnimation:Bool = false;
-public var hitCausesMiss:Bool = false;
-public var distance:Float = 2000;
-
-public var hitsoundDisabled:Bool = false;
-public var hitsoundChartEditor:Bool = true;
-
-public var hitsoundForce:Bool = false;
-public var hitsoundVolume(get, default):Float = 1.0;
-```
-
-### Hits
-### Offsets
-### Ratings
-### Events
-### Splash Data
+# See Also
+- [Group Variables]()

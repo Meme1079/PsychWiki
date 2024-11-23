@@ -1,7 +1,9 @@
 # About
 Before getting into it, a bit of context about this. An event is an action or occurrence that signify either a user events, such as pressing buttons or pausing, or a system events, such as spawning notes or the camera moving. When a specific event occurs the corresponding callback will be executed from that event.
 
-Callbacks are special event handler functions that are dealt for specific events design for it. It uses a regular function syntax for its callbacks. Instead of being designed to be stored as data and be execute by another function, from an event listener function. This is were you'll put the designated code for a specific event. Some functions and variables are only have their functionality exclusive to callbacks. For instance updated values for variables and some functions like the `getProperty()` function.
+Event callbacks are special event handler functions that are used to dealt for specific events design for it. It uses a regular function for utilizing the event callbacks, with the corresponding name attached to the event. For instance: `onUpdate()` event callback, it calls on every update of each frame. The body of the event callback is were you'll put the designated code for specific event(s).
+
+Some functions and variables only have their functionality working exclusively to the event callback. If called outside or in different event callbacks, it will only have nothing, updated, or a constant values. A great example of this is the `curBeat` variable, it will change on every beat of the section. When called from outside, it will remain constant, whereas when called from separate event callbacks, it will either remain constant or updated.
 
 > [!NOTE]
 > _Some event callbacks have different parameters included in HScript compared to Lua. Some parameters are just added to only HScript and some pre-existing parameters have been removed entirely. If you want to check the list, just [click here](https://github.com/Meme1079/PsychWiki/wiki/Sub-Articles;-Event-Callbacks:-Unique-Haxe-Parameters)._

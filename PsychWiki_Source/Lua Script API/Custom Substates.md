@@ -1,5 +1,5 @@
 # About
-States are divided segments of code that can be utilized in several section of the game. It can only be loaded and active at a time, meaning meaning only one `1` state must be loaded and active. These are typically used for menus like a title menu, different "screens" of the game, and can be used for much more.
+States are divided segments of code that can be utilized in several section of the game. It can only be loaded and active at a time, meaning meaning only one $1$ state must be loaded and active. These are typically used for menus like a title menu, different "screens" of the game, and can be used for much more.
 
 Substate is a special state that can be activated within a state or another substate. When opened, the substate will be shown top-most of all other states or other substates, with it being only active. The parent state will stop updating unless the instance variable `persistentUpdate` is set to `true`. There're commonly used for custom pause screens or other pop-up type screens.
 
@@ -42,7 +42,10 @@ end
 ### Closing
 Substates are closed (deactivated) by using the `closeCustomSubstate()` function, this will deactive the currently active substate. Once closed the parent state is reactivated into updating the game. Any sprite and text objects present in the substate are removed, not deleted and are readded back if the substate was open again.
 
-In this example, we closed the substate by pressing the enter key <kbd>↵</kbd>. Within the `onCustomSubstateUpdate()` event callback, which exactly works the same as `onUpdate()` event callback. Don't forget adding this to your substate because you'll be softlock in the game. 
+In this example, we closed the substate by pressing the enter key <kbd>↵</kbd>. Within the `onCustomSubstateUpdate()` event callback, which exactly works the same as `onUpdate()` event callback.
+
+> [!CAUTION]
+> _Closing a substate is mandatory (important) when creating a substate. Becuase once you open a substate, it will instantly softlock the game. Forcing you to quit the game and opening it again._
 
 ```lua
 function onCustomSubstateUpdate(name, elapsed)

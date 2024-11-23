@@ -1,59 +1,60 @@
 # About
-Languages are a system of communication that consists of speech, manual (signed), or written symbols. In version `1.0` pre-release of Psych Engine, it added the support for languages to make more accessible to people who don't natively speak English. It uses a language localization file or a `lang` file to translate words and phrases to different languages. Like the text's content or the sprite's image, without doing it hard-coded.
+Psych Engine has implemented the support for multi-languages, to make it more accessible to people who don't natively speak English. It uses a language localization file (`lang`, for file extension) to translate words and phrases to different languages. Such as the text's content and the sprite's image path, without doing it hardcoded manually.
 
-## Setting up
-Firstly make a `lang` file that is relative to: `assets/shared/data` or `mods/data` folders. You can name this file anything you want but I'd recommend using the language code format. For organization and easily use a pre-existing `lang` file. As an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish. You can see the list of language code for each [countries](http://www.lingoes.net/en/translator/langcode.htm).
+***
 
-Path (Reference):
-```txt
-mods
-└─my_mods
-  └─data
-    ├─en-US.lang
-    ├─en-CA.lang
-    └─es.lang
+# Configuration
+## Setting Up
+Language localization files are stored within the `data` folder. Whether in the `assets` folder of the game, locally in a custom mods folder, or globally in the `mods` folder. Either way it's still recommended to store it locally in a custom mods for organization, obviously.
+
+Naming a language localization file must be recommened, using the [language code format](http://www.lingoes.net/en/translator/langcode.htm). This is for organizations, recognizability, and easily overriding in multiple named language localization files. For an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish.
+
+## Contents
+### Title
+In every first line in a language localization file should have the given title of the language. And specified the country if it has different pronunciation, spelling, vocabulary, and grammar. For instances: `English (US)` and `English (UK)`. 
+
+The title is required becuase Psych Engine will get the title of each language localization file. And displays the title on the language options menu to be selected. If the same or more titles in each language localization file exists. Both or more will merge their contents and overrides any translatable key-value pairs that exist in the content.
+
+Examples:
+```lang
+LOLCAT (US)
+```
+```lang
+Engrish (UK)
 ```
 
-## Translating
-The contents within a `lang` file should include the given title of the language. And a list of translatable keys for translating specific words or phrases.
+> [!NOTE]
+> _The overriding of language localization file(s) depends on the mod's priority list from the mods menu._
 
-### Title
-The first line of the `lang` file is the title of the given language. Which is the name of the language with the specified country to associate with. If the language is used by that country, for instance: `English (US)` and `English (UK)`. 
+### Translatable Key-Value Pairs
+Trnaslatable key-value pairs are special pairs that translate word or phrases in a given language. Psych Engine includes a [pre-existing saved list](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/assets/translations/shared/data/pt-BR.lang) of translatable key-value pairs for translating the ratings, achievements, menus, etc. 
 
-This is important because the title will be displayed on the Language options to be selected. If the titles from different `lang` files are the same, assuming no typos. Both will merged their contents and overrides any translatable keys, if both exist in the content and depending on the mods priority.
+Each key is always followed by a colon character <kbd>:</kbd>; the naming convention does not allow spaces. The values that are associated to the corresponding key must be enclosed with double-quoted characters <kbd>""</kbd>. Additionally values can be forcefully inserted, for any currently updating values. It utilizes numerical indexes surrounded with curly-braces characters <kbd>{}</kbd>, which always start at $1$.
 
 Example:
 ```lang
 LOLCAT (US)
+
+// Difficulties
+difficulty_easy: "EZ"
+difficulty_normal: "NORMEL"
+difficulty_hard: "HARD"
+
+// Gameplay
+score_text: "SKOR: {1} | MISEZ: {2} | AKURACY: {3}"
+score_text_instakill: "SKOR: {1} | AKURACY: {2}"
+botplay: "CHEATIN' MODE"
 ```
-
-### Translatable Keys
-Translatable keys are special keys for that translate word or phrases in a given language. Very useful for translating the text's content and the sprite's image path. The syntax for this includes the key, obviously; the name of it can have any characters you want to have; Example: `options:` `stupid_text:`, `images/warning:`, etc. 
-
-With the key's content given word or phrase attached to inherit. The contents of it must be always inclosed with double-bracket characters <kbd>""</kbd>; Example: `"Cuadrado"`, `"ボール"`, `"Bobo"`, etc. You can also insert any values to the key's content, for any updating values. It uses a translatable key index to insert any values, the index must be inclosed with curly-braces <kbd>{}</kbd>; Its starting value is always starts at `1`. For example: `Pontos: {1} | Erros: {2} | Avaliação: {3}`.
-
-Examples:
-```lang
-LOLCAT (US)
-
-// Custom Stuff
-timer_text: "TIM LEFT"
-timer_format_text: "MINIT: {1} - SECUND: {2} - MILLISECONDZ: {3}"
-```
-
-> [!IMPORTANT]
-> There are pre-existing translatable keys that Psych Engine hard-coded to modify existing text content and sprite image paths. Such as the Main menu buttons, HUD, Ratings, Achievements, and so on, I won't be listing every translatable keys that are presen. But there is a `lang` file template you can download, just click [here](https://cdn.discordapp.com/attachments/929801502829215745/1265069886632099972/en-US.lang?ex=66c272a4&is=66c12124&hm=fa2e9507bcc0bbb721fa0cf71aebe0cf93ff5b87200a852731795b479ba4f036&).
-
 
 ***
 
 # Language Translation Functions
-### getFileTranslation(key:String)
+### getFileTranslation(key:String):String
 Gets a translatable key's phrase from a language localization file, `lang` file. If the translatable key is isn't present inside the file, it returns the `key` argument given to the function.
 
 - `key` - The translatable key to get from the given language localization file.
 
-Examples:
+Example:
 ```lang
 LOLCAT (US)
 
@@ -68,14 +69,14 @@ function onCreate()
 end
 ```
 
-### getTranslationPhrase(key:String, ?defaultPhrase:String, ?values:Array<Dynamic> = null)
+### getTranslationPhrase(key:String, ?defaultPhrase:String, ?values:Array<Dynamic> = null):String
 Gets a translatable key's phrase from a language localization file, `lang` file. It includes a default phrase, if there is non-existing translatable key. Along with a translatable key index for inserting content for updating values.
 
 - `key` - The translatable key to get from the given language localization file.
 - `defaultPhrase` - An optional parameter, The default phrase to inherit if there is non-existing translatable key.
 - `values` - An optional parameter, The values to insert in each translatable key index; follows a numerical order.
 
-Examples:
+Example:
 ```lang
 LOLCAT (US)
 
