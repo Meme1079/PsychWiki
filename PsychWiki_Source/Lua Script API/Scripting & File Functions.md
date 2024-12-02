@@ -1,328 +1,526 @@
 # Scripting Functions
-### addLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a Lua script into the game.
+## Adding
+### addLuaScript(addScript:String, ?ignoreAlreadyRunning:Bool = false):Void
+Adds a lua script into the game.
 
-- `luaFile` - The location of the Lua script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter, Whether the function should be allowed to add an already running Lua script or not; Default value: `false`.
+- `addScript` - The specified lua script to add in the game.
+- `ignoreAlreadyRunning` - An optional parameter, whether it will ignore an already running lua script when adding it in the game or not; Default value: `false`.
 
-### removeLuaScript(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
-Removes a Lua script from the game.
-
-- `luaFile` - The location of the Lua script to remove; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter, Whether the function should be allowed to remove an already running Lua script or not; Default value: `false`.
-
-### addHScript(haxeFile:String, ?ignoreAlreadyRunning:Bool = false)
-Adds a Haxe script into the game.
-
-- `haxeFile` - The location of the Haxe script to add; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter, Whether the function should be allowed to add an already running Haxe script or not; Default value: `false`.
-
-### removeHScript(haxeFile:String, ?ignoreAlreadyRunning:Bool = false)
-Removes a Haxe script from the game.
-
-- `haxeFile` - The location of the Haxe script to remove; Starts inside the mod folder directory.
-- `ignoreAlreadyRunning` - An optional parameter, Whether the function should be allowed to remove an already running Haxe script or not; Default value: `false`.
-
-### setGlobalFromScript(luaFile:String, global:String, val:Dynamic)
-Sets the current global variable with a new value. This will only work if the <ins>Lua script that is in, is currently executed; Same works with `getGlobalFromScript()` function.
-
-- `luaFile` - The location for the Lua script to get the given variable.
-- `global` - The global variable given name to set.
-- `val` - The specified value to set in.
-
-### getGlobalFromScript(luaFile:String, global:String)
-Gets the current global variable current value from another Lua script.
-
-- `luaFile` - The location for the Lua script to get the given variable.
-- `global` - The global variable given name to get.
-
-### isRunning(luaFile:String)
-Checks if the specific Lua script is currently running, returning `true` if it's running.
-
-- `luaFile` - The location for the Lua script to check.
-
-### getRunningScripts()
-Returns a table of every currently <ins>running script</ins>.
-
-***
-
-# Set & Call On Functions
-### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a <ins>Lua variable</ins> into global and inserts it to any currently executing Lua script(s).
-
-- `varName` - The variable's name to be given.
-- `arg` - The variable's value to be given.
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Defualt value: `false`.
-- `exclusions` - An optional parameter, The exclusions of Lua scripts, for the function to not insert in.
-
-Example:
-
+Examples:
+> Adds a Lua script in the current mod folder directory.
 ```lua
 function onCreatePost()
-     setOnLuas('stupidVar1', 'string')
-     setOnLuas('stupidVar2', 23, true)
-
-     debugPrint(stupidVar2) --> nil
+     addLuaScript(modFolder..'/scripts/sigma/fart.lua')
+end
+```
+> Adds a Lua script from the global `scripts` folder while ignoring that it's already running.
+```lua
+function onCreatePost()
+     addLuaScript('scripts/new_shart.lua', true)
 end
 ```
 
+### addHScript(addScript:String, ?ignoreAlreadyRunning:Bool = false):Void
+Adds a haxe script into the game.
+
+- `addScript` - The specified haxe script to add in the game.
+- `ignoreAlreadyRunning` - An optional parameter, whether it will ignore an already running haxe script when adding it in the game or not; Default value: `false`.
+
+Examples:
+> Adds a Haxe script in the current mod folder directory.
 ```lua
 function onCreatePost()
-     debugPrint(stupidVar1) --> 'string'
-     debugPrint(stupidVar2) --> 23
+     addHaxeScript(modFolder..'/scripts/sigma/fart.hx')
+end
+```
+> Adds a Haxe script from the global `scripts` folder while ignoring that it's already running.
+```lua
+function onCreatePost()
+     addHaxeScript('scripts/new_shart.hx', true)
 end
 ```
 
-### setOnHScript(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a <ins>Haxe variable</ins> into global and inserts it to any currently executing Haxe script(s).
+## Removing
+> [!CAUTION]
+> _Do not remove a script from itself that is current running at the moment. If you actually did this it will immediately softlocks the game completely. I'd recommend to try removing a script from another script to prevent this from happening._
 
-- `varName` - The variable's name to be given.
-- `arg` - The variable's value to be given.
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Default value: `false`.
-- `exclusions` - An optional parameter, The exclusions of Haxe scripts, for the function to not insert in.
+### removeLuaScript(removeScript:String):Bool
+Removes a lua script from the game. It also returns `true`, if removed completely.
 
-### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null)
-Sets a <ins>Lua/Haxe variable</ins> into global and inserts it to any currently executing Lua/Haxe script(s).
+- `removeScript` - The specified lua script to remove from the game completely.
 
-- `varName` - The variable's name to be given.
-- `arg` - The variable's value to be given.
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Default value: `false`.
-- `exclusions` - An optional parameter, The exclusions of Lua/Haxe scripts, for the function to not insert in.
-
-### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a <ins>Lua function</ins> from another currently executing Lua script.
-
-- `funcName` - The function's name to be called.
-- `args` - An optional parameter, The arguments of the function to be passed on; Default value: `nil`.
-- `ignoreStops` - An optional parameter, Whether it should ignore returns from `Function_StopLua` or `Function_StopAll`; Default value: `false`. _(If this is false and the script returned one of those 2 values, it will stop calling the function on the rest of the scripts)_
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Default value: `true`.
-- `excludeScripts` - An optional parameter, The exclusions of Lua scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter, The exclusions of the arguments, for the function to not passed on.
-
-Example:
+Examples:
+> Removes a Lua script from the current mod folder directory.
 ```lua
-function round(num, dp) -- i stole this
-     local mult = 10^(dp or 0);
-     return math.floor(num * mult + 0.5)/mult;
-end
-
 function onCreatePost()
-     callOnLuas('round', {23.532, 2}, false) --> 23.53
+     removeLuaScript(modFolder..'/scripts/fart.lua')
 end
 ```
+> Removes a Lua script from the global `scripts` folder.
 ```lua
 function onCreatePost()
-     callOnLuas('round', {632.1224, 2}) --> 632.12
-     callOnLuas('round', {381.1213, 3}) --> 381.121
+     removeLuaScript('scripts/new_shart.lua')
 end
 ```
 
-### callOnHScript(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops=false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a <ins>Haxe function</ins> from another currently executing Haxe script.
+### removeHScript(removeScript:String):Bool
+Removes a haxe script from the game. It also returns `true`, if removed completely.
 
-- `funcName` - The function's name to be called.
-- `args` - An optional parameter, The arguments of the function to be passed on; Default value: `nil`.
-- `ignoreStops` - An optional parameter, Whether it will ignore returns from `Function_StopHScript` or `Function_StopAll`; Default value: `false`. _(If this is false and the script returned one of those 2 values, it will stop calling the function on the rest of the scripts)_
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; You also need to put the returns in `excludeValues`; Default value: `true`.
-- `excludeScripts` - An optional parameter, The exclusions of Haxe scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter, The exclusions of the arguments, for the function to not passed on.
+- `removeScript` - The specified haxe script to remove from the game completely.
 
-### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null)
-Calls a <ins>Lua/Haxe function</ins> from another currently executing Lua/Haxe script.
+Examples:
+> Removes a Haxe script from the current mod folder directory.
+```lua
+function onCreatePost()
+     removeHScript(modFolder..'/scripts/fart.hx')
+end
+```
+> Removes a Haxe script from the global `scripts` folder.
+```lua
+function onCreatePost()
+     removeHScript('scripts/new_shart.hx')
+end
+```
 
-- `funcName` - The function's name to be called.
-- `args` - An optional parameter, The arguments of the function to be passed on; Default value: `nil`.
-- `ignoreStops` - An optional parameter, Whether it will ignore returns from `Function_StopLua` or `Function_StopHScript` or `Function_StopAll`; Default value: `false`. _(If this is false and the script returned one of those 2 values, it will stop calling the function on the rest of the scripts)_
-- `ignoreSelf` - An optional parameter, This will ignore itself within the script that it's in; Default value: `true`.
-- `excludeScripts` - An optional parameter, The exclusions of Lua/Haxe scripts, for the function to not insert in.
-- `excludeValues` - An optional parameter, The exclusions of the arguments, for the function to not passed on.
+## Running Scripts
+### isRunning(script:String):Bool
+Checks whether the specified script either Lua or HScript, is currently running in game or not.
 
-### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null)
-Calls a function from a specific Lua script that is currently executing.
+- `script` - The specified script to check its status.
 
-- `luaFile` - The location of the Lua script file to get the function; Starts inside the mod folder directory.
-- `funcName` - The function's name to be called.
-- `args` - An optional parameter, The arguments of the function to be passed on; Default value: `nil`.
+Examples:
+> Checks if both the Haxe script from current mod folder directory and Lua script from the global `scripts` folder. Are currently running in the game at the moment.
+```lua
+if isRunning(modFolder..'/scripts/awesome.hx') == true then
+     debugPrint('HScript: Script Active!', 'ff0000') --> HScript: Script Active!
+end
+if isRunning('scripts/other1.lua') == true then
+     debugPrint('Lua: Script Active!', 'ff0000')     --> Lua: Script Active!
+end
+```
+> Checks a Haxe script from the path directory is currently running or not. Since it obviously isn't running it won't print anything.
+```lua
+if isRunning('scripts/haxe/other.hx') == true then
+     debugPrint('HScript: Script Active!', 'ff0000')
+end
+```
+
+### getRunningScripts():Array\<String\>
+Returns multiple running Lua scripts currently in the game.
+
+Examples:
+> By using a generic loop it will print out the currently running Lua scripts only. _(idk why they coudn't include haxe tho)_
+```lua
+for index, scripts in pairs(getRunningScripts()) do
+     debugPrint(scripts) --> 'scripts/other1.lua', 'scripts/other2.lua', 'MY_MODS/scripts/awesome.lua', 'MY_MODS/stages/awesome_stage.lua'
+end
+```
 
 ***
 
 # File Functions
-### directoryFileList(folder:String)
-<ins>Returns every folder and files</ins> inside the given folder.
+### directoryFileList(folder:String):Array\<String\>
+Returns every file and/or folder inside the given directory folder.
 
-- `folder` - The location of the folder to locate.
+- `folder` - The given folder to get its contents from.
 
-### getTextFromFile(path:String, ?ignoreMods:Bool = false)
-<ins>Gets the text content</ins> from another file.
+Example:
+> By using a generic loop again, it will return each files or folder within the given directory folder.
+```lua
+local thisDirectory = directoryFileList('mods/'..modFolder)
+for index, files in pairs(thisDirectory) do
+     debugPrint(files) --> 'data', 'scripts', 'stages', 'pack.json', 'pack.png'
+end
+```
 
-- `path` - The location of the file to target; Starts inside the mod folder directory.
-- `ignoreMods` - An optional parameter, it will start outside of the mod folder directory if set to `true`; Default value: `false`.
+### getTextFromFile(fileName:String, ?ignoreModFolders:Bool = false):String
+Returns the contents from the given file.
 
-### checkFileExists(filename:String, ?absolute:Bool = false)
-Checks if the file exists inside the game assets, returns `true` if it exists.
+- `fileName` - The given file to get its text content from.
+- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
 
-- `filename` - The filename given to check if it exists or not.
-- `absolute` - An optional parameter, it will start outside of the mod folder directory if set to `true`; Default value: `false`.
+Example:
+> Gets and returns the text content from the given Lua file.
+```lua
+debugPrint( getTextFromFile(modFolder..'scripts/sigma.lua') ) --> debugPrint('something something something')
+```
 
-### saveFile(path:String, content:String, ?absolute:Bool = false)
-Creates a file if it doesn't exist, otherwise applies all the changes to the file and update its contents.
+### checkFileExists(fileName:String, ?ignoreModFolders:Bool = false):Boolean
+Checks whether the file currently exists or not.
 
-- `path` - The location for the file to create or to save; Starts inside the mod folder directory.
-- `content` - The new contents of the file to be updated, recommended to use multi-line strings for this.
-- `absolute` - An optional parameter, it will start outside of the mod folder directory if set to `true`; Default value: `false`.
+- `fileName` - The given file to check its current existence.
+- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
 
-### deleteFile(path:String, ?ignoreModFolders:Bool = false)
-Deletes a file, literally; nothing else to say here.
+Example:
+> Checks if the image file actually exists or not.
+```lua
+if checkFileExists(modFolder..'images/marioTheMario.png') == true then
+     makeLuaSprite('theReal_Mario', 'marioTheMario', 0, 0)
+     setObjectCamera('theReal_Mario', 'camHUD')
+     addLuaSprite('theReal_Mario')
+end
+```
 
-- `path` - The location for the file to delete; Starts inside the mod folder directory.
-- `ignoreModFolders` - An optional parameter, it will start outside of the mod folder directory if set to `true`; Default value: `false`.
+### saveFile(path:String, content:String, ?ignoreModFolders:Bool = false):Void
+Saves the applied changes to a file and updates its current contents. If the said file doesn't exists it will be created and be apply it contents within the file.
 
-***
+- `path` - The given directory path for the file to save its applied changes or be created.
+- `content` - The given content to be applied to.
+- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
 
-# Lua Exists Functions
-### luaSpriteExists(tag:String)
-Checks if the <ins>sprite object exists</ins> inside the game, returns `true` if it exists.
+Example:
+> Creates a new text file inside the `mods` folder.
+```lua
+saveFile('message.txt', 'How many shrimps can you sqaure root to?')
+```
 
-- `tag` - The sprite object tag name to be used.
+### deleteFile(path:String, ?ignoreModFolders:Bool = false):Void
+Deletes the given file, that's it.
 
-### luaTextExists(tag:String)
-Checks if the <ins>text object exists</ins> inside the game, returns `true` if it exists.
+- `path` - The given directory path for the file to be deleted from.
+- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
 
-- `tag` - The text object tag name to be used.
-
-### luaSoundExists(tag:String)
-Checks if the <ins>sound exists</ins> inside the game, returns `true` if it exists.
-
-- `tag` - The sound tag name to be used.
-
-***
-
-# Saving Data Functions
-### initSaveData(name:String, ?folder:String = 'psychenginemods')
-<ins>Initializes the creation</ins> of the save data or <ins>loads the saved data</ins> if it exists. You must use this function first before using other saving data functions. Why? it doesn't exists yet, stupid.
-
-- `name` - The save data name to be used.
-- `folder` - An optional parameter, The name to give to the folder to save in AppData; Default value: `psychenginemods`.
-
-### setDataFromSave(name:String, field:String, value:Dynamic)
-Sets the current save data variable with a new value. If the `field` save data doesn't exist it will <ins>initializes the creation</ins> of a save data variable field.
-
-- `name` - The save data name to be used.
-- `field` - The save data variable name to be given.
-- `value` - The specified value to set in.
-
-### getDataFromSave(name:String, field:String, ?defaultValue:Dynamic = null)
-Gets the current save data variable value.
-
-- `name` - The save data name to be used.
-- `field` - The save data variable name to get.
-- `defaultValue` - An optional parameter, The default value to get if the save data variable doesn't exist; Default value: `nil`.
-
-### flushSaveData(name:String)
-<ins>Applies all the changes</ins> to the saved file and updates it with new values.
-
-- `name` - The save data name to be used.
-
-### eraseSaveData(name:String)
-Deletes the saved data.
-
-- `name` - The save data name to be used.
+Example:
+> Deletes the newly created text file from before.
+```lua
+deleteFile('message.txt')
+```
 
 ***
 
-# Achievement Functions
-### isAchievementUnlocked(name:String)
-Checks if the <ins>achievement is unlocked</ins>, returns `true` if it is.
+# Global-On Functions
+## Setters
+### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to all currently running multiple scripts either from Lua or HScript. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
 
-- `name` - The achievement name to be used.
+- `varName` - The saved variable name to be inherit to all scripts.
+- `arg` - The said value to inherit or the new value to set to.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
+- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
 
-### unlockAchievement(name:String)
-Unlocks the achievement.
+Examples:
+> Creates a global variable `enabledStuff` with the inherited value, getting a value from the said setting JSON file. And printing the current value from the script itself and from another script.
+```lua
+local enable_stuff = getModSettings('enable_stuff')
+setOnScripts('enabledStuff', enable_stuff)
 
-- `name` - The achievement name to be used.
+debugPrint(enabledStuff) --> true
+```
+```lua
+function onCreatePost()
+     debugPrint(enabledStuff)  --> true
+end
+```
+```haxe
+function onCreatePost() {
+     debugPrint(enabledStuff); //> true
+}
+```
+> Basically the same as in the previous example. However, the stored global variable can't be used within the script that was coded in. You can probably used this if you're not calling this variable within the script itself or idk.
+```lua
+local enable_stuff = getModSettings('enable_stuff')
+setOnScripts('enabledStuff', enable_stuff)
 
-### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true)
-Adds the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+debugPrint(enabledStuff) --> nil
+```
+```lua
+debugPrint(enabledStuff) --> true
+```
+> Basically the same as in the previous previous example. But it includes a excluded script to prevent the stored global variable to be used there. You can probably used this if there's a same variable name from another script or something idk.
+```lua
+local enable_stuff = getModSettings('enable_stuff')
+setOnScripts('enabledStuff', enable_stuff, false, {'scripts/haxe_stuff.hx'})
 
-- `name` - The achievement name to be used.
-- `value` - An optional parameter, it will add to the achievement score value with the amount specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter, it will save the score isn't at or above the maxScore value; Default value: `true`.
+debugPrint(enabledStuff)  --> true
+```
+```haxe
+debugPrint(enabledStuff); //> null
+```
 
-### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true)
-Set the current achievement score value. If the score is above the maxScore value from `achievements.json`, the achievement will unlock.
+### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to only to all currently running multiple Lua scripts. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
 
-- `name` - The achievement name to be used.
-- `value` - An optional parameter, it will set the achievement score value to the value specified; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter, it will save the score isn't at or above the maxScore value; Default value: `true`.
+- `varName` - The saved variable name to be inherit to all Lua scripts.
+- `arg` - The said value to inherit or the new value to set to.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
+- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
 
-### getAchievementScore(name:String)
-Gets the current achievement score value.
+### setOnHScript(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to only to all currently running multiple HScripts. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
 
-- `name` - The achievement name to be used.
+- `varName` - The saved variable name to be inherit to all HScripts.
+- `arg` - The said value to inherit or the new value to set to.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
+- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
 
-### achievementExists(name:String)
-Checks if the <ins>achievement exists</ins> inside the game, returns `true` if it exists.
+## Callers
+### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null):Any
+Calls a given function from another specified Lua script.
 
-- `name` - The achievement name to be used.
+- `luaFile` - The specified Lua script to call the given function. 
+- `funcName` - The given function from the Lua script to call from.
+- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
+
+Example:
+> Calls a function from another Lua script from the given path directory. It calls the formula of the [circumference of an ellipse](https://www.google.com/search?sca_esv=334922e174cf79f6&sxsrf=ADLYWIKWVQMCcTNeSxVJ9K7ZZUCOnAXl4g:1732976965224&q=circumference+of+a+ellipse&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J603JUkR9Y5suk8yuy50qOa0K08TrPholP8ECM8ELoq5GeRrUvU44UjKtPgUX-2DV1UQVKIioKq9YP8hjr2s4XGUs7BYUWgrA1zGzjnSuLz0Rv9SOxJBYa2HuYoyuz0gUJ8I_0DE-GtDv_SDOIZzgEUF8lIMmGKJCeFzaPcqEnsoKlWNMQ&sa=X&ved=2ahUKEwjM6KmjooSKAxV7z6ACHeBJEZUQ0pQJegQIDBAB&biw=1440&bih=754&dpr=2), yes this is an actual formula.
+```lua
+function circumferenceEllipse(aAxis, bAxis)
+     local addAxis = (aAxis + bAxis)
+     local subAxis = (aAxis - bAxis)
+     
+     local dividend_inner = math.sqrt(-3 * (subAxis^2 / addAxis^2) + 4) + 10
+     local dividend_outer = addAxis^2 * dividend_inner
+     local divisor  = subAxis^2 / dividend_outer
+     local quiotent = (3 * divisor) + 1
+       
+     return (math.pi * addAxis) * quiotent
+end
+```
+```lua
+local circum = callScript('scripts/math/ellipse.lua', 'circumferenceEllipse', {101.13, 229.71})
+debugPrint( math.ceil(circum) ) --> 1079
+```
+
+### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
+Calls a global function from another script either from Lua or Haxe.
+
+- `funcName` - The given function from either scripts to call from.
+- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
+- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
+- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
+- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+
+Examples:
+> Calls a function from another Lua script that utilizes the formula of area of an ellipse.
+```lua
+function areaEllipse(aAxis, bAxis)
+     return math.pi * aAxis * bAxis
+end
+```
+```lua
+function onCreatePost()
+     debugPrint( callOnScripts('areaEllipse', {3, 4}) )  --> 37.69
+end
+```
+```haxe
+function onCreatePost() {
+     debugPrint( callOnScripts('areaEllipse', {3, 4}) ); //> 37.69
+}
+```
+
+### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
+Calls a global function from another Lua script.
+
+- `funcName` - The given function from a Lua script to call from.
+- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
+- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
+- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
+- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+
+### callOnHScript(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
+Calls a global function from another HScript.
+
+- `funcName` - The given function from a HScript to call from.
+- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
+- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
+- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
+- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+
+***
+
+# Debugging Functions
+### debugPrint(text:Dynamic = '', color:String = 'WHITE'):Void
+Displays the passed value at the top-left corner of the screen, usually disappearing in a few seconds.
+
+> [!TIP]
+> _If you want to display mutiple values at once, use a table array containing each values._
+
+- `text` - The said passed value to be display.
+- `color` - An optional parameter, the hexadecimal color for the text to rendered; Default value: `WHITE`.
+
+### close():Void
+Immediately disables the script that is currently being in use. This is only recommended to execute this on stage scripts since they usually aren't being used anymore.
+
+> [!CAUTION]
+> _Do not execute this function within the said script that is needed to be constantly updated. Or has a constantly updating stuff for something, for instances: if the script has updating event callbacks: `onUpdate()`, `onStepHit()`, `onSpawnNote()`, etc._
+
+***
+
+# Save Data Functions
+### initSaveData(name:String, ?folder:String = 'psychenginemods'):Void
+Intitiates the creation of the save game data or loads the saved game data, if it even exists. This intiation must be first used before utilizing any save data functions. 
+
+Once the save gama data has been initialize it will be saved in a application data folder. This folder depends on what operating system of Psych Engine you're currently playing on. With an additional folder within the application data folder for organization purposes.
+
+<details><summary><b>Operating System Application Data Path:</b></summary>
+<p>
+
+| Operating Systems 	| Path 	|
+|---	|---	|
+| Windows 	| `%appdata%/ShadowMario/PsychEngine/` 	|
+| Mac 	| `USER_NAME/Application Data/ShadowMario/PsychEngine/` 	|
+
+</p>
+</details>
+
+- `name` - The unique name of the said save game data to inherit.
+- `folder` - An optional parameter, The sub-folder within the application data folder; Default value: `'psychenginemods'`.
+
+### setDataFromSave(name:String, field:String, value:Dynamic):Void
+Sets the data field with a new value from the save game data or be created with inherited field value. If the said data field currently doesn't exist yet.
+
+- `name` - The specified save game data name to set the data field's value or to inheirt.
+- `field` - The specified data field to set a new value to.
+- `value` - The new value to set it to.
+
+### getDataFromSave(name:String, field:String, ?defaultValue:Dynamic = null):Any
+Gets the data field current value from the save game data.
+
+- `name` - The specified save game data name to get the data field's value.
+- `field` - The specified data field to get its current value from.
+- `defaultValue` - An optional parameter, the field data's default value, if the inherited value doesn't exist.
+
+### flushSaveData(name:String):Void
+Saves the applied changes from the save game data, updates it's content with new values.
+
+- `name` - The specified save game data to save its applied changes.
+
+### eraseSaveData(name:String):Void
+Erases the specified save game data, removes the sub-folder within the application data folder.
+
+- `name` - The specified save game data to erase completely.
 
 ***
 
 # String Tool Functions
-### stringStartsWith(str:String, start:String)
-Checks if the <ins>string begins</ins> with the specified pattern, returning `true` if detected.
+### stringStartsWith(str:String, start:String):Bool
+Checks whether the string either begins with the specified characters, returning only `true` if detected.
 
-- `str` - The string to be used.
-- `start` - The starting pattern for the string to find.
+- `str` - The string content to check its starting characters.
+- `start` - The starting characters to check within the string.
 
-### stringEndsWith(str:String, end:String)
-Checks if the <ins>string ends</ins> with the specified pattern, returning `true` if detected.
+Example:
+> Checks whether the string content starts with the word 'Haxeflixel'.
+```lua
+local awesomeString = 'Haxeflixel Stuff sound good'
+debugPrint( stringStartsWith(awesomeString, 'Haxeflixel') ) --> true
+debugPrint( stringStartsWith(awesomeString, 'Lua') )        --> false
+```
 
-- `str` - The string to be used.
-- `end` - The ending pattern for the string to find.
+### stringEndsWith(str:String, end:String):Bool
+Checks whether the string either ends with the specified characters, returning only `true` if detected.
 
-### stringSplit(str:String, split:String)
-Splits the string that is <ins>determined by the pattern</ins> into a table of substrings and returns it.
+- `str` - The string content to check its ending characters.
+- `end` - The ending characters to check within the string.
 
-- `str` - The string to be split.
-- `split` - The delimiter, the pattern separator for the string to split.
+Example:
+> Checks whether the string content ends with the word 'Sigma'. _(istg)_
+```lua
+local awesomeString = 'I feel so Sigma'
+debugPrint( stringEndsWith(awesomeString, 'Sigma') ) --> true
+debugPrint( stringEndsWith(awesomeString, 'Zeta') )  --> false
+```
 
-### stringTrim(str:String)
-<ins>Removes any whitespace</ins> at the start and end of a string.
+### stringSplit(str:String, sep:String):Array\<String\>
+Splits the specified string by taking a repeating pattern within a string. And returning the split substrings into the table array.
 
-- `str` - The string to be trimmed.
+- `str` - The string content to split into multiple substrings.
+- `sep` - The repeating pattern to split the string content.
+
+Example:
+> Splits the string content by splitting in each repition of the semicolon character <kbd>;</kbd>.
+```lua
+local awesomeString = '642;298;1283;2891;23'
+for k,v in pairs(stringSplit(awesomeString, ';')) do
+     debugPrint(v) --> 642, 298, 1283, 2891, 23
+end
+```
+
+### stringTrim(str:String):String
+Trims a string, basically removing any whitespace characters within the string.
+
+- `str` - The string content to trims its whitespace characters.
+
+Example:
+```lua
+local awesomeString = '  Gr aa h I hate S pa  ce s'
+debugPrint(stringTrim(awesomeString)) --> GraahIHateSpaces
+```
 
 ***
 
 # Randomization Functions
-### getRandomInt(min:Int, max:Int = FlxMath.MAX_VALUE_INT, ?exclude:String = '')
-Randomizes and <ins>integer number</ins>, determined by the `min` and `max` parameters.
+### getRandomInt(min:Int, max:Int = FlxMath.MAX_VALUE_INT, ?exclude:String = ''):Int
+Randomizes the given amount range of integer numbers.
 
-- `min` - The specified minimum value.
-- `max` - The specified maximum value; Default value: `0x7FFFFFFF`.
-- `exclude` - An optional parameter, the integer numbers to exclude—each separated by a comma <kbd>,</kbd> character.
+- `min` - The minimum integer number value to start from.
+- `max` - An optional parameter, the maximum integer number value to end from; Default value: `0x7FFFFFFF` or `2147483647`.
+- `exclude` - An optional parameter, the integer numbers to exclude—each separated by a comma character <kbd>,</kbd>.
 
-### getRandomFloat(min:Float, max:Float = 1, ?exclude:String = '')
-Randomizes and <ins>floating-point number</ins>, determined by the `min` and `max` parameters.
+Examples:
+> Randomizes an integer number value between $0$ to $10$.
+```lua
+debugPrint( getRandomInt(0, 10) )
+```
+> Same as the example above but excludes specific integer numbers.
+```lua
+debugPrint( getRandomInt(0, 10, '2, 3, 9') )
+```
 
-- `min` - The specified minimum value.
-- `max` - The specified maximum value; Default value: `1`.
-- `exclude` - An optional parameter, the folating-point numbers to exclude—each separated by a comma <kbd>,</kbd> character.
+### getRandomFloat(min:Float, max:Float = 1, ?exclude:String = ''):Float
+Randomizes the given amount range of floating-point numbers.
 
-### getRandomBool(chance:Float = 50)
-<ins>Randomizes the chances</ins> of returning to `true`.
+- `min` - The minimum floating-point number value to start from.
+- `max` - An optional parameter, the maximum floating-point number value to end from; Default value: `1`.
+- `exclude` - An optional parameter, the floating-point numbers to exclude—each separated by a comma character <kbd>,</kbd>.
 
-- `chance` - The chances to return `true`; Default value: `50`; Goes from `0` to `100`.
+Examples:
+> Randomizes a floating-point number values between $0$ to $1$.
+```lua
+debugPrint( getRandomFloat(0, 1) )
+```
+> Same as the example above but excludes specific floating-point numbers.
+```lua
+debugPrint( getRandomFloat(0, 1, '0.1, 0.4, 0.5') )
+```
+
+### getRandomBool(chance:Float = 50):Bool
+Randomizes the chances of returning `true`.
+
+- `chance` - An optional parameter, the chances of returning `true`; Goes from `0` to `100`; Default value: `true`.
+
+Example:
+> Randomizes the chances of returning `true` by $50\%$.
+```lua
+debugPrint( getRandomBool() )
+```
 
 ***
 
 # PlayState Variable Functions
-### setVar(varName:String, value:Dynamic)
-Creates and sets the variable into <ins>PlayState's variables map</ins> if it doesn't exist yet, which is basically <ins>creating a new global variable</ins>; Otherwise will set the variable with a new value. This will only work if the <ins>Lua script that the function is in, is currently executed</ins>; Same works with `getVar()` function.
+### setVar(storeVar:String, value:Dynamic):Any
+Sets a new variable with a new value or being created with the inherited value. Both functionality will store the variable within the game mainly from the `MusicBeatState` class by utilizing a safe cast. Allowing every scripts either in Lua or Haxe to utilize the stored variable.
 
-- `varName` - The variable name to be given.
-- `value` - The specified value to set in.
+- `storeVar` - The specified stored variable to set a new value to, or unique name to inherited when created.
+- `value` - The new value to set to or the said value to inherited when created.
 
-### getVar(varName:String)
-Gets the variable's current value from PlayState's variables map.
+Example:
+```lua
+setVar('awesomeFormula', 100 / 34)
+```
 
-- `varName` - The variable name to get.
+### getVar(storeVar:String):Any
+Gets the currently existing stored variable's current value.
+
+- `storeVar` - The specified stored variable to get its current value from.
+
+Example:
+```lua
+debugPrint( getVar('awesomeFormula') ) --> 2.941176471
+```
+```haxe
+debugPrint( getVar('awesomeFormula') ); //> 2.941176471
+```
