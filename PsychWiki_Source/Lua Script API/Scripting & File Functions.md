@@ -1,42 +1,42 @@
 # Scripting Functions
 ## Adding
 ### addLuaScript(addScript:String, ?ignoreAlreadyRunning:Bool = false):Void
-Adds a lua script into the game.
+Adds a specified Lua script into the game.
 
-- `addScript` - The specified lua script to add in the game.
-- `ignoreAlreadyRunning` - An optional parameter, whether it will ignore an already running lua script when adding it in the game or not; Default value: `false`.
+- `addScript` - The specified file path directory of the Lua script to add.
+- `ignoreAlreadyRunning` - An optional parameter, whether it will add the Lua script despite the said Lua script still being runned within the game; Default value: `false`.
 
 Examples:
-> Adds a Lua script in the current mod folder directory.
+> Adds the given Lua script from the global `scripts` folder with its own path directory.
 ```lua
 function onCreatePost()
-     addLuaScript(modFolder..'/scripts/sigma/fart.lua')
+     addLuaScript('scripts/other/main.lua')
 end
 ```
-> Adds a Lua script from the global `scripts` folder while ignoring that it's already running.
+> Adds the given Lua script while said Lua script is still running in game. Literally I don't know what use case for this.
 ```lua
 function onCreatePost()
-     addLuaScript('scripts/new_shart.lua', true)
+     addLuaScript('scripts/main.lua', true)
 end
 ```
 
 ### addHScript(addScript:String, ?ignoreAlreadyRunning:Bool = false):Void
-Adds a haxe script into the game.
+Adds a specified HScript into the game.
 
-- `addScript` - The specified haxe script to add in the game.
-- `ignoreAlreadyRunning` - An optional parameter, whether it will ignore an already running haxe script when adding it in the game or not; Default value: `false`.
+- `addScript` - The specified file path directory of the HScript to add.
+- `ignoreAlreadyRunning` - An optional parameter, whether it will add the HScript despite the said HScript still being runned within the game; Default value: `false`.
 
 Examples:
-> Adds a Haxe script in the current mod folder directory.
+> Adds the given HScript from the global `scripts` folder with its own path directory.
 ```lua
 function onCreatePost()
-     addHaxeScript(modFolder..'/scripts/sigma/fart.hx')
+     addHScript('scripts/other/main.hx')
 end
 ```
-> Adds a Haxe script from the global `scripts` folder while ignoring that it's already running.
+> Adds the given HScript while said HScript is still running in game. Literally I don't know what use case for this.
 ```lua
 function onCreatePost()
-     addHaxeScript('scripts/new_shart.hx', true)
+     addHScript('scripts/main.hx', true)
 end
 ```
 
@@ -45,74 +45,54 @@ end
 > _Do not remove a script from itself that is current running at the moment. If you actually did this it will immediately softlocks the game completely. I'd recommend to try removing a script from another script to prevent this from happening._
 
 ### removeLuaScript(removeScript:String):Bool
-Removes a lua script from the game. It also returns `true`, if removed completely.
+Removes the specified Lua script from the game, stops being runned completely. If entirely remove within the game, returns `true`.
 
-- `removeScript` - The specified lua script to remove from the game completely.
+- `removeScript` - The specified file path directory of the Lua script to remove from the game.
 
-Examples:
-> Removes a Lua script from the current mod folder directory.
+Example:
+> Removes the given Lua script, self explanatory.
 ```lua
 function onCreatePost()
-     removeLuaScript(modFolder..'/scripts/fart.lua')
-end
-```
-> Removes a Lua script from the global `scripts` folder.
-```lua
-function onCreatePost()
-     removeLuaScript('scripts/new_shart.lua')
+     removeLuaScript('scripts/other/main.lua')
 end
 ```
 
 ### removeHScript(removeScript:String):Bool
-Removes a haxe script from the game. It also returns `true`, if removed completely.
+Removes the specified HScript from the game, stops being runned completely. If entirely remove within the game, returns `true`.
 
-- `removeScript` - The specified haxe script to remove from the game completely.
+- `removeScript` - The specified file path directory of the HScript to remove from the game.
 
-Examples:
-> Removes a Haxe script from the current mod folder directory.
+Example:
+> Removes the given HScript, self explanatory.
 ```lua
 function onCreatePost()
-     removeHScript(modFolder..'/scripts/fart.hx')
-end
-```
-> Removes a Haxe script from the global `scripts` folder.
-```lua
-function onCreatePost()
-     removeHScript('scripts/new_shart.hx')
+     removeHScript('scripts/other/main.hx')
 end
 ```
 
 ## Running Scripts
 ### isRunning(script:String):Bool
-Checks whether the specified script either Lua or HScript, is currently running in game or not.
+Checks if the given script either in Lua script or HScript is currently running within the game or not.
 
-- `script` - The specified script to check its status.
+- `script` - The specified file path directory of the script to check its current status.
 
-Examples:
-> Checks if both the Haxe script from current mod folder directory and Lua script from the global `scripts` folder. Are currently running in the game at the moment.
+Example:
+> Checks the scripts given current status within the game.
 ```lua
-if isRunning(modFolder..'/scripts/awesome.hx') == true then
-     debugPrint('HScript: Script Active!', 'ff0000') --> HScript: Script Active!
-end
-if isRunning('scripts/other1.lua') == true then
-     debugPrint('Lua: Script Active!', 'ff0000')     --> Lua: Script Active!
-end
-```
-> Checks a Haxe script from the path directory is currently running or not. Since it obviously isn't running it won't print anything.
-```lua
-if isRunning('scripts/haxe/other.hx') == true then
-     debugPrint('HScript: Script Active!', 'ff0000')
-end
+debugPrint( isRunning('scripts/awesome1.hx')  ) --> true
+debugPrint( isRunning('scripts/awesome2.lua') ) --> true
 ```
 
 ### getRunningScripts():Array\<String\>
-Returns multiple running Lua scripts currently in the game.
+Checks the currently active Lua script only within the game and returns them in a table array.
 
-Examples:
-> By using a generic loop it will print out the currently running Lua scripts only. _(idk why they coudn't include haxe tho)_
+Example:
+> Using a generic loop to get each currently active Lua script within the game. And subsequently removing unrelated Lua scripts that aren't in that mod folder.
 ```lua
 for index, scripts in pairs(getRunningScripts()) do
-     debugPrint(scripts) --> 'scripts/other1.lua', 'scripts/other2.lua', 'MY_MODS/scripts/awesome.lua', 'MY_MODS/stages/awesome_stage.lua'
+     if isRunning(scripts) == true and modFolder ~= 'MY_MOD' then
+          removeLuaScript(scripts)
+     end
 end
 ```
 
@@ -120,9 +100,9 @@ end
 
 # File Functions
 ### directoryFileList(folder:String):Array\<String\>
-Returns every file and/or folder inside the given directory folder.
+Returns the given directory file its contents be it files and/or folder.
 
-- `folder` - The given folder to get its contents from.
+- `folder` - The specified file path directory of a folder to get its contents from.
 
 Example:
 > By using a generic loop again, it will return each files or folder within the given directory folder.
@@ -134,42 +114,43 @@ end
 ```
 
 ### getTextFromFile(fileName:String, ?ignoreModFolders:Bool = false):String
-Returns the contents from the given file.
+Returns the given text content from a given file.
 
-- `fileName` - The given file to get its text content from.
-- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
+- `fileName` - The specified file path directory of a file to get its text content from.
+- `ignoreModFolders` - An optional parameter, whether the default directory will be in the `shared` folder directory within the game's `assets` folder. Or be in the default `mods` folder directory; Default value: `false`.
 
 Example:
-> Gets and returns the text content from the given Lua file.
+> Gets and load the given text content from the given file in this example. If the second argument is enabled will go through the `assets/shared` folder directory.
 ```lua
-debugPrint( getTextFromFile(modFolder..'scripts/sigma.lua') ) --> debugPrint('something something something')
+debugPrint( getTextFromFile('readme.txt') ) --> You can either edit files or add entirely new ones here.
+```
+```lua
+debugPrint( getTextFromFile('readme.txt', true) ) --> to enable the secrets, type "river", "shadow" or "bb" on the title screen!
 ```
 
 ### checkFileExists(fileName:String, ?ignoreModFolders:Bool = false):Boolean
-Checks whether the file currently exists or not.
+Checks whether the file actually currently exists or not. Extremely useful in some scenarios to prevent visual bugs or preventing softlocks in some cases.
 
-- `fileName` - The given file to check its current existence.
-- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
+- `fileName` - The specified file path directory of a file to check its current existence.
+- `ignoreModFolders` - An optional parameter, whether the default directory will be in the `shared` folder directory within the game's `assets` folder. Or be in the default `mods` folder directory; Default value: `false`.
 
 Example:
-> Checks if the image file actually exists or not.
+> Checks if the `knuckles.json` file currently exists within the global `data` folder directory. If it doesn't exists it will immediately closes the game.
 ```lua
-if checkFileExists(modFolder..'images/marioTheMario.png') == true then
-     makeLuaSprite('theReal_Mario', 'marioTheMario', 0, 0)
-     setObjectCamera('theReal_Mario', 'camHUD')
-     addLuaSprite('theReal_Mario')
+if checkFileExists('data/knuckles.json') == false then
+     os.exit() -- closes the game, literally
 end
 ```
 
 ### saveFile(path:String, content:String, ?ignoreModFolders:Bool = false):Void
 Saves the applied changes to a file and updates its current contents. If the said file doesn't exists it will be created and be apply it contents within the file.
 
-- `path` - The given directory path for the file to save its applied changes or be created.
-- `content` - The given content to be applied to.
-- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
+- `path` - The specified file path directory for the file to save its applied changes or be created, if said file exists.
+- `content` - The given content to applied its changes or to inherit when created.
+- `ignoreModFolders` - An optional parameter, whether the default directory will be in the `shared` folder directory within the game's `assets` folder. Or be in the default `mods` folder directory; Default value: `false`.
 
 Example:
-> Creates a new text file inside the `mods` folder.
+> Creates a new text file with it inherit contents within the `mods` folder directory.
 ```lua
 saveFile('message.txt', 'How many shrimps can you sqaure root to?')
 ```
@@ -177,8 +158,8 @@ saveFile('message.txt', 'How many shrimps can you sqaure root to?')
 ### deleteFile(path:String, ?ignoreModFolders:Bool = false):Void
 Deletes the given file, that's it.
 
-- `path` - The given directory path for the file to be deleted from.
-- `ignoreModFolders` - An optional parameter, whether it will start outside the mod directory or not; Default value: `false`.
+- `path` - The specified file path directory for the file to be delete completely.
+- `ignoreModFolders` - An optional parameter, whether the default directory will be in the `shared` folder directory within the game's `assets` folder. Or be in the default `mods` folder directory; Default value: `false`.
 
 Example:
 > Deletes the newly created text file from before.
@@ -190,68 +171,87 @@ deleteFile('message.txt')
 
 # Global-On Functions
 ## Setters
-### setOnScripts(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
-Sets a saved global variable to all currently running multiple scripts either from Lua or HScript. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
+### setOnScripts(varName:String, value:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to currently running scripts either in Lua script or HScript. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
 
-- `varName` - The saved variable name to be inherit to all scripts.
-- `arg` - The said value to inherit or the new value to set to.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
-- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
+- `varName` - The saved global variable to set a new value to or unique name to inherit.
+- `value` - The new value to be set to or inherit from.
+- `ignoreSelf` - An optional parameter, whether to ignore implementing itself within the script that's in; Default value: `false`.
+- `exclusions` - An optional parameter, exclusion of scripts to ignore the implementation of the saved variable; Default value: `false`.
 
 Examples:
-> Creates a global variable `enabledStuff` with the inherited value, getting a value from the said setting JSON file. And printing the current value from the script itself and from another script.
+> Creates a saved variable containing an awesome message. With its utilizations within the script itself and other scripts from Lua script and HScript. It just prints this awesome message to other scripts.
 ```lua
-local enable_stuff = getModSettings('enable_stuff')
-setOnScripts('enabledStuff', enable_stuff)
+function onCreatePost()
+     local christmasContent = 'I can feel the christmas spirit coming inside of me!'
+     setOnScripts('christmasMessage', christmasContent)
 
-debugPrint(enabledStuff) --> true
+     debugPrint(christmasMessage)  --> I can feel the christmas spirit coming inside of me!
+end
 ```
 ```lua
 function onCreatePost()
-     debugPrint(enabledStuff)  --> true
+     debugPrint(christmasMessage)  --> I can feel the christmas spirit coming inside of me!
 end
 ```
 ```haxe
 function onCreatePost() {
-     debugPrint(enabledStuff); //> true
+     debugPrint(christmasMessage); //> I can feel the christmas spirit coming inside of me!
 }
 ```
-> Basically the same as in the previous example. However, the stored global variable can't be used within the script that was coded in. You can probably used this if you're not calling this variable within the script itself or idk.
+> Creates a saved variable containing the euler's number. But disables the implementation of the saved variable within the script. You can probably used this, if there is a similair variable name within the script itself.
 ```lua
-local enable_stuff = getModSettings('enable_stuff')
-setOnScripts('enabledStuff', enable_stuff)
-
-debugPrint(enabledStuff) --> nil
+function onCreatePost()
+     setOnScripts('eulerNumber', 2.7182818284590452, true)
+     debugPrint(eulerNumber)  --> nil
+end
 ```
 ```lua
-debugPrint(enabledStuff) --> true
-```
-> Basically the same as in the previous previous example. But it includes a excluded script to prevent the stored global variable to be used there. You can probably used this if there's a same variable name from another script or something idk.
-```lua
-local enable_stuff = getModSettings('enable_stuff')
-setOnScripts('enabledStuff', enable_stuff, false, {'scripts/haxe_stuff.hx'})
-
-debugPrint(enabledStuff)  --> true
+function onCreatePost()
+     debugPrint(eulerNumber)  --> 2.7182818284590452
+end
 ```
 ```haxe
-debugPrint(enabledStuff); //> null
+function onCreatePost() {
+     debugPrint(eulerNumber); //> 2.7182818284590452
+}
+```
+> Creates a save variable containg a function, yes this is possible. But disables the implementation of the saved variable within the excluded scripts given. You can probably used this, for something idk man.
+```lua
+function onCreatePost()
+     setOnScripts('calcMid', function(a,b) 
+          return (a + b) / 2 
+     end, {'scripts/other_lua.lua', 'scripts/other_haxe.hx'})
+
+     debugPrint(calcMid(4, 5)) --> 4.5
+end
+```
+```lua
+function onCreatePost()
+     debugPrint(calcMid(4, 5))  --> nil
+end
+```
+```haxe
+function onCreatePost() {
+     debugPrint(calcMid(4, 5)); //> nil
+}
 ```
 
-### setOnLuas(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
-Sets a saved global variable to only to all currently running multiple Lua scripts. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
+### setOnLuas(varName:String, value:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to currently running Lua scripts only. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
 
-- `varName` - The saved variable name to be inherit to all Lua scripts.
-- `arg` - The said value to inherit or the new value to set to.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
-- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
+- `varName` - The saved global variable to set a new value to or unique name to inherit.
+- `value` - The new value to be set to or inherit from.
+- `ignoreSelf` - An optional parameter, whether to ignore implementing itself within the script that's in; Default value: `false`.
+- `exclusions` - An optional parameter, exclusion of scripts to ignore the implementation of the saved variable; Default value: `false`.
 
-### setOnHScript(varName:String, arg:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
-Sets a saved global variable to only to all currently running multiple HScripts. Either it will overwrite the current value to its new value. Or be created, if said saved global variable doesn't exists.
+### setOnHScript(varName:String, value:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
+Sets a saved global variable to currently running HScripts only. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
 
-- `varName` - The saved variable name to be inherit to all HScripts.
-- `arg` - The said value to inherit or the new value to set to.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the save within the script itself; Default value: `false`.
-- `exclusions` - An optional parameter, The specified exclusions of scripts to not save at.
+- `varName` - The saved global variable to set a new value to or unique name to inherit.
+- `value` - The new value to be set to or inherit from.
+- `ignoreSelf` - An optional parameter, whether to ignore implementing itself within the script that's in; Default value: `false`.
+- `exclusions` - An optional parameter, exclusion of scripts to ignore the implementation of the saved variable; Default value: `false`.
 
 ## Callers
 ### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null):Any
