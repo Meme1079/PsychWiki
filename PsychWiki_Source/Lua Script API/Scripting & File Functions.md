@@ -255,14 +255,25 @@ Sets a saved global variable to currently running HScripts only. Either it sets 
 
 ## Callers
 ### callScript(luaFile:String, funcName:String, ?args:Array\<Dynamic\> = null):Any
-Calls a given function from another specified Lua script.
+Calls a given global function from a specified Lua script.
 
-- `luaFile` - The specified Lua script to call the given function. 
-- `funcName` - The given function from the Lua script to call from.
-- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
+- `luaFile` - The specified file path directory of the Lua script to utilize.
+- `funcName` - The said given function within the Lua script to call from.
+- `args` - An optional parameter, the certain amount of arguments to passed within the function, if said arguments exists.
 
 Example:
-> Calls a function from another Lua script from the given path directory. It calls the formula of the [circumference of an ellipse](https://www.google.com/search?sca_esv=334922e174cf79f6&sxsrf=ADLYWIKWVQMCcTNeSxVJ9K7ZZUCOnAXl4g:1732976965224&q=circumference+of+a+ellipse&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J603JUkR9Y5suk8yuy50qOa0K08TrPholP8ECM8ELoq5GeRrUvU44UjKtPgUX-2DV1UQVKIioKq9YP8hjr2s4XGUs7BYUWgrA1zGzjnSuLz0Rv9SOxJBYa2HuYoyuz0gUJ8I_0DE-GtDv_SDOIZzgEUF8lIMmGKJCeFzaPcqEnsoKlWNMQ&sa=X&ved=2ahUKEwjM6KmjooSKAxV7z6ACHeBJEZUQ0pQJegQIDBAB&biw=1440&bih=754&dpr=2), yes this is an actual formula.
+<blockquote>
+Calls a global function within a Lua script from the given path directory. The function uses the formula of the circumference of an ellipse, yes this is an actual formula that exists.<br><br>
+
+<details><summary><b>See the constructed formula:</b></summary>
+<p>
+
+$f(a,b)=\pi(a+b)\cdot\left(3\cdot\frac{(a-b)^2}{(a+b)^2\cdot\left(\sqrt{-3\cdot\frac{(a-b)^2}{(a+b)^2}+4}+10\right)}+1\right)$
+
+</p>
+</details>
+</blockquote>
+
 ```lua
 function circumferenceEllipse(aAxis, bAxis)
      local addAxis = (aAxis + bAxis)
@@ -272,7 +283,7 @@ function circumferenceEllipse(aAxis, bAxis)
      local dividend_outer = addAxis^2 * dividend_inner
      local divisor  = subAxis^2 / dividend_outer
      local quiotent = (3 * divisor) + 1
-       
+
      return (math.pi * addAxis) * quiotent
 end
 ```
@@ -282,14 +293,14 @@ debugPrint( math.ceil(circum) ) --> 1079
 ```
 
 ### callOnScripts(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
-Calls a global function from another script either from Lua or Haxe.
+Calls a given global function from currently running scripts either in Lua script or HScript.
 
-- `funcName` - The given function from either scripts to call from.
-- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
-- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
-- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
-- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+- `funcName` - The said given function within different scripts to call from.
+- `args` - An optional parameter, the certain amount of arguments to passed within the function, if said arguments exists.
+- `ignoreStops` - An optional parameter, whether to ignore returns from disabling event callback variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, whether to ignore the calling itself within the script that's in; Default value: `false`.
+- `excludeScripts` - An optional parameter, exclusion of scripts to ignore the calling of a given function.
+- `excludeValues` - An optional parameter, the specified exclusions of multiple returned values from the function.
 
 Examples:
 > Calls a function from another Lua script that utilizes the formula of area of an ellipse.
@@ -310,24 +321,24 @@ function onCreatePost() {
 ```
 
 ### callOnLuas(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
-Calls a global function from another Lua script.
+Calls a given global function from currently running Lua scripts only.
 
-- `funcName` - The given function from a Lua script to call from.
-- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
-- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
-- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
-- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+- `funcName` - The said given function within Lua scripts to call from.
+- `args` - An optional parameter, the certain amount of arguments to passed within the function, if said arguments exists.
+- `ignoreStops` - An optional parameter, whether to ignore returns from disabling event callback variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, whether to ignore the calling itself within the script that's in; Default value: `false`.
+- `excludeScripts` - An optional parameter, exclusion of scripts to ignore the calling of a given function.
+- `excludeValues` - An optional parameter, the specified exclusions of multiple returned values from the function.
 
 ### callOnHScript(funcName:String, ?args:Array\<Dynamic\> = null, ?ignoreStops = false, ?ignoreSelf:Bool = true, ?excludeScripts:Array\<String\> = null, ?excludeValues:Array\<Dynamic\> = null):Any
-Calls a global function from another HScript.
+Calls a given global function from currently running HScripts only.
 
-- `funcName` - The given function from a HScript to call from.
-- `args` - An optional parameter, The amount arguments to be passed on that function, if it even exists.
-- `ignoreStops` - An optional parameter, Whether to ignore returns from similar `Function_Stop` variables; Default value: `false`.
-- `ignoreSelf` - An optional parameter, Whether it will ignore the calling the function within the script itself; Default value: `false`.
-- `excludeScripts` - An optional parameter, The specified exclusions of scripts to not call at.
-- `excludeValues` - An optional parameter, The specified exclusions of multiple returned values from the function.
+- `funcName` - The said given function within HScripts to call from.
+- `args` - An optional parameter, the certain amount of arguments to passed within the function, if said arguments exists.
+- `ignoreStops` - An optional parameter, whether to ignore returns from disabling event callback variables; Default value: `false`.
+- `ignoreSelf` - An optional parameter, whether to ignore the calling itself within the script that's in; Default value: `false`.
+- `excludeScripts` - An optional parameter, exclusion of scripts to ignore the calling of a given function.
+- `excludeValues` - An optional parameter, the specified exclusions of multiple returned values from the function.
 
 ***
 
@@ -502,25 +513,35 @@ debugPrint( getRandomBool() )
 
 # PlayState Variable Functions
 ### setVar(storeVar:String, value:Dynamic):Any
-Sets a new variable with a new value or being created with the inherited value. Both functionality will store the variable within the game mainly from the `MusicBeatState` class by utilizing a safe cast. Allowing every scripts either in Lua or Haxe to utilize the stored variable.
+Sets a stored global variable to allow different scripts either in Lua script or HScript to utilize with it. Either it sets the stored variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
 
-- `storeVar` - The specified stored variable to set a new value to, or unique name to inherited when created.
-- `value` - The new value to set to or the said value to inherited when created.
+The said stored variable will be stored within the game, mainly from the `MusicBeatState` class by utilizing a safe cast. Allowing every scripts either in Lua or Haxe to utilize the stored variable.
 
-Example:
+- `storeVar` - The stored global variable to set a new value to or unique name to inherit.
+- `value` - The new value to be set to or inherit from.
+
+Examples:
+> Creates a stored variable, that will allow different scripts to utilize with it.
 ```lua
 setVar('awesomeFormula', 100 / 34)
 ```
 
 ### getVar(storeVar:String):Any
-Gets the currently existing stored variable's current value.
+Gets the stored variable's current value.
 
-- `storeVar` - The specified stored variable to get its current value from.
+- `storeVar` - The stored global variable to get its current value from.
 
-Example:
+Examples:
+> Gets the stored variable from the previous example.
 ```lua
 debugPrint( getVar('awesomeFormula') ) --> 2.941176471
 ```
 ```haxe
 debugPrint( getVar('awesomeFormula') ); //> 2.941176471
+```
+> The function can also be used for built-in HScripts within a Lua script.
+```lua
+runHaxeCode([=[
+     debugPrint( getVar('awesomeFormula') ); //> 2.941176471
+]=])
 ```
