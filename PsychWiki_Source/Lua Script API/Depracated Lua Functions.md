@@ -109,6 +109,23 @@ Deprecation of `updateHitbox()`; Updates the object's hitboxes with its specifie
 
 ***
 
+# Scripting Functions
+## Global Variable Scripts
+### setGlobalFromScript(luaScript:String, globalVariable:String, value:Dynamic):Void
+Deprecated for unknown reasons, it's deleted; Sets a specified global variable from another currently running lua script.
+
+- `luaScript` - The specified lua script to acquire the specified global variable; starts inside the current mod directory.
+- `globalVariable` - The given global variable to set a new value to.
+- `value` - The new value for the global variable to be given.
+
+### getGlobalFromScript(luaScript:String, globalVariable:String):Any
+Deprecated for unknown reasons, it's deleted; Gets the specified global variable's current value from another currently running lua script.
+
+- `luaScript` - The specified lua script to acquire the specified global variable; starts inside the current mod directory.
+- `globalVariable` - The given global variable to get its current value.
+
+***
+
 # Sound & Music Functions
 ### musicFadeIn(duration:Float, fromValue:Float = 0, toValue:Float = 1)
 Deprecation of `soundFadeIn()`; Makes the music <ins>fade-in</ins>; Does not support Lua sounds unlike `soundFadeIn()`.

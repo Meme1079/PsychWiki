@@ -65,7 +65,7 @@ void mainImage() {
 ```
 
 ## Applying Shaders
-Applying shaders to an object, usually a sprite within the game is the most simple part. Firstly it must be always be initiated by utilizing the `initLuaShader()` function. It obviously initiates and loads the shader from inside the `shaders` folder directory. Checking if the said shader file even exist or not.
+Applying shaders to an object, usually a sprite within the game is the most simple part. Firstly, it must be always be initiated by utilizing the obviouse `initLuaShader()` function. Self-explanatory, initiates and loads the shader from inside the `shaders` folder directory. Checking if the said shader file even exist or not.
 
 Now that the shader has been initiated within the game. You can now set the given object to the shader you want to render on. By utilizing the `setSpriteShader()` function.
 
@@ -111,41 +111,217 @@ uniform vec3 textureButIn3D;
 uniform vec4 textureButIn4D;
 ```
 ```lua
-setShaderIntArray('sample_object', 'textureButIn2D', {2, 1})
-setShaderFloatArray('sample_object', 'textureButIn3D', {3.0, 2.0, 1.0})
-setShaderBoolArray('sample_object', 'textureButIn4D', {true, true, false, false})
+setShaderIntArray('sample_object', 'textureButIn2D', {2, 1})                      -- 2-dimensions
+setShaderFloatArray('sample_object', 'textureButIn3D', {3.0, 2.0, 1.0})           -- 3-dimensions
+setShaderBoolArray('sample_object', 'textureButIn4D', {true, true, false, false}) -- 4-dimensions
 ```
 
 ***
 
 # Shader Functions 
 ### initLuaShader(shader:String):Void
+Initiates and loads the given shader to the game, for the objects to render with.
+
+- `shader` - The given shader load within the game; starts within the `shaders` folder directory.
+
+Example:
+> Self-explanatory; initiates and loads the invert shader.
+```lua
+initLuaShader('invert')
+```
+
 ### setSpriteShader(obj:String, shader:String):Void
+Sets the specified object, mostly a sprite with the shader to be rendered with.
+
+- `obj` - The object name tag to set the shader to.
+- `shader` - The given loaded shader to use within the game.
+
+Example:
+> Sets the said object to the given shader.
+```lua
+setSpriteShader('sample_object', 'invert')
+```
+
 ### removeSpriteShader(obj:String):Void
+Removes the given shader to that object, mostly a sprite to stop rendering from.
+
+- `obj` - The object tag name to remove the rendered shader.
+
+Example:
+> Removes the given shader from the object.
+```lua
+removeSpriteShader('sample_object')
+```
 
 ***
 
 # Shader Uniform Functions
 ## Setters
 ### setShaderInt(obj:String, uniform:String, value:Int):Void
+Sets the <ins>specified uniform **integer type** variable</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform integer type variable to set a new value to.
+- `value` - The new integer value to set to.
+
+Example:
+> Sets the uniform integer variable `timer` to the value `32`.
+```lua
+setShaderInt('sample_object', 'timer', 32)
+```
+
 ### setShaderFloat(obj:String, uniform:String, value:Float):Void
+Sets the <ins>specified uniform **floating-point type** variable</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform floating-point type variable to set a new value to.
+- `value` - The new floating-point value to set to.
+
+Example:
+> Sets the uniform floating-point variable `duration` to the value `15.0`.
+```lua
+setShaderFloat('sample_object', 'duration', 15.0)
+```
+
 ### setShaderBool(obj:String, uniform:String, value:Bool):Void
+Sets the <ins>specified uniform **boolean type** variable</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform boolean type variable to set a new value to.
+- `value` - The new boolean value to set to.
+
+Example:
+> Sets the uniform boolean variable `hasStarted` to the value `false`.
+```lua
+setShaderBool('sample_object', 'hasStarted', false)
+```
+
 ### setShaderSampler2D(obj:String, uniform:String, bitmapdataPath:String):Void
+Sets the <ins>specified uniform **sampler 2-dimension type** variable</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform sampler 2-dimension type variable to set a new value to.
+- `bitmapdataPath` - The new texture sprite image to set to; starts inside the `images` folder directory.
+
+Example:
+> Sets the uniform sampler 2-dimension variable `texture` to the value `dead_bf`.
+```lua
+setShaderSampler2D('sample_object', 'texture', 'dead_bf')
+```
 
 ## Getters
 ### getShaderInt(obj:String, uniform:String):Int
+Gets the <ins>specified uniform **integer type** variable</ins> within the shader current value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform integer type variable to get the current value from.
+
+Example:
+> Gets the uniform integer variable `timer` current value and prints it.
+```lua
+debugPrint( setShaderInt('sample_object', 'timer') ) --> 32
+```
+
 ### getShaderFloat(obj:String, uniform:String):Float
+Gets the <ins>specified uniform **floating-point type** variable</ins> within the shader current value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform floating-point type variable to get the current value from.
+
+Example:
+> Gets the uniform floating-point variable `duration` current value and prints it.
+```lua
+debugPrint( setShaderFloat('sample_object', 'duration') ) --> 15.0
+```
+
 ### getShaderBool(obj:String, uniform:String):Bool
+Gets the <ins>specified uniform **boolean type** variable</ins> within the shader current value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform boolean type variable to get the current value from.
+
+Example:
+> Gets the uniform boolean variable `hasStarted` current value and prints it.
+```lua
+debugPrint( setShaderBool('sample_object', 'hasStarted') ) --> false
+```
 
 ***
 
 # Shader Uniform Vector Functions
 ## Setters
 ### setShaderIntArray(obj:String, uniform:String, values:Dynamic):Void
+Sets the <ins>specified uniform vector type variable in **all intergers**</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to set a new value to.
+- `values` - The new integer values within the vector to set to.
+
+Example:
+> Sets the uniform vector 2-dimension variable `textureButIn2D` to a two integer array value.
+```lua
+setShaderIntArray('sample_object', 'textureButIn2D', {2, 1}) 
+```
+
 ### setShaderFloatArray(obj:String, uniform:String, values:Dynamic):Void
+Sets the <ins>specified uniform vector type variable in **all floating-points**</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to set a new value to.
+- `values` - The new floating-point values within the vector to set to.
+
+Example:
+> Sets the uniform vector 3-dimension variable `textureButIn3D` to a three floating-point array value.
+```lua
+setShaderFloatArray('sample_object', 'textureButIn3D', {3.0, 2.0, 1.0})
+```
+
 ### setShaderBoolArray(obj:String, uniform:String, value:Dynamic):Void
+Sets the <ins>specified uniform vector type variable in **all booleans**</ins> within the shader, a new value.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to set a new value to.
+- `values` - The new booleans values within the vector to set to.
+
+Example:
+> Sets the uniform vector 4-dimension variable `textureButIn4D` to a four boolean array value.
+```lua
+setShaderBoolArray('sample_object', 'textureButIn4D', {true, true, false, false})
+```
 
 ## Getters
 ### getShaderIntArray(obj:String, uniform:String):Array\<Int\>
+Gets the specified uniform vector type variable within the shader <ins>current all **integer values**</ins>.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to get the current integer values from.
+
+Example:
+> Gets the uniform vector 2-dimension variable `textureButIn2D` current values and prints it.
+```lua
+debugPrint( setShaderIntArray('sample_object', 'textureButIn2D') ) --> [2, 1]
+```
+
 ### getShaderFloatArray(obj:String, uniform:String):Array\<Float\>
+Gets the specified uniform vector type variable within the shader <ins>current all **floating-point values**</ins>.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to get the current floating-point values from.
+
+Example:
+> Gets the uniform vector 3-dimension variable `textureButIn3D` current values and prints it.
+```lua
+debugPrint( setShaderIntArray('sample_object', 'textureButIn3D') ) --> [3.0, 2.0, 1.0]
+```
+
 ### getShaderBoolArray(obj:String, uniform:String):Array\<Bool\>
+Gets the specified uniform vector type variable within the shader <ins>current all **booleans values**</ins>.
+
+- `obj` - The object tag name rendered from a shader to be used.
+- `uniform` - The specified uniform vector type variable to get the current boolean values from.
+
+Example:
+> Gets the uniform vector 4-dimension variable `textureButIn4D` current values and prints it.
+```lua
+debugPrint( setShaderIntArray('sample_object', 'textureButIn4D') ) --> [true, true, false, false]
+```

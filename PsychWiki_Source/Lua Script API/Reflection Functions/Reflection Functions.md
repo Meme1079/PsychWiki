@@ -60,7 +60,7 @@ end
 # Property Functions
 ## Setters
 ### setProperty(variable:String, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets the specified Playstate's instance variable, the object itself, or the object's properties with a new value. The object refers to any sprite, text, and inserted storage variables.
+Sets the specified Playstate's instance variable, stored variable, or the object's properties with a new value. The object refers to any sprite, text, and inserted storage variables.
 
 - `variable` - The Playstate's instance variable, object, or object properties to set a new value to.
 - `value` - The new value to set to.
@@ -119,7 +119,7 @@ end
 
 ## Getters
 ### getProperty(variable:String, ?allowMaps:Bool = false):Any
-Gets the specified Playstate's instance variable, the object itself, or the object's properties current value. The object refers to any sprite, text, and inserted storage variables.
+Gets the specified Playstate's instance variable, stored variable, or the object's properties current value. The object refers to any sprite, text, and inserted storage variables.
 
 - `variable` - The Playstate's instance variable, object, or object properties to get the current value from.
 - `allowMaps` - An optional parameter, allows the ability to get the maps key-value pair elements; Default value: `false`.

@@ -1,5 +1,5 @@
 # About
-Psych Engine has now added the support for a wide variety of languages, for more accessability to people who don't natively speak English. It utilizes a language localization file (LLF), uses the file format `lang`. To translate certain word and phrases to different languages.  Such as the text's content and the sprite's image path, without doing it hardcoded manually.
+Psych Engine has added the support for a wide variety of languages, for more accessability to people who don't natively speak English. It utilizes a language localization file (LLF), uses the file format `lang`. To translate certain word and phrases to different languages.  Such as the text's content and the sprite's image path, without doing it hardcoded manually.
 
 ***
 
