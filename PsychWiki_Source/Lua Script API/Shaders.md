@@ -86,10 +86,10 @@ addLuaSprite('sample_object')
 ## Uniform Variables
 Uniform variables is the global variable equilevant to Lua, they are define with the `uniform` keyword. Right after the specified type given to that variable to inherit. They must be always declared at the global scope, outside the main function within the shader. And must no values assign to them, no matter what.
 
-They main functionality is to act as "parameters" for other scripts. To pass a designated value to the given uniform variable. And can be change in any time through out the program. You set their values by utilizing one of the shader uniform functions corresponding types. For instance, if the uniform boolean variable obviously then use the `setShaderBool()` function.
+They main functionality is to act as "parameters" for other scripts. To pass a designated value to the given uniform variable. And can be change in any time through out the program. You set their values by utilizing one of the shader uniform functions corresponding types. For instance, if it's a uniform boolean variable obviously then use the `setShaderBool()` function.
 
 Example:
-> At top example are the uniform variable declared but without any values inherited. And at the bottom are shader uniform functions setting their valuesm, each corresponding type of uniform variables.
+> At top example are the uniform variable declared but without any values inherited. And at the bottom are shader uniform functions setting their values, each corresponding type of uniform variables.
 ```glsl
 uniform int   timer;
 uniform float duration;
