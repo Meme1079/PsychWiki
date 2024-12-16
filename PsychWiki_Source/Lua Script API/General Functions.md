@@ -175,23 +175,66 @@ Gets the current camera's object follow point y-coordinates current value.
 ***
 
 # Achievement Functions <!-- Might have a dedicated page for this -->
-### addAchievementScore(name:String, ?value:Dynamic = 1, ?saveIfNotUnlocked:Bool = true):Void
-### setAchievementScore(name:String, ?value = 1, ?saveIfNotUnlocked = true):Void
-### getAchievementScore(name:String):Any
-### unlockAchievement(name:String):Void
+## Achievement Property Scores
+> [!WARNING]
+> _For the `name` parameter, if the given element name tag from the achievement JSON file isn't present within the data. It will immediately throw an error and returns: `-1`._
+
+### addAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked:Bool = true):Float
+Adds the specified amount of achievement score value, plus returning its current added new value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+- `value` - An optional parameter, the amount of value to add to the achievement score value; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
+
+### setAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked = true):Float
+Sets the specified achievement score value with a new value, plus returning its current new value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+- `value` - An optional parameter, the new achievement score value to set to; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
+
+### getAchievementScore(name:String):Float
+Gets the specified achievement score current value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+
+## Achievement Utility
+### unlockAchievement(name:String):String
+Immediately unlocks the given achievement and returns the unlocked achievement name.
+
+- `name` - The specified element name tag from the achievement JSON file to unlock.
+
+### achievementExists(name:String):Dynamic
+Checks whether the given achievement exists or not, probably used to prevent envoking an error.
+
+- `name` - The specified element name tag from the achievement JSON file to check its existence.
+
 ### isAchievementUnlocked(name:String):Bool
-### achievementExists(name:String):Bool
+Checks whether the given achievement has been unlocked or not.
+
+- `name` - The specified element name tag from the achievement JSON file to check its status.
 
 ***
 
 # Dialogues & Cutscene Functions <!-- Might have a dedicated page for this -->
-### startDialogue(dialogueFile:String, music:String = null):Void
-### startVideo(videoFile:String, ?canSkip:Bool = true):Void
+### startDialogue(dialogue:String, music:String = null):Void
+Starts a dialogue.
+
+- `dialogue` - The specified dialogue JSON file to load; Relative to the `data/song-name` folder.
+- `music` - An optional parameter, the background music to play during the dialogue; Relative to the `music` folder.
+
+### startVideo(video:String, ?skippable:Bool = true):Void
+Starts and plays a video cutscene.
+
+- `video` - The specified video file to play; Relative to the `videos` folder.
+- `skippable` - An optional parameter, whether the ability to skip the video is enable or not; Default value: `true`.
+
 ### startCountdown():Void
+Starts the countdown immediately, that's it.
 
 ***
 
-# Song Functions
+# Song Utility Functions
 ### loadSong(?name:String = null, ?difficultyNum:Int = -1):Void
 ### restartSong(?skipTransition:Bool = false):Void
 ### exitSong(?skipTransition:Bool = false):Void
