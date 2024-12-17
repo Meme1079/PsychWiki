@@ -4,6 +4,8 @@ Makes the specified character play their default idle animation.
 
 - `characterType` - The specified character type to play an idle animation; Can be either: `boyfriend`, `dad`, or `gf`.
 
+<!-- ### characterShowTits():Void -->
+
 ## Setter
 ### setCharacterX(characterType:String, value:Float):Void
 Sets the specified character's current x-position to a new value, a shorthand version.
@@ -236,36 +238,116 @@ Starts the countdown immediately, that's it.
 
 # Song Utility Functions
 ### loadSong(?name:String = null, ?difficultyNum:Int = -1):Void
+Loads a given song within the game.
+
+> [!WARNING]
+> _When loading a specific song with different week JSON files, the difficulty list must equal to each-other to prevent erros and stuff._
+
+- `name` - An optional parameter, the given song name to load, if the argument is left blank—load itself.
+- `difficulty` - An optional parameter, the specified difficulty ID number to load to, uses `-1` to load its current difficulty from the previous song; Default value: `-1`.
+
 ### restartSong(?skipTransition:Bool = false):Void
+Restarts the song that's currently playing on.
+
+- `skipTransition` - An optional parameter, whether the fading transition are enable or not; Default value: `false`.
+
 ### exitSong(?skipTransition:Bool = false):Void
+Exits the song to the story mode or freeplay menus; not to be confused with the `endSong()` function.
+
+- `skipTransition` - An optional parameter, whether the fading transition are enable or not; Default value: `false`.
+
 ### endSong():Void
+Ends the song manually.
 
 ***
 
 # Lua Exists Functions
 ### luaSpriteExists(tag:String):Bool
+Checks whether if the Lua sprite object within the game exists or not.
+
+- `tag` - The tag name of the sprite object to check its existence.
+
 ### luaTextExists(tag:String):Bool
+Checks whether if the Lua text object within the game exists or not.
+
+- `tag` - The tag name of the text object to check its existence.
+
 ### luaSoundExists(tag:String):Bool
+Checks whether if the Lua sound within the game exists or not.
+
+- `tag` - The tag name of the sound to check its existence.
 
 ***
 
 # Color Functions
-### setHealthBarColors(leftOpponent:String, rightPlayer:String):Void
-### setTimeBarColors(leftOpponent:String, rightPlayer:String):Void
+### setHealthBarColors(opponent:String, player:String):Void
+Set the health-bar colors from either both the opponent and player with a new color.
+
+- `opponent` - The new color for the opponent bar color to display.
+- `player` - The new color for the player bar color to display.
+
+### setTimeBarColors(percent:String, background:String):Void
+Set the time-bar colors from either both the precent bar and background with a new color.
+
+- `percent` - The new color for the percent bar color to display.
+- `background` - The new color for the time-bar background color to display.
+
 ### getPixelColor(obj:String, x:Int, y:Int):Int
-### getColorFromHex(color:String):Int
+Returns the color in hexadecimal value of the given object by its pixel size. It uses 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
+
+- `object` - The object tag name to get its color from.
+- `x` - The x-position value from the object to get its pixel color from.
+- `y` - The y-position value from the object to get its pixel color from.
+
 ### getColorFromName(color:String):String
+Parses and returns color in hexadecimal value by its corresponding `FlxColor` class value. Additionally this function has alternative names such as: `getColorFromString()` and `FlxColor()` functions, if you don't like the name or smt idk.
+
+- `color` - The given color format to parse.
+
+### getColorFromHex(color:String):Int
+Works the same as the `getColorFromName()` function, but doesn't require the hexadecimal hashtag <kbd>#</kbd> to represent hexadecimal.
+
+- `color` - The given color format to parse.
 
 ***
 
 # Discord Status Functions
-### changeDiscordPresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float):Void
+### changeDiscordPresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float, ?largeImageKey:String):Void
+Changes your current [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) detail status.
+
+> [!WARNING]
+> _The `endTimestamp` parameter must have the `hasStartTimestamp` parameter to be set to `true`._
+
+- `details` - The given application title for the rich presence.
+- `state` - The given application mini-description for the rich presence.
+- `smallImageKey` - An optional parameter, the minor image icon of your RPC at the bottom-right corner.
+- `hasStartTimestamp` - An optional parameter, whether your RPC should have have a time stamp displaying or not.
+- `endTimestamp` - An optional parameter, whether to use a countdown or not, by milliseconds. 
+- `largeImageKey` - An optional parameter, the main image icon of your RPC.
+
 ### changeDiscordClientID(?newID:String = null):Void
+Changes your current Discord Client ID.
+
+- `newID` - The new client ID number for the discord client to inherit.
 
 ***
 
 # Miscellaneous Functions
-### triggerEvent(name:String, arg1:Dynamic, arg2:Dynamic):Void
+### triggerEvent(name:String, ?arg1:Dynamic = '', ?arg2:Dynamic = ''):Bool
+Triggers a given event.
+
+- `name` - The given name of the event to trigger.
+- `arg1` - An optional parameter, the first argument of the event to use, if it even uses one.
+- `arg2` - An optional parameter, the secondary argument of the event to use, if it even uses one.
+
 ### getModSetting(saveTag:String, ?modName:String = null):Void
+Gets the specified element tag from the settings JSON file to utilize.
+
+- `saveTag` - The specified element tag name to get its current saved value.
+- `modName` - An optional parameter, The given mod folder to locally find the settings JSON file within itself.
+
 ### getSongPosition():Float
+Returns the current song position by milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
+
 ### updateScoreText():Void
+Updates the current score text content, that's it.
