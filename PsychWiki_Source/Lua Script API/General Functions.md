@@ -1,6 +1,6 @@
 # Character Functions
 ### characterDance(characterType:String):Void
-Makes the specified character play their default idle animation.
+Makes the specified character play their <ins>default idle animation</ins>.
 
 - `characterType` - The specified character type to play an idle animation; Can be either: `boyfriend`, `dad`, or `gf`.
 
@@ -8,25 +8,25 @@ Makes the specified character play their default idle animation.
 
 ## Setter
 ### setCharacterX(characterType:String, value:Float):Void
-Sets the specified character's current x-position to a new value, a shorthand version.
+Sets the specified <ins>character's current **x-position**</ins> to a new value, a shorthand version.
 
 - `characterType` - The specified character type to set its x-position to; Can be either: `boyfriend`, `dad`, or `gf`.
 - `value` - The new x-position value to set to.
 
 ### setCharacterY(characterType:String, value:Float):Void
-Sets the specified character's current y-position to a new value, a shorthand version.
+Sets the specified <ins>character's current **y-position**</ins> to a new value, a shorthand version.
 
 - `characterType` - The specified character type to set its y-position to; Can be either: `boyfriend`, `dad`, or `gf`.
 - `value` - The new y-position value to set to.
 
 ## Getter
 ### getCharacterX(characterType:String):Float
-Gets the specified character's current x-position value from, a shorthand version.
+Gets the specified <ins>character's current **x-position**</ins> value from, a shorthand version.
 
 - `characterType` - The specified character type to get its current x-position value from; Can be either: `boyfriend`, `dad`, or `gf`.
 
 ### getCharacterY(characterType:String):Float
-Gets the specified character's current y-position value from, a shorthand version.
+Gets the specified <ins>character's current **y-position**</ins> value from, a shorthand version.
 
 - `characterType` - The specified character type to get its current y-position value from; Can be either: `boyfriend`, `dad`, or `gf`.
 
@@ -35,91 +35,91 @@ Gets the specified character's current y-position value from, a shorthand versio
 # Rating Accuracy Functions
 ## Adders
 ### addScore(value:Int = 0):Void
-Adds the specified amount of value to the score value.
+Adds the specified amount of value to the <ins>**score** value</ins>.
 
 - `value` - An optional parameter, the amount of value to add to the score value; Default value: `0`.
 
 ### addMisses(value:Int = 0):Void
-Adds the specified amount of value to the misses value.
+Adds the specified amount of value to the <ins>**miss** value</ins>.
 
 - `value` - An optional parameter, the amount of value to add to the miss value; Default value: `0`.
 
 ### addHits(value:Int = 0):Void
-Adds the specified amount of value to the hits value.
+Adds the specified amount of value to the <ins>**hit** value</ins>.
 
 - `value` - An optional parameter, the amount of value to add to the hits value; Default value: `0`.
 
 ### addHealth(value:Float = 0):Void
-Adds the specified amount of value to the health value.
+Adds the specified amount of value to the <ins>**health** value</ins>.
 
 - `value` - An optional parameter, the amount of value to add to the health value; Default value: `0`.
 
 ## Setters
 ### setScore(value:Int = 0):Void
-Sets the score value with a new score total value value.
+Sets the score value with a <ins>**new score total** value value</ins>.
 
 - `value` - An optional parameter, the new score total value to set to; Default value: `0`.
 
 ### setMisses(value:Int = 0):Void
-Sets the miss value with a new miss total value value.
+Sets the miss value with a <ins>**new miss total** value value</ins>.
 
 - `value` - An optional parameter, the new miss total value to set to; Default value: `0`.
 
 ### setHits(value:Int = 0):Void
-Sets the hit value with a new hit total value value.
+Sets the hit value with a <ins>**new hit total** value value</ins>.
 
 - `value` - An optional parameter, the new hit total value to set to; Default value: `0`.
 
 ### setHealth(value:Int = 0):Void
-Sets the health value with a new health total value.
+Sets the health value with a <ins>**new health total** value</ins>.
 
 - `value` - An optional parameter, the new health total value to set to; Default value: `0`.
 
 ### setRatingPercent(value:Float):Void
-Sets the rating percent accuracy value with a new percent accuracy value.
+Sets the rating percent accuracy value with a <ins>**new percent accuracy** value</ins>.
 
 - `value` - The new percent accuracy value to set to.
 
 ### setRatingName(value:String):Void
-Sets the rating name accuracy value with a new name accuracy value.
+Sets the rating name accuracy value with a <ins>**new name accuracy** value</ins>.
 
 - `value` - The new name accuracy value to set to.
 
 ### setRatingFC(value:String):Void
-Sets the rating combo name value with a new combo name value.
+Sets the rating combo name value with a <ins>**new combo name** value</ins>.
 
 - `value` - The new combo name value to set to.
 
 ## Getters
 ### getScore():Int
-Gets the current song score total value.
+Gets the current <ins>**song score total** value</ins>.
 
 ### getMisses():Int
-Gets the current song miss total value.
+Gets the current <ins>**song miss total** value</ins>.
 
 ### getHits():Int
-Gets the current song hit total value.
+Gets the current <ins>**song hit total** value</ins>.
 
 ### getHealth():Float
-Gets the current health total value.
+Gets the current <ins>**health total** value</ins>.
 
 ***
 
 # Camera Functions
 ### cameraSetTarget(target:String):Void
-Makes the camera forcefully focus on target character.
+Makes the <ins>camera forcefully focus on target character</ins>.
 
 - `target` - The specified character type to focus at; Can be either: `boyfriend`, `dad`, or `gf`.
 
 ### cameraShake(camera:String, intensity:Float, duration:Float):Void
-Makes the camera screen shake.
+Makes the <ins>camera screen **shake**</ins>.
 
 - `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
 - `intensity` - The amount of intensity for the shaking of the camera; Recommended value: `0.05`.
 - `duration` - The amount of duration length of the camera shaking to manually end.
 
 ### cameraFlash(camera:String, color:String, duration:Float, forced:Bool):Void
-Makes the camera screen flash.
+Makes the <ins>camera screen **flash**</ins>.
 
 - `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
 - `color` - The flash color to display on the camera screen.
@@ -127,7 +127,7 @@ Makes the camera screen flash.
 - `forced` - Whether the flash will restart or not, if there's already a flash currently happening.
 
 ### cameraFade(camera:String, color:String, duration:Float, forced:Bool, ?fadeOut:Bool = false):Void
-Makes the camera screen fade.
+Makes the <ins>camera screen **fade**</ins>.
 
 - `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
 - `color` - The fade color to display on the camera screen.
@@ -137,42 +137,42 @@ Makes the camera screen fade.
 
 ## Adders
 ### addCameraScroll(?x:Float = 0, ?y:Float = 0):Void
-Adds the amount of the camera's basic parallax scroll value within the game.
+Adds the amount of the <ins>camera's basic parallax scroll value within the game</ins>.
 
 - `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
 - `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
 
 ### addCameraFollowPoint(?x:Float = 0, ?y:Float = 0):Void
-Adds the amount of the camera's object coordinates follow point.
+Adds the amount of the <ins>camera's object coordinates follow point</ins>.
 
 - `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
 - `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
 
 ## Setters
 ### setCameraScroll(x:Float, y:Float):Void
-Sets the camera's basic parallax scroll value within the game with a new scroll values.
+<ins>Sets the camera's basic parallax scroll value</ins> within the game with a new scroll values.
 
 - `x` - The new x-position value to set the camera's scroll value to.
 - `y` - The new y-position value to set the camera's scroll value to.
 
 ### setCameraFollowPoint(x:Float, y:Float):Void
-Sets the camera's object follow point coordinates with a new follow point coordinate values.
+<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values.
 
 - `x` - The new x-position value to set the camera's follow point coordinates to.
 - `y` - The new y-position value to set the camera's follow point coordinates to.
 
 ## Getters
 ### getCameraScrollX():Float
-Gets the current camera's basic parallax scroll x-position within the game current value.
+Gets the current <ins>camera's basic parallax scroll **x-position**</ins> within the game current value.
 
 ### getCameraScrollY():Float
-Gets the current camera's basic parallax scroll y-position within the game current value.
+Gets the current <ins>camera's basic parallax scroll **y-position**</ins> within the game current value.
 
 ### getCameraFollowX():Float
-Gets the current camera's object follow point x-coordinates current value.
+Gets the current <ins>camera's object follow point **x-coordinates**</ins> current value.
 
 ### getCameraFollowY():Float
-Gets the current camera's object follow point y-coordinates current value.
+Gets the current <ins>camera's object follow point **y-coordinates**</ins> current value.
 
 ***
 
@@ -202,17 +202,17 @@ Gets the specified achievement score current value.
 
 ## Achievement Utility
 ### unlockAchievement(name:String):String
-Immediately unlocks the given achievement and returns the unlocked achievement name.
+<ins>Immediately unlocks the given achievement</ins> and returns the unlocked achievement name.
 
 - `name` - The specified element name tag from the achievement JSON file to unlock.
 
 ### achievementExists(name:String):Dynamic
-Checks whether the given achievement exists or not, probably used to prevent envoking an error.
+Checks whether the <ins>given achievement exists or not</ins>, probably used to prevent envoking an error.
 
 - `name` - The specified element name tag from the achievement JSON file to check its existence.
 
 ### isAchievementUnlocked(name:String):Bool
-Checks whether the given achievement has been unlocked or not.
+Checks whether the <ins>given achievement has been unlocked or not</ins>.
 
 - `name` - The specified element name tag from the achievement JSON file to check its status.
 
@@ -263,17 +263,17 @@ Ends the song manually.
 
 # Lua Exists Functions
 ### luaSpriteExists(tag:String):Bool
-Checks whether if the Lua sprite object within the game exists or not.
+Checks whether if the <ins>Lua **sprite object** within the game exists or not</ins>.
 
 - `tag` - The tag name of the sprite object to check its existence.
 
 ### luaTextExists(tag:String):Bool
-Checks whether if the Lua text object within the game exists or not.
+Checks whether if the <ins>Lua **text object** within the game exists or not</ins>.
 
 - `tag` - The tag name of the text object to check its existence.
 
 ### luaSoundExists(tag:String):Bool
-Checks whether if the Lua sound within the game exists or not.
+Checks whether if the <ins>Lua **sound** within the game exists or not</ins>.
 
 - `tag` - The tag name of the sound to check its existence.
 
@@ -281,26 +281,26 @@ Checks whether if the Lua sound within the game exists or not.
 
 # Color Functions
 ### setHealthBarColors(opponent:String, player:String):Void
-Set the health-bar colors from either both the opponent and player with a new color.
+Set the health-bar colors from <ins>either both the **opponent and player** with a new color</ins>.
 
 - `opponent` - The new color for the opponent bar color to display.
 - `player` - The new color for the player bar color to display.
 
 ### setTimeBarColors(percent:String, background:String):Void
-Set the time-bar colors from either both the precent bar and background with a new color.
+Set the time-bar colors from <ins>either both the **perecent bar and background** with a new color</ins>.
 
 - `percent` - The new color for the percent bar color to display.
 - `background` - The new color for the time-bar background color to display.
 
 ### getPixelColor(obj:String, x:Int, y:Int):Int
-Returns the color in hexadecimal value of the given object by its pixel size. It uses 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
+Returns the color in hexadecimal value of the given object <ins>by its pixel size value</ins>. It uses 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
 
 - `object` - The object tag name to get its color from.
 - `x` - The x-position value from the object to get its pixel color from.
 - `y` - The y-position value from the object to get its pixel color from.
 
 ### getColorFromName(color:String):String
-Parses and returns color in hexadecimal value by its corresponding `FlxColor` class value. Additionally this function has alternative names such as: `getColorFromString()` and `FlxColor()` functions, if you don't like the name or smt idk.
+Parses and returns color in hexadecimal value <ins>by its corresponding `FlxColor` class value</ins>. Additionally this function has alternative names such as: `getColorFromString()` and `FlxColor()` functions, if you don't like the name or smt idk.
 
 - `color` - The given color format to parse.
 
