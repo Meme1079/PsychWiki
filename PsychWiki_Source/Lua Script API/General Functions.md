@@ -4,6 +4,20 @@ Makes the specified character play their <ins>default idle animation</ins>.
 
 - `characterType` - The specified character type to play an idle animation; Can be either: `boyfriend`, `dad`, or `gf`.
 
+Example:
+> Forces to play an idle animation to the player character, if the key pressing has gone on after $1$ second.
+```lua
+function onKeyPress(key)
+     runTimer('resetAnim', 1, 0)
+end
+
+function onTimerCompleted(tag, loops, loopsLeft)
+     if tag == 'resetAnim' then
+          characterDance('boyfriend')
+     end
+end
+```
+
 <!-- ### characterShowTits():Void -->
 
 ## Setter
@@ -13,11 +27,23 @@ Sets the specified <ins>character's current **x-position**</ins> to a new value,
 - `characterType` - The specified character type to set its x-position to; Can be either: `boyfriend`, `dad`, or `gf`.
 - `value` - The new x-position value to set to.
 
+Example:
+> Sets the x-position of the girlfriend character by a randomizer from $0$ through $100$.
+```lua
+setCharacterX('gf', getRandomInt(0, 100))
+```
+
 ### setCharacterY(characterType:String, value:Float):Void
 Sets the specified <ins>character's current **y-position**</ins> to a new value, a shorthand version.
 
 - `characterType` - The specified character type to set its y-position to; Can be either: `boyfriend`, `dad`, or `gf`.
 - `value` - The new y-position value to set to.
+
+Example:
+> Sets the y-position of the girlfriend character by a randomizer from $0$ through $100$.
+```lua
+setCharacterY('gf', getRandomInt(0, 100))
+```
 
 ## Getter
 ### getCharacterX(characterType:String):Float
@@ -33,73 +59,141 @@ Gets the specified <ins>character's current **y-position**</ins> value from, a s
 ***
 
 # Rating Accuracy Functions
-## Adders
-### addScore(value:Int = 0):Void
-Adds the specified amount of value to the <ins>**score** value</ins>.
-
-- `value` - An optional parameter, the amount of value to add to the score value; Default value: `0`.
-
-### addMisses(value:Int = 0):Void
-Adds the specified amount of value to the <ins>**miss** value</ins>.
-
-- `value` - An optional parameter, the amount of value to add to the miss value; Default value: `0`.
-
-### addHits(value:Int = 0):Void
-Adds the specified amount of value to the <ins>**hit** value</ins>.
-
-- `value` - An optional parameter, the amount of value to add to the hits value; Default value: `0`.
-
-### addHealth(value:Float = 0):Void
-Adds the specified amount of value to the <ins>**health** value</ins>.
-
-- `value` - An optional parameter, the amount of value to add to the health value; Default value: `0`.
-
 ## Setters
 ### setScore(value:Int = 0):Void
-Sets the score value with a <ins>**new score total** value value</ins>.
+Sets the score value with a <ins>**new score total** value value</ins>, and recalculates the rating.
 
 - `value` - An optional parameter, the new score total value to set to; Default value: `0`.
 
+Example:
+> Sets the score value to this value.
+```lua
+setScore(360490)
+```
+
 ### setMisses(value:Int = 0):Void
-Sets the miss value with a <ins>**new miss total** value value</ins>.
+Sets the miss value with a <ins>**new miss total** value value</ins>, and recalculates the rating.
 
 - `value` - An optional parameter, the new miss total value to set to; Default value: `0`.
 
+Example:
+> Sets the miss value to this value.
+```lua
+setMisses(5)
+```
+
 ### setHits(value:Int = 0):Void
-Sets the hit value with a <ins>**new hit total** value value</ins>.
+Sets the hit value with a <ins>**new hit total** value value</ins>, and recalculates the rating.
 
 - `value` - An optional parameter, the new hit total value to set to; Default value: `0`.
 
-### setHealth(value:Int = 0):Void
+Example:
+> Sets the hit value to this value.
+```lua
+setHits(30)
+```
+
+### setHealth(value:Float = 1):Void
 Sets the health value with a <ins>**new health total** value</ins>.
 
 - `value` - An optional parameter, the new health total value to set to; Default value: `0`.
 
+Example:
+> Sets the health value to this value.
+```lua
+setHealth(0.5)
+```
+
 ### setRatingPercent(value:Float):Void
 Sets the rating percent accuracy value with a <ins>**new percent accuracy** value</ins>.
 
-- `value` - The new percent accuracy value to set to.
+- `value` - The new percent accuracy value to set to; Goes from `0` to `1`.
+
+Example:
+> Sets the rating percent to this value.
+```lua
+setRatingPercent(0.35)
+```
 
 ### setRatingName(value:String):Void
 Sets the rating name accuracy value with a <ins>**new name accuracy** value</ins>.
 
 - `value` - The new name accuracy value to set to.
 
+Example:
+> Sets the rating name to this value.
+```lua
+setRatingName('I\'m in your walls')
+```
+
 ### setRatingFC(value:String):Void
 Sets the rating combo name value with a <ins>**new combo name** value</ins>.
 
 - `value` - The new combo name value to set to.
 
+> Sets the rating combo name to this value.
+```lua
+setRatingFC('Double Combo!!')
+```
+
+## Adders
+### addScore(value:Int = 0):Void
+Adds the specified <ins>amount of **score** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the score value; Default value: `0`.
+
+Example:
+> Adds this score value when hitting note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addScore(10)
+end
+```
+
+### addMisses(value:Int = 0):Void
+Adds the specified <ins>amount of **miss** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the miss value; Default value: `0`.
+
+Example:
+> Adds this miss value when missing note.
+```lua
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     addMisses(5)
+end
+```
+
+### addHits(value:Int = 0):Void
+Adds the specified <ins>amount of **hit** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the hits value; Default value: `0`.
+
+Example:
+> Adds this hit value when hitting note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addHits(3)
+end
+```
+
+### addHealth(value:Float = 0):Void
+Adds the specified <ins>amount of **health** value</ins> to its current value.
+
+- `value` - An optional parameter, the amount of value to add to the health value; Default value: `0`.
+
+Example:
+> Adds this health at $0.1$ when hitting a note while $-0.1$ when missing a note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addHealth(0.1)
+end
+
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     addHealth(-0.1)
+end
+```
+
 ## Getters
-### getScore():Int
-Gets the current <ins>**song score total** value</ins>.
-
-### getMisses():Int
-Gets the current <ins>**song miss total** value</ins>.
-
-### getHits():Int
-Gets the current <ins>**song hit total** value</ins>.
-
 ### getHealth():Float
 Gets the current <ins>**health total** value</ins>.
 
@@ -111,12 +205,28 @@ Makes the <ins>camera forcefully focus on target character</ins>.
 
 - `target` - The specified character type to focus at; Can be either: `boyfriend`, `dad`, or `gf`.
 
+Example:
+> Forces the camera to the player character always on each update of the frame.
+```lua
+function onUpdate(elapsed)
+     cameraSetTarget('boyfriend')
+end
+```
+
 ### cameraShake(camera:String, intensity:Float, duration:Float):Void
 Makes the <ins>camera screen **shake**</ins>.
 
 - `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
 - `intensity` - The amount of intensity for the shaking of the camera; Recommended value: `0.05`.
 - `duration` - The amount of duration length of the camera shaking to manually end.
+
+Example:
+> Forces the camera HUD to shake when missing a note.
+```lua
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     cameraShake('camHUD', 0.008, 1)
+end
+```
 
 ### cameraFlash(camera:String, color:String, duration:Float, forced:Bool):Void
 Makes the <ins>camera screen **flash**</ins>.
@@ -126,6 +236,16 @@ Makes the <ins>camera screen **flash**</ins>.
 - `duration` - The amount of duration length of the camera flashing to manually end.
 - `forced` - Whether the flash will restart or not, if there's already a flash currently happening.
 
+Example:
+> Forces a color green flash within the camera HUD, when a specific animation plays.
+```lua
+function onUpdate(elapsed)
+     if getProperty('boyfriend.animation.curAnim.name') == 'hey' then
+          cameraFlash('camHUD', '00ff00', 0.8)
+     end
+end
+```
+
 ### cameraFade(camera:String, color:String, duration:Float, forced:Bool, ?fadeOut:Bool = false):Void
 Makes the <ins>camera screen **fade**</ins>.
 
@@ -133,46 +253,97 @@ Makes the <ins>camera screen **fade**</ins>.
 - `color` - The fade color to display on the camera screen.
 - `duration` - The amount of duration length of the camera fading to manually end.
 - `forced` - Whether the fade will restart or not, if there's already a fade currently happening.
-- `fadeOut` - An optional parameter, whether the fading out will happen or not; Default value: `false`.
+- `fadeOut` - An optional parameter, whether it will fade-in or fade-out; Default value: `false`.
 
-## Adders
-### addCameraScroll(?x:Float = 0, ?y:Float = 0):Void
-Adds the amount of the <ins>camera's basic parallax scroll value within the game</ins>.
+Example:
+> Does a fade-in using a black color.
+```lua
+function onCreate()
+     cameraFade('camHUD', '000000', 1, false, true)
+end
+```
 
-- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
-- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
+***
 
-### addCameraFollowPoint(?x:Float = 0, ?y:Float = 0):Void
-Adds the amount of the <ins>camera's object coordinates follow point</ins>.
-
-- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
-- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
-
+# Camera Targeting Functions
 ## Setters
-### setCameraScroll(x:Float, y:Float):Void
-<ins>Sets the camera's basic parallax scroll value</ins> within the game with a new scroll values.
-
-- `x` - The new x-position value to set the camera's scroll value to.
-- `y` - The new y-position value to set the camera's scroll value to.
-
 ### setCameraFollowPoint(x:Float, y:Float):Void
-<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values.
+<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values. For the camera object to scroll to that specfic point coordinates.
 
 - `x` - The new x-position value to set the camera's follow point coordinates to.
 - `y` - The new y-position value to set the camera's follow point coordinates to.
 
+Example:
+> Changes the camera follow point coordinates when focusing to the player character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+          setCameraFollowPoint(800, 450)
+     end
+end
+```
+
+### setCameraScroll(x:Float, y:Float):Void
+<ins>Sets the camera's parallax scroll position value</ins> with a new scroll position values.
+
+- `x` - The new x-position value to set the camera's scroll value to.
+- `y` - The new y-position value to set the camera's scroll value to.
+
+Example:
+> Forcefully sets the camera's scroll position to the player character's follow point coordinates. When focusing at the player character, thus making it instantly set to that coordinate.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+          setCameraScroll(800, 450)
+     end
+end
+```
+
+## Adders
+### addCameraFollowPoint(?x:Float = 0, ?y:Float = 0):Void
+<ins>Adds the specified amount of the camera's object coordinates follow point</ins> to its current value. For the camera object to scroll to that specfic point coordinates.
+
+- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
+- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
+
+Example:
+> Adds $150$ value only to the camera's object x-coordinate when focusing to the player character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+         addCameraFollowPoint(150)
+     end
+end
+```
+
+### addCameraScroll(?x:Float = 0, ?y:Float = 0):Void
+<ins>Adds the specified amount of the camera's parallax scroll position</ins> value to its current value.
+
+- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
+- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
+
+Example:
+> Adds $-200$ value only to the camera's scroll x-position when focusing to the opponent character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'dad' then
+          addCameraScroll(-200)
+     end
+end
+```
+
 ## Getters
-### getCameraScrollX():Float
-Gets the current <ins>camera's basic parallax scroll **x-position**</ins> within the game current value.
-
-### getCameraScrollY():Float
-Gets the current <ins>camera's basic parallax scroll **y-position**</ins> within the game current value.
-
 ### getCameraFollowX():Float
 Gets the current <ins>camera's object follow point **x-coordinates**</ins> current value.
 
 ### getCameraFollowY():Float
 Gets the current <ins>camera's object follow point **y-coordinates**</ins> current value.
+
+### getCameraScrollX():Float
+Gets the current <ins>camera's parallax scroll **x-position**</ins> current value.
+
+### getCameraScrollY():Float
+Gets the current <ins>camera's parallax scroll **y-position**</ins> current value.
 
 ***
 
@@ -181,18 +352,18 @@ Gets the current <ins>camera's object follow point **y-coordinates**</ins> curre
 > [!WARNING]
 > _For the `name` parameter, if the given element name tag from the achievement JSON file isn't present within the data. It will immediately throw an error and returns: `-1`._
 
-### addAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked:Bool = true):Float
-Adds the specified amount of achievement score value, plus returning its current added new value.
-
-- `name` - The specified element name tag from the achievement JSON file to utilize.
-- `value` - An optional parameter, the amount of value to add to the achievement score value; Default value: `1`.
-- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
-
 ### setAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked = true):Float
 Sets the specified achievement score value with a new value, plus returning its current new value.
 
 - `name` - The specified element name tag from the achievement JSON file to utilize.
 - `value` - An optional parameter, the new achievement score value to set to; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
+
+### addAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked:Bool = true):Float
+Adds the specified amount of achievement score value to its current value, plus returning its current added new value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+- `value` - An optional parameter, the amount of value to add to the achievement score value; Default value: `1`.
 - `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
 
 ### getAchievementScore(name:String):Float
@@ -286,11 +457,27 @@ Set the health-bar colors from <ins>either both the **opponent and player** with
 - `opponent` - The new color for the opponent bar color to display.
 - `player` - The new color for the player bar color to display.
 
-### setTimeBarColors(percent:String, background:String):Void
+Example:
+> Sets both the opponent and player health-bar colors to these color values.
+```lua
+function onCreatePost()
+     setHealthBarColors('FF0000', '00FF00')
+end
+```
+
+### setTimeBarColors(background:String, percent:String):Void
 Set the time-bar colors from <ins>either both the **perecent bar and background** with a new color</ins>.
 
-- `percent` - The new color for the percent bar color to display.
 - `background` - The new color for the time-bar background color to display.
+- `percent` - The new color for the percent bar color to display.
+
+Example:
+> Sets both the background and percent time-bar colors to these color values.
+```lua
+function onCreatePost()
+     setTimeBarColors('C8FF00', '3700FF')
+end
+```
 
 ### getPixelColor(obj:String, x:Int, y:Int):Int
 Returns the color in hexadecimal value of the given object <ins>by its pixel size value</ins>. It uses 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
@@ -299,15 +486,35 @@ Returns the color in hexadecimal value of the given object <ins>by its pixel siz
 - `x` - The x-position value from the object to get its pixel color from.
 - `y` - The y-position value from the object to get its pixel color from.
 
+Example:
+> Gets the specific color of the boyfriend character and converts to a hexadecimal number.
+```lua
+debugPrint( ('%x'):format( getPixelColor('bf', 30, 24) ) ) --> FFFFFFFFFF000000
+```
+
 ### getColorFromName(color:String):String
 Parses and returns color in hexadecimal value <ins>by its corresponding `FlxColor` class value</ins>. Additionally this function has alternative names such as: `getColorFromString()` and `FlxColor()` functions, if you don't like the name or smt idk.
 
 - `color` - The given color format to parse.
 
+Example:
+> Set the colors of boyfriend, girlfriend, and opponent character to their corresponding colors.
+```lua
+setProperty('bf.color', getColorFromName('0xffff00'))
+setProperty('gf.color', getColorFromName('#ffff00'))
+setProperty('dad.color', getColorFromName('yellow'))
+```
+
 ### getColorFromHex(color:String):Int
 Works the same as the `getColorFromName()` function, but doesn't require the hexadecimal hashtag <kbd>#</kbd> to represent hexadecimal.
 
 - `color` - The given color format to parse.
+
+Example:
+> Self-explanatory.
+```lua
+setProperty('gf.color', getColorFromName('ffff00'))
+```
 
 ***
 
