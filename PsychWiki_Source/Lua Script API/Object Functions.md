@@ -55,7 +55,7 @@ Adds the given character to prechache for optimization purposes. This is a must 
 Precaches the object's image graphic.
 
 - `sprite` - The given object's image sprite graphic to precache; starts within the `images` folder directory.
-- `allowGPU` - An optional parameter, ; Default value: `true`.
+- `allowGPU` - An optional parameter, whether to enabled GPU caching or not; Default value: `true`.
 
 ### precacheSound(sound:String):Void
 Precaches the sound.
@@ -71,17 +71,59 @@ Precaches the music.
 
 # Midpoint Functions
 ### getGraphicMidpointX(object:String):Float
+Gets the given object's sprite graphic midpoint by x-position value within the world coordinates.
+
+- `object` - The given object sprite name tag to get its current graphic midpoint.
+
 ### getGraphicMidpointY(object:String):Float
+Gets the given object's sprite graphic midpoint by y-position value within the world coordinates.
+
+- `object` - The given object sprite name tag to get its current midpoint.
+
 ### getMidpointX(object:String):Float
+Gets the given object's midpoint by x-position value within the world coordinates.
+
+- `object` - The given object name tag to get its current midpoint.
+
 ### getMidpointY(object:String):Float
+Gets the given object's midpoint by y-position value within the world coordinates.
+
+- `object` - The given object name tag to get its current midpoint.
 
 ***
 
 # Screen Positioning Functions
 ### screenCenter(object:String, pos:String = 'xy')
-### getScreenPositionX(object:String, ?camera:String):Float
+Centers the given object's on the screen, centering can be either by the x-axis, y-axis, or both.
+
+> [!WARNING]
+> _When an object has been centered to the screen, it makes it impossible to set a new position value to it._
+
+- `object` - The given object name tag to center it on the screen.
+- `pos` - An optional parameter, the specified screen position to set in; Can be either: `x`, `y` or `xy`; Default value: `xy`.
+
+### getScreenPositionX(object:String, ?camera:String = 'camGame'):Float
+Gets the given object's current screen x-position value.
+
+- `object` - The given object name tag to get its current screen position.
+- `camera` - An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`;<br>Default value: `camGame`.
+
 ### getScreenPositionY(object:String, ?camera:String):Float
+Gets the given object's current screen y-position value.
+
+- `object` - The given object name tag to get its current screen position.
+- `camera` - An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`;<br>Default value: `camGame`.
 
 # Miscellaneous Functions
 ### setScrollFactor(object:String, scrollX:Float, scrollY:Float):Void
+Sets the given object's scroll factor value.
+
+- `object` - The given object name tag to set a new scroll factor value to.
+- `scrollX` - The amount of scroll factor by x value to set to.
+- `scrollY` - The amount of scroll factor by y value to set to.
+
 ### setObjectCamera(object:String, camera:String = 'game'):Bool
+Sets the given object's camera state to apply to.
+
+- `object` - The given object name tag to set a new camera state to.
+- `camera` - An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`;<br>Default value: `camGame`.
