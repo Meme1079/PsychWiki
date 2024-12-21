@@ -11,7 +11,7 @@ Additionally the music can be controlled as well, the controlling, fading, and p
 
 ***
 
-# Playing Functions
+# Sound Playing Functions
 ### playSound(sound:String, volume:Float = 1, ?tag:String = null):Void
 Plays a sound. When the said sound had finished playing the `onSoundFinished()` event callback will be called. And returns the said tag given to the finished sound, if the tag for it, is included on the `tag` argument.
 
@@ -43,7 +43,7 @@ playMusic('breakfast-(pico)')
 
 ***
 
-# Controlling Functions
+# Sound Controlling Functions
 ### stopSound(tag:String):Void
 <ins>Stops</ins> the given sound.
 
@@ -99,7 +99,7 @@ end
 
 ***
 
-# Fading Functions
+# Sound Fading Functions
 ### soundFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1):Void
 Makes the <ins>sound fade-in</ins>, increasing the volume to its current volume at the start of the sound.
 
@@ -142,7 +142,7 @@ soundFadeCancel('secretJingle')
 
 ***
 
-# Property Functions
+# Sound Property Functions
 ## Setters
 ### setSoundVolume(tag:String, value:Float):Void
 <ins>Sets the sound's **volume**</ins> with a new volume value to play at.
