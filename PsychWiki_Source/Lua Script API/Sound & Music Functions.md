@@ -20,7 +20,7 @@ Plays a sound. When the said sound had finished playing the `onSoundFinished()` 
 
 - `sound` - The given sound to play within the game; starts within the `sounds` folder directory.
 - `volume` - An optional parameter, the specified amount of volume to play at; Goes from `0` to `1`; Default value: `1`.
-- `tag` - An optional parameter, the unique tag name for the sound to inherit for the sound to be controlled and what not.
+- `tag` - An optional parameter, the given unique tag name for the sound to inherit for the sound to be controlled and what not.
 
 Example:
 > Plays a sound from within the `assets` folder directory.

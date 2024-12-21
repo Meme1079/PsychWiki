@@ -133,7 +133,7 @@ initLuaShader('invert')
 ### setSpriteShader(obj:String, shader:String):Void
 Sets the specified object, mostly a sprite with the shader to be rendered with.
 
-- `obj` - The object name tag to set the shader to.
+- `obj` - The given object name tag to set the shader to.
 - `shader` - The given loaded shader to use within the game.
 
 Example:
@@ -145,7 +145,7 @@ setSpriteShader('sample_object', 'invert')
 ### removeSpriteShader(obj:String):Void
 Removes the given shader to that object, mostly a sprite to stop rendering from.
 
-- `obj` - The object tag name to remove the rendered shader.
+- `obj` - The given object tag name to remove the rendered shader.
 
 Example:
 > Removes the given shader from the object.
@@ -160,7 +160,7 @@ removeSpriteShader('sample_object')
 ### setShaderInt(obj:String, uniform:String, value:Int):Void
 Sets the <ins>specified uniform **integer type** variable</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform integer type variable to set a new value to.
 - `value` - The new integer value to set to.
 
@@ -173,7 +173,7 @@ setShaderInt('sample_object', 'timer', 32)
 ### setShaderFloat(obj:String, uniform:String, value:Float):Void
 Sets the <ins>specified uniform **floating-point type** variable</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform floating-point type variable to set a new value to.
 - `value` - The new floating-point value to set to.
 
@@ -186,7 +186,7 @@ setShaderFloat('sample_object', 'duration', 15.0)
 ### setShaderBool(obj:String, uniform:String, value:Bool):Void
 Sets the <ins>specified uniform **boolean type** variable</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform boolean type variable to set a new value to.
 - `value` - The new boolean value to set to.
 
@@ -199,7 +199,7 @@ setShaderBool('sample_object', 'hasStarted', false)
 ### setShaderSampler2D(obj:String, uniform:String, bitmapdataPath:String):Void
 Sets the <ins>specified uniform **sampler 2-dimension type** variable</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform sampler 2-dimension type variable to set a new value to.
 - `bitmapdataPath` - The new texture sprite image to set to; starts inside the `images` folder directory.
 
@@ -213,7 +213,7 @@ setShaderSampler2D('sample_object', 'texture', 'dead_bf')
 ### getShaderInt(obj:String, uniform:String):Int
 Gets the <ins>specified uniform **integer type** variable</ins> within the shader current value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform integer type variable to get the current value from.
 
 Example:
@@ -225,7 +225,7 @@ debugPrint( setShaderInt('sample_object', 'timer') ) --> 32
 ### getShaderFloat(obj:String, uniform:String):Float
 Gets the <ins>specified uniform **floating-point type** variable</ins> within the shader current value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform floating-point type variable to get the current value from.
 
 Example:
@@ -237,7 +237,7 @@ debugPrint( setShaderFloat('sample_object', 'duration') ) --> 15.0
 ### getShaderBool(obj:String, uniform:String):Bool
 Gets the <ins>specified uniform **boolean type** variable</ins> within the shader current value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform boolean type variable to get the current value from.
 
 Example:
@@ -253,7 +253,7 @@ debugPrint( setShaderBool('sample_object', 'hasStarted') ) --> false
 ### setShaderIntArray(obj:String, uniform:String, values:Dynamic):Void
 Sets the <ins>specified uniform vector type variable in **all intergers**</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to set a new value to.
 - `values` - The new integer values within the vector to set to.
 
@@ -266,7 +266,7 @@ setShaderIntArray('sample_object', 'textureButIn2D', {2, 1})
 ### setShaderFloatArray(obj:String, uniform:String, values:Dynamic):Void
 Sets the <ins>specified uniform vector type variable in **all floating-points**</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to set a new value to.
 - `values` - The new floating-point values within the vector to set to.
 
@@ -279,7 +279,7 @@ setShaderFloatArray('sample_object', 'textureButIn3D', {3.0, 2.0, 1.0})
 ### setShaderBoolArray(obj:String, uniform:String, value:Dynamic):Void
 Sets the <ins>specified uniform vector type variable in **all booleans**</ins> within the shader, a new value.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to set a new value to.
 - `values` - The new booleans values within the vector to set to.
 
@@ -293,7 +293,7 @@ setShaderBoolArray('sample_object', 'textureButIn4D', {true, true, false, false}
 ### getShaderIntArray(obj:String, uniform:String):Array\<Int\>
 Gets the specified uniform vector type variable within the shader <ins>current all **integer values**</ins>.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to get the current integer values from.
 
 Example:
@@ -305,7 +305,7 @@ debugPrint( setShaderIntArray('sample_object', 'textureButIn2D') ) --> [2, 1]
 ### getShaderFloatArray(obj:String, uniform:String):Array\<Float\>
 Gets the specified uniform vector type variable within the shader <ins>current all **floating-point values**</ins>.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to get the current floating-point values from.
 
 Example:
@@ -317,7 +317,7 @@ debugPrint( setShaderIntArray('sample_object', 'textureButIn3D') ) --> [3.0, 2.0
 ### getShaderBoolArray(obj:String, uniform:String):Array\<Bool\>
 Gets the specified uniform vector type variable within the shader <ins>current all **booleans values**</ins>.
 
-- `obj` - The object tag name rendered from a shader to be used.
+- `obj` - The given object tag name rendered from a shader to be used.
 - `uniform` - The specified uniform vector type variable to get the current boolean values from.
 
 Example:
