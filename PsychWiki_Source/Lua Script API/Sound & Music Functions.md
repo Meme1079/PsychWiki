@@ -118,7 +118,7 @@ soundFadeIn('secretJingle', 1, 0, 1)
 ### soundFadeOut(tag:String, duration:Float, toValue:Float = 0):Void
 Makes the <ins>sound fade-out</ins>, decreasing the volume until its mute at the near-end of the sound.
 
-- `tag` - The given tag name to start the fade-in.
+- `tag` - The given tag name to start the fade-out.
 - `duration` - The amount of duration length of the fade-out to end.
 - `toValue` - An optional parameter, the target volume value of the fade-out; Default value: `1`.
 

@@ -539,6 +539,21 @@ Changes your current Discord Client ID.
 
 ***
 
+# Mouse Position Functions
+### getMouseX(?camera:String = 'camGame'):Float
+<ins>Gets the current mouse **x-position**</ins> by its given camera state.
+
+- An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`
+<br>Default value: `camGame`.
+
+### getMouseY(?camera:String = 'game'):Float
+<ins>Gets the current mouse **y-position**</ins> by its given camera state.
+
+- An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`
+<br>Default value: `camGame`.
+
+***
+
 # Miscellaneous Functions
 ### triggerEvent(name:String, ?arg1:Dynamic = '', ?arg2:Dynamic = ''):Bool
 Triggers a given event.

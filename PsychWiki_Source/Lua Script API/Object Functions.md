@@ -219,6 +219,22 @@ setScrollFactor('myAwesomeSprite', 2, 2)
 addLuaSprite('myAwesomeSprite')
 ```
 
+### setBlendMode(object:String, blend:String = ''):Bool
+Sets the given object [blend mode](https://api.haxeflixel.com/flash/display/BlendMode.html) to apply to
+
+- `object` - The given object name tag to set a new blend mode to.
+- `blend` - An optional parameter, the specified blend mode to apply to.
+
+Example:
+> Makes the graphic sprite blend mode to invert.
+```lua
+makeLuaSprite('myAwesomeSprite', nil, 0, 50)
+makeGraphic('myAwesomeSprite', 100, 100, '00ff00')
+setProperty('myAwesomeSprite.camera', instanceArg('camHUD'), false, true) -- changes camera state
+setBlendMode('myAwesomeSprite', 'INVERT')
+addLuaSprite('myAwesomeSprite')
+```
+
 ### setObjectCamera(object:String, camera:String = 'game'):Bool
 Sets the given object's camera state to apply to.
 
