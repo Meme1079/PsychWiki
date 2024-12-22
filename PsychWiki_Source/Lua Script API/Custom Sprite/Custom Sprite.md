@@ -70,55 +70,55 @@ Makes a flat colored square graphic, an alternative to images.
 ***
 
 # Sprite Animation Functions
-### addAnimation(object:String, name:String, frames:Array\<Int\>, framerate:Int = 24, loop:Bool = true):Void
+### addAnimation(tag:String, name:String, frames:Array\<Int\>, framerate:Int = 24, loop:Bool = true):Void
 <ins>Adds an animation</ins> to the given sprite object.
 
-- `object` - The given sprite object name tag to add an animation.
+- `tag` - The given sprite object name tag to add an animation.
 - `name` - The given animation name to inherit for later use.
 - `frames` - The indices indicating what animation frames to play in what order.
 - `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
 - `loop` - An optional parameter, whether the animation will loop after finishing; Default value: `false`.
 
-### addAnimationByPrefix(object:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true):Bool
+### addAnimationByPrefix(tag:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true):Bool
 <ins>Adds an animation by the prefix within its animation XML file</ins> to the given given sprite object. Returns `true`, if the addition works properly.
 
-- `object` - The given sprite object name tag to add an animation by its prefix.
+- `tag` - The given sprite object name tag to add an animation by its prefix.
 - `name` - The given animation name to inherit for later use.
 - `prefix` - The given prefix name within the animation XML file to play with.
 - `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
 - `loop` - An optional parameter, whether the animation will loop after finishing; Default value: `true`.
 
-### addAnimationByIndices(object:String, name:String, prefix:String, indices:String, framerate:Int = 24, loop:Bool = false):Void
+### addAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24, loop:Bool = false):Void
 <ins>Adds an animation by indicating what frames to play an animation</ins> to the given given sprite object.
 
-- `object` - The given sprite object name tag to add an animation by each of its indices.
+- `tag` - The given sprite object name tag to add an animation by each of its indices.
 - `name` - The given animation name to inherit for later use.
 - `prefix` - The given prefix name within the animation XML file to play with.
 - `indices` - The indices indicating what animation frames to play in what order.
 - `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
 - `loop` - An optional parameter, whether the animation will loop after finishing; Default value: `false`.
 
-### playAnim(object:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0):Bool
+### playAnim(tag:String, name:String, forced:Bool = false, ?reverse:Bool = false, ?startFrame:Int = 0):Bool
 <ins>Plays an animation</ins> to the given sprite object. Returns `true`, if the playing works properly.
 
-- `object` - The given sprite object name tag to play an animation.
+- `tag` - The given sprite object name tag to play an animation.
 - `name` - The given animation name to play an animation.
 - `forced` - An optional parameter, whether the animation will restart while animation is currently playing; Default value: `false`.
 - `reverse` - An optional parameter, whether it will play it in reverse or not; Default value: `false`.
 - `startFrame` - An optional parameter, the specified starting frame for the animation to play at; Default value: `0`.
 
-### addOffset(object:String, name:String, offsetX:Float, offsetY:Float):Bool
+### addOffset(tag:String, name:String, offsetX:Float, offsetY:Float):Bool
 Adds the given offset of the animation. Returns `true`, if the offseting works properly
 
-- `object` - The given sprite object name tag to add offset to an animation.
+- `tag` - The given sprite object name tag to add offset to an animation.
 - `name` - The given animation name to add offset to.
 - `offsetX` - The specified offset by x-position to add.
 - `offsetY` - The specified offset by y-position to add.
 
-### loadFrames(object:String, image:String, spriteType:String = "sparrow"):Void
+### loadFrames(tag:String, image:String, spriteType:String = "sparrow"):Void
 <ins>Loads an animation</ins> to the given sprite object, if said object doesn't have animation supported.
 
-- `object` - The given sprite object name tag to load an animation.
+- `tag` - The given sprite object name tag to load an animation.
 - `image` - The given image graphic for the sprite to render; starts within the `images` folder directory.
 - `spriteType` - An optional parameter, An optional parameter, the sprite's atlas format to use when playing animations. Atlas formats are a bunch of data for each of the sprites corresponding animation to play. The most common one is sparrow for xml files; Default value: `auto`.
      - `sparrow` - A group of animation images into one large sprite-sheet, with a provided XML file for each animation frames; Alternative values: `sparrowatlas`, or `sparrowv2`.

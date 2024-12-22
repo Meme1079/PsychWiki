@@ -8,46 +8,150 @@ If you called a deprecated function it will throw an error message. Telling you 
 # Event Callbacks
 ## Note Callbacks
 ### goodNoteHitPost(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+> Added in version <kbd>0.7.2</kbd>, but later removed in version <kbd>0.7.3</kbd>, due to having the same behavior as the `goodNoteHit()` callback.
 
+Triggered after the player hits a note.
 
-- `membersIndex`
-- `noteData`
-- `noteType`
-- `isSustainNote`
+- `membersIndex` - The current note member ID index.
+- `noteData` - The current direction index of the note; Goes from: 0 to 3, basically left, down, up and right.
+- `noteType` - The current notetype of the note.
+- `isSustainNote` - Whether the notes are sustain (long notes) or not.
 
 ### opponentNoteHitPost(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
+> Added in version <kbd>0.7.2</kbd>, but later removed in version <kbd>0.7.3</kbd>, due to having the same behavior as the `opponentNoteHit()` callback.
 
-- `membersIndex`
-- `noteData`
-- `noteType`
-- `isSustainNote`
+Triggered after the player opponent a note.
+
+- `membersIndex` - The current note member ID index.
+- `noteData` - The current direction index of the note; Goes from: 0 to 3, basically left, down, up and right.
+- `noteType` - The current notetype of the note.
+- `isSustainNote` - Whether the notes are sustain (long notes) or not.
 
 ***
 
 # Custom Sprites
 ## Sprite Graphic Functions
 ### luaSpriteMakeGraphic(tag:String, width:Int, height:Int, color:String):Void
+> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `makeGraphic`.
+
+> Recommended to must use the `makeGraphic()` function.
+
+Makes a flat colored square graphic, an alternative to images.
+
+- `tag` - The given sprite object name tag to make a colored square graphic.
+- `width` - An optional parameter, the specified width value in pixels to inherit; Default value: `256`.
+- `height` - An optional parameter, the specified height value in pixels to inherit; Default value: `256`.
+- `color` - An optional parameter, the specified color value to render; Default value: `FFFFFF`.
 
 ## Sprite Animation Functions
 ### luaSpriteAddAnimationByPrefix(tag:String, name:String, prefix:String, framerate:Int = 24, loop:Bool = true):Void
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `addAnimationByPrefix`.
+
+> Recommended to must use the `addAnimationByPrefix()` function.
+
+<ins>Adds an animation by the prefix within its animation XML file</ins> to the given given sprite object. Returns `true`, if the addition works properly.
+
+- `tag` - The given sprite object name tag to add an animation by its prefix.
+- `name` - The given animation name to inherit for later use.
+- `prefix` - The given prefix name within the animation XML file to play with.
+- `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
+- `loop` - An optional parameter, whether the animation will loop after finishing; Default value: `true`.
+
 ### luaSpriteAddAnimationByIndices(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24):Void
-### addAnimationByIndicesLoop(obj:String, name:String, prefix:String, indices:String, framerate:Int = 24):Void
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `addAnimationByIndices`.
+
+> Recommended to must use the `addAnimationByIndices()` function.
+
+<ins>Adds an animation by indicating what frames to play an animation</ins> to the given given sprite object.
+
+- `tag` - The given sprite object name tag to add an animation by each of its indices.
+- `name` - The given animation name to inherit for later use.
+- `prefix` - The given prefix name within the animation XML file to play with.
+- `indices` - The indices indicating what animation frames to play in what order.
+- `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
+
+### addAnimationByIndicesLoop(tag:String, name:String, prefix:String, indices:String, framerate:Int = 24):Void
+> Added in version <kbd>0.6.3</kbd>, but later deprecated in version <kbd>0.7</kbd>, due to the `addAnimationByIndices()` function supports looping animations.
+
+<ins>Adds an animation by indicating what frames to play an animation</ins> to the given given sprite object. But it loops infinitely after finishing playing the animation.
+
+- `tag` - The given sprite object name tag to add an animation by each of its indices.
+- `name` - The given animation name to inherit for later use.
+- `prefix` - The given prefix name within the animation XML file to play with.
+- `indices` - The indices indicating what animation frames to play in what order.
+- `framerate` - An optional parameter, the given FPS for the animation to play; Default value: `24`.
+
 ### luaSpritePlayAnimation(tag:String, name:String, forced:Bool = false):Void
-### characterPlayAnim(character:String, animation:String, ?forced:Bool = false)
-### objectPlayAnimation(obj:String, name:String, forced:Bool = false, ?startFrame:Int = 0):Bool
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `objectPlayAnimation`. Then later being renamed again to `playAnim` in version <kbd>0.6</kbd>.
+
+> Recommended to must use the `playAnim()` function.
+
+<ins>Plays an animation</ins> to the given sprite object.
+
+- `tag` - The given sprite object name tag to play an animation.
+- `name` - The given animation name to play an animation.
+- `forced` - An optional parameter, whether the animation will restart while animation is currently playing; Default value: `false`.
+
+### objectPlayAnimation(tag:String, name:String, forced:Bool = false, ?startFrame:Int = 0):Bool
+> Added in version <kbd>0.4.2</kbd>, but later deprecated in version <kbd>0.6</kbd>, due to being renamed to `playAnim`.
+
+> Recommended to must use the `playAnim()` function.
+
+<ins>Plays an animation</ins> to the given sprite object. Returns `true`, if the playing works properly.
+
+- `tag` - The given sprite object name tag to play an animation.
+- `name` - The given animation name to play an animation.
+- `forced` - An optional parameter, whether the animation will restart while animation is currently playing; Default value: `false`.
+- `startFrame` - An optional parameter, the specified starting frame for the animation to play at; Default value: `0`.
+
+### characterPlayAnim(characterType:String, name:String, ?forced:Bool = false):Void
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.7</kbd>, due character animations can be played by utilizing the `playAnim()` function.
+
+> Recommended to must use the `playAnim()` function.
+
+Plays an animation to the specified character type.
+
+- `characterType` - The specified character type to play an animation; Can be either: `boyfriend`, `dad`, or `gf`.
+- `name` - The specified name to play an animation.
+- `forced` - An optional parameter, whether the animation will restart while animation is currently playing; Default value: `false`.
 
 ***
 
 # Object Functions
 ## Scale Functions
-### scaleLuaSprite(tag:String, x:Float, y:Float):Bool
+### scaleLuaSprite(object:String, x:Float, y:Float):Bool
+> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.4.1</kbd>, due to being renamed to `scaleObject`.
 
-***
+> Recommended to must use the `scaleObject()` function.
 
-# General Functions
+Sets the given <ins>object's graphic by size property</ins>. If below `1`, zoom-out; if above `1`, zoom-in. Returns `true`, if the scaling works properly.
+
+- `object` - The given object name tag to set its graphic size.
+- `x` - The new width size value to set to.
+- `y` - An optional parameter, The new height size value to set to; Default value: `0`.
+
+
 ## Miscellaneous Functions
-### setLuaSpriteScrollFactor(tag:String, scrollX:Float, scrollY:Float):Bool
-### setLuaSpriteCamera(tag:String, camera:String = ''):Bool
+### setLuaSpriteScrollFactor(object:String, scrollX:Float, scrollY:Float):Bool
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `setScrollFactor`.
+
+> Recommended to must use the `setScrollFactor()` function.
+
+Sets the given object's scroll factor value.
+
+- `object` - The given object name tag to set a new scroll factor value to.
+- `scrollX` - The amount of scroll factor by x value to set to.
+- `scrollY` - The amount of scroll factor by y value to set to.
+
+### setLuaSpriteCamera(object:String, camera:String = ''):Bool
+> Added in version <kbd>0.3.1</kbd>, but later deprecated in version <kbd>0.4.2</kbd>, due to being renamed to `setObjectCamera`.
+
+> Recommended to must use the `setObjectCamera()` function.
+
+Sets the given object's camera state to apply to.
+
+- `object` - The given object name tag to set a new camera state to.
+- `camera` - An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
 
 ***
 
@@ -72,9 +176,9 @@ Gets the current <ins>**song hit total** value</ins>.
 # Reflection Functions
 ## Property Functions
 ### setPropertyLuaSprite(object:String, variable:String, value:Dynamic):Void
-> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.7</kbd>.
+> Added in version <kbd>0.3</kbd>, but later deprecated in version <kbd>0.4.1</kbd>.
 
-> Recommended to use the `setProperty()` function, which is way more better than this.
+> Recommended to must use the `setProperty()` function.
 
 Sets the specified object's properties with a new value.
 
@@ -83,9 +187,9 @@ Sets the specified object's properties with a new value.
 - `value` - The new value to set to.
 
 ### getPropertyLuaSprite(object:String, variable:String):Void
-> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.7</kbd>.
+> Added in version <kbd>0.3</kbd>, but later deprecated in version <kbd>0.4.1</kbd>.
 
-> Recommended to use the `getProperty()` function, which is way more better than this.
+> Recommended to must use the `getProperty()` function.
 
 Gets the specified object's properties current value.
 
@@ -103,7 +207,7 @@ Updates the object's hitboxes with its specified member ID.
 ### setGlobalFromScript(luaFile:String, varName:String, value:Dynamic):Void
 > Added in version <kbd>0.6</kbd>, but later removed in version <kbd>1.0</kbd>.
 
-> Recommended to use these alternative functions: `setOnLuas()`, `setOnHScript()`, and `setOnScripts()` functions.
+> Recommended to must use these alternative functions: `setOnLuas()`, `setOnHScript()`, and `setOnScripts()` functions.
 
 Sets a global variable from a different running Lua scripts with a new value.
 
@@ -114,7 +218,7 @@ Sets a global variable from a different running Lua scripts with a new value.
 ### getGlobalFromScript(luaFile:String, varName:String):Any
 > Added in version <kbd>0.6</kbd>, but later removed in version <kbd>1.0</kbd>.
 
-> Recommended to use these alternative functions: `setOnLuas()`, `setOnHScript()`, and `setOnScripts()` functions.
+> Recommended to must use these alternative functions: `setOnLuas()`, `setOnHScript()`, and `setOnScripts()` functions.
 
 Gets a global variable from a different running Lua scripts current value.
 
@@ -124,7 +228,7 @@ Gets a global variable from a different running Lua scripts current value.
 # Sound & Music Functions
 ## Sound Fading Functions
 ### musicFadeIn(duration:Float, fromValue:Float = 0, toValue:Float = 1):Void
-> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.7</kbd>. 
+> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.4.1</kbd>. 
 
 > You can still fade-in the music by utilizing the `soundFadeIn()`, without giving the sound tag name while said music is currently playing.
 
@@ -135,7 +239,7 @@ Makes the <ins>music fade-in</ins>, increasing the volume to its current volume 
 - `toValue` - An optional parameter, the ending volume value to end the fade-in; Default value: `1`.
 
 ### musicFadeOut(duration:Float, toValue:Float = 0):Void
-> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.7</kbd>.
+> Added in version <kbd>0.4</kbd>, but later deprecated in version <kbd>0.4.1</kbd>.
 
 > You can still fade-in the music by utilizing the `soundFadeIn()`, without giving the sound tag name while said music is currently playing.
 
