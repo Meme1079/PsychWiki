@@ -33,27 +33,6 @@ Checks whether the given <ins>**[keyboard keys](https://api.haxeflixel.com/flixe
 
 ***
 
-# Mouse functions
-> [!NOTE]
-> _The mouse can either use these buttons: `left`, `middle` or `right` within the `button` parameter._
-
-### mouseClicked(?button:String = 'left'):Bool
-Checks whether the mouse were <ins>initially clicked</ins>.
-
-- `button` - An optional value, the given mouse button to check its input; Default value: `left`.
-
-### mousePressed(?button:String = 'left'):Bool
-Checks whether the mouse were <ins>currently pressed during a click</ins>.
-
-- `button` - An optional value, the given mouse button to check its input; Default value: `left`.
-
-### mouseReleased(?button:String = 'left'):Bool
-Checks whether the mouse were <ins>recently released after being clicked</ins>. 
-
-- `button` - An optional value, the given mouse button to check its input; Default value: `left`.
-
-***
-
 # Gamepad Functions
 ## Buttons
 > [!NOTE]

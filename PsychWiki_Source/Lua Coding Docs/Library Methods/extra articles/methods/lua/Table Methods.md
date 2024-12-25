@@ -2,7 +2,7 @@
 ### table.insert(tbl:Table, ?pos:Int, value:Any):Table
 Inserts an element value to a given table array, shifting the pre-existing element values to open space, if it exists. 
 
-- `tbl` - The table array to insert an element value.
+- `tbl` - The given table array to insert an element value.
 - `pos` - An optional parameter, The index position for the element value to be inserted to. This will always insert at the end of the table array, if there is no argument present. It basically gets the length of the table array and adds `1` to it.
 - `value` - The element value to be inserted to.
 
@@ -23,7 +23,7 @@ debugPrint(content) --> [true, true, false, false, true]
 ### table.remove(tbl:Table, ?pos:Int):Any
 Removes an element value from a given table array, shifting the pre-existing element values to close space, if it exists. Returns the given element value that was removed from the table array.
 
-- `tbl` - The table array to insert an element value.
+- `tbl` - The given table array to insert an element value.
 - `pos` - An optional parameter, The index position for the element value to be removed from. This will always remove at the end of the table array, if there is no argument present. It basically gets the length of the table array and subtracts `1` to it.
 - `value` - The element value to be removed from.
 
@@ -44,7 +44,7 @@ debugPrint(content) --> [pepper, asparagus, asparagus]
 ### table.concat(tbl:Table, sep:String = '', ?start:Int = 1, ?end:Int):String
 Concatenates each element values from a given table array; strings and numbers are only allowed to concatenate tho.
 
-- `tbl` - The table array to concatenate each element values.
+- `tbl` - The given table array to concatenate each element values.
 - `sep` - An optional parameter, The seperation between each element values; Default value: `''`.
 - `start` - An optional parameter, The starting index position of the table array to start concatenating; Default value: `1`.
 - `end` - An optional parameter, The ending index position of the table array to end concatenating.
@@ -63,7 +63,7 @@ debugPrint( table.concat(content, '; ', 2, 4) ) --> banana; orange; pineapple
 ### table.sort(tbl:Table, ?comparison:Function(comp1:Any, comp2:Any)):Void
 Sorts the element values from the given table, each element values' data type has it corresponding sorting system. For string it will sort to alphabetical order and for numbers it will sort to ascending order. If you attempted to sort several different data types, it will throw an error.
 
-- `tbl` - The table to sort the given element values.
+- `tbl` - The given table to sort the given element values.
 - `comparison` - An optional parameter, compares each element value of the table, receives two separate elements.
      - `comp1` - An optional parameter, The first randomize element value within the table.
      - `comp2` - An optional parameter, The second randomize element value within the table.
@@ -122,7 +122,7 @@ Clears any element key and values from the given table, but preserves the alloca
 > [!NOTE]
 > _This method is meant for very specific situations, that in most cases. It's better to replace the link, usually single with a new table and let the [garbage collection](https://devforum.roblox.com/t/a-beginners-guide-to-lua-garbage-collection/1756677) do its work._
 
-- `tbl` - The table to clear its elements, key and values.
+- `tbl` - The given table to clear its elements, key and values.
 
 Example:
 ```lua

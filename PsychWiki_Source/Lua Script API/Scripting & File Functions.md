@@ -513,7 +513,7 @@ debugPrint( getRandomBool() )
 
 # PlayState Variable Functions
 ### setVar(storeVar:String, value:Dynamic):Any
-Sets a stored global variable to allow different scripts either in Lua script or HScript to utilize with it. Either it sets the stored variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
+Sets a stored global variable to allow different scripts either from Lua scripts or HScripts to be utilize with it. Either it sets the stored variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
 
 The said stored variable will be stored within the game, mainly from the `MusicBeatState` class by utilizing a safe cast. Allowing every scripts either in Lua or Haxe to utilize the stored variable.
 

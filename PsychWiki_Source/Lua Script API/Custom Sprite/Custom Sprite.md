@@ -1,6 +1,6 @@
 <!-- 
 
-TODO: Will be added in 17.1.0 & Knuckles
+TODO: Will be added in 17.1.0
 
 # Configuration
 ## Setting Up

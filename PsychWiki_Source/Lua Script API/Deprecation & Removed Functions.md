@@ -117,6 +117,25 @@ Plays an animation to the specified character type.
 
 ***
 
+# HScript Interpreter Functions
+### addHaxeLibrary(name:String, ?package:String = ''):Void
+> Added in version <kbd>0.6.1</kbd>, but later removed in a later presumably version <kbd>0.1.1</kbd>.
+
+> You can already import libraries within the interpreted Haxe code.
+
+Imports the given library packages to the interpreted Haxe code.
+
+- `name` - The given library name to be imported.
+- `package` - An optional parameter, the package of the given library to add, if said package of that library exists. 
+
+Example:
+> Imports this Haxe library.
+```lua
+addHaxeLibrary('ShaderFilter', 'openfl.filters')
+```
+
+***
+
 # Object Functions
 ## Scale Functions
 ### scaleLuaSprite(object:String, x:Float, y:Float):Bool
@@ -172,6 +191,8 @@ Gets the current <ins>**song miss total** value</ins>.
 > Added in version <kbd>0.6</kbd>, but later removed in version <kbd>1.0</kbd> Pre-release, due to being similar to the `hits` variable.
 
 Gets the current <ins>**song hit total** value</ins>.
+
+***
 
 # Reflection Functions
 ## Property Functions
