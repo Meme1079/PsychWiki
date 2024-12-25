@@ -572,4 +572,4 @@ Gets the specified element tag from the settings JSON file to utilize.
 Returns the current song position by milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
 
 ### updateScoreText():Void
-Updates the current score text content, that's it.
+Updates the current score text content when changing any of its rating calculations, that's it.

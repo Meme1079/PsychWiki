@@ -1,7 +1,7 @@
 # About
-Callbacks have the optional ability to completely disable their functionality together. To disable the callback's functionality completely, just return the `Function_Stop` variable inside the said callback to disable, for reference: `return Function_Stop`. You can utilize this for creating custom functionality for that callback or just completely disabling it. But some callbacks have this ability to be disabled, so not all callbacks have this feature built-in to it.
+Event callbacks have a special ability to completely disable their functionality together. This special functionality can be used for creating custom functionality for that callback or just completely disabling it. To disable the callback's functionality completely, just return the `Function_Stop` variable within the said callback to disable.
 
-Other variables like `Function_StopLua`, `Function_StopHScript`, and `Function_StopAll` can be used here also. They will disable the callback in different scripting languages such as Lua or HScript. For instance—returning `Function_StopLua` will disable the said callback in Lua, but not in HScript.
+Other variables similar to `Function_Stop` variable like `Function_StopLua`, `Function_StopHScript`, and `Function_StopAll` can be used here also. They will disable the callback in different scripting languages such as Lua or HScript. For a basic example—returning the `Function_StopLua` variable will disable the said callback in Lua, but not in HScript.
 
 Example:
 > This will disable the ability for the game-over screen to appear, if theres no health left.
@@ -13,8 +13,9 @@ end
 
 ***
 
-# Supported Event Callbacks
-- `Affected Callbacks` - Refers to any affected callbacks disables, if the callback link to it is disabled.
+# Toggleable Callbacks
+> [!NOTE]
+> _The table section Affected Callbacks, reffer to any affected event callbacks when that callback is disable._
 
 | Event Callbacks 	| Description 	| Affected Callbacks 	| Availability 	|
 |---	|---	|---	|---	|
@@ -33,10 +34,6 @@ end
 
 Examples:
 > Plays a video cutscene before the countdown begins immediately. It checks to see whether both the variables `seenCutscene` and `allowCountdown`, a local variable, are either `false` to each-other. If both are `false`, it plays a video followed by setting the local variable `allowCountdown` to `true`, thus re-enabling the callback to start the countdown.
-
-> [!WARNING]
-> _This code examples, has a bug due to the video not disappearing once it finishes, and softlocks it._
-
 ```lua
 local allowCountdown = false
 function onStartCountdown()
