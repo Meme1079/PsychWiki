@@ -7,7 +7,7 @@ Welcome to PsychWiki! An unofficial wiki for Psych Engine. Created in August 4, 
 - Added "Haxe Script API"
 - Added Custom Sprite Page
 - Added Custom Text Page
-- Overhual Pages
+- Overhaul Pages
      - Library Methods
           - Made "String Methods" section into a subarticle page
           - Made "Table Methods" section into a subarticle page
@@ -19,7 +19,7 @@ Welcome to PsychWiki! An unofficial wiki for Psych Engine. Created in August 4, 
      - General Functions
           - Focus to miscellaneous category of functions
      - Deprecated & Removed Functions
-          - Renamed "Depracated Lua Functions" to "Deprecated & Removed Functions"
+          - Renamed "Deprecated Lua Functions" to "Deprecated & Removed Functions"
           - Added dates for functions
      - HScript Functions
           - Moved other functions to the "Haxe Script API" section.
