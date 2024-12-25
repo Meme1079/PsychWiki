@@ -1,3 +1,48 @@
+### 17.0.0 (Christmas) Version
+- Added "Haxe Script API"
+- Added Custom Sprite Page
+- Added Custom Text Page
+- Overhaul Pages
+     - Library Methods
+          - Made "String Methods" section into a subarticle page
+          - Made "Table Methods" section into a subarticle page
+          - Made "Mathematical Methods" section into a subarticle page
+     - Built-in Functions & Constants
+          - Remade the descriptions of each functions
+     - Object Functions
+          - Focus to functions that are utilizing objects such as sprites, texts, etc
+     - General Functions
+          - Focus to miscellaneous category of functions
+     - Deprecated & Removed Functions
+          - Renamed "Deprecated Lua Functions" to "Deprecated & Removed Functions"
+          - Added dates for functions
+     - HScript Functions
+          - Moved other functions to the "Haxe Script API" section.
+     - Language Translation
+          - Remade the about section
+          - Remade the descriptions of each functions
+     - Game Input Control Functions
+          - Renamed "Game Control Functions" to "Game Input Control Functions"
+          - Added subarticle "Input Controls" page
+     - Custom Shaders
+          - Revamp the entire about section to more accurate
+          - Revamp the descriptions of each functions for accuracy
+     - Custom Substates
+          - Remade the about section
+          - Remade the descriptions of each functions
+     - Sound & Music Functions
+          - Added "Configuration" section for more detailed information
+          - Remade the descriptions of each functions
+     - Scripting & File Functions
+          - Remade the descriptions of each functions
+     - Tweens & Timers Functions
+          - Remade the descriptions of each functions
+     - Variables
+          - Remaed the description of each variables
+- Removed "Custom Sprites & Texts Functions" page
+- Fix some formatting
+- Fix spelling/grammar errors
+
 ### 16.0.0 Version
 - Added "Language Translation" Page
      - Includes a tutorial

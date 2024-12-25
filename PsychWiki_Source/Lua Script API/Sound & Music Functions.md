@@ -1,99 +1,212 @@
-# Start Sound & Music Functions
-### playSound(sound:String, volume:Float = 1, ?tag:String = null)
-Plays a sound, when it's finished playing the `onSoundFinished()` callback will be called and returns the finished tag from its `tag` parameter.
+# Configuration
+## Setting Up
+For both the sound file and music file, they both must only use the `ogg` file format. Every sound file and music file are each, always stored in their own dedicated folder. For sound files are inside the `sounds` folder and for music files are inside the `music` folder, very self-explanatory and obvious. 
 
-- `sound` - The `ogg` sound file to be played; Must be relative to `mods/sounds` or `assets/sounds` folders.
-- `volume` - An optional parameter, the specified volume to set on; Goes from `0` to `1`; Defualt value: `1`.
-- `tag` - An optional parameter, The tag for the sound to inherit. It is required if you want to control or manipulate the said sound instead of the music; Default value: `nil`.
+Either within locally in a custom mods folder directory, or globally in the `mods` folder directory. In any case it will still work as usual, but it's still recommended to store it locally in a custom mods for organization, obviously.
 
-### playMusic(sound:String, volume:Float = 1, loop:Bool = false)
-Plays a music.
+## Control
+When controlling the sound's properties like its pausing, fading, volume, etc. It must have its unique tag name that will inherit throughout the program, the tag can be declared by the `tag` parameter within the `playSound()` function. 
 
-- `sound` - The `ogg` sound file to be played; Must be relative to `mods/music` or `assets/music` folders.
-- `volume` - An optional parameter, the specified volume to set on; Goes from `0` to `1`; Defualt value: `1`.
-- `loop` - An optional parameter, Whether the music will loop indefinitely or not; Default value: `false`.
+Additionally the music can be controlled as well, the controlling, fading, and property functions must have it's `tag` argument left blank, no value. This is because only $1$ music can be played within the game, not multiple like sounds. Tho it must have the music playing in order to work properly.
 
 ***
+
+# Sound Playing Functions
+### playSound(sound:String, volume:Float = 1, ?tag:String = null):Void
+Plays a sound. When the said sound had finished playing the `onSoundFinished()` event callback will be called. And returns the said tag given to the finished sound, if the tag for it, is included on the `tag` argument.
 
 > [!NOTE]
-> _If the `tag` parameter is left blank for instance a `nil` value. The music will be control and manipulated by the function instead of the sound._
+> _The given sound to play depends what `sounds` folder directory will it utilized with. Either within the `assets` folder directory, if the file doesn't exist or the sound file name has a similar name within that folder. It will override from within the `mods` folder directory._
 
-# Control Sound & Music Functions
-### stopSound(tag:String)
-<ins>Stops</ins> the sound from playing and <ins>removes it permanently</ins>.
+- `sound` - The given sound to play within the game; starts within the `sounds` folder directory.
+- `volume` - An optional parameter, the specified amount of volume to play at; Goes from `0` to `1`; Default value: `1`.
+- `tag` - An optional parameter, the given unique tag name for the sound to inherit for the sound to be controlled and what not.
 
-- `tag` - The sound object tag to stop; if the argument is a `nil` value, the music will stop instead.
+Example:
+> Plays a sound from within the `assets` folder directory.
+```lua
+playSound('secret')
+```
 
-### pauseSound(tag:String)
-<ins>Pauses</ins> the sound from playing.
+### playMusic(music:String, volume:Float = 1, ?loop:Bool = false):Void
+Plays a music.
 
-- `tag` - The sound object tag to pause; if the argument is a `nil` value, the music will pause instead.
+- `sound` - The given music to play within the game; starts within the `music` folder directory.
+- `volume` - An optional parameter, the specified amount of volume to play at; Goes from `0` to `1`; Default value: `1`.
+- `loop` - An optional parameter, whether the music will loop again once finished or not; Default value: `false`.
 
-### resumeSound(tag:String)
-<ins>Resumes</ins> the sound from pausing.
-
-- `tag` - The sound object tag to resume; if the argument is a `nil` value, the music will resume instead.
-
-***
-
-# Fade Ease Functions
-### soundFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1)
-Makes the sound <ins>fade-in</ins>.
-
-- `tag` - The sound object tag to fade-in; if the argument is a `nil` value, the music will fade-in instead.
-- `duration` - The specified duration length to fade-in, determines from the `fromValue` and `toValue` argument.
-- `fromValue` - An optional parameter, the starting value of the fade-in; Goes from `0` to `1`; Defualt value: `0`.
-- `toValue` - An optional parameter, the ending value of the fade-in; Goes from `0` to `1`; Defualt value: `0`.
-
-### soundFadeOut(tag:String, duration:Float, toValue:Float = 0)
-Makes the sound <ins>fade-out</ins>.
-
-- `tag` - The sound object tag to fade-out; if the argument is a `nil` value, the music will fade-out instead.
-- `duration` - The specified duration length to fade-out, determines from the `fromValue` and `toValue` argument.
-- `fromValue` - An optional parameter, the starting value of the fade-out; Goes from `0` to `1`; Defualt value: `0`.
-- `toValue` - An optional parameter, the ending value of the fade-out; Goes from `0` to `1`; Defualt value: `0`.
-
-### soundFadeCancel(tag:String)
-Cancels the sound fade.
-
-- `tag` - The sound object tag to cancel the fade; if the argument is a `nil` value, the music will cancel the fade.
+Example:
+> Plays a music from within the `assets` folder directory. _(PEAK MUSIC)_
+```lua
+playMusic('breakfast-(pico)')
+```
 
 ***
 
-# Property Setter Functions
-### setSoundVolume(tag:String, value:Float)
-Sets the <ins>volume value</ins> of the sound with a new value.
+# Sound Controlling Functions
+### stopSound(tag:String):Void
+<ins>Stops</ins> the given sound.
 
-- `tag` - The sound object tag to set the volume; if the argument is a `nil` value, the music to set the volume.
-- `value` - The determined volume value to set to.
+- `tag` - The given tag name to stop the sound.
 
-### setSoundTime(tag:String, value:Float)
-Sets the <ins>sound position value</ins> of the sound with a new value.
+Example:
+> Plays the given sound at beat $1$ and stops it at beat $2$.
+```lua
+function onBeatHit()
+     if curBeat == 1 then
+          playSound('fnf_loss_sfx', 1, 'loss')
+     elseif curBeat == 2 then
+          stopSound('loss')
+     end
+end
+```
 
-- `tag` - The sound object tag to set the position; if the argument is a `nil` value, the music to set the position.
-- `value` - The determined sound position value to set to.
+### pauseSound(tag:String):Void
+<ins>Pauses</ins> the given sound.
 
-### setSoundPitch(tag:String, value:Float, doPause:Bool = false)
-Sets the <ins>pitch value</ins> of the sound object.
+- `tag` - The given tag name to pause the sound.
 
-- `tag` - The sound object tag to set the pitch; if the argument is a `nil` value, the music to set the pitch.
-- `value` - The determined pitch value to set to.
-- `doPause` - An optional parameter, pauses the sound and resumes when played; Default value: `false`. <sup>_More Information Needed_</sup> 
+Example:
+> Plays the given sound at beat $1$ but pauses it at beat $2$, later to be resumed.
+```lua
+function onBeatHit()
+     if curBeat == 1 then
+          playSound('fnf_loss_sfx', 1, 'loss')
+     elseif curBeat == 2 then
+          pauseSound('loss')
+     end
+end
+```
+
+### resumeSound(tag:String):Void
+<ins>Resumes</ins> the given sound.
+
+- `tag` - The given tag name to resume the sound.
+
+Example:
+> Plays the given sound at beat $1$ but pauses it at beat $2$, and later resumed at beat $3$.
+```lua
+function onBeatHit()
+     if curBeat == 1 then
+          playSound('fnf_loss_sfx', 1, 'loss')
+     elseif curBeat == 2 then
+          pauseSound('loss')
+     elseif curBeat == 3 then
+          resumeSound('loss')
+     end
+end
+```
 
 ***
 
-# Property Getter Functions
-### getSoundVolume(tag:String)
-Gets the current <ins>volume value</ins> of the sound.
+# Sound Fading Functions
+### soundFadeIn(tag:String, duration:Float, fromValue:Float = 0, toValue:Float = 1):Void
+Makes the <ins>sound fade-in</ins>, increasing the volume to its current volume at the start of the sound.
 
-- `tag` - The sound object tag to get the volume; if the argument is a `nil` value, the music to get the volume.
+- `tag` - The given tag name to start the fade-in.
+- `duration` - The amount of duration length of the fade-in from the start and to the end.
+- `fromValue` - An optional parameter, the starting volume value to start the fade-in; Default value: `0`.
+- `toValue` - An optional parameter, the ending volume value to end the fade-in; Default value: `1`.
 
-### getSoundTime(tag:String)
-Gets the current <ins>sound position value</ins> of the sound.
+Example:
+> Plays a sound with a fade-in effect that last in $1$ second that goes from $0$ to $1$.
+```lua
+playSound('secret', 1, 'secretJingle')
+soundFadeIn('secretJingle', 1, 0, 1)
+```
 
-- `tag` - The sound object tag to get the position; if the argument is a `nil` value, the music to get the position.
+### soundFadeOut(tag:String, duration:Float, toValue:Float = 0):Void
+Makes the <ins>sound fade-out</ins>, decreasing the volume until its mute at the near-end of the sound.
 
-### getSoundPitch(tag:String)
-Gets the current <ins>pitch value</ins> of the sound.
+- `tag` - The given tag name to start the fade-out.
+- `duration` - The amount of duration length of the fade-out to end.
+- `toValue` - An optional parameter, the target volume value of the fade-out; Default value: `1`.
 
-- `tag` - The sound object tag to get the pitch; if the argument is a `nil` value, the music to get the pitch.
+Example:
+> Plays a sound with a fade-out effect that last $2$ seconds that goes from $0$.
+```lua
+playSound('secret', 1, 'secretJingle')
+soundFadeOut('secretJingle', 2, 0)
+```
+
+### soundFadeCancel(tag:String):Void
+Cancels the fading of the sound.
+
+- `tag` - The given tag name to cancel the fading.
+
+Example:
+> Cancels the fade, idk what are you going to do with this.
+```lua
+soundFadeCancel('secretJingle')
+```
+
+***
+
+# Sound Property Functions
+## Setters
+### setSoundVolume(tag:String, value:Float):Void
+<ins>Sets the sound's **volume**</ins> with a new volume value to play at.
+
+- `tag` - The given tag name to set the new volume at.
+- `value` - The new volume value to set to.
+
+Example:
+> Sets the sound's volume at a very low value.
+```lua
+setSoundVolume('secretJingle', 0.1)
+```
+
+### setSoundTime(tag:String, value:Float):Void
+<ins>Sets the sound's **time position**</ins> with a new time position value to play at.
+
+- `tag` - The given tag name to set the new time position at.
+- `value` - The new time position value to set to.
+
+Example:
+> Sets the sound's time position at $1$ second in advanced.
+```lua
+setSoundVolume('secretJingle', 1)
+```
+
+### setSoundPitch(tag:String, value:Float, doPause:Bool = false):Void
+<ins>Sets the sound's **pitch value**</ins> with a new pitch value to play at.
+
+- `tag` - The given tag name to set the new pitch value at.
+- `value` - The new pitch value to set to.
+- `doPause` - An optional parameter, pauses the sound and resumes the sound while changing the pitch, for updating the sound's pitch value; Default value: `false`.
+
+Example:
+> Sets the sound's pitch value to $2.5$ while it's still playing.
+```lua
+function onCreatePost()
+     playSound('secret', 1, 'secretJingle')
+     runTimer('jingleDeley', 0.3, 0)
+end
+
+function onTimerCompleted(tag, timer, loopsLeft)
+     if tag == 'jingleDeley' then
+          setSoundPitch('secretJingle', 2.5, true)
+     end
+end
+```
+
+## Getters
+### getSoundVolume(tag:String):Float
+Gets the <ins>sound's current **volume**</ins> value.
+
+- `tag` - The given tag name to get the current volume from.
+
+### getSoundTime(tag:String):Float
+Gets the <ins>sound's current time **position**</ins> value.
+
+- `tag` - The given tag name to get the current time position from.
+
+### getSoundPitch(tag:String):Float
+Gets the <ins>sound's current **pitch value**</ins>.
+
+- `tag` - The given tag name to get the current pitch value from.
+
+***
+
+# See Also
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)

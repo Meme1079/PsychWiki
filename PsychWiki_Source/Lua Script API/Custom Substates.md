@@ -1,115 +1,115 @@
-# About Custom Substates
-Substates are a special state that are opened within a `FlxState`, or another `FlxSubstate`. If one is opened, the parent state will stop updating unless `persistentUpdate` is true. They are commonly used in pause screens, or other pop-up type screens.
+# About
+States are divided segments of code that can be utilized in several section of the game. It can only be loaded and active at a time, meaning meaning only one $1$ state must be loaded and active. These are typically used for menus like a title menu, different "screens" of the game, and can be used for much more.
 
-In Psych Engine we can create our own custom substate by using one of the custom substates' callback functions. Once you're done creating your custom substate. we can activate or open the custom substates by using the `openCustomSubstate()` function they can be manually paused the game by setting the second argument to `true`. 
+Substate is a special state that can be activated within a state or another substate. When opened, the substate will be shown top-most of all other states or other substates, with it being only active. The parent state will stop updating unless the instance variable `persistentUpdate` is set to `true`. There're commonly used for custom pause screens or other pop-up type screens.
 
-While open, in this state, you can't do anything; even tapping the debug buttons won't help you. So you'll need to configure a key pressing detection. Inside that `if` statement should have a `closeCustomSubstate()` function to deactivate or close the current substate manually.
+In Psych Engine you can create custom substates by utilizing its own event callbacks, like initializing, updating and destroying. And for designated functions for activating certain substates and deactivating its active substate.
 
-> [!NOTE] 
-> _Custom Substates can only have one substate active at a time, so no multiple activated substates._
+## Constructing
+In this awesome epic tutorial, I'll be basically making a simple custom pause menu. To give more sense on how substates are created with the added bonus of. The amount of copious amount of yapping of each explanation on how each code works.
 
-## Creating a Custom Substate
-In this stupid goddamn tutorial, I will make a simple pause screen to give you a sense on how custom substates are created. I promise it won't be that "complicated" to understand it.
+### Creating
+Substates are always created within the `onCustomSubstateCreate()` event callback, this is where you'll initiate the sprite object, text object, and other stuff. Some stuff like certain function and variables haven't been updated yet, during the creation of the substate. So you'll have to use the `onCustomSubstateCreatePost()` event callback for this work.
 
-Let's start off with `onCustomSubstateCreate()`, it works exactly the same as the `onCreate()` callback. This is where we will set up our own custom substate adding sprite, text, and objects. Also, it's recommended to add an `if` statement for the `name` parameter if you are using multiple substates, it's just so that if you are making sprites or whatever, it will only make those sprites if the substate name is the same as the one you are checking for and it will not overlap between different substates.
+The `name` parameter from both the `onCustomSubstateCreate()` and `onCustomSubstateCreatePost()` event callbacks is the name given to your custom substate. The substates' code must be enclosed in a `if` statement with the condition, the `name` parameter equaling to the substates' name. Its name must be unique to each substates to prevent code "mixing" and breaking the substate entirely.
 
-Example:
+In this example, we created a substate named "Awesome Substate". The code contains a simple low opacity background for the pause menu. With an added bonus fade-in animation for the low opacity background. Notice the `insertToCustomSubstate()` function being used instead of being the `addLuaSprite()`. That's becuase the sprite object is added on the substate not on the game.
+
 ```lua
 function onCustomSubstateCreate(name)
-     if name == 'My Substate' then
-          makeLuaSprite('substate_bg', nil, 0, 0)
-          makeGraphic('substate_bg', screenWidth, screenHeight, '000000')
-          setObjectCamera('substate_bg', 'camOther')
-          setProperty('substate_bg.alpha', 0.6)
-          insertToCustomSubstate('substate_bg')
+     if name == 'Awesome Substate' then
+          makeLuaSprite('awesomeSubstateBG', nil, 0, 0)
+          makeGraphic('awesomeSubstateBG', screenWidth, screenHeight, '000000')
+          setProperty('awesomeSubstateBG.alpha', 0)
+          insertToCustomSubstate('awesomeSubstateBG')
 
-          doTweenAlpha('substate_bg', 'substate_bg', 0.6, 0.4, 'quartInOut')
+          doTweenAlpha('awesomeFadeIn', 'awesomeSubstateBG', 0.6, 0.4, 'quartInOut')
      end
 end
 ```
 
-Replacing the pause screen is as simple, all you'll have to do is use the `openCustomSubstate()` function with the chosen name of your substate and make sure `pauseGame` argument is set to `true`. To manually change the game's existing pause menu, all of this should be inside the `onPause()` function while also returning `Function_Stop` to stop the real pause menu from opening.
+### Opening & Accessing
+Substates are opened (activated) by using the `openCustomSubstate()` function it uses two arguments. First argument is for the given substate to be loaded and activated. The second argument is for the disabling the parent state from updating. Set this argument to `true` for the instance variable `persistentUpdate` to cease from updating.
 
-Example:
+In this example, we disabled the ability to the pause the game (accessing the pause substate), so we can override it with our own substate. While the parent state has been deactivated from updating in game, to actually pause the game.
 ```lua
 function onPause()
-     openCustomSubstate('My Substate', true)
+     openCustomSubstate('Awesome Substate', true)
      return Function_Stop;
 end
 ```
 
-Now if you wish to close your custom substate, use the `closeCustomSubstate()` function with a key pressing detection configured in an `if` statement; any key button can be used. Now all of this should be inside the `onCustomSubstateUpdate()` callback function since this is the substate equivalent to `onUpdate()`. `onUpdate()` will not work properly if `persistentUpdate` is false because it only gets called when the parent state is updating.
+### Closing
+Substates are closed (deactivated) by using the `closeCustomSubstate()` function, this will deactivate the currently active substate. Once closed the parent state is reactivated into updating the game. Any sprite and text objects present in the substate are removed, not deleted and are re-added back if the substate was open again.
 
-Lastly, the `onCustomSubstateDestroy()` function, it works exactly the same as the `onDestroy()` callback. Sprites should already get removed if you added them into the substate correctly when the substate closes, so you don't have to manually remove them; However, `insertToCustomSubstate()` unfortunately does not currently support text objects, so you'll still have to use `addLuaText()` and use `removeLuaText()` on `onCustomSubstateDestroy()`.
+In this example, we closed the substate by pressing the enter key <kbd>↵</kbd>. Within the `onCustomSubstateUpdate()` event callback, which exactly works the same as `onUpdate()` event callback.
 
-Example:
+> [!CAUTION]
+> _Closing a substate is mandatory (important) when creating a substate. Because once you open a substate, it will instantly softlock the game. Forcing you to quit the game and opening it again._
+
 ```lua
 function onCustomSubstateUpdate(name, elapsed)
      if keyboardJustPressed('ENTER') then
           closeCustomSubstate()
      end
 end
-
-function onCustomSubstateDestroy(name)
-     if name == 'My Substate' then
-          debugPrint('Closing')
-          -- remove text objects here if any exists
-     end
-end
 ```
 
+### Conclusion
 And now you have your very own custom substate yay!!!!!!!! It's not really special it can only pause which is lame but you can just modify the code. Like adding restart, resume, or exit song buttons and even a new design to make a proper pause menu.
 
 ***
 
 # Custom Substate Functions
-### openCustomSubstate(name:String, ?pauseGame:Bool = false)
-Opens your custom substate.
+### openCustomSubstate(name:String, ?pauseGame:Bool = false):Void
+Opens a custom substate.
 
-- `name` - The name of your custom substate to open.
-- `pauseGame` - An optional parameter, Whether the game will pause after the custom substate has been opened; Default value: `false`.
+- `name` - The given name to open the custom substate.
+- `pauseGame` - An optional parameter, weather the custom substate will pause the parent state; Default value: `false`.
 
-### insertToCustomSubstate(tag:String, ?pos:Int = -1)
-Inserts a Lua object to the custom substate instance with the given position; Does not currently support Lua text objects.
+### insertToCustomSubstate(tag:String, ?pos:Int = -1):Void
+Inserts an object (sprite or text) to the custom substate with the given position.
 
-- `tag` - The object tag name to insert a custom substate.
-- `pos` - An optional parameter, The specified position in the substate to insert in; If `pos` is -1, it will be added to the substate normally; Default value: `-1`.
+- `tag` - The specified object to be inserted to the custom substate.
+- `pos` - An optional parameter, The position order of the object to render. Leave it blank if you want to insert in each object normally; Default value: `-1`.
 
-### closeCustomSubstate()
-Closes the current active custom substate, this will call the `onCustomSubstateDestroy()` callback.
+### closeCustomSubstate():Void
+Close the currently activate substate.
 
 ***
 
-# Custom Substate Callback Functions
-### onCustomSubstateCreate(name)
-Works exactly the same as the <ins>`onCreate()` callback</ins> but for custom substates; Will be triggered every time a custom substate opens.
+# Custom Substate Event Callbacks
+### onCustomSubstateCreate(name:String)
+<ins>Triggered when the substate has initiated/started</ins>, this is only triggered once.
 
-- `name` - The name of a custom substate to check.
+- `name` - The name of the substate to inherit.
 
-### onCustomSubstateCreatePost(name)
-Works exactly the same as the <ins>`onCreatePost()` callback</ins> but for custom substates; Will be triggered every time a custom substate opens.
+### onCustomSubstateCreatePost(name:String)
+Triggered <ins>post initiation/start of the substate</ins>, this is only triggered once.
 
-- `name` - The name of a custom substate to check.
+- `name` - The name of the substate to inherit post start.
 
-### onCustomSubstateUpdate(name, elapsed)
-Works exactly the same as the <ins>`onUpdate()` callback</ins> but for custom substates; Will be triggered every frame in the custom substate.
+### onCustomSubstateUpdate(name:String, elapsed:Float)
+Triggered <ins>every current frame</ins> of the substate.
 
-- `name` - The name of a custom substate to check.
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+- `name` - The name of the substate to update.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
-### onCustomSubstateUpdatePost(name, elapsed)
-Works exactly the same as the <ins>`onUpdatePost()` callback</ins> but for custom substate; Will be triggered every frame in the custom substate.
+### onCustomSubstateUpdatePost(name:String, elapsed:Float)
+Triggered <ins>after every current frame</ins> of the game.
 
-- `name` - The name of a custom substate to check.
-- `elapsed` - Every frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
+- `name` - The name of the substate to post update.
+- `elapsed` - Every current frame display in milliseconds; Shortcut to `getPropertyFromClass('flixel.FlxG', 'elapsed')`.
 
-### onCustomSubstateDestroy(name)
-Works exactly the same as the <ins>`onDestroy()` callback</ins> but for custom substates; Will be triggered when a custom substate is closed.
+### onCustomSubstateDestroy(name:String)
+Triggered when the <ins>substate has been destroyed</ins>.
 
-- `name` - The name of a custom substate to check.
+- `name` - The name of the substate to be destroyed.
 
 ***
 
 # Custom Substate HScript Variables
-- `customSubstate` - The current opened custom substate instance. If none is opened, this will be `null`.
-- `customSubstateName` - The name of the current opened custom substate. If none is opened, this will be `unnamed`.
+| Variables 	| Description 	|
+|---	|---	|
+| `customSubstate` 	| The current opened custom substate instance. If none are open, returns: `null` 	|
+| `customSubstateName` 	| The name of the current opened custom substate. If none are open, returns: `unnamed` 	|

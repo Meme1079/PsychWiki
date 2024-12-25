@@ -1,59 +1,76 @@
 # About
-Languages are a system of communication that consists of speech, manual (signed), or written symbols. In version `1.0` pre-release of Psych Engine, it added the support for languages to make more accessible to people who don't natively speak English. It uses a language localization file or a `lang` file to translate words and phrases to different languages. Like the text's content or the sprite's image, without doing it hard-coded.
+Psych Engine has added the support for a wide variety of languages, for more accessibility to people who don't natively speak English. It utilizes a language localization file (LLF), uses the file format `lang`. To translate certain word and phrases to different languages.  Such as the text's content and the sprite's image path, without doing it hardcoded manually.
 
-## Setting up
-Firstly make a `lang` file that is relative to: `assets/shared/data` or `mods/data` folders. You can name this file anything you want but I'd recommend using the language code format. For organization and easily use a pre-existing `lang` file. As an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish. You can see the list of language code for each [countries](http://www.lingoes.net/en/translator/langcode.htm).
+***
 
-Path (Reference):
-```txt
-mods
-└─my_mods
-  └─data
-    ├─en-US.lang
-    ├─en-CA.lang
-    └─es.lang
+# Configuration
+## Setting Up
+Every LLFs are stored within the `data` folder folder directory. Whether within the `assets` folder directory of the game, locally in a custom mods folder directory, or globally in the `mods` folder directory. Either way it will still work as usual, but it's still recommended to store it locally in a custom mods for organization, obviously.
+
+Naming a LLF must be recommended to utilizing the [language code format](http://www.lingoes.net/en/translator/langcode.htm). For easy identifying from different languages along with organizing and overriding in multiple named LLFs. For an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish.
+
+## Contents
+### Title
+In every first line within a LLF must have the given title of said language. With the additional country associated with said language. If said country that uses the same language have different pronunciation, spelling, vocabulary, and grammar. A very famous and obvious example of this: `English (US)` and `English (UK)`.
+
+The title within the said LLF is a requirement, when translating languages. The said title within the contents will be displayed from the language options menu to be selected. If two or more LLFs share the same title, their contents will be overridden. Mainly the translatable key-value pairs that have the same name between the LLFs.
+
+Examples:
+```lang
+Português (Brasil)
+```
+```lang
+Português (Portugal)
 ```
 
-## Translating
-The contents within a `lang` file should include the given title of the language. And a list of translatable keys for translating specific words or phrases.
+### Translatable Key-Value Pairs
+Translatable key-value pairs (TKVP) are special pairs that are used to translate certain word or phrases in a given language. Psych Engine includes a [pre-existing saved list](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/assets/translations/shared/data/pt-BR.lang) of TKVP that translate texts within Psych Engine. Such as rating accuracy, achievements, menus, combos, etc.
 
-### Title
-The first line of the `lang` file is the title of the given language. Which is the name of the language with the specified country to associate with. If the language is used by that country, for instance: `English (US)` and `English (UK)`. 
-
-This is important because the title will be displayed on the Language options to be selected. If the titles from different `lang` files are the same, assuming no typos. Both will merged their contents and overrides any translatable keys, if both exist in the content and depending on the mods priority.
+Each TKVP, its key which has a unique name to inherit. Are always followed by a colon character <kbd>:</kbd>; the keys naming convention does not only allow spaces. The said values that are associated to the corresponding key, must be enclosed with double-quoted characters <kbd>""</kbd>. Additionally values can be forcefully inserted, for any currently updating values. It utilizes numerical indexes surrounded with curly-braces characters <kbd>{}</kbd>, which always start at $1$.
 
 Example:
 ```lang
 LOLCAT (US)
+
+// Difficulties
+difficulty_easy: "EZ"
+difficulty_normal: "NORMEL"
+difficulty_hard: "HARD"
+
+// Gameplay
+score_text: "SKOR: {1} | MISEZ: {2} | AKURACY: {3}"
+score_text_instakill: "SKOR: {1} | AKURACY: {2}"
+botplay: "CHEATIN' MODE"
 ```
 
-### Translatable Keys
-Translatable keys are special keys for that translate word or phrases in a given language. Very useful for translating the text's content and the sprite's image path. The syntax for this includes the key, obviously; the name of it can have any characters you want to have; Example: `options:` `stupid_text:`, `images/warning:`, etc. 
+## Translating
+After you're done configuring your LLF, it's time for the translation part. When retrieving a TKVP you can either use both of these function. Both the `getFileTranslation()` function, which gets the given key in the current selected language that's in. Or the alternative `getTranslationPhrase()` function, that uses numerical indexes to insert values for specific TKVP that includes it.
 
-With the key's content given word or phrase attached to inherit. The contents of it must be always inclosed with double-bracket characters <kbd>""</kbd>; Example: `"Cuadrado"`, `"ボール"`, `"Bobo"`, etc. You can also insert any values to the key's content, for any updating values. It uses a translatable key index to insert any values, the index must be inclosed with curly-braces <kbd>{}</kbd>; Its starting value is always starts at `1`. For example: `Pontos: {1} | Erros: {2} | Avaliação: {3}`.
-
-Examples:
+Example:
 ```lang
 LOLCAT (US)
 
-// Custom Stuff
-timer_text: "TIM LEFT"
-timer_format_text: "MINIT: {1} - SECUND: {2} - MILLISECONDZ: {3}"
+// Difficulties
+difficulty_easy: "EZ"
+difficulty_normal: "NORMEL"
+difficulty_hard: "HARD"
 ```
-
-> [!IMPORTANT]
-> There are pre-existing translatable keys that Psych Engine hard-coded to modify existing text content and sprite image paths. Such as the Main menu buttons, HUD, Ratings, Achievements, and so on, I won't be listing every translatable keys that are presen. But there is a `lang` file template you can download, just click [here](https://cdn.discordapp.com/attachments/929801502829215745/1265069886632099972/en-US.lang?ex=66c272a4&is=66c12124&hm=fa2e9507bcc0bbb721fa0cf71aebe0cf93ff5b87200a852731795b479ba4f036&).
+```lua
+function onCreate()
+     debugPrint( getFileTranslation('difficulty_easy') ) --> EZ
+end
+```
 
 
 ***
 
 # Language Translation Functions
-### getFileTranslation(key:String)
-Gets a translatable key's phrase from a language localization file, `lang` file. If the translatable key is isn't present inside the file, it returns the `key` argument given to the function.
+### getFileTranslation(key:String):String
+Gets a translatable key-value pairs from the currently selected language within a language localization file. If said key, doesn't exists inside said file; returns the given argument passed to the function.
 
-- `key` - The translatable key to get from the given language localization file.
+- `key` - The translatable key-value pairs to retrieve and utilize from the currently selected language.
 
-Examples:
+Example:
 ```lang
 LOLCAT (US)
 
@@ -68,14 +85,14 @@ function onCreate()
 end
 ```
 
-### getTranslationPhrase(key:String, ?defaultPhrase:String, ?values:Array<Dynamic> = null)
-Gets a translatable key's phrase from a language localization file, `lang` file. It includes a default phrase, if there is non-existing translatable key. Along with a translatable key index for inserting content for updating values.
+### getTranslationPhrase(key:String, ?defaultPhrase:String, ?values:Array<Dynamic> = null):String
+Gets a translatable key-value pairs from the currently selected language within a language localization file. But it has additional features includes a default value, if said value is missing. Along with numerical indexes to insert values within the translatable key-value pairs.
 
-- `key` - The translatable key to get from the given language localization file.
-- `defaultPhrase` - An optional parameter, The default phrase to inherit if there is non-existing translatable key.
-- `values` - An optional parameter, The values to insert in each translatable key index; follows a numerical order.
+- `key` - The translatable key-value pairs to retrieve and utilize from the currently selected language.
+- `defaultPhrase` - An optional parameter, the default value if no values is given within a translatable key-value pair.
+- `values` - An optional parameter, the said values to insert in each corresponding numerical indexes.
 
-Examples:
+Example:
 ```lang
 LOLCAT (US)
 

@@ -1,305 +1,575 @@
 # Character Functions
-### characterDance(character:String)
-Makes a character do the idle dance.
+### characterDance(characterType:String):Void
+Makes the specified character play their <ins>default idle animation</ins>.
 
-- `character` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `characterType` - The specified character type to play an idle animation; Can be either: `boyfriend`, `dad`, or `gf`.
 
-### setCharacterX(type:String, value:Float)
-Sets the current <ins>x position value</ins> of a character group to a new value. This will also move all precached characters from the same type into the position you want.
+Example:
+> Forces to play an idle animation to the player character, if the key pressing has gone on after $1$ second.
+```lua
+function onKeyPress(key)
+     runTimer('resetAnim', 1, 0)
+end
 
-- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
-- `value` - The new x value of the character position.
+function onTimerCompleted(tag, loops, loopsLeft)
+     if tag == 'resetAnim' then
+          characterDance('boyfriend')
+     end
+end
+```
 
-### setCharacterY(type:String, value:Float)
-Sets the current <ins>y position value</ins> of a character group to a new value. This will also move all precached characters from the same type into the position you want.
+<!-- ### characterShowTits():Void -->
 
-- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
-- `value` - The new y value of the character position.
+## Setter
+### setCharacterX(characterType:String, value:Float):Void
+Sets the specified <ins>character's current **x-position**</ins> to a new value, a shorthand version.
 
-### getCharacterX(type:String)
-Gets the current <ins>x position value</ins> of a character group; Returns a `float` number.
+- `characterType` - The specified character type to set its x-position to; Can be either: `boyfriend`, `dad`, or `gf`.
+- `value` - The new x-position value to set to.
 
-- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
+Example:
+> Sets the x-position of the girlfriend character by a randomizer from $0$ through $100$.
+```lua
+setCharacterX('gf', getRandomInt(0, 100))
+```
 
-### getCharacterY(type:String)
-Gets the current <ins>y position value</ins> of a character group; Returns a `float` number.
+### setCharacterY(characterType:String, value:Float):Void
+Sets the specified <ins>character's current **y-position**</ins> to a new value, a shorthand version.
 
-- `type` - The character type to be used; Can be either: `boyfriend`, `dad` or `gf`.
+- `characterType` - The specified character type to set its y-position to; Can be either: `boyfriend`, `dad`, or `gf`.
+- `value` - The new y-position value to set to.
 
-***
+Example:
+> Sets the y-position of the girlfriend character by a randomizer from $0$ through $100$.
+```lua
+setCharacterY('gf', getRandomInt(0, 100))
+```
 
-# Accuracy Bar Functions
-### addScore(value:Int = 0)
-Adds the `value` parameter to the current <ins>song score total</ins> and recalculates the rating; Default value: `0`.
+## Getter
+### getCharacterX(characterType:String):Float
+Gets the specified <ins>character's current **x-position**</ins> value from, a shorthand version.
 
-### addMisses(value:Int = 0)
-Adds the `value` parameter to the current <ins>song miss total</ins> and recalculates the rating; Default value: `0`.
+- `characterType` - The specified character type to get its current x-position value from; Can be either: `boyfriend`, `dad`, or `gf`.
 
-### addHits(value:Int = 0)
-Adds the `value` parameter to the current <ins>song hit total</ins> and recalculates the rating; Default value: `0`.
+### getCharacterY(characterType:String):Float
+Gets the specified <ins>character's current **y-position**</ins> value from, a shorthand version.
 
-### addHealth(value:Float = 0)
-Adds the `value` parameter to the current <ins>song health total</ins>; Default value: `0`.
-
-***
-
-### setScore(value:Int = 0)
-Sets the `value` parameter of the current <ins>song score total</ins> with a new value and recalculates the rating; Default value: `0`.
-
-### setMisses(value:Int = 0)
-Sets the `value` parameter of the current <ins>song miss total</ins> with a new value and recalculates the rating; Default value: `0`.
-
-### setHits(value:Int = 0)
-Sets the `value` parameter of the current <ins>song hit total</ins> with a new value and recalculates the rating; Default value: `0`.
-
-### setHealth(value:Int = 0)
-Sets the `value` parameter of the current <ins>song health total</ins> with a new value; Default value: `0`.
-
-***
-
-### setRatingPercent(value:Float)
-Sets the current <ins>rating percent</ins> to a new value, in case you want to do your own rating calculation.
-
-- `value` - The new accuracy rating percent, Goes from `0` to `1`.
-
-### setRatingName(value:String)
-Sets the current <ins>rating name</ins> to a new value, in case you want to do your own rating calculation.
-
-- `value` - The new rating string name.
-
-### setRatingFC(value:String)
-Sets the current <ins>rating combo name</ins> to a new value.
-
-- `value` - The new rating combo name.
+- `characterType` - The specified character type to get its current y-position value from; Can be either: `boyfriend`, `dad`, or `gf`.
 
 ***
 
-### getScore()
-Gets the current <ins>songs score total</ins> current value; Returns an `int` number.
+# Rating Accuracy Functions
+## Setters
+### setScore(value:Int = 0):Void
+Sets the score value with a <ins>**new score total** value value</ins>, and recalculates the rating.
 
-### getMisses()
-Gets the current <ins>songs miss total</ins> current value; Returns an `int` number.
+- `value` - An optional parameter, the new score total value to set to; Default value: `0`.
 
-### getHits()
-Gets the current <ins>songs hit total</ins> current value; Returns an `int` number.
+Example:
+> Sets the score value to this value.
+```lua
+setScore(360490)
+```
 
-### getHealth()
-Gets the current <ins>songs health total</ins> current value; Returns a `float` number.
+### setMisses(value:Int = 0):Void
+Sets the miss value with a <ins>**new miss total** value value</ins>, and recalculates the rating.
+
+- `value` - An optional parameter, the new miss total value to set to; Default value: `0`.
+
+Example:
+> Sets the miss value to this value.
+```lua
+setMisses(5)
+```
+
+### setHits(value:Int = 0):Void
+Sets the hit value with a <ins>**new hit total** value value</ins>, and recalculates the rating.
+
+- `value` - An optional parameter, the new hit total value to set to; Default value: `0`.
+
+Example:
+> Sets the hit value to this value.
+```lua
+setHits(30)
+```
+
+### setHealth(value:Float = 1):Void
+Sets the health value with a <ins>**new health total** value</ins>.
+
+- `value` - An optional parameter, the new health total value to set to; Default value: `0`.
+
+Example:
+> Sets the health value to this value.
+```lua
+setHealth(0.5)
+```
+
+### setRatingPercent(value:Float):Void
+Sets the rating percent accuracy value with a <ins>**new percent accuracy** value</ins>.
+
+- `value` - The new percent accuracy value to set to; Goes from `0` to `1`.
+
+Example:
+> Sets the rating percent to this value.
+```lua
+setRatingPercent(0.35)
+```
+
+### setRatingName(value:String):Void
+Sets the rating name accuracy value with a <ins>**new name accuracy** value</ins>.
+
+- `value` - The new name accuracy value to set to.
+
+Example:
+> Sets the rating name to this value.
+```lua
+setRatingName('I\'m in your walls')
+```
+
+### setRatingFC(value:String):Void
+Sets the rating combo name value with a <ins>**new combo name** value</ins>.
+
+- `value` - The new combo name value to set to.
+
+> Sets the rating combo name to this value.
+```lua
+setRatingFC('Double Combo!!')
+```
+
+## Adders
+### addScore(value:Int = 0):Void
+Adds the specified <ins>amount of **score** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the score value; Default value: `0`.
+
+Example:
+> Adds this score value when hitting note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addScore(10)
+end
+```
+
+### addMisses(value:Int = 0):Void
+Adds the specified <ins>amount of **miss** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the miss value; Default value: `0`.
+
+Example:
+> Adds this miss value when missing note.
+```lua
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     addMisses(5)
+end
+```
+
+### addHits(value:Int = 0):Void
+Adds the specified <ins>amount of **hit** value</ins> to its current value, and recalculates the rating.
+
+- `value` - An optional parameter, the amount of value to add to the hits value; Default value: `0`.
+
+Example:
+> Adds this hit value when hitting note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addHits(3)
+end
+```
+
+### addHealth(value:Float = 0):Void
+Adds the specified <ins>amount of **health** value</ins> to its current value.
+
+- `value` - An optional parameter, the amount of value to add to the health value; Default value: `0`.
+
+Example:
+> Adds this health at $0.1$ when hitting a note while $-0.1$ when missing a note.
+```lua
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+     addHealth(0.1)
+end
+
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     addHealth(-0.1)
+end
+```
+
+## Getters
+### getHealth():Float
+Gets the current <ins>**health total** value</ins>.
 
 ***
 
 # Camera Functions
-### cameraSetTarget(target:String)
-Makes the <ins>camera focus</ins> on the target.
+### cameraSetTarget(target:String):Void
+Makes the <ins>camera forcefully focus on target character</ins>.
 
-- `target` - The character type to target; Can be either: `boyfriend` or `dad`.
+- `target` - The specified character type to focus at; Can be either: `boyfriend`, `dad`, or `gf`.
 
-### cameraShake(camera:String, intensity:Float, duration:Float)
-Makes the <ins>camera shake</ins>.
+Example:
+> Forces the camera to the player character always on each update of the frame.
+```lua
+function onUpdate(elapsed)
+     cameraSetTarget('boyfriend')
+end
+```
 
-- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
-- `intensity` - The intensity of the shaking of the camera; Recommended value: `0.05`.
-- `duration` - The duration length of the camera shaking to manually end.
+### cameraShake(camera:String, intensity:Float, duration:Float):Void
+Makes the <ins>camera screen **shake**</ins>.
 
-### cameraFlash(camera:String, color:String, duration:Float, ?forced:Bool)
-Makes the <ins>camera flash</ins>.
+- `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `intensity` - The amount of intensity for the shaking of the camera; Recommended value: `0.05`.
+- `duration` - The amount of duration length of the camera shaking to manually end.
 
-- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
-- `color` - The flash color to display.
-- `duration` - The duration length of the camera flash to manually end.
-- `forced` - If set to `true`, the flash will restart if there's already a flash currently happening.
+Example:
+> Forces the camera HUD to shake when missing a note.
+```lua
+function noteMiss(membersIndex, noteData, noteType, isSustainNote)
+     cameraShake('camHUD', 0.008, 1)
+end
+```
 
-### cameraFade(camera:String, color:String, duration:Float, forced:Bool)
-Makes the <ins>camera fade into the color</ins>.
+### cameraFlash(camera:String, color:String, duration:Float, forced:Bool):Void
+Makes the <ins>camera screen **flash**</ins>.
 
-- `camera` - The camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
-- `color` - The fade color to display.
-- `duration` - The duration length of the camera fade to manually end.
-- `forced` - If set to `true`, the fade will restart if there's already a fade currently happening.
+- `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The flash color to display on the camera screen.
+- `duration` - The amount of duration length of the camera flashing to manually end.
+- `forced` - Whether the flash will restart or not, if there's already a flash currently happening.
 
-***
+Example:
+> Forces a color green flash within the camera HUD, when a specific animation plays.
+```lua
+function onUpdate(elapsed)
+     if getProperty('boyfriend.animation.curAnim.name') == 'hey' then
+          cameraFlash('camHUD', '00ff00', 0.8)
+     end
+end
+```
 
-# Camera Property Setter/Getters Functions
-### setCameraScroll(x:Float, y:Float)
-<ins>Sets the camera coordinate point</ins> of the game's world coordinates to a new value.
+### cameraFade(camera:String, color:String, duration:Float, forced:Bool, ?fadeOut:Bool = false):Void
+Makes the <ins>camera screen **fade**</ins>.
 
-- `x` - The x-coordinate point of the game's world coordinate to set to.
-- `y` - The y-coordinate point of the game's world coordinate to set to.
+- `camera` - The specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`.
+- `color` - The fade color to display on the camera screen.
+- `duration` - The amount of duration length of the camera fading to manually end.
+- `forced` - Whether the fade will restart or not, if there's already a fade currently happening.
+- `fadeOut` - An optional parameter, whether it will fade-in or fade-out; Default value: `false`.
 
-### setCameraFollowPoint(x:Float, y:Float)
-<ins>Sets the camera position to focus</ins> on, to a new value.
-
-- `x` - The x position value to set to, for the camera to focus on.
-- `y` - The y position value to set to, for the camera to focus on.
-
-### addCameraScroll(?x:Float, ?y:Float)
-<ins>Adds a value to the camera coordinate point</ins> of the game's world coordinates
-
-- `x` - An optional parameter, The x-coordinate point of the game's world coordinate to add to.
-- `y` - An optional parameter, The y-coordinate point of the game's world coordinate to add to.
-
-### addCameraFollowPoint(?x:Float, ?y:Float)
-<ins>Adds a value to the camera position to focus on</ins>, to a new value.
-
-- `x` - The x position value to add to, for the camera to focus on.
-- `y` - The y position value to add to, for the camera to focus on.
-
-***
-
-### getCameraScrollX()
-Gets the current <ins>x-coordinate point of the game's world coordinates</ins>; Returns `Float`.
-
-### getCameraScrollY()
-Gets the current <ins>y-coordinate point of the game's world coordinates</ins>; Returns `Float`.
-
-### getCameraFollowX()
-Gets the current <ins>x position camera that it focus to</ins>; Returns `Float`.
-
-### getCameraFollowY()
-Gets the current <ins>y position camera that it focus to</ins>; Returns `Float`.
+Example:
+> Does a fade-in using a black color.
+```lua
+function onCreate()
+     cameraFade('camHUD', '000000', 1, false, true)
+end
+```
 
 ***
 
-# Dialogues/Cutscene Functions
-### startDialogue(dialogueFile:String, music:String = null)
-Starts the dialogue stuff. When the dialogue is finished, both the `startCountdown()` or `endSong()` functions will be executed depending on where you started the dialogue.
+# Camera Targeting Functions
+## Setters
+### setCameraFollowPoint(x:Float, y:Float):Void
+<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values. For the camera object to scroll to that specific point coordinates.
 
-- `dialogueFile` - The dialogue `json` file to load; Must be relative to: `data/song-name` folder.
-- `music` - An optional parameter, plays a background music while being in a dialogue without having to use `playMusic()` function; Must be relative to: `mods/music` or `assets/music` folders; Default value: `nil`.
+- `x` - The new x-position value to set the camera's follow point coordinates to.
+- `y` - The new y-position value to set the camera's follow point coordinates to.
 
-### startVideo(videoFile:String, ?canSkip:Bool = true)
-Starts a video.
+Example:
+> Changes the camera follow point coordinates when focusing to the player character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+          setCameraFollowPoint(800, 450)
+     end
+end
+```
 
-- `videoFile` - The `mp4` video file to play; Must be relative to `mods/videos` folder.
-- `canSkip` - An optional parameter, Whether the video can have the ability to skip or not; Default value: `true`.
+### setCameraScroll(x:Float, y:Float):Void
+<ins>Sets the camera's parallax scroll position value</ins> with a new scroll position values.
 
-### startCountdown()
-Starts the countdown immediately, if you want to skip the annoying dialogue or video manually.
+- `x` - The new x-position value to set the camera's scroll value to.
+- `y` - The new y-position value to set the camera's scroll value to.
+
+Example:
+> Forcefully sets the camera's scroll position to the player character's follow point coordinates. When focusing at the player character, thus making it instantly set to that coordinate.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+          setCameraScroll(800, 450)
+     end
+end
+```
+
+## Adders
+### addCameraFollowPoint(?x:Float = 0, ?y:Float = 0):Void
+<ins>Adds the specified amount of the camera's object coordinates follow point</ins> to its current value. For the camera object to scroll to that specific point coordinates.
+
+- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
+- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
+
+Example:
+> Adds $150$ value only to the camera's object x-coordinate when focusing to the player character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'boyfriend' then
+         addCameraFollowPoint(150)
+     end
+end
+```
+
+### addCameraScroll(?x:Float = 0, ?y:Float = 0):Void
+<ins>Adds the specified amount of the camera's parallax scroll position</ins> value to its current value.
+
+- `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
+- `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
+
+Example:
+> Adds $-200$ value only to the camera's scroll x-position when focusing to the opponent character.
+```lua
+function onMoveCamera(focus)
+     if focus == 'dad' then
+          addCameraScroll(-200)
+     end
+end
+```
+
+## Getters
+### getCameraFollowX():Float
+Gets the current <ins>camera's object follow point **x-coordinates**</ins> current value.
+
+### getCameraFollowY():Float
+Gets the current <ins>camera's object follow point **y-coordinates**</ins> current value.
+
+### getCameraScrollX():Float
+Gets the current <ins>camera's parallax scroll **x-position**</ins> current value.
+
+### getCameraScrollY():Float
+Gets the current <ins>camera's parallax scroll **y-position**</ins> current value.
 
 ***
 
-# Song Functions
-### loadSong(?name:String = null, ?difficultyNum:Int = -1)
-Loads a new song.
+# Achievement Functions <!-- Might have a dedicated page for this -->
+## Achievement Property Scores
+> [!WARNING]
+> _For the `name` parameter, if the given element name tag from the achievement JSON file isn't present within the data. It will immediately throw an error and returns: `-1`._
+
+### setAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked = true):Float
+Sets the specified achievement score value with a new value, plus returning its current new value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+- `value` - An optional parameter, the new achievement score value to set to; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
+
+### addAchievementScore(name:String, ?value:Float = 1, ?saveIfNotUnlocked:Bool = true):Float
+Adds the specified amount of achievement score value to its current value, plus returning its current added new value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+- `value` - An optional parameter, the amount of value to add to the achievement score value; Default value: `1`.
+- `saveIfNotUnlocked` - An optional parameter, whether the score value will save if isn't at or above the maximum value. Reffering to the element `maxScore` from the achievement JSON file; Default value: `true`.
+
+### getAchievementScore(name:String):Float
+Gets the specified achievement score current value.
+
+- `name` - The specified element name tag from the achievement JSON file to utilize.
+
+## Achievement Utility
+### unlockAchievement(name:String):String
+<ins>Immediately unlocks the given achievement</ins> and returns the unlocked achievement name.
+
+- `name` - The specified element name tag from the achievement JSON file to unlock.
+
+### achievementExists(name:String):Dynamic
+Checks whether the <ins>given achievement exists or not</ins>, probably used to prevent envoking an error.
+
+- `name` - The specified element name tag from the achievement JSON file to check its existence.
+
+### isAchievementUnlocked(name:String):Bool
+Checks whether the <ins>given achievement has been unlocked or not</ins>.
+
+- `name` - The specified element name tag from the achievement JSON file to check its status.
+
+***
+
+# Dialogues & Cutscene Functions <!-- Might have a dedicated page for this -->
+### startDialogue(dialogue:String, music:String = null):Void
+Starts a dialogue.
+
+- `dialogue` - The specified dialogue JSON file to load; Relative to the `data/song-name` folder.
+- `music` - An optional parameter, the background music to play during the dialogue; Relative to the `music` folder.
+
+### startVideo(video:String, ?skippable:Bool = true):Void
+Starts and plays a video cutscene.
+
+- `video` - The specified video file to play; Relative to the `videos` folder.
+- `skippable` - An optional parameter, whether the ability to skip the video is enable or not; Default value: `true`.
+
+### startCountdown():Void
+Starts the countdown immediately, that's it.
+
+***
+
+# Song Utility Functions
+### loadSong(?name:String = null, ?difficultyNum:Int = -1):Void
+Loads a given song within the game.
 
 > [!WARNING]
-> _The function will failed to execute, if the week's `json` difficulty list is different from one another._
+> _When loading a specific song with different week JSON files, the difficulty list must equal to each-other to prevent erros and stuff._
 
-- `name` - An optional parameter, the name of the song to be loaded. If the argument value isn't present, it will load the song itself; basically it resets; Default: `nil`.
-- `difficultyNum` - An optional parameter, the difficulty ID number to set when loaded. If the argument value isn't present, it will load the its difficulty ID number; Default: `-1`.
+- `name` - An optional parameter, the given song name to load, if the argument is left blank—load itself.
+- `difficulty` - An optional parameter, the specified difficulty ID number to load to, uses `-1` to load its current difficulty from the previous song; Default value: `-1`.
 
-### restartSong(?skipTransition:Bool = false)
-Restarts the song.
+### restartSong(?skipTransition:Bool = false):Void
+Restarts the song that's currently playing on.
 
-- `skipTransition` - An optional parameter, Whether a fade transition plays when reseting the song; Default value: `false`.
+- `skipTransition` - An optional parameter, whether the fading transition are enable or not; Default value: `false`.
 
-### exitSong(?skipTransition:Bool = false)
-Exits the song to story mode or freeplay; Not to be confused with the `endSong()` function.
+### exitSong(?skipTransition:Bool = false):Void
+Exits the song to the story mode or freeplay menus; not to be confused with the `endSong()` function.
 
-- `skipTransition` - An optional parameter, Whether a fade transition plays when exiting the song; Default value: `false`.
+- `skipTransition` - An optional parameter, whether the fading transition are enable or not; Default value: `false`.
 
-### endSong()
-Ends the song.
+### endSong():Void
+Ends the song manually.
+
+***
+
+# Lua Exists Functions
+### luaSpriteExists(tag:String):Bool
+Checks whether if the <ins>Lua **sprite object** within the game exists or not</ins>.
+
+- `tag` - The tag name of the sprite object to check its existence.
+
+### luaTextExists(tag:String):Bool
+Checks whether if the <ins>Lua **text object** within the game exists or not</ins>.
+
+- `tag` - The tag name of the text object to check its existence.
+
+### luaSoundExists(tag:String):Bool
+Checks whether if the <ins>Lua **sound** within the game exists or not</ins>.
+
+- `tag` - The tag name of the sound to check its existence.
 
 ***
 
 # Color Functions
-### getPixelColor(obj:String, x:Int, y:Int)
-Gets the hexadecimal color value of an object by pixel size. And returns it into a 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
+### setHealthBarColors(opponent:String, player:String):Void
+Set the health-bar colors from <ins>either both the **opponent and player** with a new color</ins>.
 
-- `obj` - The object tag to get the color.
-- `x` - The x position value on the object tag's pixel.
-- `y` - The y position value on the object tag's pixel.
+- `opponent` - The new color for the opponent bar color to display.
+- `player` - The new color for the player bar color to display.
 
-### getColorFromName(color:String)
-Parses the hexadecimal color within a `string` and returns the corresponding `FlxColor` value. You can use either values to parse: <ins>`0xff0000`, `#ff0000`, or `red` it can be in upper-cases or not</ins>.
-
-- `color` - The hexadecimal color value to parse.
-
-### getColorFromHex(color:String)
-Parses the hexadecimal color within a `string` and returns the corresponding `FlxColor` value. The only difference about `getColorFromName()` function that <ins>it doesn't require `#` or `0x` at the start</ins>.
-
-- `color` - The hexadecimal color value to parse.
-
-***
-
-### setHealthBarColors(left:String, right:String)
-Sets the <ins>health bar background-colors</ins> with a new color on each sides.
-
-- `left` - The opponent's health bar to set the hexadecimal color.
-- `right` - The player's health bar to set the hexadecimal color.
-
-### setTimeBarColors(left:String, right:String)
-Sets the <ins>time bar background-colors</ins> with a new color on each sections.
-
-- `left` - The percentage bar to set the hexadecimal color.
-- `right` - The background-color to set the hexadecimal color.
-
-***
-
-# Debugging Functions
-### debugPrint(text:Dynamic = '', color:String = 'WHITE')
-Displays a debug text at the top-left corner of the screen, and disappears in a few seconds.
-
-> [!TIP]
-> If you want to display multiple values at the same time, you should use a table containing the values on the `text` argument.
-
-- `text` - The text content to display, usually just values.
-- `color` - An optional parameter, The color of the debug text to display. Could be used for error messages or other stuff.
-
-Examples:
+Example:
+> Sets both the opponent and player health-bar colors to these color values.
 ```lua
-function onCreate()
-     local curBF = getProperty('boyfriend.curCharacter')  -- gets the current bf character
-     debugPrint("Current boyfriend character: " .. curBF) --> Current boyfriend character: 'bf'
-end
-```
-```lua
-function onCreate()
-     local curBFX = getProperty('boyfriend.x') -- gets the current bf's x position
-     local curBFY = getProperty('boyfriend.y') -- gets the current bf's y position
-     debugPrint({curBFX, curBFY})              --> [770, 450]
+function onCreatePost()
+     setHealthBarColors('FF0000', '00FF00')
 end
 ```
 
-### close()
-<ins>Immediately stops the script</ins> that is currently being in use. This is only recommended to execute this on stage scripts since they usually aren't being used anymore.
+### setTimeBarColors(background:String, percent:String):Void
+Set the time-bar colors from <ins>either both the **percent bar and background** with a new color</ins>.
 
-> [!CAUTION] 
-> _Do not execute this function anywhere if the said script needs to be constantly updated or has constantly updating stuff for something. For instance, if the script has: `onUpdate()`, `onStepHit()`, `onSpawnNote()` callbacks._ 
+- `background` - The new color for the time-bar background color to display.
+- `percent` - The new color for the percent bar color to display.
 
-# Miscellaneous Functions
-### triggerEvent(name:String, arg1:Dynamic, arg2:Dynamic)
-Triggers an execution of an event. Basically an alternative way of triggering an event without going to the chart editor.
+Example:
+> Sets both the background and percent time-bar colors to these color values.
+```lua
+function onCreatePost()
+     setTimeBarColors('C8FF00', '3700FF')
+end
+```
 
-- `name` - The said name of the event to trigger.
-- `arg1` - The first argument value for the event to use, if it even requires one.
-- `arg2` - The second argument value for the event to use, if it even requires one.
+### getPixelColor(obj:String, x:Int, y:Int):Int
+Returns the color in hexadecimal value of the given object <ins>by its pixel size value</ins>. It uses 32-bit decimal interger, if converted into a hexadecimal number it will formatted as: `FFFFFFFFAARRGGBB`.
 
-### getModSetting(saveTag:String, ?modName:String = null)
-Gets the mod settings' element from a `json` file current values.
+- `object` - The object tag name to get its color from.
+- `x` - The x-position value from the object to get its pixel color from.
+- `y` - The y-position value from the object to get its pixel color from.
 
-- `saveTag` - The settings' `json` element tag to get the current value.
-- `modName` - An optional parameter, The local mod file that it will only get the `json` file; Default: `nil`. 
+Example:
+> Gets the specific color of the boyfriend character and converts to a hexadecimal number.
+```lua
+debugPrint( ('%x'):format( getPixelColor('bf', 30, 24) ) ) --> FFFFFFFFFF000000
+```
 
-### changeDiscordPresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
-Changes your current [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) status.
+### getColorFromName(color:String):String
+Parses and returns color in hexadecimal value <ins>by its corresponding `FlxColor` class value</ins>. Additionally this function has alternative names such as: `getColorFromString()` and `FlxColor()` functions, if you don't like the name or smt idk.
 
-- `details` - The current details on what your doing inside the game.
-- `state` - The description of the said detail.
-- `smallImageKey` - An optional parameter, The image key to display at the bottom-left corner.
-- `hasStartTimestamp` - An optional parameter, Whether your Discord RPC should have a time stamp or not.
-- `endTimestamp` - An optional parameter, How many decimal numbers to be shown.
+- `color` - The given color format to parse.
 
-### changeDiscordClientID(?newID:String = null)
+Example:
+> Set the colors of boyfriend, girlfriend, and opponent character to their corresponding colors.
+```lua
+setProperty('bf.color', getColorFromName('0xffff00'))
+setProperty('gf.color', getColorFromName('#ffff00'))
+setProperty('dad.color', getColorFromName('yellow'))
+```
+
+### getColorFromHex(color:String):Int
+Works the same as the `getColorFromName()` function, but doesn't require the hexadecimal hashtag <kbd>#</kbd> to represent hexadecimal.
+
+- `color` - The given color format to parse.
+
+Example:
+> Self-explanatory.
+```lua
+setProperty('gf.color', getColorFromName('ffff00'))
+```
+
+***
+
+# Discord Status Functions
+### changeDiscordPresence(details:String, state:Null\<String\>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float, ?largeImageKey:String):Void
+Changes your current [Discord RPC](https://raw.githubusercontent.com/Jxyme/simple-discord-rpc/main/screenshots/8zptsNqx.png) detail status.
+
+> [!WARNING]
+> _The `endTimestamp` parameter must have the `hasStartTimestamp` parameter to be set to `true`._
+
+- `details` - The given application title for the rich presence.
+- `state` - The given application mini-description for the rich presence.
+- `smallImageKey` - An optional parameter, the minor image icon of your RPC at the bottom-right corner.
+- `hasStartTimestamp` - An optional parameter, whether your RPC should have have a time stamp displaying or not.
+- `endTimestamp` - An optional parameter, whether to use a countdown or not, by milliseconds. 
+- `largeImageKey` - An optional parameter, the main image icon of your RPC.
+
+### changeDiscordClientID(?newID:String = null):Void
 Changes your current Discord Client ID.
 
-- `newID` - The new id for the discord client to inherit.
+- `newID` - The new client ID number for the discord client to inherit.
 
-### getSongPosition()
-Returns the current song position in milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
+***
 
-Deprecated Original Shortcut: `getPropertyFromClass('Conductor', 'songPosition')`
+# Mouse Position Functions
+### getMouseX(?camera:String = 'camGame'):Float
+<ins>Gets the current mouse **x-position**</ins> by its given camera state.
 
-### updateScoreText()
-Updates the scores' text content.
+- An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`
+<br>Default value: `camGame`.
+
+### getMouseY(?camera:String = 'game'):Float
+<ins>Gets the current mouse **y-position**</ins> by its given camera state.
+
+- An optional parameter, the specified camera state to apply to; Can be either: `camGame`, `camHUD` or `camOther`
+<br>Default value: `camGame`.
+
+***
+
+# Miscellaneous Functions
+### triggerEvent(name:String, ?arg1:Dynamic = '', ?arg2:Dynamic = ''):Bool
+Triggers a given event.
+
+- `name` - The given name of the event to trigger.
+- `arg1` - An optional parameter, the first argument of the event to use, if it even uses one.
+- `arg2` - An optional parameter, the secondary argument of the event to use, if it even uses one.
+
+### getModSetting(saveTag:String, ?modName:String = null):Void
+Gets the specified element tag from the settings JSON file to utilize.
+
+- `saveTag` - The specified element tag name to get its current saved value.
+- `modName` - An optional parameter, The given mod folder to locally find the settings JSON file within itself.
+
+### getSongPosition():Float
+Returns the current song position by milliseconds; Shortcut to: `getPropertyFromClass('backend.Conductor', 'songPosition')`.
+
+### updateScoreText():Void
+Updates the current score text content when changing any of its rating calculations, that's it.
