@@ -545,3 +545,8 @@ runHaxeCode([=[
      debugPrint( getVar('awesomeFormula') ); //> 2.941176471
 ]=])
 ```
+
+***
+
+# See Also
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)

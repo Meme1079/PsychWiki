@@ -268,3 +268,15 @@ Makes the <ins>music fade-out</ins>, decreasing the volume until its mute at the
 
 - `duration` - The amount of duration length of the fade-out to end.
 - `toValue` - An optional parameter, the target volume value of the fade-out; Default value: `1`.
+
+***
+
+# See Also
+- [Event Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Event-Callbacks)
+- [Custom Sprite](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Custom-Sprite)
+- [HScript Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-HScript-Functions)
+- [Object Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions)
+- [General Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-General-Functions)
+- [Scripting & File Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Scripting-&-File-Functions)
+- [Reflection Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Reflection-Functions)
+- [Sound & Music Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Sound-&-Music-Functions)

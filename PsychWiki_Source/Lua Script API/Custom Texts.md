@@ -117,3 +117,10 @@ Gets the given text object's <ins>current text-box width value</ins>.
 Gets the given text object's <ins>current font</ins>.
 
 - `tag` - The given text object name tag to get the current font from.
+
+***
+
+# See Also
+- [Custom Sprite](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Custom-Sprite)
+- [Object Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions)
+- [Reflection Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Reflection-Functions)

@@ -291,4 +291,4 @@ Here listed are the most common property attributes for objects to utilize in pr
 ***
 
 # See Also
-- [Group Variables]()
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)

@@ -1,16 +1,16 @@
 # Keys & Keyboard Press Functions
 ### keyJustPressed(keybind:String = ''):Bool
-Checks whether the given <ins>**keybind** that was initially pressed</ins>.
+Checks whether the given <ins>[**keybind**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) that was initially pressed</ins>.
 
 - `keybind` - The given keybind to check its input.
 
 ### keyPressed(keybind:String = ''):Bool
-Checks whether the given <ins>**keybind** that was currently held during a pressed</ins>.
+Checks whether the given <ins>[**keybind**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) that was currently held during a pressed</ins>.
 
 - `keybind` - The given keybind to check its input.
 
 ### keyReleased(keybind:String = ''):Bool
-Checks whether the given <ins>**keybind** that was recently released after being pressed</ins>.
+Checks whether the given <ins>[**keybind**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) that was recently released after being pressed</ins>.
 
 - `keybind` - The given keybind to check its input.
 
@@ -41,13 +41,13 @@ Checks whether the given <ins>**[keyboard keys](https://api.haxeflixel.com/flixe
 - `gamepadBinds` - The given buttons from the gamepad to check its input.
 
 ### gamepadJustPressed(id:Int, gamepadBinds:String):Bool
-Checks whether the given <ins>**gamepad binds** were initially pressed</ins>.
+Checks whether the given <ins>[**gamepad binds**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) were initially pressed</ins>.
 
 ### gamepadPressed(id:Int, gamepadBinds:String):Bool
-Checks whether the given <ins>**gamepad binds** were currently held during a pressed</ins>.
+Checks whether the given <ins>[**gamepad binds**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) were currently held during a pressed</ins>.
 
 ### gamepadReleased(id:Int, gamepadBinds:String):Bool
-Checks whether the given <ins>**gamepad binds** were recently released after being pressed</ins>.
+Checks whether the given <ins>[**gamepad binds**](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls) were recently released after being pressed</ins>.
 
 ***
 
@@ -82,4 +82,4 @@ Gets the analog stick's <ins>current y-axis value</ins>.
 ***
 
 # See Also
-- Input Controls
+- [Input Controls](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Game-Input-Control-Functions-%2D-Input-Controls)

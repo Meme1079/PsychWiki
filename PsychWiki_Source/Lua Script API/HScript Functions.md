@@ -67,3 +67,8 @@ runHaxeCode([[
 debugPrint( runHaxeFunction('areaPyramid', {3, 4, 5}) ) --> 49.036107439225
 debugPrint( runHaxeFunction('areaCone', {12, 33}) )     --> 1776.1597151886
 ```
+
+***
+
+# See Also
+- [Pre-Imported Libraries](https://github.com/Meme1079/PsychWiki/wiki/Haxe-Script-API:-Pre%E2%80%90Imported-Libraries)

@@ -334,3 +334,8 @@ Triggered when the <ins>tween has been completed</ins>.
 Triggered when the <ins>sound has been completed</ins>.
 
 - `tag` - The finished sound tag name.
+
+***
+
+# See Also
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)

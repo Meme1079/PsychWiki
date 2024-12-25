@@ -262,4 +262,4 @@ Cancels the timer that is currently running.
 ***
 
 # See also
-- Event Callbacks
+- [Event Callbacks](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Event-Callbacks)

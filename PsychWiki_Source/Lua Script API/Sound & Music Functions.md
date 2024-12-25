@@ -205,3 +205,8 @@ Gets the <ins>sound's current time **position**</ins> value.
 Gets the <ins>sound's current **pitch value**</ins>.
 
 - `tag` - The given tag name to get the current pitch value from.
+
+***
+
+# See Also
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)

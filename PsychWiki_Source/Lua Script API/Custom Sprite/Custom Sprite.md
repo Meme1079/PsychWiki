@@ -124,3 +124,11 @@ Adds the given offset of the animation. Returns `true`, if the offseting works p
      - `sparrow` - A group of animation images into one large sprite-sheet, with a provided XML file for each animation frames; Alternative values: `sparrowatlas`, or `sparrowv2`.
      - `packer` - A single animation images into a single sheet, with a provided TXT file for each animation frames; <br>Alternative values: `packeratlas`, or `pac`.
      - `aseprite` - A group of pixel-art images into one large sprite-sheet, with a provided JSON file for each animation frames; Alternative values: `ase`, `json`, or `jsoni8`.
+
+***
+
+# See Also
+- [Custom Text](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Custom-Text)
+- [Object Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Object-Functions)
+- [Reflection Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Reflection-Functions)
+- [Deprecated & Removed Functions](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Deprecated-&-Removed-Functions)
