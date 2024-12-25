@@ -8,7 +8,7 @@ Checks the given data argument and returns the corresponding type of data, as a 
 <p>
 
 - `string` - A sequence of characters containing any characters
-- `number` - An arithmetic value, represnting as an integer or floating-point.
+- `number` - An arithmetic value, representing as an integer or floating-point.
 - `boolean` - A binary value representing as `true` or `false`.
 - `nil` - Nothingness or non-existence of a value.
 - `table` - Data structuring mechanism; collection of values that it stores, array or dictionary.

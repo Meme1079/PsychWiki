@@ -45,7 +45,7 @@ debugPrint(content) --> [pepper, asparagus, asparagus]
 Concatenates each element values from a given table array; strings and numbers are only allowed to concatenate tho.
 
 - `tbl` - The given table array to concatenate each element values.
-- `sep` - An optional parameter, The seperation between each element values; Default value: `''`.
+- `sep` - An optional parameter, The separation between each element values; Default value: `''`.
 - `start` - An optional parameter, The starting index position of the table array to start concatenating; Default value: `1`.
 - `end` - An optional parameter, The ending index position of the table array to end concatenating.
 
@@ -86,7 +86,7 @@ debugPrint( content ) --> [3982, 8351, 8743, 9374]
 ### table.new(narray:Int, nhash:Int):Table
 > Requires: `require('table.new')`
 
-Creates a new pre-sized table and pushes it onto the stack and pre-allocates memory. The pre-allocation is pretty useful for performance, when you know exactly the amount of elements will the table contain. For instance for holding a lot of elements within a table, if the exact table size is known. Automaticly resizing the table might cause performance issue. This method is based on the C API function `lua_createtable()`.
+Creates a new pre-sized table and pushes it onto the stack and pre-allocates memory. The pre-allocation is pretty useful for performance, when you know exactly the amount of elements will the table contain. For instance for holding a lot of elements within a table, if the exact table size is known. Automatically resizing the table might cause performance issue. This method is based on the C API function `lua_createtable()`.
 
 > [!CAUTION]
 > _Only one parameter can only hold a value, the other parameter must hold a zero value. Becuase it might fuck up the method or something idk, most examples I saw have this rule._

@@ -26,7 +26,7 @@ If you install Visual Studio Code there are extensions which makes your coding e
 # Comments
 Comments are used to explain the context of code and what its purpose is, or to disable the execution of code. This won't affect anything inside the Lua program because it will be completely ignored.
 
-To define a comment, they start with double hyphen characters <kbd>--</kbd> for singular comments. You can place them at the start or end of any line of code, and Lua will ignored them as usually. For multi-line comments they also start with double hyphen characters <kbd>--</kbd>, dollowed by both a opening and closing square brackets <kbd>[[]]</kbd> with the code in-between them.
+To define a comment, they start with double hyphen characters <kbd>--</kbd> for singular comments. You can place them at the start or end of any line of code, and Lua will ignored them as usually. For multi-line comments they also start with double hyphen characters <kbd>--</kbd>, followed by both a opening and closing square brackets <kbd>[[]]</kbd> with the code in-between them.
 
 Example:
 ```lua

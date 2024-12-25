@@ -268,7 +268,7 @@ end
 # Camera Targeting Functions
 ## Setters
 ### setCameraFollowPoint(x:Float, y:Float):Void
-<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values. For the camera object to scroll to that specfic point coordinates.
+<ins>Sets the camera's object follow point coordinates</ins> with a new follow point coordinate values. For the camera object to scroll to that specific point coordinates.
 
 - `x` - The new x-position value to set the camera's follow point coordinates to.
 - `y` - The new y-position value to set the camera's follow point coordinates to.
@@ -301,7 +301,7 @@ end
 
 ## Adders
 ### addCameraFollowPoint(?x:Float = 0, ?y:Float = 0):Void
-<ins>Adds the specified amount of the camera's object coordinates follow point</ins> to its current value. For the camera object to scroll to that specfic point coordinates.
+<ins>Adds the specified amount of the camera's object coordinates follow point</ins> to its current value. For the camera object to scroll to that specific point coordinates.
 
 - `x` - An optional parameter, the amount value given to the x-position to add; Default value: `0`.
 - `y` - An optional parameter, the amount value given to the y-position to add; Default value: `0`.
@@ -466,7 +466,7 @@ end
 ```
 
 ### setTimeBarColors(background:String, percent:String):Void
-Set the time-bar colors from <ins>either both the **perecent bar and background** with a new color</ins>.
+Set the time-bar colors from <ins>either both the **percent bar and background** with a new color</ins>.
 
 - `background` - The new color for the time-bar background color to display.
 - `percent` - The new color for the percent bar color to display.

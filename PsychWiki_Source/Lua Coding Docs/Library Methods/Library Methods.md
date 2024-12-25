@@ -42,7 +42,7 @@ The table library provide manipulation methods for tables, such as inserting, re
 ## Mathematical Methods
 > *For more information; Main article:* Mathematical Methods
 
-The math library provide manipulation methods for numbers, such as rounding, square roots, logarithm, and etc. It also has trigonometric based methods for sine, cosine, and tanget it even includes an inverse and hyperbolic version of them.
+The math library provide manipulation methods for numbers, such as rounding, square roots, logarithm, and etc. It also has trigonometric based methods for sine, cosine, and tangent it even includes an inverse and hyperbolic version of them.
 
 <!--
 

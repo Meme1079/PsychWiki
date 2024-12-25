@@ -1,11 +1,11 @@
 # About
-Shaders in computer graphics, is a user-defined computer program that is designed to run on the Graphics Processing Unit (GPU). It calculates the shade of the rendered object such as, the amount of lighting, color and texture. This allows for a variety of complex visual special effects like, blur, disortion, bloom, and psychedelic effects
+Shaders in computer graphics, is a user-defined computer program that is designed to run on the Graphics Processing Unit (GPU). It calculates the shade of the rendered object such as, the amount of lighting, color and texture. This allows for a variety of complex visual special effects like, blur, distortion, bloom, and psychedelic effects
 
-Psych Engine has added the support of shader since version since <kbd>0.6.3</kbd> version. It uses OpenGL Shading Language (GLSL), a high-level programming language to code shaders from. Its syntax is entirely similair to the C programming language.
+Psych Engine has added the support of shader since version since <kbd>0.6.3</kbd> version. It uses OpenGL Shading Language (GLSL), a high-level programming language to code shaders from. Its syntax is entirely similar to the C programming language.
 
-Since shaders are really hard to learn, especially it requires math mostly vectors, matrices, and trigonometry. And I won't devote a full detailed explantaion about shaders, but I'll only do the more basic ones. You can learn more detailed explantaion about shaders. You can either read at [GPU Shader Tutorial](https://shader-tutorial.dev/) or if you're don't feel like reading at the moment. You can watch this detailed [video](https://www.youtube.com/watch?v=xZM8UJqN1eY) on youtube by Wael Yasmina.
+Since shaders are really hard to learn, especially it requires math mostly vectors, matrices, and trigonometry. And I won't devote a full detailed explanation about shaders, but I'll only do the more basic ones. You can learn more detailed explanation about shaders. You can either read at [GPU Shader Tutorial](https://shader-tutorial.dev/) or if you're don't feel like reading at the moment. You can watch this detailed [video](https://www.youtube.com/watch?v=xZM8UJqN1eY) on youtube by Wael Yasmina.
 
-But if you're feeling really lazy, cuz of math stuff. You can browse a bunch of shaders at [Shader Toy](https://www.shadertoy.com). And another thing to remember, please actually link the original shader and actual give proper credit to the orgianl author. You might cause some legal issues, but mostly it's a real dick move if you did that.
+But if you're feeling really lazy, cuz of math stuff. You can browse a bunch of shaders at [Shader Toy](https://www.shadertoy.com). And another thing to remember, please actually link the original shader and actual give proper credit to the original author. You might cause some legal issues, but mostly it's a real dick move if you did that.
 
 ## Types
 There are many different types of shaders that are commonly used for rendering. With each type manipulating and calculating certain properties of said rendered object. Psych Engine only supports two types of shaders, which are fragment shaders and vertex shaders respectively.
@@ -14,7 +14,7 @@ There are many different types of shaders that are commonly used for rendering. 
 Fragment shaders (also called pixel shaders) computes the colors including the alpha channel (RGBA), z-depth, depth, distance, and fragments of the rendered object. A fragment refers to a data necessary to generate a single pixel's worth of a drawing primitive in the frame buffer. Uses the file format `frag` to define fragment shader files.
 
 ### Vertex
-Vertext shaders computes and manipulates the attributes of the rendered object's individual vertices. The attributes include the position, texture, coordinates, and color of the vertices. Uses the file format `vert` to define vertex shader files.
+Vertex shaders computes and manipulates the attributes of the rendered object's individual vertices. The attributes include the position, texture, coordinates, and color of the vertices. Uses the file format `vert` to define vertex shader files.
 ***
 
 # Configuration
@@ -23,7 +23,7 @@ Every shader are always stored within its dedicated folder, inside the `shaders`
 
 ## Content
 ### Header
-In every header section within the GLSL shader should contain this cunk of code below. This code will port the given shader from Shader Toy into Psych Engine. From changing pre-existing variable's value to its HaxeFlixel equivalent and defining macros by replacing existing characters with a new one. To not cause any issues or errors from happening when using shaders.
+In every header section within the GLSL shader should contain this chunk of code below. This code will port the given shader from Shader Toy into Psych Engine. From changing pre-existing variable's value to its HaxeFlixel equivalent and defining macros by replacing existing characters with a new one. To not cause any issues or errors from happening when using shaders.
 
 ```glsl
 #pragma header
@@ -48,9 +48,9 @@ It basically just defines the shader; without the pragma header directive it inv
 ```
 
 ### Main
-In every main section within the GLSL shader must have no paramaters within itself. This is becuase both parameters are only used in Shader Toy for the given images. In order to generate the procedural images by computing a color for each pixel. Both the `fragCoord` parameter contains the coordinates of the pixel for which the shader must calculate a color. And the `fragColor` is the resulting color is gathered as a four component vector.
+In every main section within the GLSL shader must have no parameters within itself. This is because both parameters are only used in Shader Toy for the given images. In order to generate the procedural images by computing a color for each pixel. Both the `fragCoord` parameter contains the coordinates of the pixel for which the shader must calculate a color. And the `fragColor` is the resulting color is gathered as a four component vector.
 
-Additionally the parameter `fragColor` is already declared at the header section. So it will be confilicted with the parameter within the main function. If both of them exist at the same time.
+Additionally the parameter `fragColor` is already declared at the header section. So it will be conflicted with the parameter within the main function. If both of them exist at the same time.
 
 ```glsl
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
@@ -84,7 +84,7 @@ addLuaSprite('sample_object')
 
 # GLSL Shader Language
 ## Uniform Variables
-Uniform variables is the global variable equilevant to Lua, they are define with the `uniform` keyword. Right after the specified type given to that variable to inherit. They must be always declared at the global scope, outside the main function within the shader. And must no values assign to them, no matter what.
+Uniform variables is the global variable equivalent to Lua, they are define with the `uniform` keyword. Right after the specified type given to that variable to inherit. They must be always declared at the global scope, outside the main function within the shader. And must no values assign to them, no matter what.
 
 They main functionality is to act as "parameters" for other scripts. To pass a designated value to the given uniform variable. And can be change in any time through out the program. You set their values by utilizing one of the shader uniform functions corresponding types. For instance, if it's a uniform boolean variable obviously then use the `setShaderBool()` function.
 

@@ -152,7 +152,7 @@ Saves the applied changes to a file and updates its current contents. If the sai
 Example:
 > Creates a new text file with it inherit contents within the `mods` folder directory.
 ```lua
-saveFile('message.txt', 'How many shrimps can you sqaure root to?')
+saveFile('message.txt', 'How many shrimps can you square root to?')
 ```
 
 ### deleteFile(path:String, ?ignoreModFolders:Bool = false):Void
@@ -172,7 +172,7 @@ deleteFile('message.txt')
 # Global-On Functions
 ## Setters
 ### setOnScripts(varName:String, value:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
-Sets a saved global variable to currently running scripts either in Lua script or HScript. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
+Sets a saved global variable to currently running scripts either in Lua script or HScript. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherent value. If the said saved variable currently doesn't exists.
 
 - `varName` - The saved global variable to set a new value to or unique name to inherit.
 - `value` - The new value to be set to or inherit from.
@@ -199,7 +199,7 @@ function onCreatePost() {
      debugPrint(christmasMessage); //> I can feel the christmas spirit coming inside of me!
 }
 ```
-> Creates a saved variable containing the euler's number. But disables the implementation of the saved variable within the script. You can probably used this, if there is a similair variable name within the script itself.
+> Creates a saved variable containing the euler's number. But disables the implementation of the saved variable within the script. You can probably used this, if there is a similar variable name within the script itself.
 ```lua
 function onCreatePost()
      setOnScripts('eulerNumber', 2.7182818284590452, true)
@@ -216,7 +216,7 @@ function onCreatePost() {
      debugPrint(eulerNumber); //> 2.7182818284590452
 }
 ```
-> Creates a save variable containg a function, yes this is possible. But disables the implementation of the saved variable within the excluded scripts given. You can probably used this, for something idk man.
+> Creates a save variable containing a function, yes this is possible. But disables the implementation of the saved variable within the excluded scripts given. You can probably used this, for something idk man.
 ```lua
 function onCreatePost()
      setOnScripts('calcMid', function(a,b) 
@@ -238,7 +238,7 @@ function onCreatePost() {
 ```
 
 ### setOnLuas(varName:String, value:Dynamic, ?ignoreSelf:Bool = false, ?exclusions:Array\<String\> = null):Void
-Sets a saved global variable to currently running Lua scripts only. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
+Sets a saved global variable to currently running Lua scripts only. Either it sets the saved variable with a new value or initializes the creation of a variable with the inherent value. If the said saved variable currently doesn't exists.
 
 - `varName` - The saved global variable to set a new value to or unique name to inherit.
 - `value` - The new value to be set to or inherit from.
@@ -282,9 +282,9 @@ function circumferenceEllipse(aAxis, bAxis)
      local dividend_inner = math.sqrt(-3 * (subAxis^2 / addAxis^2) + 4) + 10
      local dividend_outer = addAxis^2 * dividend_inner
      local divisor  = subAxis^2 / dividend_outer
-     local quiotent = (3 * divisor) + 1
+     local quotient = (3 * divisor) + 1
 
-     return (math.pi * addAxis) * quiotent
+     return (math.pi * addAxis) * quotient
 end
 ```
 ```lua
@@ -347,7 +347,7 @@ Calls a given global function from currently running HScripts only.
 Displays the passed value at the top-left corner of the screen, usually disappearing in a few seconds.
 
 > [!TIP]
-> _If you want to display mutiple values at once, use a table array containing each values._
+> _If you want to display multiple values at once, use a table array containing each values._
 
 - `text` - The said passed value to be display.
 - `color` - An optional parameter, the hexadecimal color for the text to rendered; Default value: `WHITE`.
@@ -362,9 +362,9 @@ Immediately disables the script that is currently being in use. This is only rec
 
 # Save Data Functions
 ### initSaveData(name:String, ?folder:String = 'psychenginemods'):Void
-Intitiates the creation of the save game data or loads the saved game data, if it even exists. This intiation must be first used before utilizing any save data functions. 
+Inititates the creation of the save game data or loads the saved game data, if it even exists. This initiation must be first used before utilizing any save data functions. 
 
-Once the save gama data has been initialize it will be saved in a application data folder. This folder depends on what operating system of Psych Engine you're currently playing on. With an additional folder within the application data folder for organization purposes.
+Once the save game data has been initialize it will be saved in a application data folder. This folder depends on what operating system of Psych Engine you're currently playing on. With an additional folder within the application data folder for organization purposes.
 
 <details><summary><b>Operating System Application Data Path:</b></summary>
 <p>
@@ -395,7 +395,7 @@ Gets the data field current value from the save game data.
 - `defaultValue` - An optional parameter, the field data's default value, if the inherited value doesn't exist.
 
 ### flushSaveData(name:String):Void
-Saves the applied changes from the save game data, updates it's content with new values.
+Saves the applied changes from the save game data, updates its content with new values.
 
 - `name` - The specified save game data to save its applied changes.
 
@@ -442,7 +442,7 @@ Splits the specified string by taking a repeating pattern within a string. And r
 - `sep` - The repeating pattern to split the string content.
 
 Example:
-> Splits the string content by splitting in each repition of the semicolon character <kbd>;</kbd>.
+> Splits the string content by splitting in each repetition of the semicolon character <kbd>;</kbd>.
 ```lua
 local awesomeString = '642;298;1283;2891;23'
 for k,v in pairs(stringSplit(awesomeString, ';')) do
@@ -513,7 +513,7 @@ debugPrint( getRandomBool() )
 
 # PlayState Variable Functions
 ### setVar(storeVar:String, value:Dynamic):Any
-Sets a stored global variable to allow different scripts either from Lua scripts or HScripts to be utilize with it. Either it sets the stored variable with a new value or initializes the creation of a variable with the inherit value. If the said saved variable currently doesn't exists.
+Sets a stored global variable to allow different scripts either from Lua scripts or HScripts to be utilized with it. Either it sets the stored variable with a new value or initializes the creation of a variable with the inherent value. If the said saved variable currently doesn't exists.
 
 The said stored variable will be stored within the game, mainly from the `MusicBeatState` class by utilizing a safe cast. Allowing every scripts either in Lua or Haxe to utilize the stored variable.
 

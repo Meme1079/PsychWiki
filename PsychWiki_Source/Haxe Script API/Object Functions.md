@@ -26,9 +26,7 @@ Adds the given object into the game. Once a object has been added it will overla
 Sets the given object's order position with a new order position value.
 
 - `object` - The given object to insert a new order position.
-- `pos` - An optional parameter, the new order position set to, leavt it blank to inser in each object normally; Default value: `-1`.
-
-
+- `pos` - An optional parameter, the new order position set to, leave it blank to insert in each object normally; Default value: `-1`.
 
 ### remove(object:FlxBasic):Void
 Removes the given object from the game.

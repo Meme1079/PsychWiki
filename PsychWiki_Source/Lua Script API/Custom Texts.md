@@ -48,7 +48,7 @@ Sets the given <ins>text object's size</ins> with a new size value.
 - `size` - The new size value to set to.
 
 ### setTextAutoSize(tag:String, autoSize:Bool):Bool
-Sets the given <ins>text object's auto-sizing</ins>, it determins the width and height by its text content size.
+Sets the given <ins>text object's auto-sizing</ins>, it determines the width and height by its text content size.
 
 - `tag` - The given text object name tag to enable auto-sizing or not.
 - `autoSize` - Whether to enable auto-sizing or not.

@@ -31,7 +31,7 @@ end
 ### Opening & Accessing
 Substates are opened (activated) by using the `openCustomSubstate()` function it uses two arguments. First argument is for the given substate to be loaded and activated. The second argument is for the disabling the parent state from updating. Set this argument to `true` for the instance variable `persistentUpdate` to cease from updating.
 
-In this example, we disabled the ability to the pause the game (accesing the pause substate), so we can override it with our own substate. While the parent state has been deactivated from updating in game, to actually pause the game.
+In this example, we disabled the ability to the pause the game (accessing the pause substate), so we can override it with our own substate. While the parent state has been deactivated from updating in game, to actually pause the game.
 ```lua
 function onPause()
      openCustomSubstate('Awesome Substate', true)
@@ -40,12 +40,12 @@ end
 ```
 
 ### Closing
-Substates are closed (deactivated) by using the `closeCustomSubstate()` function, this will deactive the currently active substate. Once closed the parent state is reactivated into updating the game. Any sprite and text objects present in the substate are removed, not deleted and are readded back if the substate was open again.
+Substates are closed (deactivated) by using the `closeCustomSubstate()` function, this will deactivate the currently active substate. Once closed the parent state is reactivated into updating the game. Any sprite and text objects present in the substate are removed, not deleted and are re-added back if the substate was open again.
 
 In this example, we closed the substate by pressing the enter key <kbd>↵</kbd>. Within the `onCustomSubstateUpdate()` event callback, which exactly works the same as `onUpdate()` event callback.
 
 > [!CAUTION]
-> _Closing a substate is mandatory (important) when creating a substate. Becuase once you open a substate, it will instantly softlock the game. Forcing you to quit the game and opening it again._
+> _Closing a substate is mandatory (important) when creating a substate. Because once you open a substate, it will instantly softlock the game. Forcing you to quit the game and opening it again._
 
 ```lua
 function onCustomSubstateUpdate(name, elapsed)
@@ -112,4 +112,4 @@ Triggered when the <ins>substate has been destroyed</ins>.
 | Variables 	| Description 	|
 |---	|---	|
 | `customSubstate` 	| The current opened custom substate instance. If none are open, returns: `null` 	|
-| `customSubstateName` 	| The name of the current opened custom substate. If none are open, returns: `unamed` 	|
+| `customSubstateName` 	| The name of the current opened custom substate. If none are open, returns: `unnamed` 	|

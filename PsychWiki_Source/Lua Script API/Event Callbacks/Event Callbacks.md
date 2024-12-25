@@ -1,5 +1,5 @@
 # About
-Events are a action or occurence that signify either a user event, such as pressing buttons or pausing, or a system event, such as spawning notes or the camera moving. When a specific event occurs the corresponding callback will be executed from that event.
+Events are a action or occurrence that signify either a user event, such as pressing buttons or pausing, or a system event, such as spawning notes or the camera moving. When a specific event occurs the corresponding callback will be executed from that event.
 
 Event callbacks are special type of event handler functions that are used to dealt for specific events design for it. It uses a regular function for utilizing the event callbacks, with the corresponding name attached to the event. For instance: `onUpdate()` event callback, it calls on every update of each frame. The body of the event callback is were you'll put the designated code for that specific event. 
 
@@ -17,7 +17,7 @@ function onCreate() {
 }
 ```
 
-Furthermore functions and variables from Psych Engine can only have their functionality working exclusively to that event callback. If called outside or in different event callbacks, it will either only have nothing, unupdated, or a constant value. A great example of this is the `curBeat` variable, it will change on every beat of the section. When called from outside, it will remain constant, whereas when called from separate event callbacks, it will either remain constant or updated.
+Furthermore functions and variables from Psych Engine can only have their functionality working exclusively to that event callback. If called outside or in different event callbacks, it will either only have nothing, un-updated, or a constant value. A great example of this is the `curBeat` variable, it will change on every beat of the section. When called from outside, it will remain constant, whereas when called from separate event callbacks, it will either remain constant or updated.
 
 ## Toggleability
 > *For more information; Main article:* [Toggleability]()
@@ -37,7 +37,7 @@ Dynamic callbacks are a special unqiue callbacks that are only exclusive to HScr
 <ins>Triggered when the script has initiated or started running</ins>, this only triggered once throughout the script. This is used for creating objects—such as sprites and texts, precaching, or setting and getting certain properties.
 
 ### onCreatePost()
-<ins>Triggered after the initiation, post start of the script</ins>, this only triggered once throughout the script. This is used for manipulating the HUD elements, such as healthbar, score, and especially both the note and splashes.
+<ins>Triggered after the initiation, post start of the script</ins>, this only triggered once throughout the script. This is used for manipulating the HUD elements, such as health bar, score, and especially both the note and splashes.
 
 ### onDestroy()
 <ins>Triggered when the script has been completely destroyed</ins>, i.e. has stop execution. This only triggered once throughout the script. Such as exiting said song, quitting the game, going through different states (i.e. menu, debug mode, etc), etc.
@@ -257,7 +257,7 @@ Triggers before every <ins>good note hit calculation from the **opponent**</ins>
 Triggers every <ins>note miss from the player</ins>.
 
 ### noteMissPress(noteData:Int)
-Triggers every <ins>misspress from the player, while no note is present</ins>. This wont trigger, if ghost-tapping is enabled from the options menu.
+Triggers every <ins>mispress from the player, while no note is present</ins>. This wont trigger, if ghost-tapping is enabled from the options menu.
 
 ## Key Pressing
 > [!NOTE]

@@ -14,7 +14,7 @@ Triggered after the player hits a note.
 
 - `membersIndex` - The current note member ID index.
 - `noteData` - The current direction index of the note; Goes from: 0 to 3, basically left, down, up and right.
-- `noteType` - The current notetype of the note.
+- `noteType` - The current note-type of the note.
 - `isSustainNote` - Whether the notes are sustain (long notes) or not.
 
 ### opponentNoteHitPost(membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Float)
@@ -24,7 +24,7 @@ Triggered after the player opponent a note.
 
 - `membersIndex` - The current note member ID index.
 - `noteData` - The current direction index of the note; Goes from: 0 to 3, basically left, down, up and right.
-- `noteType` - The current notetype of the note.
+- `noteType` - The current note-type of the note.
 - `isSustainNote` - Whether the notes are sustain (long notes) or not.
 
 ***

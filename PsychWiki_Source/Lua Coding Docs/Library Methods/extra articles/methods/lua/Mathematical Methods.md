@@ -1,8 +1,8 @@
 # Mathematical Methods
 ### math.min(multi:Float...):Float
-Finds the minumum number by searching through each argument passed until it finds one.
+Finds the minimum number by searching through each argument passed until it finds one.
 
-- `multi` - An infinite parameter, The multiple number arguments to find the minumum number.
+- `multi` - An infinite parameter, The multiple number arguments to find the minimum number.
 
 Examples:
 ```lua
@@ -93,7 +93,7 @@ debugPrint(frc) --> 0.36452
 The logarithmic of a number to the base, inverse (opposite) of exponential. Which makes the base number is the exponent must be raised to produced the number. For an example, since $\log_{2}(8)=3$, its inverse equivalent is $2^3=8$.
 
 > [!CAUTION]
-> Logarithmics cannot have negative numbers and the base must be above $1$. Remember it is the inverse of exponential, so if you're saying $\log_{2}(-8)=n$ then its inverse is $2^n=-8$, which is impossible to do. If we try using base one $1$ let's say $\log_{1}(5)=n$ its inverse is $1^5=n$, again impossible becuase $1^5$ is always equal to $1$. <!-- removed italics due to a visiual bug -->
+> Logarithms cannot have negative numbers and the base must be above $1$. Remember it is the inverse of exponential, so if you're saying $\log_{2}(-8)=n$ then its inverse is $2^n=-8$, which is impossible to do. If we try using base one $1$ let's say $\log_{1}(5)=n$ its inverse is $1^5=n$, again impossible because $1^5$ is always equal to $1$. <!-- removed italics due to a visiual bug -->
 
 - `num` - The logarithmic of the given number to its base.
 - `base` - An optional parameter, The logarithmic base number; Default value: `2`.
@@ -118,7 +118,7 @@ debugPrint( math.log10(567)  ) --> 2.7535830588929
 ### math.random(?min:Int = 0, ?max:Int = 1):Float
 Randomizes a number between the minimum to maximum numbers. It utilizes a Pseudo-Random Number Generator (PRNG), an mathematical algorithm that takes use of formulas. To produce a sequences of random numbers; utilizing a seed to initializing the PRNG. 
 
-Since it's not truly "random", due to computer limiations. It will always return the exact same number sequences, even if you try restarting it will still generate the exact same number sequences. That's becuase it uses the same seed that the PRNG utilizes within that script.
+Since it's not truly "random", due to computer limitations. It will always return the exact same number sequences, even if you try restarting it will still generate the exact same number sequences. That's because it uses the same seed that the PRNG utilizes within that script.
 
 > [!TIP]
 > _If you want to generate an "actually" random number, you can either both use. The `getRandomInt()` function for integer numbers and `getRandomFloat()` function for floating-point numbers. Or use the `math.randomseed()` method to change its current seed to generate different random number sequences._

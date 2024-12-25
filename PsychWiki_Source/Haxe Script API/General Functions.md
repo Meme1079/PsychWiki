@@ -102,7 +102,7 @@ runHaxeCode([[
 Displays the passed value at the top-left corner of the screen, usually disappearing in a few seconds.
 
 > [!TIP]
-> _If you want to display mutiple values at once, use a table array containing each values._
+> _If you want to display multiple values at once, use a table array containing each values._
 
 - `text` - The said passed value to be display.
 - `color` - An optional parameter, the hexadecimal color for the text to rendered; Default value: `WHITE`.

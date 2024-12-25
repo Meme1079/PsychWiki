@@ -1,11 +1,11 @@
 # About
-Psych Engine has added the support for a wide variety of languages, for more accessability to people who don't natively speak English. It utilizes a language localization file (LLF), uses the file format `lang`. To translate certain word and phrases to different languages.  Such as the text's content and the sprite's image path, without doing it hardcoded manually.
+Psych Engine has added the support for a wide variety of languages, for more accessibility to people who don't natively speak English. It utilizes a language localization file (LLF), uses the file format `lang`. To translate certain word and phrases to different languages.  Such as the text's content and the sprite's image path, without doing it hardcoded manually.
 
 ***
 
 # Configuration
 ## Setting Up
-Every LLFs are stored within the `data` golder folder directory. Whether within the `assets` folder directory of the game, locally in a custom mods folder directory, or globally in the `mods` folder directory. Either way it will stll work as usual, but it's still recommended to store it locally in a custom mods for organization, obviously.
+Every LLFs are stored within the `data` folder folder directory. Whether within the `assets` folder directory of the game, locally in a custom mods folder directory, or globally in the `mods` folder directory. Either way it will still work as usual, but it's still recommended to store it locally in a custom mods for organization, obviously.
 
 Naming a LLF must be recommended to utilizing the [language code format](http://www.lingoes.net/en/translator/langcode.htm). For easy identifying from different languages along with organizing and overriding in multiple named LLFs. For an example: `en-US` for english in USA; `en-CA` for english in Canada; and `es` for spanish.
 
@@ -44,7 +44,7 @@ botplay: "CHEATIN' MODE"
 ```
 
 ## Translating
-After you're done configurating your LLF, it's time for the translation part. When retrieving a TKVP you can either use both of these function. Both the `getFileTranslation()` function, which gets the given key in the current selected language that's in. Or the alternative `getTranslationPhrase()` function, that uses numerical indexes to insert values for specific TKVP that includes it.
+After you're done configuring your LLF, it's time for the translation part. When retrieving a TKVP you can either use both of these function. Both the `getFileTranslation()` function, which gets the given key in the current selected language that's in. Or the alternative `getTranslationPhrase()` function, that uses numerical indexes to insert values for specific TKVP that includes it.
 
 Example:
 ```lang
@@ -68,7 +68,7 @@ end
 ### getFileTranslation(key:String):String
 Gets a translatable key-value pairs from the currently selected language within a language localization file. If said key, doesn't exists inside said file; returns the given argument passed to the function.
 
-- `key` - The translatable key-value pairs to retrive and utilize from the currently selected language.
+- `key` - The translatable key-value pairs to retrieve and utilize from the currently selected language.
 
 Example:
 ```lang
@@ -88,7 +88,7 @@ end
 ### getTranslationPhrase(key:String, ?defaultPhrase:String, ?values:Array<Dynamic> = null):String
 Gets a translatable key-value pairs from the currently selected language within a language localization file. But it has additional features includes a default value, if said value is missing. Along with numerical indexes to insert values within the translatable key-value pairs.
 
-- `key` - The translatable key-value pairs to retrive and utilize from the currently selected language.
+- `key` - The translatable key-value pairs to retrieve and utilize from the currently selected language.
 - `defaultPhrase` - An optional parameter, the default value if no values is given within a translatable key-value pair.
 - `values` - An optional parameter, the said values to insert in each corresponding numerical indexes.
 

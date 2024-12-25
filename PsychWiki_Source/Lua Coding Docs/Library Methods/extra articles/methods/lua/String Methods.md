@@ -49,7 +49,7 @@ debugPrint( string.char(67, 117, 109, 101, 110, 101) ) --> Cumene
 Repeats the content of the string, the repetition is determined by how much will it repeat.
 
 - `str` - The string content to be repeated.
-- `repeat` - The amount of repitition will the string content be repeated.
+- `repeat` - The amount of repetition will the string content be repeated.
 
 Example:
 ```lua
@@ -234,10 +234,10 @@ debugPrint( ('I like numbers 9 and 1'):match('%d+', 17) ) --> 1
 Works exactly the same as the `string.match()` method; tries to find multiple matching pattern from the string content. This method should be recommended to be used in generic for loops, as shown below.
 
 - `str` - The string content to find multiple matched pattern.
-- `pattern` - The specfic pattern to find the match.
+- `pattern` - The specific pattern to find the match.
 
 Example:
-> Here we have a custom function that converts a dictionary syntax within a string to get the value. The `string.gmatch()` method looks for any multiple occuring patterns with the string content, if found. The found patterns will be insert to the `result` table variable, for every pattern found. Once done the `result` table variable will be returned from the custom function.
+> Here we have a custom function that converts a dictionary syntax within a string to get the value. The `string.gmatch()` method looks for any multiple occurring patterns with the string content, if found. The found patterns will be insert to the `result` table variable, for every pattern found. Once done the `result` table variable will be returned from the custom function.
 
 ```lua
 local function dictionarySplit(str)

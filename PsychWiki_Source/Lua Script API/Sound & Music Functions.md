@@ -16,7 +16,7 @@ Additionally the music can be controlled as well, the controlling, fading, and p
 Plays a sound. When the said sound had finished playing the `onSoundFinished()` event callback will be called. And returns the said tag given to the finished sound, if the tag for it, is included on the `tag` argument.
 
 > [!NOTE]
-> _The given sound to play depends what `sounds` folder directory will it uitilize with. Either within the `assets` folder directory, if the file doesn't exist or the sound file name has a similair name within that folder. It will override from within the `mods` folder directory._
+> _The given sound to play depends what `sounds` folder directory will it utilized with. Either within the `assets` folder directory, if the file doesn't exist or the sound file name has a similar name within that folder. It will override from within the `mods` folder directory._
 
 - `sound` - The given sound to play within the game; starts within the `sounds` folder directory.
 - `volume` - An optional parameter, the specified amount of volume to play at; Goes from `0` to `1`; Default value: `1`.

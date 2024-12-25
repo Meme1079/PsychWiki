@@ -1,6 +1,6 @@
 > [!NOTE]
 > _When importing said class from the `className` parameter. The said classes that can be imported can be either from Psych Engine's `source` folder or from HaxeFlixel itself. Both each containing their own classes, accompanying its corresponding library package (i.e. the path to the class), for instance: `backend.ClientPrefs`, `objects.CheckboxThingie`, `psychlua.LuaUtils`, etc.</br></br>_
-> _In Psych Engine version <kbd>0.6.3</kbd> and below, the need of including library package when importing classes isn't necessary to add. Becuase all of Psych Engine's classes doesn't contain a folder to each classes._
+> _In Psych Engine version <kbd>0.6.3</kbd> and below, the need of including library package when importing classes isn't necessary to add. Because all of Psych Engine's classes doesn't contain a folder to each classes._
 
 # Property Instances
 ### createInstance(objectName:String, className:String, ?args:Array\<Dynamic\> = null):Any
@@ -97,7 +97,7 @@ setPropertyFromClass('flixel.FlxG', 'fullscreen', true)
 ```
 
 ### setPropertyFromGroup(group:String, index:Int, variable:Dynamic, value:Dynamic, ?allowMaps:Bool = false, ?allowInstances:Bool = false):Void
-Sets the specified group instance variable by each of its members with a new value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+Sets the specified [group instance variable](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Reflection-Functions-%2D-Group-Instances) by each of its members with a new value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
 - `group` - The group instance variable to set its members a new value to.
 - `index` - The specified index position of the member to set a new value to.
@@ -154,7 +154,7 @@ end
 ```
 
 ### getPropertyFromGroup(group:String, index:Int, variable:Dynamic, ?allowMaps:Bool = false):Any
-Gets the specified group instance variable by each of its members current value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
+Gets the specified [group instance variable](https://github.com/Meme1079/PsychWiki/wiki/Lua-Script-API:-Reflection-Functions-%2D-Group-Instances) by each of its members current value. The group instance variable utilizes classes from the `flixel.group` library package. Particularly both the `FlxTypedGroup` and `FlxSpriteGroup` classes. It also includes special array variables that contain classes, particularly both the `Note` & `EventNote` classes.
 
 - `group` - The group instance variable to set its members to get the current value from.
 - `index` - The specified index position of the member to get the current value from.
@@ -241,7 +241,7 @@ debugPrint(iconJSON.gf.color[1]) --> 165
 
 # Group Properties
 > [!NOTE]
-> _If each `index` paremeter from these functions are left blank (no value). It will default to adding the inserted object to the current index position order of the group._
+> _If each `index` parameter from these functions are left blank (no value). It will default to adding the inserted object to the current index position order of the group._
 
 ### addToGroup(group:String, tag:String, ?index:Int = -1):Void
 Adds a new object to the specified group instance variable.
