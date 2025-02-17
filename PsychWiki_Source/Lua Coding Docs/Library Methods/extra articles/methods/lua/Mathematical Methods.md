@@ -51,8 +51,8 @@ Rounds up a floating-point number to its nearest integer value.
 
 Example:
 ```lua
-debugPrint( math.floor(93.73) ) --> 94
-debugPrint( math.floor(54.23) ) --> 55
+debugPrint( math.ceil(93.73) ) --> 94
+debugPrint( math.ceil(54.23) ) --> 55
 ```
 
 ### math.abs(num:Float):Float
